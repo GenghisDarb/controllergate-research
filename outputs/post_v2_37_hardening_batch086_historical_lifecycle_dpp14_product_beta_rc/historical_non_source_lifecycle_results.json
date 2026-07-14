@@ -1,0 +1,438 @@
+{
+  "results": [
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "canonical_cli_returncode": 0,
+      "canonical_cli_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checkpoint_and_resume": true,
+      "complete": true,
+      "dpp14": {
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "certain_facts": [
+          {
+            "evidence_kind": "direct_command_output",
+            "subject": "terminal",
+            "value": "provider_owned",
+            "verified": true
+          }
+        ],
+        "contradictions": [],
+        "frozen_frame": {
+          "ast": "not source localized",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "-c",
+            "import aifc"
+          ],
+          "contacts": {
+            "ast": "not source localized",
+            "candidate": null,
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+              "-c",
+              "import aifc"
+            ],
+            "expectation": "historical terminal",
+            "harness": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
+            "incident": "reproduced non-source",
+            "normal": "registered normal",
+            "platform": null,
+            "proof": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
+            "provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+            "rollback": "not required",
+            "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+            "source": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+            "target": "historical target"
+          },
+          "expectation": "historical terminal",
+          "facts": [
+            {
+              "evidence_kind": "direct_command_output",
+              "subject": "terminal",
+              "value": "provider_owned",
+              "verified": true
+            }
+          ],
+          "frame_hash": "f8743aa1873d6ace11207aecd19cc3439317dafdb539a939f4429bbb9352862b",
+          "harness": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
+          "incident": "reproduced non-source",
+          "interlocks": {
+            "non_source_terminal": "PASS"
+          },
+          "normal": "registered normal",
+          "probes": [
+            {
+              "classification": "provider_owned",
+              "direct": true,
+              "lane": "provider",
+              "probe_id": "provider-import"
+            }
+          ],
+          "proof": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
+          "provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+          "repair_interlocks_pass": true,
+          "requirements_materialized": {
+            "command": true,
+            "provider": true,
+            "runtime": true,
+            "source": true,
+            "target": true
+          },
+          "rollback": "not required",
+          "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+          "selected_probes": [
+            {
+              "classification": "provider_owned",
+              "direct": true,
+              "lane": "provider",
+              "probe_id": "provider-import"
+            }
+          ],
+          "source": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+          "target": "historical target"
+        },
+        "hypotheses": [
+          "provider_owned",
+          "insufficient_evidence"
+        ],
+        "observations": [
+          {
+            "classification": "provider_owned",
+            "direct": true,
+            "frame_hash": "f8743aa1873d6ace11207aecd19cc3439317dafdb539a939f4429bbb9352862b",
+            "lane": "provider",
+            "probe_id": "provider-import",
+            "status": "PASS",
+            "verified": true
+          }
+        ],
+        "terminal": "provider_owned",
+        "trace": [
+          {
+            "status": "PASS",
+            "transition": "Seed"
+          },
+          {
+            "status": "PASS",
+            "transition": "NormalizeEvidence"
+          },
+          {
+            "frame_hash": "f8743aa1873d6ace11207aecd19cc3439317dafdb539a939f4429bbb9352862b",
+            "status": "PASS",
+            "transition": "FreezeFrame"
+          },
+          {
+            "contact_count": 14,
+            "status": "PASS",
+            "transition": "DecomposeContacts"
+          },
+          {
+            "hypotheses": [
+              "source_owned_behavior_defect",
+              "provider_owned",
+              "environment_owned",
+              "platform_owned",
+              "network_or_transport_owned",
+              "harness_owned",
+              "test_or_expectation_fragility",
+              "mixed_failure",
+              "insufficient_evidence"
+            ],
+            "status": "PASS",
+            "transition": "ExpandFrontier"
+          },
+          {
+            "status": "PASS",
+            "transition": "MaterializeRequirements"
+          },
+          {
+            "probe_count": 1,
+            "status": "PASS",
+            "transition": "SelectMinimalProbe"
+          },
+          {
+            "read_only_lanes": true,
+            "round_start_barrier": true,
+            "status": "PASS",
+            "transition": "ExecuteProbe"
+          },
+          {
+            "independent_verification": true,
+            "status": "PASS",
+            "transition": "VerifyObservation"
+          },
+          {
+            "deterministic_merge": true,
+            "status": "PASS",
+            "transition": "UpdateConstraints"
+          },
+          {
+            "certain_fact_count": 1,
+            "status": "PASS",
+            "transition": "MarkCertain"
+          },
+          {
+            "backtracked": false,
+            "status": "PASS",
+            "transition": "DetectContradictionAndBacktrack"
+          },
+          {
+            "interlocks_can_authorize": false,
+            "status": "PASS",
+            "transition": "InterlockAndElbowAudit"
+          },
+          {
+            "sole_merged_state_writer": true,
+            "status": "PASS",
+            "terminal": "provider_owned",
+            "transition": "ControllerAuditCommitOrAbstain"
+          }
+        ]
+      },
+      "exact_blocker": null,
+      "historical_non_counting": true,
+      "historical_terminal_proof_path": "outputs\\post_v2_37_hardening_batch060f_audioread_provider_backend_capsule_replay\\batch060f_final_decision.json",
+      "historical_terminal_proof_sha256": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
+      "provider_seal": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+      "repair_count_increment": 0,
+      "repair_license": false,
+      "replay": {
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-c",
+          "import aifc"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\audioread_144_py313_aifc_removed\\source",
+        "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import aifc\nModuleNotFoundError: No module named 'aifc'",
+        "returncode": 1,
+        "semantic_failure_nodes": [],
+        "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "b20391b73733a0d13631ac088b3b7796dbdedc2dd91fd44fdf083a4adefc0260",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "safe_abstention": true,
+      "source_identity": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "status": "PASS",
+      "terminal": "provider_owned"
+    },
+    {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "canonical_cli_returncode": 0,
+      "canonical_cli_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "checkpoint_and_resume": true,
+      "complete": true,
+      "dpp14": {
+        "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+        "certain_facts": [
+          {
+            "evidence_kind": "direct_command_output",
+            "subject": "terminal",
+            "value": "harness_owned",
+            "verified": true
+          }
+        ],
+        "contradictions": [],
+        "frozen_frame": {
+          "ast": "not source localized",
+          "command": [
+            "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+            "-c",
+            "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+            "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+          ],
+          "contacts": {
+            "ast": "not source localized",
+            "candidate": null,
+            "command": [
+              "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+              "-c",
+              "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+              "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+            ],
+            "expectation": "historical terminal",
+            "harness": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
+            "incident": "reproduced non-source",
+            "normal": "registered normal",
+            "platform": null,
+            "proof": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
+            "provider": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+            "rollback": "not required",
+            "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+            "source": "89977490c8daad668ade06847d3a6d33ab2209de",
+            "target": "historical target"
+          },
+          "expectation": "historical terminal",
+          "facts": [
+            {
+              "evidence_kind": "direct_command_output",
+              "subject": "terminal",
+              "value": "harness_owned",
+              "verified": true
+            }
+          ],
+          "frame_hash": "bbd4d55beb8f8c23419548d048358febcd68e9024219b0afab34f2d5bca4b5a7",
+          "harness": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
+          "incident": "reproduced non-source",
+          "interlocks": {
+            "non_source_terminal": "PASS"
+          },
+          "normal": "registered normal",
+          "probes": [
+            {
+              "classification": "harness_owned",
+              "direct": true,
+              "lane": "harness",
+              "probe_id": "harness-origin"
+            }
+          ],
+          "proof": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
+          "provider": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+          "repair_interlocks_pass": true,
+          "requirements_materialized": {
+            "command": true,
+            "provider": true,
+            "runtime": true,
+            "source": true,
+            "target": true
+          },
+          "rollback": "not required",
+          "runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+          "selected_probes": [
+            {
+              "classification": "harness_owned",
+              "direct": true,
+              "lane": "harness",
+              "probe_id": "harness-origin"
+            }
+          ],
+          "source": "89977490c8daad668ade06847d3a6d33ab2209de",
+          "target": "historical target"
+        },
+        "hypotheses": [
+          "harness_owned",
+          "insufficient_evidence"
+        ],
+        "observations": [
+          {
+            "classification": "harness_owned",
+            "direct": true,
+            "frame_hash": "bbd4d55beb8f8c23419548d048358febcd68e9024219b0afab34f2d5bca4b5a7",
+            "lane": "harness",
+            "probe_id": "harness-origin",
+            "status": "PASS",
+            "verified": true
+          }
+        ],
+        "terminal": "harness_owned",
+        "trace": [
+          {
+            "status": "PASS",
+            "transition": "Seed"
+          },
+          {
+            "status": "PASS",
+            "transition": "NormalizeEvidence"
+          },
+          {
+            "frame_hash": "bbd4d55beb8f8c23419548d048358febcd68e9024219b0afab34f2d5bca4b5a7",
+            "status": "PASS",
+            "transition": "FreezeFrame"
+          },
+          {
+            "contact_count": 14,
+            "status": "PASS",
+            "transition": "DecomposeContacts"
+          },
+          {
+            "hypotheses": [
+              "source_owned_behavior_defect",
+              "provider_owned",
+              "environment_owned",
+              "platform_owned",
+              "network_or_transport_owned",
+              "harness_owned",
+              "test_or_expectation_fragility",
+              "mixed_failure",
+              "insufficient_evidence"
+            ],
+            "status": "PASS",
+            "transition": "ExpandFrontier"
+          },
+          {
+            "status": "PASS",
+            "transition": "MaterializeRequirements"
+          },
+          {
+            "probe_count": 1,
+            "status": "PASS",
+            "transition": "SelectMinimalProbe"
+          },
+          {
+            "read_only_lanes": true,
+            "round_start_barrier": true,
+            "status": "PASS",
+            "transition": "ExecuteProbe"
+          },
+          {
+            "independent_verification": true,
+            "status": "PASS",
+            "transition": "VerifyObservation"
+          },
+          {
+            "deterministic_merge": true,
+            "status": "PASS",
+            "transition": "UpdateConstraints"
+          },
+          {
+            "certain_fact_count": 1,
+            "status": "PASS",
+            "transition": "MarkCertain"
+          },
+          {
+            "backtracked": false,
+            "status": "PASS",
+            "transition": "DetectContradictionAndBacktrack"
+          },
+          {
+            "interlocks_can_authorize": false,
+            "status": "PASS",
+            "transition": "InterlockAndElbowAudit"
+          },
+          {
+            "sole_merged_state_writer": true,
+            "status": "PASS",
+            "terminal": "harness_owned",
+            "transition": "ControllerAuditCommitOrAbstain"
+          }
+        ]
+      },
+      "exact_blocker": null,
+      "historical_non_counting": true,
+      "historical_terminal_proof_path": "outputs\\post_v2_37_hardening_batch077_typed_event_pathway_memory_v2\\hordeforge_runtime_compartment_correction.json",
+      "historical_terminal_proof_sha256": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
+      "provider_seal": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+      "repair_count_increment": 0,
+      "repair_license": false,
+      "replay": {
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-c",
+          "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source",
+        "output_tail": "",
+        "returncode": 0,
+        "semantic_failure_nodes": [],
+        "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "safe_abstention": true,
+      "source_identity": "89977490c8daad668ade06847d3a6d33ab2209de",
+      "status": "PASS",
+      "terminal": "harness_owned"
+    }
+  ],
+  "status": "PASS"
+}

@@ -24,6 +24,7 @@ class HistoricalProviderManifest:
     project_name: str
     target: tuple[str, ...]
     target_required_packages: tuple[HistoricalPackagePin, ...]
+    target_local_paths: tuple[str, ...] = field(default_factory=tuple)
     declared_but_not_target_required: tuple[str, ...] = field(default_factory=tuple)
 
     def validate(self) -> None:
@@ -50,6 +51,7 @@ class HistoricalProviderManifest:
             "project_name": self.project_name,
             "target": list(self.target),
             "target_required_packages": [pin.__dict__ for pin in self.target_required_packages],
+            "target_local_paths": list(self.target_local_paths),
             "declared_but_not_target_required": list(self.declared_but_not_target_required),
         }
 
@@ -60,6 +62,7 @@ class HistoricalProviderManifest:
             candidate_sha=str(value["candidate_sha"]), cutoff=str(value["cutoff"]),
             project_name=str(value["project_name"]), target=tuple(str(item) for item in value["target"]),
             target_required_packages=tuple(HistoricalPackagePin(**item) for item in value["target_required_packages"]),
+            target_local_paths=tuple(str(item) for item in value.get("target_local_paths", [])),
             declared_but_not_target_required=tuple(str(item) for item in value.get("declared_but_not_target_required", [])),
         )
         manifest.validate()

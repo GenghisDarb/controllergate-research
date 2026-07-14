@@ -1,0 +1,67 @@
+{
+  "pool_order": [
+    "audioread_144_py313_aifc_removed",
+    "codex_wave3_jupyter_nbclient_issues_316",
+    "prospective_yxyxy_hordeforge_issue_39"
+  ],
+  "pre_execution_checks": [
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "command_authority": true,
+      "complete": true,
+      "decision_time_bundle_complete": true,
+      "historical_terminal_proof": true,
+      "provider_feasibility": true,
+      "repo_url": "https://github.com/beetbox/audioread",
+      "sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "source_identity": true,
+      "target_or_reproducer": true,
+      "terminal": "provider_owned"
+    },
+    {
+      "candidate_id": "codex_wave3_jupyter_nbclient_issues_316",
+      "command_authority": false,
+      "complete": false,
+      "decision_time_bundle_complete": false,
+      "historical_terminal_proof": false,
+      "provider_feasibility": false,
+      "repo_url": "https://github.com/jupyter/nbclient",
+      "sha": "8514e919d8405eb832e80b9ea1925767e7431ee9",
+      "source_identity": true,
+      "target_or_reproducer": false,
+      "terminal": "test_or_expectation_fragility"
+    },
+    {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "command_authority": true,
+      "complete": true,
+      "decision_time_bundle_complete": true,
+      "historical_terminal_proof": true,
+      "provider_feasibility": true,
+      "repo_url": "https://github.com/yxyxy/HordeForge",
+      "sha": "89977490c8daad668ade06847d3a6d33ab2209de",
+      "source_identity": true,
+      "target_or_reproducer": true,
+      "terminal": "harness_owned"
+    }
+  ],
+  "replacement_after_outcome_forbidden": true,
+  "selected": [
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "complete": true,
+      "repo_url": "https://github.com/beetbox/audioread",
+      "sha": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "terminal": "provider_owned"
+    },
+    {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "complete": true,
+      "repo_url": "https://github.com/yxyxy/HordeForge",
+      "sha": "89977490c8daad668ade06847d3a6d33ab2209de",
+      "terminal": "harness_owned"
+    }
+  ],
+  "selection_frozen_before_execution": true,
+  "status": "PASS"
+}

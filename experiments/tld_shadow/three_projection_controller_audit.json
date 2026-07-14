@@ -1,0 +1,54 @@
+{
+  "authority": "NONBLOCKING_RESEARCH",
+  "can_grant_patch_authority": false,
+  "can_grant_source_ownership": false,
+  "contradictions": {
+    "BASELINE_PROJECTION": [],
+    "CONSENSUS_PROJECTION": [],
+    "PERTURBATION_PROJECTION": [
+      "provider_stable"
+    ]
+  },
+  "invariant_intersection": [
+    "count_preserved",
+    "source_identity_restored"
+  ],
+  "n10_n13_n14_assignments_assumed": false,
+  "projections": [
+    {
+      "authority": "NONBLOCKING_RESEARCH",
+      "invariant_claims": [
+        "count_preserved",
+        "provider_stable",
+        "source_identity_restored"
+      ],
+      "projection": "CONSENSUS_PROJECTION"
+    },
+    {
+      "authority": "NONBLOCKING_RESEARCH",
+      "contradictions": [
+        "provider_stable"
+      ],
+      "invariant_claims": [
+        "count_preserved",
+        "source_identity_restored"
+      ],
+      "projection": "PERTURBATION_PROJECTION"
+    },
+    {
+      "authority": "NONBLOCKING_RESEARCH",
+      "controls": [
+        "fixed_order",
+        "no_memory",
+        "shuffled_memory",
+        "stateless_null"
+      ],
+      "invariant_claims": [
+        "count_preserved",
+        "source_identity_restored"
+      ],
+      "projection": "BASELINE_PROJECTION"
+    }
+  ],
+  "status": "PASS"
+}

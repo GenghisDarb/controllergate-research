@@ -138,3 +138,20 @@ def verify_run(manifest_path: str | Path, run_id: str) -> dict[str, Any]:
             "manifest_hash": validation.get("manifest_hash"),
             "expected_terminal_contract": contract_type,
             "exact_blocker": None if terminal_matches else "expected_terminal_contract_not_satisfied"}
+
+
+def run_historical_lifecycle(config_path: str | Path) -> dict[str, Any]:
+    """Canonical non-counting historical lifecycle dispatch boundary."""
+    path = Path(config_path)
+    if not path.is_file():
+        return {"status": "BLOCK", "exact_blocker": "historical_lifecycle_config_missing"}
+    config = json.loads(path.read_text(encoding="utf-8"))
+    runtime_root = Path(config["runtime_root"]).resolve()
+    if str(runtime_root).upper().startswith("E:\\") or "ONEDRIVE" in str(runtime_root).upper():
+        return {"status": "BLOCK", "exact_blocker": "historical_runtime_root_prohibited"}
+    from .product.historical_lifecycle import execute_counted_repair_lifecycle, execute_non_source_lifecycle
+    if config.get("kind") == "counted_repair":
+        return execute_counted_repair_lifecycle(repo_root=Path(config["repo_root"]), runtime_root=runtime_root, candidate_id=config["candidate_id"])
+    if config.get("kind") == "non_source_terminal":
+        return execute_non_source_lifecycle(repo_root=Path(config["repo_root"]), runtime_root=runtime_root, episode=config["episode"])
+    return {"status": "BLOCK", "exact_blocker": "historical_lifecycle_kind_invalid"}

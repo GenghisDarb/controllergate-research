@@ -39,7 +39,7 @@ def generate(root: Path, database: Path) -> dict[str, object]:
     generated = datetime.now(timezone.utc).isoformat()
     protocol = attach_state_hash({
         "status": "PASS", "protocol_version": "v2.19", "protocol_name": "authorized_amds_active_maintenance_lane",
-        "state_authority": "SQLite ControllerState and proof/count services", "sqlite_schema_version": 2,
+        "state_authority": "SQLite ControllerState and proof/count services", "sqlite_schema_version": 3,
         "issue_derived_repair_count": counts["issue_derived"], "native_external_repair_count": counts["native_external"],
         "count_6_hardening_status": "COUNT_6_HARDENING_PASS", "count_5_hardening_status": "PASS",
         "amds_prospective_wave1_status": "EXECUTED_EMPTY_COHORT", "routing_memory_mechanism": "DEMONSTRATED_NO_EFFECT",

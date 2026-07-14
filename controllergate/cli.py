@@ -8,7 +8,7 @@ from .connectors.audit import audit_events
 from .connectors.contract import ConnectorContract
 from .connectors.github_public_readonly import read_frozen_resource
 from .deployment.deployment_proof import seal_deployment
-from .engine import resume_run, run_manifest, verify_run
+from .engine import resume_run, run_historical_lifecycle, run_manifest, verify_run
 from .product.doctor import doctor
 from .product.manifest import load_manifest
 from .state.resume import resume_status
@@ -24,6 +24,7 @@ def main(argv: list[str] | None = None) -> int:
     doctor_command = sub.add_parser("doctor"); doctor_command.add_argument("--runtime-root")
     run = sub.add_parser("run")
     run.add_argument("--manifest", required=True)
+    historical = sub.add_parser("historical-run"); historical.add_argument("--config", required=True)
     resume = sub.add_parser("resume"); resume.add_argument("--run-id", required=True); resume.add_argument("--manifest", required=True)
     status = sub.add_parser("status"); status.add_argument("--run-id"); status.add_argument("--runtime-root"); status.add_argument("--database")
     verify = sub.add_parser("verify"); verify.add_argument("--run-id", required=True); verify.add_argument("--manifest", required=True)
@@ -34,6 +35,7 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "doctor": result = doctor(args.runtime_root)
     elif args.command == "run": result = run_manifest(args.manifest)
+    elif args.command == "historical-run": result = run_historical_lifecycle(args.config)
     elif args.command == "resume": result = resume_run(args.manifest, args.run_id)
     elif args.command == "status":
         if args.database:

@@ -1,0 +1,22 @@
+{
+  "controller_audit_sole_terminal_writer": true,
+  "parallel_lanes_read_only": true,
+  "status": "PASS",
+  "transition_count": 14,
+  "transitions": [
+    "Seed",
+    "NormalizeEvidence",
+    "FreezeFrame",
+    "DecomposeContacts",
+    "ExpandFrontier",
+    "MaterializeRequirements",
+    "SelectMinimalProbe",
+    "ExecuteProbe",
+    "VerifyObservation",
+    "UpdateConstraints",
+    "MarkCertain",
+    "DetectContradictionAndBacktrack",
+    "InterlockAndElbowAudit",
+    "ControllerAuditCommitOrAbstain"
+  ]
+}

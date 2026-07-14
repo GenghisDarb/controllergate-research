@@ -3,7 +3,9 @@
 <!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority records 6 issue-derived and 4 native external repairs. Batch085 converges the product runtime while retaining an exact Product Beta RC block pending complete historical execution.
+ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority records 6 issue-derived and 4 native external repairs. Batch086 reconstructs cutoff-bound historical providers, completes two non-counting repair lifecycles and two non-source abstention lifecycles, installs the 14-stage ControllerAudit diagnostic path, and passes the bounded Product Beta RC evidence gate at package version `0.2.0b1`.
+
+Product Beta RC is an evidence milestone, not a production-readiness claim. Full scoring remains disallowed, public write connectors and automatic merge remain inactive, prospective AMDS effectiveness and memory lift remain unestablished, and self-maintaining software is not demonstrated.
 
 AMDS prospective effectiveness and memory lift remain unestablished, full scoring is disallowed, public write connectors are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 <!-- CONTROLLERGATE_CURRENT_STATUS_END -->

@@ -807,3 +807,9 @@ The official Batch068h4 evidence is verified. ControllerGate now exposes AMDS v2
 ControllerGate now has a registered canonical maintenance engine, typed reaction-token dispatcher, SQLite durable state, proof-derived count service, isolated routing memory, a controlled source-only self-maintenance drill, and a persistent read-only observation loop. The current protocol remains v2.19, with six issue-derived and four native external repairs.
 
 The Product Beta Release Candidate remains exactly blocked. Complete historical provider-backed execution of one counted repair and two correctly classified non-source terminals, including real canary, health, and rollback, has not been established. AMDS prospective effectiveness and memory lift remain unestablished, full scoring remains disallowed, public write connectors remain inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
+# Batch086 historical lifecycle closure
+
+Batch086 independently reconstructs cutoff-bound historical providers for Cloudpickle and Freezegun, completes both non-counting repair lifecycles, and reproduces provider-owned and harness-owned safe-abstention terminals from a frozen pre-execution frame. The DPP-14 ControllerAudit records zero wrong repair authorizations, 1.0 non-source safe-abstention accuracy, and five represented terminal classes on the frozen historical quality frame. Real target canaries, health windows, exact rollback, canonical uniqueness, package validation, and proof-derived counts all pass.
+
+The resulting decision is `PRODUCT_BETA_RC_PASS` at `0.2.0b1`. This is not a production-readiness, autonomous public repair, generalized AMDS effectiveness, prospective memory-lift, full-scoring, automatic-merge, or self-maintaining-software claim.

@@ -127,8 +127,12 @@ def _offline_environment(number: int, manifest: HistoricalProviderManifest, runt
     check = run([str(python), "-m", "pip", "check"], runtime, timeout=180)
     imports = [manifest.project_name.replace("-", "_"), "pytest"]
     if manifest.project_name == "freezegun": imports.append("dateutil")
-    probe = run([str(python), "-c", ";".join(f"import {name}" for name in imports)], source_root, timeout=120, env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
-    collect = run([str(python), "-m", "pytest", *manifest.target, "--collect-only"], source_root, timeout=300, env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"})
+    local_paths = [str((source_root / item).resolve()) for item in manifest.target_local_paths]
+    probe_env = {**os.environ, "PYTHONDONTWRITEBYTECODE": "1"}
+    if local_paths:
+        probe_env["PYTHONPATH"] = os.pathsep.join(local_paths)
+    probe = run([str(python), "-c", ";".join(f"import {name}" for name in imports)], source_root, timeout=120, env=probe_env)
+    collect = run([str(python), "-m", "pytest", *manifest.target, "--collect-only"], source_root, timeout=300, env=probe_env)
     graph_result = run([str(python), "-m", "pip", "list", "--format=json"], runtime, timeout=120)
     graph = json.loads(graph_result.stdout) if graph_result.returncode == 0 else []
     passed = all(result.returncode == 0 for result in (install, check, probe, collect, graph_result))
@@ -137,6 +141,7 @@ def _offline_environment(number: int, manifest: HistoricalProviderManifest, runt
         "install_returncode": install.returncode, "dependency_check_returncode": check.returncode,
         "import_probe_returncode": probe.returncode, "target_availability_returncode": collect.returncode,
         "target_collection_hash": hashlib.sha256((collect.stdout + collect.stderr).encode()).hexdigest(),
+        "target_local_paths": local_paths,
         "installed_distribution_graph": graph, "installed_distribution_graph_hash": canonical_hash(graph),
         "network_mode": "none", "external_indexes_disabled": True,
         "blocker": None if passed else "offline_provider_verification_failed",

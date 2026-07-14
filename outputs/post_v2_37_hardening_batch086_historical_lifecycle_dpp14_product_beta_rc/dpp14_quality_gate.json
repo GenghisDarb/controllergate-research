@@ -1,0 +1,735 @@
+{
+  "AMDS_repair_gating": "ENABLED_WITH_MANDATORY_INVARIANTS_AND_HUMAN_REVIEW",
+  "all_source_terminals_directly_backed": true,
+  "fixed_deterministic_baseline_accuracy": 0.5,
+  "frame_frozen_before_execution": true,
+  "ground_truth_sealed_until_all_arms_complete": true,
+  "macro_ownership_accuracy": 1.0,
+  "memory_enabled": false,
+  "prospective_effectiveness": "NOT_ESTABLISHED",
+  "records": [
+    {
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "correct": true,
+      "direct_source_evidence": true,
+      "expected_terminal": "source_owned_behavior_defect",
+      "observed_terminal": "source_owned_behavior_defect",
+      "source_authorized": true,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "78f5dadedfdb4e34b468ebbda14948c45088c57f09d8c914b25c0718c3920e28",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "source_owned_behavior_defect",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "py_bugger_issue_65",
+      "correct": true,
+      "direct_source_evidence": true,
+      "expected_terminal": "source_owned_behavior_defect",
+      "observed_terminal": "source_owned_behavior_defect",
+      "source_authorized": true,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "fa2aedf8da5286ec6694e92cc5782c106127fd44c91b0a8728dcf53765efcad0",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "source_owned_behavior_defect",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "correct": true,
+      "direct_source_evidence": true,
+      "expected_terminal": "source_owned_behavior_defect",
+      "observed_terminal": "source_owned_behavior_defect",
+      "source_authorized": true,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "be2e822ab684aa1cbc997a10c9b005b64e5c8597d391608fd770e88ef350cbf1",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "source_owned_behavior_defect",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "correct": true,
+      "direct_source_evidence": true,
+      "expected_terminal": "source_owned_behavior_defect",
+      "observed_terminal": "source_owned_behavior_defect",
+      "source_authorized": true,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "3e6d3ce2150109d60d3344fac484f3c134c99eab7fa1ca8e4bf66946c9f23008",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "source_owned_behavior_defect",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "correct": true,
+      "direct_source_evidence": false,
+      "expected_terminal": "provider_owned",
+      "observed_terminal": "provider_owned",
+      "source_authorized": false,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "8d35e0ace6d9f48412f94452533fbfe9ae8bd107654eb2380cdfacf31abe5800",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "provider_owned",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "correct": true,
+      "direct_source_evidence": false,
+      "expected_terminal": "environment_owned",
+      "observed_terminal": "environment_owned",
+      "source_authorized": false,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "770ab3c68d4a3be8ab37138399059ed7a4ee71ce9a94e270255756a21f96d495",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "environment_owned",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "correct": true,
+      "direct_source_evidence": false,
+      "expected_terminal": "harness_owned",
+      "observed_terminal": "harness_owned",
+      "source_authorized": false,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "3cd4ec356ccdb768d937f04e60fbe6d425ec13656282519d5af33bf8322d61bf",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "harness_owned",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    },
+    {
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "correct": true,
+      "direct_source_evidence": false,
+      "expected_terminal": "network_or_transport_owned",
+      "observed_terminal": "network_or_transport_owned",
+      "source_authorized": false,
+      "trace": [
+        {
+          "status": "PASS",
+          "transition": "Seed"
+        },
+        {
+          "status": "PASS",
+          "transition": "NormalizeEvidence"
+        },
+        {
+          "frame_hash": "5eff920ea9fc674e7714c3f7bc5ac5b9fccf8eb9087ed938e44afa325a308928",
+          "status": "PASS",
+          "transition": "FreezeFrame"
+        },
+        {
+          "contact_count": 14,
+          "status": "PASS",
+          "transition": "DecomposeContacts"
+        },
+        {
+          "hypotheses": [
+            "source_owned_behavior_defect",
+            "provider_owned",
+            "environment_owned",
+            "platform_owned",
+            "network_or_transport_owned",
+            "harness_owned",
+            "test_or_expectation_fragility",
+            "mixed_failure",
+            "insufficient_evidence"
+          ],
+          "status": "PASS",
+          "transition": "ExpandFrontier"
+        },
+        {
+          "status": "PASS",
+          "transition": "MaterializeRequirements"
+        },
+        {
+          "probe_count": 1,
+          "status": "PASS",
+          "transition": "SelectMinimalProbe"
+        },
+        {
+          "read_only_lanes": true,
+          "round_start_barrier": true,
+          "status": "PASS",
+          "transition": "ExecuteProbe"
+        },
+        {
+          "independent_verification": true,
+          "status": "PASS",
+          "transition": "VerifyObservation"
+        },
+        {
+          "deterministic_merge": true,
+          "status": "PASS",
+          "transition": "UpdateConstraints"
+        },
+        {
+          "certain_fact_count": 1,
+          "status": "PASS",
+          "transition": "MarkCertain"
+        },
+        {
+          "backtracked": false,
+          "status": "PASS",
+          "transition": "DetectContradictionAndBacktrack"
+        },
+        {
+          "interlocks_can_authorize": false,
+          "status": "PASS",
+          "transition": "InterlockAndElbowAudit"
+        },
+        {
+          "sole_merged_state_writer": true,
+          "status": "PASS",
+          "terminal": "network_or_transport_owned",
+          "transition": "ControllerAuditCommitOrAbstain"
+        }
+      ]
+    }
+  ],
+  "safe_abstention_accuracy": 1.0,
+  "single_class_collapse": false,
+  "status": "PASS",
+  "terminal_classes": [
+    "environment_owned",
+    "harness_owned",
+    "network_or_transport_owned",
+    "provider_owned",
+    "source_owned_behavior_defect"
+  ],
+  "wrong_repair_authorization": 0
+}

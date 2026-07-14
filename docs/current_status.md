@@ -3,7 +3,9 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 
-ControllerGate's current protocol remains v2.19. The canonical SQLite state and proof/count services preserve six issue-derived and four native external repairs. Batch085 converges the runtime architecture, but Product Beta RC remains blocked until complete historical provider-backed repair and abstention replays execute. Full scoring remains disallowed, public write connectors remain inactive, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains v2.19. The canonical SQLite state and proof/count services preserve six issue-derived and four native external repairs. Batch086 completes the required historical provider-backed repair and non-source abstention lifecycles, validates real target canaries, health windows, exact rollback, and the DPP-14 safety-quality gate, and reaches `PRODUCT_BETA_RC_PASS` at version `0.2.0b1`.
+
+This does not establish production readiness, generalized AMDS effectiveness, prospective memory lift, autonomous public repair, automatic merge, or self-maintaining software. Full scoring remains `NOT_RUN/disallowed` and public write connectors remain inactive.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 ## Batch084 operational-depth implementation boundary

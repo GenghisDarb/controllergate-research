@@ -1,8 +1,8 @@
 # Public release readiness
 
-## Batch085 release-candidate boundary
+## Batch086 release-candidate boundary
 
-Batch085 converges the canonical runtime and validates controlled self-maintenance and read-only observation, but it does not pass the Product Beta RC evidence gate. Complete historical provider-backed execution of one repair and two non-source terminals, with real canary, health, and rollback, remains outstanding. ControllerGate is not production-ready; public write connectors and automatic merge remain disabled.
+Batch086 passes the bounded Product Beta RC evidence gate after two complete historical repair lifecycles, two correct non-source terminal lifecycles, DPP-14 safety-quality validation, real target canaries, health monitoring, and exact rollback. ControllerGate is still not production-ready; public write connectors, automatic merge, full scoring, and autonomous live maintenance remain disabled.
 
 Batch082 strengthens CI-native evidence generation, law-specific governance proof, dual-platform provider custody, and independent evaluation. Those are infrastructure capabilities, not release validation. The official Batch082 workflow may honestly end with zero admitted candidates if provider, command-authority, network-isolation, or duplicate-reproduction gates block. Such an outcome cannot authorize a patch, increase a repair count, establish AMDS effectiveness, or demonstrate memory lift.
 

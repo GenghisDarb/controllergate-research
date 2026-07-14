@@ -1,0 +1,236 @@
+{
+  "pairs": [
+    {
+      "ast_contact_domain": [
+        "source"
+      ],
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "direct_divergence_evidence": [
+        "source_owned_behavior_defect"
+      ],
+      "divergence_class": "SOURCE_OWNED_OUTPUT_DIVERGENCE",
+      "expected_output": "normal",
+      "first_divergent_event": "target_execution",
+      "incident_pathway": {
+        "ast_contact_domain": [
+          "source"
+        ],
+        "command": "registered target",
+        "direct_divergence_evidence": [
+          "source_owned_behavior_defect"
+        ],
+        "first_divergent_event": "target_execution",
+        "inferred_divergence_evidence": [],
+        "inputs": [
+          "cloudpickle_507_py313_typevar_distutils"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "source_owned_behavior_defect",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+        "source": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6"
+      },
+      "inferred_divergence_evidence": [],
+      "last_shared_valid_event": "provider_ready",
+      "normal_pathway": {
+        "command": "registered target",
+        "inputs": [
+          "cloudpickle_507_py313_typevar_distutils"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "normal",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+        "source": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6"
+      },
+      "observed_output": "source_owned_behavior_defect",
+      "pair_hash": "a23beaad3033e88c389511483c894b57716f9d5ee9ff495047f0fcd57dd0a8c5",
+      "shared_command_reproducer": "registered target",
+      "shared_inputs": [
+        "cloudpickle_507_py313_typevar_distutils"
+      ],
+      "shared_platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "shared_provider": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+      "shared_source": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6"
+    },
+    {
+      "ast_contact_domain": [
+        "source"
+      ],
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "direct_divergence_evidence": [
+        "source_owned_behavior_defect"
+      ],
+      "divergence_class": "SOURCE_OWNED_OUTPUT_DIVERGENCE",
+      "expected_output": "normal",
+      "first_divergent_event": "target_execution",
+      "incident_pathway": {
+        "ast_contact_domain": [
+          "source"
+        ],
+        "command": "registered target",
+        "direct_divergence_evidence": [
+          "source_owned_behavior_defect"
+        ],
+        "first_divergent_event": "target_execution",
+        "inferred_divergence_evidence": [],
+        "inputs": [
+          "freezegun_547_py313_datetimes_assertion"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "source_owned_behavior_defect",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+        "source": "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      },
+      "inferred_divergence_evidence": [],
+      "last_shared_valid_event": "provider_ready",
+      "normal_pathway": {
+        "command": "registered target",
+        "inputs": [
+          "freezegun_547_py313_datetimes_assertion"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "normal",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+        "source": "df263dcec48f43154a5873eb0dff2d4ba94374da"
+      },
+      "observed_output": "source_owned_behavior_defect",
+      "pair_hash": "72e808a157d51970885784b0da4de9b68f13c3a40e90e36fc6a5de3d477d015c",
+      "shared_command_reproducer": "registered target",
+      "shared_inputs": [
+        "freezegun_547_py313_datetimes_assertion"
+      ],
+      "shared_platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "shared_provider": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+      "shared_source": "df263dcec48f43154a5873eb0dff2d4ba94374da"
+    },
+    {
+      "ast_contact_domain": [],
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "direct_divergence_evidence": [
+        "provider_owned"
+      ],
+      "divergence_class": "PROVIDER_OWNED_OUTPUT_DIVERGENCE",
+      "expected_output": "normal",
+      "first_divergent_event": "target_execution",
+      "incident_pathway": {
+        "ast_contact_domain": [],
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-c",
+          "import aifc"
+        ],
+        "direct_divergence_evidence": [
+          "provider_owned"
+        ],
+        "first_divergent_event": "target_execution",
+        "inferred_divergence_evidence": [],
+        "inputs": [
+          "audioread_144_py313_aifc_removed"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "provider_owned",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+        "source": "577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+      },
+      "inferred_divergence_evidence": [],
+      "last_shared_valid_event": "provider_ready",
+      "normal_pathway": {
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-c",
+          "import aifc"
+        ],
+        "inputs": [
+          "audioread_144_py313_aifc_removed"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "normal",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+        "source": "577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+      },
+      "observed_output": "provider_owned",
+      "pair_hash": "c52a656b83746577a7e2172d57141f6ebf5742c1dedf9284c8178826eccdeb25",
+      "shared_command_reproducer": [
+        "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+        "-c",
+        "import aifc"
+      ],
+      "shared_inputs": [
+        "audioread_144_py313_aifc_removed"
+      ],
+      "shared_platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "shared_provider": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+      "shared_source": "577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+    },
+    {
+      "ast_contact_domain": [],
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "direct_divergence_evidence": [
+        "harness_owned"
+      ],
+      "divergence_class": "HARNESS_OWNED_OUTPUT_DIVERGENCE",
+      "expected_output": "normal",
+      "first_divergent_event": "target_execution",
+      "incident_pathway": {
+        "ast_contact_domain": [],
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-c",
+          "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+        ],
+        "direct_divergence_evidence": [
+          "harness_owned"
+        ],
+        "first_divergent_event": "target_execution",
+        "inferred_divergence_evidence": [],
+        "inputs": [
+          "prospective_yxyxy_hordeforge_issue_39"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "harness_owned",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+        "source": "89977490c8daad668ade06847d3a6d33ab2209de"
+      },
+      "inferred_divergence_evidence": [],
+      "last_shared_valid_event": "provider_ready",
+      "normal_pathway": {
+        "command": [
+          "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+          "-c",
+          "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+          "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+        ],
+        "inputs": [
+          "prospective_yxyxy_hordeforge_issue_39"
+        ],
+        "last_shared_valid_event": "provider_ready",
+        "output": "normal",
+        "platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+        "provider": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+        "source": "89977490c8daad668ade06847d3a6d33ab2209de"
+      },
+      "observed_output": "harness_owned",
+      "pair_hash": "2d6ff58999e6b573347c884915e78ffb9d81a2daa1f4ef823560696fd882ca78",
+      "shared_command_reproducer": [
+        "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+        "-c",
+        "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+        "C:\\Dev\\ControllerGate_Runtime\\batch086_execution\\prospective_yxyxy_hordeforge_issue_39\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+      ],
+      "shared_inputs": [
+        "prospective_yxyxy_hordeforge_issue_39"
+      ],
+      "shared_platform_runtime": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+      "shared_provider": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+      "shared_source": "89977490c8daad668ade06847d3a6d33ab2209de"
+    }
+  ],
+  "status": "PASS"
+}

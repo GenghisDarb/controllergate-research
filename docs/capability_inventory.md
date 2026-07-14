@@ -3,7 +3,7 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 
-Implemented: canonical component registry, typed reaction tokens, SQLite durable state, proof-derived counts, separated routing memory, structured collection, provider lifecycle gates, controlled self-maintenance fixture, read-only watch loop, and local write levels 1–2. Blocked at exact evidence boundaries: historical Product Beta and Product Beta RC. Disabled: public remote writes, full scoring, automatic merge, and autonomous live maintenance.
+Implemented: canonical component registry, typed reaction tokens, SQLite durable state with failed-branch lineage, proof-derived counts, separated routing memory, structured collection, cutoff-bound historical provider reconstruction, DPP-14 ControllerAudit, recovered block-only interlocks, categorical causal elbow, exact orientation return, real repaired-software canary/health/rollback, controlled self-maintenance fixture, read-only watch loop, and local write levels 1–2. Batch086 passes the bounded Product Beta RC evidence gate. Disabled: public remote writes, full scoring, automatic merge, and autonomous live maintenance.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 ## Batch084 depth-calibrated capabilities
@@ -12,7 +12,7 @@ Implemented: canonical component registry, typed reaction tokens, SQLite durable
 - Cross-family structural routing memory: implemented with repository-family and proof-group exclusion. Candidate identity, labels, outcomes, patch text, and exact edits are forbidden retrieval features.
 - Control taxonomy: real memory, no memory, shuffled memory, competent stateless baseline, randomization null, and fixed-order baseline remain separate.
 - Repaired-software historical canary: identity and provider-gated. No canary may pass from target-log hashes alone.
-- Historical Product Beta: canonical CLI admission and safe-abstention handling are implemented; complete replay requires real byte-bound source, provider, target, patch or abstention, validation, replay, rollback, and canary evidence.
+- Historical Product Beta: canonical CLI execution now completes byte-bound source, reconstructed-equivalent provider, target, preserved patch or abstention, validation, duplicate replay, rollback, and canary evidence without changing repair counts.
 - Controlled write connector: local fixture only; public and credentialed writes remain inactive.
 - OpenBB and Poetry: candidate identities remain frozen. Docker network-none and preregistered differential forensics may diagnose them, but cannot authorize a source repair without direct source-owned divergence.
 - Cumulative maturity: historical maturity, current-batch delta, and production readiness are separate views.

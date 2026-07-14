@@ -1,8 +1,10 @@
 # Technical validation gap report
 
-## Batch085 exact remaining gap
+## Batch086 remaining validation boundary
 
-The architecture, durable state, typed tokens, proof-derived counts, memory isolation, controlled self-maintenance fixture, and read-only watch loop are implemented. The decisive technical gap is execution evidence: one complete real historical counted-repair replay and two correctly classified historical non-source replays have not completed through the canonical engine with canary, health, and rollback. Package validation alone cannot close that gap.
+Batch086 closes the prior historical execution gap through the canonical engine: two non-counting repair replays and two correctly classified non-source terminals complete with reconstructed-equivalent providers, duplicate replay, real target canaries, health windows, and exact rollback. The DPP-14 quality frame records zero wrong repair authorizations and passes its safe-abstention threshold.
+
+The remaining technical gaps are prospective rather than historical: generalized AMDS effectiveness, prospective memory lift on fresh candidates, public write safety, automatic merge, broader production environments, and repeatable autonomous acquisition-to-repair operation remain unestablished. Full scoring remains disallowed and self-maintaining software is not demonstrated.
 
 ## Batch080 remaining gap
 

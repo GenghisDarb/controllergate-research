@@ -1,0 +1,52 @@
+{
+  "AMDS_prospective_effectiveness": "NOT_ESTABLISHED",
+  "COUNT_6_HARDENING": "PASS",
+  "Cloudpickle_lifecycle": "PASS",
+  "DPP14_parallel_lanes": 8,
+  "DPP14_probes": 8,
+  "DPP14_rounds": 8,
+  "DPP14_terminals": [
+    "environment_owned",
+    "harness_owned",
+    "network_or_transport_owned",
+    "provider_owned",
+    "source_owned_behavior_defect"
+  ],
+  "Freezegun_lifecycle": "PASS",
+  "causal_elbow": "OPEN",
+  "full_scoring": "NOT_RUN/disallowed",
+  "historical_provider_results": {
+    "cloudpickle_507_py313_typevar_distutils": {
+      "blocker": null,
+      "called_exact": false,
+      "classification": "HISTORICAL_PROVIDER_RECONSTRUCTED_EQUIVALENT",
+      "provider_seal": "1faa228d5c45b7d19e24ee73826fb5650fb22a9618b3c94ecba4c5568df7260c",
+      "status": "PASS"
+    },
+    "freezegun_547_py313_datetimes_assertion": {
+      "blocker": null,
+      "called_exact": false,
+      "classification": "HISTORICAL_PROVIDER_RECONSTRUCTED_EQUIVALENT",
+      "provider_seal": "92c912881dbe5f4ec0243379328c324b85651adfb6b6fcba51903ab0c4b566ba",
+      "status": "PASS"
+    }
+  },
+  "historical_replay_count_increment": 0,
+  "interlocks": "PASS",
+  "issue_derived_repair_count": 6,
+  "native_external_repair_count": 4,
+  "non_source_frame": "PASS",
+  "non_source_lifecycles": [
+    "PASS",
+    "PASS"
+  ],
+  "product_beta_rc": "PRODUCT_BETA_RC_PASS",
+  "production_readiness": false,
+  "prospective_memory_lift": "not demonstrated",
+  "protocol": "v2.19",
+  "public_write_connectors": "inactive",
+  "self_maintaining_software": "false/not demonstrated",
+  "status": "PASS",
+  "three_projection_shadow": "PASS",
+  "twist_return": "PASS"
+}

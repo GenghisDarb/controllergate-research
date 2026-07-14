@@ -1,0 +1,289 @@
+name: post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONPATH: .
+  CONTROLLERGATE_BATCH086_RUNTIME_ROOT: ${{ runner.temp }}/controllergate-runtime/batch086
+
+jobs:
+  verify-and-ingest-Batch085:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+
+  canonical-kernel-preservation:
+    needs: verify-and-ingest-Batch085
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python scripts/audit_canonical_component_uniqueness.py
+      - run: python -m pytest tests/test_batch086_infrastructure.py -q
+
+  historical-provider-reconstruction:
+    needs: canonical-kernel-preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install --disable-pip-version-check pytest build wheel setuptools
+      - run: python scripts/run_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch086-execution-evidence
+          path: |
+            outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc
+            experiments/tld_shadow/three_projection_controller_audit.json
+            experiments/tld_shadow/projection_invariant_intersection.json
+            experiments/tld_shadow/controller_twist_matrix.json
+          if-no-files-found: error
+          retention-days: 1
+
+  DPP-14-and-interlock-tests:
+    needs: canonical-kernel-preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest
+      - run: python -m pytest tests/test_batch086_infrastructure.py -q
+
+  Cloudpickle-historical-lifecycle:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; p=pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/cloudpickle_507_py313_typevar_distutils_historical_lifecycle.json'); assert json.loads(p.read_text())['complete']"
+
+  Freezegun-historical-lifecycle:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; p=pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/freezegun_547_py313_datetimes_assertion_historical_lifecycle.json'); assert json.loads(p.read_text())['complete']"
+
+  non-source-historical-frame:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; d=json.loads(pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/historical_non_source_frozen_frame.json').read_text()); assert d['status']=='PASS' and d['selection_frozen_before_execution']"
+
+  historical-abstention-lifecycles:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; d=json.loads(pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/historical_non_source_lifecycle_results.json').read_text()); assert len(d['results'])==2 and all(x['complete'] and not x['repair_license'] for x in d['results'])"
+
+  real-canary-health-rollback:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; p=pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/freezegun_547_py313_datetimes_assertion_historical_lifecycle.json'); d=json.loads(p.read_text()); assert d['health']['status']=='PASS' and d['rollback']['status']=='PASS' and all(x['returncode']==0 for x in d['canary_runs'])"
+
+  DPP-14-quality-adjudication:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; d=json.loads(pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/dpp14_quality_gate.json').read_text()); assert d['status']=='PASS' and d['wrong_repair_authorization']==0"
+
+  elbow-twist-return-audit:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; r=pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc'); assert json.loads((r/'causal_elbow_audit.json').read_text())['elbow']=='OPEN'; assert json.loads((r/'controller_orientation_return_map.json').read_text())['status']=='PASS'"
+
+  three-projection-shadow-audit:
+    needs: historical-provider-reconstruction
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python -c "import json,pathlib; d=json.loads(pathlib.Path('experiments/tld_shadow/three_projection_controller_audit.json').read_text()); assert d['authority']=='NONBLOCKING_RESEARCH' and not d['can_grant_patch_authority']"
+
+  controlled-self-maintenance-regression:
+    needs: canonical-kernel-preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pytest tests/product -q
+
+  watch-loop-regression:
+    needs: canonical-kernel-preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pytest tests/watch tests/connectors -q
+
+  Linux-package-validation:
+    needs: canonical-kernel-preservation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools
+      - run: python -m build --no-isolation --outdir $RUNNER_TEMP/controllergate-package
+      - run: python -m pip install --force-reinstall $RUNNER_TEMP/controllergate-package/*.whl
+      - run: controllergate doctor
+      - run: python -c "import importlib.metadata; assert importlib.metadata.version('controllergate')=='0.2.0b1'"
+
+  Windows-package-validation:
+    needs: canonical-kernel-preservation
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools
+      - run: python -m build --no-isolation --outdir "$env:RUNNER_TEMP/controllergate-package"
+      - run: python -m pip install --force-reinstall (Get-ChildItem "$env:RUNNER_TEMP/controllergate-package/*.whl").FullName
+      - run: controllergate doctor
+      - run: python -c "import importlib.metadata; assert importlib.metadata.version('controllergate')=='0.2.0b1'"
+
+  independent-critic:
+    needs: [Cloudpickle-historical-lifecycle, Freezegun-historical-lifecycle, historical-abstention-lifecycles, real-canary-health-rollback, DPP-14-quality-adjudication, elbow-twist-return-audit, three-projection-shadow-audit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-execution-evidence, path: .}
+      - run: python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+      - uses: actions/upload-artifact@v4
+        with: {name: batch086-critic-evidence, path: outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc, retention-days: 1}
+
+  Product-Beta-RC-adjudication:
+    needs: [independent-critic, controlled-self-maintenance-regression, watch-loop-regression, Linux-package-validation, Windows-package-validation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-critic-evidence, path: outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc}
+      - run: python -c "import json,pathlib; d=json.loads(pathlib.Path('outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc/batch086_product_beta_rc_decision.json').read_text()); assert d['status']=='PRODUCT_BETA_RC_PASS' and d['independent_critic_recompute']=='PASS'"
+
+  final-audit-and-package:
+    needs: Product-Beta-RC-adjudication
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch086-critic-evidence, path: outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc}
+      - run: python -m pip install pytest
+      - run: python -m pytest -q
+      - run: python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+      - run: python scripts/audit_canonical_component_uniqueness.py
+      - name: Run Batch073 through Batch085 regression audits
+        shell: bash
+        run: |
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+          python scripts/audit_batch084_real_amds_canary_product_beta.py --out outputs/post_v2_37_hardening_batch084_real_amds_canary_product_beta
+          python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+      - run: python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+      - run: python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+      - run: python scripts/controllergate_audit.py --protocol current
+      - run: python scripts/controllergate_run.py --protocol current --dry-run
+      - run: python scripts/audit_public_language.py
+      - run: python scripts/audit_current_state_view_sync.py
+      - run: python scripts/audit_public_frontier_sync.py
+      - run: git diff --check
+      - name: Stage clean main evidence payload
+        shell: bash
+        run: |
+          rm -rf "$RUNNER_TEMP/batch086-artifact"
+          mkdir -p "$RUNNER_TEMP/batch086-artifact/outputs"
+          cp -R outputs/post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc "$RUNNER_TEMP/batch086-artifact/outputs/"
+          cp -R experiments "$RUNNER_TEMP/batch086-artifact/"
+          find "$RUNNER_TEMP/batch086-artifact" -type f ! -name ARTIFACT_SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > "$RUNNER_TEMP/batch086-artifact/ARTIFACT_SHA256SUMS.txt"
+          ! find "$RUNNER_TEMP/batch086-artifact" -type f \( -name '*.pyc' -o -name '*.whl' -o -name '*.zip' -o -name '*.tar' \) | grep .
+          ! find "$RUNNER_TEMP/batch086-artifact" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' \) | grep .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch086_historical_lifecycle_dpp14_product_beta_rc_artifacts
+          path: ${{ runner.temp }}/batch086-artifact
+          if-no-files-found: error
+          retention-days: 30

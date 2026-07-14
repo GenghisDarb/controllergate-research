@@ -1,0 +1,28 @@
+{
+  "confounders_controlled": true,
+  "elbow": "OPEN",
+  "eliminated_families": [
+    "provider",
+    "environment",
+    "harness"
+  ],
+  "initial_families": [
+    "source",
+    "provider",
+    "environment",
+    "harness"
+  ],
+  "interlock_state": "PASS",
+  "next_legal_action": "bounded_family_local_intervention",
+  "numeric_threshold_authority": false,
+  "raw_argmin_authority": false,
+  "remaining_family": "source",
+  "rollback_available": true,
+  "supporting_observations": [
+    {
+      "direct": true,
+      "probe": "duplicate provider-controlled source divergence"
+    }
+  ],
+  "unresolved_alternatives": []
+}
