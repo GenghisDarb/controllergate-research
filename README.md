@@ -3,17 +3,15 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's current protocol remains v2.19. SQLite is the sole mutable runtime authority and preserves 6 issue-derived and 4 native external repairs. The independent release state is `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains `v2.19`. SQLite records the Batch089 release decision and 60 installed-product reaction executions while preserving 6 issue-derived and 4 native external repairs. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 <!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority records 6 issue-derived and 4 native external repairs. Batch086 reconstructs cutoff-bound historical providers, completes two non-counting repair lifecycles and two non-source abstention lifecycles, installs the 14-stage ControllerAudit diagnostic path, and passes the bounded Product Beta RC evidence gate at package version `0.2.0b1`.
+ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch089 adds and executes a shared three-prompt maintenance kernel covering reaction contracts, durable state, regulated access, plan maturation, transport, artifact maturation, replication, defense, containment, actuation, and flow control.
 
-Product Beta RC is an evidence milestone, not a production-readiness claim. Full scoring remains disallowed, public write connectors and automatic merge remain inactive, prospective AMDS effectiveness and memory lift remain unestablished, and self-maintaining software is not demonstrated.
-
-AMDS prospective effectiveness and memory lift remain unestablished, full scoring is disallowed, public write connectors are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. Two independently verified short-lived historical capsule lifecycles, a distinct repaired-software canary, its health window, and exact rollback still require official execution. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
 <!-- CONTROLLERGATE_CURRENT_STATUS_END -->
 
 ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.

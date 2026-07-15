@@ -22,4 +22,8 @@ def migrate(connection: sqlite3.Connection) -> int:
         connection.execute("INSERT OR IGNORE INTO schema_migrations(version,applied_at) VALUES (4,datetime('now'))")
         connection.commit()
         version = 4
+    if version < 5:
+        connection.execute("INSERT OR IGNORE INTO schema_migrations(version,applied_at) VALUES (5,datetime('now'))")
+        connection.commit()
+        version = 5
     return version

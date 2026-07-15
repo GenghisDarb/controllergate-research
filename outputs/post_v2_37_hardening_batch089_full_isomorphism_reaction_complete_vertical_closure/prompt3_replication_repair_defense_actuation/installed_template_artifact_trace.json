@@ -1,0 +1,28 @@
+{
+  "artifact": "installed_template_artifact_trace.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "3a955fc1ac09a62d09bb860cf78a7fb9d019ce35edffadd84e3d8795fed09c51",
+    "56b27781fd7540a9e74e794a407a2ae154ceaa9c2c361653f75143968b07a7fc"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-01-template-to-mature"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P3-02-malformed-primary"
+    }
+  ],
+  "prompt": "prompt3",
+  "record_hash": "e31dd7be34aaaf3d0bd071b2f36a8a406c5a9312a22e1963285883b708eb47c7",
+  "status": "PASS"
+}

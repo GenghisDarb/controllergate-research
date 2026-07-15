@@ -1,0 +1,28 @@
+{
+  "artifact": "emergency_termination_recovery_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "b901e1b816d89d6395060fb0c7e0593bd9b5f33bdd5ca4f6c75cf90ab760005d",
+    "08f98ae4ad0f8e4db919a193a861b6ead5dd4157ace290efb887a10e355b0992"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "TERMINATED",
+      "observed_status": "TERMINATED",
+      "passed": true,
+      "scenario_id": "P2-17-termination"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-18-termination-block"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "44de90e2444ed09f09e410595abce364e5adf1f111a97fd1b881ccf3cbd39005",
+  "status": "PASS"
+}

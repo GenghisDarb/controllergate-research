@@ -3,7 +3,7 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 
-Implemented: canonical installed execution graph, SQLite authority, typed pathway, broker boundary, proof/count services, and read-only connectors. Release classification: `PRODUCT_BETA_RC_BLOCKED_EXACT`. Disabled: public writes, full scoring, automatic merge, and autonomous live maintenance.
+Implemented and exercised in Batch089: typed reaction contracts, regulated access, global checkpoints, junction and resource controls, lineage and truth maintenance, plan maturation, sensor/signal/transport controls, artifact maturation, frozen-origin replication, repair-strategy classification, defense, containment, actuation, flow control, and a deep repository doctor. ControllerGate's current protocol remains `v2.19`. SQLite records the Batch089 release decision and 60 installed-product reaction executions while preserving 6 issue-derived and 4 native external repairs. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 ## Batch084 depth-calibrated capabilities

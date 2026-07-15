@@ -1,0 +1,28 @@
+{
+  "artifact": "installed_termination_trace.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "b901e1b816d89d6395060fb0c7e0593bd9b5f33bdd5ca4f6c75cf90ab760005d",
+    "08f98ae4ad0f8e4db919a193a861b6ead5dd4157ace290efb887a10e355b0992"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "TERMINATED",
+      "observed_status": "TERMINATED",
+      "passed": true,
+      "scenario_id": "P2-17-termination"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-18-termination-block"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "fe2c7c4469a046f076bc009239208152146562113e46d956b0f74f09bd64715f",
+  "status": "PASS"
+}

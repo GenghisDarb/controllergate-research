@@ -1,0 +1,28 @@
+{
+  "artifact": "memory_poisoning_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "57098de5de0bdf1df7e4741580b844259293e248d123025ec0be1f63a9ade599",
+    "ff44a6ac242042cc1daa448bc7d365ef04772621661b68bcbb561be2edfa563e"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": true,
+  "observations": [
+    {
+      "expected_status": "STORED_ADVISORY",
+      "observed_status": "STORED_ADVISORY",
+      "passed": true,
+      "scenario_id": "P2-19-memory-advisory"
+    },
+    {
+      "expected_status": "REJECTED",
+      "observed_status": "REJECTED",
+      "passed": true,
+      "scenario_id": "P2-20-memory-hostile"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "9f701834b34cd55c10613403def34f6a3fcb7ce2e75fb4042cfcb1c5f559e18f",
+  "status": "PASS"
+}

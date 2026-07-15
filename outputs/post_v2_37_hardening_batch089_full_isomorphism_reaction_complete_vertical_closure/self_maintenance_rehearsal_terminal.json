@@ -1,0 +1,38 @@
+{
+  "artifact": "self_maintenance_rehearsal_terminal.json",
+  "authority": "direct_execution_receipts",
+  "blocker": "historical_short_lived_capsule_or_release_prerequisite_not_materialized",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "dfa0afc604973b86a9369c1217cebdac1a4e824c0354203a57ec2a948d7f80c4",
+    "9594d241579b1fd8615669cec1c8444b34490e61175d1fc1843642f40c298cc1",
+    "ac7f123cec5e72771a0a825a2a6213b278ac38e6c692bcf1461d41dee57a705f"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "next_allowed_action": "materialize independently verified short-lived historical capsules before lifecycle or release authority",
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P1-truth-fixed-point"
+    },
+    {
+      "expected_status": "CONTRADICTED",
+      "observed_status": "CONTRADICTED",
+      "passed": true,
+      "scenario_id": "P1-truth-contradiction"
+    },
+    {
+      "expected_status": "BACKTRACKED",
+      "observed_status": "BACKTRACKED",
+      "passed": true,
+      "scenario_id": "P1-backtrack"
+    }
+  ],
+  "prompt": "prompt1",
+  "record_hash": "ae455fbcc9a22e4e806799227bdcb3e1040fe0539239bf9fe632e169de2956b7",
+  "repair_count_increment": 0,
+  "status": "BLOCK"
+}

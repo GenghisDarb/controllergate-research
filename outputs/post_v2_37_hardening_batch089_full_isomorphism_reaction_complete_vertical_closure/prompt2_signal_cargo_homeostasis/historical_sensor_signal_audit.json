@@ -1,0 +1,49 @@
+{
+  "artifact": "historical_sensor_signal_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "813f751774383169b02a2266b10b2de37851b98d7716b4d6da74f558e8a9c6a1",
+    "1f8c4a1010738206d6ff666901a2c6d59fa175e93c307ce1d18c54a70ec95128",
+    "f110f8ae5f3f700a45e80bcd06898b6a61a41f09242a89e76bb5d71c6dcf3f77",
+    "e440072961ffbf758dd9e0943c925ecea369275e13ea1c7b1ad2b6df00843ea4",
+    "ef795f8ff04e6a2f6f0bdb6b6c5d038d24493905cd8e45d2b546ccd4b6bb067f"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "DIRECT_VERIFIED",
+      "observed_status": "DIRECT_VERIFIED",
+      "passed": true,
+      "scenario_id": "P2-06-sensor-valid"
+    },
+    {
+      "expected_status": "REJECTED_UNUSABLE",
+      "observed_status": "REJECTED_UNUSABLE",
+      "passed": true,
+      "scenario_id": "P2-07-sensor-saturation"
+    },
+    {
+      "expected_status": "DELIVERED",
+      "observed_status": "DELIVERED",
+      "passed": true,
+      "scenario_id": "P2-08-signal-valid"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-09-signal-saturation"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-10-signal-inhibited"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "c9dab91728eead7bfa9de69e7555f2295e31f3fd430b4a3304863d3956a20bef",
+  "status": "PASS"
+}

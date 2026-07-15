@@ -1,5 +1,9 @@
 # Replication protocol
 
+## Batch089 composite replication boundary
+
+A Batch089 replication must verify the manually supplied Batch088 artifact, preserve all earlier output bytes, regenerate the three hash-bound prompt contracts, use the canonical installed services and schema version 5, execute the 20 Prompt 1, 20 Prompt 2, and 20 Prompt 3 scenarios, reconstruct the decision with the independent critic, and verify the internal and portable manifests. Negative controls are expected to block. Historical capsule, canary, health, rollback, release, public-write, and self-maintenance authority cannot be inferred from the composite scenario pass count.
+
 ## Batch085 canonical replication boundary
 
 A Batch085 replication must use the canonical engine, SQLite ControllerState, typed reaction tokens, proof-derived count records, physically separated routing/truth/patch stores, and the read-only watch policy. Historical provider reconstruction must be explicitly labeled equivalent rather than exact. Scientific blockers are valid outcomes; no repair, canary, count, or release claim may be inferred from a plan or missing provider. The controlled self-maintenance drill is a fixture result and cannot change public repair counts.

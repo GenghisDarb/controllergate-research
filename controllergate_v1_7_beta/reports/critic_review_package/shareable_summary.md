@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch089 full isomorphism and vertical closure
+
+Batch089 consolidates three prompt families into one installed ControllerGate engine. It adds schema-v5 reaction, evidence, constraint, access, resource, lineage, and authority records; a deep repository doctor; typed plan, signal, transport, cleanup, and memory boundaries; and proof-carrying artifact, replication, repair-strategy, defense, containment, actuator, and flow-control services. Sixty bounded installed-product scenarios exercise both accepted and rejected paths. Earlier evidence remains immutable and counts remain six issue-derived and four native external repairs.
+
+The independent boundary remains conservative: Product Beta RC is `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0` pending short-lived historical capsule lifecycles plus distinct canary, health, and exact rollback execution. Full scoring is disallowed; public writes and automatic merge are inactive; production readiness, memory lift, and self-maintaining software are not demonstrated.
+
 ## Batch084 evidence-depth calibration
 
 The official Batch083 evidence is preserved unchanged, with explicit companion corrections. Batch083 demonstrated a controlled Product Alpha fixture, a one-file historical evidence classifier, and a log-integrity canary drill; it did not establish real multi-probe diagnosis or repaired-software canary execution. Batch084 adds distinct-evidence sequential probes, honest likelihood-calibration fallback, structural cross-family retrieval, separate null controls, byte-locked historical canary admission, provider and divergence gates, branch lineage, controlled local-write testing, Docker network-none replay, and preregistered Poetry differential forensics.

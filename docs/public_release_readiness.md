@@ -1,5 +1,9 @@
 # Public release readiness
 
+## Batch089 composite release boundary
+
+Batch089 executes 60 installed-product scenarios across the core reaction kernel, signal/transport controls, and replication/repair/defense services. The independent critic accepts their positive and adversarial outcomes but does not authorize release. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0` until two independently verified short-lived historical capsule lifecycles, a distinct repaired-software canary, a measured health window, and exact rollback are completed. This is not production readiness, full scoring, demonstrated memory lift, or self-maintaining software.
+
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current release gate
 

@@ -1,0 +1,35 @@
+{
+  "artifact": "freezegun_checkpoint_resume.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "d2d5168ef5d7cf453011277f746321c6b41015b518b3ae803dfbc3100c95a1f7",
+    "c2c54d6b50e1a71d31a674fa8464ab0b24344fd09792e3b30494b6265cb404ac",
+    "2a5c1faa64f80a928e43c86d827ccf3ec64be00c135ab1c99a892fa1331184da"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P1-checkpoint-block"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P1-checkpoint-release"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P1-once-only"
+    }
+  ],
+  "prompt": "prompt1",
+  "record_hash": "ac1da46c59a0e19af2b36ef591c1e4a1186d63d853052c9d04c99c97dec1c183",
+  "status": "PASS"
+}

@@ -1,0 +1,42 @@
+{
+  "artifact": "historical_cleanup_termination_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "3e6218b24d7d7b93721853b628d1106b123b654d85cdf06c7b66058afe061e9c",
+    "00f17ddd402a5508836b30fe98982e8045d37c66cdb2e35b152c194f13ddf3b6",
+    "b901e1b816d89d6395060fb0c7e0593bd9b5f33bdd5ca4f6c75cf90ab760005d",
+    "08f98ae4ad0f8e4db919a193a861b6ead5dd4157ace290efb887a10e355b0992"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P2-15-selective-cleanup"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P2-16-proof-cleanup-negative"
+    },
+    {
+      "expected_status": "TERMINATED",
+      "observed_status": "TERMINATED",
+      "passed": true,
+      "scenario_id": "P2-17-termination"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-18-termination-block"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "ac3f1326305badf19c9e615eab11225ec34c270c05cce88ace92f79706d27d96",
+  "status": "PASS"
+}

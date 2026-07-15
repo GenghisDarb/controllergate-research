@@ -1,0 +1,35 @@
+{
+  "artifact": "repair_template_eligibility_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "b1ec99ad32bc856b1eac4450bad09ddfb2e2b558dd0b33293a5b3ede5969bf94",
+    "dd1d064e25693e8f8d9435ae00bbe32e9ce4c180850b348563d95d0657419fc7",
+    "f55fa42f268865cb739f33304de41b8d97375667267d827d768b32ce87308012"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-07-exact-reversal"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-08-template-guided-repair"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P3-09-bypass-not-repair"
+    }
+  ],
+  "prompt": "prompt3",
+  "record_hash": "7a6013e276b50fc82860ba511aa0594ed63ad6e6e8b3348fcaf5a93673f9a654",
+  "status": "PASS"
+}

@@ -1,0 +1,35 @@
+{
+  "artifact": "release_abort_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "3d4b7eb56476a70964b9b63bcac271f8ff6e3c37e24e166fcdb43e9df6c9f687",
+    "34095b9213e9bb2040e9cd078fc814faeec0a854e9ada04e60b83fb600acf311",
+    "bb8cef07675b038474ad4c96fbd9fe29d4fc00715332f204e1fb77b5d4d40329"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P2-01-input-decomposition"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-02-input-binding-negative"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P2-03-mature-plan"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "e310c3717303ef5158cb4775767b1d018727d4eb310160e0adf59ff4e87376e2",
+  "status": "PASS"
+}

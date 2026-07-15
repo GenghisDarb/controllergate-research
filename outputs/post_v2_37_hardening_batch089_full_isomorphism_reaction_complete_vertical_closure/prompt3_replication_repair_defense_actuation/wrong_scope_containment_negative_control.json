@@ -1,0 +1,28 @@
+{
+  "artifact": "wrong_scope_containment_negative_control.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "fedf7c023fe02591bd0469bf4c6a6e7e9b0edd9b170a67b0f38668fbb7794f11",
+    "35f64e73b8aa7c8ff3d17ab88f703dd197114997c321a7fa84d0cc80030aacff"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": true,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-14-containment"
+    },
+    {
+      "expected_status": "COUPLED_EXCHANGE_COMMITTED",
+      "observed_status": "COUPLED_EXCHANGE_COMMITTED",
+      "passed": true,
+      "scenario_id": "P3-18-coupled-exchange"
+    }
+  ],
+  "prompt": "prompt3",
+  "record_hash": "5d7ad0dadeb255872dceb9e5270ba25283c0f4572f6d1b9fd3b1bd78f5d948dc",
+  "status": "PASS"
+}

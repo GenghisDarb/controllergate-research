@@ -1,0 +1,49 @@
+{
+  "artifact": "source_mutation_during_replication_negative_control.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "88f7492baef0aee62922fc69fdbfdbee6711c1b54d5db7557c6564bcaa70e30f",
+    "d6a2086985e6b6c9495d2989f1eea7bbc27e7a06f141af6768d28b9d105a6c9e",
+    "dbb1c2987634210ec4866bff77ee46f5e7aff6654c867a4021afd0411f6ae273",
+    "80dc6083482da6947232b2ed302616be7f6ff20f2056d4580aad33ceb5af367e",
+    "35f64e73b8aa7c8ff3d17ab88f703dd197114997c321a7fa84d0cc80030aacff"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": true,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-03-frozen-origin-dual"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P3-04-duplicate-origin"
+    },
+    {
+      "expected_status": "RESUMED",
+      "observed_status": "RESUMED",
+      "passed": true,
+      "scenario_id": "P3-05-fork-stall-resume"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P3-06-source-mutation"
+    },
+    {
+      "expected_status": "COUPLED_EXCHANGE_COMMITTED",
+      "observed_status": "COUPLED_EXCHANGE_COMMITTED",
+      "passed": true,
+      "scenario_id": "P3-18-coupled-exchange"
+    }
+  ],
+  "prompt": "prompt3",
+  "record_hash": "f8cfddb84bd8681c9aed82456d78e2dc9aa373ef2100adc63d4d117c912eec4f",
+  "status": "PASS"
+}

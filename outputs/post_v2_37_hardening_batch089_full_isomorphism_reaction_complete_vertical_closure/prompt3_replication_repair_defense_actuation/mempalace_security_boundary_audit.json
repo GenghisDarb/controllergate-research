@@ -1,0 +1,51 @@
+{
+  "direct_vector_store_decision_access": false,
+  "external_llm_consent_required": true,
+  "repositories": [
+    {
+      "mcp_paths": [
+        ".claude-plugin/.mcp.json",
+        "examples/mcp_setup.md",
+        "mempalace/mcp_server.py",
+        "tests/benchmarks/test_mcp_bench.py",
+        "tests/test_mcp_server.py",
+        "tests/test_mcp_stdio_protection.py",
+        "website/guide/mcp-integration.md",
+        "website/reference/mcp-tools.md"
+      ],
+      "repository": "milla-jovovich/mempalace-Aya-fork",
+      "security_test_paths": [],
+      "storage_paths": []
+    },
+    {
+      "mcp_paths": [
+        ".antigravity-plugin/mcp_config.json",
+        ".claude-plugin/.mcp.json",
+        ".cursor-plugin/mcp.json",
+        "examples/antigravity/mcp_config.json",
+        "examples/mcp_setup.md",
+        "mcp.json",
+        "mempalace/mcp_server.py",
+        "tests/benchmarks/test_mcp_bench.py",
+        "tests/test_mcp_http_transport.py",
+        "tests/test_mcp_mine.py",
+        "tests/test_mcp_server.py",
+        "tests/test_mcp_stdio_protection.py",
+        "website/guide/mcp-integration.md",
+        "website/reference/mcp-tools.md"
+      ],
+      "repository": "MemPalace/mempalace",
+      "security_test_paths": [],
+      "storage_paths": [
+        "mempalace/backends/pgvector.py",
+        "mempalace/backends/sqlite_exact.py",
+        "tests/test_live_pgvector_conformance.py",
+        "tests/test_pgvector_backend.py",
+        "tests/test_sqlite_exact_backend.py"
+      ]
+    }
+  ],
+  "shadow_only": true,
+  "shared_sqlite_authority": false,
+  "status": "PASS"
+}

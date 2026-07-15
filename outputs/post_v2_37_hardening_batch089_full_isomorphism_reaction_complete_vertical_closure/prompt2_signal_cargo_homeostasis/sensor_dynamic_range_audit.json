@@ -1,0 +1,28 @@
+{
+  "artifact": "sensor_dynamic_range_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "813f751774383169b02a2266b10b2de37851b98d7716b4d6da74f558e8a9c6a1",
+    "1f8c4a1010738206d6ff666901a2c6d59fa175e93c307ce1d18c54a70ec95128"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "DIRECT_VERIFIED",
+      "observed_status": "DIRECT_VERIFIED",
+      "passed": true,
+      "scenario_id": "P2-06-sensor-valid"
+    },
+    {
+      "expected_status": "REJECTED_UNUSABLE",
+      "observed_status": "REJECTED_UNUSABLE",
+      "passed": true,
+      "scenario_id": "P2-07-sensor-saturation"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "574937546e37739542b270746f35084f2b4dec283dfa59d10f24901800ac4f2f",
+  "status": "PASS"
+}

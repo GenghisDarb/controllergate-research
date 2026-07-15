@@ -1,0 +1,38 @@
+{
+  "artifact": "cloudpickle_canonical_historical_lifecycle.json",
+  "authority": "direct_execution_receipts",
+  "blocker": "historical_short_lived_capsule_or_release_prerequisite_not_materialized",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "4d6137dd0bd06430bdf9698246acdd5e2b8777f170a043161115bd6f27e169dc",
+    "bceda42d1723126fe72da97137069eee356d48b26b45856fb34a0dd1f36aa63b",
+    "955e6431d1dd90f24db7e7a146f6a6e6b806833fb2a6f2a6ba0dd0d82fb5d750"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "next_allowed_action": "materialize independently verified short-lived historical capsules before lifecycle or release authority",
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P1-constitution"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P1-environmental-mimic"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P1-conditional-manifestation"
+    }
+  ],
+  "prompt": "prompt1",
+  "record_hash": "885ee4b2e1b864e13c58f618c6355274b7e9a294748cdca88582d6c54a02017d",
+  "repair_count_increment": 0,
+  "status": "BLOCK"
+}

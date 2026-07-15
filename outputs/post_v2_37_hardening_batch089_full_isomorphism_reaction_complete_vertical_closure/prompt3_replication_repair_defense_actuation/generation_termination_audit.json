@@ -1,0 +1,35 @@
+{
+  "artifact": "generation_termination_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "3a955fc1ac09a62d09bb860cf78a7fb9d019ce35edffadd84e3d8795fed09c51",
+    "56b27781fd7540a9e74e794a407a2ae154ceaa9c2c361653f75143968b07a7fc",
+    "88f7492baef0aee62922fc69fdbfdbee6711c1b54d5db7557c6564bcaa70e30f"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-01-template-to-mature"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P3-02-malformed-primary"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-03-frozen-origin-dual"
+    }
+  ],
+  "prompt": "prompt3",
+  "record_hash": "6aa7ef8ffe06f93a9a279c43b968b8f06c8192e6c9098f465f24c10d66a8f57c",
+  "status": "PASS"
+}

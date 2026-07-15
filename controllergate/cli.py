@@ -19,7 +19,7 @@ from .watch.controller import WatchController
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="controllergate")
     sub = parser.add_subparsers(dest="command", required=True)
-    doctor_command = sub.add_parser("doctor"); doctor_command.add_argument("--runtime-root")
+    doctor_command = sub.add_parser("doctor"); doctor_command.add_argument("--runtime-root"); doctor_command.add_argument("--deep", action="store_true"); doctor_command.add_argument("--json", dest="json_path"); doctor_command.add_argument("--repo-root")
     run = sub.add_parser("run")
     run.add_argument("--manifest", required=True)
     historical = sub.add_parser("historical-run"); historical.add_argument("--config", required=True)
@@ -32,7 +32,12 @@ def main(argv: list[str] | None = None) -> int:
     connector_verify = connector_sub.add_parser("verify"); connector_verify.add_argument("--manifest", required=True)
     watch = sub.add_parser("watch"); watch.add_argument("--database", required=True); watch.add_argument("--connector-id", required=True); watch.add_argument("--events", required=True); watch.add_argument("--cursor"); watch.add_argument("--once", action="store_true")
     args = parser.parse_args(argv)
-    if args.command == "doctor": result = doctor(args.runtime_root)
+    if args.command == "doctor":
+        result = doctor(args.runtime_root, deep=args.deep, repo_root=args.repo_root)
+        if args.json_path:
+            destination = Path(args.json_path)
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     elif args.command == "run": result = run_manifest(args.manifest)
     elif args.command == "historical-run": result = run_historical_lifecycle(args.config)
     elif args.command == "resume": result = resume_run(args.manifest, args.run_id)

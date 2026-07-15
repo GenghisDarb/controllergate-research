@@ -1,0 +1,35 @@
+{
+  "artifact": "signal_ttl_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "f110f8ae5f3f700a45e80bcd06898b6a61a41f09242a89e76bb5d71c6dcf3f77",
+    "e440072961ffbf758dd9e0943c925ecea369275e13ea1c7b1ad2b6df00843ea4",
+    "ef795f8ff04e6a2f6f0bdb6b6c5d038d24493905cd8e45d2b546ccd4b6bb067f"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "DELIVERED",
+      "observed_status": "DELIVERED",
+      "passed": true,
+      "scenario_id": "P2-08-signal-valid"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-09-signal-saturation"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P2-10-signal-inhibited"
+    }
+  ],
+  "prompt": "prompt2",
+  "record_hash": "c23055f8fe587f9c08afba4cd74dcb4fd5a02a3896474c1e9275ecfb4e838310",
+  "status": "PASS"
+}

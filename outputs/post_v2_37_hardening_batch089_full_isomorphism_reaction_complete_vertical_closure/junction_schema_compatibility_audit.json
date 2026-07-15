@@ -1,0 +1,28 @@
+{
+  "artifact": "junction_schema_compatibility_audit.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "ee74574377d51274c25037be7fb0a60215d5872c58062f271538acce559c0b40",
+    "0641b7b05a0368361b674db7f2f7f0aaf072112b45bcd5665295cc16f4954150"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": null,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P1-junction-valid"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P1-junction-bypass"
+    }
+  ],
+  "prompt": "prompt1",
+  "record_hash": "d6de444fb8403ce9dce452353c87da2faa1755ce7c0f4bbdcfa675040aef2e30",
+  "status": "PASS"
+}

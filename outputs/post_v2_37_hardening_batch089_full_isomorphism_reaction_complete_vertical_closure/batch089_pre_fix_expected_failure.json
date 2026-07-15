@@ -1,0 +1,250 @@
+{
+  "audited_head": "e02fb4d3a899dd0a6ccc9eb8fc0e38ab0e4e4e94",
+  "builder_decision_function_imported": false,
+  "defects": [
+    {
+      "defect": "hidden files are not explicitly preserved",
+      "defect_id": "B089-P1-01",
+      "file": ".github/workflows/post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure.yml",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_01",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "source capsule upload"
+    },
+    {
+      "defect": "two independent successful source builds are not required",
+      "defect_id": "B089-P1-02",
+      "file": "scripts/batch088_capsule_transport.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_02",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "build_source"
+    },
+    {
+      "defect": "bounded diagnostics are reduced to opaque hashes",
+      "defect_id": "B089-P1-03",
+      "file": "scripts/batch088_capsule_transport.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_03",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "build diagnostics"
+    },
+    {
+      "defect": "source identity does not survive portable producer-consumer reconstruction",
+      "defect_id": "B089-P1-04",
+      "file": "scripts/finalize_batch088_evidence.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_04",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "transport"
+    },
+    {
+      "defect": "verified capsules still unconditionally produce a blocked lifecycle",
+      "defect_id": "B089-P1-05",
+      "file": "scripts/batch088_consume_capsules.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_05",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "main"
+    },
+    {
+      "defect": "non-source lifecycle is a placeholder block writer",
+      "defect_id": "B089-P1-06",
+      "file": "scripts/batch088_non_source_attempt.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_06",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "main"
+    },
+    {
+      "defect": "the same generic probe family is reused for every episode",
+      "defect_id": "B089-P1-07",
+      "file": "scripts/run_batch088_amds_builder.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_07",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "build_contracts"
+    },
+    {
+      "defect": "old text and JSON are parsed instead of candidate-specific experiments",
+      "defect_id": "B089-P1-08",
+      "file": "scripts/batch088_neutral_probe.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_08",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "main"
+    },
+    {
+      "defect": "text counts and inferred return codes cannot establish ownership",
+      "defect_id": "B089-P1-09",
+      "file": "scripts/batch088_neutral_probe.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_09",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "main"
+    },
+    {
+      "defect": "some anchors are label hashes rather than measured runtime identities",
+      "defect_id": "B089-P1-10",
+      "file": "configs/batch088_historical_cohort_decision_time.json",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_10",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "anchors"
+    },
+    {
+      "defect": "active-set intersection is not complete truth maintenance",
+      "defect_id": "B089-P1-11",
+      "file": "controllergate/amds/dpp14/constraint_propagation.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_11",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "propagate"
+    },
+    {
+      "defect": "absent antecedent can incorrectly discard a consequent",
+      "defect_id": "B089-P1-12",
+      "file": "controllergate/amds/dpp14/constraint_propagation.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_12",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "implication handling"
+    },
+    {
+      "defect": "explicit true/false/unknown cardinality semantics are incomplete",
+      "defect_id": "B089-P1-13",
+      "file": "controllergate/amds/dpp14/constraint.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_13",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "constraint semantics"
+    },
+    {
+      "defect": "contradiction evidence is synthetic rather than brokered historical evidence",
+      "defect_id": "B089-P1-14",
+      "file": "scripts/run_batch088_amds_builder.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_14",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "adversarial backtrack"
+    },
+    {
+      "defect": "generic fact prefixes replace required individual proof tokens",
+      "defect_id": "B089-P1-15",
+      "file": "controllergate/amds/dpp14/controller_audit.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_15",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "source ownership"
+    },
+    {
+      "defect": "production stages can begin from default pass-like state",
+      "defect_id": "B089-P1-16",
+      "file": "controllergate/product/cycle.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_16",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "stage initialization"
+    },
+    {
+      "defect": "independent licensing conditions collapse to one path-presence result",
+      "defect_id": "B089-P1-17",
+      "file": "controllergate/product/historical_lifecycle.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_17",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "repair license"
+    },
+    {
+      "defect": "duplicate replay does not prove a fresh independent compartment",
+      "defect_id": "B089-P1-18",
+      "file": "controllergate/product/historical_lifecycle.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_18",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "duplicate replay"
+    },
+    {
+      "defect": "only shadow traces exist; real curvature is not established",
+      "defect_id": "B089-P1-19",
+      "file": "outputs/post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure/tld_curvature_elbow_audit.json",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_19",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "TLD"
+    },
+    {
+      "defect": "later runs can regenerate prior historical output directories",
+      "defect_id": "B089-P1-20",
+      "file": "scripts/finalize_batch088_evidence.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_20",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "output write"
+    },
+    {
+      "defect": "workflow success can mean only an asserted block record",
+      "defect_id": "B089-P1-21",
+      "file": ".github/workflows/post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure.yml",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_21",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "expected block jobs"
+    },
+    {
+      "defect": "many passing checks can obscure one load-bearing unresolved checkpoint",
+      "defect_id": "B089-P1-22",
+      "file": "scripts/audit_batch088_release_critic.py",
+      "line_range": "1-end",
+      "red_to_green_test": "batch089_prompt1_defect_22",
+      "required_correction": "implement a typed executable transition with independent verification and an explicit authority boundary",
+      "risk": "release-critical evidence can be overstated or authority can be bypassed",
+      "starting_head_object_observed": true,
+      "symbol": "release decision"
+    }
+  ],
+  "detected_defect_count": 22,
+  "status": "BATCH089_PRE_FIX_AUDIT_FAIL_EXPECTED"
+}

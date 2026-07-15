@@ -1,0 +1,42 @@
+{
+  "artifact": "lossy_repair_release_negative_control.json",
+  "authority": "direct_execution_receipts",
+  "execution_depth": "INSTALLED_PRODUCT_EXECUTION",
+  "execution_receipts": [
+    "b1ec99ad32bc856b1eac4450bad09ddfb2e2b558dd0b33293a5b3ede5969bf94",
+    "dd1d064e25693e8f8d9435ae00bbe32e9ce4c180850b348563d95d0657419fc7",
+    "f55fa42f268865cb739f33304de41b8d97375667267d827d768b32ce87308012",
+    "35f64e73b8aa7c8ff3d17ab88f703dd197114997c321a7fa84d0cc80030aacff"
+  ],
+  "generated_at": "2026-07-15T04:50:40.366321+00:00",
+  "negative_control_expected_block_observed": true,
+  "observations": [
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-07-exact-reversal"
+    },
+    {
+      "expected_status": "PASS",
+      "observed_status": "PASS",
+      "passed": true,
+      "scenario_id": "P3-08-template-guided-repair"
+    },
+    {
+      "expected_status": "BLOCK",
+      "observed_status": "BLOCK",
+      "passed": true,
+      "scenario_id": "P3-09-bypass-not-repair"
+    },
+    {
+      "expected_status": "COUPLED_EXCHANGE_COMMITTED",
+      "observed_status": "COUPLED_EXCHANGE_COMMITTED",
+      "passed": true,
+      "scenario_id": "P3-18-coupled-exchange"
+    }
+  ],
+  "prompt": "prompt3",
+  "record_hash": "349b14031bd984f88ca5751693528c7fe51990196ee1d8e8eab2919e67ff2426",
+  "status": "PASS"
+}

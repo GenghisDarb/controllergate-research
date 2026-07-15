@@ -1,0 +1,60 @@
+{
+  "audit_hash": "a1307667cfd2087e9fb8a05d79e2bf3fa053cb0cc86b634fd4d9ca6ec2ea45d0",
+  "automatic_merge": false,
+  "catalog_missing": [],
+  "critic_scope": "composite_prompt3",
+  "current_protocol": "v2.19",
+  "execution_backed_json_outputs": 309,
+  "failures": [],
+  "full_scoring": "NOT_RUN/disallowed",
+  "historical_immutability": "PASS",
+  "historical_repair_increment": 0,
+  "issue_derived_repair_count": 6,
+  "memory_lift": "not_demonstrated",
+  "native_external_repair_count": 4,
+  "product_beta_rc": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "prompt_contract_count": 3,
+  "public_writes": false,
+  "release_blockers": [
+    "two_independently_verified_short_lived_historical_capsule_lifecycles_not_materialized",
+    "distinct_canary_and_exact_rollback_not_executed",
+    "independent_release_critic_pending"
+  ],
+  "requirement_count": 78,
+  "scenario_counts": {
+    "prompt1": 20,
+    "prompt2": 20,
+    "prompt3": 20
+  },
+  "scenario_pass_count": 60,
+  "self_maintaining_software": "false/not_demonstrated",
+  "sqlite": {
+    "new_tables_present": [
+      "access_leases",
+      "authority_handovers",
+      "cleanup_events",
+      "compartments",
+      "constraint_states",
+      "evidence_facts",
+      "global_inhibitors",
+      "hypothesis_states",
+      "junction_contracts",
+      "lineage_nodes",
+      "nogood_constraints",
+      "reaction_contracts",
+      "reaction_executions",
+      "repair_license_tokens",
+      "resource_budgets",
+      "resource_events",
+      "scaffold_changes",
+      "source_ownership_tokens",
+      "translocations",
+      "variant_audits"
+    ],
+    "reaction_executions": 60,
+    "schema_version": 5
+  },
+  "status": "PASS_WITH_RELEASE_BLOCKED",
+  "supplied_source_documents": 29,
+  "unique_source_documents": 28
+}
