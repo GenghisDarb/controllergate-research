@@ -43,10 +43,29 @@ def run(argv: list[str], cwd: Path, env: dict[str, str] | None = None, timeout: 
     return subprocess.run(argv, cwd=cwd, env=env, text=True, encoding="utf-8", errors="replace", capture_output=True, check=False, timeout=timeout)
 
 
-def safe_reset(runtime: Path) -> None:
+def runtime_root_allowed(runtime: Path, environment: dict[str, str] | None = None) -> bool:
     resolved = runtime.resolve()
     text = str(resolved).upper()
-    if "CONTROLLERGATE_RUNTIME" not in text or "ONEDRIVE" in text or text.startswith("E:\\") or ROOT.resolve() in resolved.parents:
+    values = os.environ if environment is None else environment
+    local_root = (ROOT.resolve().parent / "ControllerGate_Runtime").resolve()
+    allowed_local = resolved == local_root or local_root in resolved.parents
+    runner_temp = values.get("RUNNER_TEMP")
+    allowed_ci = False
+    if runner_temp:
+        ci_root = (Path(runner_temp).resolve() / "controllergate-runtime").resolve()
+        allowed_ci = resolved == ci_root or ci_root in resolved.parents
+    return bool(
+        (allowed_local or allowed_ci)
+        and "ONEDRIVE" not in text
+        and not text.startswith("E:\\")
+        and resolved != ROOT.resolve()
+        and ROOT.resolve() not in resolved.parents
+    )
+
+
+def safe_reset(runtime: Path) -> None:
+    resolved = runtime.resolve()
+    if not runtime_root_allowed(resolved):
         raise RuntimeError(f"unsafe runtime root: {resolved}")
     shutil.rmtree(resolved, ignore_errors=True)
     resolved.mkdir(parents=True)
@@ -99,24 +118,30 @@ def main() -> int:
     args = parser.parse_args()
     runtime = args.runtime_root.resolve(); output = args.output.resolve()
     safe_reset(runtime)
+    build_env = dict(os.environ)
+    build_env.pop("PYTHONPATH", None)
+    env = dict(build_env)
+    env["PYTHONNOUSERSITE"] = "1"
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
     dist = runtime / "dist"; dist.mkdir()
-    build = run([sys.executable, "-m", "build", "--wheel", "--no-isolation", "--outdir", str(dist)], ROOT, timeout=600)
+    build = run(
+        [sys.executable, "-m", "build", "--wheel", "--no-isolation", "--outdir", str(dist), str(ROOT)],
+        runtime,
+        build_env,
+        timeout=600,
+    )
     wheels = sorted(dist.glob("controllergate-*.whl"))
     if build.returncode != 0 or len(wheels) != 1:
         raise RuntimeError(f"wheel build failed: {build.stderr[-2000:]}")
     wheel = wheels[0]; wheel_sha = sha(wheel)
     venv = runtime / "installed-venv"
-    create = run([sys.executable, "-m", "venv", str(venv)], runtime)
+    create = run([sys.executable, "-m", "venv", str(venv)], runtime, build_env)
     if create.returncode:
         raise RuntimeError(create.stderr)
     py = python_in(venv); cli = cli_in(venv)
-    install = run([str(py), "-m", "pip", "install", "--no-deps", str(wheel)], runtime, timeout=600)
+    install = run([str(py), "-m", "pip", "install", "--no-deps", str(wheel)], runtime, env, timeout=600)
     if install.returncode:
         raise RuntimeError(install.stderr)
-    env = dict(os.environ)
-    env.pop("PYTHONPATH", None)
-    env["PYTHONNOUSERSITE"] = "1"
-    env["PYTHONDONTWRITEBYTECODE"] = "1"
     identity_code = (
         "import importlib.metadata as m,controllergate,json,pathlib;"
         "d=m.distribution('controllergate');"

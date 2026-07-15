@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from controllergate.execution.stage_registry import STAGE_REGISTRY, registered_stage
+from scripts.run_batch090_installed_verticals import runtime_root_allowed
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -77,3 +78,11 @@ def test_installed_mechanism_scenarios_and_negative_control() -> None:
     assert negative["mechanism_outcomes"][-1]["observed_status"] == "BLOCK"
     assert negative["test_assertions"][-1]["assertion_status"] == "TEST_PASS"
     assert trace[-1]["cleanup_receipts"]
+
+
+def test_installed_runtime_root_accepts_only_exact_ci_runtime_subtree(tmp_path: Path) -> None:
+    environment = {"RUNNER_TEMP": str(tmp_path)}
+    allowed = tmp_path / "controllergate-runtime" / "batch090-installed-linux"
+    lookalike = tmp_path / "controllergate-runtime-escape" / "batch090-installed-linux"
+    assert runtime_root_allowed(allowed, environment)
+    assert not runtime_root_allowed(lookalike, environment)
