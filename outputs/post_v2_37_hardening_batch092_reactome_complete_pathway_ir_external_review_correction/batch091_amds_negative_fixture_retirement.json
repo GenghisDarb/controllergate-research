@@ -1,0 +1,21 @@
+{
+  "authority_allowed": "historical negative tests only",
+  "authority_forbidden": [
+    "current terminal decisions",
+    "current baselines",
+    "current source ownership"
+  ],
+  "class_associated_legacy_key_count": 8,
+  "current_authority_import_count": 0,
+  "execution_depth": "legacy_contract_and_source_scan",
+  "legacy_candidate_count": 8,
+  "producer": "scripts/run_batch092_causal_authority.py",
+  "retired_components": [
+    "configs/batch091_amds_measurement_contracts.json",
+    "scripts/batch091_sanitize_amds_inputs.py:class_associated_measurement_path",
+    "controllergate.amds.dpp14.blind_runtime:terminal_path",
+    "Batch091 copied baseline path"
+  ],
+  "semantic_scope": "Batch091 negative-fixture retirement",
+  "status": "PASS"
+}

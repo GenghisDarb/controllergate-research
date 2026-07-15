@@ -12,9 +12,29 @@
   "contract_hash_basis": "exact_utf8_bytes_of_the_prompt_message_containing_the_prompt_sentinel",
   "current_package_version": "0.2.0b2.dev0",
   "current_protocol": "v2.19",
+  "exact_prompt_bytes_sha256": "51fe3ed6fe81e769198c5793ad0aa5167174fc81d7861b786816ae017973f66f",
   "expected_starting_head": "1c13c97b1d251e79065eb64a425b9666ed410d51",
   "human_authorization_block_hash": "674ccd88095bd9d1ec5967b1635c653d23d4689d4554e701aab3c0bc60297861",
   "human_authorization_block_hash_basis": "exact_utf8_authorization_block_from_prompt_message",
+  "human_authorization": {
+    "candidates": [
+      {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      },
+      {
+        "allowed_source_path": "freezegun/api.py",
+        "candidate_id": "freezegun_547_py313_datetimes_assertion",
+        "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
+      }
+    ],
+    "expires_hours_after_official_run_start": 24,
+    "historical_non_counting_only": true,
+    "one_use_per_candidate": true,
+    "public_write_prohibited": true,
+    "valid_for_first_official_batch092_workflow_only": true
+  },
   "locked_repair_counts": {
     "historical_increment": 0,
     "issue_derived": 6,
