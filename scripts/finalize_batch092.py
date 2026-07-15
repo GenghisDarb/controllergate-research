@@ -130,13 +130,25 @@ The current decision is `{internal_decision}`. Protocol remains v2.19, package v
         "semantic_scope": "external review handoff", "authority_allowed": "artifact navigation", "authority_forbidden": "external approval",
         "file_count": len(core_names), "files": core_names, "raw_reactome_pdfs_included": False, "runtime_database_included": False,
     })
-    manifest_rows = []
-    for path in sorted(item for item in output.iterdir() if item.is_file() and item.name not in MANIFEST_NAMES):
-        manifest_rows.append(f"{sha(path)}  {path.name}")
-    manifest_text = "\n".join(manifest_rows) + "\n"
-    for name in sorted(MANIFEST_NAMES):
-        (output / name).write_text(manifest_text, encoding="utf-8", newline="\n")
-    print(json.dumps({"status": internal_decision, "output_file_count": len(core_names), "manifest_entry_count": len(manifest_rows), "exact_blockers": blockers}, sort_keys=True))
+    core_rows = [
+        f"{sha(path)}  {path.name}"
+        for path in sorted(item for item in output.iterdir() if item.is_file() and item.name not in MANIFEST_NAMES)
+    ]
+    portable = output / "PORTABLE_ARTIFACT_SHA256SUMS.txt"
+    artifact = output / "ARTIFACT_SHA256SUMS.txt"
+    repository = output / "SHA256SUMS.txt"
+    portable.write_text("\n".join(core_rows) + "\n", encoding="utf-8", newline="\n")
+    artifact_rows = sorted(core_rows + [f"{sha(portable)}  {portable.name}"])
+    artifact.write_text("\n".join(artifact_rows) + "\n", encoding="utf-8", newline="\n")
+    repository_rows = sorted(
+        core_rows
+        + [
+            f"{sha(artifact)}  {artifact.name}",
+            f"{sha(portable)}  {portable.name}",
+        ]
+    )
+    repository.write_text("\n".join(repository_rows) + "\n", encoding="utf-8", newline="\n")
+    print(json.dumps({"status": internal_decision, "output_file_count": len(core_names), "manifest_entry_count": len(repository_rows), "exact_blockers": blockers}, sort_keys=True))
     return 0
 
 

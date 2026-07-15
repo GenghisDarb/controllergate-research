@@ -178,7 +178,7 @@ jobs:
           cp controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md "$STAGE/controllergate_v1_7_beta/reports/critic_review_package/"
           if find "$STAGE" -type f \( -name '*.zip' -o -name '*.tar' -o -name '*.tgz' -o -name '*.pdf' -o -name '*.whl' -o -name '*.sqlite*' -o -name '*.pyc' -o -name '*.pyo' \) | grep -q .; then exit 1; fi
           if find "$STAGE" -type d \( -name '__pycache__' -o -name '.git' -o -name 'site-packages' \) | grep -q .; then exit 1; fi
-          (cd "$STAGE" && find . -type f -print0 | sort -z | xargs -0 sha256sum > ARTIFACT_SHA256SUMS.txt)
+          (cd "$STAGE" && find . -type f ! -name 'ARTIFACT_SHA256SUMS.txt' -print0 | sort -z | xargs -0 sha256sum > ARTIFACT_SHA256SUMS.txt)
       - uses: actions/upload-artifact@v4
         with:
           name: post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction_artifacts
