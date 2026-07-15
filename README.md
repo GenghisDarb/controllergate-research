@@ -1,5 +1,11 @@
 # ControllerGate
 
+## Batch091 external-review boundary
+
+Batch091 corrects Batch090's lossy short-lived source transport with deterministic Git-tree capsules that conserve all public hidden files. It executes a physically blinded eight-episode historical AMDS campaign, non-counting installed Cloudpickle and Freezegun repair lifecycles, two installed non-source lifecycles, a distinct repaired-package canary with three health classes and exact rollback, and a standard-library-only semantic critic with seal-breaking and re-signed adversarial mutation campaigns.
+
+The strongest authorized internal status is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`, with exact blocker `external_independent_release_review_pending`. This is not Product Beta PASS or production readiness. The current protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, counts remain 6 issue-derived and 4 native external repairs with historical increment 0, full scoring remains `NOT_RUN/disallowed`, public writes and automatic merge remain inactive, prospective AMDS effectiveness and memory lift remain unestablished, and self-maintaining software is not demonstrated.
+
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current validated boundary
 

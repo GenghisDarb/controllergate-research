@@ -137,11 +137,13 @@ def audit() -> tuple[dict[str, Any], list[str]]:
     git_diff = subprocess.check_output(["git", "diff", "--name-only", STARTING_HEAD, "--", "outputs"], cwd=REPO, text=True).splitlines()
     allowed_current_views = {"outputs/frontier/CURRENT_FRONTIER_STATE.json", "outputs/byte_custody_preflight_report.json"}
     later_batch090_prefix = "outputs/post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure/"
+    later_batch091_prefix = "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/"
     historical_changes = [
         name for name in git_diff
         if "batch089" not in name
         and name.replace("\\", "/") not in allowed_current_views
         and not name.replace("\\", "/").startswith(later_batch090_prefix)
+        and not name.replace("\\", "/").startswith(later_batch091_prefix)
     ]
     if historical_changes:
         failures.append("historical_output_mutation_detected")

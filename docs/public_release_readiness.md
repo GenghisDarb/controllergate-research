@@ -1,5 +1,11 @@
 # Public release readiness
 
+## Batch091 external independent review required
+
+Batch091 closes the internal historical evidence gaps identified in Batch090 by conserving hidden source files, executing the frozen blinded AMDS cohort, completing installed historical and non-source lifecycles, exercising a repaired distribution in a distinct local canary, rejecting the original buggy package, rolling back exactly, and passing semantic adversarial review. The resulting status is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`, with blocker `external_independent_release_review_pending`.
+
+No tag, release, publication, public write, or automatic merge is authorized. Production readiness remains false, protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, repair counts remain 6 issue-derived and 4 native external, full scoring remains disallowed, and self-maintaining software is not demonstrated.
+
 ## Batch089 composite release boundary
 
 Batch089 executes 60 installed-product scenarios across the core reaction kernel, signal/transport controls, and replication/repair/defense services. The independent critic accepts their positive and adversarial outcomes but does not authorize release. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0` until two independently verified short-lived historical capsule lifecycles, a distinct repaired-software canary, a measured health window, and exact rollback are completed. This is not production readiness, full scoring, demonstrated memory lift, or self-maintaining software.

@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch091 lossless capsule and historical closure
+
+Batch091 reconciles the official Batch090 evidence, conserves 58 Cloudpickle and 39 Freezegun Git-tree entries including public hidden files, and evaluates a frozen eight-episode historical frame with truth physically withheld from the AMDS builder. Stage-produced source-ownership and single-use repair-license proofs govern non-counting installed repair lifecycles; installed non-source lifecycles receive no patch authority.
+
+The repaired Cloudpickle distribution is independently rebuilt and exercised in a distinct local canary through a registered target, a separate public-API consumer, and package/provider integrity. The original buggy distribution is the negative control, followed by a local package switch, exact rollback, and cleanup. A standard-library-only critic reconstructs the evidence and rejects both seal-breaking and re-signed semantic mutations. The maximum result is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`, not a public release or production-readiness claim. Protocol stays `v2.19`, version stays `0.2.0b2.dev0`, counts stay 6 issue-derived and 4 native external with historical increment 0, and full scoring, memory lift, and self-maintaining software remain unestablished.
+
 ## Batch089 full isomorphism and vertical closure
 
 Batch089 consolidates three prompt families into one installed ControllerGate engine. It adds schema-v5 reaction, evidence, constraint, access, resource, lineage, and authority records; a deep repository doctor; typed plan, signal, transport, cleanup, and memory boundaries; and proof-carrying artifact, replication, repair-strategy, defense, containment, actuator, and flow-control services. Sixty bounded installed-product scenarios exercise both accepted and rejected paths. Earlier evidence remains immutable and counts remain six issue-derived and four native external repairs.

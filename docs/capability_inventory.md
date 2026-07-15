@@ -1,5 +1,11 @@
 # Capability inventory
 
+## Batch091 verified internal capability boundary
+
+Batch091 adds deterministic lossless Git-tree and provider capsule custody, physically blinded eight-episode historical diagnosis, stage-produced proof authority, installed canonical historical lifecycles, repaired-distribution reproducibility checks, distinct local canary compartments, three independent health classes, negative control, local package switching, exact rollback, and a standard-library semantic reconstruction critic. Re-signed evidence is rejected through semantic invariants rather than byte mismatch alone.
+
+These capabilities support `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`, not Product Beta PASS. External independent review is still required. Protocol, version, repair counts, scoring, connector-write, memory-lift, production-readiness, and self-maintaining-software boundaries remain unchanged.
+
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 

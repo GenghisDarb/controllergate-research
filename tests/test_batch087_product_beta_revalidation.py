@@ -73,7 +73,7 @@ def test_blind_dpp_rejects_terminal_and_label_injection(tmp_path: Path):
 def test_blind_dpp_raw_probe_is_brokered_and_deterministic(tmp_path: Path):
     anchors = {"source_and_test_tree_identity": canonical_hash("tree")}
     frame = {"candidate_id": "c", "run_id": "r", "anchors": anchors,
-             "probes": [{"probe_id": "p", "script": "print('provider_failure=true')"}]}
+             "probes": [{"probe_id": "p", "script": "print('observed_provider_unavailable=true')"}]}
     first = run_blind_episode(frame, tmp_path / "a"); second = run_blind_episode(frame, tmp_path / "b")
     assert first["terminal"] == second["terminal"] == "provider_owned"
     assert first["observations"][0]["broker_record_hash"]

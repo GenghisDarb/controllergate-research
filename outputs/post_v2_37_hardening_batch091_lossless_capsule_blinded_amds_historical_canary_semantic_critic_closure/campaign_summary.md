@@ -1,0 +1,7 @@
+# Batch091 campaign summary
+
+Batch091 verified and reconciled the official Batch090 evidence, replaced lossy source transport with deterministic Git-tree capsules, and conserved all 58 Cloudpickle and 39 Freezegun public hidden files. The physically blinded eight-episode historical AMDS campaign passed its frozen causal-mechanism quality gate without terminal-label leakage or repair-authority leakage.
+
+The installed canonical ControllerGate CLI completed non-counting Cloudpickle and Freezegun repair lifecycles plus Audioread and HordeForge non-source lifecycles. Cloudpickle's repaired wheel was independently rebuilt, installed in a distinct canary compartment, exercised through three independent health classes, rejected the original buggy distribution, switched locally, and rolled back exactly. A standard-library-only critic accepted the sealed baseline and semantically rejected all 22 re-signed adversarial mutations in addition to all 22 seal-breaking mutations.
+
+Internal result: `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`. The exact remaining blocker is `external_independent_release_review_pending`. This requires independent external release review and is not a Product Beta PASS, production-readiness claim, public release, memory-lift claim, full-scoring result, or self-maintaining-software claim. Protocol remains `v2.19`; package version remains `0.2.0b2.dev0`; counts remain 6 issue-derived and 4 native external repairs with historical increment 0.

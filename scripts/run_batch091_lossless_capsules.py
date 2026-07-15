@@ -72,6 +72,7 @@ def main() -> int:
     args.output.mkdir(parents=True, exist_ok=True)
     args.runtime.mkdir(parents=True, exist_ok=True)
     registry = json.loads((ROOT / "configs/batch086_historical_provider_registry.json").read_text(encoding="utf-8"))
+    build_cofactors = json.loads((ROOT / "configs/batch091_provider_build_cofactors.json").read_text(encoding="utf-8"))
     expiry = (datetime.now(timezone.utc) + timedelta(days=1)).isoformat()
     source_receipts: dict[str, dict[str, object]] = {}
     consumer_receipts: dict[str, dict[str, object]] = {}
@@ -113,7 +114,10 @@ def main() -> int:
         }
         provider_receipts[name] = acquire_provider_capsule(
             candidate_id=str(episode["candidate_id"]),
-            packages=episode["target_required_packages"],
+            packages=[
+                *episode["target_required_packages"],
+                *build_cofactors.get(str(episode["candidate_id"]), []),
+            ],
             cutoff=str(episode["cutoff"]),
             download_root=args.runtime / "provider-downloads" / name,
             archive_path=args.runtime / "capsules" / f"{name}-provider.zip",

@@ -1,0 +1,237 @@
+name: post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  OUTPUT: outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure
+  PYTHONDONTWRITEBYTECODE: "1"
+  PYTHONPATH: ${{ github.workspace }}
+
+jobs:
+  custody:
+    name: 01-12 official reconciliation, lossless capsules, and sanitized inputs
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - run: python scripts/audit_batch090_evidence_delaundering_installed_vertical_closure.py --official-reconciliation
+      - run: python scripts/run_batch091_lossless_capsules.py --runtime "$RUNNER_TEMP/controllergate-runtime/custody" --output "$OUTPUT"
+      - run: python scripts/batch091_sanitize_amds_inputs.py --runtime "$RUNNER_TEMP/controllergate-runtime/sanitized" --output "$OUTPUT"
+      - run: python -m pip wheel . --no-deps -w "$RUNNER_TEMP/controllergate-wheel"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_cloudpickle_source_capsule
+          path: ${{ runner.temp }}/controllergate-runtime/custody/capsules/cloudpickle-source.zip*
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_cloudpickle_provider_capsule
+          path: ${{ runner.temp }}/controllergate-runtime/custody/capsules/cloudpickle-provider.zip*
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_freezegun_source_capsule
+          path: ${{ runner.temp }}/controllergate-runtime/custody/capsules/freezegun-source.zip*
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_freezegun_provider_capsule
+          path: ${{ runner.temp }}/controllergate-runtime/custody/capsules/freezegun-provider.zip*
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_controllergate_wheel
+          path: ${{ runner.temp }}/controllergate-wheel/controllergate-*.whl
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_sanitized_builder_input
+          path: |
+            ${{ runner.temp }}/controllergate-runtime/sanitized/**
+            scripts/run_batch091_blinded_amds.py
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_pinned_critic_sources
+          path: |
+            scripts/batch091_semantic_critic.py
+            scripts/run_batch091_semantic_critic.py
+          retention-days: 1
+
+  truth:
+    name: 13 physically separate sealed historical truth
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: python scripts/batch091_seal_amds_truth.py --runtime "$RUNNER_TEMP/controllergate-runtime/truth" --output "$RUNNER_TEMP/truth-evidence"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_sealed_truth
+          path: |
+            ${{ runner.temp }}/controllergate-runtime/truth/amds_sealed_truth.json
+            ${{ runner.temp }}/truth-evidence/amds_sealed_truth_manifest.json
+          retention-days: 1
+
+  blinded_builder:
+    name: 14-20 physically blinded eight-episode AMDS builder
+    needs: custody
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_controllergate_wheel, path: wheel}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_sanitized_builder_input, path: builder-input}
+      - run: python -m pip install --no-index --no-deps wheel/controllergate-*.whl
+      - name: Assert truth is unavailable to builder
+        run: test "$(find . -iname '*sealed*truth*' | wc -l)" -eq 0
+      - run: |
+          SANITIZED="$(find builder-input -name amds_sanitized_builder_inputs.json -print -quit)"
+          RUNNER="$(find builder-input -name run_batch091_blinded_amds.py -print -quit)"
+          python "$RUNNER" execute --sanitized "$SANITIZED" --runtime "$RUNNER_TEMP/controllergate-runtime/blinded-builder" --output "$RUNNER_TEMP/builder-evidence"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_raw_builder_evidence
+          path: ${{ runner.temp }}/builder-evidence/**
+          retention-days: 1
+
+  historical_and_canary:
+    name: 21-32 truth join, installed lifecycles, repaired distribution, canary, and rollback
+    needs: [custody, truth, blinded_builder]
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_cloudpickle_source_capsule, path: capsule-download/cloudpickle-source}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_cloudpickle_provider_capsule, path: capsule-download/cloudpickle-provider}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_freezegun_source_capsule, path: capsule-download/freezegun-source}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_freezegun_provider_capsule, path: capsule-download/freezegun-provider}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_raw_builder_evidence, path: builder-evidence}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_sealed_truth, path: truth-evidence}
+      - name: Rehydrate exact short-lived inputs
+        run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/capsules"
+          for name in cloudpickle-source cloudpickle-provider freezegun-source freezegun-provider; do
+            cp "$(find capsule-download/$name -name "$name.zip" -print -quit)" "$RUNNER_TEMP/controllergate-runtime/capsules/$name.zip"
+          done
+          cp -a builder-evidence/. "$OUTPUT/"
+          cp "$(find truth-evidence -name amds_sealed_truth_manifest.json -print -quit)" "$OUTPUT/amds_sealed_truth_manifest.json"
+      - run: |
+          python scripts/run_batch091_blinded_amds.py join --terminals "$OUTPUT/amds_terminals.jsonl" --truth "$(find truth-evidence -name amds_sealed_truth.json -print -quit)" --output "$OUTPUT"
+          python scripts/run_batch091_stage_proofs.py --runtime "$RUNNER_TEMP/controllergate-runtime/stage-proofs" --output "$OUTPUT"
+      - run: python scripts/run_batch091_installed_lifecycles.py --runtime "$RUNNER_TEMP/controllergate-runtime/lifecycles" --capsule-root "$RUNNER_TEMP/controllergate-runtime/capsules" --output "$OUTPUT"
+      - run: python scripts/run_batch091_repaired_package_canary.py --runtime "$RUNNER_TEMP/controllergate-runtime/canary" --capsule-root "$RUNNER_TEMP/controllergate-runtime/capsules" --output "$OUTPUT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_precritic_evidence
+          path: ${{ env.OUTPUT }}/**
+          retention-days: 1
+
+  semantic_critic:
+    name: 33-37 separate standard-library semantic critic and two mutation families
+    needs: [custody, historical_and_canary]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_controllergate_wheel, path: wheel}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_pinned_critic_sources, path: critic-source}
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_precritic_evidence, path: evidence}
+      - run: python -m pip install --no-index --no-deps wheel/controllergate-*.whl
+      - run: |
+          ORCHESTRATOR="$(find critic-source -name run_batch091_semantic_critic.py -print -quit)"
+          python "$ORCHESTRATOR" --runtime "$RUNNER_TEMP/controllergate-runtime/semantic-critic" --output evidence
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch091_semantic_critic_evidence
+          path: evidence/**
+          retention-days: 1
+
+  final:
+    name: 38 final audit, regression, public synchronization, and compact packaging
+    needs: semantic_critic
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - uses: actions/download-artifact@v4
+        with: {name: batch091_semantic_critic_evidence, path: critic-evidence}
+      - run: cp -a critic-evidence/. "$OUTPUT/"
+      - run: python scripts/finalize_batch091.py --output "$OUTPUT"
+      - run: python -m pytest -q
+      - name: Preservation and current authority audits
+        run: |
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+          python scripts/audit_batch084_real_amds_canary_product_beta.py --out outputs/post_v2_37_hardening_batch084_real_amds_canary_product_beta
+          python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+          python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+          python scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py --verify-only
+          python scripts/audit_batch088_causal_amds_historical_capsule_product_beta_closure.py
+          python scripts/audit_batch089_full_isomorphism_reaction_complete_vertical_closure.py --verify-manifests
+          python scripts/audit_batch090_evidence_delaundering_installed_vertical_closure.py --official-reconciliation
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_installed_product_reachability.py
+          python scripts/audit_no_legacy_production_imports.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_public_language.py
+          python scripts/audit_batch089_security_and_sbom.py --verify-only
+          python scripts/byte_custody_preflight.py
+          python scripts/audit_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure.py
+          git diff --check
+      - name: Stage portable main artifact
+        run: |
+          STAGE="$RUNNER_TEMP/batch091-main"
+          mkdir -p "$STAGE/outputs" "$STAGE/controllergate_v1_7_beta/reports/critic_review_package"
+          cp -a "$OUTPUT" "$STAGE/outputs/"
+          cp controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md "$STAGE/controllergate_v1_7_beta/reports/critic_review_package/"
+          if find "$STAGE" -type f \( -name '*.zip' -o -name '*.tar' -o -name '*.gz' -o -name '*.pyc' -o -name '*.pyo' \) | grep -q .; then exit 1; fi
+          if find "$STAGE" -type d -name '__pycache__' | grep -q .; then exit 1; fi
+          (cd "$STAGE" && find . -type f -print0 | sort -z | xargs -0 sha256sum > ARTIFACT_SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure_artifacts
+          path: ${{ runner.temp }}/batch091-main

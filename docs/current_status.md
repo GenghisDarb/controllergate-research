@@ -1,5 +1,11 @@
 # Current status
 
+## Batch091 lossless historical closure
+
+Batch091 reconciles the official Batch090 evidence and replaces its lossy source-capsule staging with deterministic Git-object transport. Cloudpickle and Freezegun hidden-file conservation, the frozen eight-episode blinded historical AMDS evaluation, installed non-counting repair and non-source lifecycles, repaired Cloudpickle distribution canary, three-class health window, negative control, local switch, exact rollback, and standalone semantic critic are all required internal evidence.
+
+When those internal gates pass, the status is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`; `external_independent_release_review_pending` remains the exact blocker. Production readiness is false. Protocol remains `v2.19`, package version `0.2.0b2.dev0`, counts remain 6 issue-derived and 4 native external with historical increment 0, full scoring is disallowed, public writes and automatic merge are inactive, prospective effectiveness and memory lift are not established, and self-maintaining software is not demonstrated.
+
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 
