@@ -504,3 +504,50 @@ def activate_source_capsule(archive_path: str | Path, destination: str | Path) -
         "expected_entry_count": len(expected),
         "exact_blocker": None if conserved else "source_capsule_conservation_failed",
     }
+
+
+def activate_provider_capsule(archive_path: str | Path, destination: str | Path) -> dict[str, object]:
+    """Create an offline provider environment from a verified distribution-only capsule."""
+    verification = verify_capsule(archive_path)
+    if verification["status"] != "PASS" or verification["capsule_type"] != CapsuleType.PROVIDER.value:
+        return {**verification, "activated": False, "exact_blocker": "provider_capsule_not_activatable"}
+    destination_path = Path(destination).resolve()
+    shutil.rmtree(destination_path, ignore_errors=True)
+    wheelhouse = destination_path / "wheelhouse"
+    wheelhouse.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(archive_path) as payload:
+        manifest = json.loads(payload.read("CAPSULE_MANIFEST.json").decode("utf-8"))
+        for row in manifest["entries"]:
+            target = wheelhouse / Path(str(row["path"])).name
+            target.write_bytes(payload.read(f"payload/{row['path']}"))
+    environment = destination_path / "environment"
+    subprocess.run([sys.executable, "-m", "venv", str(environment)], check=True, text=True, capture_output=True)
+    python = environment / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
+    distributions = sorted(str(path) for path in wheelhouse.iterdir() if path.is_file())
+    install = subprocess.run(
+        [str(python), "-m", "pip", "install", "--no-index", "--no-deps", *distributions],
+        text=True, capture_output=True, check=False,
+    )
+    freeze = subprocess.run([str(python), "-m", "pip", "freeze", "--all"], text=True, capture_output=True, check=False)
+    activated = install.returncode == 0 and freeze.returncode == 0
+    distribution_identity = [
+        {"name": path.name, "sha256": _sha_file(path), "size": path.stat().st_size}
+        for path in sorted(wheelhouse.iterdir(), key=lambda item: item.name.casefold()) if path.is_file()
+    ]
+    identity = _sha_bytes(_canonical_bytes(distribution_identity)) if activated else None
+    return {
+        **verification,
+        "status": "PASS" if activated else "FAIL",
+        "activated": activated,
+        "destination": str(destination_path),
+        "python": str(python),
+        "distribution_count": len(distributions),
+        "distribution_graph_sha256": identity,
+        "distribution_graph": distribution_identity,
+        "pip_freeze_raw_sha256": _sha_bytes(freeze.stdout.encode()) if activated else None,
+        "install_return_code": install.returncode,
+        "install_stdout_sha256": _sha_bytes(install.stdout.encode()),
+        "install_stderr_sha256": _sha_bytes(install.stderr.encode()),
+        "network_policy": "none",
+        "exact_blocker": None if activated else "offline_provider_activation_failed",
+    }

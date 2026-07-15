@@ -1,0 +1,307 @@
+{
+  "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+  "checkpoint_and_resume": true,
+  "complete": true,
+  "dpp14": {
+    "backtracks": 0,
+    "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+    "contradictions": 0,
+    "decision_time_truth_overlap": 0,
+    "events": [
+      {
+        "eliminated": [
+          "environment_owned",
+          "network_or_transport_owned",
+          "provider_owned",
+          "source_owned_behavior_defect"
+        ],
+        "event_hash": "fec02ed5ed0c77dcca1e392f1afd03a2243767dc115b47fba9e479bb73ef6edb",
+        "frontier_after": [
+          "harness_owned"
+        ],
+        "frontier_before": [
+          "environment_owned",
+          "harness_owned",
+          "network_or_transport_owned",
+          "provider_owned",
+          "source_owned_behavior_defect"
+        ],
+        "nonce": "a112c677bd91a109de6e30b60309c4cee7319e49",
+        "round": 1
+      },
+      {
+        "eliminated": [],
+        "event_hash": "6d7834b2dbec5b6ca62185fb3cf55c9071235e7fc0a3e8cc8b767265a5fbe490",
+        "frontier_after": [
+          "harness_owned"
+        ],
+        "frontier_before": [
+          "harness_owned"
+        ],
+        "nonce": "18d41c37b384bf04b82fcd318f84ef73c4f8efbb",
+        "round": 2
+      }
+    ],
+    "frame_hash": "6cb273b7b3f945ed5db45b546ddc4f68b02f2190a4123ea053bea9139dcb20cf",
+    "label_leakage_count": 0,
+    "observations": [
+      {
+        "broker_record_hash": "e3ec5d0890fcaa8f164b8c3e00e3e49e13420ac493b3f3b930124494c14864ce",
+        "frame_hash": "6cb273b7b3f945ed5db45b546ddc4f68b02f2190a4123ea053bea9139dcb20cf",
+        "probe_id": "measurement-01",
+        "raw_observation": {
+          "observed_runner_scope_mismatch": "true"
+        },
+        "return_code": 0,
+        "round": 1,
+        "source_tree_immutable": true,
+        "verified": true
+      },
+      {
+        "broker_record_hash": "159a8c2737ea11cd7047c0b5d6fa53c5c1749ce6253a3254df033ca3e0513225",
+        "frame_hash": "6cb273b7b3f945ed5db45b546ddc4f68b02f2190a4123ea053bea9139dcb20cf",
+        "probe_id": "measurement-02",
+        "raw_observation": {
+          "observed_runner_scope_mismatch": "true"
+        },
+        "return_code": 0,
+        "round": 2,
+        "source_tree_immutable": true,
+        "verified": true
+      }
+    ],
+    "patch_authority": false,
+    "probe_count": 2,
+    "rounds": 2,
+    "run_id": "batch091-non-source-prospective_yxyxy_hordeforge_issue_39",
+    "spent_nonces": [
+      "18d41c37b384bf04b82fcd318f84ef73c4f8efbb",
+      "a112c677bd91a109de6e30b60309c4cee7319e49"
+    ],
+    "status": "PASS",
+    "terminal": "harness_owned",
+    "wrong_patch_authorizations": 0
+  },
+  "exact_blocker": null,
+  "historical_non_counting": true,
+  "historical_terminal_proof_path": "outputs\\post_v2_37_hardening_batch077_typed_event_pathway_memory_v2\\hordeforge_runtime_compartment_correction.json",
+  "historical_terminal_proof_sha256": "2fb1656eaa103ab93324b5cae98c24bb5b72f89590a19ccc6eacb7d13789c114",
+  "installed_cli": {
+    "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+    "checkpoint": {
+      "checkpoint_stage": "duplicate_failure",
+      "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\hf\\runtime\\state\\controllergate.sqlite3",
+      "run_id": "batch091-ns-hf",
+      "state_authority": "SQLite",
+      "status": "INTERRUPTED_AT_CHECKPOINT"
+    },
+    "checkpoint_process": {
+      "argv": [
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+        "run",
+        "--manifest",
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\hf\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6b573d0bc50e5e294b3228a41a37a8b8740436a05650781376b91c92f8a5fba6"
+    },
+    "complete": true,
+    "exact_blocker": null,
+    "historical_count_increment": 0,
+    "invoked_via_installed_cli": true,
+    "patch_operation_count": 0,
+    "repair_license_count": 0,
+    "resume": {
+      "blocker": null,
+      "completed_stages": [
+        "candidate_identity",
+        "source_acquisition",
+        "runtime_attestation",
+        "provider_execution",
+        "target_provenance",
+        "command_authority",
+        "duplicate_failure",
+        "non_source_terminal"
+      ],
+      "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\hf\\runtime\\state\\controllergate.sqlite3",
+      "event_chain": {
+        "chain_head": "f1281f2f0f1eae29378b2a6a69e04ffd19c400e907fbf0479765b1cdd77824c5",
+        "errors": [],
+        "event_count": 9,
+        "status": "PASS"
+      },
+      "execution_depth": "HISTORICAL_EPISODE_EXECUTION",
+      "execution_receipt_ids": [
+        "d13d5e5c7873866e5ca77d70bc96f6f617efe12496ec9166ad474ee596d90adb",
+        "321778f5c45360f35530d1e900de18a5458e5af2aa98f906e46747cd3e4159bb",
+        "a56ce04aaac2f9757efdfb45e4e717c37424fd402865f06a2975ca12bc4a9763",
+        "0c099304eab1227842fabba92def2df7c4f89be003155b7e24ea9be3f2d4edb5",
+        "807aa62166c76f4e3b72529344ea2b44f2f5d91f537d7c36256d75063fcd650c",
+        "9ee2ac23a0cf914aba0f12d94d8523d21a1f04f5d89db9d857e252775864944b",
+        "383c941a59fdb3b1f9979b51567f8e90defbd1fabce34834d1917c6b08d60239",
+        "d5e1f729ee0e7e30953ef1571d93a60ac6643ede041cdef193db4d50b2cf9dba"
+      ],
+      "historical_count_increment": 0,
+      "invoked_via_installed_cli": true,
+      "mechanism_outcomes": [
+        {
+          "stage_id": "non_source_terminal",
+          "status": "PASS"
+        }
+      ],
+      "reaction_token_hashes": [
+        "3292439de840e1d136401b86ee877db4a5e0e30f31262e74cbec842633a46a13",
+        "8d19b54b63a140eb754b24fd8238a6b5d5196348b999a541b3f76c1a55b18861",
+        "f9071b7acc725dd70a0c5c734c8026b65732eaa459eb610a0afa3af8d7b7111e",
+        "ac9d17b18e45167584d9999ac90e66463e4bfd8fa6f4256150ffe3414eb15b9f",
+        "d556437071a16dc02ba17701d7b352702a4a0d0b14d8020011400dde329e1d6f",
+        "a23da23d7624ccc7b26ee148de25f99fce4c78fcce9bae33d6e75e0a40afd7ff",
+        "bd1e0979da52901272b3800acb4a6757a72d357cf81a433aaec7f3c9c9c88332",
+        "b01074cdd0d45fa1647b09a68f44d7b4bc2bb45e443be0b265f5afcb0e6d02d9"
+      ],
+      "run_id": "batch091-ns-hf",
+      "state_authority": "SQLite",
+      "status": "HISTORICAL_NON_COUNTING_COMPLETE",
+      "test_assertions": [
+        {
+          "stage_id": "non_source_terminal",
+          "status": "TEST_PASS"
+        }
+      ]
+    },
+    "resume_process": {
+      "argv": [
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+        "resume",
+        "--run-id",
+        "batch091-ns-hf",
+        "--manifest",
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\hf\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2b6cccfa0016f9f4e0e1894cf7680d29e8f37a80eac5ef9094c8fe68c4607a08"
+    },
+    "source_activation": {
+      "activated": true,
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-capsules\\prospective_yxyxy_hordeforge_issue_39.zip",
+      "archive_sha256": "855c9612b7df66bd9bc667b57dea85ad8b0d459d06935305a0e6e8799bd80e13",
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "capsule_id": "a1238d977c3bfb15f7b7963fe70af5186c16d9de101ac1354ec24c6977b35086",
+      "capsule_type": "SOURCE_CAPSULE",
+      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\hf\\fixture",
+      "entry_count": 486,
+      "exact_blocker": null,
+      "expected_entry_count": 486,
+      "extra_paths": [],
+      "failures": [],
+      "git_tree_id": "20dfebef936c7697200a006f8804d0be38a4ce67",
+      "manifest_sha256": "b91456d2e83f7b7f5da7e2ea16f5e767d901ea9964ae54364c525c3038638f4c",
+      "mismatched_paths": [],
+      "missing_paths": [],
+      "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
+      "observed_entry_count": 486,
+      "producer_consumer_conservation": true,
+      "status": "PASS",
+      "transport_residue": {
+        "residue": [],
+        "residue_count": 0,
+        "status": "PASS"
+      }
+    },
+    "source_capsule": {
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-capsules\\prospective_yxyxy_hordeforge_issue_39.zip",
+      "archive_sha256": "855c9612b7df66bd9bc667b57dea85ad8b0d459d06935305a0e6e8799bd80e13",
+      "archive_size": 100577724,
+      "candidate_commit": "89977490c8daad668ade06847d3a6d33ab2209de",
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "capsule_id": "a1238d977c3bfb15f7b7963fe70af5186c16d9de101ac1354ec24c6977b35086",
+      "capsule_type": "SOURCE_CAPSULE",
+      "consumer_identity": "installed-controllergate-cli",
+      "entry_count": 486,
+      "git_tree_id": "20dfebef936c7697200a006f8804d0be38a4ce67",
+      "manifest_sha256": "b91456d2e83f7b7f5da7e2ea16f5e767d901ea9964ae54364c525c3038638f4c",
+      "producer_identity": "batch091-non-source-source-capsule",
+      "self_verification": {
+        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-capsules\\prospective_yxyxy_hordeforge_issue_39.zip",
+        "archive_sha256": "855c9612b7df66bd9bc667b57dea85ad8b0d459d06935305a0e6e8799bd80e13",
+        "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+        "capsule_id": "a1238d977c3bfb15f7b7963fe70af5186c16d9de101ac1354ec24c6977b35086",
+        "capsule_type": "SOURCE_CAPSULE",
+        "entry_count": 486,
+        "extra_paths": [],
+        "failures": [],
+        "git_tree_id": "20dfebef936c7697200a006f8804d0be38a4ce67",
+        "manifest_sha256": "b91456d2e83f7b7f5da7e2ea16f5e767d901ea9964ae54364c525c3038638f4c",
+        "mismatched_paths": [],
+        "missing_paths": [],
+        "status": "PASS",
+        "transport_residue": {
+          "residue": [],
+          "residue_count": 0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    "source_ownership_token_count": 0,
+    "status": "PASS",
+    "terminal_record": {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "probe_count": 2,
+      "terminal": "harness_owned",
+      "terminal_hash": "1d2de1e9b0fe88bb2c038b3c92995613c49641581c7895e6ddfa9a2600d0bf1e",
+      "terminal_sealed_before_cli": true
+    },
+    "verify": {
+      "event_chain": {
+        "chain_head": "f1281f2f0f1eae29378b2a6a69e04ffd19c400e907fbf0479765b1cdd77824c5",
+        "errors": [],
+        "event_count": 9,
+        "status": "PASS"
+      },
+      "exact_blocker": null,
+      "idempotent": true,
+      "run_id": "batch091-ns-hf",
+      "state_authority": "SQLite",
+      "status": "PASS",
+      "terminal": "HISTORICAL_NON_COUNTING_COMPLETE"
+    },
+    "verify_process": {
+      "argv": [
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+        "verify",
+        "--run-id",
+        "batch091-ns-hf",
+        "--manifest",
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\hf\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ab4c610b6b484039eb25675da53e995b6e6b8071b88e3b2583a3b138da1cd738"
+    }
+  },
+  "provider_seal": "2ac1d986677247c808721cd70dd5ea8010ca3837e3967639a1893361b4e11bf3",
+  "repair_count_increment": 0,
+  "repair_license": false,
+  "replay": {
+    "command": [
+      "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "-c",
+      "import pathlib,sys; p=pathlib.Path(sys.argv[1]); s=p.read_text(encoding='utf-8'); sys.exit(0 if 'test_engine_feature_pipeline_completes_fix_loop_and_stabilizes_tests' in s else 2)",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source\\hf\\source\\tests\\unit\\orchestrator\\test_orchestrator_engine.py"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source\\hf\\source",
+    "output_tail": "",
+    "returncode": 0,
+    "semantic_failure_nodes": [],
+    "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "safe_abstention": true,
+  "source_identity": "89977490c8daad668ade06847d3a6d33ab2209de",
+  "status": "PASS",
+  "terminal": "harness_owned"
+}

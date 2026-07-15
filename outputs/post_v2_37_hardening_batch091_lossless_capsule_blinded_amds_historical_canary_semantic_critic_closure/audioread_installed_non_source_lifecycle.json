@@ -1,0 +1,306 @@
+{
+  "candidate_id": "audioread_144_py313_aifc_removed",
+  "checkpoint_and_resume": true,
+  "complete": true,
+  "dpp14": {
+    "backtracks": 0,
+    "candidate_id": "audioread_144_py313_aifc_removed",
+    "contradictions": 0,
+    "decision_time_truth_overlap": 0,
+    "events": [
+      {
+        "eliminated": [
+          "environment_owned",
+          "harness_owned",
+          "network_or_transport_owned",
+          "source_owned_behavior_defect"
+        ],
+        "event_hash": "decc5bee3ca448aa4e0098587ee170bf687577ac9015b527cf4d400e6e93ddad",
+        "frontier_after": [
+          "provider_owned"
+        ],
+        "frontier_before": [
+          "environment_owned",
+          "harness_owned",
+          "network_or_transport_owned",
+          "provider_owned",
+          "source_owned_behavior_defect"
+        ],
+        "nonce": "ffb091edc46fb01bb1925c6f12f5e48356a89531",
+        "round": 1
+      },
+      {
+        "eliminated": [],
+        "event_hash": "59a6e9a3914aaafc6cd24f1bfa84c47f652140f9bb9802d3d6e93ce3f3da0c85",
+        "frontier_after": [
+          "provider_owned"
+        ],
+        "frontier_before": [
+          "provider_owned"
+        ],
+        "nonce": "a924e2783eb83541d0f7fd5291d0f0503724e14c",
+        "round": 2
+      }
+    ],
+    "frame_hash": "3accdd29cd0e8c8f397e3da57efe15b9c5be986c0418ece2630693ea5c42ccc8",
+    "label_leakage_count": 0,
+    "observations": [
+      {
+        "broker_record_hash": "60a2d8b42f7e34ecb364cb2f8b9e4ebe893ff4448e7d90fe6b6f72395559b9d9",
+        "frame_hash": "3accdd29cd0e8c8f397e3da57efe15b9c5be986c0418ece2630693ea5c42ccc8",
+        "probe_id": "measurement-01",
+        "raw_observation": {
+          "observed_provider_unavailable": "true"
+        },
+        "return_code": 0,
+        "round": 1,
+        "source_tree_immutable": true,
+        "verified": true
+      },
+      {
+        "broker_record_hash": "e7afb8c72e61f42e2a7814180e547b46deb356b14fc524b6050eab678bd2d53f",
+        "frame_hash": "3accdd29cd0e8c8f397e3da57efe15b9c5be986c0418ece2630693ea5c42ccc8",
+        "probe_id": "measurement-02",
+        "raw_observation": {
+          "observed_provider_unavailable": "true"
+        },
+        "return_code": 0,
+        "round": 2,
+        "source_tree_immutable": true,
+        "verified": true
+      }
+    ],
+    "patch_authority": false,
+    "probe_count": 2,
+    "rounds": 2,
+    "run_id": "batch091-non-source-audioread_144_py313_aifc_removed",
+    "spent_nonces": [
+      "a924e2783eb83541d0f7fd5291d0f0503724e14c",
+      "ffb091edc46fb01bb1925c6f12f5e48356a89531"
+    ],
+    "status": "PASS",
+    "terminal": "provider_owned",
+    "wrong_patch_authorizations": 0
+  },
+  "exact_blocker": null,
+  "historical_non_counting": true,
+  "historical_terminal_proof_path": "outputs\\post_v2_37_hardening_batch060f_audioread_provider_backend_capsule_replay\\batch060f_final_decision.json",
+  "historical_terminal_proof_sha256": "46af167b373cffb109353122573d13fbc2704859c28a346ad05c0b46d4738e0f",
+  "installed_cli": {
+    "candidate_id": "audioread_144_py313_aifc_removed",
+    "checkpoint": {
+      "checkpoint_stage": "duplicate_failure",
+      "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\ar144\\runtime\\state\\controllergate.sqlite3",
+      "run_id": "batch091-ns-ar144",
+      "state_authority": "SQLite",
+      "status": "INTERRUPTED_AT_CHECKPOINT"
+    },
+    "checkpoint_process": {
+      "argv": [
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+        "run",
+        "--manifest",
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\ar144\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "ddeee3ac87f6570c23980826891bb2f7da76299d2a79ca7e3bbf85167ef83990"
+    },
+    "complete": true,
+    "exact_blocker": null,
+    "historical_count_increment": 0,
+    "invoked_via_installed_cli": true,
+    "patch_operation_count": 0,
+    "repair_license_count": 0,
+    "resume": {
+      "blocker": null,
+      "completed_stages": [
+        "candidate_identity",
+        "source_acquisition",
+        "runtime_attestation",
+        "provider_execution",
+        "target_provenance",
+        "command_authority",
+        "duplicate_failure",
+        "non_source_terminal"
+      ],
+      "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\ar144\\runtime\\state\\controllergate.sqlite3",
+      "event_chain": {
+        "chain_head": "efa9595c41329dca7e733a4368c534c1bbe5d89564f647df0ec595a31ed2ebc4",
+        "errors": [],
+        "event_count": 9,
+        "status": "PASS"
+      },
+      "execution_depth": "HISTORICAL_EPISODE_EXECUTION",
+      "execution_receipt_ids": [
+        "5948c5e4cd2a2ed9536934824a17390cac7e41958add0572ca08146293cdcfc7",
+        "8584cdcd81ef2bc01c84fcd08dd9cbe65291a27ddd4ed64ed110e9ebfc8d590b",
+        "0b31a386843f1767ce6112ea54bd64c0c727c1ef328e73f103fc28e30982f928",
+        "23409fc59ef1a0ce8ba7ab03a4cecfcb17675517ce9ec6f779aafe75086fdc7c",
+        "2cd6a8c8c257d3c062bdff2ccc1fe95d6cd1854cd2d23347095b7c96011cfce0",
+        "29e941df7b7b4e51ec9a30b5a2a738dc2d0cf2a2536d85cff21e9ba059d9d31b",
+        "5307b72643bbbb86b6955cdb5854ec163689ede0112c048fade8087d761a1bbd",
+        "1dc7977abf7e00d486bc3ba5fddbc1a758b49d281af678b6f04ae224e2075f49"
+      ],
+      "historical_count_increment": 0,
+      "invoked_via_installed_cli": true,
+      "mechanism_outcomes": [
+        {
+          "stage_id": "non_source_terminal",
+          "status": "PASS"
+        }
+      ],
+      "reaction_token_hashes": [
+        "b1afda9fc5e778ad7a161c4242acbd37bf1e1c25fcbcb9b0da2fb2216b6e97f0",
+        "d5dcbf81e3905a9633ae56776abd7a3ca4df10a8cc62ddf1ee7111e57be6a070",
+        "c13bf9e40c774f9f4aa4ceaa809c936033a2f42d4db60b9c850e79d288edacc4",
+        "ec46b75769451de5977cbbd752fcb9fe8a06502af3abfa610a585e61f767ec79",
+        "3d03643bd40714bd4d75079a45ce8eb7622677a8faa471b9e27af92544abaca8",
+        "d414c7f8dfc7067338ca001a7edb3473464b5b71007640f7e5bbb584e9b06a02",
+        "9abb4e43509d986a2f3dfbb680dfb646ea1dc7123f3e30dac163b1da4d85178b",
+        "b58adc04357a4d8a1d2abf6e6031e566039b9e02aee2d5932fbf45fc48c30198"
+      ],
+      "run_id": "batch091-ns-ar144",
+      "state_authority": "SQLite",
+      "status": "HISTORICAL_NON_COUNTING_COMPLETE",
+      "test_assertions": [
+        {
+          "stage_id": "non_source_terminal",
+          "status": "TEST_PASS"
+        }
+      ]
+    },
+    "resume_process": {
+      "argv": [
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+        "resume",
+        "--run-id",
+        "batch091-ns-ar144",
+        "--manifest",
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\ar144\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "f19341c6943b976ae9eacce92c86af17a75a6d71ba6b3c95e82eb9f4fa339259"
+    },
+    "source_activation": {
+      "activated": true,
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-capsules\\audioread_144_py313_aifc_removed.zip",
+      "archive_sha256": "0c0162079078252e7f266611b779715ff657b6e0da710e8e2084dbf768dbaea9",
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "capsule_id": "ffcf80046335f17aab4dcf8daf9eda4944e1acfefe67aa02745441f018ac5f78",
+      "capsule_type": "SOURCE_CAPSULE",
+      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\ar144\\fixture",
+      "entry_count": 23,
+      "exact_blocker": null,
+      "expected_entry_count": 23,
+      "extra_paths": [],
+      "failures": [],
+      "git_tree_id": "28da396c8bc70669a81fa98c67a6c6b5cb273b4b",
+      "manifest_sha256": "2deaeb10e5f648c32ab4259b0c1718bfc37ed43a0ffc0f1603518b85686af643",
+      "mismatched_paths": [],
+      "missing_paths": [],
+      "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
+      "observed_entry_count": 23,
+      "producer_consumer_conservation": true,
+      "status": "PASS",
+      "transport_residue": {
+        "residue": [],
+        "residue_count": 0,
+        "status": "PASS"
+      }
+    },
+    "source_capsule": {
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-capsules\\audioread_144_py313_aifc_removed.zip",
+      "archive_sha256": "0c0162079078252e7f266611b779715ff657b6e0da710e8e2084dbf768dbaea9",
+      "archive_size": 121569,
+      "candidate_commit": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "capsule_id": "ffcf80046335f17aab4dcf8daf9eda4944e1acfefe67aa02745441f018ac5f78",
+      "capsule_type": "SOURCE_CAPSULE",
+      "consumer_identity": "installed-controllergate-cli",
+      "entry_count": 23,
+      "git_tree_id": "28da396c8bc70669a81fa98c67a6c6b5cb273b4b",
+      "manifest_sha256": "2deaeb10e5f648c32ab4259b0c1718bfc37ed43a0ffc0f1603518b85686af643",
+      "producer_identity": "batch091-non-source-source-capsule",
+      "self_verification": {
+        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-capsules\\audioread_144_py313_aifc_removed.zip",
+        "archive_sha256": "0c0162079078252e7f266611b779715ff657b6e0da710e8e2084dbf768dbaea9",
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "capsule_id": "ffcf80046335f17aab4dcf8daf9eda4944e1acfefe67aa02745441f018ac5f78",
+        "capsule_type": "SOURCE_CAPSULE",
+        "entry_count": 23,
+        "extra_paths": [],
+        "failures": [],
+        "git_tree_id": "28da396c8bc70669a81fa98c67a6c6b5cb273b4b",
+        "manifest_sha256": "2deaeb10e5f648c32ab4259b0c1718bfc37ed43a0ffc0f1603518b85686af643",
+        "mismatched_paths": [],
+        "missing_paths": [],
+        "status": "PASS",
+        "transport_residue": {
+          "residue": [],
+          "residue_count": 0,
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    "source_ownership_token_count": 0,
+    "status": "PASS",
+    "terminal_record": {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "probe_count": 2,
+      "terminal": "provider_owned",
+      "terminal_hash": "b01da3cadb4ae26ea7cbb2df7fd91e46c2283d1c676609d759f09850d63159c7",
+      "terminal_sealed_before_cli": true
+    },
+    "verify": {
+      "event_chain": {
+        "chain_head": "efa9595c41329dca7e733a4368c534c1bbe5d89564f647df0ec595a31ed2ebc4",
+        "errors": [],
+        "event_count": 9,
+        "status": "PASS"
+      },
+      "exact_blocker": null,
+      "idempotent": true,
+      "run_id": "batch091-ns-ar144",
+      "state_authority": "SQLite",
+      "status": "PASS",
+      "terminal": "HISTORICAL_NON_COUNTING_COMPLETE"
+    },
+    "verify_process": {
+      "argv": [
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+        "verify",
+        "--run-id",
+        "batch091-ns-ar144",
+        "--manifest",
+        "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source-cli\\ar144\\manifest.json"
+      ],
+      "return_code": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "84d5fda1171e18dfe0966d0cb259de8c034522ccb2a9796c6bf0570e90862462"
+    }
+  },
+  "provider_seal": "99c05a7243816ff1f03bfaf34c70a8e69f5b7b68436482646061621c7fc64533",
+  "repair_count_increment": 0,
+  "repair_license": false,
+  "replay": {
+    "command": [
+      "C:\\Users\\thisb\\AppData\\Local\\Microsoft\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\\python.exe",
+      "-c",
+      "import aifc"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\non-source\\ar144\\source",
+    "output_tail": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import aifc\nModuleNotFoundError: No module named 'aifc'",
+    "returncode": 1,
+    "semantic_failure_nodes": [],
+    "semantic_signature_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr_sha256": "b20391b73733a0d13631ac088b3b7796dbdedc2dd91fd44fdf083a4adefc0260",
+    "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "safe_abstention": true,
+  "source_identity": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+  "status": "PASS",
+  "terminal": "provider_owned"
+}

@@ -1,0 +1,1889 @@
+{
+  "amds_terminal": "source_owned_behavior_defect",
+  "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+  "checkpoint": {
+    "checkpoint_stage": "duplicate_failure",
+    "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\controllergate-runtime\\state\\controllergate.sqlite3",
+    "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+    "state_authority": "SQLite",
+    "status": "INTERRUPTED_AT_CHECKPOINT"
+  },
+  "checkpoint_interruption": true,
+  "checkpoint_process": {
+    "argv": [
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+      "run",
+      "--manifest",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\historical-manifest.json"
+    ],
+    "return_code": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "955ebfa293dcd069e334a63ab719fe6955e92f7596de9342ce29b67885cf2201"
+  },
+  "complete": true,
+  "exact_blocker": null,
+  "fresh_duplicate_replay": {
+    "anchor_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+    "broker_record_hash": "991d3c3ebe56e8089e0eb173ffa965050ffcc15fb3f10e7b31388a36e135c1e3",
+    "passed": true,
+    "patch_record_hash": "5e115c392d520a2cdc8812a557b8819fb6854c97480237cc14de47121e20114c",
+    "return_code": 0,
+    "stage_id": "duplicate_clean_replay",
+    "status": "PASS",
+    "verified": true,
+    "workspace": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\controllergate-runtime\\batch091-historical-cloudpickle_507_py313_typevar_distutils\\clean-replay",
+    "workspace_hash": "139519c832b0cfa5d78b4af65fbd4615251283d001473625742c3012439677bc"
+  },
+  "historical_count_increment": 0,
+  "historical_non_counting": true,
+  "human_approval": {
+    "allowed_source_path": "cloudpickle/cloudpickle.py",
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "expiry": "2026-07-17T00:00:00Z",
+    "historical_non_counting_boundary": true,
+    "human_authority": "Brad",
+    "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+    "prompt_contract_hash": "3dcdff06412abe3e99091dbf61fd2845d239a85163ea077c3f7753ea46463744",
+    "public_write_prohibition": true,
+    "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+    "single_use_nonce": "4923f468f3541705ca7d8eb291a106211ab3c9a6edfa1740f33af8a53c3891a7"
+  },
+  "idempotent_resume": true,
+  "invoked_via_installed_cli": true,
+  "prepatch": [
+    {
+      "activation": {
+        "activated": true,
+        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\cloudpickle-source.zip",
+        "archive_sha256": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a",
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "capsule_id": "d9e96a9903ef72d0354648b912f3a1b3ddfe0cd41927c1b378ef41cbf14dc5c1",
+        "capsule_type": "SOURCE_CAPSULE",
+        "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\pre-a",
+        "entry_count": 58,
+        "exact_blocker": null,
+        "expected_entry_count": 58,
+        "extra_paths": [],
+        "failures": [],
+        "git_tree_id": "49a5f0f094ac7bde2c8457f346dad43e34e9f419",
+        "manifest_sha256": "148a31a92ad171a25ca603a05a5938b2552f825437c25eb09e5cf3a4d0831e4b",
+        "mismatched_paths": [],
+        "missing_paths": [],
+        "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
+        "observed_entry_count": 58,
+        "producer_consumer_conservation": true,
+        "status": "PASS",
+        "transport_residue": {
+          "residue": [],
+          "residue_count": 0,
+          "status": "PASS"
+        }
+      },
+      "execution": {
+        "command": [
+          "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a\\environment\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "tests/cloudpickle_test.py",
+          "-q",
+          "--tb=no"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\pre-a",
+        "output_tail": "\n..\\provider-a\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider-a\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider-a\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\pre-a\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a\\environment\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...\n1 failed, 235 passed, 10 skipped, 2881 warnings in 96.32s (0:01:36)",
+        "returncode": 1,
+        "semantic_failure_nodes": [
+          "FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a..."
+        ],
+        "semantic_signature_sha256": "e935d1193295ad5349fbae270a6cea724e3b05308e8f8bf8c25b63fcad36a8c9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4dc6adfd8950c110711861845e45c5e0a588eadd4c1b29167b5d37a74be621f5"
+      }
+    },
+    {
+      "activation": {
+        "activated": true,
+        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\cloudpickle-source.zip",
+        "archive_sha256": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a",
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "capsule_id": "d9e96a9903ef72d0354648b912f3a1b3ddfe0cd41927c1b378ef41cbf14dc5c1",
+        "capsule_type": "SOURCE_CAPSULE",
+        "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\pre-b",
+        "entry_count": 58,
+        "exact_blocker": null,
+        "expected_entry_count": 58,
+        "extra_paths": [],
+        "failures": [],
+        "git_tree_id": "49a5f0f094ac7bde2c8457f346dad43e34e9f419",
+        "manifest_sha256": "148a31a92ad171a25ca603a05a5938b2552f825437c25eb09e5cf3a4d0831e4b",
+        "mismatched_paths": [],
+        "missing_paths": [],
+        "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
+        "observed_entry_count": 58,
+        "producer_consumer_conservation": true,
+        "status": "PASS",
+        "transport_residue": {
+          "residue": [],
+          "residue_count": 0,
+          "status": "PASS"
+        }
+      },
+      "execution": {
+        "command": [
+          "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b\\environment\\Scripts\\python.exe",
+          "-m",
+          "pytest",
+          "tests/cloudpickle_test.py",
+          "-q",
+          "--tb=no"
+        ],
+        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\pre-b",
+        "output_tail": "\n..\\provider-b\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\provider-b\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\provider-b\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\ntests/cloudpickle_test.py: 238 warnings\n  C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.13_3.13.3824.0_x64__qbz5n2kfra8p0\\Lib\\unittest\\case.py:597: RuntimeWarning: TestResult has no addDuration method\n    warnings.warn(\"TestResult has no addDuration method\",\n\ntests/cloudpickle_test.py::CloudPickleTest::test_itertools_count\ntests/cloudpickle_test.py::Protocol2CloudPickleTest::test_itertools_count\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\pre-b\\cloudpickle\\cloudpickle_fast.py:632: DeprecationWarning: Pickle, copy, and deepcopy support will be removed from itertools in Python 3.14.\n    return Pickler.dump(self, obj)\n\ntests/cloudpickle_test.py::CloudPickleTest::test_tornado_coroutine\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b\\environment\\Lib\\site-packages\\tornado\\ioloop.py:265: DeprecationWarning: There is no current event loop\n    loop = asyncio.get_event_loop()\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...\n1 failed, 235 passed, 10 skipped, 2881 warnings in 90.14s (0:01:30)",
+        "returncode": 1,
+        "semantic_failure_nodes": [
+          "FAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a..."
+        ],
+        "semantic_signature_sha256": "e935d1193295ad5349fbae270a6cea724e3b05308e8f8bf8c25b63fcad36a8c9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "44352f25a712ffa258fe832a21e99ca98ff286329359e07418a27b565a4030ec"
+      }
+    }
+  ],
+  "prepatch_failure_reproduced_twice": true,
+  "provider_activations": [
+    {
+      "activated": true,
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\cloudpickle-provider.zip",
+      "archive_sha256": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "capsule_id": "867dbce68e120886532333537f05bccbc298d056077209cb7db347f573ae14ed",
+      "capsule_type": "PROVIDER_CAPSULE",
+      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a",
+      "distribution_count": 9,
+      "distribution_graph": [
+        {
+          "name": "attrs-22.2.0-py3-none-any.whl",
+          "sha256": "29e95c7f6778868dbd49170f98f8818f78f3dc5e0e37c0b1f474e3561b240836",
+          "size": 60018
+        },
+        {
+          "name": "colorama-0.4.6-py2.py3-none-any.whl",
+          "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+          "size": 25335
+        },
+        {
+          "name": "iniconfig-2.0.0-py3-none-any.whl",
+          "sha256": "b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374",
+          "size": 5892
+        },
+        {
+          "name": "packaging-23.0-py3-none-any.whl",
+          "sha256": "714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2",
+          "size": 42678
+        },
+        {
+          "name": "pluggy-1.0.0-py2.py3-none-any.whl",
+          "sha256": "74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3",
+          "size": 13667
+        },
+        {
+          "name": "psutil-5.9.4-cp36-abi3-win_amd64.whl",
+          "sha256": "fd8522436a6ada7b4aad6638662966de0d61d241cb821239b2ae7013d41a43d4",
+          "size": 252462
+        },
+        {
+          "name": "pytest-7.2.2-py3-none-any.whl",
+          "sha256": "130328f552dcfac0b1cec75c12e3f005619dc5f874f0a06e8ff7263f0ee6225e",
+          "size": 317207
+        },
+        {
+          "name": "setuptools-67.6.0-py3-none-any.whl",
+          "sha256": "b78aaa36f6b90a074c1fa651168723acbf45d14cb1196b6f02c0fd07f17623b2",
+          "size": 1089190
+        },
+        {
+          "name": "tornado-6.2-cp37-abi3-win_amd64.whl",
+          "sha256": "e5f923aa6a47e133d1cf87d60700889d7eae68988704e20c75fb2d65677a8e4b",
+          "size": 425329
+        }
+      ],
+      "distribution_graph_sha256": "f0ded6f1559d0797cc6c35bc4b97c4078a471d08bf389928807dab040b64c19a",
+      "entry_count": 9,
+      "exact_blocker": null,
+      "extra_paths": [],
+      "failures": [],
+      "git_tree_id": null,
+      "install_return_code": 0,
+      "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "install_stdout_sha256": "0f6b5eefe5c81bb2df0f1967e9a98aec2dc0efba2f71fe052244af24e33a66cd",
+      "manifest_sha256": "9e46fe8f5e2749912b5e0c666b586f67e072d712e5217c8b32b965d105705aba",
+      "mismatched_paths": [],
+      "missing_paths": [],
+      "network_policy": "none",
+      "pip_freeze_raw_sha256": "b3644a1e9490601716b7d41a3c5f2e7ba255a2c22c8c5a6651d7718e53bb6a5f",
+      "python": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-a\\environment\\Scripts\\python.exe",
+      "status": "PASS",
+      "transport_residue": {
+        "residue": [],
+        "residue_count": 0,
+        "status": "PASS"
+      }
+    },
+    {
+      "activated": true,
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\cloudpickle-provider.zip",
+      "archive_sha256": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "capsule_id": "867dbce68e120886532333537f05bccbc298d056077209cb7db347f573ae14ed",
+      "capsule_type": "PROVIDER_CAPSULE",
+      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b",
+      "distribution_count": 9,
+      "distribution_graph": [
+        {
+          "name": "attrs-22.2.0-py3-none-any.whl",
+          "sha256": "29e95c7f6778868dbd49170f98f8818f78f3dc5e0e37c0b1f474e3561b240836",
+          "size": 60018
+        },
+        {
+          "name": "colorama-0.4.6-py2.py3-none-any.whl",
+          "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+          "size": 25335
+        },
+        {
+          "name": "iniconfig-2.0.0-py3-none-any.whl",
+          "sha256": "b6a85871a79d2e3b22d2d1b94ac2824226a63c6b741c88f7ae975f18b6778374",
+          "size": 5892
+        },
+        {
+          "name": "packaging-23.0-py3-none-any.whl",
+          "sha256": "714ac14496c3e68c99c29b00845f7a2b85f3bb6f1078fd9f72fd20f0570002b2",
+          "size": 42678
+        },
+        {
+          "name": "pluggy-1.0.0-py2.py3-none-any.whl",
+          "sha256": "74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3",
+          "size": 13667
+        },
+        {
+          "name": "psutil-5.9.4-cp36-abi3-win_amd64.whl",
+          "sha256": "fd8522436a6ada7b4aad6638662966de0d61d241cb821239b2ae7013d41a43d4",
+          "size": 252462
+        },
+        {
+          "name": "pytest-7.2.2-py3-none-any.whl",
+          "sha256": "130328f552dcfac0b1cec75c12e3f005619dc5f874f0a06e8ff7263f0ee6225e",
+          "size": 317207
+        },
+        {
+          "name": "setuptools-67.6.0-py3-none-any.whl",
+          "sha256": "b78aaa36f6b90a074c1fa651168723acbf45d14cb1196b6f02c0fd07f17623b2",
+          "size": 1089190
+        },
+        {
+          "name": "tornado-6.2-cp37-abi3-win_amd64.whl",
+          "sha256": "e5f923aa6a47e133d1cf87d60700889d7eae68988704e20c75fb2d65677a8e4b",
+          "size": 425329
+        }
+      ],
+      "distribution_graph_sha256": "f0ded6f1559d0797cc6c35bc4b97c4078a471d08bf389928807dab040b64c19a",
+      "entry_count": 9,
+      "exact_blocker": null,
+      "extra_paths": [],
+      "failures": [],
+      "git_tree_id": null,
+      "install_return_code": 0,
+      "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "install_stdout_sha256": "ec89fd8321d422c103585f7e9104bedb3f42d4851af6c26543e98991ea8622ab",
+      "manifest_sha256": "9e46fe8f5e2749912b5e0c666b586f67e072d712e5217c8b32b965d105705aba",
+      "mismatched_paths": [],
+      "missing_paths": [],
+      "network_policy": "none",
+      "pip_freeze_raw_sha256": "bf8b566cf9be02be2df56f5feb66e9a35f8302021105eda2592407cfb0f93bea",
+      "python": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\provider-b\\environment\\Scripts\\python.exe",
+      "status": "PASS",
+      "transport_residue": {
+        "residue": [],
+        "residue_count": 0,
+        "status": "PASS"
+      }
+    }
+  ],
+  "repair_license_proofs": [
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "a5316ba051e1076142e0e7a28c1f9634759c36944f5ffe8b3bdd64e4db414c66"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "source_ownership_token_hash",
+        "sequence": 1,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.source_ownership_token_hash",
+      "proof_hash": "64fedb921b316d68a5d1922f68eb3311de36d7f3f971ef4cc89e0599b4dffe71",
+      "proof_type": "source_ownership_token_hash",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "source_ownership_token_hash",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:source_ownership_token_hash:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.source_ownership_token_hash"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "64fedb921b316d68a5d1922f68eb3311de36d7f3f971ef4cc89e0599b4dffe71"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "single_use_authorization_record",
+        "sequence": 2,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.single_use_authorization_record",
+      "proof_hash": "6e613c734845cae754b80d2598949c182509478985bc2dec21187e613b4a3aa3",
+      "proof_type": "single_use_authorization_record",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "single_use_authorization_record",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:single_use_authorization_record:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.single_use_authorization_record"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "6e613c734845cae754b80d2598949c182509478985bc2dec21187e613b4a3aa3"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+        "expiry": "2026-07-17T00:00:00Z",
+        "historical_non_counting_boundary": true,
+        "human_authority": "Brad",
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "prompt_contract_hash": "3dcdff06412abe3e99091dbf61fd2845d239a85163ea077c3f7753ea46463744",
+        "public_write_prohibition": true,
+        "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+        "single_use_nonce": "4923f468f3541705ca7d8eb291a106211ab3c9a6edfa1740f33af8a53c3891a7"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.human_approval_record",
+      "proof_hash": "13a02bd923c8554067c1a9af886d06385959960acf401bd76a3aa060a90a3eba",
+      "proof_type": "human_approval_record",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "human_approval_record",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:human_approval_record:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.human_approval_record"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "13a02bd923c8554067c1a9af886d06385959960acf401bd76a3aa060a90a3eba"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "write_access_lease",
+        "sequence": 4,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.write_access_lease",
+      "proof_hash": "d99f14eba8c9eb3e10c953fc0e42c6f316d4d8d514896778b89cb4c694ef67b0",
+      "proof_type": "write_access_lease",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "write_access_lease",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:write_access_lease:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.write_access_lease"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "d99f14eba8c9eb3e10c953fc0e42c6f316d4d8d514896778b89cb4c694ef67b0"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "allowlisted_region",
+        "sequence": 5,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.allowlisted_region",
+      "proof_hash": "fe3759d9ca7a659cfff5962a8c147b7b9de3f7bfbb7befeacc14a18c2e998d92",
+      "proof_type": "allowlisted_region",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "allowlisted_region",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:allowlisted_region:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.allowlisted_region"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "fe3759d9ca7a659cfff5962a8c147b7b9de3f7bfbb7befeacc14a18c2e998d92"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "patch_plan_hash",
+        "sequence": 6,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.patch_plan_hash",
+      "proof_hash": "6d2f4c88781de662c4727e41cdc9c56062891fed710fa4a66a3fdf3b1c3b4386",
+      "proof_type": "patch_plan_hash",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "patch_plan_hash",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:patch_plan_hash:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.patch_plan_hash"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "6d2f4c88781de662c4727e41cdc9c56062891fed710fa4a66a3fdf3b1c3b4386"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "source_only_scope",
+        "sequence": 7,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.source_only_scope",
+      "proof_hash": "957887c3f82035bcf4b453958026b69d9bc52c29e658ed8451a5ce0873806fbf",
+      "proof_type": "source_only_scope",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "source_only_scope",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:source_only_scope:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.source_only_scope"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "957887c3f82035bcf4b453958026b69d9bc52c29e658ed8451a5ce0873806fbf"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "test_tree_immutability",
+        "sequence": 8,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.test_tree_immutability",
+      "proof_hash": "be4e069316f66c76deb7ee7202133eb4d5bfb995c95af889d446bc014d395192",
+      "proof_type": "test_tree_immutability",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "test_tree_immutability",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:test_tree_immutability:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.test_tree_immutability"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "be4e069316f66c76deb7ee7202133eb4d5bfb995c95af889d446bc014d395192"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "patch_size",
+        "sequence": 9,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.patch_size",
+      "proof_hash": "10c78dfac6e58c2ecb1b9d0d8520af24bc23e354d3f4ecfc58b17b9bbf33227e",
+      "proof_type": "patch_size",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "patch_size",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:patch_size:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.patch_size"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "10c78dfac6e58c2ecb1b9d0d8520af24bc23e354d3f4ecfc58b17b9bbf33227e"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "forbidden_file_scan",
+        "sequence": 10,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.forbidden_file_scan",
+      "proof_hash": "92221d67f7cc73f58e706b0b62892325de4b1c723c272701e4ef9969c54a5a19",
+      "proof_type": "forbidden_file_scan",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "forbidden_file_scan",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:forbidden_file_scan:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.forbidden_file_scan"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "92221d67f7cc73f58e706b0b62892325de4b1c723c272701e4ef9969c54a5a19"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "validation_plan",
+        "sequence": 11,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.validation_plan",
+      "proof_hash": "e5f2fc7942b1dedfced8195d9127033f2e5dd448c83b3d5639e6f0b251a1cf2c",
+      "proof_type": "validation_plan",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "validation_plan",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:validation_plan:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.validation_plan"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "e5f2fc7942b1dedfced8195d9127033f2e5dd448c83b3d5639e6f0b251a1cf2c"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "native_invariant_plan",
+        "sequence": 12,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.native_invariant_plan",
+      "proof_hash": "a7df54bbe57112563b148a0611ae1ec9892727329319de441aa9606767e52ca5",
+      "proof_type": "native_invariant_plan",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "native_invariant_plan",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:native_invariant_plan:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.native_invariant_plan"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "a7df54bbe57112563b148a0611ae1ec9892727329319de441aa9606767e52ca5"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "fresh_replay_plan",
+        "sequence": 13,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.fresh_replay_plan",
+      "proof_hash": "c7dcbfea44c853e208bb01686bacb4a2306a488b54292e8cfa46f85a58794aa2",
+      "proof_type": "fresh_replay_plan",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "fresh_replay_plan",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:fresh_replay_plan:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.fresh_replay_plan"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "c7dcbfea44c853e208bb01686bacb4a2306a488b54292e8cfa46f85a58794aa2"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "same_provider_plan",
+        "sequence": 14,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.same_provider_plan",
+      "proof_hash": "5176927220b65915b6c94029dc8e9c4f904987711c3f8ba0f622eba423d3c40e",
+      "proof_type": "same_provider_plan",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "same_provider_plan",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:same_provider_plan:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.same_provider_plan"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "5176927220b65915b6c94029dc8e9c4f904987711c3f8ba0f622eba423d3c40e"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "rollback_ready_proof",
+        "sequence": 15,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.rollback_ready_proof",
+      "proof_hash": "ea0323b06fdffabf04f34de15652b5c93e1e92601617bfdc3b205651a10249a3",
+      "proof_type": "rollback_ready_proof",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "rollback_ready_proof",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:rollback_ready_proof:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.rollback_ready_proof"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "ea0323b06fdffabf04f34de15652b5c93e1e92601617bfdc3b205651a10249a3"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "proof_count_nonduplication_plan",
+        "sequence": 16,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.proof_count_nonduplication_plan",
+      "proof_hash": "0a109464ac603c078299666a46e90241f90fc36abf0a94c2915d0320828fe63b",
+      "proof_type": "proof_count_nonduplication_plan",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "proof_count_nonduplication_plan",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:proof_count_nonduplication_plan:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.proof_count_nonduplication_plan"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "0a109464ac603c078299666a46e90241f90fc36abf0a94c2915d0320828fe63b"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "resource_budget",
+        "sequence": 17,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.resource_budget",
+      "proof_hash": "5677e1146bf6f4ad43879eea93f8d9762250e0afa5d6ec0deabb07247c2ab173",
+      "proof_type": "resource_budget",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "resource_budget",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:resource_budget:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.resource_budget"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "5677e1146bf6f4ad43879eea93f8d9762250e0afa5d6ec0deabb07247c2ab173"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "network_policy",
+        "sequence": 18,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.network_policy",
+      "proof_hash": "64deed0d5a071c150e07667e926e74adbc56b213e5c572e7bd004375f312643b",
+      "proof_type": "network_policy",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "network_policy",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:network_policy:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.network_policy"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "64deed0d5a071c150e07667e926e74adbc56b213e5c572e7bd004375f312643b"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "allowed_source_path": "cloudpickle/cloudpickle.py",
+        "historical_non_counting": true,
+        "patch_sha256": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+        "requirement": "public_write_prohibition",
+        "sequence": 19,
+        "source_ownership_token": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.public_write_prohibition",
+      "proof_hash": "cf1a1a7dc2d9a5ee2647fc3bc2bea8397588e9db8ed51673d2db39b6d0acd543",
+      "proof_type": "public_write_prohibition",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "public_write_prohibition",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:public_write_prohibition:current-repair-license",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.public_write_prohibition"
+    }
+  ],
+  "repair_license_rows": [
+    {
+      "consumed": 1,
+      "token_hash": "0feb482a3490f0f78b1b5358a710e578a64065cc37465fbf9bd3ac6af28b3f77"
+    }
+  ],
+  "resume": {
+    "blocker": null,
+    "completed_stages": [
+      "candidate_identity",
+      "source_acquisition",
+      "runtime_attestation",
+      "provider_execution",
+      "target_provenance",
+      "command_authority",
+      "duplicate_failure",
+      "causal_ownership",
+      "ast_contact",
+      "repair_license",
+      "patch_application",
+      "validation",
+      "duplicate_clean_replay",
+      "proof_append"
+    ],
+    "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\controllergate-runtime\\state\\controllergate.sqlite3",
+    "event_chain": {
+      "chain_head": "0b6a0b9e2e065467db6b6bbd84184652a18c56bb2b2b9e19e8ad6dab39d92c9e",
+      "errors": [],
+      "event_count": 15,
+      "status": "PASS"
+    },
+    "execution_depth": "HISTORICAL_EPISODE_EXECUTION",
+    "execution_receipt_ids": [
+      "d145e9c474fd377b49db3596797369e968f9d5e7deeb17fcf6cab6113d4668c0",
+      "3e92127f19f58a3b45b4e751cda2578ce525fd38d16e1bfe52d64fe02aba4d06",
+      "ee9dd31e6bce1a6036e0690b5b61d4e4b3b3c8d69eb41836eec91fe579f9c68f",
+      "e198cf82278dedd4861970e31f14422c81e605cdb88bd533ef86d5bf57ca0597",
+      "766a97ef83dc587ed3531c70886b603ac178eebc4f45ab55d18dda56c3c1a145",
+      "195da0bedeb1ea92946fdc603fd4c38716c1b8b052ca8b42bfbce46e1cfd8003",
+      "430d233ee0349c8079b08bab21046e93968a11901747905c82c9466b69587c45",
+      "3ff774fa56a5b661583408c03da305462a0cbdd29089882b7dd4472bef5c601e",
+      "fc0372ab8606f5ef4d06879f4db8987ba4cb44965cd9b8aab74cc4831fbd0265",
+      "8df13074562ff9a6c491a6aab0a64d5b215dc960aef651e1c5992ed06d9211a1",
+      "bf132d9d428a49993f71c6f6c0ea340a40ad2665577223c9ef65995c07206a35",
+      "918deac0d470129a9a7af5b363f5e78a671226bfb1055b720854c91609abe518",
+      "548b24d608102c38d1a6cc2f373799d3caa369f12dbf63534505d38f266f4d40",
+      "8ee0c1d46db6ac420f2312a2c4e13d77f55aa7bea54564bb58f129c39cce5433"
+    ],
+    "historical_count_increment": 0,
+    "invoked_via_installed_cli": true,
+    "mechanism_outcomes": [
+      {
+        "stage_id": "causal_ownership",
+        "status": "PASS"
+      },
+      {
+        "stage_id": "ast_contact",
+        "status": "PASS"
+      },
+      {
+        "stage_id": "repair_license",
+        "status": "PASS"
+      },
+      {
+        "stage_id": "patch_application",
+        "status": "PASS"
+      },
+      {
+        "stage_id": "validation",
+        "status": "PASS"
+      },
+      {
+        "stage_id": "duplicate_clean_replay",
+        "status": "PASS"
+      },
+      {
+        "stage_id": "proof_append",
+        "status": "PASS"
+      }
+    ],
+    "reaction_token_hashes": [
+      "d2e3d3f55fc91f8cc0b3aa1621022e345181dfc0b33a1a50c2c931f413633d5b",
+      "866db5feff8623a4d97cdf1caa88a9809fe53412655afb128961c7762d9ccd5e",
+      "77330e5d5f16633c823aadce89678e1a4750c3bc62b78d3208f804e3eacd76c8",
+      "1251a2c4520b4d4d315ea73247bda4220cada5fc6b3f5d08384055a83e8998ef",
+      "d795270f333a94fa5f3d29bc10132507b82b5c613d16b4d70e876ec23da07461",
+      "dbe498bf0bf4e564c628ed68ed42516d48bad2280e8ec0a09090727009d6a122",
+      "7eaef998765393875c5553abd296b5faa1ddddc46c3a39681cb41a8cbc7c0270",
+      "ebee5b2d104a438f56eb0b650e66d47ac3ff1336942988002d1442a0f20df3c8",
+      "681fb98746419a8343baa6835f5dd7a10a9523a59357e74374ecfce5b5256a2d",
+      "30131d465eaace2640461a41704784a839bcfe456d6535284d6ec3995a4431cf",
+      "368013041d1d7d5b017a5f4f2184af367994ea44d88702a5c3649c6a5f6ed19c",
+      "eb23fd17d61c7eb6b9c1e3641bd4d81530dc9a8cdb857ef6078ce9bc909cbfea",
+      "4a4bea17af109794208dfea316bb0142ead41f2b10762e3313ff99311179c4d1",
+      "c993e6c7dab38105d3e9494333b1d43aee29a81be633ca118d53c753f5c9d25e"
+    ],
+    "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+    "state_authority": "SQLite",
+    "status": "HISTORICAL_NON_COUNTING_COMPLETE",
+    "test_assertions": [
+      {
+        "stage_id": "causal_ownership",
+        "status": "TEST_PASS"
+      },
+      {
+        "stage_id": "ast_contact",
+        "status": "TEST_PASS"
+      },
+      {
+        "stage_id": "repair_license",
+        "status": "TEST_PASS"
+      },
+      {
+        "stage_id": "patch_application",
+        "status": "TEST_PASS"
+      },
+      {
+        "stage_id": "validation",
+        "status": "TEST_PASS"
+      },
+      {
+        "stage_id": "duplicate_clean_replay",
+        "status": "TEST_PASS"
+      },
+      {
+        "stage_id": "proof_append",
+        "status": "TEST_PASS"
+      }
+    ]
+  },
+  "resume_process": {
+    "argv": [
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+      "resume",
+      "--run-id",
+      "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "--manifest",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\historical-manifest.json"
+    ],
+    "return_code": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "ac4e5258db49db0426bd454a7b4c23d88dd8b0ccfa82f70d59bddd9539687296"
+  },
+  "rollback_ready": {
+    "original_hash": "0f82ee1a52ddd84c3524cd3297e7b35951c497e085391711d6b9592b48dcdc56",
+    "patched_hash": "7e41e6400a38db7036ad9a8ae92b5daf567e151a34a88400595e442f3d590d16",
+    "restored_hash": "0f82ee1a52ddd84c3524cd3297e7b35951c497e085391711d6b9592b48dcdc56",
+    "status": "PASS"
+  },
+  "semantic_failure_signatures_match": true,
+  "source_activation": {
+    "activated": true,
+    "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\cloudpickle-source.zip",
+    "archive_sha256": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a",
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "capsule_id": "d9e96a9903ef72d0354648b912f3a1b3ddfe0cd41927c1b378ef41cbf14dc5c1",
+    "capsule_type": "SOURCE_CAPSULE",
+    "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\source-base",
+    "entry_count": 58,
+    "exact_blocker": null,
+    "expected_entry_count": 58,
+    "extra_paths": [],
+    "failures": [],
+    "git_tree_id": "49a5f0f094ac7bde2c8457f346dad43e34e9f419",
+    "manifest_sha256": "148a31a92ad171a25ca603a05a5938b2552f825437c25eb09e5cf3a4d0831e4b",
+    "mismatched_paths": [],
+    "missing_paths": [],
+    "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
+    "observed_entry_count": 58,
+    "producer_consumer_conservation": true,
+    "status": "PASS",
+    "transport_residue": {
+      "residue": [],
+      "residue_count": 0,
+      "status": "PASS"
+    }
+  },
+  "source_ownership_proofs": [
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "candidate_run_frame_identity",
+        "sequence": 1,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.candidate_run_frame_identity",
+      "proof_hash": "a265a445cded9c49444af0c4ac9992aa8e1ebc4aa04431db8e4ece76cc24dfd3",
+      "proof_type": "candidate_run_frame_identity",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "candidate_run_frame_identity",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:candidate_run_frame_identity:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.candidate_run_frame_identity"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "a265a445cded9c49444af0c4ac9992aa8e1ebc4aa04431db8e4ece76cc24dfd3"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "incident_snapshot",
+        "sequence": 2,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.incident_snapshot",
+      "proof_hash": "4bc67c6cce8582e9722a563f40ef563d42321c66ba11638e9935672ec46b71df",
+      "proof_type": "incident_snapshot",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "incident_snapshot",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:incident_snapshot:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.incident_snapshot"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "4bc67c6cce8582e9722a563f40ef563d42321c66ba11638e9935672ec46b71df"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "source_revision",
+        "sequence": 3,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.source_revision",
+      "proof_hash": "1f36dc74b27754db25f6824d7bae2b1b57d4b0afe348fa03938b9b82c21b84fc",
+      "proof_type": "source_revision",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "source_revision",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:source_revision:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.source_revision"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "1f36dc74b27754db25f6824d7bae2b1b57d4b0afe348fa03938b9b82c21b84fc"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "source_test_immutability",
+        "sequence": 4,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.source_test_immutability",
+      "proof_hash": "9f1f1c576003a8e660038b63f6d1bb23d25bfcf12b443af724d085da14419bfe",
+      "proof_type": "source_test_immutability",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "source_test_immutability",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:source_test_immutability:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.source_test_immutability"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "9f1f1c576003a8e660038b63f6d1bb23d25bfcf12b443af724d085da14419bfe"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "provider_runtime",
+        "sequence": 5,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.provider_runtime",
+      "proof_hash": "6efcd334c1e9ed1de071859abb28a63771da2ebe3b4498e64ddedb5ac59be536",
+      "proof_type": "provider_runtime",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "provider_runtime",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:provider_runtime:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.provider_runtime"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "6efcd334c1e9ed1de071859abb28a63771da2ebe3b4498e64ddedb5ac59be536"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "target_reproducer",
+        "sequence": 6,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.target_reproducer",
+      "proof_hash": "9ff451d14a84f70eea705e06ba9adb4e58e23d06196167e63a46e2ad9ad032bd",
+      "proof_type": "target_reproducer",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "target_reproducer",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:target_reproducer:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.target_reproducer"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "9ff451d14a84f70eea705e06ba9adb4e58e23d06196167e63a46e2ad9ad032bd"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "command_authority",
+        "sequence": 7,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.command_authority",
+      "proof_hash": "ae6791390f24590217c128a1e8a165a1159f30a09dd45674c2270cc90e1a9b1c",
+      "proof_type": "command_authority",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "command_authority",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:command_authority:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.command_authority"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "ae6791390f24590217c128a1e8a165a1159f30a09dd45674c2270cc90e1a9b1c"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "runner_origin",
+        "sequence": 8,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.runner_origin",
+      "proof_hash": "fc5d8c6fc394776f8b0b6e8a61cf49c47b7ec8b6152978b0c2b79271f54c80f8",
+      "proof_type": "runner_origin",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "runner_origin",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:runner_origin:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.runner_origin"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "fc5d8c6fc394776f8b0b6e8a61cf49c47b7ec8b6152978b0c2b79271f54c80f8"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "harness_origin",
+        "sequence": 9,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.harness_origin",
+      "proof_hash": "3d6009c679c190fdec8d3661c3fb3144d169141777cf11e502514be5ea0f83c7",
+      "proof_type": "harness_origin",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "harness_origin",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:harness_origin:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.harness_origin"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "3d6009c679c190fdec8d3661c3fb3144d169141777cf11e502514be5ea0f83c7"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "duplicate_failure",
+        "sequence": 10,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.duplicate_failure",
+      "proof_hash": "5e148725205603f3849222aff2a0e95bb383238fe095ed06f4245a3e4101ac20",
+      "proof_type": "duplicate_failure",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "duplicate_failure",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:duplicate_failure:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.duplicate_failure"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "5e148725205603f3849222aff2a0e95bb383238fe095ed06f4245a3e4101ac20"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "normal_incident_frame",
+        "sequence": 11,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.normal_incident_frame",
+      "proof_hash": "2b6d68540dcc7fd2b1c59618e25402b32184cf91df1c27a0f5d292029590e761",
+      "proof_type": "normal_incident_frame",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "normal_incident_frame",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:normal_incident_frame:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.normal_incident_frame"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "2b6d68540dcc7fd2b1c59618e25402b32184cf91df1c27a0f5d292029590e761"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "normal_incident_divergence",
+        "sequence": 12,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.normal_incident_divergence",
+      "proof_hash": "20f621442b178e521ec3e18261bc1c80b76e38865d34bc1350cba90fd9a1e7dc",
+      "proof_type": "normal_incident_divergence",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "normal_incident_divergence",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:normal_incident_divergence:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.normal_incident_divergence"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "20f621442b178e521ec3e18261bc1c80b76e38865d34bc1350cba90fd9a1e7dc"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "provider_alternative_exclusion",
+        "sequence": 13,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.provider_alternative_exclusion",
+      "proof_hash": "e90bb471e5d9ff6524bf2db2f6310ff6124999dbcbaefd87c52f1c362c8ff9eb",
+      "proof_type": "provider_alternative_exclusion",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "provider_alternative_exclusion",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:provider_alternative_exclusion:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.provider_alternative_exclusion"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "e90bb471e5d9ff6524bf2db2f6310ff6124999dbcbaefd87c52f1c362c8ff9eb"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "environment_alternative_exclusion",
+        "sequence": 14,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.environment_alternative_exclusion",
+      "proof_hash": "c2f240e05d60792631e5a334508efa6c13bb107b09db5d23ff5a7e1105ce9431",
+      "proof_type": "environment_alternative_exclusion",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "environment_alternative_exclusion",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:environment_alternative_exclusion:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.environment_alternative_exclusion"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "c2f240e05d60792631e5a334508efa6c13bb107b09db5d23ff5a7e1105ce9431"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "platform_alternative_exclusion",
+        "sequence": 15,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.platform_alternative_exclusion",
+      "proof_hash": "8395d0bf196ef9c0adb6c364a3c22f029606b0216974696b25065d3cf21dbf91",
+      "proof_type": "platform_alternative_exclusion",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "platform_alternative_exclusion",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:platform_alternative_exclusion:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.platform_alternative_exclusion"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "8395d0bf196ef9c0adb6c364a3c22f029606b0216974696b25065d3cf21dbf91"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "network_transport_exclusion",
+        "sequence": 16,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.network_transport_exclusion",
+      "proof_hash": "f0b8106c8d758815e56f301dcf3351fa5bdc1d0e0ac56256980939b3d28c2cab",
+      "proof_type": "network_transport_exclusion",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "network_transport_exclusion",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:network_transport_exclusion:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.network_transport_exclusion"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "f0b8106c8d758815e56f301dcf3351fa5bdc1d0e0ac56256980939b3d28c2cab"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "harness_target_exclusion",
+        "sequence": 17,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.harness_target_exclusion",
+      "proof_hash": "eced8c60c230292d85e5f02c903df9ff406cae9897ddbf42e7c994814cc20beb",
+      "proof_type": "harness_target_exclusion",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "harness_target_exclusion",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:harness_target_exclusion:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.harness_target_exclusion"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "eced8c60c230292d85e5f02c903df9ff406cae9897ddbf42e7c994814cc20beb"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "expectation_consistency",
+        "sequence": 18,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.expectation_consistency",
+      "proof_hash": "2f9a10f33cb3f961acf8239b9a1d55b88c5c8a5d9390d73d83b79ec8c37fdf13",
+      "proof_type": "expectation_consistency",
+      "raw_evidence_hashes": [
+        "c5d83364bd6012d77b2372bb9d57e42f4ea547a6f0233c584ce70949baba1db8"
+      ],
+      "requirement": "expectation_consistency",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:expectation_consistency:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.expectation_consistency"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "2f9a10f33cb3f961acf8239b9a1d55b88c5c8a5d9390d73d83b79ec8c37fdf13"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "direct_source_contact",
+        "sequence": 19,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.direct_source_contact",
+      "proof_hash": "e4ab725156486d3e8df919edc8e33b07486b7eb759ddf4863cbf49ea634740e3",
+      "proof_type": "direct_source_contact",
+      "raw_evidence_hashes": [
+        "e30ee2088cc5f470c385ea7c3e24568e94269c5e635dead647db17ac49210006"
+      ],
+      "requirement": "direct_source_contact",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:direct_source_contact:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.direct_source_contact"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "e4ab725156486d3e8df919edc8e33b07486b7eb759ddf4863cbf49ea634740e3"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "repair_critical_interlock",
+        "sequence": 20,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.repair_critical_interlock",
+      "proof_hash": "39697857b608e3176a0f953d5ec451cbe7ff22261bfd33aac424f51720824c9b",
+      "proof_type": "repair_critical_interlock",
+      "raw_evidence_hashes": [
+        "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63"
+      ],
+      "requirement": "repair_critical_interlock",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:repair_critical_interlock:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.repair_critical_interlock"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "39697857b608e3176a0f953d5ec451cbe7ff22261bfd33aac424f51720824c9b"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "categorical_causal_elbow",
+        "sequence": 21,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.categorical_causal_elbow",
+      "proof_hash": "45df6f0260e257ffbbb661c9fea7f21a8ec38bb317cf2d21b2b1052343107de7",
+      "proof_type": "categorical_causal_elbow",
+      "raw_evidence_hashes": [
+        "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      ],
+      "requirement": "categorical_causal_elbow",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:categorical_causal_elbow:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.categorical_causal_elbow"
+    },
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "decision_time_safe": true,
+      "derivation_parents": [
+        "45df6f0260e257ffbbb661c9fea7f21a8ec38bb317cf2d21b2b1052343107de7"
+      ],
+      "direct": true,
+      "evidence_value": {
+        "amds_terminal": "source_owned_behavior_defect",
+        "prepatch_reproduced_twice": true,
+        "provider_capsule": "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86",
+        "requirement": "remaining_alternative",
+        "sequence": 22,
+        "source_capsule": "dac22a314ec4aeb0525e54af5c12f9413afdd82f6652f0e61ce83a349a32413a"
+      },
+      "execution_depth": "executed_and_independently_verified",
+      "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+      "freshness": "current_run",
+      "producer_identity": "controllergate.product.historical_lifecycle.stage.remaining_alternative",
+      "proof_hash": "a5316ba051e1076142e0e7a28c1f9634759c36944f5ffe8b3bdd64e4db414c66",
+      "proof_type": "remaining_alternative",
+      "raw_evidence_hashes": [
+        "dbfe0f54a6f9aeb8c7aba99476200f686e97afc3b6c7d3d5b461796ed4752e86"
+      ],
+      "requirement": "remaining_alternative",
+      "revoked": false,
+      "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "semantic_scope": "cloudpickle_507_py313_typevar_distutils:remaining_alternative:current-capsule-lifecycle",
+      "status": "PASS",
+      "verifier_identity": "controllergate.product.historical_lifecycle.verifier.remaining_alternative"
+    }
+  ],
+  "source_ownership_token": {
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "created_at": "2026-07-15T17:12:21.577564+00:00",
+    "frame_hash": "b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d",
+    "resolved_proofs": {
+      "candidate_run_frame_identity": "a265a445cded9c49444af0c4ac9992aa8e1ebc4aa04431db8e4ece76cc24dfd3",
+      "categorical_causal_elbow": "45df6f0260e257ffbbb661c9fea7f21a8ec38bb317cf2d21b2b1052343107de7",
+      "command_authority": "ae6791390f24590217c128a1e8a165a1159f30a09dd45674c2270cc90e1a9b1c",
+      "direct_source_contact": "e4ab725156486d3e8df919edc8e33b07486b7eb759ddf4863cbf49ea634740e3",
+      "duplicate_failure": "5e148725205603f3849222aff2a0e95bb383238fe095ed06f4245a3e4101ac20",
+      "environment_alternative_exclusion": "c2f240e05d60792631e5a334508efa6c13bb107b09db5d23ff5a7e1105ce9431",
+      "expectation_consistency": "2f9a10f33cb3f961acf8239b9a1d55b88c5c8a5d9390d73d83b79ec8c37fdf13",
+      "harness_origin": "3d6009c679c190fdec8d3661c3fb3144d169141777cf11e502514be5ea0f83c7",
+      "harness_target_exclusion": "eced8c60c230292d85e5f02c903df9ff406cae9897ddbf42e7c994814cc20beb",
+      "incident_snapshot": "4bc67c6cce8582e9722a563f40ef563d42321c66ba11638e9935672ec46b71df",
+      "network_transport_exclusion": "f0b8106c8d758815e56f301dcf3351fa5bdc1d0e0ac56256980939b3d28c2cab",
+      "normal_incident_divergence": "20f621442b178e521ec3e18261bc1c80b76e38865d34bc1350cba90fd9a1e7dc",
+      "normal_incident_frame": "2b6d68540dcc7fd2b1c59618e25402b32184cf91df1c27a0f5d292029590e761",
+      "platform_alternative_exclusion": "8395d0bf196ef9c0adb6c364a3c22f029606b0216974696b25065d3cf21dbf91",
+      "provider_alternative_exclusion": "e90bb471e5d9ff6524bf2db2f6310ff6124999dbcbaefd87c52f1c362c8ff9eb",
+      "provider_runtime": "6efcd334c1e9ed1de071859abb28a63771da2ebe3b4498e64ddedb5ac59be536",
+      "remaining_alternative": "a5316ba051e1076142e0e7a28c1f9634759c36944f5ffe8b3bdd64e4db414c66",
+      "repair_critical_interlock": "39697857b608e3176a0f953d5ec451cbe7ff22261bfd33aac424f51720824c9b",
+      "runner_origin": "fc5d8c6fc394776f8b0b6e8a61cf49c47b7ec8b6152978b0c2b79271f54c80f8",
+      "source_revision": "1f36dc74b27754db25f6824d7bae2b1b57d4b0afe348fa03938b9b82c21b84fc",
+      "source_test_immutability": "9f1f1c576003a8e660038b63f6d1bb23d25bfcf12b443af724d085da14419bfe",
+      "target_reproducer": "9ff451d14a84f70eea705e06ba9adb4e58e23d06196167e63a46e2ad9ad032bd"
+    },
+    "revoked": false,
+    "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+    "token_hash": "3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13"
+  },
+  "source_ownership_token_count": 1,
+  "stage_outputs": [
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"candidate_id\": \"cloudpickle_507_py313_typevar_distutils\", \"run_id\": \"batch091-historical-cloudpickle_507_py313_typevar_distutils\", \"stage_id\": \"candidate_identity\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "candidate_identity"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"source_tree_hash\": \"9ab6a3b0cb3815d61ac88670fcaa675cf85588256cebc5bbcf6d6f35f51081f7\", \"stage_id\": \"source_acquisition\", \"status\": \"PASS\", \"verified\": true, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\cp507\\\\controllergate-runtime\\\\batch091-historical-cloudpickle_507_py313_typevar_distutils\\\\workspace\"}",
+      "stage_id": "source_acquisition"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"executable\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\controllergate-installed\\\\Scripts\\\\python.exe\", \"runtime_attestation_hash\": \"e1a51262fd34ffad4f2304c553aa0874d42a8327c8757fb3c05da7adb716e0ee\", \"stage_id\": \"runtime_attestation\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "runtime_attestation"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"broker_record_hash\": \"658bb3b28e484a3777a2861582cbae4f6adc0ee820a969f6aef6608bf7014db5\", \"return_code\": 0, \"stage_id\": \"provider_execution\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "provider_execution"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"command_hash\": \"bd3bdb6a526779aa18bc0ed0c71d04b49c1703a3b0f92ea76a5422fc8862dfc3\", \"stage_id\": \"target_provenance\", \"status\": \"PASS\", \"target_paths\": [\"tests/cloudpickle_test.py\"], \"verified\": true}",
+      "stage_id": "target_provenance"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"authority_hash\": \"ccad89d53423dd3dcee99b047f68a268dae42f71935f1110a8d6b919b469c2ef\", \"command_hash\": \"a1f03ff792731732922746470c21b5f59380b3d306c4751487435797712c562e\", \"stage_id\": \"command_authority\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "command_authority"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"executions\": [{\"record_hash\": \"eed9971b204b75005aff3e28e0f636e3f5efbbab69b47fa0c20b19b5975ffbd5\", \"return_code\": 1, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\cp507\\\\controllergate-runtime\\\\batch091-historical-cloudpickle_507_py313_typevar_distutils\\\\pre-repair-a\", \"workspace_hash\": \"4a0c71a11d262552d82e003ded4a3b7cacc1334bdfa870ca05010436991ce764\"}, {\"record_hash\": \"8c34010042307463b400f3c8f3695aafe654e548ed43cca1bd660954d9dbbcce\", \"return_code\": 1, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\cp507\\\\controllergate-runtime\\\\batch091-historical-cloudpickle_507_py313_typevar_distutils\\\\pre-repair-b\", \"workspace_hash\": \"4a0c71a11d262552d82e003ded4a3b7cacc1334bdfa870ca05010436991ce764\"}], \"failure_reproduced\": true, \"stage_id\": \"duplicate_failure\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "duplicate_failure"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"resolved_proof_count\": 22, \"source_ownership_token_hash\": \"3398a555a6e78ae76db0785b18d4f418d4bd230da19c2912c37ba1c0e1316d13\", \"stage_id\": \"causal_ownership\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "causal_ownership"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"source_hash\": \"b5d494a8c693d4e41c49a8aba4c08fa969fa9e956971d8cbb936e15230f5d5af\", \"source_path\": \"cloudpickle/cloudpickle.py\", \"stage_id\": \"ast_contact\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "ast_contact"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"repair_license_token_hash\": \"0feb482a3490f0f78b1b5358a710e578a64065cc37465fbf9bd3ac6af28b3f77\", \"resolved_proof_count\": 19, \"stage_id\": \"repair_license\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "repair_license"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"broker_record_hash\": \"464a86cd66db4bcbe22f160a805268c707524860f33311652df6c80639be24a0\", \"repair_license_spent\": \"0feb482a3490f0f78b1b5358a710e578a64065cc37465fbf9bd3ac6af28b3f77\", \"return_code\": 0, \"stage_id\": \"patch_application\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "patch_application"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"broker_record_hash\": \"566cee5807543e74135ce2fe6f6518f24d0a704621b517189e6ff7d126e04105\", \"passed\": true, \"return_code\": 0, \"stage_id\": \"validation\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "validation"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"broker_record_hash\": \"991d3c3ebe56e8089e0eb173ffa965050ffcc15fb3f10e7b31388a36e135c1e3\", \"passed\": true, \"patch_record_hash\": \"5e115c392d520a2cdc8812a557b8819fb6854c97480237cc14de47121e20114c\", \"return_code\": 0, \"stage_id\": \"duplicate_clean_replay\", \"status\": \"PASS\", \"verified\": true, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\cp507\\\\controllergate-runtime\\\\batch091-historical-cloudpickle_507_py313_typevar_distutils\\\\clean-replay\", \"workspace_hash\": \"139519c832b0cfa5d78b4af65fbd4615251283d001473625742c3012439677bc\"}",
+      "stage_id": "duplicate_clean_replay"
+    },
+    {
+      "output_json": "{\"anchor_hash\": \"b9205e4af91229ffbf8b9675d17940960f1de27a0d5366dc9f92fa2c5e1a588d\", \"historical_count_increment\": 0, \"proof_hash\": \"3edfa339c9f53d3e1812918ff78e02bd966adac9425a3137d0f9924812de2d0c\", \"stage_id\": \"proof_append\", \"status\": \"PASS\", \"verified\": true}",
+      "stage_id": "proof_append"
+    }
+  ],
+  "state_integrity": {
+    "chain_head": "0b6a0b9e2e065467db6b6bbd84184652a18c56bb2b2b9e19e8ad6dab39d92c9e",
+    "errors": [],
+    "event_count": 15,
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "verify": {
+    "event_chain": {
+      "chain_head": "0b6a0b9e2e065467db6b6bbd84184652a18c56bb2b2b9e19e8ad6dab39d92c9e",
+      "errors": [],
+      "event_count": 15,
+      "status": "PASS"
+    },
+    "exact_blocker": null,
+    "idempotent": true,
+    "run_id": "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+    "state_authority": "SQLite",
+    "status": "PASS",
+    "terminal": "HISTORICAL_NON_COUNTING_COMPLETE"
+  },
+  "verify_process": {
+    "argv": [
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+      "verify",
+      "--run-id",
+      "batch091-historical-cloudpickle_507_py313_typevar_distutils",
+      "--manifest",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\cp507\\historical-manifest.json"
+    ],
+    "return_code": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "9b5238bea5bd38e7b5ff1d761d22dffa813e928a919db802438d8650433dd871"
+  }
+}

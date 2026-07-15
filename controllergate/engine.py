@@ -71,11 +71,16 @@ def _broker(repository: ControllerStateRepository, manifest: dict[str, Any], *, 
         return type("IdempotentRun", (), {"returncode": record["return_code"], "stdout": "", "stderr": ""})(), record
     repository.authorize(run_id, authorization_id, {"stage": stage, "operation_type": operation_type}, nonce)
     attestation = {"status": "PASS", "attestation_hash": canonical_hash([sys.version, sys.platform])}
+    declared_env = dict(manifest.get("operation_environment", {}))
+    safe_env = None
+    if declared_env:
+        safe_env = {key: os.environ[key] for key in ("SYSTEMROOT", "WINDIR", "PATH", "TEMP", "TMP", "HOME", "USERPROFILE") if key in os.environ}
+        safe_env.update({str(key): str(value).replace("{workspace}", str(cwd.resolve())) for key, value in declared_env.items()})
     run, record = execute_external_operation(
         operation_type=operation_type, argv=argv, cwd=cwd, runtime_root=Path(manifest["runtime_root"]),
         stage_id=stage, candidate_id=candidate_id, authorization_id=authorization_id,
         runtime_attestation=attestation, platform=sys.platform, runtime=sys.version,
-        network_policy="none", timeout=timeout, run_id=run_id, nonce=nonce,
+        network_policy="none", env=safe_env, timeout=timeout, run_id=run_id, nonce=nonce,
         source_tree_hash_before=_tree_hash(cwd), test_tree_hash_before=_tree_hash(cwd),
     )
     repository.consume_authorization(run_id, authorization_id, nonce)
@@ -199,7 +204,8 @@ def _patch_argv(manifest: dict[str, Any], workspace: Path) -> tuple[list[str], s
         expected = str(plan.get("patch_sha256", ""))
         if not expected or observed != expected:
             raise ValueError("canonical_patch_identity_mismatch")
-        return ["git", "apply", "--whitespace=nowarn", str(patch_path)], observed
+        no_index = [] if (workspace / ".git").exists() else ["--no-index"]
+        return ["git", "-c", "core.autocrlf=false", "-c", "core.eol=lf", "apply", *no_index, "--whitespace=nowarn", str(patch_path)], observed
     target = workspace / str(plan.get("path", ""))
     code = "from pathlib import Path;import sys;p=Path(sys.argv[1]);s=p.read_text();old=sys.argv[2];new=sys.argv[3];assert old in s;p.write_text(s.replace(old,new,1),newline='\\n')"
     return [sys.executable, "-c", code, str(target), str(plan.get("old", "")), str(plan.get("new", ""))], canonical_hash([plan.get("path"), plan.get("old"), plan.get("new")])
@@ -267,7 +273,14 @@ def _stage_output(repository: ControllerStateRepository, manifest: dict[str, Any
             blocker = "pre_repair_failure_not_reproduced"
     elif stage_id == "causal_ownership":
         try:
-            token = mint_source_ownership(repository, manifest, anchors["anchor_hash"])
+            existing = repository.connection.execute(
+                "SELECT token_hash,evidence_json FROM source_ownership_tokens WHERE run_id=? AND consumed=0 ORDER BY rowid DESC LIMIT 1",
+                (manifest["run_id"],),
+            ).fetchone()
+            if existing:
+                token = {**json.loads(existing["evidence_json"]), "token_hash": existing["token_hash"]}
+            else:
+                token = mint_source_ownership(repository, manifest, anchors["anchor_hash"])
             output = _verified(stage_id, anchors, source_ownership_token_hash=token["token_hash"], resolved_proof_count=len(token["resolved_proofs"])); blocker = None
         except ValueError as error:
             blocker = f"source_ownership_proof_resolution_incomplete:{error}"
@@ -378,8 +391,19 @@ def _stage_output(repository: ControllerStateRepository, manifest: dict[str, Any
     elif stage_id == "non_source_terminal":
         source_count = repository.connection.execute("SELECT COUNT(*) FROM source_ownership_tokens WHERE run_id=?",(manifest["run_id"],)).fetchone()[0]
         license_count = repository.connection.execute("SELECT COUNT(*) FROM repair_license_tokens WHERE run_id=?",(manifest["run_id"],)).fetchone()[0]
-        if source_count == license_count == 0: output = _verified(stage_id, anchors, terminal=manifest.get("non_source_terminal","INSUFFICIENT_EVIDENCE"), source_ownership_tokens=0, repair_licenses=0); blocker = None
-        else: blocker = "non_source_authority_contamination"
+        reference = dict(manifest.get("non_source_terminal_receipt", {}))
+        terminal_path = Path(str(reference.get("path", ""))).resolve()
+        observed_hash = hashlib.sha256(terminal_path.read_bytes()).hexdigest() if terminal_path.is_file() else None
+        terminal_record = json.loads(terminal_path.read_text(encoding="utf-8")) if observed_hash == reference.get("sha256") else {}
+        valid_terminal = (
+            terminal_record.get("candidate_id") == manifest["candidate_id"]
+            and terminal_record.get("terminal_sealed_before_cli") is True
+            and terminal_record.get("terminal") in {"provider_owned", "harness_owned", "environment_owned", "network_or_transport_owned", "safe_abstention_insufficient_evidence"}
+        )
+        if source_count == license_count == 0 and valid_terminal:
+            output = _verified(stage_id, anchors, terminal=terminal_record["terminal"], terminal_receipt_sha256=observed_hash, source_ownership_tokens=0, repair_licenses=0); blocker = None
+        else:
+            blocker = "non_source_authority_contamination" if source_count or license_count else "sealed_non_source_terminal_receipt_invalid"
     elif stage_id in {"artifact_maturation", "canary_install", "canary_health", "canary_rollback"}:
         evidence = manifest.get("canary_evidence", {}).get(stage_id)
         if isinstance(evidence, dict) and evidence.get("status") == "PASS" and evidence.get("raw_hash"):
