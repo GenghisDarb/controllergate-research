@@ -13,7 +13,13 @@ FORBIDDEN_DECISION_KEYS = {
     "expected_terminal", "terminal_class", "ground_truth", "correct_classification",
     "known_patch", "patch_outcome", "future_validation_outcome", "count_decision", "sealed_truth",
 }
-FAMILIES = ("source_owned", "provider_owned", "harness_owned", "environment_owned", "non_source_terminal")
+FAMILIES = (
+    "source_owned_behavior_defect",
+    "provider_owned",
+    "harness_owned",
+    "environment_owned",
+    "network_or_transport_owned",
+)
 
 
 def _forbidden_paths(value: Any, path: str = "$") -> list[str]:
@@ -43,9 +49,11 @@ def _parse_observation(text: str) -> dict[str, str]:
 def _update(frontier: set[str], observation: dict[str, str]) -> tuple[set[str], list[str]]:
     eliminated: list[str] = []
     signals = {
-        "source_contact": "source_owned", "provider_failure": "provider_owned",
-        "harness_failure": "harness_owned", "environment_failure": "environment_owned",
-        "non_source_terminal": "non_source_terminal",
+        "observed_source_behavior_contact": "source_owned_behavior_defect",
+        "observed_provider_unavailable": "provider_owned",
+        "observed_runner_scope_mismatch": "harness_owned",
+        "observed_runtime_abi_mismatch": "environment_owned",
+        "observed_transport_denial": "network_or_transport_owned",
     }
     supported = {family for key, family in signals.items() if observation.get(key) == "true"}
     if supported:
@@ -72,7 +80,7 @@ def run_blind_episode(decision_bundle: dict[str, Any], output_root: Path,
         if nonce in spent:
             events.append({"round": round_number, "status": "BLOCK", "blocker": "spent_nonce_reuse_rejected"}); continue
         spent.add(nonce)
-        argv = [sys.executable, "-c", str(probe["script"])]
+        argv = [sys.executable, "-c", str(probe["script"]), *[str(item) for item in probe.get("argv", [])]]
         attestation = {"status": "PASS", "attestation_hash": canonical_hash([sys.version, sys.platform])}
         run, record = execute_external_operation(
             operation_type="diagnostic_probe", argv=argv, cwd=output_root, runtime_root=output_root,
@@ -95,7 +103,7 @@ def run_blind_episode(decision_bundle: dict[str, Any], output_root: Path,
         observations.append(observation)
         events.append({"round": round_number, "frontier_before": before, "eliminated": eliminated,
                        "frontier_after": sorted(frontier), "nonce": nonce, "event_hash": canonical_hash(observation)})
-        if len(frontier) == 1:
+        if len(frontier) == 1 and len(observations) >= 2:
             break
     terminal = next(iter(frontier)) if len(frontier) == 1 else "safe_abstention_insufficient_evidence"
     return {"status": "PASS", "candidate_id": candidate, "run_id": run_id, "frame_hash": frame_hash,
@@ -110,7 +118,7 @@ def critic_join(terminals: list[dict[str, Any]], sealed_truth: list[dict[str, An
     rows = [{"candidate_id": item["candidate_id"], "decision": item["terminal"],
              "truth": truth.get(item["candidate_id"]), "correct": item["terminal"] == truth.get(item["candidate_id"])} for item in terminals]
     correct = sum(bool(row["correct"]) for row in rows); total = len(rows)
-    abstentions = [row for row in rows if row["truth"].startswith("safe_abstention")]
+    abstentions = [row for row in rows if row["truth"] != "source_owned_behavior_defect"]
     return {"status": "PASS" if total >= 8 and correct == total else "BLOCK", "episode_count": total,
             "macro_accuracy": correct / total if total else 0.0,
             "safe_abstention_accuracy": (sum(row["correct"] for row in abstentions) / len(abstentions)) if abstentions else 0.0,

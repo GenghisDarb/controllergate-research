@@ -1,0 +1,336 @@
+{
+  "license_verifiers": [
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.source_ownership_token_hash",
+      "proof_type": "source_ownership_token_hash",
+      "verifier_identity": "controllergate.verifier.source_ownership_token_hash"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.single_use_authorization_record",
+      "proof_type": "single_use_authorization_record",
+      "verifier_identity": "controllergate.verifier.single_use_authorization_record"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.human_approval_record",
+      "proof_type": "human_approval_record",
+      "verifier_identity": "controllergate.verifier.human_approval_record"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.write_access_lease",
+      "proof_type": "write_access_lease",
+      "verifier_identity": "controllergate.verifier.write_access_lease"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.allowlisted_region",
+      "proof_type": "allowlisted_region",
+      "verifier_identity": "controllergate.verifier.allowlisted_region"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.patch_plan_hash",
+      "proof_type": "patch_plan_hash",
+      "verifier_identity": "controllergate.verifier.patch_plan_hash"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.source_only_scope",
+      "proof_type": "source_only_scope",
+      "verifier_identity": "controllergate.verifier.source_only_scope"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.test_tree_immutability",
+      "proof_type": "test_tree_immutability",
+      "verifier_identity": "controllergate.verifier.test_tree_immutability"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.patch_size",
+      "proof_type": "patch_size",
+      "verifier_identity": "controllergate.verifier.patch_size"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.forbidden_file_scan",
+      "proof_type": "forbidden_file_scan",
+      "verifier_identity": "controllergate.verifier.forbidden_file_scan"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.validation_plan",
+      "proof_type": "validation_plan",
+      "verifier_identity": "controllergate.verifier.validation_plan"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.native_invariant_plan",
+      "proof_type": "native_invariant_plan",
+      "verifier_identity": "controllergate.verifier.native_invariant_plan"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.fresh_replay_plan",
+      "proof_type": "fresh_replay_plan",
+      "verifier_identity": "controllergate.verifier.fresh_replay_plan"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.same_provider_plan",
+      "proof_type": "same_provider_plan",
+      "verifier_identity": "controllergate.verifier.same_provider_plan"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.rollback_ready_proof",
+      "proof_type": "rollback_ready_proof",
+      "verifier_identity": "controllergate.verifier.rollback_ready_proof"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.proof_count_nonduplication_plan",
+      "proof_type": "proof_count_nonduplication_plan",
+      "verifier_identity": "controllergate.verifier.proof_count_nonduplication_plan"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.resource_budget",
+      "proof_type": "resource_budget",
+      "verifier_identity": "controllergate.verifier.resource_budget"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.network_policy",
+      "proof_type": "network_policy",
+      "verifier_identity": "controllergate.verifier.network_policy"
+    },
+    {
+      "domain": "repair_license",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.public_write_prohibition",
+      "proof_type": "public_write_prohibition",
+      "verifier_identity": "controllergate.verifier.public_write_prohibition"
+    }
+  ],
+  "producer_verifier_identity_overlap": 0,
+  "source_verifiers": [
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.candidate_run_frame_identity",
+      "proof_type": "candidate_run_frame_identity",
+      "verifier_identity": "controllergate.verifier.candidate_run_frame_identity"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.incident_snapshot",
+      "proof_type": "incident_snapshot",
+      "verifier_identity": "controllergate.verifier.incident_snapshot"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.source_revision",
+      "proof_type": "source_revision",
+      "verifier_identity": "controllergate.verifier.source_revision"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.source_test_immutability",
+      "proof_type": "source_test_immutability",
+      "verifier_identity": "controllergate.verifier.source_test_immutability"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.provider_runtime",
+      "proof_type": "provider_runtime",
+      "verifier_identity": "controllergate.verifier.provider_runtime"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.target_reproducer",
+      "proof_type": "target_reproducer",
+      "verifier_identity": "controllergate.verifier.target_reproducer"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.command_authority",
+      "proof_type": "command_authority",
+      "verifier_identity": "controllergate.verifier.command_authority"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.runner_origin",
+      "proof_type": "runner_origin",
+      "verifier_identity": "controllergate.verifier.runner_origin"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.harness_origin",
+      "proof_type": "harness_origin",
+      "verifier_identity": "controllergate.verifier.harness_origin"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.duplicate_failure",
+      "proof_type": "duplicate_failure",
+      "verifier_identity": "controllergate.verifier.duplicate_failure"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.normal_incident_frame",
+      "proof_type": "normal_incident_frame",
+      "verifier_identity": "controllergate.verifier.normal_incident_frame"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.normal_incident_divergence",
+      "proof_type": "normal_incident_divergence",
+      "verifier_identity": "controllergate.verifier.normal_incident_divergence"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.provider_alternative_exclusion",
+      "proof_type": "provider_alternative_exclusion",
+      "verifier_identity": "controllergate.verifier.provider_alternative_exclusion"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.environment_alternative_exclusion",
+      "proof_type": "environment_alternative_exclusion",
+      "verifier_identity": "controllergate.verifier.environment_alternative_exclusion"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.platform_alternative_exclusion",
+      "proof_type": "platform_alternative_exclusion",
+      "verifier_identity": "controllergate.verifier.platform_alternative_exclusion"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.network_transport_exclusion",
+      "proof_type": "network_transport_exclusion",
+      "verifier_identity": "controllergate.verifier.network_transport_exclusion"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.harness_target_exclusion",
+      "proof_type": "harness_target_exclusion",
+      "verifier_identity": "controllergate.verifier.harness_target_exclusion"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.expectation_consistency",
+      "proof_type": "expectation_consistency",
+      "verifier_identity": "controllergate.verifier.expectation_consistency"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.direct_source_contact",
+      "proof_type": "direct_source_contact",
+      "verifier_identity": "controllergate.verifier.direct_source_contact"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.repair_critical_interlock",
+      "proof_type": "repair_critical_interlock",
+      "verifier_identity": "controllergate.verifier.repair_critical_interlock"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.categorical_causal_elbow",
+      "proof_type": "categorical_causal_elbow",
+      "verifier_identity": "controllergate.verifier.categorical_causal_elbow"
+    },
+    {
+      "domain": "source_ownership",
+      "execution_required": true,
+      "manifest_can_declare_pass": false,
+      "producer_identity": "controllergate.stage.remaining_alternative",
+      "proof_type": "remaining_alternative",
+      "verifier_identity": "controllergate.verifier.remaining_alternative"
+    }
+  ],
+  "status": "PASS"
+}

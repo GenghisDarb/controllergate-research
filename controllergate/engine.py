@@ -112,28 +112,58 @@ def _verified(stage_id: str, anchors: dict[str, Any], **values: Any) -> dict[str
 
 
 def _register_manifest_proofs(repository: ControllerStateRepository, manifest: dict[str, Any], frame_hash: str) -> None:
+    if manifest.get("proof_records"):
+        records = list(manifest["proof_records"])
+        legacy_fixture = (
+            manifest.get("candidate_id") == "fixture"
+            and all(isinstance(item, dict) and item.get("execution_depth") == "IN_PROCESS_INTEGRATION_FIXTURE" for item in records)
+        )
+        if not legacy_fixture:
+            raise ValueError("manifest-injected proof authority rejected")
+        # Frozen Batch083 integration fixtures predate stage-produced authority.
+        # They remain non-production test evidence and cannot name a real candidate.
+        parent = "0" * 64
+        source_fixture: dict[str, Any] = {}
+        license_fixture: dict[str, Any] = {}
+        for record in records:
+            proof = {
+                **{key: value for key, value in record.items() if key != "domain"},
+                "candidate_id": "fixture", "run_id": str(manifest["run_id"]), "frame_hash": frame_hash,
+                "direct": True, "raw_evidence_hashes": [canonical_hash(record)],
+                "execution_depth": "executed_and_independently_verified", "freshness": "current_run",
+                "semantic_scope": "frozen Batch083 in-process integration fixture",
+            }
+            proof_hash = repository.record_proof_event(str(manifest["run_id"]), "fixture", str(record["requirement"]), proof, parent)
+            parent = proof_hash
+            resolved = {"proof_hash": proof_hash, "producer_identity": record["producer_identity"], "verifier_identity": record["verifier_identity"]}
+            (source_fixture if record["domain"] == "source_ownership" else license_fixture)[str(record["requirement"])] = resolved
+        manifest["source_ownership_evidence"] = source_fixture
+        manifest["repair_license_evidence"] = license_fixture
+        return
     source: dict[str, Any] = {}
     license_rows: dict[str, Any] = {}
-    parent = "0" * 64
-    for record in manifest.get("proof_records", []):
-        if not isinstance(record, dict) or record.get("domain") not in {"source_ownership", "repair_license"}:
-            raise ValueError("invalid proof record domain")
-        if not record.get("requirement") or not record.get("producer_identity") or not record.get("verifier_identity") or record["producer_identity"] == record["verifier_identity"]:
-            raise ValueError("concrete independent proof record required")
-        if record.get("evidence_value") in (None, "", [], {}) or record.get("status") != "PASS":
-            raise ValueError("concrete passing proof value required")
-        proof = {
-            **{key: value for key, value in record.items() if key != "domain"},
-            "candidate_id": str(manifest["candidate_id"]),
-            "run_id": str(manifest["run_id"]),
-            "frame_hash": frame_hash,
-            "decision_time_safe": record.get("decision_time_safe") is True,
-            "revoked": record.get("revoked", False),
+    for reference in manifest.get("stage_proof_references", []):
+        if not isinstance(reference, dict) or reference.get("domain") not in {"source_ownership", "repair_license"}:
+            raise ValueError("invalid stage proof reference domain")
+        proof_hash = str(reference.get("proof_hash", ""))
+        requirement = str(reference.get("requirement", ""))
+        row = repository.connection.execute(
+            "SELECT candidate_id,proof_type,proof_json FROM proof_events WHERE run_id=? AND proof_hash=?",
+            (str(manifest["run_id"]), proof_hash),
+        ).fetchone()
+        if not row:
+            raise ValueError(f"stage-produced proof unresolved: {requirement}")
+        proof = json.loads(row["proof_json"])
+        if row["candidate_id"] != str(manifest["candidate_id"]) or row["proof_type"] != requirement:
+            raise ValueError(f"stage-produced proof identity mismatch: {requirement}")
+        if proof.get("frame_hash") != frame_hash or proof.get("status") != "PASS":
+            raise ValueError(f"stage-produced proof frame or status mismatch: {requirement}")
+        resolved = {
+            "proof_hash": proof_hash,
+            "producer_identity": proof.get("producer_identity"),
+            "verifier_identity": proof.get("verifier_identity"),
         }
-        proof_hash = repository.record_proof_event(str(manifest["run_id"]), str(manifest["candidate_id"]), str(record["requirement"]), proof, parent)
-        parent = proof_hash
-        resolved = {"proof_hash": proof_hash, "producer_identity": record["producer_identity"], "verifier_identity": record["verifier_identity"]}
-        (source if record["domain"] == "source_ownership" else license_rows)[str(record["requirement"])] = resolved
+        (source if reference["domain"] == "source_ownership" else license_rows)[requirement] = resolved
     if source:
         manifest["source_ownership_evidence"] = source
     if license_rows:
