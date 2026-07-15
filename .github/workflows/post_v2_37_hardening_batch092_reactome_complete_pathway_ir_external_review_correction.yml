@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.13"}
       - run: python -m pip install pytest build wheel setuptools packaging
-      - run: python scripts/audit_batch092_pre_fix_external_review.py
+      - run: python scripts/audit_batch092_pre_fix_external_review.py --verify-sealed
       - run: python -m pytest tests/test_batch092_reactome_ir.py tests/test_batch092_isomorphism.py tests/test_batch092_causal_authority.py tests/test_batch092_deployment_slots.py tests/test_batch092_standalone_critic.py -q
       - run: python scripts/audit_batch092_reactome_complete_pathway_ir_external_review_correction.py
       - run: python scripts/audit_canonical_component_uniqueness.py

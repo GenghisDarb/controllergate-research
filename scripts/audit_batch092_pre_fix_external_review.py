@@ -72,7 +72,33 @@ def _git(*args: str) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--verify-sealed",
+        action="store_true",
+        help="Verify the immutable expected-red record without regenerating it.",
+    )
     args = parser.parse_args()
+    target = args.output / "batch092_pre_fix_external_review_expected_failure.json"
+    if args.verify_sealed:
+        try:
+            sealed = json.loads(target.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            print(f"BATCH092_PRE_FIX_EXTERNAL_REVIEW_SEAL_INVALID: {exc}")
+            return 1
+        recorded_seal = sealed.pop("expected_red_seal_sha256", None)
+        recomputed_seal = hashlib.sha256(
+            json.dumps(sealed, sort_keys=True, separators=(",", ":")).encode()
+        ).hexdigest()
+        valid = (
+            sealed.get("status") == RESULT
+            and sealed.get("starting_head") == STARTING_HEAD
+            and sealed.get("observed_head") == STARTING_HEAD
+            and sealed.get("finding_count") == len(FINDINGS)
+            and recorded_seal == recomputed_seal
+        )
+        print(RESULT if valid else "BATCH092_PRE_FIX_EXTERNAL_REVIEW_SEAL_INVALID")
+        return 0 if valid else 1
+
     observed = _git("rev-parse", "HEAD")
     payload: dict[str, Any] = {
         "status": RESULT,
@@ -90,7 +116,6 @@ def main() -> int:
     seal_basis = json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
     payload["expected_red_seal_sha256"] = hashlib.sha256(seal_basis).hexdigest()
     args.output.mkdir(parents=True, exist_ok=True)
-    target = args.output / "batch092_pre_fix_external_review_expected_failure.json"
     target.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(RESULT)
     return 0 if observed == STARTING_HEAD and len(FINDINGS) == 24 else 1
