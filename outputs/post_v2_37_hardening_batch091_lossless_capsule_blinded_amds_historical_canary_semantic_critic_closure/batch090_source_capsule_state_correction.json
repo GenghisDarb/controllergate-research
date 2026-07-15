@@ -1,0 +1,93 @@
+{
+  "cloudpickle": {
+    "activation": false,
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "consumer": {
+      "classification": "SOURCE_CAPSULE_CONSUMER_CONSERVATION_FAIL",
+      "entry_count": 52,
+      "missing_paths": [
+        ".coveragerc",
+        ".github/scripts/flake8_diff.sh",
+        ".github/scripts/install_downstream_project.sh",
+        ".github/scripts/test_downstream_project.sh",
+        ".github/workflows/testing.yml",
+        ".gitignore"
+      ],
+      "status": "FAIL"
+    },
+    "lifecycle": {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "complete": false,
+      "consumer": "batch090_historical_capsule_consumer",
+      "exact_blockers": [
+        "source_capsule_not_activatable"
+      ],
+      "historical_repair_increment": 0,
+      "invoked_via_installed_cli": false,
+      "status": "BLOCK"
+    },
+    "producer": {
+      "classification": "SOURCE_CAPSULE_PRODUCER_ACQUISITION_PASS",
+      "entry_count": 58,
+      "status": "PASS"
+    },
+    "provider": {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "capsule_kind": "provider",
+      "capsule_manifest_sha256": "9b88ddbf5b55d0cb959705dbcce5bcc3c6358facd306b3e1393c6ae24b487bf6",
+      "consumer_activated_after_destination_verification": true,
+      "consumer_identity": "batch090_historical_capsule_consumer",
+      "entry_count": 9,
+      "hash_mismatches": [],
+      "network_policy_after_acquisition": "none",
+      "payload_status": "PASS",
+      "payload_tree_hash": "fc9a8d316838eb1eb44a8576063f852968c9f9053a6b96cb32a89e121688da11",
+      "status": "PASS"
+    }
+  },
+  "freezegun": {
+    "activation": false,
+    "candidate_id": "freezegun_547_py313_datetimes_assertion",
+    "consumer": {
+      "classification": "SOURCE_CAPSULE_CONSUMER_CONSERVATION_FAIL",
+      "entry_count": 35,
+      "missing_paths": [
+        ".coveragerc",
+        ".github/workflows/ci.yaml",
+        ".github/workflows/release.yml",
+        ".gitignore"
+      ],
+      "status": "FAIL"
+    },
+    "lifecycle": {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "complete": false,
+      "consumer": "batch090_historical_capsule_consumer",
+      "exact_blockers": [
+        "source_capsule_not_activatable"
+      ],
+      "historical_repair_increment": 0,
+      "invoked_via_installed_cli": false,
+      "status": "BLOCK"
+    },
+    "producer": {
+      "classification": "SOURCE_CAPSULE_PRODUCER_ACQUISITION_PASS",
+      "entry_count": 39,
+      "status": "PASS"
+    },
+    "provider": {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "capsule_kind": "provider",
+      "capsule_manifest_sha256": "3f59415e37ccfae6b7eb7569efedfd8b8ef79c6701ea5bed3f9678fac3524309",
+      "consumer_activated_after_destination_verification": true,
+      "consumer_identity": "batch090_historical_capsule_consumer",
+      "entry_count": 7,
+      "hash_mismatches": [],
+      "network_policy_after_acquisition": "none",
+      "payload_status": "PASS",
+      "payload_tree_hash": "4ac439f5d43f9337ffae1dae8920a07cfcbdc76289cf4cda4ea4c0e70ee6d119",
+      "status": "PASS"
+    }
+  },
+  "status": "PASS_CORRECTED_INTERPRETATION"
+}

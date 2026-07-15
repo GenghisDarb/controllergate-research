@@ -133,11 +133,12 @@ def verify_zip_manifest(zip_path: str | Path, manifest_name: str) -> dict[str, o
             except ValueError:
                 malformed.append(line)
                 continue
-            if rel not in names:
+            archive_rel = rel[2:] if rel.startswith("./") else rel
+            if archive_rel not in names:
                 missing.append(rel)
                 continue
             checked += 1
-            if hashlib.sha256(archive.read(rel)).hexdigest() != expected:
+            if hashlib.sha256(archive.read(archive_rel)).hexdigest() != expected:
                 failures.append(rel)
     return {
         "status": "PASS" if not missing and not malformed and not failures else "FAIL",

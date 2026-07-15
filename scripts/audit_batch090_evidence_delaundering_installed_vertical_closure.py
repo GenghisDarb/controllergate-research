@@ -8,6 +8,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "outputs/post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure"
+RECONCILIATION = ROOT / (
+    "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_"
+    "historical_canary_semantic_critic_closure/batch090_artifact_ingest.json"
+)
 BASE_REQUIRED = {
     "batch089_main_artifact_ingest.json", "batch089_short_lived_artifact_ingest.json",
     "batch089_evidence_depth_reconciliation.json", "execution_receipt_registry.jsonl",
@@ -50,10 +54,44 @@ def verify_manifest(name: str) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--allow-ci-pending", action="store_true")
+    parser.add_argument("--official-reconciliation", action="store_true")
     args = parser.parse_args()
     required = set(BASE_REQUIRED) | (set() if args.allow_ci_pending else CI_REQUIRED)
     missing = sorted(name for name in required if not (OUTPUT / name).is_file())
     failures = []
+    reconciled_missing: list[str] = []
+    if missing and args.official_reconciliation:
+        if not RECONCILIATION.is_file():
+            failures.append("official_reconciliation_missing")
+        else:
+            reconciliation = json.loads(RECONCILIATION.read_text(encoding="utf-8"))
+            expected = {
+                "installed_wheel_identity_linux.json",
+                "installed_cli_vertical_trace_linux.jsonl",
+                "cross_platform_vertical_equivalence.json",
+                "repository_import_leakage_audit.json",
+            }
+            valid_identity = (
+                reconciliation.get("status") == "PASS"
+                and reconciliation.get("artifact_id") == 8336672007
+                and reconciliation.get("workflow_run_id") == 29399941950
+                and reconciliation.get("workflow_head") == "7b72d4a7fd7aa81f2cc418bdb272dbf095880715"
+                and reconciliation.get("observed_size_bytes") == 317320
+                and reconciliation.get("observed_sha256") == "c860313a6c789793ad0010ef028352ce478f6035b51faffbe4a8a00244178e72"
+            )
+            records = reconciliation.get("ci_only_records", {})
+            valid_records = all(
+                isinstance(records.get(name), dict)
+                and records[name].get("artifact_member_verified") is True
+                and len(str(records[name].get("sha256", ""))) == 64
+                and int(records[name].get("size", 0)) > 0
+                for name in expected
+            )
+            if not valid_identity or not valid_records or set(missing) != expected:
+                failures.append("official_reconciliation_invalid")
+            else:
+                reconciled_missing = sorted(expected)
+                missing = []
     if not missing:
         correction = load("public_state_evidence_depth_correction.json")
         decision = load("batch090_internal_release_decision.json")
@@ -70,7 +108,14 @@ def main() -> int:
             failures.extend([] if critic.get("mutation_cases_executed") == 20 and critic.get("mutation_cases_rejected") == 20 else ["mutation_campaign_not_executed"])
             source = (ROOT / "scripts/batch090_standalone_internal_critic.py").read_text(encoding="utf-8")
             failures.extend([] if "controllergate" not in "\n".join(line for line in source.splitlines() if line.startswith(("import ", "from "))) else ["standalone_critic_import_violation"])
-    result = {"status": "PASS" if not missing and not failures else "FAIL", "missing": missing, "failures": failures, "ci_pending_allowed": args.allow_ci_pending}
+    result = {
+        "status": "PASS" if not missing and not failures else "FAIL",
+        "missing": missing,
+        "reconciled_missing_from_verified_official_artifact": reconciled_missing,
+        "failures": failures,
+        "ci_pending_allowed": args.allow_ci_pending,
+        "official_reconciliation": args.official_reconciliation,
+    }
     print(json.dumps(result, sort_keys=True))
     return 0 if result["status"] == "PASS" else 1
 

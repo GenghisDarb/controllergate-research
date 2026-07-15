@@ -1,0 +1,320 @@
+{
+  "artifact_sha256": "c860313a6c789793ad0010ef028352ce478f6035b51faffbe4a8a00244178e72",
+  "audited_commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+  "expected_result": "BATCH091_PRE_FIX_AUDIT_FAIL_EXPECTED",
+  "finding_count": 22,
+  "findings": [
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-01",
+      "line_range": [
+        13,
+        13
+      ],
+      "observed_behavior": "Producer records 58 entries but consumer received 52; missing ['.coveragerc', '.github/scripts/flake8_diff.sh', '.github/scripts/install_downstream_project.sh', '.github/scripts/test_downstream_project.sh', '.github/workflows/testing.yml', '.gitignore']",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_cloudpickle_hidden_files_conserved",
+      "required_correction": "Construct and transport a deterministic Git-object capsule as one exact file.",
+      "risk": "Public tracked dotfiles are lost in transport.",
+      "symbol": "cloudpickle source capsule consumer"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-02",
+      "line_range": [
+        13,
+        13
+      ],
+      "observed_behavior": "Producer records 39 entries but consumer received 35; missing ['.coveragerc', '.github/workflows/ci.yaml', '.github/workflows/release.yml', '.gitignore']",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_freezegun_hidden_files_conserved",
+      "required_correction": "Construct and transport a deterministic Git-object capsule as one exact file.",
+      "risk": "Public tracked dotfiles are lost in transport.",
+      "symbol": "freezegun source capsule consumer"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-03",
+      "line_range": [
+        70,
+        70
+      ],
+      "observed_behavior": "Source directories are uploaded rather than a single deterministic capsule file.",
+      "path": ".github/workflows/post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure.yml",
+      "red_to_green_test": "test_source_capsule_exact_file_upload",
+      "required_correction": "Upload exact capsule archives and include hidden files as defense in depth.",
+      "risk": "Uploader traversal policy can omit hidden paths.",
+      "symbol": "source capsule upload"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-04",
+      "line_range": [
+        69,
+        69
+      ],
+      "observed_behavior": "Temporary parent trees may include checkouts, provider virtual environments, site-packages, and compiled caches.",
+      "path": ".github/workflows/post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure.yml",
+      "red_to_green_test": "test_short_lived_artifact_runtime_residue_rejected",
+      "required_correction": "Scan exact upload payloads and reject runtime residue.",
+      "risk": "Runtime residue can enter short-lived transport.",
+      "symbol": "temporary transport roots"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-05",
+      "line_range": [
+        13,
+        13
+      ],
+      "observed_behavior": "Capsule construction imports a prior batch script.",
+      "path": "scripts/batch090_capsule_transport_v3.py",
+      "red_to_green_test": "test_canonical_capsule_service_import",
+      "required_correction": "Move lossless capsule construction and verification into controllergate.custody.",
+      "risk": "Reusable custody logic is not canonical product code.",
+      "symbol": "module imports"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-06",
+      "line_range": [
+        65,
+        65
+      ],
+      "observed_behavior": "Source capsule behavior copies a materialized working tree.",
+      "path": "scripts/batch090_capsule_transport_v3.py",
+      "red_to_green_test": "test_git_object_capsule_tree_identity",
+      "required_correction": "Read the verified commit tree from Git objects.",
+      "risk": "Tree identity and public dotfile conservation are not guaranteed.",
+      "symbol": "build"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-07",
+      "line_range": [
+        110,
+        110
+      ],
+      "observed_behavior": "The consumer preconstructs source-ownership and repair-license requirements.",
+      "path": "scripts/batch090_historical_capsule_consumer.py",
+      "red_to_green_test": "test_manifest_injected_proof_rejected",
+      "required_correction": "Require named stages to produce every proof record.",
+      "risk": "Manifest prose can mint authority without executed evidence.",
+      "symbol": "proof_records"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-08",
+      "line_range": [
+        69,
+        69
+      ],
+      "observed_behavior": "All generated proof requirements share a default PASS record.",
+      "path": "scripts/batch090_historical_capsule_consumer.py",
+      "red_to_green_test": "test_generic_pass_proof_rejected",
+      "required_correction": "Bind each proof to its producer, verifier, raw evidence, and derivation parents.",
+      "risk": "Independent proof obligations collapse into one generic assertion.",
+      "symbol": "proof_records.common"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-09",
+      "line_range": [
+        24,
+        24
+      ],
+      "observed_behavior": "The expected causal family is embedded before diagnosis.",
+      "path": "scripts/batch090_historical_capsule_consumer.py",
+      "red_to_green_test": "test_hardcoded_causal_family_rejected",
+      "required_correction": "Remove causal labels from builder and lifecycle decision frames.",
+      "risk": "Historical diagnosis is outcome-labelled.",
+      "symbol": "EPISODES"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-10",
+      "line_range": [
+        132,
+        132
+      ],
+      "observed_behavior": "Human approval is generic prompt prose.",
+      "path": "scripts/batch090_historical_capsule_consumer.py",
+      "red_to_green_test": "test_candidate_bound_human_approval",
+      "required_correction": "Require a structured Brad approval record bound to the prompt contract and patch.",
+      "risk": "Approval is not candidate-, patch-, run-, nonce-, or expiry-bound.",
+      "symbol": "proof_records"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-11",
+      "line_range": [
+        14,
+        14
+      ],
+      "observed_behavior": "Builder-visible candidate records include terminal_class.",
+      "path": "scripts/run_batch090_historical_amds.py",
+      "red_to_green_test": "test_amds_terminal_label_leakage",
+      "required_correction": "Physically separate sanitized builder inputs from sealed truth.",
+      "risk": "Terminal labels leak before blinded execution.",
+      "symbol": "episode records"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-12",
+      "line_range": [
+        52,
+        52
+      ],
+      "observed_behavior": "Eligibility measurements are static booleans rather than receipt-backed observations.",
+      "path": "scripts/run_batch090_historical_amds.py",
+      "red_to_green_test": "test_amds_literal_true_measurement_rejected",
+      "required_correction": "Require source/provider/target/command/runner receipt hashes.",
+      "risk": "A declared frame can be mistaken for measured execution.",
+      "symbol": "eligibility"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-13",
+      "line_range": [
+        10,
+        10
+      ],
+      "observed_behavior": "Only 2 eligible episodes exist.",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_amds_eight_episode_freeze",
+      "required_correction": "Freeze eight sanitized eligible episodes before any probe.",
+      "risk": "The preregistered eight-episode quality gate cannot run.",
+      "symbol": "AMDS cohort"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-14",
+      "line_range": [
+        69,
+        69
+      ],
+      "observed_behavior": "Historical AMDS quality is BLOCK_MINIMUM_COHORT_NOT_MET and no probe or baseline executed.",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_amds_historical_quality_gate",
+      "required_correction": "Execute candidate-specific brokered probes and equal-budget baselines after freeze.",
+      "risk": "Mechanism quality remains unestablished.",
+      "symbol": "AMDS quality gate"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-15",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Non-source eligibility uses static booleans and expected terminal labels.",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_non_source_terminal_unavailable_before_join",
+      "required_correction": "Sanitize non-source frames and seal truth separately.",
+      "risk": "The terminal is prewritten rather than discovered.",
+      "symbol": "non-source selection"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-16",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Complete installed non-source lifecycle count is 0.",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_two_installed_non_source_lifecycles",
+      "required_correction": "Execute both frozen episodes through installed canonical CLI mode.",
+      "risk": "Two required historical terminals are not materialized.",
+      "symbol": "non-source execution"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-17",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Repaired-package canary status is NOT_RUN.",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_deployed_canary_health_rollback",
+      "required_correction": "Build twice, deploy a distinct canary, execute health and negative control, then exact rollback.",
+      "risk": "No distinct package deployment or rollback evidence exists.",
+      "symbol": "canary gate"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-18",
+      "line_range": [
+        24,
+        24
+      ],
+      "observed_behavior": "Mutation rejection is dominated by sealed-manifest hash mismatch.",
+      "path": "scripts/batch090_standalone_internal_critic.py",
+      "red_to_green_test": "test_resigned_semantic_mutations_rejected",
+      "required_correction": "Add re-signed semantic mutation reconstruction.",
+      "risk": "Semantic defects may evade a consistently re-signed bundle.",
+      "symbol": "mutation campaign"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-19",
+      "line_range": [
+        12,
+        12
+      ],
+      "observed_behavior": "Existing mutation campaign records None byte-level cases without a re-signed semantic family.",
+      "path": "scripts/batch090_standalone_internal_critic.py",
+      "red_to_green_test": "test_semantic_rejection_not_hash_only",
+      "required_correction": "Recompute manifests after mutation and reject on named semantic invariants.",
+      "risk": "Critic depth is custody-only for mutated bundles.",
+      "symbol": "semantic reconstruction"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-20",
+      "line_range": [
+        179,
+        179
+      ],
+      "observed_behavior": "Cloudpickle lifecycle remains BLOCK with ['source_capsule_not_activatable']",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_cloudpickle_lossless_activation_gate",
+      "required_correction": "Require lossless activation before installed lifecycle execution.",
+      "risk": "Producer acquisition is not lifecycle execution.",
+      "symbol": "Cloudpickle lifecycle"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-21",
+      "line_range": [
+        179,
+        179
+      ],
+      "observed_behavior": "Freezegun lifecycle remains BLOCK with ['source_capsule_not_activatable']",
+      "path": "Batch090 main artifact",
+      "red_to_green_test": "test_freezegun_lossless_activation_gate",
+      "required_correction": "Require lossless activation before installed lifecycle execution.",
+      "risk": "Producer acquisition is not lifecycle execution.",
+      "symbol": "Freezegun lifecycle"
+    },
+    {
+      "commit": "7b72d4a7fd7aa81f2cc418bdb272dbf095880715",
+      "finding_id": "B091-RED-22",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Cross-platform scenarios match but normalized semantic wheel hashes differ without component decomposition.",
+      "path": "Batch090 installed wheel identities",
+      "red_to_green_test": "test_semantic_wheel_difference_decomposition",
+      "required_correction": "Compare normalized archive members and classify metadata-only differences.",
+      "risk": "Executable-content equivalence is not independently established.",
+      "symbol": "semantic wheel identity"
+    }
+  ],
+  "observed_result": "BATCH091_PRE_FIX_AUDIT_FAIL_EXPECTED",
+  "prompt_id": "CG-BATCH091-LOSSLESS-CAPSULE-BLINDED-AMDS-HISTORICAL-CANARY-SEMANTIC-CRITIC-CLOSURE-2026-07-15-V1",
+  "seal_sha256": "fe9a238f095dc9306697241004aab18b35eeda75b084e24cacfe880166f18d72",
+  "sealed_at_utc": "2026-07-15T15:52:22.890187+00:00"
+}
