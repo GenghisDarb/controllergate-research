@@ -9,7 +9,6 @@ permissions:
 env:
   OUTPUT: outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure
   PYTHONDONTWRITEBYTECODE: "1"
-  PYTHONPATH: ${{ github.workspace }}
 
 jobs:
   custody:
@@ -178,6 +177,8 @@ jobs:
     needs: semantic_critic
     runs-on: ubuntu-latest
     timeout-minutes: 240
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
