@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from hashlib import sha256
+import argparse
 import json
 from pathlib import Path
 import re
@@ -31,6 +32,9 @@ def intended_paths() -> list[Path]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verify-only", action="store_true")
+    args = parser.parse_args()
     findings = []
     files = intended_paths()
     for path in files:
@@ -40,11 +44,13 @@ def main() -> int:
             for match in pattern.finditer(text):
                 findings.append({"path": path.relative_to(REPO).as_posix(), "pattern": label, "line": text.count("\n", 0, match.start()) + 1, "matched_value_sha256": sha256(match.group(0).encode()).hexdigest()})
     security = {"status": "PASS" if not findings else "FAIL", "scanned_file_count": len(files), "findings": findings, "scope": "Batch089 intended commit excluding incoming_artifacts", "credentials_written": False}
-    write_json(OUTPUT / "batch089_secret_scan.json", security)
+    if not args.verify_only:
+        write_json(OUTPUT / "batch089_secret_scan.json", security)
     pyproject = (REPO / "pyproject.toml").read_text(encoding="utf-8")
     modules = sorted(path.relative_to(REPO).as_posix() for path in (REPO / "controllergate").rglob("*.py") if "__pycache__" not in path.parts)
     sbom = {"status": "PASS", "package": "controllergate", "version": "0.2.0b2.dev0", "declared_runtime_dependencies": ["packaging>=23"] if 'dependencies = ["packaging>=23"]' in pyproject else [], "python_module_count": len(modules), "module_inventory_hash": sha256("\n".join(modules).encode()).hexdigest(), "raw_capsules_included": False, "memory_provider_dependency_imported": False, "full_package_publication": False}
-    write_json(OUTPUT / "batch089_sbom_audit.json", sbom)
+    if not args.verify_only:
+        write_json(OUTPUT / "batch089_sbom_audit.json", sbom)
     print(json.dumps({"status": security["status"], "scanned": len(files), "findings": len(findings), "sbom": sbom["status"]}, sort_keys=True))
     return 0 if not findings else 1
 

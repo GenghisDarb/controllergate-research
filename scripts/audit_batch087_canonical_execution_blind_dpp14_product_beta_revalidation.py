@@ -51,7 +51,7 @@ def _rewrite_manifests() -> None:
     )
 
 
-def audit() -> dict[str, Any]:
+def audit(*, emit: bool = True) -> dict[str, Any]:
     missing = [name for name in REQUIRED if not (OUTPUT / name).is_file()]
     if missing:
         return {"status": "FAIL", "blocker": "required_raw_evidence_missing", "missing": missing}
@@ -99,24 +99,32 @@ def audit() -> dict[str, Any]:
         "production_readiness": False, "self_maintaining_software": "false/not_demonstrated",
         "public_write_connectors": "inactive", "automatic_merge": "inactive", "full_scoring": "NOT_RUN/disallowed",
     }
-    (OUTPUT / "batch087_independent_critic.json").write_text(json.dumps(critic, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    if emit:
+        (OUTPUT / "batch087_independent_critic.json").write_text(json.dumps(critic, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     decision_record = {
         "status": decision, "package_version": version, "independent_critic_status": "PASS",
         "exact_blockers": blocked, "reopen_conditions": {
             name: "supply or execute the missing raw canonical evidence and rerun the independent critic" for name in blocked
         }, "historical_count_increment": 0,
     }
-    (OUTPUT / "batch087_product_beta_rc_decision.json").write_text(json.dumps(decision_record, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    if emit:
+        (OUTPUT / "batch087_product_beta_rc_decision.json").write_text(json.dumps(decision_record, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     result = {"status": "PASS", "required_output_count": len(REQUIRED), "missing": [],
               "independent_critic": critic, "release_decision": decision_record,
               "audit_pass_means_contract_executed_not_release_pass": True}
-    (OUTPUT / "batch087_audit_summary.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
-    _rewrite_manifests()
+    if emit:
+        (OUTPUT / "batch087_audit_summary.json").write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+        _rewrite_manifests()
     return result
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(); parser.parse_args(); result = audit(); print(json.dumps(result, sort_keys=True)); return 0 if result["status"] == "PASS" else 1
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verify-only", action="store_true")
+    args = parser.parse_args()
+    result = audit(emit=not args.verify_only)
+    print(json.dumps(result, sort_keys=True))
+    return 0 if result["status"] == "PASS" else 1
 
 
 if __name__ == "__main__":

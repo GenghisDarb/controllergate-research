@@ -3,15 +3,15 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's current protocol remains `v2.19`. SQLite records the Batch089 release decision and 60 installed-product reaction executions while preserving 6 issue-derived and 4 native external repairs. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains `v2.19`. Batch090 corrects Batch089's 60 mechanism scenarios to `IN_PROCESS_INTEGRATION_FIXTURE`; they were not 60 installed-product vertical lifecycles. SQLite preserves 6 issue-derived and 4 native external repairs, with historical replay increment 0. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 <!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch089 adds and executes a shared three-prompt maintenance kernel covering reaction contracts, durable state, regulated access, plan maturation, transport, artifact maturation, replication, defense, containment, actuation, and flow control.
+ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch089 added a shared three-prompt maintenance mechanism library and exercised it through 60 in-process integration fixtures. Batch090 separates mechanism outcomes from test assertions, binds claims to semantically scoped receipts, removes default stage success, and adds installed-wheel CLI vertical execution plus concrete SQLite proof/token authority.
 
-Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. Two independently verified short-lived historical capsule lifecycles, a distinct repaired-software canary, its health window, and exact rollback still require official execution. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
+Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. The blinded historical AMDS frame contains only two eligible episodes and correctly stops at `BLOCK_MINIMUM_COHORT_NOT_MET`; two complete installed non-source lifecycles and repaired-package canary/health/rollback evidence are also outstanding. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
 <!-- CONTROLLERGATE_CURRENT_STATUS_END -->
 
 ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.

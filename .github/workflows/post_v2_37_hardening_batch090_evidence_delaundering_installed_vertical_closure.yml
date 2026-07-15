@@ -1,0 +1,297 @@
+name: post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  OUTPUT: outputs/post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  regression_and_custody:
+    name: 01-07 custody, regression, evidence scope, canonical engine, and SQLite
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - run: python -m pytest -q
+      - name: Preservation and current authority audits
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+          python scripts/audit_batch084_real_amds_canary_product_beta.py --out outputs/post_v2_37_hardening_batch084_real_amds_canary_product_beta
+          python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+          python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+          python scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py --verify-only
+          python scripts/audit_batch088_causal_amds_historical_capsule_product_beta_closure.py
+          python scripts/audit_batch089_full_isomorphism_reaction_complete_vertical_closure.py --verify-manifests
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_installed_product_reachability.py
+          python scripts/audit_no_legacy_production_imports.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_public_language.py
+          python scripts/audit_batch089_security_and_sbom.py --verify-only
+          python scripts/byte_custody_preflight.py
+          git diff --check
+
+  linux_installed_vertical:
+    name: 08 Linux installed-wheel vertical campaign
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install build wheel setuptools packaging
+      - run: python scripts/run_batch090_installed_verticals.py --platform-label linux --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch090-installed-linux" --output "$RUNNER_TEMP/linux-evidence"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_linux_installed_vertical_evidence
+          path: ${{ runner.temp }}/linux-evidence
+          retention-days: 1
+
+  windows_installed_vertical:
+    name: 09 Windows installed-wheel vertical campaign
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - run: git config --global core.longpaths true
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install build wheel setuptools packaging
+      - shell: pwsh
+        run: python scripts/run_batch090_installed_verticals.py --platform-label windows --runtime-root "$env:RUNNER_TEMP\controllergate-runtime\batch090-installed-windows" --output "$env:RUNNER_TEMP\windows-evidence"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_windows_installed_vertical_evidence
+          path: ${{ runner.temp }}/windows-evidence
+          retention-days: 1
+
+  historical_amds_frame:
+    name: 11-14 frozen historical AMDS frame and exact minimum-cohort gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: python scripts/run_batch090_historical_amds.py --output "$RUNNER_TEMP/amds-evidence"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_historical_amds_builder_evidence
+          path: ${{ runner.temp }}/amds-evidence
+          retention-days: 1
+
+  cloudpickle_capsules:
+    name: 15-16 Cloudpickle source and provider capsule acquisition
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools packaging
+      - run: |
+          python scripts/batch090_capsule_transport_v3.py --candidate cloudpickle --mode source --destination "$RUNNER_TEMP/cloudpickle/source"
+          python scripts/batch090_capsule_transport_v3.py --candidate cloudpickle --mode provider --destination "$RUNNER_TEMP/cloudpickle/provider"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_cloudpickle_capsules
+          path: ${{ runner.temp }}/cloudpickle
+          retention-days: 1
+
+  freezegun_capsules:
+    name: 18-19 Freezegun source and provider capsule acquisition
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools packaging
+      - run: |
+          python scripts/batch090_capsule_transport_v3.py --candidate freezegun --mode source --destination "$RUNNER_TEMP/freezegun/source"
+          python scripts/batch090_capsule_transport_v3.py --candidate freezegun --mode provider --destination "$RUNNER_TEMP/freezegun/provider"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_freezegun_capsules
+          path: ${{ runner.temp }}/freezegun
+          retention-days: 1
+
+  cloudpickle_lifecycle:
+    name: 17 Cloudpickle installed historical lifecycle
+    needs: cloudpickle_capsules
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools packaging
+      - run: python -m build --wheel --no-isolation
+      - run: python -m pip install --force-reinstall --no-deps dist/controllergate-*.whl
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_cloudpickle_capsules, path: "${{ runner.temp }}/cloudpickle"}
+      - run: python scripts/batch090_historical_capsule_consumer.py --candidate cloudpickle --source "$RUNNER_TEMP/cloudpickle/source" --provider "$RUNNER_TEMP/cloudpickle/provider" --patch outputs/post_v2_37_hardening_batch060d_cloudpickle_class_dict_patch_gate_with_amds_health_review/cloudpickle_class_dict_source_only_patch_candidate.diff --output "$RUNNER_TEMP/cloudpickle-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime/cloudpickle"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_cloudpickle_installed_lifecycle_evidence
+          path: ${{ runner.temp }}/cloudpickle-evidence
+          retention-days: 1
+
+  freezegun_lifecycle:
+    name: 20 Freezegun installed historical lifecycle
+    needs: freezegun_capsules
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools packaging
+      - run: python -m build --wheel --no-isolation
+      - run: python -m pip install --force-reinstall --no-deps dist/controllergate-*.whl
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_freezegun_capsules, path: "${{ runner.temp }}/freezegun"}
+      - run: python scripts/batch090_historical_capsule_consumer.py --candidate freezegun --source "$RUNNER_TEMP/freezegun/source" --provider "$RUNNER_TEMP/freezegun/provider" --patch outputs/post_v2_37_hardening_batch064_freezegun_source_only_patch_gate/freezegun_source_only_patch_candidate.diff --output "$RUNNER_TEMP/freezegun-evidence" --runtime "$RUNNER_TEMP/controllergate-runtime/freezegun"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_freezegun_installed_lifecycle_evidence
+          path: ${{ runner.temp }}/freezegun-evidence
+          retention-days: 1
+
+  builder_seal:
+    name: 10,21-27 equivalence, historical decisions, public state, and builder seal
+    needs: [regression_and_custody, linux_installed_vertical, windows_installed_vertical, historical_amds_frame, cloudpickle_lifecycle, freezegun_lifecycle]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_linux_installed_vertical_evidence, path: "${{ runner.temp }}/linux"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_windows_installed_vertical_evidence, path: "${{ runner.temp }}/windows"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_historical_amds_builder_evidence, path: "${{ runner.temp }}/amds"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_cloudpickle_installed_lifecycle_evidence, path: "${{ runner.temp }}/cloudpickle"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_freezegun_installed_lifecycle_evidence, path: "${{ runner.temp }}/freezegun"}
+      - run: |
+          cp "$RUNNER_TEMP"/linux/* "$OUTPUT"/
+          cp "$RUNNER_TEMP"/windows/* "$OUTPUT"/
+          cp "$RUNNER_TEMP"/amds/* "$OUTPUT"/
+          cp "$RUNNER_TEMP"/cloudpickle/* "$OUTPUT"/
+          cp "$RUNNER_TEMP"/freezegun/* "$OUTPUT"/
+          rm -f "$OUTPUT"/internal_critic_reconstruction.json \
+            "$OUTPUT"/internal_critic_findings.jsonl \
+            "$OUTPUT"/mutation_campaign_registry.jsonl \
+            "$OUTPUT"/mutation_campaign_results.json \
+            "$OUTPUT"/internal_release_evidence_decision.json \
+            "$OUTPUT"/internal_critic_input_manifest.json \
+            "$OUTPUT"/ARTIFACT_SHA256SUMS.txt \
+            "$OUTPUT"/PORTABLE_ARTIFACT_SHA256SUMS.txt \
+            "$OUTPUT"/SHA256SUMS.txt
+          python scripts/merge_batch090_installed_platforms.py --output "$OUTPUT"
+          python scripts/finalize_batch090_evidence_package.py --phase builder
+          python scripts/seal_batch090_critic_inputs.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_raw_builder_evidence_for_independent_critic
+          path: ${{ env.OUTPUT }}
+          retention-days: 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_sealed_truth_for_independent_critic
+          path: ${{ env.OUTPUT }}/amds_sealed_truth_join.json
+          retention-days: 1
+
+  independent_critic:
+    name: 28-29 standalone critic and physical mutation campaign
+    needs: builder_seal
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_raw_builder_evidence_for_independent_critic, path: "${{ runner.temp }}/builder"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_sealed_truth_for_independent_critic, path: "${{ runner.temp }}/truth"}
+      - run: python scripts/batch090_standalone_internal_critic.py --evidence "$RUNNER_TEMP/builder" --manifest "$RUNNER_TEMP/builder/internal_critic_input_manifest.json" --output "$RUNNER_TEMP/critic" --mutations-root "$RUNNER_TEMP/controllergate-runtime/critic-mutations" --critic-source scripts/batch090_standalone_internal_critic.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch090_internal_release_critic_evidence
+          path: ${{ runner.temp }}/critic
+          retention-days: 1
+
+  final_release_and_package:
+    name: 30 final internal decision and compact portable package
+    needs: independent_critic
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_raw_builder_evidence_for_independent_critic, path: "${{ runner.temp }}/builder"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch090_internal_release_critic_evidence, path: "${{ runner.temp }}/critic"}
+      - run: |
+          rm -rf "$OUTPUT"
+          mkdir -p "$OUTPUT"
+          cp "$RUNNER_TEMP"/builder/* "$OUTPUT"/
+          cp "$RUNNER_TEMP"/critic/* "$OUTPUT"/
+          python scripts/finalize_batch090_evidence_package.py --phase post-critic
+          python scripts/finalize_batch090_manifests.py
+          python scripts/audit_batch090_evidence_delaundering_installed_vertical_closure.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_public_language.py
+          python scripts/byte_custody_preflight.py
+          git diff --check
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+      - name: Reject forbidden payloads and stage compact main artifact
+        run: |
+          STAGE="$RUNNER_TEMP/batch090-main-artifact"
+          mkdir -p "$STAGE"
+          cp -a "$OUTPUT"/. "$STAGE"/
+          if find "$STAGE" -type f \( -name '*.pyc' -o -name '*.pyo' -o -name '*.zip' -o -name '*.tar' -o -name '*.tar.gz' \) | grep -q .; then exit 1; fi
+          if find "$STAGE" -type d \( -name '__pycache__' -o -name '.venv' -o -name 'venv' \) | grep -q .; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure_artifacts
+          path: ${{ runner.temp }}/batch090-main-artifact
+          retention-days: 30

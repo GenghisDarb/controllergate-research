@@ -12,9 +12,7 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from batch089_common import REPO, OUTPUT, PROMPT2_OUTPUT, PROMPT3_OUTPUT, STARTING_HEAD, canonical_bytes, write_json
-from controllergate.state.schema import SCHEMA_VERSION
-
-
+BATCH089_SCHEMA_VERSION = 5
 REQUIRED_NEW_TABLES = {
     "reaction_contracts", "reaction_executions", "evidence_facts", "hypothesis_states", "constraint_states",
     "nogood_constraints", "access_leases", "compartments", "translocations", "junction_contracts",
@@ -100,7 +98,7 @@ def audit() -> tuple[dict[str, Any], list[str]]:
         executions = connection.execute("SELECT COUNT(*) FROM reaction_executions").fetchone()[0]
         connection.close()
         database_state = {"schema_version": version, "reaction_executions": executions, "new_tables_present": sorted(REQUIRED_NEW_TABLES & tables)}
-        if version != SCHEMA_VERSION or not REQUIRED_NEW_TABLES <= tables or executions != 60:
+        if version != BATCH089_SCHEMA_VERSION or not REQUIRED_NEW_TABLES <= tables or executions != 60:
             failures.append("sqlite_schema_or_execution_authority_invalid")
     immutable = load(OUTPUT / "historical_output_immutability_audit.json")
     if immutable.get("status") != "PASS" or immutable.get("failures"):
@@ -138,7 +136,13 @@ def audit() -> tuple[dict[str, Any], list[str]]:
         failures.append("registry_only_or_constant_output_detected")
     git_diff = subprocess.check_output(["git", "diff", "--name-only", STARTING_HEAD, "--", "outputs"], cwd=REPO, text=True).splitlines()
     allowed_current_views = {"outputs/frontier/CURRENT_FRONTIER_STATE.json", "outputs/byte_custody_preflight_report.json"}
-    historical_changes = [name for name in git_diff if "batch089" not in name and name.replace("\\", "/") not in allowed_current_views]
+    later_batch090_prefix = "outputs/post_v2_37_hardening_batch090_evidence_delaundering_installed_vertical_closure/"
+    historical_changes = [
+        name for name in git_diff
+        if "batch089" not in name
+        and name.replace("\\", "/") not in allowed_current_views
+        and not name.replace("\\", "/").startswith(later_batch090_prefix)
+    ]
     if historical_changes:
         failures.append("historical_output_mutation_detected")
     report = {

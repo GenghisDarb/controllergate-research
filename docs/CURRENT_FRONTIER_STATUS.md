@@ -3,7 +3,7 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Canonical frontier
 
-ControllerGate's current protocol remains v2.19. SQLite is the sole mutable runtime authority and preserves 6 issue-derived and 4 native external repairs. The independent release state is `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains v2.19. SQLite is the sole mutable runtime authority and preserves 6 issue-derived and 4 native external repairs. Batch090 corrects Batch089's 60 mechanism scenarios to in-process integration fixtures and does not count them as installed-product lifecycles. The independent release state is `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`; the historical AMDS minimum cohort, two installed non-source lifecycles, and canary/rollback closure remain open. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 
 Next safe action: `provide short-lived historical source/provider capsules to the official Batch087 canonical lifecycle jobs`.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->

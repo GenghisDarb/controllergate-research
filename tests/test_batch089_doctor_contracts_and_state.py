@@ -18,12 +18,12 @@ def test_deep_doctor_reports_syntax_and_reachability(tmp_path: Path) -> None:
     assert report["report_hash"]
 
 
-def test_schema_v5_contains_batch089_authority_tables(tmp_path: Path) -> None:
+def test_schema_v5_authority_tables_survive_batch090_migration(tmp_path: Path) -> None:
     connection = connect(tmp_path / "state.sqlite3"); initialize(connection)
     version = connection.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0]
     tables = {row[0] for row in connection.execute("SELECT name FROM sqlite_master WHERE type='table'")}
     connection.close()
-    assert version == SCHEMA_VERSION == 5
+    assert version == SCHEMA_VERSION == 6
     assert set(TABLES) <= tables
     assert {"reaction_contracts", "reaction_executions", "evidence_facts", "repair_license_tokens"} <= tables
 

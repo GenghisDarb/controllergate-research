@@ -3,7 +3,9 @@
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current operational gate status
 
-ControllerGate's current protocol remains `v2.19`. SQLite records the Batch089 release decision and 60 installed-product reaction executions while preserving 6 issue-derived and 4 native external repairs. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains `v2.19`. Batch090 corrects Batch089's 60 mechanism scenarios to `IN_PROCESS_INTEGRATION_FIXTURE`; they do not establish 60 installed-product vertical lifecycles. SQLite preserves 6 issue-derived and 4 native external repairs, and historical replay changes neither count. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
+Batch090 adds semantically scoped execution receipts, separate mechanism and test-assertion states, an explicit 25-stage executor/verifier registry, concrete source-ownership and single-use repair-license proof resolution, and operational SQLite transitions. Its Windows installed-wheel CLI campaign executes plan maturation, brokered reads, exactly-once transport, contradiction/backtrack, bounded actuation, and exact rollback without repository or editable-install leakage. The blinded historical AMDS cohort freezes at two eligible episodes and honestly blocks below the required eight; this is not prospective-effectiveness evidence.
 
 Next safe action: `materialize two independently verified short-lived historical source/provider capsule lifecycles, then execute distinct canary health and exact rollback before release reconsideration`.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
