@@ -1,0 +1,335 @@
+{
+  "authority_allowed": "shadow simulation and candidate translation",
+  "authority_forbidden": [
+    "repair authorization",
+    "production promotion",
+    "source causal proof"
+  ],
+  "execution_depth": "reusable_primitive_contracts",
+  "primitives": [
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "EVENT_CONTRACT",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "ENTITY_STATE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "COMPLEX_ASSEMBLY",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "CANDIDATE_SET",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "DEMONSTRATED_MEMBER",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "COMPARTMENT",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "TRANSLOCATION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "TARGETING",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "CATALYST",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "COFACTOR",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "POSITIVE_REGULATOR",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "NEGATIVE_REGULATOR",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "CHECKPOINT",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "FEEDBACK_LOOP",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "OSCILLATOR",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "PHASE_MACHINE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "RESOURCE_FLUX",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "FLOW_CONTROL",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "REVERSIBLE_REACTION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "IRREVERSIBLE_REACTION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "PROCESSIVE_CYCLE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "QUALITY_CONTROL",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "STALL_DETECTION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "COLLISION_DETECTION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "RESCUE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "RECYCLING",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "DEGRADATION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "SELECTIVE_CLEANUP",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "BULK_CLEANUP",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "FOLDING_OR_CONFORMANCE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "MODIFICATION_CODE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "ACCESSIBILITY_STATE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "LINEAGE",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "ORTHOLOGY",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "NORMAL_VARIANT_PAIR",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "NEGATIVE_REACTION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "RESIDUAL_ACTIVITY",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "REDUNDANCY_COMPENSATION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "THREAT_HIJACK",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "RESISTANCE_BYPASS",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "LOCAL_CONTAINMENT",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "CONTROLLED_TERMINATION",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "SENSOR_TRANSDUCER",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "EVENT_CHANNEL",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "ACTUATOR",
+      "production_authority": false
+    },
+    {
+      "input_contract": "typed_state_and_event",
+      "negative_control": "invalid_or_missing_precondition_is_rejected",
+      "output_contract": "typed_state_transition",
+      "primitive_id": "DISTRIBUTION_CLEARANCE",
+      "production_authority": false
+    }
+  ],
+  "producer": "controllergate.isomorphism.primitives",
+  "semantic_scope": "generic non-authorizing software mechanism vocabulary"
+}
