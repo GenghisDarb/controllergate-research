@@ -19,6 +19,7 @@
         {"name": "packaging", "version": "23.0", "dependency_parent": "pytest", "reason": "pytest dependency"},
         {"name": "attrs", "version": "22.2.0", "dependency_parent": "pytest", "reason": "historical pytest compatibility dependency"},
         {"name": "setuptools", "version": "67.6.0", "dependency_parent": "Python 3.13 compatibility cofactor", "reason": "registered distutils compatibility provider"},
+        {"name": "wheel", "version": "0.40.0", "dependency_parent": "setup.py distribution build", "reason": "registered offline wheel build frontend observed before the episode cutoff"},
         {"name": "colorama", "version": "0.4.6", "dependency_parent": "pytest", "reason": "Windows pytest dependency"}
       ],
       "target_local_paths": ["tests/cloudpickle_testpkg"],

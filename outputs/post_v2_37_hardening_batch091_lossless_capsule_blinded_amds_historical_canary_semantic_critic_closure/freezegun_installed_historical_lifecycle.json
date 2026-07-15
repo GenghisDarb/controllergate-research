@@ -3,7 +3,7 @@
   "candidate_id": "freezegun_547_py313_datetimes_assertion",
   "checkpoint": {
     "checkpoint_stage": "duplicate_failure",
-    "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\controllergate-runtime\\state\\controllergate.sqlite3",
+    "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\controllergate-runtime\\state\\controllergate.sqlite3",
     "run_id": "batch091-historical-freezegun_547_py313_datetimes_assertion",
     "state_authority": "SQLite",
     "status": "INTERRUPTED_AT_CHECKPOINT"
@@ -11,27 +11,27 @@
   "checkpoint_interruption": true,
   "checkpoint_process": {
     "argv": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\controllergate-installed\\Scripts\\controllergate.exe",
       "run",
       "--manifest",
-      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\historical-manifest.json"
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\historical-manifest.json"
     ],
     "return_code": 0,
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "b4d34e22c9b2bdac8afbea6952122cfba0c4fea28ddc2b3e4d2c76126611690a"
+    "stdout_sha256": "9d85f0477020479690fb12be28eea99a3687a05b757ff7e5de26c6ce4f6e0782"
   },
   "complete": true,
   "exact_blocker": null,
   "fresh_duplicate_replay": {
     "anchor_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
-    "broker_record_hash": "29d48b4a0fb4a7223f90f09832aa39e3581c158bddd2da1ff5563309e7c2d91a",
+    "broker_record_hash": "9e1732a9cf4c5a14deb071d4680b59f2016aa2bfc0827d241d15eb4dc69dd42d",
     "passed": true,
-    "patch_record_hash": "d16c01f11a4ecdb30b936d2bd11977cf61936a3bcb9fd193e3d376304dc4ad90",
+    "patch_record_hash": "723fc443baabda2db9dc377aad297e3f5130cea3da6adff247d4edea5dd39197",
     "return_code": 0,
     "stage_id": "duplicate_clean_replay",
     "status": "PASS",
     "verified": true,
-    "workspace": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\controllergate-runtime\\batch091-historical-freezegun_547_py313_datetimes_assertion\\clean-replay",
+    "workspace": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\controllergate-runtime\\batch091-historical-freezegun_547_py313_datetimes_assertion\\clean-replay",
     "workspace_hash": "688dbccc61a01f2778ed22b9131a0a28d614af9bc84aa0dd28a7cd6e2b214057"
   },
   "historical_count_increment": 0,
@@ -54,19 +54,19 @@
     {
       "activation": {
         "activated": true,
-        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\freezegun-source.zip",
-        "archive_sha256": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa",
+        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\custody-r2\\capsules\\freezegun-source.zip",
+        "archive_sha256": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4",
         "candidate_id": "freezegun_547_py313_datetimes_assertion",
-        "capsule_id": "37c9c60cd5b5f5a9537b0a8a8f1cd16c84d4eb4d9e6bf0cc2e8f2742c23860d0",
+        "capsule_id": "259da55d7b9c2e2dafe2a267568c2795d26c094ee31c3f0de8fc7e603104978f",
         "capsule_type": "SOURCE_CAPSULE",
-        "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-a",
+        "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-a",
         "entry_count": 39,
         "exact_blocker": null,
         "expected_entry_count": 39,
         "extra_paths": [],
         "failures": [],
         "git_tree_id": "09f91132212ab6118cc849570e2ea93869829cae",
-        "manifest_sha256": "c605440e26781753e9061b0544b683e3eea059e820df6683d088809fd2402024",
+        "manifest_sha256": "c1392dff7cda5bc0189d84c105269a7f2b1820d316fa1a7c403f31bd2bdc039a",
         "mismatched_paths": [],
         "missing_paths": [],
         "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
@@ -81,15 +81,15 @@
       },
       "execution": {
         "command": [
-          "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\provider-a\\environment\\Scripts\\python.exe",
+          "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\provider-a\\environment\\Scripts\\python.exe",
           "-m",
           "pytest",
           "tests/test_datetimes.py",
           "-q",
           "--tb=no"
         ],
-        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-a",
-        "output_tail": ".................s...........s..................FFF..................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-a\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-a\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.72s",
+        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-a",
+        "output_tail": ".................s...........s..................FFF..................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-a\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-a\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.67s",
         "returncode": 1,
         "semantic_failure_nodes": [
           "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
@@ -99,25 +99,25 @@
         ],
         "semantic_signature_sha256": "4ed412effded45cc05d3fbc0889249f858932c9a5e7ba0ddce658b334fb0e5cd",
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "7d2fc53e791eba1687ba415d9d8145e213fe7239024e95dc927b1f0b4bb04a3f"
+        "stdout_sha256": "29929fdf79a6af882d71920e97e44c51afa88aa58b9e6cf81c7c4130084b3851"
       }
     },
     {
       "activation": {
         "activated": true,
-        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\freezegun-source.zip",
-        "archive_sha256": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa",
+        "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\custody-r2\\capsules\\freezegun-source.zip",
+        "archive_sha256": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4",
         "candidate_id": "freezegun_547_py313_datetimes_assertion",
-        "capsule_id": "37c9c60cd5b5f5a9537b0a8a8f1cd16c84d4eb4d9e6bf0cc2e8f2742c23860d0",
+        "capsule_id": "259da55d7b9c2e2dafe2a267568c2795d26c094ee31c3f0de8fc7e603104978f",
         "capsule_type": "SOURCE_CAPSULE",
-        "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-b",
+        "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-b",
         "entry_count": 39,
         "exact_blocker": null,
         "expected_entry_count": 39,
         "extra_paths": [],
         "failures": [],
         "git_tree_id": "09f91132212ab6118cc849570e2ea93869829cae",
-        "manifest_sha256": "c605440e26781753e9061b0544b683e3eea059e820df6683d088809fd2402024",
+        "manifest_sha256": "c1392dff7cda5bc0189d84c105269a7f2b1820d316fa1a7c403f31bd2bdc039a",
         "mismatched_paths": [],
         "missing_paths": [],
         "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
@@ -132,15 +132,15 @@
       },
       "execution": {
         "command": [
-          "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\provider-b\\environment\\Scripts\\python.exe",
+          "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\provider-b\\environment\\Scripts\\python.exe",
           "-m",
           "pytest",
           "tests/test_datetimes.py",
           "-q",
           "--tb=no"
         ],
-        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-b",
-        "output_tail": ".................s...........s..................FFF..................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-b\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\pre-b\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.43s",
+        "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-b",
+        "output_tail": ".................s...........s..................FFF..................F.s [100%]\n============================== warnings summary ===============================\ntests/test_datetimes.py::test_simple_api\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-b\\tests\\test_datetimes.py:75: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).\n    assert datetime.datetime.utcnow() != datetime.datetime(2012, 1, 14)\n\ntests/test_datetimes.py::test_timestamp_with_tzoffset\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\pre-b\\tests\\test_datetimes.py:812: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).\n    assert utcnow == datetime.datetime.utcfromtimestamp(time.time())\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time_with_func\nFAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_hello\nFAILED tests/test_datetimes.py::test_compare_datetime_and_time_with_timezone\n4 failed, 65 passed, 3 skipped, 2 warnings in 1.89s",
         "returncode": 1,
         "semantic_failure_nodes": [
           "FAILED tests/test_datetimes.py::TestUnitTestMethodDecorator::test_method_decorator_works_on_unittest_kwarg_frozen_time",
@@ -150,7 +150,7 @@
         ],
         "semantic_signature_sha256": "4ed412effded45cc05d3fbc0889249f858932c9a5e7ba0ddce658b334fb0e5cd",
         "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-        "stdout_sha256": "56ba1e104581e614c52bbca8a75d3ae37fb82a778da41a409d55a25a2a4d853d"
+        "stdout_sha256": "b2b34305f32922c243124d0b2b724b36ca44e9d48eaa95a0cfcd3c4c328a2a67"
       }
     }
   ],
@@ -158,12 +158,12 @@
   "provider_activations": [
     {
       "activated": true,
-      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\freezegun-provider.zip",
-      "archive_sha256": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\custody-r2\\capsules\\freezegun-provider.zip",
+      "archive_sha256": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "capsule_id": "bfab9dff9a26a9fc3a603546c4e00ba349e4bdf85568dee20c4a46dff01146e5",
+      "capsule_id": "2ff794829e77504976497cfa9c00797d3328a783ee09cbaf35d0aff434399012",
       "capsule_type": "PROVIDER_CAPSULE",
-      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\provider-a",
+      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\provider-a",
       "distribution_count": 7,
       "distribution_graph": [
         {
@@ -210,13 +210,13 @@
       "git_tree_id": null,
       "install_return_code": 0,
       "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "install_stdout_sha256": "f4e518060c08488d26326108ca70184a2b5e0b284499be36b4c10a9b761b42c9",
-      "manifest_sha256": "c9ca9c78dcb6c675f797aca15a9d63cbd758f0d1ba083a40e8bcd4d99ba3c255",
+      "install_stdout_sha256": "d77fb3692ec040c9ac380389b4eb10e9d615c4d012aa5437501ae849467643b1",
+      "manifest_sha256": "a3b9d6509c9e783e01743e5aefc6e88f98721b663abe7ee5d018b69d3b26073f",
       "mismatched_paths": [],
       "missing_paths": [],
       "network_policy": "none",
-      "pip_freeze_raw_sha256": "b5283332b8e7aa56be5468977e4097b3af364cc944efc3ebee4fdc75becc5f11",
-      "python": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\provider-a\\environment\\Scripts\\python.exe",
+      "pip_freeze_raw_sha256": "9238541c6201360b244386ffd6a452b45390d0415bd4d917134b2f0e5d3fc92f",
+      "python": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\provider-a\\environment\\Scripts\\python.exe",
       "status": "PASS",
       "transport_residue": {
         "residue": [],
@@ -226,12 +226,12 @@
     },
     {
       "activated": true,
-      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\freezegun-provider.zip",
-      "archive_sha256": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+      "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\custody-r2\\capsules\\freezegun-provider.zip",
+      "archive_sha256": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
-      "capsule_id": "bfab9dff9a26a9fc3a603546c4e00ba349e4bdf85568dee20c4a46dff01146e5",
+      "capsule_id": "2ff794829e77504976497cfa9c00797d3328a783ee09cbaf35d0aff434399012",
       "capsule_type": "PROVIDER_CAPSULE",
-      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\provider-b",
+      "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\provider-b",
       "distribution_count": 7,
       "distribution_graph": [
         {
@@ -278,13 +278,13 @@
       "git_tree_id": null,
       "install_return_code": 0,
       "install_stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "install_stdout_sha256": "35d860756b3c95b68006c0adc2ce6529a3df3d997550fac88f1b6aa76555dedb",
-      "manifest_sha256": "c9ca9c78dcb6c675f797aca15a9d63cbd758f0d1ba083a40e8bcd4d99ba3c255",
+      "install_stdout_sha256": "631b2fdec447fd202549b2d7038066557d85907d6dcc2f9738ce0354e265bb75",
+      "manifest_sha256": "a3b9d6509c9e783e01743e5aefc6e88f98721b663abe7ee5d018b69d3b26073f",
       "mismatched_paths": [],
       "missing_paths": [],
       "network_policy": "none",
-      "pip_freeze_raw_sha256": "6d96d5e4702072df67d9dfe515e0f8b75da9373280d3075324c16f4444efa74f",
-      "python": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\provider-b\\environment\\Scripts\\python.exe",
+      "pip_freeze_raw_sha256": "007ba7882e4833cf27ecebcf37aebb6b4394c2d016f25be2986af4d86377629a",
+      "python": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\provider-b\\environment\\Scripts\\python.exe",
       "status": "PASS",
       "transport_residue": {
         "residue": [],
@@ -298,7 +298,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "0fa62d16807057944a5b3ecb647e368ac2092960a939c6ccecfa46b509bc9a0b"
+        "b55a46ca3ed95dfcc244dda35fe1058c85b023e7bf80cd17ed30a758fdaef631"
       ],
       "direct": true,
       "evidence_value": {
@@ -307,16 +307,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "source_ownership_token_hash",
         "sequence": 1,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.source_ownership_token_hash",
-      "proof_hash": "b091ece68452893995265f67f68664f096eb8da919e08de91cf13198b2943269",
+      "proof_hash": "5ab99b846864f48b4d21555a3d7be4476d9f3b2ab105c66062af02574ff00351",
       "proof_type": "source_ownership_token_hash",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "source_ownership_token_hash",
       "revoked": false,
@@ -329,7 +329,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "b091ece68452893995265f67f68664f096eb8da919e08de91cf13198b2943269"
+        "5ab99b846864f48b4d21555a3d7be4476d9f3b2ab105c66062af02574ff00351"
       ],
       "direct": true,
       "evidence_value": {
@@ -338,13 +338,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "single_use_authorization_record",
         "sequence": 2,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.single_use_authorization_record",
-      "proof_hash": "e88ca1648129dc10a98e8c4b3f153f0a5629bb4538024fcd21b8324d86854b0b",
+      "proof_hash": "da6d236f5ee050d798f1912f3aff3c621cd44dba939aaaf89ca535d9a783e451",
       "proof_type": "single_use_authorization_record",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -360,7 +360,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "e88ca1648129dc10a98e8c4b3f153f0a5629bb4538024fcd21b8324d86854b0b"
+        "da6d236f5ee050d798f1912f3aff3c621cd44dba939aaaf89ca535d9a783e451"
       ],
       "direct": true,
       "evidence_value": {
@@ -379,7 +379,7 @@
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.human_approval_record",
-      "proof_hash": "8216cca159f6f30ccef66de6c9bf199f43354cafdb29a1722f1a96b91704baba",
+      "proof_hash": "976b7ce727ce8f0bf1ba2f6241d9b710d0846a66f2de730a5fbb44d32e0e21e5",
       "proof_type": "human_approval_record",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -395,7 +395,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "8216cca159f6f30ccef66de6c9bf199f43354cafdb29a1722f1a96b91704baba"
+        "976b7ce727ce8f0bf1ba2f6241d9b710d0846a66f2de730a5fbb44d32e0e21e5"
       ],
       "direct": true,
       "evidence_value": {
@@ -404,16 +404,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "write_access_lease",
         "sequence": 4,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.write_access_lease",
-      "proof_hash": "259884c550f02470ce283f1f832c4533e71122bc9d7e45ba13f9c7e7e43fa3de",
+      "proof_hash": "352bc75d3e836ed20259612599b051da15df94cbf6153fc1ef5c4eebe9b4abc1",
       "proof_type": "write_access_lease",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "write_access_lease",
       "revoked": false,
@@ -426,7 +426,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "259884c550f02470ce283f1f832c4533e71122bc9d7e45ba13f9c7e7e43fa3de"
+        "352bc75d3e836ed20259612599b051da15df94cbf6153fc1ef5c4eebe9b4abc1"
       ],
       "direct": true,
       "evidence_value": {
@@ -435,16 +435,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "allowlisted_region",
         "sequence": 5,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.allowlisted_region",
-      "proof_hash": "9485e819d1d0c1d7c6a68dea93babb97d39509117821d836db47b24e97239969",
+      "proof_hash": "8d5e3ff07f5c6cf8b73ca3106e9c37e6798ca9a447a8a3adc4eed8a7c6437459",
       "proof_type": "allowlisted_region",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "allowlisted_region",
       "revoked": false,
@@ -457,7 +457,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "9485e819d1d0c1d7c6a68dea93babb97d39509117821d836db47b24e97239969"
+        "8d5e3ff07f5c6cf8b73ca3106e9c37e6798ca9a447a8a3adc4eed8a7c6437459"
       ],
       "direct": true,
       "evidence_value": {
@@ -466,16 +466,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "patch_plan_hash",
         "sequence": 6,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.patch_plan_hash",
-      "proof_hash": "3abd3e54dbbe840b4f8d4d9dfb00a997a6589d6f77c1d347bd316f6a523fd31c",
+      "proof_hash": "cd8df709127589ee14a482b155f4f3fae27bfc6dfc06b73eca7c58fcebbacb07",
       "proof_type": "patch_plan_hash",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "patch_plan_hash",
       "revoked": false,
@@ -488,7 +488,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "3abd3e54dbbe840b4f8d4d9dfb00a997a6589d6f77c1d347bd316f6a523fd31c"
+        "cd8df709127589ee14a482b155f4f3fae27bfc6dfc06b73eca7c58fcebbacb07"
       ],
       "direct": true,
       "evidence_value": {
@@ -497,13 +497,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "source_only_scope",
         "sequence": 7,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.source_only_scope",
-      "proof_hash": "8bc32a5e1e359bdd49d9fc64434dc68a8f0738b4944a5e68966fd752a6edfef0",
+      "proof_hash": "825af80c9d3deaef324a8b17515dadabf14f307517c9c4a0430cf34977482a6a",
       "proof_type": "source_only_scope",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -519,7 +519,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "8bc32a5e1e359bdd49d9fc64434dc68a8f0738b4944a5e68966fd752a6edfef0"
+        "825af80c9d3deaef324a8b17515dadabf14f307517c9c4a0430cf34977482a6a"
       ],
       "direct": true,
       "evidence_value": {
@@ -528,13 +528,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "test_tree_immutability",
         "sequence": 8,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.test_tree_immutability",
-      "proof_hash": "7ad52bba775a4a9753f530a05f1402bdd065fd3acce6a98ab5ada5674a8083cb",
+      "proof_hash": "3ae2c73350b3c50e863a579e5d92a1ce8fb8414a596ab157cd9c4cabf492dfff",
       "proof_type": "test_tree_immutability",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -550,7 +550,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "7ad52bba775a4a9753f530a05f1402bdd065fd3acce6a98ab5ada5674a8083cb"
+        "3ae2c73350b3c50e863a579e5d92a1ce8fb8414a596ab157cd9c4cabf492dfff"
       ],
       "direct": true,
       "evidence_value": {
@@ -559,16 +559,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "patch_size",
         "sequence": 9,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.patch_size",
-      "proof_hash": "9ca1fc5d17c56e2b15250aab1fef8117069192051bffb0473b9acdad4556aefc",
+      "proof_hash": "3160854426619a2da6b4aa24101d1472f80c29b2edff77446ea6196291a63dfe",
       "proof_type": "patch_size",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "patch_size",
       "revoked": false,
@@ -581,7 +581,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "9ca1fc5d17c56e2b15250aab1fef8117069192051bffb0473b9acdad4556aefc"
+        "3160854426619a2da6b4aa24101d1472f80c29b2edff77446ea6196291a63dfe"
       ],
       "direct": true,
       "evidence_value": {
@@ -590,16 +590,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "forbidden_file_scan",
         "sequence": 10,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.forbidden_file_scan",
-      "proof_hash": "dca8a40d022820e04b9e12c75fba4033ec84f66c6c57b1c93bcfdcabf03014e2",
+      "proof_hash": "444a6dabcede701e0b4b9e11015ee530cc8445f6a56c71f0d38407648f91d65e",
       "proof_type": "forbidden_file_scan",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "forbidden_file_scan",
       "revoked": false,
@@ -612,7 +612,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "dca8a40d022820e04b9e12c75fba4033ec84f66c6c57b1c93bcfdcabf03014e2"
+        "444a6dabcede701e0b4b9e11015ee530cc8445f6a56c71f0d38407648f91d65e"
       ],
       "direct": true,
       "evidence_value": {
@@ -621,16 +621,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "validation_plan",
         "sequence": 11,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.validation_plan",
-      "proof_hash": "489e6263496f1ac3ffa28455a6536c44683c4bc7e549e71683db77b5ddb4e6b0",
+      "proof_hash": "fb2fb3bbacd02f950a18f13ecb2ccc17de33995a2b0e57df3df7969f851541b4",
       "proof_type": "validation_plan",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "validation_plan",
       "revoked": false,
@@ -643,7 +643,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "489e6263496f1ac3ffa28455a6536c44683c4bc7e549e71683db77b5ddb4e6b0"
+        "fb2fb3bbacd02f950a18f13ecb2ccc17de33995a2b0e57df3df7969f851541b4"
       ],
       "direct": true,
       "evidence_value": {
@@ -652,13 +652,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "native_invariant_plan",
         "sequence": 12,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.native_invariant_plan",
-      "proof_hash": "94199eb2c0f433f60c8f83d0cf7b806f922198e37a80245afcc83b98d847ac8a",
+      "proof_hash": "77f964978003263961b0d21ff29067b5feee84bebf911073491486173ea0c19f",
       "proof_type": "native_invariant_plan",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -674,7 +674,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "94199eb2c0f433f60c8f83d0cf7b806f922198e37a80245afcc83b98d847ac8a"
+        "77f964978003263961b0d21ff29067b5feee84bebf911073491486173ea0c19f"
       ],
       "direct": true,
       "evidence_value": {
@@ -683,13 +683,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "fresh_replay_plan",
         "sequence": 13,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.fresh_replay_plan",
-      "proof_hash": "a87812068dfa5f2b4fc85025bc7c2c85c49f953953a9fb8118accc4cfcc3b1fd",
+      "proof_hash": "eec95e031ab2ea71a3bf6f42bfe58ae89be31a01bc78065fb39d71b03d40ba53",
       "proof_type": "fresh_replay_plan",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -705,7 +705,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "a87812068dfa5f2b4fc85025bc7c2c85c49f953953a9fb8118accc4cfcc3b1fd"
+        "eec95e031ab2ea71a3bf6f42bfe58ae89be31a01bc78065fb39d71b03d40ba53"
       ],
       "direct": true,
       "evidence_value": {
@@ -714,16 +714,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "same_provider_plan",
         "sequence": 14,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.same_provider_plan",
-      "proof_hash": "5a136746ea4d42bd5a729c55eeddd1bed935e2f98c127e4f8947a735a71f6f2b",
+      "proof_hash": "59473e08c6f4801c476407dffe15ad4715c5244ef5cd46f17d18c165cc02141a",
       "proof_type": "same_provider_plan",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "same_provider_plan",
       "revoked": false,
@@ -736,7 +736,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "5a136746ea4d42bd5a729c55eeddd1bed935e2f98c127e4f8947a735a71f6f2b"
+        "59473e08c6f4801c476407dffe15ad4715c5244ef5cd46f17d18c165cc02141a"
       ],
       "direct": true,
       "evidence_value": {
@@ -745,16 +745,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "rollback_ready_proof",
         "sequence": 15,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.rollback_ready_proof",
-      "proof_hash": "3e51b556fb8e3f960fcfd00f0de79f3734ccc7a0f2b6e2f8c68a2230723b7e75",
+      "proof_hash": "7f49022530e3488c4b2ca23e0f1097789deb744837ec06947ebc1dcbd52fb198",
       "proof_type": "rollback_ready_proof",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "rollback_ready_proof",
       "revoked": false,
@@ -767,7 +767,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "3e51b556fb8e3f960fcfd00f0de79f3734ccc7a0f2b6e2f8c68a2230723b7e75"
+        "7f49022530e3488c4b2ca23e0f1097789deb744837ec06947ebc1dcbd52fb198"
       ],
       "direct": true,
       "evidence_value": {
@@ -776,16 +776,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "proof_count_nonduplication_plan",
         "sequence": 16,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.proof_count_nonduplication_plan",
-      "proof_hash": "d3c69d2abd0238b4bc02ceb405b9e1e211816b7daa466346c0836314156bc293",
+      "proof_hash": "413483ec9e0d407a03e171376044e6632f7d64c438e223008b23731bd810c87f",
       "proof_type": "proof_count_nonduplication_plan",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "proof_count_nonduplication_plan",
       "revoked": false,
@@ -798,7 +798,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "d3c69d2abd0238b4bc02ceb405b9e1e211816b7daa466346c0836314156bc293"
+        "413483ec9e0d407a03e171376044e6632f7d64c438e223008b23731bd810c87f"
       ],
       "direct": true,
       "evidence_value": {
@@ -807,13 +807,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "resource_budget",
         "sequence": 17,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.resource_budget",
-      "proof_hash": "bdf8293eb9a807a63e4d25821a35017bc9f03a46ed24ecae892f2be59ee43887",
+      "proof_hash": "6476131f13de263318175fc2d0205ee59574af1f34bf21ff7fe56f5cd7b98f09",
       "proof_type": "resource_budget",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -829,7 +829,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "bdf8293eb9a807a63e4d25821a35017bc9f03a46ed24ecae892f2be59ee43887"
+        "6476131f13de263318175fc2d0205ee59574af1f34bf21ff7fe56f5cd7b98f09"
       ],
       "direct": true,
       "evidence_value": {
@@ -838,13 +838,13 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "network_policy",
         "sequence": 18,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.network_policy",
-      "proof_hash": "21260be1765f5f2e3fcf4b09ba2b1a1860b17baf8c6dbfc443260686e775c222",
+      "proof_hash": "e4600761dc5cf9d87769f9846f43391e65691bf932946d4438144c4825283231",
       "proof_type": "network_policy",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -860,7 +860,7 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "21260be1765f5f2e3fcf4b09ba2b1a1860b17baf8c6dbfc443260686e775c222"
+        "e4600761dc5cf9d87769f9846f43391e65691bf932946d4438144c4825283231"
       ],
       "direct": true,
       "evidence_value": {
@@ -869,16 +869,16 @@
         "patch_sha256": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         "requirement": "public_write_prohibition",
         "sequence": 19,
-        "source_ownership_token": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+        "source_ownership_token": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.public_write_prohibition",
-      "proof_hash": "9036baae41af5fddb5442720c54c0d14e40b51a3fef68c844939e68b3112b6e1",
+      "proof_hash": "6be3a8b206c7967faf8d8fa48b963ef965e030b64c4de98125f347e4db576e74",
       "proof_type": "public_write_prohibition",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "public_write_prohibition",
       "revoked": false,
@@ -891,7 +891,7 @@
   "repair_license_rows": [
     {
       "consumed": 1,
-      "token_hash": "3a2b71bfdd861170e54b8678e08ea046501dd27ce7d03798fc1a35360be5053d"
+      "token_hash": "dd5780a59ec53fb4692b7f19b3c48df1f6ef8bbadf470f0786920a5f1e301408"
     }
   ],
   "resume": {
@@ -912,29 +912,29 @@
       "duplicate_clean_replay",
       "proof_append"
     ],
-    "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\controllergate-runtime\\state\\controllergate.sqlite3",
+    "database": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\controllergate-runtime\\state\\controllergate.sqlite3",
     "event_chain": {
-      "chain_head": "14342118e1bc8ae5a834f1c52562dfb3af423e3c1124941a0e5e1c7521f5fc9c",
+      "chain_head": "e5b79caebc201c4626db967aa2f71a5b2734874af5ccf6ffb0e02d0f648476b6",
       "errors": [],
       "event_count": 15,
       "status": "PASS"
     },
     "execution_depth": "HISTORICAL_EPISODE_EXECUTION",
     "execution_receipt_ids": [
-      "1584fd12a0e456260f2850ad4eead03e91fc834c5c5335e6cdaf5f6e737fd255",
-      "5891625de7196f27df45e868b1a48829d6142b0d9535b148c8d4ec3a3f94716a",
-      "88d9b05ff7196f752b1eb076019bbac48e70b04eb595d899f54c8661b3356bca",
-      "66150335048dd20617f70251c9b64e9acfa5482400d7b36a7d69bf27dfe3cdeb",
-      "48e63612a2d9dd8e5b981aef6f9df63fc2c418f1fad9b163dbe4fd8637c863d4",
-      "a24a3a8d2ce7c6824c267f8c50e582c7282287d380e02bd504f70e73d8ceedf5",
-      "d16ff66b8965ce994e09c7bb955a65d7f5bf12a7a0eb672f5f8681462df3c3bf",
-      "0819004deafc93c946c63e1a3d02aa8548981c16ed430e5e043e084b4e1906aa",
-      "d12b1670c348e6daca804e3c7a5e2bd1e366ff6972dcf8825194ac135673455a",
-      "cfffceba04be7dae209858e3495a5086609456c2005b03c89ec1e1a65c21ec01",
-      "e5945797f33a1e88f84d5bd8262c40dc831cf80d17eaae68264f1052e4b3c188",
-      "e4290e986feb711d2ec3f6aff901c61bb0d6bdc1f1f8024e6cbbfa449d7cda20",
-      "1ff375cff5940cdc84cf830eaecef572974cf76e8b9a0b277e76ae25e6d77302",
-      "9d4b077e093f88b50d0814c944e7dda676bbc8ea7f629125e8d05ff925a8f933"
+      "7834a3ff47e1c8c0a4c1ca745c704b77cea088a7244e7dc817bbaca9b33e5f01",
+      "4453ec48bd68423332cdc3e8d7a276e292ec80cc526f618739fdd07633b95019",
+      "3a2a3587e8c809641d426d10b5ecfad40f94dd5615bbd26e252b61aad16dc650",
+      "8f5cbb58871248013e21b3cd4a5ced11764a4eca1966311ca9bd29e5eb07f3b7",
+      "d84039b980a4ad242d17bb579e377aa84466aa207c1ed8e535f7f2bf45d9e6b8",
+      "fd4b8cab3439ceaea89502236babb67b13b7de4e41d0b93c58a2f8dce4f3f2ee",
+      "cb3eddc13026ead33d6d2ddc7ff3786f2e82ca0fe1b06006e3ddf27872442cd6",
+      "f3e844da9130f681784cb56e91e03861000bf5ebdfce87546975000821662474",
+      "5f56ac4e9bd21f658d7b4fe116c7ecf1592c3d092d3cc5a014b01e9b8032963b",
+      "db6a42c91505b004ce238eb8b564fb312465cf10103ba42bce15baa313aeafb5",
+      "6044f342132cf3ecad1387f4c8428f640f1cd9e57bfa2d4d22c17369dffb3899",
+      "6ec155d36f85e193891c4632dd505558660e3f541a3cc9c6fc76ff0fc715f4c2",
+      "a1f1660b9a15b0dfb62357d1a985f8372ac01b3944af6d5a215ece22aace3f88",
+      "8f3a4c50d886ad80ddbe6898f72522d9af0af511326feda04423bcc58cf48b19"
     ],
     "historical_count_increment": 0,
     "invoked_via_installed_cli": true,
@@ -969,20 +969,20 @@
       }
     ],
     "reaction_token_hashes": [
-      "ff2494ae071dea16d68a5ec988e3a28d2b28044055161551aad9fc92b8c39827",
-      "f97dca22521e66cfd7d2e15ee1f954e092bd3476b2f730a167abde3ebaf672fe",
-      "c9aa2ac978b1fe08230f9f5f719d3091f608bd361b9e847c491dd61a3ccbf82f",
-      "c045178f74c0874ec2897be56f09acf985fa09a9cc2be3c07a9b4bd9bcd7bb1d",
-      "ac73225ed4da418d4bd4870724280d1124176180acdac86af0f8afba26ecfdb4",
-      "d6bfe7f125676eac50ccc7dfde23de9cb8d6c7516f3f6e7dd3fc121bad02a804",
-      "6d33fe7319d031fffb1b8cde6b4de269731792ff24156230695b02a00067164d",
-      "067ce89d4f35a7642d3569a63a97cffda4a894de73c9441fd8d50982b82930d7",
-      "4b638a77510d9a59728a1ee0eac7b2a32c6fc7c50b91178ede882711e7eabcf0",
-      "396fd0309e40811c4ea60706a6351bb1adf90f524b9bbd85d710eef4efefc22a",
-      "c3206366e8a99080ddc14edd32ac32379d9978363f227f695754cb0abeda2ff8",
-      "3e218eea641ce6bbc777b88b491b9d4a1dd1c0e2756a130e066ebda1a9539f18",
-      "47092e11a42b913f0ab433a35baef8797c704eddba6455f5f23e0cc35f74e6c3",
-      "1709147440cffa577cce7344b7e616b1814f56f0a9d574873e0435c93f7ad444"
+      "7a11e4216a2ebea9621b343f47ba9218abd68eabb1801f250371186e2d16deef",
+      "6c88de837b1043adf4fabfb531388cee096aab1b022ae316ac34cf2e666f3701",
+      "31fb072b70f527f0775879ccc547d6131d2aa7f6d7abaa2057887297a0e2fd7e",
+      "ffb1329d3e11f6432b41e90f44952169583266ecf564e5e5ad501e6522b017f3",
+      "55826caf54a8655b97f5ca8541e782e7121580ab74193b3a54b2a0b5a6e96130",
+      "1fd3f2a375043a1bfb05977fcf4d5e526160448b3483d2cc15fe16e2486eba08",
+      "2eab919ce027e1568b55cdedc1e06fc52f4cd263b596bb590e283a193eb2658e",
+      "acfc6e9f54cbb6c9a2cd933de329c30e852a0c44a718257527f8436a7a4958be",
+      "16250ef1077da9280c091798a031b16d0b80f30aa7c05c9fd3063cd49f77eefd",
+      "fe3a3e4b710a5345c7e86298bd46f1f4d06c0ce7eb43f1db481d1694fc9586c4",
+      "7805d986b71a4fb94583b043b3290a1e7968c421e0db990a6ea1b9d0c1d3a91c",
+      "a438a96632eb69e59a5c8f2bf22361118bd0605dc10af830fb2def67285000b3",
+      "2c23d061dc1e8180b5d49f0bb5b7b2c61b83cb7062b1ef6b484292ef16482073",
+      "6da101e10e1aa918f50852b26cfb49e5e7133776cb27013dbb0899078771bd04"
     ],
     "run_id": "batch091-historical-freezegun_547_py313_datetimes_assertion",
     "state_authority": "SQLite",
@@ -1020,16 +1020,16 @@
   },
   "resume_process": {
     "argv": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\controllergate-installed\\Scripts\\controllergate.exe",
       "resume",
       "--run-id",
       "batch091-historical-freezegun_547_py313_datetimes_assertion",
       "--manifest",
-      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\historical-manifest.json"
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\historical-manifest.json"
     ],
     "return_code": 0,
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "b21ca5fcf6bbd6ff8a771a7f5ee70070c7d2310ab859f526f2d5e8ea0fb71c4d"
+    "stdout_sha256": "1d710df13460601f62adfc6a300a9d6ec813634a98e84df17f6ad3cd1babccb9"
   },
   "rollback_ready": {
     "original_hash": "fcdbc3856c259250e7ba46e70ea276dfff61e7cbe9fb05600c2a101d911554b7",
@@ -1040,19 +1040,19 @@
   "semantic_failure_signatures_match": true,
   "source_activation": {
     "activated": true,
-    "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\capsules\\freezegun-source.zip",
-    "archive_sha256": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa",
+    "archive_path": "C:\\Dev\\ControllerGate_Runtime\\batch091\\custody-r2\\capsules\\freezegun-source.zip",
+    "archive_sha256": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4",
     "candidate_id": "freezegun_547_py313_datetimes_assertion",
-    "capsule_id": "37c9c60cd5b5f5a9537b0a8a8f1cd16c84d4eb4d9e6bf0cc2e8f2742c23860d0",
+    "capsule_id": "259da55d7b9c2e2dafe2a267568c2795d26c094ee31c3f0de8fc7e603104978f",
     "capsule_type": "SOURCE_CAPSULE",
-    "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\source-base",
+    "destination": "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\source-base",
     "entry_count": 39,
     "exact_blocker": null,
     "expected_entry_count": 39,
     "extra_paths": [],
     "failures": [],
     "git_tree_id": "09f91132212ab6118cc849570e2ea93869829cae",
-    "manifest_sha256": "c605440e26781753e9061b0544b683e3eea059e820df6683d088809fd2402024",
+    "manifest_sha256": "c1392dff7cda5bc0189d84c105269a7f2b1820d316fa1a7c403f31bd2bdc039a",
     "mismatched_paths": [],
     "missing_paths": [],
     "mode_verification": "ARCHIVE_EXACT_EXTRACTION_PLATFORM_LIMITED",
@@ -1074,19 +1074,19 @@
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "candidate_run_frame_identity",
         "sequence": 1,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.candidate_run_frame_identity",
-      "proof_hash": "9aa1a008fc23ebd87a93047c48863c9f3fc127ca02315978d2fdcfa109c84eed",
+      "proof_hash": "f60f5c00dbcaff44b1c739b775e27b52828de7e96d1abba96e8aff316a9c0530",
       "proof_type": "candidate_run_frame_identity",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "candidate_run_frame_identity",
       "revoked": false,
@@ -1099,25 +1099,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "9aa1a008fc23ebd87a93047c48863c9f3fc127ca02315978d2fdcfa109c84eed"
+        "f60f5c00dbcaff44b1c739b775e27b52828de7e96d1abba96e8aff316a9c0530"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "incident_snapshot",
         "sequence": 2,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.incident_snapshot",
-      "proof_hash": "6e911f34fabc36ae1f3effe471e357917e39c2e5c9d84ecf64b1c05f48e8b391",
+      "proof_hash": "a47d650e77fe6daced36d4f159c818197d70818bae104abda12640bc7954700a",
       "proof_type": "incident_snapshot",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "incident_snapshot",
       "revoked": false,
@@ -1130,25 +1130,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "6e911f34fabc36ae1f3effe471e357917e39c2e5c9d84ecf64b1c05f48e8b391"
+        "a47d650e77fe6daced36d4f159c818197d70818bae104abda12640bc7954700a"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "source_revision",
         "sequence": 3,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.source_revision",
-      "proof_hash": "e1fadd521a10c2678610f72f64eb08901c5437a7c44b40167f0f140b49b59319",
+      "proof_hash": "cb5f27bbdbea368ed1c4aae68ae60eee70b158a9c3086a6055a262f2514333f9",
       "proof_type": "source_revision",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "source_revision",
       "revoked": false,
@@ -1161,22 +1161,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "e1fadd521a10c2678610f72f64eb08901c5437a7c44b40167f0f140b49b59319"
+        "cb5f27bbdbea368ed1c4aae68ae60eee70b158a9c3086a6055a262f2514333f9"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "source_test_immutability",
         "sequence": 4,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.source_test_immutability",
-      "proof_hash": "f4b21e181c47db5442699196508fae47e4fd8e6c7b048f87f52fb1f38fa12180",
+      "proof_hash": "0905053052b51d326b99bb2e5cb112b762e495f8e0b0dfef3ed1902027fa4655",
       "proof_type": "source_test_immutability",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -1192,22 +1192,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "f4b21e181c47db5442699196508fae47e4fd8e6c7b048f87f52fb1f38fa12180"
+        "0905053052b51d326b99bb2e5cb112b762e495f8e0b0dfef3ed1902027fa4655"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "provider_runtime",
         "sequence": 5,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.provider_runtime",
-      "proof_hash": "fa1baccfe2744f56443799e889b3dfc58403c4350ab0aa787b9556462b1db6d0",
+      "proof_hash": "a8f2c14aabf531348d98b884b80fa832d4dfad63db6fad2d79f09e7303204f0f",
       "proof_type": "provider_runtime",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -1223,25 +1223,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "fa1baccfe2744f56443799e889b3dfc58403c4350ab0aa787b9556462b1db6d0"
+        "a8f2c14aabf531348d98b884b80fa832d4dfad63db6fad2d79f09e7303204f0f"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "target_reproducer",
         "sequence": 6,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.target_reproducer",
-      "proof_hash": "660d6c0c710252044caf214ff950e0e94b947966598d2f1a1c52c28a1abafa31",
+      "proof_hash": "78567e53ce56cf1eb53d7fe70090b9a0b977bd37c626cc15fd975bb426a55df5",
       "proof_type": "target_reproducer",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "target_reproducer",
       "revoked": false,
@@ -1254,25 +1254,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "660d6c0c710252044caf214ff950e0e94b947966598d2f1a1c52c28a1abafa31"
+        "78567e53ce56cf1eb53d7fe70090b9a0b977bd37c626cc15fd975bb426a55df5"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "command_authority",
         "sequence": 7,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.command_authority",
-      "proof_hash": "a3a937e824589505d94f1df2f743c2017156864b36a4e765793d98bf9721d739",
+      "proof_hash": "b82ec44d29008d2850fc2cc24db6e99cd78b65bb13cd0bd1efced6241612bf09",
       "proof_type": "command_authority",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "command_authority",
       "revoked": false,
@@ -1285,25 +1285,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "a3a937e824589505d94f1df2f743c2017156864b36a4e765793d98bf9721d739"
+        "b82ec44d29008d2850fc2cc24db6e99cd78b65bb13cd0bd1efced6241612bf09"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "runner_origin",
         "sequence": 8,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.runner_origin",
-      "proof_hash": "18cf1b811104c4a4b72637ffbff1712c99004fe6f5f86b764264c617626e747e",
+      "proof_hash": "fd1df6ff9725c9ee6eca1baf72c049194d6ccabf7201682615a1ca2c4f8a0027",
       "proof_type": "runner_origin",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "runner_origin",
       "revoked": false,
@@ -1316,22 +1316,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "18cf1b811104c4a4b72637ffbff1712c99004fe6f5f86b764264c617626e747e"
+        "fd1df6ff9725c9ee6eca1baf72c049194d6ccabf7201682615a1ca2c4f8a0027"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "harness_origin",
         "sequence": 9,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.harness_origin",
-      "proof_hash": "2a8c3f83d7670b5c245c1b3fd2e3ee24085af0bbd806502c0cab4389852e96c3",
+      "proof_hash": "55f72322119a398c81a85f9247752d8b71e2aa60979a9b13ae426ae9b8254860",
       "proof_type": "harness_origin",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -1347,22 +1347,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "2a8c3f83d7670b5c245c1b3fd2e3ee24085af0bbd806502c0cab4389852e96c3"
+        "55f72322119a398c81a85f9247752d8b71e2aa60979a9b13ae426ae9b8254860"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "duplicate_failure",
         "sequence": 10,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.duplicate_failure",
-      "proof_hash": "f94e55da70c7d4b8c043ccbf0b15587b9fc65c2d095bb16e73591032ab3fc813",
+      "proof_hash": "d5079f0944b9f88a3b748d44bc4a6997c4d7c598227e1e0d85f1576032b064a9",
       "proof_type": "duplicate_failure",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -1378,25 +1378,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "f94e55da70c7d4b8c043ccbf0b15587b9fc65c2d095bb16e73591032ab3fc813"
+        "d5079f0944b9f88a3b748d44bc4a6997c4d7c598227e1e0d85f1576032b064a9"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "normal_incident_frame",
         "sequence": 11,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.normal_incident_frame",
-      "proof_hash": "1b3d9437b56022ea7b73979dce7bd7555a509670debc316ab151a72ccff92bf0",
+      "proof_hash": "39110314c7a03f302b1a30575ba8370942a0322f628d985ee795cb45d6c3f59b",
       "proof_type": "normal_incident_frame",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "normal_incident_frame",
       "revoked": false,
@@ -1409,25 +1409,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "1b3d9437b56022ea7b73979dce7bd7555a509670debc316ab151a72ccff92bf0"
+        "39110314c7a03f302b1a30575ba8370942a0322f628d985ee795cb45d6c3f59b"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "normal_incident_divergence",
         "sequence": 12,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.normal_incident_divergence",
-      "proof_hash": "8d480dfbb8bc0e82e6db59ff8cbe3e9f873630273692ba8eaec0d0c784941c23",
+      "proof_hash": "fe132fc333d47f7c11e90f75c7635707f0bed3ca2ce4e011d46cf0e69ce4606e",
       "proof_type": "normal_incident_divergence",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "normal_incident_divergence",
       "revoked": false,
@@ -1440,25 +1440,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "8d480dfbb8bc0e82e6db59ff8cbe3e9f873630273692ba8eaec0d0c784941c23"
+        "fe132fc333d47f7c11e90f75c7635707f0bed3ca2ce4e011d46cf0e69ce4606e"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "provider_alternative_exclusion",
         "sequence": 13,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.provider_alternative_exclusion",
-      "proof_hash": "bd56d26aa0deef2ed3bc7b11c187a4501bdb7dab2da835d0488d94059c39c639",
+      "proof_hash": "ee51d4be37531df1b1e9dbfba32caaf5dea3273c2aa96e375e9c59515b069b4c",
       "proof_type": "provider_alternative_exclusion",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "provider_alternative_exclusion",
       "revoked": false,
@@ -1471,22 +1471,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "bd56d26aa0deef2ed3bc7b11c187a4501bdb7dab2da835d0488d94059c39c639"
+        "ee51d4be37531df1b1e9dbfba32caaf5dea3273c2aa96e375e9c59515b069b4c"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "environment_alternative_exclusion",
         "sequence": 14,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.environment_alternative_exclusion",
-      "proof_hash": "7ebfa05d03bede656770e80cdf04124397996b3e5540977d625ca969434c20a3",
+      "proof_hash": "d81dab3e0e29fd466408e2c26347a7b6c2cec89fe30080c3060ef0520d5bec13",
       "proof_type": "environment_alternative_exclusion",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -1502,22 +1502,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "7ebfa05d03bede656770e80cdf04124397996b3e5540977d625ca969434c20a3"
+        "d81dab3e0e29fd466408e2c26347a7b6c2cec89fe30080c3060ef0520d5bec13"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "platform_alternative_exclusion",
         "sequence": 15,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.platform_alternative_exclusion",
-      "proof_hash": "ce1e45e1bf7b5052652146b4784d9bd35c94d4feb7cce8cc416b958a74a09d8f",
+      "proof_hash": "b71fd44ba854b3b51f556a346f51ad24bfcd2bcc2e1ac153a18216d5ce2b098f",
       "proof_type": "platform_alternative_exclusion",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -1533,25 +1533,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "ce1e45e1bf7b5052652146b4784d9bd35c94d4feb7cce8cc416b958a74a09d8f"
+        "b71fd44ba854b3b51f556a346f51ad24bfcd2bcc2e1ac153a18216d5ce2b098f"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "network_transport_exclusion",
         "sequence": 16,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.network_transport_exclusion",
-      "proof_hash": "dd2bacdb617e46f539f145dff59d117574e499278725ab6752c3c21316a7cd84",
+      "proof_hash": "94b9fa7fceb2e4659f7e64a5dd6ca6fe298cc774f74d0cc2d35ee6c115d397cd",
       "proof_type": "network_transport_exclusion",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "network_transport_exclusion",
       "revoked": false,
@@ -1564,25 +1564,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "dd2bacdb617e46f539f145dff59d117574e499278725ab6752c3c21316a7cd84"
+        "94b9fa7fceb2e4659f7e64a5dd6ca6fe298cc774f74d0cc2d35ee6c115d397cd"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "harness_target_exclusion",
         "sequence": 17,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.harness_target_exclusion",
-      "proof_hash": "a036f09291369199349607d161fe1d7f51d6a466572282d41e4a3deb2070cbc0",
+      "proof_hash": "eeeb4aaa33e7d5b044119ea348e81b6c189d823405f4a2ec1b630b7e4e4bebec",
       "proof_type": "harness_target_exclusion",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "harness_target_exclusion",
       "revoked": false,
@@ -1595,25 +1595,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "a036f09291369199349607d161fe1d7f51d6a466572282d41e4a3deb2070cbc0"
+        "eeeb4aaa33e7d5b044119ea348e81b6c189d823405f4a2ec1b630b7e4e4bebec"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "expectation_consistency",
         "sequence": 18,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.expectation_consistency",
-      "proof_hash": "3d52b68e9d739652cd863669ac0557cad38b772776e816fe01cf7ce40f15f6ee",
+      "proof_hash": "28f80e8103c6539f952da54604cd3b7c8c486a11564a9f86f39f2896a48b546b",
       "proof_type": "expectation_consistency",
       "raw_evidence_hashes": [
-        "5ea274091c841b9d0e0df148bc12919424276e250d432aa9a15866a1b773d016"
+        "05ccc53fd5799bd78e988f706d143345d8a52a82cc685271cdeeba733c27053c"
       ],
       "requirement": "expectation_consistency",
       "revoked": false,
@@ -1626,22 +1626,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "3d52b68e9d739652cd863669ac0557cad38b772776e816fe01cf7ce40f15f6ee"
+        "28f80e8103c6539f952da54604cd3b7c8c486a11564a9f86f39f2896a48b546b"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "direct_source_contact",
         "sequence": 19,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.direct_source_contact",
-      "proof_hash": "0a910a11358f259f0d712cdfb32aa72bce3406ffd5d8606dda2b37c56b584824",
+      "proof_hash": "937697a8cf08f29c280ee26e9052096fb1b032d93ba28f823031a077e0b3d05f",
       "proof_type": "direct_source_contact",
       "raw_evidence_hashes": [
         "7446f328341ca0f66ac6c756fed3be32d57db5ce03679a8aaa21b9bcfacbef6d"
@@ -1657,22 +1657,22 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "0a910a11358f259f0d712cdfb32aa72bce3406ffd5d8606dda2b37c56b584824"
+        "937697a8cf08f29c280ee26e9052096fb1b032d93ba28f823031a077e0b3d05f"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "repair_critical_interlock",
         "sequence": 20,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.repair_critical_interlock",
-      "proof_hash": "51c9e67d9278326e2ebfd674bd568ac67c4740ce883bc9b8ff3aced4910b48a4",
+      "proof_hash": "5c350c451c3004ad9792cf26a18772c00c4d46f0962b6af918f8987b14aa92ea",
       "proof_type": "repair_critical_interlock",
       "raw_evidence_hashes": [
         "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
@@ -1688,25 +1688,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "51c9e67d9278326e2ebfd674bd568ac67c4740ce883bc9b8ff3aced4910b48a4"
+        "5c350c451c3004ad9792cf26a18772c00c4d46f0962b6af918f8987b14aa92ea"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "categorical_causal_elbow",
         "sequence": 21,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.categorical_causal_elbow",
-      "proof_hash": "076790fdcd7bcdf93aba2319b4731d508e90f6ed2cb564addc00c75475c757be",
+      "proof_hash": "f5845a3454726c5bf1777607bc91239b4be13dbb9e53a9e6b9cc71392508e256",
       "proof_type": "categorical_causal_elbow",
       "raw_evidence_hashes": [
-        "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       ],
       "requirement": "categorical_causal_elbow",
       "revoked": false,
@@ -1719,25 +1719,25 @@
       "candidate_id": "freezegun_547_py313_datetimes_assertion",
       "decision_time_safe": true,
       "derivation_parents": [
-        "076790fdcd7bcdf93aba2319b4731d508e90f6ed2cb564addc00c75475c757be"
+        "f5845a3454726c5bf1777607bc91239b4be13dbb9e53a9e6b9cc71392508e256"
       ],
       "direct": true,
       "evidence_value": {
         "amds_terminal": "source_owned_behavior_defect",
         "prepatch_reproduced_twice": true,
-        "provider_capsule": "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795",
+        "provider_capsule": "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a",
         "requirement": "remaining_alternative",
         "sequence": 22,
-        "source_capsule": "6ff4a9d536a1e090e75cad31231dedaa27f5181ee8ebfd9728e5ebebb5c9b6aa"
+        "source_capsule": "7e0f7b1d1b77d68fc7216e8c556437936ce17e5077fed26f8446ad52e10706d4"
       },
       "execution_depth": "executed_and_independently_verified",
       "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
       "freshness": "current_run",
       "producer_identity": "controllergate.product.historical_lifecycle.stage.remaining_alternative",
-      "proof_hash": "0fa62d16807057944a5b3ecb647e368ac2092960a939c6ccecfa46b509bc9a0b",
+      "proof_hash": "b55a46ca3ed95dfcc244dda35fe1058c85b023e7bf80cd17ed30a758fdaef631",
       "proof_type": "remaining_alternative",
       "raw_evidence_hashes": [
-        "09b74c338d07fa7d227f32c48e7ccc4cf4894a0be0c772b36f7942f038759795"
+        "16fa9bcaa62608a6a7cc92788fdfc079b340a93aac9695264679daf2ec5c556a"
       ],
       "requirement": "remaining_alternative",
       "revoked": false,
@@ -1749,35 +1749,35 @@
   ],
   "source_ownership_token": {
     "candidate_id": "freezegun_547_py313_datetimes_assertion",
-    "created_at": "2026-07-15T17:18:55.772479+00:00",
+    "created_at": "2026-07-15T18:10:23.111802+00:00",
     "frame_hash": "7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d",
     "resolved_proofs": {
-      "candidate_run_frame_identity": "9aa1a008fc23ebd87a93047c48863c9f3fc127ca02315978d2fdcfa109c84eed",
-      "categorical_causal_elbow": "076790fdcd7bcdf93aba2319b4731d508e90f6ed2cb564addc00c75475c757be",
-      "command_authority": "a3a937e824589505d94f1df2f743c2017156864b36a4e765793d98bf9721d739",
-      "direct_source_contact": "0a910a11358f259f0d712cdfb32aa72bce3406ffd5d8606dda2b37c56b584824",
-      "duplicate_failure": "f94e55da70c7d4b8c043ccbf0b15587b9fc65c2d095bb16e73591032ab3fc813",
-      "environment_alternative_exclusion": "7ebfa05d03bede656770e80cdf04124397996b3e5540977d625ca969434c20a3",
-      "expectation_consistency": "3d52b68e9d739652cd863669ac0557cad38b772776e816fe01cf7ce40f15f6ee",
-      "harness_origin": "2a8c3f83d7670b5c245c1b3fd2e3ee24085af0bbd806502c0cab4389852e96c3",
-      "harness_target_exclusion": "a036f09291369199349607d161fe1d7f51d6a466572282d41e4a3deb2070cbc0",
-      "incident_snapshot": "6e911f34fabc36ae1f3effe471e357917e39c2e5c9d84ecf64b1c05f48e8b391",
-      "network_transport_exclusion": "dd2bacdb617e46f539f145dff59d117574e499278725ab6752c3c21316a7cd84",
-      "normal_incident_divergence": "8d480dfbb8bc0e82e6db59ff8cbe3e9f873630273692ba8eaec0d0c784941c23",
-      "normal_incident_frame": "1b3d9437b56022ea7b73979dce7bd7555a509670debc316ab151a72ccff92bf0",
-      "platform_alternative_exclusion": "ce1e45e1bf7b5052652146b4784d9bd35c94d4feb7cce8cc416b958a74a09d8f",
-      "provider_alternative_exclusion": "bd56d26aa0deef2ed3bc7b11c187a4501bdb7dab2da835d0488d94059c39c639",
-      "provider_runtime": "fa1baccfe2744f56443799e889b3dfc58403c4350ab0aa787b9556462b1db6d0",
-      "remaining_alternative": "0fa62d16807057944a5b3ecb647e368ac2092960a939c6ccecfa46b509bc9a0b",
-      "repair_critical_interlock": "51c9e67d9278326e2ebfd674bd568ac67c4740ce883bc9b8ff3aced4910b48a4",
-      "runner_origin": "18cf1b811104c4a4b72637ffbff1712c99004fe6f5f86b764264c617626e747e",
-      "source_revision": "e1fadd521a10c2678610f72f64eb08901c5437a7c44b40167f0f140b49b59319",
-      "source_test_immutability": "f4b21e181c47db5442699196508fae47e4fd8e6c7b048f87f52fb1f38fa12180",
-      "target_reproducer": "660d6c0c710252044caf214ff950e0e94b947966598d2f1a1c52c28a1abafa31"
+      "candidate_run_frame_identity": "f60f5c00dbcaff44b1c739b775e27b52828de7e96d1abba96e8aff316a9c0530",
+      "categorical_causal_elbow": "f5845a3454726c5bf1777607bc91239b4be13dbb9e53a9e6b9cc71392508e256",
+      "command_authority": "b82ec44d29008d2850fc2cc24db6e99cd78b65bb13cd0bd1efced6241612bf09",
+      "direct_source_contact": "937697a8cf08f29c280ee26e9052096fb1b032d93ba28f823031a077e0b3d05f",
+      "duplicate_failure": "d5079f0944b9f88a3b748d44bc4a6997c4d7c598227e1e0d85f1576032b064a9",
+      "environment_alternative_exclusion": "d81dab3e0e29fd466408e2c26347a7b6c2cec89fe30080c3060ef0520d5bec13",
+      "expectation_consistency": "28f80e8103c6539f952da54604cd3b7c8c486a11564a9f86f39f2896a48b546b",
+      "harness_origin": "55f72322119a398c81a85f9247752d8b71e2aa60979a9b13ae426ae9b8254860",
+      "harness_target_exclusion": "eeeb4aaa33e7d5b044119ea348e81b6c189d823405f4a2ec1b630b7e4e4bebec",
+      "incident_snapshot": "a47d650e77fe6daced36d4f159c818197d70818bae104abda12640bc7954700a",
+      "network_transport_exclusion": "94b9fa7fceb2e4659f7e64a5dd6ca6fe298cc774f74d0cc2d35ee6c115d397cd",
+      "normal_incident_divergence": "fe132fc333d47f7c11e90f75c7635707f0bed3ca2ce4e011d46cf0e69ce4606e",
+      "normal_incident_frame": "39110314c7a03f302b1a30575ba8370942a0322f628d985ee795cb45d6c3f59b",
+      "platform_alternative_exclusion": "b71fd44ba854b3b51f556a346f51ad24bfcd2bcc2e1ac153a18216d5ce2b098f",
+      "provider_alternative_exclusion": "ee51d4be37531df1b1e9dbfba32caaf5dea3273c2aa96e375e9c59515b069b4c",
+      "provider_runtime": "a8f2c14aabf531348d98b884b80fa832d4dfad63db6fad2d79f09e7303204f0f",
+      "remaining_alternative": "b55a46ca3ed95dfcc244dda35fe1058c85b023e7bf80cd17ed30a758fdaef631",
+      "repair_critical_interlock": "5c350c451c3004ad9792cf26a18772c00c4d46f0962b6af918f8987b14aa92ea",
+      "runner_origin": "fd1df6ff9725c9ee6eca1baf72c049194d6ccabf7201682615a1ca2c4f8a0027",
+      "source_revision": "cb5f27bbdbea368ed1c4aae68ae60eee70b158a9c3086a6055a262f2514333f9",
+      "source_test_immutability": "0905053052b51d326b99bb2e5cb112b762e495f8e0b0dfef3ed1902027fa4655",
+      "target_reproducer": "78567e53ce56cf1eb53d7fe70090b9a0b977bd37c626cc15fd975bb426a55df5"
     },
     "revoked": false,
     "run_id": "batch091-historical-freezegun_547_py313_datetimes_assertion",
-    "token_hash": "5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87"
+    "token_hash": "7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2"
   },
   "source_ownership_token_count": 1,
   "stage_outputs": [
@@ -1786,19 +1786,19 @@
       "stage_id": "candidate_identity"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"source_tree_hash\": \"e021356d5c23d0a08c9bdb79454dc7117e5e9187aa939600f939fa1b08be2878\", \"stage_id\": \"source_acquisition\", \"status\": \"PASS\", \"verified\": true, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\workspace\"}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"source_tree_hash\": \"e021356d5c23d0a08c9bdb79454dc7117e5e9187aa939600f939fa1b08be2878\", \"stage_id\": \"source_acquisition\", \"status\": \"PASS\", \"verified\": true, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles-r3\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\workspace\"}",
       "stage_id": "source_acquisition"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"executable\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\controllergate-installed\\\\Scripts\\\\python.exe\", \"runtime_attestation_hash\": \"e1a51262fd34ffad4f2304c553aa0874d42a8327c8757fb3c05da7adb716e0ee\", \"stage_id\": \"runtime_attestation\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"executable\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles-r3\\\\controllergate-installed\\\\Scripts\\\\python.exe\", \"runtime_attestation_hash\": \"d21f347ae34d41af07cfc924d6a66c2826b56ffa86356a84c22206ce4132833a\", \"stage_id\": \"runtime_attestation\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "runtime_attestation"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"dbda1bb615ab345b0ec651136e49319a9ccbaec2ef871845f5129d5a4e009a84\", \"return_code\": 0, \"stage_id\": \"provider_execution\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"8839f5f5bee85e5ceeb12cea2e02c21c26a9f13c910291ee9518e074f432d377\", \"return_code\": 0, \"stage_id\": \"provider_execution\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "provider_execution"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"command_hash\": \"5849b3ff8960e542618bce9f7f374e12dfb9b25aa08e25701a9ffcdbeb588cc9\", \"stage_id\": \"target_provenance\", \"status\": \"PASS\", \"target_paths\": [\"tests/test_datetimes.py\"], \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"command_hash\": \"2f3fe123b5cf57234f7d33fbeed82aa3da78798f48e14147cb4f7028df1890f1\", \"stage_id\": \"target_provenance\", \"status\": \"PASS\", \"target_paths\": [\"tests/test_datetimes.py\"], \"verified\": true}",
       "stage_id": "target_provenance"
     },
     {
@@ -1806,11 +1806,11 @@
       "stage_id": "command_authority"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"executions\": [{\"record_hash\": \"e7320995423c62afd8dd0db5d31fab54b27a99e50291b924400ba69d61985c0b\", \"return_code\": 1, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\pre-repair-a\", \"workspace_hash\": \"b56c17b30599425251dbabe768aed9eaf64483fcc7803bb074e8141899ec3c34\"}, {\"record_hash\": \"79428d0074f650497648a781b51110d16813a92c7fb0a6a1b78827e18b62c0b2\", \"return_code\": 1, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\pre-repair-b\", \"workspace_hash\": \"b56c17b30599425251dbabe768aed9eaf64483fcc7803bb074e8141899ec3c34\"}], \"failure_reproduced\": true, \"stage_id\": \"duplicate_failure\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"executions\": [{\"record_hash\": \"96b6842919686ae57cb5eaad94f5acf28610d80d7b43b42b4bf641e5391a000c\", \"return_code\": 1, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles-r3\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\pre-repair-a\", \"workspace_hash\": \"b56c17b30599425251dbabe768aed9eaf64483fcc7803bb074e8141899ec3c34\"}, {\"record_hash\": \"aef8e01ef62938b28f6d83b0ad9c4284fb1cc9298db85d1f53555f29690262b6\", \"return_code\": 1, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles-r3\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\pre-repair-b\", \"workspace_hash\": \"b56c17b30599425251dbabe768aed9eaf64483fcc7803bb074e8141899ec3c34\"}], \"failure_reproduced\": true, \"stage_id\": \"duplicate_failure\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "duplicate_failure"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"resolved_proof_count\": 22, \"source_ownership_token_hash\": \"5daf7879e9f260819e7f88d039f371952b3b74eef0d3db388c1cf444285b2e87\", \"stage_id\": \"causal_ownership\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"resolved_proof_count\": 22, \"source_ownership_token_hash\": \"7ed81ee5226d3705bb4d5904d56912a9cd956efe7c317dff960abaf3b6c1aaa2\", \"stage_id\": \"causal_ownership\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "causal_ownership"
     },
     {
@@ -1818,28 +1818,28 @@
       "stage_id": "ast_contact"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"repair_license_token_hash\": \"3a2b71bfdd861170e54b8678e08ea046501dd27ce7d03798fc1a35360be5053d\", \"resolved_proof_count\": 19, \"stage_id\": \"repair_license\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"repair_license_token_hash\": \"dd5780a59ec53fb4692b7f19b3c48df1f6ef8bbadf470f0786920a5f1e301408\", \"resolved_proof_count\": 19, \"stage_id\": \"repair_license\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "repair_license"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"c4a1f7f9eb7121d6662410589e065fad295193daebf7598e891302599967a1bf\", \"repair_license_spent\": \"3a2b71bfdd861170e54b8678e08ea046501dd27ce7d03798fc1a35360be5053d\", \"return_code\": 0, \"stage_id\": \"patch_application\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"3ce754a39a6c7d8953d274c2bc4627fbd8fa7f3830ad61d280ee899c9048e880\", \"repair_license_spent\": \"dd5780a59ec53fb4692b7f19b3c48df1f6ef8bbadf470f0786920a5f1e301408\", \"return_code\": 0, \"stage_id\": \"patch_application\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "patch_application"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"f6c771abb2ae5f8b3358cf120125ce8dc8b23be4946c0650994bc9df75c2e14a\", \"passed\": true, \"return_code\": 0, \"stage_id\": \"validation\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"c836987f4275f5eb67100ee28d7fe7dbc178da944fdb5ddc63fc89e5263789df\", \"passed\": true, \"return_code\": 0, \"stage_id\": \"validation\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "validation"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"29d48b4a0fb4a7223f90f09832aa39e3581c158bddd2da1ff5563309e7c2d91a\", \"passed\": true, \"patch_record_hash\": \"d16c01f11a4ecdb30b936d2bd11977cf61936a3bcb9fd193e3d376304dc4ad90\", \"return_code\": 0, \"stage_id\": \"duplicate_clean_replay\", \"status\": \"PASS\", \"verified\": true, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\clean-replay\", \"workspace_hash\": \"688dbccc61a01f2778ed22b9131a0a28d614af9bc84aa0dd28a7cd6e2b214057\"}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"broker_record_hash\": \"9e1732a9cf4c5a14deb071d4680b59f2016aa2bfc0827d241d15eb4dc69dd42d\", \"passed\": true, \"patch_record_hash\": \"723fc443baabda2db9dc377aad297e3f5130cea3da6adff247d4edea5dd39197\", \"return_code\": 0, \"stage_id\": \"duplicate_clean_replay\", \"status\": \"PASS\", \"verified\": true, \"workspace\": \"C:\\\\Dev\\\\ControllerGate_Runtime\\\\batch091\\\\lifecycles-r3\\\\repair\\\\fz547\\\\controllergate-runtime\\\\batch091-historical-freezegun_547_py313_datetimes_assertion\\\\clean-replay\", \"workspace_hash\": \"688dbccc61a01f2778ed22b9131a0a28d614af9bc84aa0dd28a7cd6e2b214057\"}",
       "stage_id": "duplicate_clean_replay"
     },
     {
-      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"historical_count_increment\": 0, \"proof_hash\": \"55018a2191c26b310b755ebaee1be4c0dfdf826596a89530e0ae14b6ba82cecc\", \"stage_id\": \"proof_append\", \"status\": \"PASS\", \"verified\": true}",
+      "output_json": "{\"anchor_hash\": \"7526059e0f64cae864a97afe6e8d30121a104b8f69fd3ae86216405649479b9d\", \"historical_count_increment\": 0, \"proof_hash\": \"7b0c1d580b666aa571629d10d12ec81fae823e0dbdfeb84e9461cd0f4a62acd3\", \"stage_id\": \"proof_append\", \"status\": \"PASS\", \"verified\": true}",
       "stage_id": "proof_append"
     }
   ],
   "state_integrity": {
-    "chain_head": "14342118e1bc8ae5a834f1c52562dfb3af423e3c1124941a0e5e1c7521f5fc9c",
+    "chain_head": "e5b79caebc201c4626db967aa2f71a5b2734874af5ccf6ffb0e02d0f648476b6",
     "errors": [],
     "event_count": 15,
     "status": "PASS"
@@ -1847,7 +1847,7 @@
   "status": "PASS",
   "verify": {
     "event_chain": {
-      "chain_head": "14342118e1bc8ae5a834f1c52562dfb3af423e3c1124941a0e5e1c7521f5fc9c",
+      "chain_head": "e5b79caebc201c4626db967aa2f71a5b2734874af5ccf6ffb0e02d0f648476b6",
       "errors": [],
       "event_count": 15,
       "status": "PASS"
@@ -1861,15 +1861,15 @@
   },
   "verify_process": {
     "argv": [
-      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\controllergate-installed\\Scripts\\controllergate.exe",
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\controllergate-installed\\Scripts\\controllergate.exe",
       "verify",
       "--run-id",
       "batch091-historical-freezegun_547_py313_datetimes_assertion",
       "--manifest",
-      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles\\repair\\fz547\\historical-manifest.json"
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\lifecycles-r3\\repair\\fz547\\historical-manifest.json"
     ],
     "return_code": 0,
     "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "stdout_sha256": "b7e85346ae5ddbaac487ae1b5934cfa8ed82d2ad67b27781f48c0d49bf619770"
+    "stdout_sha256": "a7288d30e745d43fa2148232c4888305246a907a1c482cd605869d2f89fedeb7"
   }
 }

@@ -1,0 +1,19 @@
+{
+  "execution": {
+    "command": [
+      "C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\rollback\\provider\\environment\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/cloudpickle_test.py::test_extract_class_dict",
+      "-q",
+      "--tb=no"
+    ],
+    "cwd": "C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\canary\\test-fixture",
+    "output_tail": "\n..\\..\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:921: 193 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:921: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    template = ast.BinOp(assertmsg, ast.Add(), ast.Str(explanation))\n\n..\\..\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:809: 924 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:809: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    keys = [ast.Str(key) for key in current.keys()]\n\n..\\..\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: 194 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:933: DeprecationWarning: ast.NameConstant is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    clear = ast.Assign(variables, ast.NameConstant(None))\n\n..\\..\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1058: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    syms.append(ast.Str(sym))\n\n..\\..\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: 158 warnings\n  C:\\Dev\\ControllerGate_Runtime\\batch091\\canary-r3\\rollback\\provider\\environment\\Lib\\site-packages\\_pytest\\assertion\\rewrite.py:1060: DeprecationWarning: ast.Str is deprecated and will be removed in Python 3.14; use ast.Constant instead\n    expls.append(ast.Str(expl))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n=========================== short test summary info ===========================\nFAILED tests/cloudpickle_test.py::test_extract_class_dict - AssertionError: a...\n1 failed, 2640 warnings in 1.14s",
+    "return_code": 1,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "0c19ddea2e87da21d1c9a7f16fc74ca824b5820225c04e48a17c3e4b948e47e8"
+  },
+  "original_buggy_distribution_rejected": true,
+  "status": "PASS"
+}
