@@ -15,9 +15,16 @@ def main() -> int:
         if path.is_file() and path.name not in excluded:
             relative = path.relative_to(args.output).as_posix()
             rows.append(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {relative}")
-    payload = "\n".join(rows) + "\n"
-    for name in excluded:
-        (args.output / name).write_text(payload, encoding="utf-8", newline="\n")
+    portable_payload = "\n".join(rows) + "\n"
+    portable_path = args.output / "PORTABLE_ARTIFACT_SHA256SUMS.txt"
+    portable_path.write_text(portable_payload, encoding="utf-8", newline="\n")
+    portable_hash = hashlib.sha256(portable_path.read_bytes()).hexdigest()
+    primary_payload = (
+        f"{portable_hash}  PORTABLE_ARTIFACT_SHA256SUMS.txt\n" + portable_payload
+    )
+    (args.output / "SHA256SUMS.txt").write_text(
+        primary_payload, encoding="utf-8", newline="\n"
+    )
     print(f"manifest_entries={len(rows)}")
     return 0
 

@@ -1,0 +1,487 @@
+name: post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  OUTPUT: outputs/post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  job01_batch087_artifact_custody:
+    name: 01 Batch087 artifact custody
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'batch087_artifact_ingest.json'))); assert p['status']=='PASS' and p['observed']=={'sha256':'7da52e33c7fd2f512e03a2858aefea95042b6aa1ad943b702a080b0a136ccbe2','size_bytes':97024,'zip_entries':86}"
+
+  job02_expected_red_amds_critic:
+    name: 02 expected-red AMDS critic
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'batch088_pre_fix_expected_failure.json'))); assert p['status']=='BATCH088_PRE_FIX_AUDIT_FAIL_EXPECTED' and p['detected_defect_count']>=17"
+
+  job03_full_regression_and_base_evidence:
+    name: 03 full regression suite and base evidence
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest -q
+
+  job04_minesweeper_salvage_audit:
+    name: 04 AI Minesweeper salvage and forbidden audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'amds_minesweeper_source_audit.json'))); assert p['status']=='PASS' and not p['package_imported'] and not p['forbidden_source_code_copied']"
+
+  job05_causal_board_schema_frame:
+    name: 05 causal-board schema and frame binding
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest tests/test_batch088_causal_amds_board.py -q -k "frames or aliases or minimax"
+
+  job06_semantic_leakage_controls:
+    name: 06 semantic-leakage adversarial controls
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/audit_amds_semantic_leakage.py --output "$OUTPUT"
+
+  job07_active_probe_planner:
+    name: 07 active probe planner and neutral verifier
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/audit_amds_active_inference.py --output "$OUTPUT"
+
+  job08_contradiction_backtrack:
+    name: 08 contradiction backtrack and meta-cell controls
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest tests/test_batch088_causal_amds_board.py -q -k "adversarial or no_information"
+
+  job09_frozen_historical_frame:
+    name: 09 frozen historical AMDS frame
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'amds_historical_frame.json'))); assert p['status']=='PASS' and p['eligible_episode_count']==8 and not p['truth_access']"
+
+  job10_blind_terminal_generation:
+    name: 10 blind AMDS terminal generation without truth
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Create truth-free custody domain
+        shell: bash
+        run: |
+          DOMAIN="$RUNNER_TEMP/batch088-builder-domain"
+          mkdir -p "$DOMAIN"
+          tar --exclude=.git --exclude='outputs/post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure' -cf - . | tar -xf - -C "$DOMAIN"
+          rm -f "$DOMAIN/configs/batch084_historical_episode_registry.json"
+          find "$DOMAIN/outputs" -type f \( -iname '*truth*' -o -iname '*terminal_registry*' \) -delete
+          cd "$DOMAIN"
+          python scripts/run_batch088_amds_builder.py --runtime-root "$RUNNER_TEMP/controllergate-runtime/builder" --assert-truth-absent "$RUNNER_TEMP/batch088-sealed-truth/sealed_truth.json"
+          test ! -e "$RUNNER_TEMP/batch088-sealed-truth/sealed_truth.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch088_amds_terminal_capsule
+          path: ${{ runner.temp }}/batch088-builder-domain/outputs/post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure
+          retention-days: 1
+
+  job11_sealed_truth_custody:
+    name: 11 sealed truth custody
+    needs: job10_blind_terminal_generation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/batch088_seal_truth.py --registry configs/batch084_historical_episode_registry.json --output "$RUNNER_TEMP/batch088-sealed-truth/sealed_truth.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch088_sealed_truth_capsule
+          path: ${{ runner.temp }}/batch088-sealed-truth
+          retention-days: 1
+
+  job12_truth_join_and_baselines:
+    name: 12 critic truth join and executed baselines
+    needs: [job10_blind_terminal_generation, job11_sealed_truth_custody]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_amds_terminal_capsule, path: "${{ runner.temp }}/terminal"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_sealed_truth_capsule, path: "${{ runner.temp }}/truth"}
+      - run: |
+          python scripts/batch088_truth_join.py --output-dir "$RUNNER_TEMP/terminal" --truth "$RUNNER_TEMP/truth/sealed_truth.json"
+          python scripts/audit_amds_semantic_leakage.py --output "$RUNNER_TEMP/terminal"
+          python scripts/audit_amds_active_inference.py --output "$RUNNER_TEMP/terminal"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch088_joined_amds_evidence
+          path: ${{ runner.temp }}/terminal
+          retention-days: 1
+
+  job13_interlocks_and_elbow:
+    name: 13 proof-bound interlocks and causal elbow
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'proof_bound_interlock_audit.json'))); assert p['status']=='PASS' and p['negative_control_count']==12 and not p['interlocks_can_authorize_patch']"
+
+  job14_cloudpickle_source_capsule:
+    name: 14 Cloudpickle source capsule acquisition
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install build wheel
+      - run: python scripts/batch088_capsule_transport.py --candidate cloudpickle --mode source --destination "$RUNNER_TEMP/cloudpickle-source"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_cloudpickle_source_capsule, path: "${{ runner.temp }}/cloudpickle-source", retention-days: 1}
+
+  job15_cloudpickle_provider_capsule:
+    name: 15 Cloudpickle provider capsule acquisition
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/batch088_capsule_transport.py --candidate cloudpickle --mode provider --destination "$RUNNER_TEMP/cloudpickle-provider"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_cloudpickle_provider_capsule, path: "${{ runner.temp }}/cloudpickle-provider", retention-days: 1}
+
+  job16_cloudpickle_lifecycle:
+    name: 16 Cloudpickle canonical historical lifecycle
+    needs: [job14_cloudpickle_source_capsule, job15_cloudpickle_provider_capsule]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_cloudpickle_source_capsule, path: "${{ runner.temp }}/cloudpickle-source"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_cloudpickle_provider_capsule, path: "${{ runner.temp }}/cloudpickle-provider"}
+      - run: python scripts/batch088_consume_capsules.py --candidate cloudpickle --source "$RUNNER_TEMP/cloudpickle-source" --provider "$RUNNER_TEMP/cloudpickle-provider" --output "$RUNNER_TEMP/cloudpickle-evidence"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_cloudpickle_lifecycle_evidence, path: "${{ runner.temp }}/cloudpickle-evidence", retention-days: 1}
+
+  job17_freezegun_source_capsule:
+    name: 17 Freezegun source capsule acquisition
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install build wheel
+      - run: python scripts/batch088_capsule_transport.py --candidate freezegun --mode source --destination "$RUNNER_TEMP/freezegun-source"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_freezegun_source_capsule, path: "${{ runner.temp }}/freezegun-source", retention-days: 1}
+
+  job18_freezegun_provider_capsule:
+    name: 18 Freezegun provider capsule acquisition
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/batch088_capsule_transport.py --candidate freezegun --mode provider --destination "$RUNNER_TEMP/freezegun-provider"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_freezegun_provider_capsule, path: "${{ runner.temp }}/freezegun-provider", retention-days: 1}
+
+  job19_freezegun_lifecycle:
+    name: 19 Freezegun canonical historical lifecycle
+    needs: [job17_freezegun_source_capsule, job18_freezegun_provider_capsule]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_freezegun_source_capsule, path: "${{ runner.temp }}/freezegun-source"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_freezegun_provider_capsule, path: "${{ runner.temp }}/freezegun-provider"}
+      - run: python scripts/batch088_consume_capsules.py --candidate freezegun --source "$RUNNER_TEMP/freezegun-source" --provider "$RUNNER_TEMP/freezegun-provider" --output "$RUNNER_TEMP/freezegun-evidence"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_freezegun_lifecycle_evidence, path: "${{ runner.temp }}/freezegun-evidence", retention-days: 1}
+
+  job20_non_source_frame:
+    name: 20 frozen non-source frame
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'historical_non_source_frozen_frame.json'))); assert p['status']=='PASS' and p['replacement_after_outcome'] is False"
+
+  job21_aifc_non_source:
+    name: 21 aifc project-level reproducer and lifecycle
+    needs: job20_non_source_frame
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/batch088_non_source_attempt.py --candidate aifc --output "$RUNNER_TEMP/aifc-evidence"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_aifc_non_source_evidence, path: "${{ runner.temp }}/aifc-evidence", retention-days: 1}
+
+  job22_imp_non_source:
+    name: 22 imp project-level reproducer and lifecycle
+    needs: job20_non_source_frame
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/batch088_non_source_attempt.py --candidate imp --output "$RUNNER_TEMP/imp-evidence"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch088_imp_non_source_evidence, path: "${{ runner.temp }}/imp-evidence", retention-days: 1}
+
+  job23_repaired_distribution:
+    name: 23 repaired distribution build
+    needs: [job16_cloudpickle_lifecycle, job19_freezegun_lifecycle]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'repaired_distribution_build.json'))); assert p['status']=='NOT_RUN' and p['exact_blocker']"
+
+  job24_canary_health_rollback:
+    name: 24 canary health negative control and rollback
+    needs: job23_repaired_distribution
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'repaired_package_canary_health_rollback.json'))); assert p['status']=='BLOCK' and p['exact_blocker']"
+
+  job25_tld_shadow_audit:
+    name: 25 TLD evidence-derived shadow audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'tld_three_projection_execution.json'))); c=json.load(open(os.path.join(os.environ['OUTPUT'],'tld_curvature_elbow_audit.json'))); assert p['status']=='PASS_SHADOW_ONLY' and not p['repair_authority'] and c['status']=='NOT_RUN_NO_REGISTERED_REAL_TRACE'"
+
+  job26_public_state_generation:
+    name: 26 public-state generation
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: |
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python -c "import json,os; p=json.load(open(os.path.join(os.environ['OUTPUT'],'public_state_generation_audit.json'))); assert p['status']=='PASS' and not p['hardcoded_product_beta_status']"
+
+  job27_linux_package_validation:
+    name: 27 Linux installed package validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest tests/test_batch088_causal_amds_board.py -q
+
+  job28_windows_package_validation:
+    name: 28 Windows installed package validation
+    runs-on: windows-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest tests/test_batch088_causal_amds_board.py -q
+
+  job29_independent_release_critic:
+    name: 29 independent release critic
+    needs: [job12_truth_join_and_baselines, job16_cloudpickle_lifecycle, job19_freezegun_lifecycle, job21_aifc_non_source, job22_imp_non_source]
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_joined_amds_evidence, path: "${{ runner.temp }}/join"}
+      - run: |
+          cp -a "$RUNNER_TEMP/join/." "$OUTPUT/"
+          python scripts/finalize_batch088_evidence.py --output "$OUTPUT"
+          python scripts/audit_amds_semantic_leakage.py --output "$OUTPUT"
+          python scripts/audit_amds_active_inference.py --output "$OUTPUT"
+          python scripts/audit_batch088_release_critic.py --output "$OUTPUT"
+
+  job30_final_audit_and_packaging:
+    name: 30 final audit and portable artifact packaging
+    if: always()
+    needs:
+      - job01_batch087_artifact_custody
+      - job02_expected_red_amds_critic
+      - job03_full_regression_and_base_evidence
+      - job04_minesweeper_salvage_audit
+      - job05_causal_board_schema_frame
+      - job06_semantic_leakage_controls
+      - job07_active_probe_planner
+      - job08_contradiction_backtrack
+      - job09_frozen_historical_frame
+      - job12_truth_join_and_baselines
+      - job13_interlocks_and_elbow
+      - job16_cloudpickle_lifecycle
+      - job19_freezegun_lifecycle
+      - job21_aifc_non_source
+      - job22_imp_non_source
+      - job23_repaired_distribution
+      - job24_canary_health_rollback
+      - job25_tld_shadow_audit
+      - job26_public_state_generation
+      - job27_linux_package_validation
+      - job28_windows_package_validation
+      - job29_independent_release_critic
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Require all prerequisite jobs
+        env:
+          NEEDS_JSON: ${{ toJson(needs) }}
+        run: python -c "import json,os; n=json.loads(os.environ['NEEDS_JSON']); bad={k:v['result'] for k,v in n.items() if v['result']!='success'}; assert not bad,bad"
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_joined_amds_evidence, path: "${{ runner.temp }}/join"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_cloudpickle_lifecycle_evidence, path: "${{ runner.temp }}/phase/cloudpickle"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_freezegun_lifecycle_evidence, path: "${{ runner.temp }}/phase/freezegun"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_aifc_non_source_evidence, path: "${{ runner.temp }}/phase/aifc"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch088_imp_non_source_evidence, path: "${{ runner.temp }}/phase/imp"}
+      - name: Reconstruct final evidence without capsule bytes
+        run: |
+          cp -a "$RUNNER_TEMP/join/." "$OUTPUT/"
+          python scripts/finalize_batch088_evidence.py --output "$OUTPUT" --phase-root "$RUNNER_TEMP/phase"
+          cp "$RUNNER_TEMP/phase/aifc/aifc_non_source_lifecycle.json" "$OUTPUT/aifc_non_source_lifecycle.json"
+          cp "$RUNNER_TEMP/phase/imp/imp_non_source_lifecycle.json" "$OUTPUT/imp_non_source_lifecycle.json"
+          python scripts/audit_amds_semantic_leakage.py --output "$OUTPUT"
+          python scripts/audit_amds_active_inference.py --output "$OUTPUT"
+          python scripts/audit_batch088_release_critic.py --output "$OUTPUT"
+          python scripts/audit_batch088_causal_amds_historical_capsule_product_beta_closure.py --output "$OUTPUT"
+          python scripts/write_batch088_manifests.py --output "$OUTPUT"
+          python scripts/audit_batch088_causal_amds_historical_capsule_product_beta_closure.py --output "$OUTPUT" --verify-only
+      - name: Stage portable main artifact
+        run: |
+          STAGE="$RUNNER_TEMP/batch088-main-artifact"
+          mkdir -p "$STAGE"
+          cp -a "$OUTPUT" "$STAGE/"
+          test -z "$(find "$STAGE" -type f \( -name '*.pyc' -o -name '*.zip' -o -name '*.tar' -o -name '*.whl' \) -print -quit)"
+          test -z "$(find "$STAGE" -type d \( -name '__pycache__' -o -name '.git' -o -name '.venv' \) -print -quit)"
+          (cd "$STAGE" && find . -type f ! -name ARTIFACT_SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > ARTIFACT_SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch088_causal_amds_historical_capsule_product_beta_closure_artifacts
+          path: ${{ runner.temp }}/batch088-main-artifact
+          if-no-files-found: error
+          retention-days: 7

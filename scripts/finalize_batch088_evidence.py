@@ -79,7 +79,9 @@ def transport(output: Path, phase_root: Path | None) -> tuple[dict, dict[str, di
             for key in names
         ],
         "portable_relative_manifests": True,
-        "status": "PASS" if all(row.get("status") == "PASS" for row in records.values()) else "BLOCK_CAPSULE_TRANSPORT_INCOMPLETE",
+        "status": "PASS"
+        if all(row.get("status") == "PASS" and row.get("payload_status", "PASS") == "PASS" for row in records.values())
+        else "BLOCK_CAPSULE_TRANSPORT_INCOMPLETE",
     }
     write(output / "historical_transport_artifact_registry.json", registry)
     return registry, records
@@ -111,6 +113,13 @@ def main() -> int:
         canonical_patch_sha256="8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247",
         installed_canonical_path_required=True,
     )
+    if args.phase_root and args.phase_root.exists():
+        cloud_rows = list(args.phase_root.rglob("cloudpickle_canonical_historical_lifecycle.json"))
+        freeze_rows = list(args.phase_root.rglob("freezegun_canonical_historical_lifecycle.json"))
+        if cloud_rows:
+            cloud = read(cloud_rows[0])
+        if freeze_rows:
+            freeze = read(freeze_rows[0])
     write(output / "cloudpickle_canonical_historical_lifecycle.json", cloud)
     write(output / "freezegun_canonical_historical_lifecycle.json", freeze)
 
@@ -122,12 +131,25 @@ def main() -> int:
     }
     aifc = blocker_record("aifc-removal", "aifc_complete_project_level_reproducer_capsule_not_available", repair_license=False)
     imp = blocker_record("imp-removal", "imp_complete_project_level_reproducer_capsule_not_available", repair_license=False)
+    if args.phase_root and args.phase_root.exists():
+        aifc_rows = list(args.phase_root.rglob("aifc_non_source_lifecycle.json"))
+        imp_rows = list(args.phase_root.rglob("imp_non_source_lifecycle.json"))
+        if aifc_rows:
+            aifc = read(aifc_rows[0])
+        if imp_rows:
+            imp = read(imp_rows[0])
     write(output / "historical_non_source_frozen_frame.json", non_source_frame)
     write(output / "aifc_non_source_lifecycle.json", aifc)
     write(output / "imp_non_source_lifecycle.json", imp)
+    non_source_complete = sum(bool(row.get("complete")) for row in (aifc, imp))
     write(
         output / "historical_non_source_lifecycle_results.json",
-        {"complete_count": 0, "historical_count_increment": 0, "results": [aifc, imp], "status": "BLOCK"},
+        {
+            "complete_count": non_source_complete,
+            "historical_count_increment": 0,
+            "results": [aifc, imp],
+            "status": "PASS" if non_source_complete == 2 else "BLOCK",
+        },
     )
 
     canary_blocker = "no_complete_historical_repair_lifecycle_available_for_canary"
@@ -256,13 +278,14 @@ def main() -> int:
     }
     write(output / "public_state_generation_audit.json", public)
 
-    blockers = [
-        "amds_historical_blinded_causal_mechanism_pass_not_established",
-        "cloudpickle_canonical_historical_lifecycle",
-        "freezegun_canonical_historical_lifecycle",
-        "two_non_source_historical_terminals",
-        "deployed_canary_health_rollback",
-    ]
+    blockers = ["amds_historical_blinded_causal_mechanism_pass_not_established"]
+    if not cloud.get("complete"):
+        blockers.append("cloudpickle_canonical_historical_lifecycle")
+    if not freeze.get("complete"):
+        blockers.append("freezegun_canonical_historical_lifecycle")
+    if non_source_complete < 2:
+        blockers.append("two_non_source_historical_terminals")
+    blockers.append("deployed_canary_health_rollback")
     if transport_registry["status"] != "PASS":
         blockers.append("historical_capsule_transport_incomplete")
     critic = {
