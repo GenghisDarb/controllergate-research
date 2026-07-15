@@ -1,0 +1,40 @@
+{
+  "edges": [
+    [
+      "console_scripts:controllergate",
+      "controllergate.cli:main"
+    ],
+    [
+      "controllergate.cli:main",
+      "controllergate.engine:run_manifest"
+    ],
+    [
+      "controllergate.engine:run_manifest",
+      "controllergate.pathways.canonical_maintenance:pathway_for_mode"
+    ],
+    [
+      "controllergate.pathways.canonical_maintenance:pathway_for_mode",
+      "controllergate.engine:_stage_output"
+    ],
+    [
+      "controllergate.engine:_stage_output",
+      "controllergate.execution.execution_broker:execute_external_operation"
+    ],
+    [
+      "controllergate.execution.execution_broker:execute_external_operation",
+      "controllergate.state.repository:commit_stage"
+    ]
+  ],
+  "mutable_user_entrypoint_count": 1,
+  "nodes": [
+    "console_scripts:controllergate",
+    "controllergate.cli:main",
+    "controllergate.engine:run_manifest",
+    "controllergate.pathways.canonical_maintenance:pathway_for_mode",
+    "controllergate.engine:_stage_output",
+    "controllergate.execution.execution_broker:execute_external_operation",
+    "controllergate.state.repository:commit_stage"
+  ],
+  "repository_direct_import_is_installed_evidence": false,
+  "status": "PASS"
+}
