@@ -53,7 +53,7 @@ def main() -> int:
     }
     raw = out / "semantic_critic_raw_builder_evidence.json"
     write(raw, evidence)
-    critic = ROOT / "scripts/batch091_semantic_critic.py"
+    critic = Path(__file__).resolve().with_name("batch091_semantic_critic.py")
     manifest_value = {"evidence_file": raw.name, "evidence_sha256": sha(raw), "critic_source_sha256": sha(critic), "frozen_release_criteria": "batch091-internal-release-v1", "truth_available_after_terminal_commitment": True}
     manifest = out / "semantic_critic_input_manifest.json"; write(manifest, manifest_value)
     baseline = args.runtime / "baseline-result.json"; args.runtime.mkdir(parents=True, exist_ok=True)
