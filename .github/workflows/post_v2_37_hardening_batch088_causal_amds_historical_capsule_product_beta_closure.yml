@@ -386,9 +386,6 @@ jobs:
     name: 28 Windows installed package validation
     runs-on: windows-latest
     timeout-minutes: 50
-    defaults:
-      run:
-        working-directory: w
     steps:
       - name: Enable Windows long paths
         shell: pwsh
@@ -398,7 +395,9 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: python -m pip install -e . pytest
+        working-directory: w
       - run: python -m pytest tests/test_batch088_causal_amds_board.py -q
+        working-directory: w
 
   job29_independent_release_critic:
     name: 29 independent release critic
