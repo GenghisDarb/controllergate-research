@@ -1,0 +1,382 @@
+{
+  "artifact_profile": {
+    "maximum_unrelated_reuse_count": 99,
+    "receipt_bearing_json_count": 305,
+    "twenty_row_jsonl_alias_count": 195,
+    "unique_jsonl_receipt_sequence_count": 1,
+    "unique_receipt_set_count": 41
+  },
+  "audited_commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+  "expected_result": "BATCH090_PRE_FIX_AUDIT_FAIL_EXPECTED",
+  "finding_count": 26,
+  "findings": [
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-01",
+      "line_range": [
+        13,
+        13
+      ],
+      "observed_behavior": "Repository root is inserted before direct product imports.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_installed_import_root_is_site_packages",
+      "required_correction": "Remove repository import injection from installed evidence.",
+      "risk": "Installed-product evidence can resolve local source.",
+      "symbol": "module bootstrap"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-02",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Sixty scenarios call in-process functions rather than the installed executable.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_installed_cli_campaign_uses_console_script",
+      "required_correction": "Route installed campaigns through the console entry point.",
+      "risk": "Execution depth is overstated.",
+      "symbol": "main"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-03",
+      "line_range": [
+        63,
+        63
+      ],
+      "observed_behavior": "Expected BLOCK or CONTRADICTED is converted into assertion success.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_negative_mechanism_block_remains_block",
+      "required_correction": "Separate mechanism and assertion states.",
+      "risk": "Mechanism outcome is laundered into PASS.",
+      "symbol": "execute_scenarios"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-04",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "SQLite reaction status stores assertion success instead of the observed mechanism state.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_sqlite_mechanism_assertion_separation",
+      "required_correction": "Persist both statuses separately.",
+      "risk": "Operational state is semantically false.",
+      "symbol": "execute_scenarios"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-05",
+      "line_range": [
+        270,
+        270
+      ],
+      "observed_behavior": "Evidence selection is driven by filename token matching.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_filename_status_rejected",
+      "required_correction": "Use producer and semantic-scope identities.",
+      "risk": "Claims can bind to unrelated producers.",
+      "symbol": "evidence_for"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-06",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Unmatched claims fall back to the first receipts.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_receipt_fallback_rejected",
+      "required_correction": "Block unmatched claim bindings.",
+      "risk": "Missing evidence is hidden.",
+      "symbol": "evidence_for"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-07",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Filename content partly determines PASS/BLOCK.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_filename_blocker_rejected",
+      "required_correction": "Use raw producer output only.",
+      "risk": "Status is not mechanism-derived.",
+      "symbol": "evidence_for"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-08",
+      "line_range": [
+        294,
+        294
+      ],
+      "observed_behavior": "A large catalog is fanned out from a small receipt pool.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_output_catalog_retired",
+      "required_correction": "Retire catalog fan-out from authority.",
+      "risk": "Report volume masquerades as evidence breadth.",
+      "symbol": "write_catalog"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-09",
+      "line_range": [
+        294,
+        294
+      ],
+      "observed_behavior": "Artifact has 305 receipt-bearing JSON reports and 41 unique sets.",
+      "path": "Batch089 main artifact",
+      "red_to_green_test": "test_receipt_reuse_graph_exact",
+      "required_correction": "Publish the reuse graph and classifications.",
+      "risk": "Receipt diversity is overstated.",
+      "symbol": "receipt graph"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-10",
+      "line_range": [
+        294,
+        294
+      ],
+      "observed_behavior": "One three-receipt set is reused 99 times.",
+      "path": "Batch089 main artifact",
+      "red_to_green_test": "test_unrelated_receipt_substitution_rejected",
+      "required_correction": "Exclude unrelated reuse from current authority.",
+      "risk": "Unrelated claims share evidence.",
+      "symbol": "receipt graph"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-11",
+      "line_range": [
+        242,
+        242
+      ],
+      "observed_behavior": "195 registries reuse only 1 sequences.",
+      "path": "Batch089 main artifact",
+      "red_to_green_test": "test_jsonl_aliases_excluded",
+      "required_correction": "Classify aliases explicitly.",
+      "risk": "Aliases look like distinct mechanism output.",
+      "symbol": "JSONL aliases"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-12",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Generated PASS is not backed by capsule injection.",
+      "path": "outputs/.../canonical_capsule_injection_audit.json",
+      "red_to_green_test": "test_capsule_injection_claim_excluded",
+      "required_correction": "Mark the view unsupported.",
+      "risk": "Lifecycle completion is overstated.",
+      "symbol": "generated view"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-13",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Generated PASS has no blinded historical AMDS cohort.",
+      "path": "outputs/.../amds_quality_gate.json",
+      "red_to_green_test": "test_amds_quality_requires_history",
+      "required_correction": "Require a sealed historical cohort.",
+      "risk": "Mechanism quality is overstated.",
+      "symbol": "generated view"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-14",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Generated PASS coexists with blocked canary deployment.",
+      "path": "outputs/.../canary_exact_rollback.json",
+      "red_to_green_test": "test_canary_rollback_requires_receipts",
+      "required_correction": "Require distinct slot and exact restoration receipts.",
+      "risk": "Rollback is overstated.",
+      "symbol": "generated view"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-15",
+      "line_range": [
+        237,
+        237
+      ],
+      "observed_behavior": "Release-critical operational populations are zero: {'broker_records': 0, 'reaction_tokens': 0, 'source_ownership_tokens': 0, 'repair_license_tokens': 0, 'proof_events': 0, 'access_leases': 0, 'translocations': 0, 'hypothesis_states': 0, 'constraint_states': 0, 'checkpoints': 0, 'worker_leases': 0}.",
+      "path": "outputs\\post_v2_37_hardening_batch089_full_isomorphism_reaction_complete_vertical_closure\\batch089_state.sqlite3",
+      "red_to_green_test": "test_sqlite_operational_population",
+      "required_correction": "Populate tables only through real transitions.",
+      "risk": "Schema presence is mistaken for execution.",
+      "symbol": "operational tables"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-16",
+      "line_range": [
+        19,
+        19
+      ],
+      "observed_behavior": "Batch089 product services are not invoked through the canonical CLI engine.",
+      "path": "controllergate/cli.py",
+      "red_to_green_test": "test_canonical_service_reachability",
+      "required_correction": "Register required canonical stages.",
+      "risk": "New services remain library-only.",
+      "symbol": "main"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-17",
+      "line_range": [
+        68,
+        68
+      ],
+      "observed_behavior": "Stage output starts PASS and verified before a verifier result.",
+      "path": "controllergate/engine.py",
+      "red_to_green_test": "test_no_default_stage_success",
+      "required_correction": "Default to BLOCK/unverified.",
+      "risk": "Unexecuted stages can appear successful.",
+      "symbol": "_stage_output"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-18",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Six license conditions reduce to one source path/text Boolean.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_concrete_repair_license_proofs",
+      "required_correction": "Resolve each condition to stored evidence.",
+      "risk": "Authorization lacks concrete proofs.",
+      "symbol": "repair licensing fixture"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-19",
+      "line_range": [
+        40,
+        40
+      ],
+      "observed_behavior": "Duplicate replay is an in-process same-workspace fixture.",
+      "path": "scripts/run_batch089_composite.py",
+      "red_to_green_test": "test_fresh_replay_identity",
+      "required_correction": "Require fresh workspace and provider identities.",
+      "risk": "Replay independence is unproven.",
+      "symbol": "duplicate replay fixture"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-20",
+      "line_range": [
+        66,
+        66
+      ],
+      "observed_behavior": "Workflow reuses the Batch088 consumer and lifecycle records remain blocked.",
+      "path": ".github/workflows/...batch089...yml",
+      "red_to_green_test": "test_current_consumer_is_installed_cli",
+      "required_correction": "Consume via the installed canonical CLI.",
+      "risk": "Capsule verification is confused with lifecycle execution.",
+      "symbol": "historical_capsules"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-21",
+      "line_range": [
+        49,
+        49
+      ],
+      "observed_behavior": "Installed jobs run unit tests but not the 60 CLI vertical scenarios.",
+      "path": ".github/workflows/...batch089...yml",
+      "red_to_green_test": "test_linux_windows_vertical_equivalence",
+      "required_correction": "Execute compact CLI verticals on both platforms.",
+      "risk": "Cross-platform installed depth is unproven.",
+      "symbol": "installed product jobs"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-22",
+      "line_range": [
+        1,
+        1
+      ],
+      "observed_behavior": "Reachability is partly inferred from importable symbols rather than console-root call edges.",
+      "path": "controllergate/product/deep_doctor.py",
+      "red_to_green_test": "test_deep_doctor_console_reachability",
+      "required_correction": "Trace from the installed console entry point.",
+      "risk": "Library presence can look product-reachable.",
+      "symbol": "deep_doctor"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-23",
+      "line_range": [
+        147,
+        147
+      ],
+      "observed_behavior": "Builder and critic run in the same checkout/job.",
+      "path": ".github/workflows/...batch089...yml",
+      "red_to_green_test": "test_critic_job_independence",
+      "required_correction": "Seal builder evidence and use a standalone job.",
+      "risk": "Critic independence is unproven.",
+      "symbol": "composite_execution_and_critic"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-24",
+      "line_range": [
+        127,
+        127
+      ],
+      "observed_behavior": "Critic rewards receipt-bearing report count.",
+      "path": "scripts/audit_batch089_full_isomorphism_reaction_complete_vertical_closure.py",
+      "red_to_green_test": "test_no_report_count_threshold",
+      "required_correction": "Remove report-count thresholds.",
+      "risk": "Evidence fan-out can satisfy audit volume.",
+      "symbol": "audit"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-25",
+      "line_range": [
+        200,
+        200
+      ],
+      "observed_behavior": "Mutation controls are declared without individual executed mutations.",
+      "path": "outputs/.../batch089_critic_mutation_controls.json",
+      "red_to_green_test": "test_each_mutation_executed",
+      "required_correction": "Execute and log every mutation.",
+      "risk": "Critic sensitivity is untested.",
+      "symbol": "mutation controls"
+    },
+    {
+      "commit": "85721a7a8a93a9b973abe3dcb90633edbbf63c2d",
+      "finding_id": "B090-RED-26",
+      "line_range": [
+        6,
+        6
+      ],
+      "observed_behavior": "Public language can imply installed execution for in-process fixtures.",
+      "path": "docs/current_status.md",
+      "red_to_green_test": "test_public_state_depth_correction",
+      "required_correction": "State the 60 results are in-process fixtures.",
+      "risk": "Release depth is overstated.",
+      "symbol": "Batch089 current language"
+    }
+  ],
+  "observed_result": "BATCH090_PRE_FIX_AUDIT_FAIL_EXPECTED",
+  "prompt_id": "CG-BATCH090-EVIDENCE-DELAUNDERING-INSTALLED-CLI-HISTORICAL-VERTICAL-CLOSURE-2026-07-15-V1",
+  "seal_sha256": "deeeabf83b466f5a181f7704c53adb66e8537281937cb90fd72ab86c6db277e8",
+  "sealed_at": "2026-07-15T06:58:50.344757+00:00"
+}
