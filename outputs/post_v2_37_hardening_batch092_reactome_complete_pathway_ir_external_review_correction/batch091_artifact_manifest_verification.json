@@ -1,0 +1,40 @@
+{
+  "authority_allowed": "custody reconciliation",
+  "authority_forbidden": [
+    "perfect_outer_manifest_claim",
+    "scientific_authority"
+  ],
+  "execution_depth": "manifest_line_by_line_byte_verification",
+  "outer_manifest": {
+    "line_count": 108,
+    "manifest": "ARTIFACT_SHA256SUMS.txt",
+    "nonself_checked": 107,
+    "nonself_mismatches": 0,
+    "nonself_missing": 0,
+    "self_entries": [
+      {
+        "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "line": 1,
+        "observed_sha256": "d730c58473c2dc1d42e2a9d9e732865c0123e6219829684e920cde3a3d3eae16",
+        "path": "ARTIFACT_SHA256SUMS.txt",
+        "self_entry": true,
+        "status": "INVALID_SELF_REFERENCE"
+      }
+    ],
+    "self_entry_count": 1,
+    "status": "PASS_WITH_RECONCILED_INVALID_SELF_ENTRY"
+  },
+  "portable_inner_manifest": {
+    "line_count": 105,
+    "manifest": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/SHA256SUMS.txt",
+    "nonself_checked": 105,
+    "nonself_mismatches": 0,
+    "nonself_missing": 0,
+    "self_entries": [],
+    "self_entry_count": 0,
+    "status": "PASS"
+  },
+  "producer": "scripts/batch092_ingest_and_reconcile_batch091.py",
+  "semantic_scope": "Batch091 artifact manifests",
+  "status": "PASS_WITH_RECONCILED_OUTER_SELF_MANIFEST_DEFECT"
+}
