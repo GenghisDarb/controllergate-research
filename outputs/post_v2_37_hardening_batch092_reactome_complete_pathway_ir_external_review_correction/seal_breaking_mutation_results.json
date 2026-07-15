@@ -1,0 +1,47 @@
+{
+  "authority_allowed": "tamper rejection",
+  "authority_forbidden": "semantic release decision",
+  "executed": 5,
+  "execution_depth": "five_raw_byte_hash_mutations",
+  "producer": "scripts/batch092_standalone_critic.py",
+  "rejected": 5,
+  "results": [
+    {
+      "mutated_sha256": "fd1923d82602a60db517c2dd5ef256388c6880fd5352c982e4a2fed198f65ad8",
+      "original_sha256": "55be6dabe0895030b0e0fc3496d29f00a17101e56a37b3e745f6b0a4a9c6ff5d",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH",
+      "target": "reactome_source_coverage.json"
+    },
+    {
+      "mutated_sha256": "6be7ee841745511ce6b12220541a2c30b756451d41e01f15e7163082ca5a0fe0",
+      "original_sha256": "447af0eb2b8185aefc2e3287a99ccf1059ad3d48130c2e1fff278fe01ad76f3e",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH",
+      "target": "reactome_reactions.jsonl"
+    },
+    {
+      "mutated_sha256": "95b0bf33870a883a51770bf68755dfd51219e04542273488769652d7bf109f1b",
+      "original_sha256": "03961e573c465e1f99ed71021d0783ab6db09bef3890728600f790a522139320",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH",
+      "target": "reactome_translation_coverage.json"
+    },
+    {
+      "mutated_sha256": "6e303b3dc8b4c7e5693227ae8a0da6f8e6d2a0e7d728531b2034c97fbb71c8a4",
+      "original_sha256": "6236d4993549a257832114d3f4fa7d5da18142cc7a141c68e3e7efb290d78e6d",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH",
+      "target": "reactome_translation_candidates.jsonl"
+    },
+    {
+      "mutated_sha256": "07f0f64924b1f31376030651fe2d4cebc9a51591a9e3a6ec21d9f782ead91095",
+      "original_sha256": "74f002c6761e6fc997424138d77bbed0fe781c4c22332edd569030761a5eb81b",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH",
+      "target": "amds_quality_gate.json"
+    }
+  ],
+  "semantic_scope": "seal integrity",
+  "status": "PASS"
+}
