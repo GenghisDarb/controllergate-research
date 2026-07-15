@@ -1,0 +1,178 @@
+name: post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  OUTPUT: outputs/post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  custody_and_expected_red:
+    name: 01-11 Batch091 custody, expected red, Reactome coverage, and regressions
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - run: python scripts/audit_batch092_pre_fix_external_review.py
+      - run: python -m pytest tests/test_batch092_reactome_ir.py tests/test_batch092_isomorphism.py tests/test_batch092_causal_authority.py tests/test_batch092_deployment_slots.py tests/test_batch092_standalone_critic.py -q
+      - run: python scripts/audit_batch092_reactome_complete_pathway_ir_external_review_correction.py
+      - run: python scripts/audit_canonical_component_uniqueness.py
+      - run: python scripts/audit_no_batch_core_logic.py
+      - run: python scripts/audit_public_language.py
+      - run: git diff --check
+
+  installed_linux:
+    name: 12-19 Linux wheel and 29 brokered installed scenarios
+    needs: custody_and_expected_red
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools packaging
+      - run: |
+          python -m pip wheel . --no-deps -w "$RUNNER_TEMP/controllergate-wheel"
+          python -m venv "$RUNNER_TEMP/controllergate-installed"
+          "$RUNNER_TEMP/controllergate-installed/bin/python" -m pip install --no-deps "$RUNNER_TEMP"/controllergate-wheel/controllergate-*.whl
+      - env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python scripts/run_batch092_installed_scenarios.py \
+            --controllergate-cli "$RUNNER_TEMP/controllergate-installed/bin/controllergate" \
+            --registry "$OUTPUT/reactome_chapter_installed_scenario_registry.jsonl" \
+            --database "$RUNNER_TEMP/controllergate-runtime/linux/reactome.sqlite3" \
+            --runtime-root "$RUNNER_TEMP/controllergate-runtime/linux/runs" \
+            --output "$RUNNER_TEMP/installed_reactome_scenarios_linux.jsonl" \
+            --platform linux
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch092_reactome_linux_installed_evidence
+          path: ${{ runner.temp }}/installed_reactome_scenarios_linux.jsonl
+          retention-days: 1
+
+  installed_windows:
+    name: 20-27 Windows wheel and 29 brokered installed scenarios
+    needs: custody_and_expected_red
+    runs-on: windows-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools packaging
+      - shell: pwsh
+        run: |
+          python -m pip wheel . --no-deps -w "$env:RUNNER_TEMP\controllergate-wheel"
+          python -m venv "$env:RUNNER_TEMP\controllergate-installed"
+          $wheel = Get-ChildItem "$env:RUNNER_TEMP\controllergate-wheel\controllergate-*.whl" | Select-Object -First 1
+          & "$env:RUNNER_TEMP\controllergate-installed\Scripts\python.exe" -m pip install --no-deps $wheel.FullName
+      - shell: pwsh
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python scripts\run_batch092_installed_scenarios.py `
+            --controllergate-cli "$env:RUNNER_TEMP\controllergate-installed\Scripts\controllergate.exe" `
+            --registry "$env:OUTPUT\reactome_chapter_installed_scenario_registry.jsonl" `
+            --database "$env:RUNNER_TEMP\controllergate-runtime\windows\reactome.sqlite3" `
+            --runtime-root "$env:RUNNER_TEMP\controllergate-runtime\windows\runs" `
+            --output "$env:RUNNER_TEMP\installed_reactome_scenarios_windows.jsonl" `
+            --platform windows
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch092_reactome_windows_installed_evidence
+          path: ${{ runner.temp }}/installed_reactome_scenarios_windows.jsonl
+          retention-days: 1
+
+  final:
+    name: 28-46 cross-platform join, critic, regressions, and compact handoff
+    needs: [custody_and_expected_red, installed_linux, installed_windows]
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - uses: actions/download-artifact@v4
+        with: {name: batch092_reactome_linux_installed_evidence, path: cross-platform/linux}
+      - uses: actions/download-artifact@v4
+        with: {name: batch092_reactome_windows_installed_evidence, path: cross-platform/windows}
+      - name: Join cross-platform installed evidence
+        run: |
+          cp cross-platform/linux/installed_reactome_scenarios_linux.jsonl "$OUTPUT/"
+          cp cross-platform/windows/installed_reactome_scenarios_windows.jsonl "$OUTPUT/"
+          python scripts/finalize_batch092_cross_platform.py --output "$OUTPUT"
+      - name: Bind official prompt authorization and preserve AMDS block
+        run: |
+          echo "BATCH092_OFFICIAL_RUN_STARTED_AT=$(gh api repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID} --jq .run_started_at)" >> "$GITHUB_ENV"
+      - run: python scripts/run_batch092_causal_authority.py --repo . --output "$OUTPUT"
+      - run: python scripts/run_batch092_deployment_boundary.py --output "$OUTPUT"
+      - run: python scripts/batch092_standalone_critic.py --output "$OUTPUT"
+      - run: python scripts/finalize_batch092.py --repo . --output "$OUTPUT"
+      - run: python -m pytest -q
+      - name: Batch073 through Batch091 preservation audits
+        run: |
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+          python scripts/audit_batch084_real_amds_canary_product_beta.py --out outputs/post_v2_37_hardening_batch084_real_amds_canary_product_beta
+          python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+          python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+          python scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py --verify-only
+          python scripts/audit_batch088_causal_amds_historical_capsule_product_beta_closure.py
+          python scripts/audit_batch089_full_isomorphism_reaction_complete_vertical_closure.py --verify-manifests
+          python scripts/audit_batch090_evidence_delaundering_installed_vertical_closure.py --official-reconciliation
+          python scripts/audit_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure.py
+      - name: Current authority and product audits
+        run: |
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_installed_product_reachability.py
+          python scripts/audit_no_legacy_production_imports.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_public_language.py
+          python scripts/audit_batch089_security_and_sbom.py --verify-only
+          python scripts/byte_custody_preflight.py
+          python scripts/audit_batch092_reactome_complete_pathway_ir_external_review_correction.py --require-cross-platform
+          git diff --check
+      - name: Stage compact main artifact
+        run: |
+          STAGE="$RUNNER_TEMP/batch092-main"
+          mkdir -p "$STAGE/outputs" "$STAGE/docs" "$STAGE/controllergate_v1_7_beta/reports/critic_review_package"
+          cp -a "$OUTPUT" "$STAGE/outputs/"
+          cp docs/HALCYON_REACTOME_ISOMORPHISM_BLUEPRINT.md docs/CHORUS_REACTOME_ISOMORPHISM_BLUEPRINT.md docs/NEXUSPAK_REACTOME_ISOMORPHISM_BLUEPRINT.md "$STAGE/docs/"
+          cp controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md "$STAGE/controllergate_v1_7_beta/reports/critic_review_package/"
+          if find "$STAGE" -type f \( -name '*.zip' -o -name '*.tar' -o -name '*.tgz' -o -name '*.pdf' -o -name '*.whl' -o -name '*.sqlite*' -o -name '*.pyc' -o -name '*.pyo' \) | grep -q .; then exit 1; fi
+          if find "$STAGE" -type d \( -name '__pycache__' -o -name '.git' -o -name 'site-packages' \) | grep -q .; then exit 1; fi
+          (cd "$STAGE" && find . -type f -print0 | sort -z | xargs -0 sha256sum > ARTIFACT_SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction_artifacts
+          path: ${{ runner.temp }}/batch092-main

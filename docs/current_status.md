@@ -780,3 +780,12 @@ Batch068h4 is officially verified and ingested. Batch068h5 activates reusable AM
 - Next allowed action: `batch059_pre_repair_replay_wave_3_limited`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+# Batch092 current status
+
+Batch092 corrects the Batch091 external-review boundary without rewriting Batch091 evidence. Exact artifact custody passes with one explicitly reconciled invalid outer self-manifest entry. Batch091's historical AMDS terminal path, generated proof authority, copied baselines, dictionary-only slot transition, and compact-summary critic are excluded from current authority.
+
+Reactome release 97 source coverage passes at 29 unique chapters, 2,916 pathway occurrences, and 16,814 reaction occurrences. All reactions have candidate translation dispositions; uncertain and omitted mechanisms remain open with reopen conditions. Forty-six reusable primitives and 29 representative installed scenarios are implemented. Candidate translation coverage does not imply production implementation or authority.
+
+Corrected historical AMDS is blocked at semantic-role eligibility: zero of eight episodes has ten independently verified decision-time role identities. No corrected terminal, baseline comparison, source-ownership proof, repair license, historical patch, repair recount, or historical package-slot deployment ran. The canonical slot manager and standalone critic are implemented and independently tested, but capability tests are not historical canary evidence.
+
+Current protocol: `v2.19`. Package version: `0.2.0b2.dev0`. Issue-derived repairs: `6`. Native external repairs: `4`. Historical increment: `0`. Product Beta RC: `PRODUCT_BETA_RC_BLOCKED_EXACT`. Full scoring: `NOT_RUN/disallowed`. Public writes and automatic merge: inactive. Production readiness: false. Self-maintaining software: false/not demonstrated.

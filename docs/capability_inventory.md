@@ -408,3 +408,15 @@ Capabilities are tiered in `configs/controllergate_capability_catalog.json`. Run
 - Next allowed action: `batch059_pre_repair_replay_wave_3_limited`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+# Batch092 capability additions
+
+- Reactome release 97 source custody and RPIR: implemented; 29 chapters, 2,916 pathway occurrences, 16,814 reaction occurrences.
+- Complete candidate-translation compiler: implemented; 16,814 dispositions, no automatic rejection, no silent omission.
+- Generic engineering primitive library: implemented; 46 primitive contracts exercised in shadow execution.
+- Chapter representative scenarios: 29 implemented and wheel-installed on Windows; Linux/cross-platform status is workflow-produced.
+- Corrected canonical historical AMDS: canonical components implemented, but historical cohort execution blocked by non-independent semantic-role receipts.
+- Stage-produced authority: implemented API requires an executed producer and independent verifier; no Batch092 historical proof issued.
+- Prompt-bound historical authorization: implemented; local state remains pending official workflow actor/run binding.
+- Broker-backed deployment-slot manager: implemented and unit-executed; historical repaired-package deployment remains not run.
+- Standalone raw-evidence critic: implemented; raw aggregate reconstruction passes and all registered seal and semantic mutations are rejected.
+- Product Beta RC: blocked. Production readiness and self-maintaining operation are not demonstrated.

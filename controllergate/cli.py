@@ -17,10 +17,13 @@ from .watch.controller import WatchController
 from .isomorphism.scenarios import execute_scenario
 
 
-def _load_scenario(path: str) -> dict[str, object]:
+def _load_scenario(path: str, scenario_id: str | None = None) -> dict[str, object]:
     text = Path(path).read_text(encoding="utf-8")
     if Path(path).suffix == ".jsonl":
-        text = next(line for line in text.splitlines() if line.strip())
+        rows = [json.loads(line) for line in text.splitlines() if line.strip()]
+        if scenario_id is not None:
+            return next(row for row in rows if row.get("scenario_id") == scenario_id)
+        return rows[0]
     return json.loads(text)
 
 
@@ -39,7 +42,7 @@ def main(argv: list[str] | None = None) -> int:
     connectors = sub.add_parser("connectors"); connector_sub = connectors.add_subparsers(dest="connector_command", required=True)
     connector_verify = connector_sub.add_parser("verify"); connector_verify.add_argument("--manifest", required=True)
     watch = sub.add_parser("watch"); watch.add_argument("--database", required=True); watch.add_argument("--connector-id", required=True); watch.add_argument("--events", required=True); watch.add_argument("--cursor"); watch.add_argument("--once", action="store_true")
-    reactome = sub.add_parser("reactome-simulate"); reactome.add_argument("--scenario", required=True); reactome.add_argument("--database", required=True); reactome.add_argument("--platform", required=True)
+    reactome = sub.add_parser("reactome-simulate"); reactome.add_argument("--scenario", required=True); reactome.add_argument("--scenario-id"); reactome.add_argument("--database", required=True); reactome.add_argument("--platform", required=True)
     args = parser.parse_args(argv)
     if args.command == "doctor":
         result = doctor(args.runtime_root, deep=args.deep, repo_root=args.repo_root)
@@ -64,7 +67,7 @@ def main(argv: list[str] | None = None) -> int:
         events = json.loads(Path(args.events).read_text(encoding="utf-8"))
         result = WatchController(args.database).observe(args.connector_id, events, args.cursor)
     elif args.command == "reactome-simulate":
-        result = execute_scenario(_load_scenario(args.scenario), args.database, platform=args.platform)
+        result = execute_scenario(_load_scenario(args.scenario, args.scenario_id), args.database, platform=args.platform)
     elif args.command == "migrate-state":
         repository = ControllerStateRepository(args.database)
         try: result = repository.migrate_json_state(getattr(args, "from_json"))

@@ -89,7 +89,8 @@ def execute_scenario(scenario: dict[str, Any], database: str | Path, *, platform
             state = result["state"]
     negative = apply_primitive("EVENT_CONTRACT", state, {})
     mechanism_status = "PASS" if all(row["status"] == "PASS" for row in results) and negative["status"] == "BLOCK" else "FAIL"
-    outcome = {"scenario_id": scenario["scenario_id"], "chapter": scenario["chapter"], "platform": platform, "mechanism_status": mechanism_status, "primitive_trace": state["primitive_trace"], "negative_control_status": negative["status"], "authority": "shadow_non_authorizing"}
+    module_origin = str(Path(__file__).resolve())
+    outcome = {"scenario_id": scenario["scenario_id"], "chapter": scenario["chapter"], "platform": platform, "mechanism_status": mechanism_status, "primitive_trace": state["primitive_trace"], "negative_control_status": negative["status"], "authority": "shadow_non_authorizing", "module_origin": module_origin, "installed_site_packages_origin": "site-packages" in module_origin.replace("\\", "/").lower()}
     event_id = _hash([scenario["scenario_id"], "event"]); outcome_id = _hash([scenario["scenario_id"], "outcome"]); assertion_id = _hash([scenario["scenario_id"], "assertion"])
     connection.execute("INSERT OR REPLACE INTO scenario_events VALUES (?,?,?,?)", (event_id, scenario["scenario_id"], "RPIR_SCENARIO_STARTED", json.dumps(scenario, sort_keys=True)))
     connection.execute("INSERT OR REPLACE INTO mechanism_outcomes VALUES (?,?,?,?)", (outcome_id, scenario["scenario_id"], mechanism_status, json.dumps(outcome, sort_keys=True)))

@@ -59,3 +59,22 @@ def test_scenario_keeps_mechanism_outcome_separate_from_assertion(tmp_path: Path
     assert connection.execute("SELECT COUNT(*) FROM mechanism_outcomes").fetchone()[0] == 1
     assert connection.execute("SELECT COUNT(*) FROM test_assertions").fetchone()[0] == 1
     connection.close()
+
+
+def test_windows_representatives_are_brokered_wheel_installed_executions() -> None:
+    rows = [json.loads(line) for line in (OUTPUT / "installed_reactome_scenarios_windows.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+    assert len(rows) == 29
+    assert len({row["scenario_id"] for row in rows}) == 29
+    assert all(row["mechanism_status"] == "PASS" for row in rows)
+    assert all(row["installed_site_packages_origin"] is True for row in rows)
+    assert all(row["broker_record_hash"] for row in rows)
+
+
+def test_cross_platform_result_never_claims_pass_before_both_platforms() -> None:
+    result = _json("reactome_cross_platform_equivalence.json")
+    assert result["status"] in {"PASS", "PENDING_OTHER_PLATFORM"}
+    if result["status"] == "PASS":
+        assert result["windows_count"] == result["linux_count"] == 29
+    else:
+        assert result["windows_count"] == 29
+        assert result["linux_count"] == 0

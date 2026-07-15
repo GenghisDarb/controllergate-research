@@ -1,5 +1,15 @@
 # ControllerGate
 
+## Batch092 corrected external-review boundary
+
+Batch092 independently reconciles the official Batch091 artifact and preserves its transport and target-execution progress while removing unsupported AMDS, proof-authority, slot-rollback, and critic-depth conclusions from current authority. The Batch091 outer manifest's invalid self-entry is recorded explicitly; all 107 non-self entries and all 105 portable entries verify.
+
+The Reactome release 97 documentary source boundary is represented by a versioned pathway intermediate representation: 29 unique chapters, 2,916 pathway occurrences, and 16,814 reaction occurrences with zero silent omissions or duplicate chapter inflation. Every reaction receives a candidate translation disposition through 46 reusable engineering primitives. This is complete candidate-translation coverage, not complete production implementation, repair authority, or production promotion.
+
+All 29 representative chapter scenarios pass brokered wheel-installed execution on Windows. Linux installed execution and cross-platform equivalence are completed by the Batch092 workflow. Corrected historical AMDS remains blocked because the eight Batch091 episodes do not contain independently measured evidence for all ten semantic roles. Baselines, proof chains, historical replay, and repaired-package deployment therefore remain `NOT_RUN`.
+
+The current release decision remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Protocol remains `v2.19`; package version remains `0.2.0b2.dev0`; counts remain 6 issue-derived and 4 native external repairs with historical increment 0. Full scoring is disallowed, public writes and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
 ## Batch091 external-review boundary
 
 Batch091 corrects Batch090's lossy short-lived source transport with deterministic Git-tree capsules that conserve all public hidden files. It executes a physically blinded eight-episode historical AMDS campaign, non-counting installed Cloudpickle and Freezegun repair lifecycles, two installed non-source lifecycles, a distinct repaired-package canary with three health classes and exact rollback, and a standard-library-only semantic critic with seal-breaking and re-signed adversarial mutation campaigns.
@@ -9,15 +19,15 @@ The strongest authorized internal status is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PEN
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's current protocol remains `v2.19`. Batch090 corrects Batch089's 60 mechanism scenarios to `IN_PROCESS_INTEGRATION_FIXTURE`; they were not 60 installed-product vertical lifecycles. SQLite preserves 6 issue-derived and 4 native external repairs, with historical replay increment 0. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains `v2.19`. Batch092 represents the complete Reactome release 97 documentary boundary at candidate-translation depth while correcting unsupported Batch091 authority claims. SQLite preserves 6 issue-derived and 4 native external repairs, with historical increment 0. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 <!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch089 added a shared three-prompt maintenance mechanism library and exercised it through 60 in-process integration fixtures. Batch090 separates mechanism outcomes from test assertions, binds claims to semantically scoped receipts, removes default stage success, and adds installed-wheel CLI vertical execution plus concrete SQLite proof/token authority.
+ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch092 verifies 29 Reactome chapters, 2,916 pathway occurrences, and 16,814 reaction occurrences and compiles all reactions to candidate dispositions through reusable, nonauthorizing primitives.
 
-Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. The blinded historical AMDS frame contains only two eligible episodes and correctly stops at `BLOCK_MINIMUM_COHORT_NOT_MET`; two complete installed non-source lifecycles and repaired-package canary/health/rollback evidence are also outstanding. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
+Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. Corrected historical AMDS has zero eligible episodes because independent semantic-role receipts are missing, so baselines, proof chains, historical patch actuation, and repaired-package deployment remain not run. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
 <!-- CONTROLLERGATE_CURRENT_STATUS_END -->
 
 ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.

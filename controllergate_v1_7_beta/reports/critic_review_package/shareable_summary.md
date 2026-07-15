@@ -827,3 +827,10 @@ Batch090 corrects the evidence depth of Batch089's 60 mechanism scenarios: they 
 Batch086 independently reconstructs cutoff-bound historical providers for Cloudpickle and Freezegun, completes both non-counting repair lifecycles, and reproduces provider-owned and harness-owned safe-abstention terminals from a frozen pre-execution frame. The DPP-14 ControllerAudit records zero wrong repair authorizations, 1.0 non-source safe-abstention accuracy, and five represented terminal classes on the frozen historical quality frame. Real target canaries, health windows, exact rollback, canonical uniqueness, package validation, and proof-derived counts all pass.
 
 The resulting decision is `PRODUCT_BETA_RC_PASS` at `0.2.0b1`. This is not a production-readiness, autonomous public repair, generalized AMDS effectiveness, prospective memory-lift, full-scoring, automatic-merge, or self-maintaining-software claim.
+# Batch092 external-review correction
+
+Batch092 preserves Batch091's valid transport and installed-target progress while correcting unsupported claims. The official artifact verifies byte-for-byte except for a recorded invalid outer self-manifest construction; every non-self and portable manifest entry verifies.
+
+The release-97 Reactome corpus is represented completely at candidate-translation depth: 29 unique chapters, 2,916 pathways, and 16,814 reactions. Every reaction has a disposition through a reusable primitive compiler, uncertain and omitted source events remain open, and no translation is promoted to production. Twenty-nine representative installed scenarios exercise the generic kernel.
+
+Historical AMDS, proof authority, historical replay, and repaired-package deployment remain blocked because the prior cohort lacks independent semantic-role receipts. The standalone critic reports this blocker rather than emitting an empty findings ledger. The release decision is `PRODUCT_BETA_RC_BLOCKED_EXACT`; protocol, version, repair counts, public-write policy, automatic-merge policy, production-readiness status, and self-maintaining-software status remain unchanged.

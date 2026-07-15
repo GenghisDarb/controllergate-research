@@ -1,0 +1,775 @@
+{
+  "amds": {
+    "backtrack_count": 0,
+    "contradiction_count": 0,
+    "decision": "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+    "eligible_cohort_count": 0,
+    "executed_episode_count": 0,
+    "executed_probe_count": 0,
+    "macro_accuracy": null,
+    "safe_abstention_accuracy": null,
+    "terminal_distribution": {}
+  },
+  "authority_allowed": "handoff and external review",
+  "authority_forbidden": "external approval",
+  "batch091_artifact": {
+    "artifact_identity": {
+      "artifact_id": 8353766243,
+      "artifact_name": "post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure_artifacts",
+      "entries": 108,
+      "sha256": "306cc60bc1be7c89f7579c9b8a9c4b0f217ba15ef4f5f54d9b416aa6171560c5",
+      "size": 194706,
+      "workflow_head": "1c13c97b1d251e79065eb64a425b9666ed410d51",
+      "workflow_run_id": 29441557733
+    },
+    "artifact_member_comparison_count": 107,
+    "artifact_member_identical_count": 63,
+    "artifact_member_workflow_variant_count": 44,
+    "artifact_path_outside_git": "C:\\Dev\\ControllerGate_Runtime\\batch092-inputs\\batch091-run-29441557733\\post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure_artifacts.zip",
+    "authority_allowed": "historical evidence ingest and correction",
+    "authority_forbidden": [
+      "Batch091 scientific authority",
+      "repair",
+      "release",
+      "count_increment"
+    ],
+    "cache_or_environment_payload_count": 0,
+    "comparisons": [
+      {
+        "artifact_sha256": "19c6f1a8998b1ef50f6a1213c0abf479b00c1e7dccee6e21363c99d0efb6f0c0",
+        "path": "controllergate_v1_7_beta/reports/critic_review_package/shareable_summary.md",
+        "repository_sha256": "19c6f1a8998b1ef50f6a1213c0abf479b00c1e7dccee6e21363c99d0efb6f0c0",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "1d696f30329065732e6d901e25ced0e68d1b00762b845cf0a9d45f8b59428c5e",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/SHA256SUMS.txt",
+        "repository_sha256": "51a8653ae8613ffc86f30ca7f807cf37111e839dfc0db4db3a7a9d9342634689",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "afd593b8a4f5dc76486e3c79b6bee43a7ca1a78948e443e83084148b72859040",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_baseline_results.json",
+        "repository_sha256": "afd593b8a4f5dc76486e3c79b6bee43a7ca1a78948e443e83084148b72859040",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "511261bcf85641165c904fd90896bd16ef02c8f4c0130ed03d598a007f164b08",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_broker_operations.jsonl",
+        "repository_sha256": "ffbd35376ea3c1947d5d2f15125c2d91a2ac33deb84a900edc981dd5ebadc682",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "363518b57f4add3226dcd75b287d9b11f277cf31622170f479a2e0ec0e2e6895",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_builder_filesystem_inventory.json",
+        "repository_sha256": "363518b57f4add3226dcd75b287d9b11f277cf31622170f479a2e0ec0e2e6895",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "f9078999f00dd8b18c8bb8a6cd6b8532fa43fcce652262875021a155b4e41670",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_builder_terminal_seal.json",
+        "repository_sha256": "f9078999f00dd8b18c8bb8a6cd6b8532fa43fcce652262875021a155b4e41670",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "66df1ed365f659e6178eecf336661a60f0d7e242781d69c48894365d6443febf",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_candidate_eligibility.jsonl",
+        "repository_sha256": "66df1ed365f659e6178eecf336661a60f0d7e242781d69c48894365d6443febf",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "991ae2496f5951a1345749ea38225621b5fec64e419ac108f6b0cc83994cc9f0",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_constraint_events.jsonl",
+        "repository_sha256": "64af7c0d77ba782febf420721732e211d5a63e090272d32a107db6f6ed55a48b",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "17364c3c19661f4f349b698b60a44f3320936103d5beb22a413374fdcdd3f991",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_failed_branches.jsonl",
+        "repository_sha256": "427603287695694626b9223bc0c76456f7f4dd866ea50583bcd835056676dbc6",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "b68db36a3e17aa002bb2ca2545e121e8181188f1c099d953568732d6b2328013",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_frozen_eight_episode_frame.json",
+        "repository_sha256": "b68db36a3e17aa002bb2ca2545e121e8181188f1c099d953568732d6b2328013",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "f41fbc9598525fdd29062aa902de68d575d665d38ba339c6dc391b7b36735b0d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_historical_quality_gate.json",
+        "repository_sha256": "f41fbc9598525fdd29062aa902de68d575d665d38ba339c6dc391b7b36735b0d",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "94a37fde04097d83849b4b2f725b5315c75dad2b483b20fa6acfb875546e08e6",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_label_and_alias_leakage_audit.json",
+        "repository_sha256": "94a37fde04097d83849b4b2f725b5315c75dad2b483b20fa6acfb875546e08e6",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "75802e5e2bf257ecdf11c32857ec549b51bd8557cda786964c5136ae11e01f86",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_nogoods.jsonl",
+        "repository_sha256": "ae24716b4843e895153263645c8a58366c09a4a8e62fa4f6883350ef08c920a7",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "8e8e595518008ef096cceb517436b2eb285bf6294f588f559011a4e193030c79",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_neutral_observations.jsonl",
+        "repository_sha256": "c3dc19f9c58182613336ebb4dafaa4399e2300f87d38b252a54ba555049d654a",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "195b5af2a936b1fff7985ace796b41a7aa7ebe45b07d96b45db9920f99cfc1ce",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_physical_custody_audit.json",
+        "repository_sha256": "195b5af2a936b1fff7985ace796b41a7aa7ebe45b07d96b45db9920f99cfc1ce",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "6a7e75ca307f301537cbf51cde7b1f9d80a62de61afa1ae6170eaeee71c3cfca",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_probe_contracts.jsonl",
+        "repository_sha256": "6a7e75ca307f301537cbf51cde7b1f9d80a62de61afa1ae6170eaeee71c3cfca",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "c97d60c3beddf57c355167d0fc5acb6734290f1e43460ae6f50317abaf6c8956",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_probe_plans.jsonl",
+        "repository_sha256": "c97d60c3beddf57c355167d0fc5acb6734290f1e43460ae6f50317abaf6c8956",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "5d92751edb3d2e846c7f3a9e8fc3e0b1f62f7ad7578e1e8a86e9f91e265631aa",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_sanitized_builder_input_manifest.json",
+        "repository_sha256": "5d92751edb3d2e846c7f3a9e8fc3e0b1f62f7ad7578e1e8a86e9f91e265631aa",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "44ce7500d700b18a1429f5756a11623bd3d393ad5f08ffddd2de5e9357803ef9",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_sealed_truth_manifest.json",
+        "repository_sha256": "0970999891e4b532a416e98a597f9859bfdf87d8d1cb2d08233e35273cb30c5a",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "6c5c9cd2aeee9ced578de2fb043bb30f32325a8bb8a387f293be75ded7452faa",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_semantic_facts.jsonl",
+        "repository_sha256": "6c5c9cd2aeee9ced578de2fb043bb30f32325a8bb8a387f293be75ded7452faa",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "c0b5d9b6a63ac4bb04e1a9f840e4a4e34799c33197b8e38a9e529f74d5c2d80f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_terminals.jsonl",
+        "repository_sha256": "4b169c9a6777b69b55dd479a9c36a4ea9f0a180e885b2c89f0cf3c898548d018",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "93453e14d469ad573b9edfe53ec80df09872b8cb1c197ee92d5b4dc0fe905d22",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_truth_join.json",
+        "repository_sha256": "93453e14d469ad573b9edfe53ec80df09872b8cb1c197ee92d5b4dc0fe905d22",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "9d5392641c02cbae5683bdf0691f5b49f5460a81c6520f728b68692e00978925",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/amds_truth_unavailable_to_builder_negative_control.json",
+        "repository_sha256": "9d5392641c02cbae5683bdf0691f5b49f5460a81c6520f728b68692e00978925",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "8e346a22f4716d8130b9000743ef689d11aded0bf9e4956238a8c6082b7d7956",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/audioread_installed_cli_trace.jsonl",
+        "repository_sha256": "08d43f1ce0ca3aab868b35a4b56d17d9e8e91a5ec0d6a865252d4f83553cca93",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "e0f28462d3ef269f53d6b5aabbebee4742055d9ccf207f851874b0cf852d8abf",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/audioread_installed_non_source_lifecycle.json",
+        "repository_sha256": "c75aafe36a310c38cfc9890c61eab281e6b9627f9fd9b075446551d57a5e307d",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "79bfe8645188557d0f84fd712560e6b78885514edc09494511a8ea5f8ac5732d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/audioread_probe_and_terminal_evidence.jsonl",
+        "repository_sha256": "1599778dda472c935ed500461057afa52aafb38ceac7bc118b61952e5d9e9601",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "86888956f083403b08e1a424730de7bbf4dfc20efcbd839d45154411ec8755e6",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/authority_proof_execution_depth_audit.json",
+        "repository_sha256": "0f7871fd9b0b1e65d5cd3655cd94348f42de95d162ea3afb2d96c25c2574968c",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "75dd175fde8f7545a084a9d11d30636c02bdc8e0708681bbdc0f894bb1eb1247",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_artifact_ingest.json",
+        "repository_sha256": "75dd175fde8f7545a084a9d11d30636c02bdc8e0708681bbdc0f894bb1eb1247",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "f2225c61688d27c44df8ac3022d09f83a34d1eb20022330a5e69e5ae99b1b2f0",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_artifact_manifest_verification.json",
+        "repository_sha256": "f2225c61688d27c44df8ac3022d09f83a34d1eb20022330a5e69e5ae99b1b2f0",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "bf2f8a96b1b1e78c44e652bbe1dc82fe7d2f42b98c68442bd006414f89e6c610",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_artifact_sha256_verification.json",
+        "repository_sha256": "bf2f8a96b1b1e78c44e652bbe1dc82fe7d2f42b98c68442bd006414f89e6c610",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "487024934c11d5cf44ece028848fed5e528f47acbb9216c59c83ddc237a7f62f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_claim_reconciliation.json",
+        "repository_sha256": "487024934c11d5cf44ece028848fed5e528f47acbb9216c59c83ddc237a7f62f",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "2be0ab9d44225346fd7d865562f126bf69664c60a2b19d4a361343d387618d8b",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_critic_depth_reconciliation.json",
+        "repository_sha256": "2be0ab9d44225346fd7d865562f126bf69664c60a2b19d4a361343d387618d8b",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "5259bef1aeb28839d1d9cc2bea24637411e34b1739a768bd4fa48ce7912b51e2",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_raw_evidence_preservation.json",
+        "repository_sha256": "5259bef1aeb28839d1d9cc2bea24637411e34b1739a768bd4fa48ce7912b51e2",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "3f0b1361f8cb37907c895528f5e451fe320ad6a190e4e1eff62414ff766bc00f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_short_lived_transport_residue_audit.json",
+        "repository_sha256": "3f0b1361f8cb37907c895528f5e451fe320ad6a190e4e1eff62414ff766bc00f",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "c5ce35ecd8d30d45004ba943a673d9d393f5906bec6f076e742bc8c25460c39a",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch090_source_capsule_state_correction.json",
+        "repository_sha256": "c5ce35ecd8d30d45004ba943a673d9d393f5906bec6f076e742bc8c25460c39a",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "c447aaf50dac12c177163245a2ed519f65c8d939842b3c955dd85631584c41da",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch091_claim_boundary.json",
+        "repository_sha256": "c447aaf50dac12c177163245a2ed519f65c8d939842b3c955dd85631584c41da",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "65ab971fdb09394aa205fa70cb19cbfb714b01a59d7735c27a36e59bfed83346",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch091_consolidated_state.json",
+        "repository_sha256": "65ab971fdb09394aa205fa70cb19cbfb714b01a59d7735c27a36e59bfed83346",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "63c436dd8e9f6d0e4e494e5e7bb837e8f7c8ee80ce99ab5eb80ef6818d09581e",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch091_external_review_package_index.json",
+        "repository_sha256": "d856bdb2c5b36942b457d0ddcc1db37c9d1dd88201fa5c3222c49f9b4fa26bb4",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "d8e6c4c604212ab0c41b685524f2478e66ebdc34785c5bf2e953c6cee54d45e6",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch091_internal_release_decision.json",
+        "repository_sha256": "d8e6c4c604212ab0c41b685524f2478e66ebdc34785c5bf2e953c6cee54d45e6",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "1286e0ed5c09ffdee4f7862fc0297d64dc6f2b7a67be75e6c7a694b1cd180802",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/batch091_pre_fix_expected_failure.json",
+        "repository_sha256": "1286e0ed5c09ffdee4f7862fc0297d64dc6f2b7a67be75e6c7a694b1cd180802",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "bfb42de4001edde740981a998f1515bef113a9144e3ec87e8efaf476006e8983",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/campaign_summary.md",
+        "repository_sha256": "bfb42de4001edde740981a998f1515bef113a9144e3ec87e8efaf476006e8983",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "a6e9d1d227241e21a99d6850004dff9565c54160bf3f3df670e9ccb936f0f804",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_cleanup_receipts.jsonl",
+        "repository_sha256": "3620f509a46cacf6181791b824a5333ed87e56aa1ba9e891e6b8a53098061cf0",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "166a9279e656b760e7c140b6a1edaea4ec1e7ddb7af202360a3ae944cc69f4f8",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_compartment_identity.json",
+        "repository_sha256": "e9bb03c75cd1483edf9b5d9d461bc9fc85a5a17351cfa24ae1d9a69ce360ff9b",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "1aee09d15b434f9955c487fc3482be7e90a1893f81d99fb3c52d923d2ff65ddd",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_distinct_consumer_execution.json",
+        "repository_sha256": "6b8f9d98ecb5607e6629111426ac3989a5adbed626b7c59710ecbca2b0246bec",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "15fada75b85458aa8e068b687cf6e90fa83160ad147c4f5b3947d7801b50f107",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_exact_rollback.json",
+        "repository_sha256": "2799fa925c89d05d05d217153d7863073580553b456f057a57c38ec3961e3c13",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "fa17f38392c2d6ce1522620e81ac14beb7eefae1bb8bf3895bd07cb407aa8c6b",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_health_events.jsonl",
+        "repository_sha256": "c6fa494467807af0475e33dfce20e67bfc8629a069b81f62205796edf4ad7b0c",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "071b41fabc7105f8afaa677656cee69a1a7ea76549ddbd66777b3e1ad6914899",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_negative_control.json",
+        "repository_sha256": "d5fd58cd64826ad954974c2b3656e3231aa3e6b9c503571892709ac67501b7a9",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "4d3accc48f837f80e9c594c3cdccd3d2d1b4e781f6cf0e4db42ced61d59d1583",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_target_execution.json",
+        "repository_sha256": "d03472dca17fbfe2c47bd326859f810a137b1f0b0160ded785ed29685221adba",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "0a1d19710eb1d94fbabf47626b79724262888d2396aed2ee751d14c2db3a3eda",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canonical_capsule_contract.json",
+        "repository_sha256": "0a1d19710eb1d94fbabf47626b79724262888d2396aed2ee751d14c2db3a3eda",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "9d0aa9c0ef3c09d65ea3df1487d99c5cf593b12dd1b9c1892054cfa6685aa9db",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/canary_package_switch.json",
+        "repository_sha256": "236e372f6c747976aa2847f583c6a5eabb3716794c7a38ead11484aeec98630d",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "75060d42e1b07d6d392c93ec9c5f05a14c422dcc179d6442cac2d91219dad0a0",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/capsule_mode_and_tree_identity_audit.json",
+        "repository_sha256": "75060d42e1b07d6d392c93ec9c5f05a14c422dcc179d6442cac2d91219dad0a0",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "1d190b0d20f487caf0df0b33694e25110710952cbfac04271d0b5bdb3bdb879d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_checkpoint_resume.json",
+        "repository_sha256": "1d190b0d20f487caf0df0b33694e25110710952cbfac04271d0b5bdb3bdb879d",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "c18c494a0b0987e621591ae3cf8db43c88b0f85019d2c01fe718696c06efb796",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_fresh_replay_identity.json",
+        "repository_sha256": "85876523f0f982c3e5fd38cb97a0203882a5e69bf3e0bbbbfb7b88915f500cf3",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "78c9ed1549cb9a1c01bc315320e8197d0aae4c7fbbfc13ca740d73b23036cd3f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_installed_cli_trace.jsonl",
+        "repository_sha256": "48739090ac42a64882868459bdc719c507325cb3622e12f05166429d3edf40d5",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "6ed9a73806cdc56c869ed1c920b120e66bbcdfa4913fac8ce551460b023150e6",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_installed_historical_lifecycle.json",
+        "repository_sha256": "4e925b4f08e480cf5e505685c8ebc1f8347a113240366bc58362838e15360309",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "ed46aa3c4c1ec9fd849e23471a00ad67ef55ee8a9a32f32bfdd5163fcda7e841",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_provider_capsule_receipt.json",
+        "repository_sha256": "ed46aa3c4c1ec9fd849e23471a00ad67ef55ee8a9a32f32bfdd5163fcda7e841",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "de09e88dcb837df7146c142188acdafdb429a3e00973bf23932b576032181d44",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_repair_license_proofs.jsonl",
+        "repository_sha256": "2ed895ff009c4704ceabf52a6fec180e75b2f3de6ac38776af752b05e627758f",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "612b64306ba3046ab091b9200fb525a0a84085a04d8a5b4eb2b3951763ede6c0",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_rollback_ready_proof.json",
+        "repository_sha256": "612b64306ba3046ab091b9200fb525a0a84085a04d8a5b4eb2b3951763ede6c0",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "95db18b1b2feb7dc3a5c843c084b86747ba25b905c01788f14ec6fa8c981dac4",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_source_capsule_consumer_receipt.json",
+        "repository_sha256": "95db18b1b2feb7dc3a5c843c084b86747ba25b905c01788f14ec6fa8c981dac4",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "c4148a0ce9fa988fb629c285720867dfc3b4005b66eae04734c502e80c0f60ba",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_source_capsule_producer_receipt.json",
+        "repository_sha256": "c4148a0ce9fa988fb629c285720867dfc3b4005b66eae04734c502e80c0f60ba",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "bd5ae2bad44dc4a0e13fa5f17cbf9cef26ef22e0bab60e1a2ce53ee2a530c297",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_source_ownership_proofs.jsonl",
+        "repository_sha256": "e69118f7dc5ceb15cfafa082b33a547439efba6a2535b8e28d41a19eac3a7645",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "82bb799ce0ad95aaa3adcae1cd3fed96364ec3bd16d53e19cc65a874d5b73f22",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/cloudpickle_token_chain.jsonl",
+        "repository_sha256": "0a5848a72fa29a9b3915e4d5b1c92662b711330d8ee658e0db80e638787602ae",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "1d190b0d20f487caf0df0b33694e25110710952cbfac04271d0b5bdb3bdb879d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_checkpoint_resume.json",
+        "repository_sha256": "1d190b0d20f487caf0df0b33694e25110710952cbfac04271d0b5bdb3bdb879d",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "6a89f1f6bbc5822b1febe6229caab7d0e861e2ad39ff9a085ad15c74ee3d7dc1",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_installed_cli_trace.jsonl",
+        "repository_sha256": "241baa3440fe82b274b70da30147e0bd6e7495aa4d2561a68e2aa4b330c598e0",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "5f98231a702d759936d695300abfe7e2c92e3f9963a6ee5ebe79c03ef8be0877",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_fresh_replay_identity.json",
+        "repository_sha256": "9f637f988ee24f231de629ae812dfce0e89b7e4299b505571a2a15a5d30a3122",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "3e39683732156afdc84ec21a2d075e7a3b91ce0d1e064ff00858564166b75f65",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_installed_historical_lifecycle.json",
+        "repository_sha256": "ae7e5ab462329be2b24a0702209ff8c844555579b9c62b46888f64590b1b7e67",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "175503be2b5685d3f860c101a158566db765e76e00d29c9eba6d9a9a714e8e15",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_repair_license_proofs.jsonl",
+        "repository_sha256": "7d2c8e7162b47b4f86cb28815665303c126ddf6b277b530618bcd05457a3bbcb",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "56e6ab35993a460bb9797a2d6eedb2e2207f78b62d78bb68e9d22d52404a9eab",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_rollback_ready_proof.json",
+        "repository_sha256": "56e6ab35993a460bb9797a2d6eedb2e2207f78b62d78bb68e9d22d52404a9eab",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "a04295e76ec7217bea36b2f91f62d5312ff7b010ae7585f2c8a2e241c04faecb",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_source_capsule_consumer_receipt.json",
+        "repository_sha256": "a04295e76ec7217bea36b2f91f62d5312ff7b010ae7585f2c8a2e241c04faecb",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "7d2e893f57d1dff977be73b1cd360b01afd39dffd42a2e654a6704ca83e7e2af",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_provider_capsule_receipt.json",
+        "repository_sha256": "7d2e893f57d1dff977be73b1cd360b01afd39dffd42a2e654a6704ca83e7e2af",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "98c6b7d899f56927daed5f96bd748ac9bbe0330de89eec3f1e36f0a71a3cf438",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_source_ownership_proofs.jsonl",
+        "repository_sha256": "9bbe4d43023645a52ebf27fe677b9b8752cdb91bc0fc56b1d96ca68870db0898",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "5c857e292fbd47ff8479a15366d8b6e7a0e98c23853f6ef70b75f4d799ba9df4",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_token_chain.jsonl",
+        "repository_sha256": "20fe090e0b648a76181b4d7ae938cc0d158f4f298b687ae740191de76772dcc8",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "3032643cc089488014cd9c0389a1a3a7d87d47302c41aa043a3c2c0e19728bbc",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/freezegun_source_capsule_producer_receipt.json",
+        "repository_sha256": "3032643cc089488014cd9c0389a1a3a7d87d47302c41aa043a3c2c0e19728bbc",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "8215bd358b58da7d1f81c09c2a7ced0c570364a8f7eb22aaec06c718826b20e1",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/generic_human_approval_negative_control.json",
+        "repository_sha256": "8215bd358b58da7d1f81c09c2a7ced0c570364a8f7eb22aaec06c718826b20e1",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "17bb16e6dc095a9ea20730b7ac8274e912d614ea653bbc662fe25ad0f07965ce",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/hardcoded_causal_family_negative_control.json",
+        "repository_sha256": "17bb16e6dc095a9ea20730b7ac8274e912d614ea653bbc662fe25ad0f07965ce",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "62c1fdfc57d86671c5b6d349cf2db859aea9474b7dd88cce849785181f9d15f1",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/hidden_file_conservation_audit.json",
+        "repository_sha256": "62c1fdfc57d86671c5b6d349cf2db859aea9474b7dd88cce849785181f9d15f1",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "6633238464d6c3bd9e408e7de8408cb7c2db36df45ff34e63a7ecc8d08a4b6be",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/historical_count_nonincrement_audit.json",
+        "repository_sha256": "6633238464d6c3bd9e408e7de8408cb7c2db36df45ff34e63a7ecc8d08a4b6be",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "2656bd58b7cad24c4de3bdab7a3e2591fd4fba8a669a8f08e8d1430b743432c1",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/historical_proof_producer_registry.json",
+        "repository_sha256": "2656bd58b7cad24c4de3bdab7a3e2591fd4fba8a669a8f08e8d1430b743432c1",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "08027eb82334ec3a5ea16806ff4f7d7067511260eea741bf61ef88ded8bbe007",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/historical_proof_verifier_registry.json",
+        "repository_sha256": "08027eb82334ec3a5ea16806ff4f7d7067511260eea741bf61ef88ded8bbe007",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "7b3a6af0c4c783a57963235cd434f8f128b4b59fa553affe8a1171e609ae3e8d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/hordeforge_installed_cli_trace.jsonl",
+        "repository_sha256": "875647e15c2033fa528d60853f32c00c49eec6a9d1808065a3d93c6eb845097b",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "39b5098bfa3eb56d541cf114520bf8f4cf88bf66f8b8a46b780df6ec4547dcc2",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/hordeforge_installed_non_source_lifecycle.json",
+        "repository_sha256": "21db0e28ff1f8c2635cea0a7114c7df046a29f9114d1909adb291a735e32bb5c",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "4be19cae6fc126145840e7cd4cdbd594e37cd37eccdba864f97ca250c47ac355",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/hordeforge_probe_and_terminal_evidence.jsonl",
+        "repository_sha256": "d0914712f9c6aad23c37b97b67d9e173fc78708d37b4704acc8c5c499579c668",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "dffb43d3d50a8e01e111028acaa1e7c747b364d66e32b6670b4b7a703574705d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/human_patch_approval_registry.jsonl",
+        "repository_sha256": "4eabf5e4931210f74fabc26de5e722a8044d5bd0148e86c567ef3566d913a9cd",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "5079ab067e9ff3cf6f6e62c11c50a62691aa6005818c33e199964fc8060708aa",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/internal_release_evidence_decision.json",
+        "repository_sha256": "5079ab067e9ff3cf6f6e62c11c50a62691aa6005818c33e199964fc8060708aa",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "23446b4b43ff46a3b5a667e08f0997b9d88b051987ff21f75e4b0ce316d4bd6f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/manifest_injected_proof_nonauthority_audit.json",
+        "repository_sha256": "23446b4b43ff46a3b5a667e08f0997b9d88b051987ff21f75e4b0ce316d4bd6f",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "65500923b6ea5d988267899a1744ca0b28d002962b187e023427a8cda1e82630",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/non_source_count_nonincrement_audit.json",
+        "repository_sha256": "65500923b6ea5d988267899a1744ca0b28d002962b187e023427a8cda1e82630",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "92b8c9ea3759dece36f14063902469fa4445d5353598d69edc8e1a943a8c47d4",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/non_source_frozen_frame_preservation.json",
+        "repository_sha256": "92b8c9ea3759dece36f14063902469fa4445d5353598d69edc8e1a943a8c47d4",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "89e7fc15e69829e21318f96f7b38ffbe1711bf37f0d102ee5f3015e18af7172d",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/non_source_no_authority_audit.json",
+        "repository_sha256": "89e7fc15e69829e21318f96f7b38ffbe1711bf37f0d102ee5f3015e18af7172d",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "dd71d5b309e7b811b578c62eaf50601abdc22ec278e4061db4619ffd3059319e",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/non_source_truth_join.json",
+        "repository_sha256": "dd71d5b309e7b811b578c62eaf50601abdc22ec278e4061db4619ffd3059319e",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "52eb8e1885c5556330593a31740a62bad008a18a1a290174b7417cfbbc8c2ac8",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/producer_consumer_capsule_conservation.json",
+        "repository_sha256": "52eb8e1885c5556330593a31740a62bad008a18a1a290174b7417cfbbc8c2ac8",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "09cc9a08dfe2f56b942c2b13225b106c894c404bfdcb7b96591b50f9b2432087",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/public_state_generation_audit.json",
+        "repository_sha256": "09cc9a08dfe2f56b942c2b13225b106c894c404bfdcb7b96591b50f9b2432087",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "0dcf7a11eeb86c706f03bd25bd8cb4e5036e442b635f473584fdd293347f74f5",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/public_state_sync_audit.json",
+        "repository_sha256": "0dcf7a11eeb86c706f03bd25bd8cb4e5036e442b635f473584fdd293347f74f5",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "fa8a38a40bba0884b9bda607033edae1dc8727a381da7913bca32533e5aba853",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/release_version_lineage.json",
+        "repository_sha256": "fa8a38a40bba0884b9bda607033edae1dc8727a381da7913bca32533e5aba853",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "59f2bd3d5ac3d0fcdc5d8590209fadb6dc7ef0f5fd44969808d91d1e630a8e33",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/repair_license_proof_chain.jsonl",
+        "repository_sha256": "8773439d771491a72694f2addea5ffbd90b1a823eb6e2e0d5e4bb8f9a6c60ee8",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "a54ad2501180cd2127e136afaf5bc6e7b9607f3f5c56848f7c9777fc1989c2a7",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/repaired_distribution_build.json",
+        "repository_sha256": "3c507001aa69440c620c1b25ee55bc0baf8665a777f5d8e653a865c6b2b67f0a",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "006ada9e7520d65f3a86357b8792481132f57a9ec9fde3666d4e8bc2c40cca76",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/repaired_distribution_identity.json",
+        "repository_sha256": "0ec955d596d7a5206f221ed52e1dea972a582fb8e7c041c07bd24ec794fa8542",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "507fda7cfc895ba8f98b4721adfbe3a6120f6b68b805b1ebf8dca1204b0a7f4f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/repaired_distribution_reproducibility.json",
+        "repository_sha256": "507fda7cfc895ba8f98b4721adfbe3a6120f6b68b805b1ebf8dca1204b0a7f4f",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "35295a45d4c0f9df25a4914d03490a4841c1b46df72c7e3fe068fe1e2cf69a44",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/repaired_package_canary_health_rollback.json",
+        "repository_sha256": "18fb8a5aa900c9f5c66d6c1e4134b291fb84dbea1591473652d002d30486a4c9",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "d92652f5769d7136b9f49dce251d9c28e46333f7898ffa39b0df5038579982a0",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/resigned_semantic_mutation_registry.jsonl",
+        "repository_sha256": "d92652f5769d7136b9f49dce251d9c28e46333f7898ffa39b0df5038579982a0",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "4e70e416dd75307406b656aeb2296cc24a977b59cdf8e03cb4a6cfb4c01dc08f",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/resigned_semantic_mutation_results.json",
+        "repository_sha256": "4e70e416dd75307406b656aeb2296cc24a977b59cdf8e03cb4a6cfb4c01dc08f",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "b6cb93f8e59edbe00627214a617880e335ccd38fa43ca27da6888b96321d342a",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/seal_breaking_mutation_results.json",
+        "repository_sha256": "b6cb93f8e59edbe00627214a617880e335ccd38fa43ca27da6888b96321d342a",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/semantic_critic_findings.jsonl",
+        "repository_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "736ff8f3b15f8f16ad000f587a2e8de4e5bf6fec260f92221ba055a58dd17f7b",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/semantic_critic_input_manifest.json",
+        "repository_sha256": "9641df86b7588ee84116f456583a26d92c379f4a4dc831a6d098a39f2800ad8d",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "24d319d47515c7e84c6a72bf2c203029dfaf570cbbdce3a7623a7b3bde461d67",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/semantic_critic_raw_builder_evidence.json",
+        "repository_sha256": "af9839a6947077df0cbb777087283ac6a516cba6592eb1ca28a8d6158b692776",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      },
+      {
+        "artifact_sha256": "d3b4b3cf53d46816b6884ff292b89854e95c289660ad4d0a2bda0f8b51ef04ae",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/semantic_critic_reconstruction.json",
+        "repository_sha256": "d3b4b3cf53d46816b6884ff292b89854e95c289660ad4d0a2bda0f8b51ef04ae",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "a3bad45329164a53bd06b463e6d24b241d5d0d0600596ae04d5a2aefad4c37cc",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/short_lived_artifact_residue_audit.json",
+        "repository_sha256": "a3bad45329164a53bd06b463e6d24b241d5d0d0600596ae04d5a2aefad4c37cc",
+        "status": "IDENTICAL_PRESERVED"
+      },
+      {
+        "artifact_sha256": "777ac54e5cd974fdd662be7ea3fb99519a1f87298ac7ddd42b4f4024c9815610",
+        "path": "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/source_ownership_proof_chain.jsonl",
+        "repository_sha256": "e9c604e8779fdaf100b5d14132d4e5982964ec12a1a31f2d77f0222813b9b76a",
+        "status": "WORKFLOW_ARTIFACT_VARIANT_INDEXED_WITHOUT_HISTORICAL_REWRITE"
+      }
+    ],
+    "compiled_payload_count": 0,
+    "download_custody": "one_time_user_authorized_exact_github_artifact_download",
+    "duplicate_path_count": 0,
+    "entry_count": 108,
+    "execution_depth": "outer_bytes_zip_structure_json_and_manifest_verification",
+    "historical_batch091_bytes_rewritten": false,
+    "json_parse_failure_count": 0,
+    "jsonl_parse_failure_count": 0,
+    "nested_archive_count": 0,
+    "observed_sha256": "306cc60bc1be7c89f7579c9b8a9c4b0f217ba15ef4f5f54d9b416aa6171560c5",
+    "observed_size": 194706,
+    "official_ingest_mode": "official_artifact_manifest_indexed_without_rewriting_historical_batch091_outputs",
+    "producer": "scripts/batch092_ingest_and_reconcile_batch091.py",
+    "raw_zip_committed": false,
+    "semantic_scope": "official Batch091 artifact custody",
+    "status": "PASS",
+    "symlink_count": 0,
+    "unsafe_path_count": 0,
+    "verified_at_utc": "2026-07-15T20:33:03Z"
+  },
+  "chapter_scenarios": {
+    "cross_platform": "PENDING_OTHER_PLATFORM",
+    "linux": 0,
+    "windows": 29
+  },
+  "claim_boundary": {
+    "amds_prospective_effectiveness": "NOT_ESTABLISHED",
+    "authority_allowed": "bounded current status",
+    "authority_forbidden": [
+      "Product Beta approval",
+      "production readiness",
+      "complete production implementation",
+      "full scoring",
+      "self-maintaining software"
+    ],
+    "automatic_merge": "inactive",
+    "complete_source_coverage_is_production_implementation": false,
+    "exact_blockers": [
+      "amds_minimum_cohort_blocked_role_identity_receipts",
+      "reactome_linux_installed_execution_pending"
+    ],
+    "execution_depth": "current_SQLite_scoped_receipt_and_critic_view",
+    "full_scoring": "NOT_RUN/disallowed",
+    "historical_increment": 0,
+    "issue_derived_repair_count": 6,
+    "native_external_repair_count": 4,
+    "package_version": "0.2.0b2.dev0",
+    "producer": "scripts/finalize_batch092.py",
+    "production_readiness": false,
+    "prospective_memory_lift": "not demonstrated",
+    "protocol": "v2.19",
+    "public_write_connectors": "inactive",
+    "self_maintaining_software": "false/not demonstrated",
+    "semantic_scope": "Batch092 public claim boundary",
+    "status": "PRODUCT_BETA_RC_BLOCKED_EXACT"
+  },
+  "critic": {
+    "finding_count": 3,
+    "seal_mutations_rejected": 5,
+    "semantic_mutations_rejected": 23
+  },
+  "exact_blockers": [
+    "amds_minimum_cohort_blocked_role_identity_receipts",
+    "reactome_linux_installed_execution_pending"
+  ],
+  "execution_depth": "Batch092 bounded evidence consolidation",
+  "producer": "scripts/finalize_batch092.py",
+  "prompt_id": "CG-BATCH092-REACTOME-COMPLETE-PATHWAY-IR-EXTERNAL-REVIEW-CORRECTION-2026-07-15-V1",
+  "reactome_source": {
+    "duplicate_chapter_count": 0,
+    "normal_variant_pair_count": 2177,
+    "observed_pathway_count": 2916,
+    "observed_reaction_count": 16814,
+    "omitted_event_count": 2311,
+    "silent_omission_count": 0,
+    "stable_id_conflict_count": 0,
+    "status": "PASS",
+    "uncertain_event_count": 727,
+    "unique_chapter_count": 29
+  },
+  "semantic_scope": "Batch092 current state",
+  "status": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "translation_depth": {
+    "blocked_missing_source_detail_count": 3038,
+    "installed_product_executed_count": 0,
+    "mechanism_tested_count": 29,
+    "product_reachable_count": 0,
+    "promoted_production_count": 0,
+    "rejected_after_ablation_count": 0,
+    "rejection_without_ablation_count": 0,
+    "schema_compiled_count": 13776,
+    "shadow_executable_count": 13776,
+    "translation_candidate_count": 16814
+  }
+}
