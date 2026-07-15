@@ -1,0 +1,71 @@
+{
+  "episodes": [
+    {
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "candidate_sha": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+      "checks": {
+        "at_least_three_hypotheses": true,
+        "at_least_two_legal_probes": true,
+        "decision_time_safe_manifestation": true,
+        "gold_fixed_future_outcome_absent": true,
+        "measured_command_authority": true,
+        "measured_provider_runtime_identity": true,
+        "measured_runner_harness_identity": true,
+        "measured_source_identity": true,
+        "measured_target_reproducer_identity": true,
+        "repair_and_count_outcome_absent": true,
+        "terminal_label_absent_from_builder_input": true
+      },
+      "eligibility_hash": "6d6e3c1e536b96b109012a860be1b57a792ce4d7689c81732c72bf7967315dad",
+      "eligible": true,
+      "hypotheses": [
+        "provider_runtime",
+        "class_dict_runtime_metadata",
+        "test_expectation"
+      ],
+      "probe_operations": [
+        "registered_target_replay",
+        "class_dict_member_inspection"
+      ],
+      "target": "tests/cloudpickle_test.py",
+      "terminal_class": "source_runtime_metadata"
+    },
+    {
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "candidate_sha": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "checks": {
+        "at_least_three_hypotheses": true,
+        "at_least_two_legal_probes": true,
+        "decision_time_safe_manifestation": true,
+        "gold_fixed_future_outcome_absent": true,
+        "measured_command_authority": true,
+        "measured_provider_runtime_identity": true,
+        "measured_runner_harness_identity": true,
+        "measured_source_identity": true,
+        "measured_target_reproducer_identity": true,
+        "repair_and_count_outcome_absent": true,
+        "terminal_label_absent_from_builder_input": true
+      },
+      "eligibility_hash": "2c4146616b5af92b7b0c927dea68fcd2ebfc305b4f61783bfaca169584444304",
+      "eligible": true,
+      "hypotheses": [
+        "provider_runtime",
+        "datetime_factory_runtime_behavior",
+        "test_expectation"
+      ],
+      "probe_operations": [
+        "registered_target_replay",
+        "datetime_factory_behavior_inspection"
+      ],
+      "target": "tests/test_datetimes.py",
+      "terminal_class": "source_datetime_runtime_behavior"
+    }
+  ],
+  "frozen_before_truth_access": true,
+  "frozen_cohort_size": 2,
+  "generated_at_utc": "2026-07-15T07:34:36.226021+00:00",
+  "replacement_after_outcome_forbidden": true,
+  "status": "BLOCK_MINIMUM_COHORT_NOT_MET",
+  "target_cohort_size": 8,
+  "truth_available_to_builder": false
+}

@@ -153,12 +153,34 @@ def _fresh_workspace(manifest: dict[str, Any], label: str) -> Path:
     return target
 
 
+def _incident_argv(manifest: dict[str, Any], *, replay_provider: bool = False) -> list[str]:
+    """Resolve the registered target command without changing its semantic identity."""
+    key = "provider_python_replay" if replay_provider else "provider_python"
+    executable = str(manifest.get(key) or manifest.get("provider_python") or sys.executable)
+    return [executable, *list(manifest.get("incident_command", ["-c", "raise SystemExit(1)"]))]
+
+
+def _patch_argv(manifest: dict[str, Any], workspace: Path) -> tuple[list[str], str]:
+    plan = dict(manifest.get("patch_plan", {}))
+    patch_file = plan.get("patch_file")
+    if patch_file:
+        patch_path = Path(str(patch_file)).resolve()
+        observed = hashlib.sha256(patch_path.read_bytes()).hexdigest() if patch_path.is_file() else "missing"
+        expected = str(plan.get("patch_sha256", ""))
+        if not expected or observed != expected:
+            raise ValueError("canonical_patch_identity_mismatch")
+        return ["git", "apply", "--whitespace=nowarn", str(patch_path)], observed
+    target = workspace / str(plan.get("path", ""))
+    code = "from pathlib import Path;import sys;p=Path(sys.argv[1]);s=p.read_text();old=sys.argv[2];new=sys.argv[3];assert old in s;p.write_text(s.replace(old,new,1),newline='\\n')"
+    return [sys.executable, "-c", code, str(target), str(plan.get("old", "")), str(plan.get("new", ""))], canonical_hash([plan.get("path"), plan.get("old"), plan.get("new")])
+
+
 def _stage_output(repository: ControllerStateRepository, manifest: dict[str, Any], stage_id: str,
                   anchors: dict[str, Any], workspace: Path) -> tuple[dict[str, Any], str | None]:
     registered_stage(stage_id)
     output: dict[str, Any] = {"status": "BLOCK", "verified": False, "anchor_hash": anchors["anchor_hash"], "stage_id": stage_id}
     blocker: str | None = "stage_verifier_did_not_pass"
-    command = [sys.executable, *list(manifest.get("incident_command", ["-c", "raise SystemExit(1)"]))]
+    command = _incident_argv(manifest)
     if stage_id == "candidate_identity":
         valid = bool(manifest.get("candidate_id") and manifest.get("run_id"))
         if valid:
@@ -177,7 +199,7 @@ def _stage_output(repository: ControllerStateRepository, manifest: dict[str, Any
         blocker = None
     elif stage_id == "provider_execution":
         run, record = _broker(repository, manifest, stage=stage_id, operation_type="provider_verification",
-                              argv=[sys.executable, "-c", "import sys;print(sys.implementation.name)"], cwd=workspace)
+                              argv=[command[0], "-c", "import sys;print(sys.implementation.name)"], cwd=workspace)
         if run.returncode == 0:
             output = _verified(stage_id, anchors, return_code=run.returncode, broker_record_hash=record["record_hash"]); blocker = None
         else:
@@ -239,17 +261,19 @@ def _stage_output(repository: ControllerStateRepository, manifest: dict[str, Any
         except ValueError as error:
             blocker = f"repair_license_proof_resolution_incomplete:{error}"
     elif stage_id == "patch_application":
-        plan = manifest.get("patch_plan", {}); target = workspace / str(plan.get("path", ""))
-        code = "from pathlib import Path;import sys;p=Path(sys.argv[1]);s=p.read_text();old=sys.argv[2];new=sys.argv[3];assert old in s;p.write_text(s.replace(old,new,1),newline='\\n')"
+        plan = manifest.get("patch_plan", {})
+        try:
+            patch_argv, patch_hash = _patch_argv(manifest, workspace)
+        except (OSError, ValueError) as error:
+            return output, str(error)
         run, record = _broker(repository, manifest, stage=stage_id, operation_type="patch_application",
-                              argv=[sys.executable, "-c", code, str(target), str(plan.get("old", "")), str(plan.get("new", ""))], cwd=workspace)
+                              argv=patch_argv, cwd=workspace)
         if not run.returncode:
             license_row = repository.connection.execute("SELECT token_hash FROM repair_license_tokens WHERE run_id=? AND consumed=0 ORDER BY rowid DESC LIMIT 1", (manifest["run_id"],)).fetchone()
             if not license_row:
                 blocker = "repair_license_missing_at_patch"
             else:
                 consume_repair_license(repository, str(manifest["run_id"]), license_row["token_hash"])
-                patch_hash = canonical_hash([plan.get("path"), plan.get("old"), plan.get("new")])
                 repository.connection.execute("INSERT OR IGNORE INTO patch_records(patch_hash,run_id,candidate_id,path,created_at) VALUES (?,?,?,?,?)", (patch_hash, manifest["run_id"], manifest["candidate_id"], str(plan.get("path")), datetime.now(timezone.utc).isoformat()))
                 output = _verified(stage_id, anchors, return_code=0, broker_record_hash=record["record_hash"], repair_license_spent=license_row["token_hash"]); blocker = None
         else:
@@ -261,10 +285,13 @@ def _stage_output(repository: ControllerStateRepository, manifest: dict[str, Any
         else: blocker = "validation_failed"
     elif stage_id == "duplicate_clean_replay":
         replay = _fresh_workspace(manifest, "clean-replay")
-        plan = manifest.get("patch_plan", {}); target = replay / str(plan.get("path", ""))
-        code = "from pathlib import Path;import sys;p=Path(sys.argv[1]);s=p.read_text();old=sys.argv[2];new=sys.argv[3];assert old in s;p.write_text(s.replace(old,new,1),newline='\\n')"
-        patch_run, patch_record = _broker(repository, manifest, stage=f"{stage_id}-patch", operation_type="patch_application", argv=[sys.executable,"-c",code,str(target),str(plan.get("old","")),str(plan.get("new",""))], cwd=replay)
-        run, record = _broker(repository, manifest, stage=stage_id, operation_type="duplicate_replay", argv=command, cwd=replay)
+        try:
+            patch_argv, _ = _patch_argv(manifest, replay)
+        except (OSError, ValueError) as error:
+            return output, str(error)
+        patch_run, patch_record = _broker(repository, manifest, stage=f"{stage_id}-patch", operation_type="patch_application", argv=patch_argv, cwd=replay)
+        replay_command = _incident_argv(manifest, replay_provider=True)
+        run, record = _broker(repository, manifest, stage=stage_id, operation_type="duplicate_replay", argv=replay_command, cwd=replay)
         valid = patch_run.returncode == 0 and run.returncode == 0 and replay.resolve() != workspace.resolve()
         if valid:
             output = _verified(stage_id, anchors, return_code=0, patch_record_hash=patch_record["record_hash"], broker_record_hash=record["record_hash"], workspace=str(replay), workspace_hash=_tree_hash(replay), passed=True); blocker = None

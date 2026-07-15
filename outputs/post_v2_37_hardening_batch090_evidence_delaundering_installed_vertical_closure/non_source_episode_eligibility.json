@@ -1,0 +1,53 @@
+{
+  "bare_import_or_filename_search_accepted": false,
+  "ordered_pool": [
+    {
+      "candidate_id": "aifc-removal",
+      "eligible": false,
+      "reason": "complete_project_level_reproducer_capsule_not_available"
+    },
+    {
+      "candidate_id": "imp-removal",
+      "eligible": false,
+      "reason": "complete_project_level_reproducer_capsule_not_available"
+    },
+    {
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "decision_time_bundle": "Batch086 registered historical record",
+      "eligible": true,
+      "repo_url": "https://github.com/beetbox/audioread",
+      "source_revision": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "terminal_class": "provider_owned"
+    },
+    {
+      "candidate_id": "pytest_environment_interpreter",
+      "eligible": false,
+      "reason": "complete_registered_project_target_missing"
+    },
+    {
+      "candidate_id": "openbb_harness_episode",
+      "eligible": false,
+      "reason": "complete_registered_project_target_missing"
+    },
+    {
+      "candidate_id": "poetry_network_transport_episode",
+      "eligible": false,
+      "reason": "network_none_project_reproducer_missing"
+    },
+    {
+      "candidate_id": "prospective_yxyxy_hordeforge_issue_39",
+      "decision_time_bundle": "Batch086 registered historical record",
+      "eligible": true,
+      "repo_url": "https://github.com/yxyxy/HordeForge",
+      "source_revision": "89977490c8daad668ade06847d3a6d33ab2209de",
+      "terminal_class": "harness_owned"
+    },
+    {
+      "candidate_id": "nbclient_interpreter_mock_behavior",
+      "eligible": false,
+      "reason": "project_level_target_or_reproducer_missing"
+    }
+  ],
+  "selection_rule": "first_two_eligible_before_execution",
+  "status": "PASS"
+}
