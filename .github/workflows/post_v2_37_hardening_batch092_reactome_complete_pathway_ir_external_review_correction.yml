@@ -67,6 +67,9 @@ jobs:
     runs-on: windows-latest
     timeout-minutes: 120
     steps:
+      - name: Enable preserved historical paths on Windows
+        shell: pwsh
+        run: git config --global core.longpaths true
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
