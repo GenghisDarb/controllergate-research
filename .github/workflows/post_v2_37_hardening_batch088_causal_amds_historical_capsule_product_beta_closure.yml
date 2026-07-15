@@ -364,6 +364,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - run: python -m pip install -e .
       - run: |
           python scripts/controllergate_audit.py --protocol current
           python scripts/controllergate_run.py --protocol current --dry-run
@@ -385,9 +386,15 @@ jobs:
     name: 28 Windows installed package validation
     runs-on: windows-latest
     timeout-minutes: 50
+    defaults:
+      run:
+        working-directory: w
     steps:
+      - name: Enable Windows long paths
+        shell: pwsh
+        run: git config --global core.longpaths true
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with: {fetch-depth: 0, path: w}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: python -m pip install -e . pytest
