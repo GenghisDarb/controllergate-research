@@ -8,11 +8,27 @@ from controllergate.amds.historical_challenge import execute_historical_challeng
 from controllergate.engine import resume_run, run_manifest, verify_run
 from controllergate.governance.capability_maturity import adjudicate_dimension
 from controllergate.governance.raw_law_evidence import bind_law_proof, verify_law_proof
+from controllergate.proof.authorization_tokens import LICENSE_REQUIREMENTS, SOURCE_REQUIREMENTS
+from controllergate.state.integrity import canonical_hash
+
+
+def reviewed_fixture_proofs() -> list[dict[str, object]]:
+    common = {
+        "status": "PASS", "decision_time_safe": True, "revoked": False,
+        "producer_identity": "test.fixture.producer", "verifier_identity": "test.fixture.independent_verifier",
+        "execution_depth": "IN_PROCESS_INTEGRATION_FIXTURE",
+    }
+    return [
+        {"domain": domain, "requirement": requirement, "evidence_value": f"fixture-evidence:{requirement}", **common}
+        for domain, requirements in (("source_ownership", SOURCE_REQUIREMENTS), ("repair_license", LICENSE_REQUIREMENTS))
+        for requirement in requirements
+    ]
 
 
 def fixture(tmp_path: Path) -> tuple[Path, dict[str, object]]:
     source=tmp_path/"fixture";source.mkdir();(source/"app.py").write_text("def f(v):\n    return v.strip()\n",encoding="utf-8");(source/"verify.py").write_text("from app import f\nraise SystemExit(0 if f(' A ')== 'a' else 1)\n",encoding="utf-8")
-    manifest={"run_id":"test-run","candidate_id":"fixture","fixture_root":str(source),"runtime_root":str(tmp_path/"runtime"),"incident_command":["verify.py"],"allowed_source_paths":["app.py"],"patch_plan":{"path":"app.py","old":"return v.strip()","new":"return v.strip().lower()"},"stop_after":"failure_reproduction"}
+    command=["verify.py"]
+    manifest={"run_id":"test-run","candidate_id":"fixture","fixture_root":str(source),"runtime_root":str(tmp_path/"runtime"),"incident_command":command,"allowed_source_paths":["app.py"],"target_paths":["verify.py"],"patch_plan":{"path":"app.py","old":"return v.strip()","new":"return v.strip().lower()"},"stop_after":"failure_reproduction","execution_mode":"historical_repair","command_authority":{"command_hash":canonical_hash(command),"review_status":"reviewed"},"proof_records":reviewed_fixture_proofs()}
     path=tmp_path/"manifest.json";path.write_text(json.dumps(manifest),encoding="utf-8");return path,manifest
 
 

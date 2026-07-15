@@ -19,7 +19,8 @@ ALLOWED_EXTERNAL_OPERATION_TYPES = {
     "provider_build", "provider_verification", "collection", "reproducer_execution",
     "target_execution", "diagnostic_probe", "patch_application", "validation",
     "duplicate_replay", "canary_installation", "canary_execution", "health_observation",
-    "rollback", "proof_append", "count_decision",
+    "rollback", "proof_append", "count_decision", "plan_maturation", "transport",
+    "local_actuation", "cleanup", "artifact_build",
 }
 
 SECRET_MARKERS = ("TOKEN", "SECRET", "PASSWORD", "PRIVATE_KEY", "CREDENTIAL")

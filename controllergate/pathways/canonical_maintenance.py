@@ -79,6 +79,50 @@ class PathwayStage:
 
 CANONICAL_PATHWAY = tuple(PathwayStage(stage, token, tuple(required)) for stage, token, required in STAGES)
 
+MECHANISM_REHEARSAL_PATHWAY = (
+    PathwayStage("plan_maturation", "PLAN_MATURED_TOKEN", ()),
+    PathwayStage("brokered_read", "BROKERED_READ_TOKEN", ("PLAN_MATURED_TOKEN",)),
+    PathwayStage("exactly_once_transport", "TRANSPORT_COMMITTED_TOKEN", ("BROKERED_READ_TOKEN",)),
+    PathwayStage("contradiction_backtrack", "ALTERNATE_PROBE_TOKEN", ("TRANSPORT_COMMITTED_TOKEN",)),
+    PathwayStage("local_actuation", "LOCAL_ACTUATION_TOKEN", ("ALTERNATE_PROBE_TOKEN",)),
+    PathwayStage("exact_rollback", "EXACT_ROLLBACK_TOKEN", ("LOCAL_ACTUATION_TOKEN",)),
+)
+HISTORICAL_NON_SOURCE_PATHWAY = CANONICAL_PATHWAY[:7] + (
+    PathwayStage("non_source_terminal", "NON_SOURCE_TERMINAL_TOKEN", ("DUPLICATE_FAILURE_REPRODUCED_TOKEN",)),
+)
+CANARY_PATHWAY = (
+    PathwayStage("artifact_maturation", "ARTIFACT_MATURED_TOKEN", ()),
+    PathwayStage("canary_install", "CANARY_INSTALLED_TOKEN", ("ARTIFACT_MATURED_TOKEN",)),
+    PathwayStage("canary_health", "CANARY_HEALTH_TOKEN", ("CANARY_INSTALLED_TOKEN",)),
+    PathwayStage("canary_rollback", "CANARY_ROLLBACK_TOKEN", ("CANARY_HEALTH_TOKEN",)),
+)
+ROLLBACK_PATHWAY = (PathwayStage("exact_rollback", "EXACT_ROLLBACK_TOKEN", ()),)
+
+
+def pathway_for_mode(mode: str, requested: list[str] | None = None) -> tuple[PathwayStage, ...]:
+    pathways = {
+        "historical_repair": CANONICAL_PATHWAY,
+        "mechanism_rehearsal": MECHANISM_REHEARSAL_PATHWAY,
+        "historical_non_source": HISTORICAL_NON_SOURCE_PATHWAY,
+        "canary": CANARY_PATHWAY,
+        "rollback": ROLLBACK_PATHWAY,
+    }
+    if mode not in pathways:
+        raise ValueError(f"unregistered execution mode: {mode}")
+    pathway = pathways[mode]
+    if not requested:
+        return pathway
+    by_id = {stage.stage_id: stage for stage in pathway}
+    if any(stage_id not in by_id for stage_id in requested):
+        raise ValueError("requested stage is not registered for mode")
+    selected = tuple(by_id[stage_id] for stage_id in requested)
+    available: set[str] = set()
+    for stage in selected:
+        if not set(stage.required_input_token_types).issubset(available):
+            raise ValueError("requested stages violate token dependency order")
+        available.add(stage.output_token_type)
+    return selected
+
 
 def freeze_anchors(frame: dict[str, Any]) -> dict[str, Any]:
     anchors = {name: frame.get(name) for name in REFERENCE_ANCHORS}

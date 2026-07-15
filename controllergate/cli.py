@@ -38,9 +38,9 @@ def main(argv: list[str] | None = None) -> int:
             destination = Path(args.json_path)
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
-    elif args.command == "run": result = run_manifest(args.manifest)
-    elif args.command == "historical-run": result = run_historical_lifecycle(args.config)
-    elif args.command == "resume": result = resume_run(args.manifest, args.run_id)
+    elif args.command == "run": result = run_manifest(args.manifest, invoked_via_cli=True)
+    elif args.command == "historical-run": result = run_historical_lifecycle(args.config, invoked_via_cli=True)
+    elif args.command == "resume": result = resume_run(args.manifest, args.run_id, invoked_via_cli=True)
     elif args.command == "status":
         if args.database:
             result = status_run(args.database, args.run_id)

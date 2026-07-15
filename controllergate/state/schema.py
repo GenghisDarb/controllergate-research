@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 
 TABLES = (
     "runs", "run_manifests", "events", "reaction_tokens", "failed_reactions",
@@ -14,7 +14,8 @@ TABLES = (
     "translocations", "junction_contracts", "global_inhibitors", "resource_budgets",
     "resource_events", "cleanup_events", "lineage_nodes", "authority_handovers",
     "variant_audits", "scaffold_changes", "source_ownership_tokens", "repair_license_tokens",
-    "schema_migrations",
+    "mechanism_outcomes", "test_assertions", "execution_receipts", "claim_bindings",
+    "canary_health_events", "schema_migrations",
 )
 
 DDL = """
@@ -169,5 +170,30 @@ CREATE TABLE IF NOT EXISTS repair_license_tokens(
   token_hash TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id),
   candidate_id TEXT NOT NULL, source_ownership_hash TEXT NOT NULL,
   license_json TEXT NOT NULL, consumed INTEGER NOT NULL DEFAULT 0
+);
+CREATE TABLE IF NOT EXISTS mechanism_outcomes(
+  outcome_id TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id),
+  mechanism_id TEXT NOT NULL, observed_status TEXT NOT NULL, blocker TEXT,
+  raw_output_hashes_json TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS test_assertions(
+  assertion_id TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id),
+  outcome_id TEXT NOT NULL REFERENCES mechanism_outcomes(outcome_id),
+  assertion_status TEXT NOT NULL, expected_mechanism_status TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS execution_receipts(
+  receipt_id TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id),
+  producer_component TEXT NOT NULL, verifier_identity TEXT NOT NULL,
+  execution_depth TEXT NOT NULL, mechanism_status TEXT NOT NULL,
+  test_assertion_status TEXT NOT NULL, receipt_json TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS claim_bindings(
+  claim_id TEXT PRIMARY KEY, receipt_id TEXT NOT NULL REFERENCES execution_receipts(receipt_id),
+  claim_type TEXT NOT NULL, binding_json TEXT NOT NULL, created_at TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS canary_health_events(
+  health_event_hash TEXT PRIMARY KEY, run_id TEXT NOT NULL REFERENCES runs(run_id),
+  slot_identity TEXT NOT NULL, observation_type TEXT NOT NULL,
+  status TEXT NOT NULL, evidence_json TEXT NOT NULL, created_at TEXT NOT NULL
 );
 """

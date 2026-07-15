@@ -106,8 +106,16 @@ class ControllerStateRepository:
                  record["nonce"], json.dumps(record, sort_keys=True), datetime.now(timezone.utc).isoformat()),
             )
 
+    def _insert_scoped_evidence(self, run_id: str, scoped: dict[str, Any], now: str) -> None:
+        outcome = scoped["outcome"]; assertion = scoped["assertion"]; receipt = scoped["receipt"]
+        self.connection.execute("INSERT INTO mechanism_outcomes(outcome_id,run_id,mechanism_id,observed_status,blocker,raw_output_hashes_json,created_at) VALUES (?,?,?,?,?,?,?)", (outcome["outcome_id"], run_id, outcome["mechanism_id"], outcome["observed_status"], outcome.get("blocker"), json.dumps(outcome["raw_output_hashes"], sort_keys=True), now))
+        self.connection.execute("INSERT INTO test_assertions(assertion_id,run_id,outcome_id,assertion_status,expected_mechanism_status,created_at) VALUES (?,?,?,?,?,?)", (assertion["assertion_id"], run_id, assertion["outcome_id"], assertion["assertion_status"], assertion["expected_mechanism_status"], now))
+        self.connection.execute("INSERT INTO execution_receipts(receipt_id,run_id,producer_component,verifier_identity,execution_depth,mechanism_status,test_assertion_status,receipt_json,created_at) VALUES (?,?,?,?,?,?,?,?,?)", (receipt["receipt_id"], run_id, receipt["producer_component"], receipt["verifier_identity"], receipt["execution_depth"], receipt["mechanism_observed_status"], receipt["test_assertion_status"], json.dumps(receipt, sort_keys=True), now))
+        for binding in scoped["bindings"]:
+            self.connection.execute("INSERT INTO claim_bindings(claim_id,receipt_id,claim_type,binding_json,created_at) VALUES (?,?,?,?,?)", (binding["claim_id"], receipt["receipt_id"], binding["claim_type"], json.dumps(binding, sort_keys=True), now))
+
     def commit_stage(self, run_id: str, stage: str, input_tokens: list[str], token: dict[str, Any],
-                     output: dict[str, Any], worker: str = "controllergate") -> dict[str, Any]:
+                     output: dict[str, Any], worker: str = "controllergate", scoped_evidence: dict[str, Any] | None = None) -> dict[str, Any]:
         input_identity = canonical_hash(input_tokens)
         event_id = f"{run_id}:{stage}:{input_identity[:16]}"
         existing = self.connection.execute("SELECT * FROM events WHERE event_id=?", (event_id,)).fetchone()
@@ -129,6 +137,17 @@ class ControllerStateRepository:
                 "INSERT INTO stage_outputs(event_id,run_id,stage_id,input_identity,output_json,output_hash) VALUES (?,?,?,?,?,?)",
                 (event_id, run_id, stage, input_identity, json.dumps(output, sort_keys=True), output_hash),
             )
+            contract = {"stage": stage, "producer": token["producer_event"], "verifier": token["independent_verifier"]}
+            contract_hash = canonical_hash(contract)
+            self.connection.execute("INSERT OR IGNORE INTO reaction_contracts(contract_hash,reaction_type,contract_json,verifier_identity,created_at) VALUES (?,?,?,?,?)", (contract_hash, stage, json.dumps(contract, sort_keys=True), token["independent_verifier"], now))
+            execution_hash = canonical_hash([run_id, stage, input_identity, output_hash, token["token_hash"]])
+            self.connection.execute("INSERT INTO reaction_executions(execution_hash,run_id,contract_hash,stage,input_hash,output_hash,status,blocker,parent_execution_hash,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)", (execution_hash, run_id, contract_hash, stage, input_identity, output_hash, "PASS", None, None, now))
+            fact_hash = canonical_hash([run_id, stage, "verified-stage-output", output_hash])
+            self.connection.execute("INSERT OR IGNORE INTO evidence_facts(fact_hash,run_id,subject,predicate,object_json,epistemic_state,decision_time_safe,source_hash,created_at) VALUES (?,?,?,?,?,?,?,?,?)", (fact_hash, run_id, stage, "observed_output", json.dumps(output, sort_keys=True), "VERIFIED", 1, output_hash, now))
+            lineage_hash = canonical_hash([run_id, stage, execution_hash])
+            self.connection.execute("INSERT OR IGNORE INTO lineage_nodes(node_hash,run_id,node_type,parent_hash,lineage_json,created_at) VALUES (?,?,?,?,?,?)", (lineage_hash, run_id, "stage_transition", None, json.dumps({"stage": stage, "execution_hash": execution_hash}, sort_keys=True), now))
+            if scoped_evidence:
+                self._insert_scoped_evidence(run_id, scoped_evidence, now)
             self.connection.execute("UPDATE runs SET status=?,updated_at=? WHERE run_id=?", (stage, now, run_id))
             self.connection.execute(
                 "INSERT INTO checkpoints(run_id,stage,event_hash,state_json,committed_at) VALUES (?,?,?,?,?) "
@@ -136,6 +155,29 @@ class ControllerStateRepository:
                 (run_id, stage, event["event_hash"], json.dumps({"stage": stage, "token_hash": token["token_hash"]}, sort_keys=True), now),
             )
         return {**event, "output_hash": output_hash, "idempotent_replay": False}
+
+    def commit_blocked_stage(self, run_id: str, stage: str, output: dict[str, Any], blocker: str,
+                             worker: str, scoped_evidence: dict[str, Any]) -> dict[str, Any]:
+        now = datetime.now(timezone.utc).isoformat(); output_hash = canonical_hash(output)
+        event_id = f"{run_id}:{stage}:blocked:{output_hash[:16]}"
+        with transaction(self.connection):
+            event = append_event(self.connection, event_id=event_id, run_id=run_id, event_type=stage,
+                                 input_token_hashes=[], output_token_hashes=[], status="BLOCK", blocker=blocker,
+                                 worker_identity=worker)
+            self.connection.execute("INSERT INTO stage_outputs(event_id,run_id,stage_id,input_identity,output_json,output_hash) VALUES (?,?,?,?,?,?)", (event_id, run_id, stage, canonical_hash([]), json.dumps(output, sort_keys=True), output_hash))
+            self.connection.execute("INSERT INTO failed_reactions(run_id,event_id,blocker,created_at) VALUES (?,?,?,?)", (run_id, event_id, blocker, now))
+            self.connection.execute("INSERT INTO blockers(run_id,blocker,active,created_at) VALUES (?,?,1,?)", (run_id, blocker, now))
+            self.connection.execute("INSERT INTO reopen_conditions(run_id,condition_json,satisfied) VALUES (?,?,0)", (run_id, json.dumps({"condition": "new_decision_time_safe_direct_evidence", "blocked_stage": stage}, sort_keys=True)))
+            contract = {"stage": stage, "producer": "controllergate.engine._stage_output", "verifier": "controllergate.stage.block_verifier"}
+            contract_hash = canonical_hash(contract)
+            self.connection.execute("INSERT OR IGNORE INTO reaction_contracts(contract_hash,reaction_type,contract_json,verifier_identity,created_at) VALUES (?,?,?,?,?)", (contract_hash, stage, json.dumps(contract, sort_keys=True), contract["verifier"], now))
+            execution_hash = canonical_hash([run_id, stage, output_hash, blocker])
+            self.connection.execute("INSERT INTO reaction_executions(execution_hash,run_id,contract_hash,stage,input_hash,output_hash,status,blocker,parent_execution_hash,created_at) VALUES (?,?,?,?,?,?,?,?,?,?)", (execution_hash, run_id, contract_hash, stage, canonical_hash([]), output_hash, "BLOCK", blocker, None, now))
+            fact_hash = canonical_hash([run_id, stage, "blocked-stage-output", output_hash])
+            self.connection.execute("INSERT OR IGNORE INTO evidence_facts(fact_hash,run_id,subject,predicate,object_json,epistemic_state,decision_time_safe,source_hash,created_at) VALUES (?,?,?,?,?,?,?,?,?)", (fact_hash, run_id, stage, "observed_block", json.dumps({"output": output, "blocker": blocker}, sort_keys=True), "VERIFIED_BLOCK", 1, output_hash, now))
+            self._insert_scoped_evidence(run_id, scoped_evidence, now)
+            self.connection.execute("UPDATE runs SET status='SAFE_ABSTENTION',blocker=?,terminal=1,updated_at=? WHERE run_id=?", (blocker, now, run_id))
+        return event
 
     def checkpoint(self, run_id: str) -> dict[str, Any] | None:
         row = self.connection.execute("SELECT * FROM checkpoints WHERE run_id=?", (run_id,)).fetchone()
@@ -203,3 +245,19 @@ class ControllerStateRepository:
         )
         self.connection.commit()
         return branch_hash
+
+    def record_proof_event(self, run_id: str, candidate_id: str, proof_type: str, proof: dict[str, Any], parent_hash: str = "0" * 64) -> str:
+        value = {"run_id": run_id, "candidate_id": candidate_id, "proof_type": proof_type, "proof": proof, "parent_hash": parent_hash}
+        proof_hash = canonical_hash(value)
+        self.connection.execute(
+            "INSERT OR IGNORE INTO proof_events(proof_hash,run_id,candidate_id,proof_type,proof_json,parent_hash,created_at) VALUES (?,?,?,?,?,?,?)",
+            (proof_hash, run_id, candidate_id, proof_type, json.dumps(proof, sort_keys=True), parent_hash, datetime.now(timezone.utc).isoformat()),
+        )
+        return proof_hash
+
+    def record_scoped_evidence(self, run_id: str, outcome: dict[str, Any], assertion: dict[str, Any], receipt: dict[str, Any], bindings: list[dict[str, Any]]) -> str:
+        now = datetime.now(timezone.utc).isoformat()
+        transaction_identity = canonical_hash([run_id, outcome, assertion, receipt, bindings])
+        with transaction(self.connection):
+            self._insert_scoped_evidence(run_id, {"outcome": outcome, "assertion": assertion, "receipt": receipt, "bindings": bindings}, now)
+        return transaction_identity
