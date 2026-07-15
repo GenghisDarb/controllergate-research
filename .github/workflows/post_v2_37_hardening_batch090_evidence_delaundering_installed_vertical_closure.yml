@@ -264,6 +264,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
+      - run: python -m pip install packaging
       - uses: actions/download-artifact@v4
         with: {name: batch090_raw_builder_evidence_for_independent_critic, path: "${{ runner.temp }}/builder"}
       - uses: actions/download-artifact@v4
