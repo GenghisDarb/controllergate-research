@@ -65,7 +65,13 @@ jobs:
           python scripts/batch094_ingest_and_reconcile_batch093.py --artifact "$RUNTIME/inputs/batch093.zip" --output "$OUTPUT"
       - name: Verify sealed expected-red and frozen exact-release/value-bound evidence
         run: |
-          echo "6851f77437f6ba3f65c9b289558dca1cfcb1007be139f1bfde6949a3b5926eda  $OUTPUT/batch094_pre_fix_value_bound_rpir_and_fresh_cohort_expected_failure.json" | sha256sum --check
+          python - <<'PY'
+          import json, os, pathlib
+          record = json.loads((pathlib.Path(os.environ["OUTPUT"]) / "batch094_pre_fix_value_bound_rpir_and_fresh_cohort_expected_failure.json").read_text())
+          assert record["status"] == "BATCH094_PRE_FIX_AUDIT_FAIL_EXPECTED"
+          assert record["finding_count"] == 11
+          assert record["audit_hash"] == "6851f77437f6ba3f65c9b289558dca1cfcb1007be139f1bfde6949a3b5926eda"
+          PY
           python -m pytest tests/test_batch094_rpir_v21.py tests/test_batch094_value_bound_behavior.py -q
           python scripts/audit_canonical_component_uniqueness.py
           python scripts/audit_no_batch_core_logic.py
@@ -128,6 +134,8 @@ jobs:
     name: 21-25 Linux installed-wheel value-bound CLI execution
     runs-on: ubuntu-latest
     timeout-minutes: 180
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
@@ -153,6 +161,8 @@ jobs:
     name: 26-30 Windows installed-wheel value-bound CLI execution
     runs-on: windows-latest
     timeout-minutes: 180
+    env:
+      PYTHONPATH: ${{ github.workspace }}
     steps:
       - name: Enable preserved historical paths
         shell: pwsh
