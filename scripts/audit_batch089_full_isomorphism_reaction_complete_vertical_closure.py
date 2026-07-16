@@ -140,6 +140,7 @@ def audit() -> tuple[dict[str, Any], list[str]]:
     later_batch091_prefix = "outputs/post_v2_37_hardening_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure/"
     later_batch092_prefix = "outputs/post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction/"
     later_batch093_prefix = "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/"
+    later_batch094_prefix = "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/"
     historical_changes = [
         name for name in git_diff
         if "batch089" not in name
@@ -148,6 +149,7 @@ def audit() -> tuple[dict[str, Any], list[str]]:
         and not name.replace("\\", "/").startswith(later_batch091_prefix)
         and not name.replace("\\", "/").startswith(later_batch092_prefix)
         and not name.replace("\\", "/").startswith(later_batch093_prefix)
+        and not name.replace("\\", "/").startswith(later_batch094_prefix)
     ]
     if historical_changes:
         failures.append("historical_output_mutation_detected")
