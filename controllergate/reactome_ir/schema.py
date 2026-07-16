@@ -5,6 +5,7 @@ from typing import Any
 
 RPIR_VERSION = "controllergate-rpir-v1"
 RPIR_V2_VERSION = "controllergate-rpir-v2"
+RPIR_V2_1_VERSION = "controllergate-rpir-v2.1"
 FIELD_STATES = (
     "SOURCE_VALUE",
     "SOURCE_EXPLICITLY_EMPTY",
@@ -121,4 +122,47 @@ def rpir_v2_schema() -> dict[str, Any]:
         },
         "field_states": list(FIELD_STATES),
         "authority_rule": "structured source values define candidate translations; only ControllerGate execution may grant software authority",
+    }
+
+
+def rpir_v2_1_schema() -> dict[str, Any]:
+    """Return the value-bound RPIR v2.1 contract without changing v1/v2."""
+    topology_fields = [
+        "entity_set_members", "candidate_set_members", "complex_components", "stoichiometry",
+        "entity_compartments", "source_destination_transitions", "stable_event_edges",
+        "normal_variant_graph", "modification_details", "catalyst_details", "regulator_details",
+        "literature_records", "edition_lineage", "timing_annotations", "nested_membership_closure",
+    ]
+    wrapped = {
+        "type": "object",
+        "required": ["state", "source", "value"],
+        "properties": {
+            "state": {"enum": list(FIELD_STATES)},
+            "source": {"type": "string", "minLength": 1},
+            "value": {},
+            "note": {"type": "string"},
+        },
+        "additionalProperties": False,
+    }
+    return {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": RPIR_V2_1_VERSION,
+        "title": "ControllerGate value-bound structured pathway event",
+        "type": "object",
+        "required": [
+            "rpir_version", "source_stable_id", "source_database_id", "source_occurrence_identity",
+            "chapter_identity", "source_graph_hash", *topology_fields,
+        ],
+        "properties": {
+            "rpir_version": {"const": RPIR_V2_1_VERSION},
+            "source_stable_id": {"type": "string", "pattern": "^R-HSA-[0-9]+$"},
+            "source_database_id": {"type": "integer", "minimum": 1},
+            "source_occurrence_identity": {"type": "string", "minLength": 16},
+            "chapter_identity": {"type": "string", "minLength": 1},
+            "source_graph_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+            **{name: wrapped for name in topology_fields},
+        },
+        "field_states": list(FIELD_STATES),
+        "migration": {"from": RPIR_V2_VERSION, "direction": "one_way", "idempotent": True},
+        "authority_rule": "value-bound source graphs authorize shadow candidate execution only",
     }

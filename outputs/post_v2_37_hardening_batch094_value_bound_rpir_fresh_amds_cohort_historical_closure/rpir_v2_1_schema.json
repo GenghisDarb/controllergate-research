@@ -1,0 +1,503 @@
+{
+  "$id": "controllergate-rpir-v2.1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "authority_rule": "value-bound source graphs authorize shadow candidate execution only",
+  "field_states": [
+    "SOURCE_VALUE",
+    "SOURCE_EXPLICITLY_EMPTY",
+    "SOURCE_NOT_APPLICABLE",
+    "SOURCE_NOT_EXPOSED_BY_FORMAT",
+    "PARSER_FAILED",
+    "UNRESOLVED_REFERENCE"
+  ],
+  "migration": {
+    "direction": "one_way",
+    "from": "controllergate-rpir-v2",
+    "idempotent": true
+  },
+  "properties": {
+    "candidate_set_members": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "catalyst_details": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "chapter_identity": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "complex_components": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "edition_lineage": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "entity_compartments": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "entity_set_members": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "literature_records": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "modification_details": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "nested_membership_closure": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "normal_variant_graph": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "regulator_details": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "rpir_version": {
+      "const": "controllergate-rpir-v2.1"
+    },
+    "source_database_id": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "source_destination_transitions": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "source_graph_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_occurrence_identity": {
+      "minLength": 16,
+      "type": "string"
+    },
+    "source_stable_id": {
+      "pattern": "^R-HSA-[0-9]+$",
+      "type": "string"
+    },
+    "stable_event_edges": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "stoichiometry": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    },
+    "timing_annotations": {
+      "additionalProperties": false,
+      "properties": {
+        "note": {
+          "type": "string"
+        },
+        "source": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "SOURCE_VALUE",
+            "SOURCE_EXPLICITLY_EMPTY",
+            "SOURCE_NOT_APPLICABLE",
+            "SOURCE_NOT_EXPOSED_BY_FORMAT",
+            "PARSER_FAILED",
+            "UNRESOLVED_REFERENCE"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "state",
+        "source",
+        "value"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "rpir_version",
+    "source_stable_id",
+    "source_database_id",
+    "source_occurrence_identity",
+    "chapter_identity",
+    "source_graph_hash",
+    "entity_set_members",
+    "candidate_set_members",
+    "complex_components",
+    "stoichiometry",
+    "entity_compartments",
+    "source_destination_transitions",
+    "stable_event_edges",
+    "normal_variant_graph",
+    "modification_details",
+    "catalyst_details",
+    "regulator_details",
+    "literature_records",
+    "edition_lineage",
+    "timing_annotations",
+    "nested_membership_closure"
+  ],
+  "title": "ControllerGate value-bound structured pathway event",
+  "type": "object"
+}

@@ -1,0 +1,62 @@
+{
+  "authority_allowed": "official evidence ingest and corrected current claims",
+  "authority_forbidden": [
+    "rewriting Batch093 evidence",
+    "repair authority",
+    "external release approval"
+  ],
+  "custody": {
+    "compiled_cache_environment_payloads": 0,
+    "duplicate_paths": 0,
+    "json_parse_failures": 0,
+    "jsonl_parse_failures": 0,
+    "nested_raw_archives": 0,
+    "symlinks": 0,
+    "unsafe_paths": 0,
+    "zip_entries": 113
+  },
+  "execution_depth": "byte_level_zip_and_semantic_manifest_verification",
+  "json_failures": [],
+  "jsonl_failures": [],
+  "manifests": [
+    {
+      "checked": 111,
+      "malformed": 0,
+      "manifest": "ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 106,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 105,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/PORTABLE_ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 107,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    }
+  ],
+  "producer": "scripts/batch094_ingest_and_reconcile_batch093.py",
+  "semantic_scope": "official Batch093 artifact custody and current-authority reconciliation",
+  "status": "PASS"
+}

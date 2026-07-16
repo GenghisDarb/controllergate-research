@@ -1,0 +1,167 @@
+{
+  "audit_hash": "6851f77437f6ba3f65c9b289558dca1cfcb1007be139f1bfde6949a3b5926eda",
+  "authority_allowed": "expected-red implementation boundary",
+  "authority_forbidden": [
+    "release approval",
+    "repair authority"
+  ],
+  "execution_depth": "source_and_official_Batch093_artifact_depth_reconstruction",
+  "finding_count": 11,
+  "findings": [
+    {
+      "artifact_evidence": {
+        "reported_members": 13,
+        "verified_members": 7
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-01",
+      "line_range": "not_found",
+      "path": "scripts/finalize_batch093.py",
+      "red_to_green_test": "test_batch094_source_member_count_is_seven",
+      "required_correction": "report only independently acquired and consumed members",
+      "risk": "unused and derived identities were counted as acquired source members",
+      "symbol": "source_manifest_projection"
+    },
+    {
+      "artifact_evidence": {
+        "outer_archive_size_repeated_as_member_size": 4732163201
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-02",
+      "line_range": "75-75",
+      "path": "scripts/finalize_batch093.py",
+      "red_to_green_test": "test_batch094_source_member_sizes_are_exact",
+      "required_correction": "recompute each member size from acquired bytes",
+      "risk": "member byte identities are misstated",
+      "symbol": "source_manifest_projection"
+    },
+    {
+      "artifact_evidence": {
+        "demonstrated_members": 0,
+        "stoichiometry": 0
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-03",
+      "line_range": "168-174",
+      "path": "controllergate/reactome_ir/structured.py",
+      "red_to_green_test": "test_batch094_rpir_v21_nested_topology",
+      "required_correction": "export recursive set, candidate, complex and source-state stoichiometry ledgers",
+      "risk": "nested reaction topology remains incomplete",
+      "symbol": "build_structured_rpir"
+    },
+    {
+      "artifact_evidence": {
+        "stable_edges": 16214,
+        "title_only": 0
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-04",
+      "line_range": "275-275",
+      "path": "controllergate/reactome_ir/structured.py",
+      "red_to_green_test": "test_batch094_stable_inverse_edges",
+      "required_correction": "materialize stable inverse topology and compute first divergence",
+      "risk": "inverse following and variant edges are not materialized",
+      "symbol": "build_structured_rpir"
+    },
+    {
+      "artifact_evidence": {
+        "distinct_strings": 16107,
+        "graph_hashes": 16107
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-05",
+      "line_range": "160-174",
+      "path": "controllergate/isomorphism/compiler.py",
+      "red_to_green_test": "test_batch094_value_bound_translation",
+      "required_correction": "bind actual source values by content-addressed references",
+      "risk": "graph hashes and counts dominate translation distinctness",
+      "symbol": "compile_structured_candidate"
+    },
+    {
+      "artifact_evidence": {
+        "ablation_executed": 46
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-06",
+      "line_range": "73-179",
+      "path": "controllergate/isomorphism/primitives.py",
+      "red_to_green_test": "test_batch094_behavioral_confusion_pairs",
+      "required_correction": "add typed transition laws and confusion-pair tests",
+      "risk": "unique effect keys are mistaken for behavioral semantics",
+      "symbol": "apply_primitive"
+    },
+    {
+      "artifact_evidence": {
+        "new_stage": false,
+        "stage": "plan_maturation"
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-07",
+      "line_range": "7-25",
+      "path": "scripts/run_batch093_installed_scenarios.py",
+      "red_to_green_test": "test_batch094_installed_cli_stage_traversal",
+      "required_correction": "move orchestration into installed CLI and invoke registered executor and verifier",
+      "risk": "checkout orchestration bypasses installed CLI and real executor/verifier traversal",
+      "symbol": "main"
+    },
+    {
+      "artifact_evidence": {
+        "eligible": 0,
+        "passing_roles": 0
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-08",
+      "line_range": "40-89",
+      "path": "scripts/run_batch093_role_cohort_gate.py",
+      "red_to_green_test": "test_batch094_fresh_cohort_materialization",
+      "required_correction": "attempt fresh source/provider/target materialization for all eight",
+      "risk": "the frozen cohort was not materially acquired",
+      "symbol": "main"
+    },
+    {
+      "artifact_evidence": {
+        "passing": 0,
+        "role_contracts": 80
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-09",
+      "line_range": "not_found",
+      "path": "scripts/run_batch093_role_cohort_gate.py",
+      "red_to_green_test": "test_batch094_blocked_rows_are_not_measurements",
+      "required_correction": "emit v2 role receipts only from executed producers and independent verifiers",
+      "risk": "blocked prerequisite rows may be mistaken for measurements",
+      "symbol": "main"
+    },
+    {
+      "artifact_evidence": [
+        "BLOCK_MINIMUM_COHORT_NOT_MET",
+        "HUMAN_AUTHORIZATION_BLOCKED_EXACT"
+      ],
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-10",
+      "line_range": "203-203",
+      "path": "scripts/finalize_batch093.py",
+      "red_to_green_test": "test_batch094_blocker_dependency_order",
+      "required_correction": "order blockers and defer authorization until AMDS/source ownership pass",
+      "risk": "downstream authorization is reported beside the active cohort blocker",
+      "symbol": "main"
+    },
+    {
+      "artifact_evidence": {
+        "mutations": 25
+      },
+      "commit": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "finding_id": "B094-RED-11",
+      "line_range": "227-230",
+      "path": "scripts/batch093_standalone_critic.py",
+      "red_to_green_test": "test_batch094_actual_evidence_mutations",
+      "required_correction": "mutate and resign copied actual raw evidence",
+      "risk": "mutations operate on invented summary models",
+      "symbol": "semantic_mutations"
+    }
+  ],
+  "observed_head": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+  "producer": "scripts/audit_batch094_pre_fix_value_bound_rpir_and_fresh_cohort.py",
+  "semantic_scope": "Batch093 claims entering Batch094",
+  "status": "BATCH094_PRE_FIX_AUDIT_FAIL_EXPECTED"
+}

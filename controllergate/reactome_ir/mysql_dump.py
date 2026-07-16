@@ -19,11 +19,15 @@ CORE_TABLES = frozenset(
         "FragmentDeletionModification", "FragmentInsertionModification", "FragmentModification",
         "FragmentReplacedModification", "InstanceEdit", "InstanceEdit_2_author", "NegativeRegulation",
         "Pathway", "Pathway_2_compartment", "Pathway_2_hasEvent", "Person", "PhysicalEntity",
-        "PhysicalEntity_2_name", "PositiveRegulation", "Reaction", "ReactionlikeEvent",
+        "PhysicalEntity_2_name", "PhysicalEntity_2_literatureReference", "PositiveRegulation",
+        "Publication", "Publication_2_author", "LiteratureReference", "Reaction", "ReactionlikeEvent",
         "ReactionlikeEvent_2_catalystActivity", "ReactionlikeEvent_2_compartment",
         "ReactionlikeEvent_2_input", "ReactionlikeEvent_2_output", "ReactionlikeEvent_2_reactionType",
         "ReactionlikeEvent_2_regulatedBy", "ReactionlikeEvent_2_requiredInputComponent", "Regulation",
-        "StableIdentifier", "TranslationalModification",
+        "StableIdentifier", "TranslationalModification", "ModifiedResidue", "GeneticallyModifiedResidue",
+        "GroupModifiedResidue", "PsiMod", "ReplacedResidue_2_psiMod",
+        "GenomeEncodedEntity_2_compartment", "OtherEntity_2_compartment",
+        "Polymer_2_compartment", "SimpleEntity_2_compartment",
     }
 )
 

@@ -32,6 +32,7 @@ def _request(url: str, *, byte_range: tuple[int, int] | None = None):
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-root", required=True)
+    parser.add_argument("--verify-existing", action="store_true", help="fully re-hash existing members instead of reacquiring their bytes")
     args = parser.parse_args()
     root = pathlib.Path(args.output_root); root.mkdir(parents=True, exist_ok=True)
     with _request(RECORD_URL) as response:
@@ -42,21 +43,37 @@ def main() -> int:
         raise ValueError("Reactome release-97 Zenodo record identity changed")
     rows=[]
     for filename,(start,end,size,crc_expected,sha_expected,member_name) in MEMBERS.items():
-        target=root/filename; digest=hashlib.sha256(); crc=0; total=0; decompressor=zlib.decompressobj(-15)
-        with _request(ARCHIVE_URL,byte_range=(start,end)) as response, target.open("wb") as stream:
-            while True:
-                compressed=response.read(1024*1024)
-                if not compressed: break
-                plain=decompressor.decompress(compressed)
+        target=root/filename; digest=hashlib.sha256(); crc=0; total=0
+        if args.verify_existing:
+            if not target.is_file():
+                raise ValueError(f"existing structured source member missing: {filename}")
+            with target.open("rb") as stream:
+                for plain in iter(lambda: stream.read(1024 * 1024), b""):
+                    digest.update(plain);crc=zlib.crc32(plain,crc);total+=len(plain)
+            acquisition_mode = "existing_bytes_fully_reverified"
+        else:
+            decompressor=zlib.decompressobj(-15)
+            with _request(ARCHIVE_URL,byte_range=(start,end)) as response, target.open("wb") as stream:
+                while True:
+                    compressed=response.read(1024*1024)
+                    if not compressed: break
+                    plain=decompressor.decompress(compressed)
+                    if plain:
+                        stream.write(plain);digest.update(plain);crc=zlib.crc32(plain,crc);total+=len(plain)
+                plain=decompressor.flush()
                 if plain:
                     stream.write(plain);digest.update(plain);crc=zlib.crc32(plain,crc);total+=len(plain)
-            plain=decompressor.flush()
-            if plain:
-                stream.write(plain);digest.update(plain);crc=zlib.crc32(plain,crc);total+=len(plain)
+            acquisition_mode = "verified_range_acquisition"
         observed_sha=digest.hexdigest();observed_crc=f"{crc&0xffffffff:08x}"
         if total != size or observed_crc != crc_expected or observed_sha != sha_expected:
             raise ValueError(f"structured source member mismatch: {filename}")
-        rows.append({"name":member_name,"path":str(target.resolve()),"size":total,"sha256":observed_sha,"crc32":observed_crc,"outer_archive_data_range":[start,end],**ARCHIVE_IDENTITY})
+        rows.append({
+            "name":member_name,"path":str(target.resolve()),"size":total,"sha256":observed_sha,"crc32":observed_crc,
+            "outer_archive_data_range":[start,end],"acquisition_mode":acquisition_mode,"bytes_reverified":True,
+            "consumed":True,"source_purpose":"RPIR v2.1 exact structured parsing","release":97,
+            "zenodo_record_id":21383214,"zenodo_doi":"10.5281/zenodo.21383214",
+            "outer_archive_identity":{"size":ARCHIVE_IDENTITY["size"],"md5":ARCHIVE_IDENTITY["md5"]},
+        })
     manifest=root/"reactome-release97-structured-source-manifest.json"
     manifest.write_text(json.dumps(rows,indent=2,sort_keys=True)+"\n",encoding="utf-8",newline="\n")
     custody={"status":"PASS","producer":"scripts/acquire_reactome97_structured.py","execution_depth":"official_Zenodo_record_and_verified_member_ranges","semantic_scope":"Reactome release 97 structured source custody","record_metadata_sha256":hashlib.sha256(record_bytes).hexdigest(),"archive_identity":ARCHIVE_IDENTITY,"member_count":len(rows),"members":rows,"raw_sources_outside_git":True,"authority_allowed":"RPIR v2 parsing","authority_forbidden":["software causal authority","repair authorization"]}
