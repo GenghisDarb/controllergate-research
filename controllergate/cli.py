@@ -15,6 +15,7 @@ from .state.repository import ControllerStateRepository
 from .proof.count_service import public_counts
 from .watch.controller import WatchController
 from .isomorphism.scenarios import execute_scenario
+from .isomorphism.runtime import execute_structured_scenario
 
 
 def _load_scenario(path: str, scenario_id: str | None = None) -> dict[str, object]:
@@ -43,6 +44,7 @@ def main(argv: list[str] | None = None) -> int:
     connector_verify = connector_sub.add_parser("verify"); connector_verify.add_argument("--manifest", required=True)
     watch = sub.add_parser("watch"); watch.add_argument("--database", required=True); watch.add_argument("--connector-id", required=True); watch.add_argument("--events", required=True); watch.add_argument("--cursor"); watch.add_argument("--once", action="store_true")
     reactome = sub.add_parser("reactome-simulate"); reactome.add_argument("--scenario", required=True); reactome.add_argument("--scenario-id"); reactome.add_argument("--database", required=True); reactome.add_argument("--platform", required=True)
+    structured_reactome = sub.add_parser("reactome-execute"); structured_reactome.add_argument("--scenario", required=True); structured_reactome.add_argument("--scenario-id"); structured_reactome.add_argument("--database", required=True); structured_reactome.add_argument("--platform", required=True)
     args = parser.parse_args(argv)
     if args.command == "doctor":
         result = doctor(args.runtime_root, deep=args.deep, repo_root=args.repo_root)
@@ -68,6 +70,8 @@ def main(argv: list[str] | None = None) -> int:
         result = WatchController(args.database).observe(args.connector_id, events, args.cursor)
     elif args.command == "reactome-simulate":
         result = execute_scenario(_load_scenario(args.scenario, args.scenario_id), args.database, platform=args.platform)
+    elif args.command == "reactome-execute":
+        result = execute_structured_scenario(_load_scenario(args.scenario, args.scenario_id), args.database, platform=args.platform)
     elif args.command == "migrate-state":
         repository = ControllerStateRepository(args.database)
         try: result = repository.migrate_json_state(getattr(args, "from_json"))

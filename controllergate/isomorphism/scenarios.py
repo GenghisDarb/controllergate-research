@@ -6,7 +6,7 @@ import sqlite3
 from pathlib import Path
 from typing import Any
 
-from .primitives import GENERIC_PRIMITIVES, apply_primitive
+from .primitives import GENERIC_PRIMITIVES, PRIMITIVE_CONTRACTS, apply_primitive, conformance_event
 
 
 CHAPTER_ENGINEERING_SCOPES = {
@@ -80,17 +80,23 @@ def execute_scenario(scenario: dict[str, Any], database: str | Path, *, platform
     CREATE TABLE IF NOT EXISTS test_assertions(assertion_id TEXT PRIMARY KEY, outcome_id TEXT, assertion_status TEXT, payload_json TEXT);
     """)
     state: dict[str, Any] = {"primitive_trace": []}
-    event = {"source_occurrence_identity": scenario["source_occurrence_identity"]}
+    event = conformance_event()
+    event["source_occurrence_identity"] = scenario["source_occurrence_identity"]
     results = []
     for primitive in scenario["primitive_ids"]:
         result = apply_primitive(primitive, state, event)
         results.append(result)
         if result["status"] == "PASS":
             state = result["state"]
+    negative_results = []
+    for primitive in scenario["primitive_ids"]:
+        malformed = dict(event)
+        malformed.pop(PRIMITIVE_CONTRACTS[primitive]["required_event_field"], None)
+        negative_results.append(apply_primitive(primitive, state, malformed))
     negative = apply_primitive("EVENT_CONTRACT", state, {})
-    mechanism_status = "PASS" if all(row["status"] == "PASS" for row in results) and negative["status"] == "BLOCK" else "FAIL"
+    mechanism_status = "PASS" if all(row["status"] == "PASS" for row in results) and all(row["status"] == "BLOCK" for row in negative_results) and negative["status"] == "BLOCK" else "FAIL"
     module_origin = str(Path(__file__).resolve())
-    outcome = {"scenario_id": scenario["scenario_id"], "chapter": scenario["chapter"], "platform": platform, "mechanism_status": mechanism_status, "primitive_trace": state["primitive_trace"], "negative_control_status": negative["status"], "authority": "shadow_non_authorizing", "module_origin": module_origin, "installed_site_packages_origin": "site-packages" in module_origin.replace("\\", "/").lower()}
+    outcome = {"scenario_id": scenario["scenario_id"], "chapter": scenario["chapter"], "platform": platform, "mechanism_status": mechanism_status, "primitive_trace": state["primitive_trace"], "negative_control_status": negative["status"], "primitive_negative_controls": len(negative_results), "authority": "shadow_non_authorizing", "module_origin": module_origin, "installed_site_packages_origin": "site-packages" in module_origin.replace("\\", "/").lower()}
     event_id = _hash([scenario["scenario_id"], "event"]); outcome_id = _hash([scenario["scenario_id"], "outcome"]); assertion_id = _hash([scenario["scenario_id"], "assertion"])
     connection.execute("INSERT OR REPLACE INTO scenario_events VALUES (?,?,?,?)", (event_id, scenario["scenario_id"], "RPIR_SCENARIO_STARTED", json.dumps(scenario, sort_keys=True)))
     connection.execute("INSERT OR REPLACE INTO mechanism_outcomes VALUES (?,?,?,?)", (outcome_id, scenario["scenario_id"], mechanism_status, json.dumps(outcome, sort_keys=True)))
