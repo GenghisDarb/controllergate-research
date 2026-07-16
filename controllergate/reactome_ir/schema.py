@@ -4,6 +4,15 @@ from typing import Any
 
 
 RPIR_VERSION = "controllergate-rpir-v1"
+RPIR_V2_VERSION = "controllergate-rpir-v2"
+FIELD_STATES = (
+    "SOURCE_VALUE",
+    "SOURCE_EXPLICITLY_EMPTY",
+    "SOURCE_NOT_APPLICABLE",
+    "SOURCE_NOT_EXPOSED_BY_FORMAT",
+    "PARSER_FAILED",
+    "UNRESOLVED_REFERENCE",
+)
 EVENT_TYPES = ("transition", "binding", "dissociation", "uncertain", "omitted")
 EVIDENCE_CLASSES = (
     "DIRECT_CURATED",
@@ -55,3 +64,61 @@ def maturity_for(*, event_type: str, inferred_from: str | None, chapter: str, te
     if chapter == "Disease":
         return "DISEASE_VARIANT_CURATED"
     return "DIRECT_CURATED"
+
+
+def field_value(value: Any, *, state: str, source: str, note: str | None = None) -> dict[str, Any]:
+    """Wrap an RPIR v2 field without collapsing absent-source states."""
+    if state not in FIELD_STATES:
+        raise ValueError(f"invalid RPIR v2 field state: {state}")
+    if state == "SOURCE_VALUE" and value is None:
+        raise ValueError("SOURCE_VALUE requires a value")
+    if state != "SOURCE_VALUE" and value not in (None, [], {}, ""):
+        raise ValueError(f"{state} cannot carry an asserted value")
+    result = {"state": state, "source": source, "value": value}
+    if note:
+        result["note"] = note
+    return result
+
+
+def rpir_v2_schema() -> dict[str, Any]:
+    field_names = [
+        "participants", "catalysts", "active_units", "positive_regulators", "negative_regulators",
+        "entity_sets", "candidate_sets", "complexes", "stoichiometry", "compartments",
+        "modifications", "preceding_events", "following_events", "normal_event", "variant_events",
+        "orthology_sources", "literature_references", "edition_lineage", "timing_annotations",
+    ]
+    wrapped = {
+        "type": "object",
+        "required": ["state", "source", "value"],
+        "properties": {
+            "state": {"enum": list(FIELD_STATES)},
+            "source": {"type": "string", "minLength": 1},
+            "value": {},
+            "note": {"type": "string"},
+        },
+        "additionalProperties": False,
+    }
+    return {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": RPIR_V2_VERSION,
+        "title": "ControllerGate structured pathway event",
+        "type": "object",
+        "required": [
+            "rpir_version", "source_stable_id", "source_database_id", "source_class",
+            "source_occurrence_identity", "chapter_identity", "display_name", "evidence_maturity",
+            *field_names,
+        ],
+        "properties": {
+            "rpir_version": {"const": RPIR_V2_VERSION},
+            "source_stable_id": {"type": "string", "pattern": "^R-HSA-[0-9]+$"},
+            "source_database_id": {"type": "integer", "minimum": 1},
+            "source_class": {"type": "string", "minLength": 1},
+            "source_occurrence_identity": {"type": "string", "minLength": 16},
+            "chapter_identity": {"type": "string", "minLength": 1},
+            "display_name": {"type": "string", "minLength": 1},
+            "evidence_maturity": {"enum": list(EVIDENCE_CLASSES)},
+            **{name: wrapped for name in field_names},
+        },
+        "field_states": list(FIELD_STATES),
+        "authority_rule": "structured source values define candidate translations; only ControllerGate execution may grant software authority",
+    }
