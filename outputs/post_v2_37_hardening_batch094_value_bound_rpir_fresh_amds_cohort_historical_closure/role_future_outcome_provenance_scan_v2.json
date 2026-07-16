@@ -1,0 +1,31 @@
+{
+  "admitted_future_or_outcome_evidence_count": 0,
+  "authority_allowed": "exclude contaminated inputs",
+  "authority_forbidden": [
+    "role measurement pass",
+    "AMDS input authority",
+    "repair authority"
+  ],
+  "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+  "execution_depth": "paths_keys_values_argv_lineage_semantic_scan",
+  "files_scanned": 5,
+  "lexical_findings": [],
+  "parent_evidence": {
+    "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+    "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+    "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+    "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+  },
+  "producer": "scripts/finalize_batch094_scientific_gates.py",
+  "raw_evidence_hashes": {
+    "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+    "historical_command_contracts.jsonl": "2c2bf47d9e0300407704a2dd8240c26878994fe0a59232d0571ee1c40e3378bc",
+    "historical_incident_snapshots.jsonl": "43aca36641b1eca67de622bf07b667951b86c61a9dfe1da6cba7017e51e7e2c6",
+    "historical_provider_capsules.jsonl": "9365c534dd060c04804248ccdf873a887d8bce01452b30cd5c4e4a30e99faf6b",
+    "historical_target_reproducer_capsules.jsonl": "6d616aa2de8b93c72a7c96aa7a16e6312c91e42ba9a21e0eda40b1797630c018"
+  },
+  "reopen_condition": "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+  "semantic_scope": "decision-time role input eligibility",
+  "source_or_candidate_run_frame_identity": "batch094:fresh-frozen-cohort:pre-role-gate",
+  "status": "PASS"
+}

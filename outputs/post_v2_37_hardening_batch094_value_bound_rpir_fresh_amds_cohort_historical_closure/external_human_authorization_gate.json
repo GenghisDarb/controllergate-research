@@ -1,0 +1,27 @@
+{
+  "active_first_blocker": false,
+  "authority_allowed": "exact blocked boundary",
+  "authority_forbidden": [
+    "repository-generated approval",
+    "patch actuation",
+    "public write",
+    "count increment"
+  ],
+  "execution_depth": "external_authority_absence_and_upstream_dependency_check",
+  "gate_decision": "DEPENDENCY_BLOCKED_NOT_ACTIVE_FIRST_BLOCKER",
+  "producer": "controllergate.external_authority.boundary_validator",
+  "protected_environment_approval_consumed": false,
+  "raw_evidence_hashes": {
+    "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+    "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+    "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+    "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+  },
+  "reopen_condition": "after AMDS and source ownership pass, obtain separate protected external approval bound to run, candidate, patch, path, nonce, and expiry",
+  "repository_generated_approval": false,
+  "run_historical_actuation": false,
+  "semantic_scope": "historical non-counting source actuation",
+  "source_or_candidate_run_frame_identity": "batch094:normal-evidence-run:no-actuation",
+  "status": "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+  "upstream_first_blocker": "BLOCK_MINIMUM_COHORT_NOT_MET"
+}

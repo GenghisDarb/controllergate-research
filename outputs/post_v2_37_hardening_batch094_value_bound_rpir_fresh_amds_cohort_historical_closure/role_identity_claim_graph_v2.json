@@ -1,0 +1,24 @@
+{
+  "authority_allowed": "record absence of role authority",
+  "authority_forbidden": [
+    "role equivalence",
+    "AMDS probe execution",
+    "terminal authority"
+  ],
+  "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+  "candidate_nodes": 8,
+  "execution_depth": "upstream_gate_only_no_role_claim_edges",
+  "producer": "scripts/finalize_batch094_scientific_gates.py",
+  "raw_evidence_hashes": {
+    "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+    "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+    "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+    "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+  },
+  "reopen_condition": "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+  "semantic_scope": "role identity claim graph",
+  "source_or_candidate_run_frame_identity": "batch094:frozen-eight:role-claim-graph-v2",
+  "status": "BLOCK_UPSTREAM_MATERIALIZATION",
+  "unproven_reuse_edges": 0,
+  "verified_role_edges": 0
+}

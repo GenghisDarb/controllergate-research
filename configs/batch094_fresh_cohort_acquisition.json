@@ -1,0 +1,266 @@
+{
+  "authority": "decision_time_acquisition_and_materialization_only",
+  "candidate_order_frozen_before_execution": true,
+  "episodes": [
+    {
+      "candidate_class": "issue_derived_reproduction_candidate",
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "expected_failure_markers": [
+        "Not a git repository"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        "."
+      ],
+      "issue_url": "https://github.com/akaihola/darker/issues/112",
+      "repository": "https://github.com/akaihola/darker",
+      "source_commit": "a2d13656adfaa010fb6c7339087f3347ad2b815a",
+      "target_argv": [
+        "{python}",
+        "-m",
+        "darker",
+        "--check",
+        "src"
+      ],
+      "target_environment": {
+        "GIT_DIR": ".git"
+      },
+      "target_paths": [
+        "src"
+      ]
+    },
+    {
+      "candidate_class": "native_candidate",
+      "candidate_id": "py_bugger_issue_65",
+      "expected_failure_markers": [
+        "Inserted 2 bugs",
+        "len(modifications) == 1"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        ".",
+        "pytest"
+      ],
+      "repository": "https://github.com/ehmatthes/py-bugger",
+      "source_commit": "67cf214f2d619848e90280fd4469377123e81b94",
+      "target_argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys",
+        "-q"
+      ],
+      "target_paths": [
+        "tests/integration_tests/test_modifications.py",
+        "tests/sample_code/sample_scripts/two_trys.py"
+      ]
+    },
+    {
+      "candidate_class": "historical_native_non_counting",
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "expected_failure_markers": [
+        "FAILED tests/cloudpickle_test.py::test_extract_class_dict"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        ".",
+        "./tests/cloudpickle_testpkg",
+        "pytest==9.1.1",
+        "psutil==5.9.4",
+        "tornado==6.2",
+        "setuptools==67.6.0"
+      ],
+      "repository": "https://github.com/cloudpipe/cloudpickle",
+      "source_commit": "a76f0812ccdbbd1397f36d536dc4d57b6d0557d6",
+      "target_argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "tests/cloudpickle_test.py::test_extract_class_dict",
+        "-q",
+        "--tb=no"
+      ],
+      "target_paths": [
+        "tests/cloudpickle_test.py",
+        "tests/cloudpickle_testpkg"
+      ]
+    },
+    {
+      "candidate_class": "historical_native_non_counting",
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "expected_failure_markers": [
+        "FAILED tests/test_datetimes.py",
+        "test_compare_datetime_and_time_with_timezone"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        ".",
+        "pytest==8.2.0",
+        "python-dateutil==2.9.0.post0"
+      ],
+      "repository": "https://github.com/spulec/freezegun",
+      "source_commit": "df263dcec48f43154a5873eb0dff2d4ba94374da",
+      "target_argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "tests/test_datetimes.py",
+        "-q",
+        "--tb=no"
+      ],
+      "target_paths": [
+        "tests/test_datetimes.py"
+      ]
+    },
+    {
+      "candidate_class": "native_candidate",
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "expected_failure_markers": [
+        "No module named 'aifc'"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        "tox"
+      ],
+      "issue_url": "https://github.com/beetbox/audioread/issues/144",
+      "repository": "https://github.com/beetbox/audioread",
+      "source_commit": "577f8e2cbe99f33dd7d236deb1626e372f4762e9",
+      "target_argv": [
+        "{python}",
+        "-m",
+        "tox",
+        "-e",
+        "py313"
+      ],
+      "target_paths": [
+        "test/test_audioread.py",
+        "pyproject.toml"
+      ]
+    },
+    {
+      "candidate_class": "native_candidate",
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "expected_failure_markers": [
+        "failed",
+        "warning"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        "."
+      ],
+      "install_environment": {
+        "SETUPTOOLS_SCM_PRETEND_VERSION_FOR_PYTEST": "8.4.0"
+      },
+      "issue_url": "https://github.com/pytest-dev/pytest/issues/13480",
+      "repository": "https://github.com/pytest-dev/pytest",
+      "source_commit": "592c27ca4bf1db4abe62bf86be422a143aad0984",
+      "target_argv": [
+        "{python}",
+        "-m",
+        "pytest",
+        "testing/test_unraisableexception.py",
+        "testing/test_threadexception.py",
+        "testing/test_warnings.py",
+        "-q",
+        "--tb=no",
+        "-Wdefault"
+      ],
+      "target_paths": [
+        "testing/test_unraisableexception.py",
+        "testing/test_threadexception.py",
+        "testing/test_warnings.py"
+      ]
+    },
+    {
+      "candidate_class": "incident_non_source_candidate",
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "expected_failure_markers": [
+        "silent failure"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        "./cli"
+      ],
+      "issue_url": "https://github.com/OpenBB-finance/OpenBB/issues/7585",
+      "repository": "https://github.com/OpenBB-finance/OpenBB.git",
+      "secondary_input_cutoff": "2026-07-13T18:15:59Z",
+      "secondary_input_repository": "https://github.com/EodHistoricalData/EODHD-openapi.git",
+      "source_commit": "1c74893140292944e71ff5cdd9536edf12f05483",
+      "target_argv": [
+        "{venv_bin}/openbb",
+        "--generate-spec",
+        "--server",
+        "http://localhost:8000",
+        "--openapi-path",
+        "/openapi.yaml",
+        "--output",
+        "eodhd.spec"
+      ],
+      "target_paths": [
+        "cli"
+      ]
+    },
+    {
+      "candidate_class": "incident_non_source_candidate",
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "expected_failure_markers": [
+        "my project with spaces"
+      ],
+      "install_argv": [
+        "{python}",
+        "-m",
+        "pip",
+        "install",
+        "."
+      ],
+      "issue_url": "https://github.com/python-poetry/poetry/issues/10974",
+      "repository": "https://github.com/python-poetry/poetry.git",
+      "source_commit": "811a12dae0fe81f199e3f1b88b8b8be9eed543c2",
+      "target_argv": [
+        "{venv_bin}/poetry",
+        "init",
+        "-n"
+      ],
+      "target_paths": [
+        "src/poetry/console/commands/init.py",
+        "pyproject.toml"
+      ],
+      "working_directory_basename": "my project with spaces"
+    }
+  ],
+  "forbidden_inputs": [
+    "terminal_class",
+    "gold_patch",
+    "post_repair_output",
+    "post_validation_output",
+    "future_revision",
+    "fixed_outcome",
+    "count_outcome",
+    "class_associated_measurement",
+    "issue_body_solution_guidance"
+  ],
+  "minimum_eligible_episodes": 8,
+  "replacement_after_outcome_allowed": false,
+  "schema_version": "batch094-fresh-cohort-acquisition-v1"
+}

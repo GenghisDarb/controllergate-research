@@ -1,0 +1,23 @@
+{
+  "authority_allowed": "not-run boundary",
+  "authority_forbidden": [
+    "implicit equivalence",
+    "role pass"
+  ],
+  "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+  "equivalence_proof_count": 0,
+  "executed_role_receipt_count": 0,
+  "execution_depth": "no_executed_role_receipts_exist",
+  "producer": "scripts/finalize_batch094_scientific_gates.py",
+  "raw_evidence_hashes": {
+    "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+    "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+    "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+    "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+  },
+  "reopen_condition": "execute and independently verify all ten roles for all eight materialized episodes",
+  "semantic_scope": "cross-role reuse",
+  "source_or_candidate_run_frame_identity": "batch094:frozen-eight:role-reuse-v2",
+  "status": "NOT_RUN_UPSTREAM_MATERIALIZATION_BLOCK",
+  "unproven_cross_role_reuse_count": 0
+}

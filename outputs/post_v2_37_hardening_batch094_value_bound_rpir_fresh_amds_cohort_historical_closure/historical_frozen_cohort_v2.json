@@ -1,0 +1,55 @@
+{
+  "authority_allowed": "AMDS measurement eligibility only when all eight materialize",
+  "authority_forbidden": [
+    "repair",
+    "patch actuation",
+    "count increment",
+    "candidate substitution",
+    "terminal assignment"
+  ],
+  "blocked_candidates": [
+    {
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "exact_blockers": [
+        "provider_dependency_and_project_install_failed"
+      ]
+    },
+    {
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "exact_blockers": [
+        "project_target_failure_not_materialized"
+      ]
+    }
+  ],
+  "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+  "broker_operation_count": 119,
+  "candidate_order": [
+    "darker_issue_112_relative_git_dir",
+    "py_bugger_issue_65",
+    "cloudpickle_507_py313_typevar_distutils",
+    "freezegun_547_py313_datetimes_assertion",
+    "audioread_144_py313_aifc_removed",
+    "pytest_13480_wdefault_unraisable_threadexception",
+    "incident_openbb_7585_modular_openapi_reproducer",
+    "incident_poetry_10974_init_duplicate_name"
+  ],
+  "execution_depth": "fresh_exact_source_provider_project_target_materialization",
+  "frozen_candidate_count": 8,
+  "historical_count_increment": 0,
+  "materialized_candidate_count": 6,
+  "materialized_candidates": [
+    "py_bugger_issue_65",
+    "cloudpickle_507_py313_typevar_distutils",
+    "freezegun_547_py313_datetimes_assertion",
+    "audioread_144_py313_aifc_removed",
+    "pytest_13480_wdefault_unraisable_threadexception",
+    "incident_poetry_10974_init_duplicate_name"
+  ],
+  "patch_operation_count": 0,
+  "producer": "controllergate.amds.fresh_cohort.execute_fresh_cohort",
+  "reopen_condition": "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+  "replacement_count": 0,
+  "required_candidate_count": 8,
+  "semantic_scope": "frozen eight-episode historical AMDS cohort eligibility",
+  "status": "BLOCK"
+}
