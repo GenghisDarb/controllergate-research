@@ -1,5 +1,13 @@
 # ControllerGate
 
+## Batch094 value-bound RPIR and frozen historical cohort
+
+Batch094 extends the exact Reactome release 97 representation to `controllergate-rpir-v2.1`. All 2,916 pathway occurrences and 16,814 reaction occurrences remain represented with zero silent omissions. Value-bound translation records preserve source members, complexes, compartments, stable edges, normal/variant relations, literature and edition lineage, timing annotations, and first divergence. The consumed exact-release tables do not expose numeric stoichiometry, so that field remains an explicit source-format blocker rather than a fabricated value.
+
+The compiler gives all 16,814 reactions nonauthorizing candidate translations and executes 46 distinct generic primitive behaviors with confusion-pair controls and ablations. This is candidate-translation and installed shadow-execution depth, not repair authority or production promotion.
+
+The frozen eight-episode historical cohort materializes six exact episodes without replacement. Darker remains blocked at provider/project installation and OpenBB does not materialize its exact project target failure. Role measurement, AMDS probes and baselines, proof authority, historical patch actuation, deployment, and count changes therefore remain `NOT_RUN`. Human authorization was not granted. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT`; protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, and repair counts remain 6 issue-derived and 4 native external with historical increment 0. Full scoring is disallowed, public writes and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
 ## Batch093 structured semantic graph and role-cohort boundary
 
 Batch093 acquires exact Reactome release 97 structured data from the official Zenodo release, reconciles 2,916 pathway occurrences and 16,814 reaction occurrences to stable structured identities, and extends RPIR to `controllergate-rpir-v2`. Participants, controls, compartments, source relations, evidence maturity, and field-level absence states are represented explicitly. The 29 documentary chapters remain the narrative boundary; structured coverage is candidate-translation input, not production implementation or repair authority.

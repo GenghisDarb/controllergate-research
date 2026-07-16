@@ -1,5 +1,11 @@
 # Capability inventory
 
+## Batch094 additions and boundaries
+
+Batch094 implements `controllergate-rpir-v2.1` value-bound source evidence, 16,814 nonauthorizing translation candidates, and behaviorally distinct execution for all 46 generic primitive families. Installed CLI scenarios remain shadow evidence. Numeric stoichiometry is explicitly blocked where the exact release tables do not expose a value.
+
+Fresh frozen-cohort acquisition is implemented and executes through the canonical operation broker. Six of eight episodes materialize; the minimum cohort does not. Consequently AMDS, proof authority, historical source actuation, deployment, and repair counting are not capabilities demonstrated by Batch094. Product Beta RC stays `PRODUCT_BETA_RC_BLOCKED_EXACT` under protocol `v2.19` and package `0.2.0b2.dev0`.
+
 ## Batch093 capability additions
 
 - Exact release-bound structured-source custody and documentary/structured crosswalk.

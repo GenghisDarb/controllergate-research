@@ -1,5 +1,11 @@
 # Public release readiness
 
+## Batch094 decision
+
+Batch094 remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. The value-bound Reactome compiler and installed shadow scenarios are internal capabilities, not production promotion. Only six of eight frozen historical episodes materialize, so semantic-role measurement, AMDS baselines, repair authority, historical actuation, and real package deployment remain not run. Human authorization is absent.
+
+The protocol remains `v2.19`, the package remains `0.2.0b2.dev0`, counts remain six issue-derived and four native external with historical increment zero, full scoring is disallowed, public writes and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
 ## Batch093 remains blocked
 
 Batch093 strengthens structured source custody, RPIR semantics, topology-based translation, executable primitive contracts, and installed shadow execution. The historical AMDS path does not advance because the frozen eight-episode cohort lacks fresh, independently verified decision-time measurements for all ten semantic roles. Repository code does not synthesize external human approval.

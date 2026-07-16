@@ -1,5 +1,11 @@
 # Current status
 
+## Batch094 value-bound source and fresh-cohort status
+
+Batch094 preserves protocol `v2.19`, package version `0.2.0b2.dev0`, six issue-derived repairs, four native external repairs, and historical increment zero. RPIR v2.1 covers all 2,916 pathway and 16,814 reaction occurrences with zero silent omissions and assigns every reaction a value-bound, nonauthorizing candidate translation. Forty-six generic primitives have distinct behavioral tests. Exact numeric stoichiometry remains source-format blocked and is not inferred.
+
+Fresh decision-time acquisition materializes six of the frozen eight historical episodes without substitution. Darker is blocked at provider/project installation and OpenBB does not materialize the exact project target failure. The minimum cohort gate therefore blocks semantic-role measurement, AMDS execution, proof authority, historical actuation, deployment, and count mutation. Separate human authorization is absent. The current result is `PRODUCT_BETA_RC_BLOCKED_EXACT`; full scoring is disallowed, public writes and automatic merge are inactive, production readiness is false, and self-maintaining software remains false/not demonstrated.
+
 ## Batch093 structured-source and AMDS cohort status
 
 Exact Reactome release 97 structured sources are byte-identified from official Zenodo record 21383214. RPIR v2 represents 16,814 reaction occurrences and 2,916 pathway occurrences with stable structural identities and explicit field states. The structural compiler provides full nonauthorizing disposition coverage, and 46 generic primitives have distinct executable shadow semantics. These are structured graph, candidate translation, and installed shadow capabilities—not counted repairs or production authority.

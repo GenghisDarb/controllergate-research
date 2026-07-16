@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch094 external-review boundary
+
+Batch094 extends RPIR to a value-bound v2.1 representation and preserves complete 2,916-pathway/16,814-reaction candidate coverage with zero silent omissions. All translations remain nonauthorizing; 46 primitive families execute distinct shadow behavior. The exact source does not expose numeric stoichiometry, so the missing values remain an explicit format blocker.
+
+Six of eight frozen historical episodes materialize without replacement. Darker and OpenBB remain exact blockers, so role measurement, AMDS, proof authority, patch actuation, package deployment, and count changes do not run. Human authorization was not granted. The result remains `PRODUCT_BETA_RC_BLOCKED_EXACT`, protocol `v2.19`, package `0.2.0b2.dev0`, six issue-derived and four native external repairs, and zero historical increment. This is not Product Beta approval, production readiness, memory-lift evidence, or self-maintaining software.
+
 ## Batch093 structured semantic graph and cohort gate
 
 Batch093 verifies the official Batch092 artifact and an identical Batch091 reference copy, then acquires exact Reactome release 97 structured sources from the official release archive. RPIR v2 reconciles 16,814 reaction occurrences and 2,916 pathway occurrences with zero silent omissions. A topology-based compiler assigns all reactions nonauthorizing dispositions, and 46 generic primitive contracts execute distinct shadow behavior through the canonical read-only stage and SQLite state.

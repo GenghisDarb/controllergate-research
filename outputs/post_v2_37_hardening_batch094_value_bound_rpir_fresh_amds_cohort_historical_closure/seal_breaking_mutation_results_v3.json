@@ -1,0 +1,28 @@
+{
+  "authority_allowed": "critic rejection evidence",
+  "authority_forbidden": "release approval",
+  "executed": 2,
+  "execution_depth": "physical_copy_byte_mutation",
+  "producer": "scripts/batch094_standalone_critic.py",
+  "rejected": 2,
+  "results": [
+    {
+      "expected_sha256": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+      "mutation_id": "seal-break-cohort",
+      "observed_sha256": "ff2fe9cb613fe85cba4bfbf30d680c8350687ad213bf61f4295d25bbfbea0706",
+      "reason": "sealed raw input hash mismatch",
+      "rejected": true,
+      "target": "fresh_cohort_materialization_summary.json"
+    },
+    {
+      "expected_sha256": "8db4bab5925d066735abf3cecbcdd9d5682fecc7cec8b6519a6a880519ddd5c4",
+      "mutation_id": "seal-break-rpir",
+      "observed_sha256": "5c069c9a181d3da8a57c68cec978ecd60b57682e7c0d6ee561dc42d9d47bd490",
+      "reason": "sealed raw input hash mismatch",
+      "rejected": true,
+      "target": "rpir_v2_1_graph_completeness_decision.json"
+    }
+  ],
+  "semantic_scope": "actual Batch094 evidence seals",
+  "status": "PASS"
+}

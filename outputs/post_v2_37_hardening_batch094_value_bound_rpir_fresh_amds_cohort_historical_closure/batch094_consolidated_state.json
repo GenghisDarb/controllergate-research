@@ -1,0 +1,467 @@
+{
+  "amds": {
+    "actual_baselines": "NOT_RUN",
+    "authority_allowed": "exact not-run boundary",
+    "authority_forbidden": [
+      "historical AMDS pass",
+      "prospective effectiveness",
+      "memory lift",
+      "repair authority"
+    ],
+    "backtrack_count": 0,
+    "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+    "contradiction_count": 0,
+    "eligible_episode_count": 0,
+    "executed_episode_count": 0,
+    "execution_depth": "upstream_role_gate_no_probe_execution",
+    "probe_count": 0,
+    "producer": "scripts/finalize_batch094_scientific_gates.py",
+    "quality_decision": "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+    "raw_evidence_hashes": {
+      "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+      "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+      "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+      "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+    },
+    "reopen_condition": "pass the frozen eight-episode materialization and 80-role verification gates",
+    "semantic_scope": "canonical blinded historical AMDS",
+    "source_or_candidate_run_frame_identity": "batch094:frozen-eight:amds-v3",
+    "status": "BLOCK",
+    "terminal_distribution": {}
+  },
+  "authority_allowed": "external review handoff",
+  "authority_forbidden": "external release approval",
+  "batch093_ingest": {
+    "artifact": {
+      "artifact_id": 8363847950,
+      "name": "post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure_artifacts",
+      "sha256": "0f77d8e46ae72bf70adc0f585e56a4467ccb548d66f179ab8a699537173f15c6",
+      "size": 11261479,
+      "workflow_head": "e75439bf25e0c9a9ccfbd5bd5287de6f4474ef8b",
+      "workflow_run": 29468158814,
+      "zip_entries": 113
+    },
+    "status": "PASS"
+  },
+  "batch093_manifest": {
+    "authority_allowed": "official evidence ingest and corrected current claims",
+    "authority_forbidden": [
+      "rewriting Batch093 evidence",
+      "repair authority",
+      "external release approval"
+    ],
+    "custody": {
+      "compiled_cache_environment_payloads": 0,
+      "duplicate_paths": 0,
+      "json_parse_failures": 0,
+      "jsonl_parse_failures": 0,
+      "nested_raw_archives": 0,
+      "symlinks": 0,
+      "unsafe_paths": 0,
+      "zip_entries": 113
+    },
+    "execution_depth": "byte_level_zip_and_semantic_manifest_verification",
+    "json_failures": [],
+    "jsonl_failures": [],
+    "manifests": [
+      {
+        "checked": 111,
+        "malformed": 0,
+        "manifest": "ARTIFACT_SHA256SUMS.txt",
+        "mismatches": 0,
+        "missing": 0,
+        "self_entries": 0,
+        "status": "PASS"
+      },
+      {
+        "checked": 106,
+        "malformed": 0,
+        "manifest": "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/ARTIFACT_SHA256SUMS.txt",
+        "mismatches": 0,
+        "missing": 0,
+        "self_entries": 0,
+        "status": "PASS"
+      },
+      {
+        "checked": 105,
+        "malformed": 0,
+        "manifest": "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/PORTABLE_ARTIFACT_SHA256SUMS.txt",
+        "mismatches": 0,
+        "missing": 0,
+        "self_entries": 0,
+        "status": "PASS"
+      },
+      {
+        "checked": 107,
+        "malformed": 0,
+        "manifest": "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/SHA256SUMS.txt",
+        "mismatches": 0,
+        "missing": 0,
+        "self_entries": 0,
+        "status": "PASS"
+      }
+    ],
+    "producer": "scripts/batch094_ingest_and_reconcile_batch093.py",
+    "semantic_scope": "official Batch093 artifact custody and current-authority reconciliation",
+    "status": "PASS"
+  },
+  "behavioral_primitives": {
+    "ablation_count": 46,
+    "authority_allowed": "shadow behavioral evidence",
+    "authority_forbidden": [
+      "repair authorization",
+      "production promotion"
+    ],
+    "behaviorally_demonstrated_count": 46,
+    "confusion_pair_count": 16,
+    "confusion_pair_pass_count": 16,
+    "effect_key_only_authority_count": 0,
+    "primitive_count": 46,
+    "producer": "controllergate.isomorphism.behavior:behavioral_evidence",
+    "status": "PASS"
+  },
+  "claim_boundary": {
+    "amds_prospective_effectiveness": "NOT_ESTABLISHED",
+    "authority_allowed": "bounded internal development status",
+    "authority_forbidden": [
+      "Product Beta approval",
+      "production readiness",
+      "repair count change"
+    ],
+    "automatic_merge": "inactive",
+    "exact_blockers": [
+      "BLOCK_MINIMUM_COHORT_NOT_MET",
+      "provider_dependency_and_project_install_failed:darker_issue_112_relative_git_dir",
+      "project_target_failure_not_materialized:incident_openbb_7585_modular_openapi_reproducer",
+      "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+      "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+      "official_cross_platform_join_pending",
+      "numeric_stoichiometry_not_exposed_by_consumed_release_tables"
+    ],
+    "execution_depth": "raw_evidence_reconciliation",
+    "full_scoring": "NOT_RUN/disallowed",
+    "historical_actuation": "NOT_RUN",
+    "historical_increment": 0,
+    "issue_derived_repair_count": 6,
+    "native_external_repair_count": 4,
+    "package_version": "0.2.0b2.dev0",
+    "producer": "scripts/finalize_batch094.py",
+    "production_readiness": false,
+    "prospective_memory_lift": "not demonstrated",
+    "protocol": "v2.19",
+    "public_writes": "inactive",
+    "reopen_conditions": [
+      "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+      "after AMDS and source ownership pass, obtain separate protected external approval bound to run, candidate, patch, path, nonce, and expiry",
+      "aggregate both official platform jobs"
+    ],
+    "repair_patch_operation_count": 0,
+    "self_maintaining_software": "false/not demonstrated",
+    "semantic_scope": "Batch094 current claim boundary",
+    "source_or_candidate_run_frame_identity": "batch094:final-evidence",
+    "status": "PRODUCT_BETA_RC_BLOCKED_EXACT"
+  },
+  "critic": {
+    "authority_allowed": "internal blocker decision",
+    "authority_forbidden": [
+      "Product Beta approval",
+      "external review approval"
+    ],
+    "execution_depth": "independent_raw_reconstruction_and_physical_mutation_campaign",
+    "finding_count": 7,
+    "producer": "scripts/batch094_standalone_critic.py",
+    "release_blockers": [
+      "BLOCK_MINIMUM_COHORT_NOT_MET",
+      "provider_dependency_and_project_install_failed",
+      "project_target_failure_not_materialized",
+      "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+      "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+      "numeric_stoichiometry_not_exposed_by_consumed_release_tables",
+      "official_cross_platform_join_pending"
+    ],
+    "resigned_actual_mutations_executed": 12,
+    "resigned_actual_mutations_rejected": 12,
+    "seal_breaking_mutations_executed": 2,
+    "seal_breaking_mutations_rejected": 2,
+    "semantic_scope": "Batch094 internal release evidence",
+    "status": "PASS_INTERNAL_CRITIC_WITH_RELEASE_BLOCKERS"
+  },
+  "downstream": {
+    "amds": "NOT_RUN",
+    "authority_allowed": "not-run boundary",
+    "authority_forbidden": [
+      "role receipt fabrication",
+      "AMDS terminal",
+      "proof token",
+      "repair license",
+      "patch",
+      "deployment"
+    ],
+    "blockers_in_order": [
+      "BLOCK_MINIMUM_COHORT_NOT_MET",
+      "HUMAN_AUTHORIZATION_BLOCKED_EXACT"
+    ],
+    "deployment": "NOT_RUN",
+    "execution_depth": "dependency_ordered_gate_propagation",
+    "historical_count_increment": 0,
+    "historical_lifecycles": "NOT_RUN",
+    "non_source_lifecycles": "NOT_RUN",
+    "patch_operation_count": 0,
+    "producer": "scripts/finalize_batch094_scientific_gates.py",
+    "raw_evidence_hashes": {
+      "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+      "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+      "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+      "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+    },
+    "reopen_condition": "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+    "role_measurements": "NOT_RUN",
+    "semantic_scope": "roles, AMDS, proof authority, historical actuation, deployment",
+    "source_or_candidate_run_frame_identity": "batch094:post-materialization-downstream",
+    "stage_authority": "NOT_RUN",
+    "status": "BLOCK"
+  },
+  "execution_depth": "bounded_current_evidence_join",
+  "expected_red": {
+    "finding_count": 11,
+    "status": "BATCH094_PRE_FIX_AUDIT_FAIL_EXPECTED"
+  },
+  "fresh_cohort": {
+    "authority_allowed": "AMDS measurement eligibility only when all eight materialize",
+    "authority_forbidden": [
+      "repair",
+      "patch actuation",
+      "count increment",
+      "candidate substitution",
+      "terminal assignment"
+    ],
+    "blocked_candidates": [
+      {
+        "candidate_id": "darker_issue_112_relative_git_dir",
+        "exact_blockers": [
+          "provider_dependency_and_project_install_failed"
+        ]
+      },
+      {
+        "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+        "exact_blockers": [
+          "project_target_failure_not_materialized"
+        ]
+      }
+    ],
+    "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+    "broker_operation_count": 119,
+    "candidate_order": [
+      "darker_issue_112_relative_git_dir",
+      "py_bugger_issue_65",
+      "cloudpickle_507_py313_typevar_distutils",
+      "freezegun_547_py313_datetimes_assertion",
+      "audioread_144_py313_aifc_removed",
+      "pytest_13480_wdefault_unraisable_threadexception",
+      "incident_openbb_7585_modular_openapi_reproducer",
+      "incident_poetry_10974_init_duplicate_name"
+    ],
+    "execution_depth": "fresh_exact_source_provider_project_target_materialization",
+    "frozen_candidate_count": 8,
+    "historical_count_increment": 0,
+    "materialized_candidate_count": 6,
+    "materialized_candidates": [
+      "py_bugger_issue_65",
+      "cloudpickle_507_py313_typevar_distutils",
+      "freezegun_547_py313_datetimes_assertion",
+      "audioread_144_py313_aifc_removed",
+      "pytest_13480_wdefault_unraisable_threadexception",
+      "incident_poetry_10974_init_duplicate_name"
+    ],
+    "patch_operation_count": 0,
+    "producer": "controllergate.amds.fresh_cohort.execute_fresh_cohort",
+    "reopen_condition": "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+    "replacement_count": 0,
+    "required_candidate_count": 8,
+    "semantic_scope": "frozen eight-episode historical AMDS cohort eligibility",
+    "status": "BLOCK"
+  },
+  "human_authorization": {
+    "active_first_blocker": false,
+    "authority_allowed": "exact blocked boundary",
+    "authority_forbidden": [
+      "repository-generated approval",
+      "patch actuation",
+      "public write",
+      "count increment"
+    ],
+    "execution_depth": "external_authority_absence_and_upstream_dependency_check",
+    "gate_decision": "DEPENDENCY_BLOCKED_NOT_ACTIVE_FIRST_BLOCKER",
+    "producer": "controllergate.external_authority.boundary_validator",
+    "protected_environment_approval_consumed": false,
+    "raw_evidence_hashes": {
+      "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+      "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+      "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+      "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+    },
+    "reopen_condition": "after AMDS and source ownership pass, obtain separate protected external approval bound to run, candidate, patch, path, nonce, and expiry",
+    "repository_generated_approval": false,
+    "run_historical_actuation": false,
+    "semantic_scope": "historical non-counting source actuation",
+    "source_or_candidate_run_frame_identity": "batch094:normal-evidence-run:no-actuation",
+    "status": "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+    "upstream_first_blocker": "BLOCK_MINIMUM_COHORT_NOT_MET"
+  },
+  "installed": {
+    "cross_platform": {
+      "authority_allowed": "installed shadow execution equivalence",
+      "authority_forbidden": [
+        "repair authorization",
+        "production promotion"
+      ],
+      "available_platforms": [
+        "windows"
+      ],
+      "blocker": "official Linux and Windows installed CLI evidence must coexist",
+      "chapter_scenario_count_by_platform": {
+        "windows": 29
+      },
+      "mechanism_equivalent": false,
+      "producer": "scripts/finalize_batch094_installed_evidence.py",
+      "reopen_condition": "aggregate both official platform jobs",
+      "status": "BLOCK_MISSING_PLATFORM_EVIDENCE"
+    },
+    "scenario_counts": {
+      "windows": 29
+    }
+  },
+  "materialization_results": [
+    {
+      "broker_operation_count": 9,
+      "candidate_id": "darker_issue_112_relative_git_dir",
+      "count_increment": 0,
+      "episode_index": 1,
+      "exact_blockers": [
+        "provider_dependency_and_project_install_failed"
+      ],
+      "materialized": false,
+      "patch_operation_count": 0,
+      "status": "BLOCK"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "py_bugger_issue_65",
+      "count_increment": 0,
+      "episode_index": 2,
+      "exact_blockers": [],
+      "materialized": true,
+      "patch_operation_count": 0,
+      "status": "PASS"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+      "count_increment": 0,
+      "episode_index": 3,
+      "exact_blockers": [],
+      "materialized": true,
+      "patch_operation_count": 0,
+      "status": "PASS"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "freezegun_547_py313_datetimes_assertion",
+      "count_increment": 0,
+      "episode_index": 4,
+      "exact_blockers": [],
+      "materialized": true,
+      "patch_operation_count": 0,
+      "status": "PASS"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "audioread_144_py313_aifc_removed",
+      "count_increment": 0,
+      "episode_index": 5,
+      "exact_blockers": [],
+      "materialized": true,
+      "patch_operation_count": 0,
+      "status": "PASS"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+      "count_increment": 0,
+      "episode_index": 6,
+      "exact_blockers": [],
+      "materialized": true,
+      "patch_operation_count": 0,
+      "status": "PASS"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+      "count_increment": 0,
+      "episode_index": 7,
+      "exact_blockers": [
+        "project_target_failure_not_materialized"
+      ],
+      "materialized": false,
+      "patch_operation_count": 0,
+      "status": "BLOCK"
+    },
+    {
+      "broker_operation_count": 10,
+      "candidate_id": "incident_poetry_10974_init_duplicate_name",
+      "count_increment": 0,
+      "episode_index": 8,
+      "exact_blockers": [],
+      "materialized": true,
+      "patch_operation_count": 0,
+      "status": "PASS"
+    }
+  ],
+  "producer": "scripts/finalize_batch094.py",
+  "prompt_id": "CG-BATCH094-VALUE-BOUND-RPIR-FRESH-AMDS-COHORT-HISTORICAL-CLOSURE-2026-07-16-V1",
+  "role_gate": {
+    "amds_probe_execution_allowed": false,
+    "authority_allowed": "exact upstream blocker",
+    "authority_forbidden": [
+      "fake role receipts",
+      "AMDS probe execution",
+      "repair authority"
+    ],
+    "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET",
+    "executed_role_receipt_count": 0,
+    "execution_depth": "premeasurement_materialization_gate",
+    "materialized_candidate_count": 6,
+    "producer": "scripts/finalize_batch094_scientific_gates.py",
+    "raw_evidence_hashes": {
+      "historical_acquisition_broker_operations.jsonl": "7e51487686da28a2572dcae804784aa1608da3e2afae1f09e97f4807923c3093",
+      "historical_frozen_cohort_v2.json": "4a78b7bcaf701fdd09f3e2adff52ed12bef46e1d63790f7d37540dc815ab8508",
+      "historical_materialization_results.jsonl": "863ee461691e43aeb069d9cf6bd4ceb388784962e3c4d6b1ccd45b0997657e34",
+      "historical_no_substitution_audit.json": "2fbe70c570b8ff0ca8a9f3e082c48bb8e4e4532bc8cfa4845f797aa4310cb1c6"
+    },
+    "reopen_condition": "freshly materialize the exact blocked frozen episodes without candidate substitution or outcome evidence",
+    "required_candidate_count": 8,
+    "required_role_count": 80,
+    "semantic_scope": "ten semantic roles across eight episodes",
+    "source_or_candidate_run_frame_identity": "batch094:frozen-eight:role-quality-v2",
+    "status": "BLOCK",
+    "verified_role_receipt_count": 0
+  },
+  "rpir": {
+    "exact_format_blockers": [
+      "numeric_stoichiometry_not_exposed_by_consumed_release_tables"
+    ],
+    "pathways": 2916,
+    "reactions": 16814,
+    "silent_omissions": 0,
+    "version": "controllergate-rpir-v2.1"
+  },
+  "semantic_scope": "Batch094 consolidated evidence state",
+  "source_or_candidate_run_frame_identity": "batch094:final-evidence",
+  "status": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "value_bound_translation": {
+    "binding_count": 387189,
+    "candidate_count": 16814,
+    "production_promotions": 0,
+    "semantic_clusters": 1143
+  }
+}

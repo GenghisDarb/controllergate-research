@@ -1,0 +1,108 @@
+{
+  "authority_allowed": "critic rejection evidence",
+  "authority_forbidden": "external approval",
+  "executed": 12,
+  "execution_depth": "physical_actual_evidence_copy_mutation_rehash_and_semantic_reverification",
+  "producer": "scripts/batch094_standalone_critic.py",
+  "rejected": 12,
+  "results": [
+    {
+      "mutation_id": "reactome_source_omission",
+      "rejected": true,
+      "rejection_reasons": [
+        "Reactome source occurrence coverage changed"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "normal_variant_detachment",
+      "rejected": true,
+      "rejection_reasons": [
+        "normal/variant source graph changed"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "translation_depth_escalation",
+      "rejected": true,
+      "rejection_reasons": [
+        "translation authority escalated without execution depth"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "translation_coverage_drop",
+      "rejected": true,
+      "rejection_reasons": [
+        "translation disposition coverage changed"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "primitive_behavior_forgery",
+      "rejected": true,
+      "rejection_reasons": [
+        "primitive behavioral evidence changed"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "frozen_candidate_substitution",
+      "rejected": true,
+      "rejection_reasons": [
+        "frozen cohort order or membership changed"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "minimum_cohort_overpromotion",
+      "rejected": true,
+      "rejection_reasons": [
+        "minimum-cohort result was overpromoted"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "replacement_count_forgery",
+      "rejected": true,
+      "rejection_reasons": [
+        "candidate substitution introduced"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "fabricated_amds_execution",
+      "rejected": true,
+      "rejection_reasons": [
+        "downstream scientific gate executed after cohort block"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "unauthorized_patch_count",
+      "rejected": true,
+      "rejection_reasons": [
+        "unauthorized patch or count mutation"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "repository_generated_approval",
+      "rejected": true,
+      "rejection_reasons": [
+        "external human authority was forged"
+      ],
+      "seal_valid_after_resigning": true
+    },
+    {
+      "mutation_id": "cross_platform_false_pass",
+      "rejected": true,
+      "rejection_reasons": [
+        "cross-platform pass lacks both installed platforms"
+      ],
+      "seal_valid_after_resigning": true
+    }
+  ],
+  "semantic_scope": "Batch094 RPIR, compiler, cohort, authority, and installed boundaries",
+  "status": "PASS"
+}
