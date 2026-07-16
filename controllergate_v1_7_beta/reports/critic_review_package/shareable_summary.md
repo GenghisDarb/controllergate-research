@@ -1,5 +1,11 @@
 # ControllerGate shareable summary
 
+## Batch093 structured semantic graph and cohort gate
+
+Batch093 verifies the official Batch092 artifact and an identical Batch091 reference copy, then acquires exact Reactome release 97 structured sources from the official release archive. RPIR v2 reconciles 16,814 reaction occurrences and 2,916 pathway occurrences with zero silent omissions. A topology-based compiler assigns all reactions nonauthorizing dispositions, and 46 generic primitive contracts execute distinct shadow behavior through the canonical read-only stage and SQLite state.
+
+The historical AMDS cohort remains blocked at zero eligible episodes because fresh role-specific evidence is incomplete. ControllerGate executes no probes, proofs, patches, lifecycle actuation, deployment switch, or count increment after that gate. The internal critic reports the blocker and rejects physical re-signed semantic mutations. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT`; protocol, package version, repair counts, scoring, public-write, automatic-merge, production-readiness, memory-lift, and self-maintaining-software boundaries remain unchanged.
+
 ## Batch091 lossless capsule and historical closure
 
 Batch091 reconciles the official Batch090 evidence, conserves 58 Cloudpickle and 39 Freezegun Git-tree entries including public hidden files, and evaluates a frozen eight-episode historical frame with truth physically withheld from the AMDS builder. Stage-produced source-ownership and single-use repair-license proofs govern non-counting installed repair lifecycles; installed non-source lifecycles receive no patch authority.

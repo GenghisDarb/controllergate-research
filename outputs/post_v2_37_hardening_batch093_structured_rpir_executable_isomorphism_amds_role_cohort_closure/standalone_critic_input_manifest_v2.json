@@ -1,0 +1,75 @@
+{
+  "authority_allowed": "independent internal critique",
+  "authority_forbidden": [
+    "external review approval",
+    "Product Beta approval"
+  ],
+  "controllergate_imported": false,
+  "critic_runtime": "python_standard_library_only",
+  "execution_depth": "raw_JSONL_hash_and_stream_reconstruction",
+  "files": [
+    {
+      "path": "reactome_structured_rpir_v2_reactions.jsonl",
+      "sha256": "5a3eba99957ba00902553509ffcfe1256e47fa011b6b17f5767ca2e7d9ebdbea",
+      "size": 59377520
+    },
+    {
+      "path": "reactome_structured_participants.jsonl",
+      "sha256": "36878b160a263fb586ba5bb27fe9ebaf1972038d06713be4d12e083e7123f55e",
+      "size": 32267834
+    },
+    {
+      "path": "reactome_structured_catalysts.jsonl",
+      "sha256": "753a949adff014c0853098b591965de49fc00bd27d9caf008f7f6afe41a741ff",
+      "size": 2238851
+    },
+    {
+      "path": "reactome_structured_regulations.jsonl",
+      "sha256": "6cd8a522419cbc1557d2fb313dda2453d127c09974aeb988493ea8904a8e93a2",
+      "size": 1083825
+    },
+    {
+      "path": "reactome_structured_relations.jsonl",
+      "sha256": "0ffe6c8da68fe48ffd822785fc6b09f635ae8414f1e0136e94241bfa308a8986",
+      "size": 3937716
+    },
+    {
+      "path": "reactome_translation_candidates_v2.jsonl",
+      "sha256": "5129be2cc345189815098359e3ed1558286bc36588108e2f8b141baa33d5435e",
+      "size": 71455501
+    },
+    {
+      "path": "primitive_execution_coverage_v2.json",
+      "sha256": "8faafdd22eeb83a8d0bcb09b7a41cefb99e00ed0db6f9d1f646cfd33cb9237bf",
+      "size": 341
+    },
+    {
+      "path": "role_measurement_execution_receipts.jsonl",
+      "sha256": "f7e26776a59066b3c4360b047aa7b218c03b9f2e5d17a0d323489f676284183c",
+      "size": 64802
+    },
+    {
+      "path": "role_measurement_verification_receipts.jsonl",
+      "sha256": "3636adafb8b8e62a1deb009e21dfcabda662ef65aeb7216c593eb41726346007",
+      "size": 52866
+    },
+    {
+      "path": "role_measurement_quality_gate.json",
+      "sha256": "861628c35fd8318a1a1077bffb1e32b9255979104da45d2b81de588815c9a694",
+      "size": 854
+    },
+    {
+      "path": "amds_historical_quality_gate_v2.json",
+      "sha256": "d313afaa72082c52f59d95bfe7138276d02b4c218624c2505afd96f27728fef4",
+      "size": 641
+    },
+    {
+      "path": "batch093_downstream_gate_status.json",
+      "sha256": "b958280042dea786e741ce7f29b3ce619d3bafa0dfb7d847bc987537d7b323f5",
+      "size": 701
+    }
+  ],
+  "producer": "scripts/batch093_standalone_critic.py",
+  "semantic_scope": "Batch093 internal evidence critique",
+  "status": "PASS"
+}

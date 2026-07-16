@@ -1,0 +1,427 @@
+{
+  "authority_allowed": "shadow simulation and candidate translation",
+  "authority_forbidden": [
+    "repair authorization",
+    "production promotion",
+    "source causal proof"
+  ],
+  "execution_depth": "distinct_executable_primitive_contracts",
+  "primitives": [
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "accepted_event",
+      "input_contract": "source_occurrence_identity + event_type",
+      "negative_control": "missing_event_type_blocks_without_accepted_event",
+      "output_contract": "state.accepted_event",
+      "primitive_id": "EVENT_CONTRACT",
+      "required_event_field": "event_type"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "entity_state",
+      "input_contract": "source_occurrence_identity + entity_state",
+      "negative_control": "missing_entity_state_blocks_without_entity_state",
+      "output_contract": "state.entity_state",
+      "primitive_id": "ENTITY_STATE",
+      "required_event_field": "entity_state"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "assembled_complex",
+      "input_contract": "source_occurrence_identity + members",
+      "negative_control": "missing_members_blocks_without_assembled_complex",
+      "output_contract": "state.assembled_complex",
+      "primitive_id": "COMPLEX_ASSEMBLY",
+      "required_event_field": "members"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "candidate_frontier",
+      "input_contract": "source_occurrence_identity + candidates",
+      "negative_control": "missing_candidates_blocks_without_candidate_frontier",
+      "output_contract": "state.candidate_frontier",
+      "primitive_id": "CANDIDATE_SET",
+      "required_event_field": "candidates"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "demonstrated_member",
+      "input_contract": "source_occurrence_identity + demonstrated_member",
+      "negative_control": "missing_demonstrated_member_blocks_without_demonstrated_member",
+      "output_contract": "state.demonstrated_member",
+      "primitive_id": "DEMONSTRATED_MEMBER",
+      "required_event_field": "demonstrated_member"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "active_compartment",
+      "input_contract": "source_occurrence_identity + compartment",
+      "negative_control": "missing_compartment_blocks_without_active_compartment",
+      "output_contract": "state.active_compartment",
+      "primitive_id": "COMPARTMENT",
+      "required_event_field": "compartment"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "translocation_destination",
+      "input_contract": "source_occurrence_identity + destination",
+      "negative_control": "missing_destination_blocks_without_translocation_destination",
+      "output_contract": "state.translocation_destination",
+      "primitive_id": "TRANSLOCATION",
+      "required_event_field": "destination"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "selected_target",
+      "input_contract": "source_occurrence_identity + target",
+      "negative_control": "missing_target_blocks_without_selected_target",
+      "output_contract": "state.selected_target",
+      "primitive_id": "TARGETING",
+      "required_event_field": "target"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "active_catalyst",
+      "input_contract": "source_occurrence_identity + catalyst",
+      "negative_control": "missing_catalyst_blocks_without_active_catalyst",
+      "output_contract": "state.active_catalyst",
+      "primitive_id": "CATALYST",
+      "required_event_field": "catalyst"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "bound_cofactor",
+      "input_contract": "source_occurrence_identity + cofactor",
+      "negative_control": "missing_cofactor_blocks_without_bound_cofactor",
+      "output_contract": "state.bound_cofactor",
+      "primitive_id": "COFACTOR",
+      "required_event_field": "cofactor"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "positive_regulation",
+      "input_contract": "source_occurrence_identity + positive_signal",
+      "negative_control": "missing_positive_signal_blocks_without_positive_regulation",
+      "output_contract": "state.positive_regulation",
+      "primitive_id": "POSITIVE_REGULATOR",
+      "required_event_field": "positive_signal"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "negative_regulation",
+      "input_contract": "source_occurrence_identity + negative_signal",
+      "negative_control": "missing_negative_signal_blocks_without_negative_regulation",
+      "output_contract": "state.negative_regulation",
+      "primitive_id": "NEGATIVE_REGULATOR",
+      "required_event_field": "negative_signal"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "checkpoint_state",
+      "input_contract": "source_occurrence_identity + checkpoint",
+      "negative_control": "missing_checkpoint_blocks_without_checkpoint_state",
+      "output_contract": "state.checkpoint_state",
+      "primitive_id": "CHECKPOINT",
+      "required_event_field": "checkpoint"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "feedback_state",
+      "input_contract": "source_occurrence_identity + feedback",
+      "negative_control": "missing_feedback_blocks_without_feedback_state",
+      "output_contract": "state.feedback_state",
+      "primitive_id": "FEEDBACK_LOOP",
+      "required_event_field": "feedback"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "oscillator_phase",
+      "input_contract": "source_occurrence_identity + phase",
+      "negative_control": "missing_phase_blocks_without_oscillator_phase",
+      "output_contract": "state.oscillator_phase",
+      "primitive_id": "OSCILLATOR",
+      "required_event_field": "phase"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "phase_machine_state",
+      "input_contract": "source_occurrence_identity + phase_transition",
+      "negative_control": "missing_phase_transition_blocks_without_phase_machine_state",
+      "output_contract": "state.phase_machine_state",
+      "primitive_id": "PHASE_MACHINE",
+      "required_event_field": "phase_transition"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "resource_balance",
+      "input_contract": "source_occurrence_identity + resource_delta",
+      "negative_control": "missing_resource_delta_blocks_without_resource_balance",
+      "output_contract": "state.resource_balance",
+      "primitive_id": "RESOURCE_FLUX",
+      "required_event_field": "resource_delta"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "flow_limit",
+      "input_contract": "source_occurrence_identity + flow_limit",
+      "negative_control": "missing_flow_limit_blocks_without_flow_limit",
+      "output_contract": "state.flow_limit",
+      "primitive_id": "FLOW_CONTROL",
+      "required_event_field": "flow_limit"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "reversible_transition",
+      "input_contract": "source_occurrence_identity + reverse_transition",
+      "negative_control": "missing_reverse_transition_blocks_without_reversible_transition",
+      "output_contract": "state.reversible_transition",
+      "primitive_id": "REVERSIBLE_REACTION",
+      "required_event_field": "reverse_transition"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "irreversible_commit",
+      "input_contract": "source_occurrence_identity + commit_transition",
+      "negative_control": "missing_commit_transition_blocks_without_irreversible_commit",
+      "output_contract": "state.irreversible_commit",
+      "primitive_id": "IRREVERSIBLE_REACTION",
+      "required_event_field": "commit_transition"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "processive_cycle",
+      "input_contract": "source_occurrence_identity + cycle_step",
+      "negative_control": "missing_cycle_step_blocks_without_processive_cycle",
+      "output_contract": "state.processive_cycle",
+      "primitive_id": "PROCESSIVE_CYCLE",
+      "required_event_field": "cycle_step"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "quality_state",
+      "input_contract": "source_occurrence_identity + quality_measurement",
+      "negative_control": "missing_quality_measurement_blocks_without_quality_state",
+      "output_contract": "state.quality_state",
+      "primitive_id": "QUALITY_CONTROL",
+      "required_event_field": "quality_measurement"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "stall_state",
+      "input_contract": "source_occurrence_identity + progress_clock",
+      "negative_control": "missing_progress_clock_blocks_without_stall_state",
+      "output_contract": "state.stall_state",
+      "primitive_id": "STALL_DETECTION",
+      "required_event_field": "progress_clock"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "collision_state",
+      "input_contract": "source_occurrence_identity + collision_key",
+      "negative_control": "missing_collision_key_blocks_without_collision_state",
+      "output_contract": "state.collision_state",
+      "primitive_id": "COLLISION_DETECTION",
+      "required_event_field": "collision_key"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "rescue_state",
+      "input_contract": "source_occurrence_identity + rescue_route",
+      "negative_control": "missing_rescue_route_blocks_without_rescue_state",
+      "output_contract": "state.rescue_state",
+      "primitive_id": "RESCUE",
+      "required_event_field": "rescue_route"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "recycled_resource",
+      "input_contract": "source_occurrence_identity + recyclable_resource",
+      "negative_control": "missing_recyclable_resource_blocks_without_recycled_resource",
+      "output_contract": "state.recycled_resource",
+      "primitive_id": "RECYCLING",
+      "required_event_field": "recyclable_resource"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "degraded_target",
+      "input_contract": "source_occurrence_identity + degradation_target",
+      "negative_control": "missing_degradation_target_blocks_without_degraded_target",
+      "output_contract": "state.degraded_target",
+      "primitive_id": "DEGRADATION",
+      "required_event_field": "degradation_target"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "selective_cleanup",
+      "input_contract": "source_occurrence_identity + selected_cleanup_target",
+      "negative_control": "missing_selected_cleanup_target_blocks_without_selective_cleanup",
+      "output_contract": "state.selective_cleanup",
+      "primitive_id": "SELECTIVE_CLEANUP",
+      "required_event_field": "selected_cleanup_target"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "bulk_cleanup",
+      "input_contract": "source_occurrence_identity + cleanup_scope",
+      "negative_control": "missing_cleanup_scope_blocks_without_bulk_cleanup",
+      "output_contract": "state.bulk_cleanup",
+      "primitive_id": "BULK_CLEANUP",
+      "required_event_field": "cleanup_scope"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "conformance_state",
+      "input_contract": "source_occurrence_identity + conformance_contract",
+      "negative_control": "missing_conformance_contract_blocks_without_conformance_state",
+      "output_contract": "state.conformance_state",
+      "primitive_id": "FOLDING_OR_CONFORMANCE",
+      "required_event_field": "conformance_contract"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "modification_state",
+      "input_contract": "source_occurrence_identity + modification",
+      "negative_control": "missing_modification_blocks_without_modification_state",
+      "output_contract": "state.modification_state",
+      "primitive_id": "MODIFICATION_CODE",
+      "required_event_field": "modification"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "accessibility_state",
+      "input_contract": "source_occurrence_identity + access_policy",
+      "negative_control": "missing_access_policy_blocks_without_accessibility_state",
+      "output_contract": "state.accessibility_state",
+      "primitive_id": "ACCESSIBILITY_STATE",
+      "required_event_field": "access_policy"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "lineage_parent",
+      "input_contract": "source_occurrence_identity + parent_identity",
+      "negative_control": "missing_parent_identity_blocks_without_lineage_parent",
+      "output_contract": "state.lineage_parent",
+      "primitive_id": "LINEAGE",
+      "required_event_field": "parent_identity"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "inference_lineage",
+      "input_contract": "source_occurrence_identity + inference_source",
+      "negative_control": "missing_inference_source_blocks_without_inference_lineage",
+      "output_contract": "state.inference_lineage",
+      "primitive_id": "ORTHOLOGY",
+      "required_event_field": "inference_source"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "variant_comparison",
+      "input_contract": "source_occurrence_identity + normal_variant_pair",
+      "negative_control": "missing_normal_variant_pair_blocks_without_variant_comparison",
+      "output_contract": "state.variant_comparison",
+      "primitive_id": "NORMAL_VARIANT_PAIR",
+      "required_event_field": "normal_variant_pair"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "negative_reaction",
+      "input_contract": "source_occurrence_identity + negative_outcome",
+      "negative_control": "missing_negative_outcome_blocks_without_negative_reaction",
+      "output_contract": "state.negative_reaction",
+      "primitive_id": "NEGATIVE_REACTION",
+      "required_event_field": "negative_outcome"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "residual_activity",
+      "input_contract": "source_occurrence_identity + residual_fraction",
+      "negative_control": "missing_residual_fraction_blocks_without_residual_activity",
+      "output_contract": "state.residual_activity",
+      "primitive_id": "RESIDUAL_ACTIVITY",
+      "required_event_field": "residual_fraction"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "redundancy_state",
+      "input_contract": "source_occurrence_identity + alternate_route",
+      "negative_control": "missing_alternate_route_blocks_without_redundancy_state",
+      "output_contract": "state.redundancy_state",
+      "primitive_id": "REDUNDANCY_COMPENSATION",
+      "required_event_field": "alternate_route"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "hijack_state",
+      "input_contract": "source_occurrence_identity + untrusted_controller",
+      "negative_control": "missing_untrusted_controller_blocks_without_hijack_state",
+      "output_contract": "state.hijack_state",
+      "primitive_id": "THREAT_HIJACK",
+      "required_event_field": "untrusted_controller"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "bypass_state",
+      "input_contract": "source_occurrence_identity + bypass_route",
+      "negative_control": "missing_bypass_route_blocks_without_bypass_state",
+      "output_contract": "state.bypass_state",
+      "primitive_id": "RESISTANCE_BYPASS",
+      "required_event_field": "bypass_route"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "containment_state",
+      "input_contract": "source_occurrence_identity + containment_scope",
+      "negative_control": "missing_containment_scope_blocks_without_containment_state",
+      "output_contract": "state.containment_state",
+      "primitive_id": "LOCAL_CONTAINMENT",
+      "required_event_field": "containment_scope"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "termination_state",
+      "input_contract": "source_occurrence_identity + termination_token",
+      "negative_control": "missing_termination_token_blocks_without_termination_state",
+      "output_contract": "state.termination_state",
+      "primitive_id": "CONTROLLED_TERMINATION",
+      "required_event_field": "termination_token"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "sensor_signal",
+      "input_contract": "source_occurrence_identity + sensor_reading",
+      "negative_control": "missing_sensor_reading_blocks_without_sensor_signal",
+      "output_contract": "state.sensor_signal",
+      "primitive_id": "SENSOR_TRANSDUCER",
+      "required_event_field": "sensor_reading"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "channel_state",
+      "input_contract": "source_occurrence_identity + channel_message",
+      "negative_control": "missing_channel_message_blocks_without_channel_state",
+      "output_contract": "state.channel_state",
+      "primitive_id": "EVENT_CHANNEL",
+      "required_event_field": "channel_message"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "actuator_state",
+      "input_contract": "source_occurrence_identity + actuation_request",
+      "negative_control": "missing_actuation_request_blocks_without_actuator_state",
+      "output_contract": "state.actuator_state",
+      "primitive_id": "ACTUATOR",
+      "required_event_field": "actuation_request"
+    },
+    {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "clearance_state",
+      "input_contract": "source_occurrence_identity + clearance_target",
+      "negative_control": "missing_clearance_target_blocks_without_clearance_state",
+      "output_contract": "state.clearance_state",
+      "primitive_id": "DISTRIBUTION_CLEARANCE",
+      "required_event_field": "clearance_target"
+    }
+  ],
+  "producer": "controllergate.isomorphism.primitives",
+  "semantic_scope": "generic non-authorizing state transition mechanisms"
+}

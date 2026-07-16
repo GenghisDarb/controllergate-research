@@ -1,5 +1,11 @@
 # Current status
 
+## Batch093 structured-source and AMDS cohort status
+
+Exact Reactome release 97 structured sources are byte-identified from official Zenodo record 21383214. RPIR v2 represents 16,814 reaction occurrences and 2,916 pathway occurrences with stable structural identities and explicit field states. The structural compiler provides full nonauthorizing disposition coverage, and 46 generic primitives have distinct executable shadow semantics. These are structured graph, candidate translation, and installed shadow capabilities—not counted repairs or production authority.
+
+The frozen eight-episode historical cohort has zero eligible episodes because fresh role-specific source, test, provider, target, command, runner, harness, incident, and proof-parent measurements are absent. Exact blockers are `BLOCK_MINIMUM_COHORT_NOT_MET` and `HUMAN_AUTHORIZATION_BLOCKED_EXACT`. No downstream repair or deployment operation ran. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT`; protocol is `v2.19`, package version is `0.2.0b2.dev0`, repair counts remain 6 issue-derived and 4 native external with historical increment 0, and production readiness and self-maintaining software remain false/not demonstrated.
+
 ## Batch091 lossless historical closure
 
 Batch091 reconciles the official Batch090 evidence and replaces its lossy source-capsule staging with deterministic Git-object transport. Cloudpickle and Freezegun hidden-file conservation, the frozen eight-episode blinded historical AMDS evaluation, installed non-counting repair and non-source lifecycles, repaired Cloudpickle distribution canary, three-class health window, negative control, local switch, exact rollback, and standalone semantic critic are all required internal evidence.

@@ -1,5 +1,11 @@
 # Public release readiness
 
+## Batch093 remains blocked
+
+Batch093 strengthens structured source custody, RPIR semantics, topology-based translation, executable primitive contracts, and installed shadow execution. The historical AMDS path does not advance because the frozen eight-episode cohort lacks fresh, independently verified decision-time measurements for all ten semantic roles. Repository code does not synthesize external human approval.
+
+The current status is `PRODUCT_BETA_RC_BLOCKED_EXACT`. No tag, release, publication, public write, automatic merge, historical patch actuation, or production deployment is authorized. Protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, issue-derived repairs remain 6, native external repairs remain 4, and historical increment remains 0.
+
 ## Batch091 external independent review required
 
 Batch091 closes the internal historical evidence gaps identified in Batch090 by conserving hidden source files, executing the frozen blinded AMDS cohort, completing installed historical and non-source lifecycles, exercising a repaired distribution in a distinct local canary, rejecting the original buggy package, rolling back exactly, and passing semantic adversarial review. The resulting status is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING`, with blocker `external_independent_release_review_pending`.

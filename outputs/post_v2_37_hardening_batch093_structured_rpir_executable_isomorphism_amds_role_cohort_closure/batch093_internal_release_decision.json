@@ -1,0 +1,25 @@
+{
+  "amds_quality_decision": "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+  "authority_allowed": "internal block",
+  "authority_forbidden": "external release approval",
+  "cross_platform_installed_execution": "PENDING_OTHER_PLATFORM",
+  "exact_blockers": [
+    "BLOCK_MINIMUM_COHORT_NOT_MET",
+    "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+    "reactome_cross_platform_execution_pending"
+  ],
+  "execution_depth": "all_current_gate_join",
+  "maximum_possible_status": "PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING_V3",
+  "primitive_semantics": "PASS",
+  "producer": "scripts/finalize_batch093.py",
+  "reactome_structured_graph_capability": "PASS_WITH_FORMAT_SCOPED_ABSENCE_STATES",
+  "reopen_conditions": [
+    "materialize fresh decision-time source/provider/target capsules and independently verify all ten semantic roles for every frozen episode",
+    "obtain external human approval only after AMDS eligibility and source ownership pass",
+    "complete Linux and Windows installed joins"
+  ],
+  "semantic_scope": "Batch093 internal release decision",
+  "standalone_critic": "PASS_INTERNAL_CRITIC_WITH_RELEASE_BLOCKERS",
+  "status": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "structural_compiler_capability": "PASS"
+}

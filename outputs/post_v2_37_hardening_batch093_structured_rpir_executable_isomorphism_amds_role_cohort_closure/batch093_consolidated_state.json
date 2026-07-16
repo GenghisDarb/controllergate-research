@@ -1,0 +1,192 @@
+{
+  "amds": {
+    "decision": "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+    "eligible_cohort_count": 0,
+    "executed_episode_count": 0,
+    "probe_count": 0
+  },
+  "authority": {
+    "authority_allowed": "exact not-run boundary",
+    "authority_forbidden": [
+      "repair",
+      "count increment",
+      "deployment"
+    ],
+    "blockers": [
+      "BLOCK_MINIMUM_COHORT_NOT_MET",
+      "HUMAN_AUTHORIZATION_BLOCKED_EXACT"
+    ],
+    "execution_depth": "upstream_gate_propagation",
+    "historical_count_increment": 0,
+    "historical_lifecycles": "NOT_RUN",
+    "non_source_lifecycles": "NOT_RUN",
+    "package_slot_switch": "NOT_RUN",
+    "patch_operation_count": 0,
+    "producer": "scripts/run_batch093_role_cohort_gate.py",
+    "repair_license_proofs": "NOT_RUN",
+    "rollback": "NOT_RUN",
+    "semantic_scope": "post-AMDS authority and actuation",
+    "source_ownership_proofs": "NOT_RUN",
+    "status": "BLOCK"
+  },
+  "authority_allowed": "handoff and external review",
+  "authority_forbidden": "external approval",
+  "batch091_reference": {
+    "authority_allowed": "official evidence ingest",
+    "authority_forbidden": [
+      "rewriting Batch092 evidence",
+      "repair authority"
+    ],
+    "classification": "IDENTICAL_REFERENCE_COPY",
+    "execution_depth": "byte_level_zip_and_semantic_manifest_verification",
+    "observed": {
+      "sha256": "306cc60bc1be7c89f7579c9b8a9c4b0f217ba15ef4f5f54d9b416aa6171560c5",
+      "size": 194706
+    },
+    "producer": "scripts/batch093_ingest_and_reconcile_batch092.py",
+    "second_authoritative_ingest_performed": false,
+    "semantic_scope": "official Batch092 artifact custody",
+    "status": "PASS"
+  },
+  "batch092_ingest": {
+    "artifact": {
+      "artifact_id": 8358022260,
+      "name": "post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction_artifacts",
+      "sha256": "bd3f1de0e64c8d2f8de5d76eb78bc5179543239b16b47a3b594214ac2a3443c1",
+      "size": 13076192,
+      "workflow_head": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "workflow_run": 29452290903,
+      "zip_entries": 95
+    },
+    "authority_allowed": "official evidence ingest",
+    "authority_forbidden": [
+      "rewriting Batch092 evidence",
+      "repair authority"
+    ],
+    "execution_depth": "byte_level_zip_and_semantic_manifest_verification",
+    "historical_evidence_rewritten": false,
+    "producer": "scripts/batch093_ingest_and_reconcile_batch092.py",
+    "raw_zip_committed": false,
+    "raw_zip_path": "C:\\Users\\thisb\\Downloads\\post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction_artifacts.zip",
+    "semantic_scope": "official Batch092 artifact custody",
+    "status": "PASS"
+  },
+  "claim_boundary": {
+    "amds_prospective_effectiveness": "NOT_ESTABLISHED",
+    "authority_allowed": "internal status",
+    "authority_forbidden": [
+      "Product Beta approval",
+      "production readiness",
+      "self-maintaining software"
+    ],
+    "automatic_merge": "inactive",
+    "exact_blockers": [
+      "BLOCK_MINIMUM_COHORT_NOT_MET",
+      "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+      "reactome_cross_platform_execution_pending"
+    ],
+    "execution_depth": "raw_current_evidence_join",
+    "full_scoring": "NOT_RUN/disallowed",
+    "historical_increment": 0,
+    "issue_derived_repair_count": 6,
+    "maximum_possible_status": "PRODUCT_BETA_RC_EXTERNAL_REVIEW_PENDING_V3",
+    "memory_lift": "not demonstrated",
+    "native_external_repair_count": 4,
+    "package_version": "0.2.0b2.dev0",
+    "producer": "scripts/finalize_batch093.py",
+    "production_readiness": false,
+    "protocol": "v2.19",
+    "public_writes": "inactive",
+    "self_maintaining_software": "false/not demonstrated",
+    "semantic_scope": "Batch093 bounded public claim",
+    "status": "PRODUCT_BETA_RC_BLOCKED_EXACT"
+  },
+  "critic": {
+    "authority_allowed": "internal block",
+    "authority_forbidden": [
+      "external review approval",
+      "Product Beta approval",
+      "production readiness"
+    ],
+    "exact_blockers": [
+      "BLOCK_MINIMUM_COHORT_NOT_MET",
+      "HUMAN_AUTHORIZATION_BLOCKED_EXACT"
+    ],
+    "execution_depth": "raw_reconstruction_and_physical_semantic_mutation_campaign",
+    "finding_count": 3,
+    "producer": "scripts/batch093_standalone_critic.py",
+    "release_decision": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+    "resigned_raw_semantic_mutations_executed": 25,
+    "resigned_raw_semantic_mutations_rejected": 25,
+    "seal_breaking_mutations_executed": 8,
+    "seal_breaking_mutations_rejected": 8,
+    "semantic_scope": "Batch093 internal evidence",
+    "status": "PASS_INTERNAL_CRITIC_WITH_RELEASE_BLOCKERS"
+  },
+  "exact_blockers": [
+    "BLOCK_MINIMUM_COHORT_NOT_MET",
+    "HUMAN_AUTHORIZATION_BLOCKED_EXACT",
+    "reactome_cross_platform_execution_pending"
+  ],
+  "execution_depth": "bounded_evidence_consolidation",
+  "installed": {
+    "cross_platform": "PENDING_OTHER_PLATFORM",
+    "linux_results": 0,
+    "windows_results": 30
+  },
+  "primitive": {
+    "append_only_count": 0,
+    "semantic_count": 46,
+    "status": "PASS"
+  },
+  "producer": "scripts/finalize_batch093.py",
+  "prompt_id": "CG-BATCH093-STRUCTURED-RPIR-EXECUTABLE-ISOMORPHISM-AMDS-ROLE-COHORT-CLOSURE-2026-07-16-V1",
+  "rpir": {
+    "candidate_set_count": 1245,
+    "catalyst_count": 7161,
+    "comma_corruption_count": 0,
+    "compartment_count": 24253,
+    "complex_count": 19486,
+    "demonstrated_member_count": 0,
+    "entity_set_count": 4483,
+    "input_role_count": 62680,
+    "modification_count": 4513,
+    "negative_regulator_count": 1191,
+    "normal_variant_resolved_pair_count": 720,
+    "omitted_event_count": 2311,
+    "output_role_count": 44151,
+    "physical_entity_count": 106930,
+    "positive_regulator_count": 2240,
+    "reaction_occurrences": 16814,
+    "required_input_role_count": 99,
+    "stable_preceding_following_edge_count": 16214,
+    "stoichiometry_source_value_count": 0,
+    "title_only_unresolved_edge_count": 0,
+    "uncertain_event_count": 727,
+    "unique_reaction_stable_ids": 16107,
+    "unpaired_disease_event_count": 1457,
+    "version": "controllergate-rpir-v2"
+  },
+  "semantic_scope": "Batch093 current state",
+  "status": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "structured_source": {
+    "record_id": 21383214,
+    "release": 97,
+    "source_count": 13
+  },
+  "translation": {
+    "installed_product_executed_count": 0,
+    "keyword_baseline_authority_count": 0,
+    "mechanism_tested_count": 46,
+    "plain_translation_distinctness": 16107,
+    "product_reachable_count": 0,
+    "promoted_production_count": 0,
+    "rejected_after_ablation_count": 0,
+    "rejection_without_ablation_count": 0,
+    "schema_compiled_count": 13776,
+    "shadow_executable_count": 13776,
+    "translation_candidate_count": 16814,
+    "translation_disposition_coverage": 1.0,
+    "unknown_structural_pattern_count": 3038
+  }
+}

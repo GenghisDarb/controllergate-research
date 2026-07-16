@@ -1,0 +1,408 @@
+{
+  "authority_allowed": "expected-red implementation requirements",
+  "authority_forbidden": [
+    "release approval",
+    "repair authority",
+    "production promotion"
+  ],
+  "execution_depth": "source_and_artifact_external_review_reconstruction",
+  "finding_count": 27,
+  "findings": [
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-001",
+      "line_range": "14",
+      "path": "controllergate/reactome_ir/ingest.py",
+      "raw_evidence": "pymupdf_text_v1",
+      "red_to_green_test": "test_structured_source_receipts",
+      "required_correction": "Bind RPIR v2 to exact release-97 structured exports.",
+      "risk": "PDF text occurrences are not a structured reaction graph.",
+      "status": "EXPECTED_RED",
+      "symbol": "PARSER_IDENTITY"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-002",
+      "line_range": "50-54",
+      "path": "controllergate/reactome_ir/ingest.py",
+      "raw_evidence": "label extraction from page text",
+      "red_to_green_test": "test_field_state_distinctions",
+      "required_correction": "Use typed field-state wrappers.",
+      "risk": "Missing labels collapse not-exposed and explicit-empty states.",
+      "status": "EXPECTED_RED",
+      "symbol": "_field"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-003",
+      "line_range": "77-139",
+      "path": "controllergate/reactome_ir/ingest.py",
+      "raw_evidence": "participant fields originate in PDF labels",
+      "red_to_green_test": "test_structured_participant_grounding",
+      "required_correction": "Populate fields from structured edges.",
+      "risk": "Participants, catalysts, regulators, and compartments are not machine-grounded.",
+      "status": "EXPECTED_RED",
+      "symbol": "_event_record"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-004",
+      "line_range": "143-205",
+      "path": "controllergate/reactome_ir/ingest.py",
+      "raw_evidence": "one synthetic reaction_subject per event",
+      "red_to_green_test": "test_entity_identity_from_export",
+      "required_correction": "Persist real stable entity identities.",
+      "risk": "Synthetic subjects are not Reactome physical entities.",
+      "status": "EXPECTED_RED",
+      "symbol": "_insert_event"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-005",
+      "line_range": "187-190",
+      "path": "controllergate/reactome_ir/ingest.py",
+      "raw_evidence": "UNRESOLVED_NORMAL_EVENT_ID",
+      "red_to_green_test": "test_normal_variant_links",
+      "required_correction": "Resolve normalReaction and normalPathway edges.",
+      "risk": "Disease variants are not linked to structured normal events.",
+      "status": "EXPECTED_RED",
+      "symbol": "_insert_event"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-006",
+      "line_range": "6",
+      "path": "controllergate/reactome_ir/schema.py",
+      "raw_evidence": "controllergate-rpir-v1",
+      "red_to_green_test": "test_rpir_v2_schema",
+      "required_correction": "Create controllergate-rpir-v2.",
+      "risk": "The schema cannot encode field provenance states.",
+      "status": "EXPECTED_RED",
+      "symbol": "RPIR_VERSION"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-007",
+      "line_range": "18-39",
+      "path": "controllergate/reactome_ir/schema.py",
+      "raw_evidence": "untyped empty properties",
+      "red_to_green_test": "test_rpir_v2_validation",
+      "required_correction": "Define typed wrappers and constraints.",
+      "risk": "Empty schema properties permit semantic collapse.",
+      "status": "EXPECTED_RED",
+      "symbol": "rpir_schema"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-008",
+      "line_range": "35-46",
+      "path": "controllergate/isomorphism/primitives.py",
+      "raw_evidence": "all primitive IDs append the same trace",
+      "red_to_green_test": "test_primitive_semantic_distinctness",
+      "required_correction": "Implement primitive-specific preconditions and state changes.",
+      "risk": "Named primitives have no distinct transition semantics.",
+      "status": "EXPECTED_RED",
+      "symbol": "apply_primitive"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-009",
+      "line_range": "19-32",
+      "path": "controllergate/isomorphism/primitives.py",
+      "raw_evidence": "one repeated input/output contract",
+      "red_to_green_test": "test_primitive_contract_distinctness",
+      "required_correction": "Publish distinct primitive contracts.",
+      "risk": "Vocabulary registration is not executable semantics.",
+      "status": "EXPECTED_RED",
+      "symbol": "primitive_registry"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-010",
+      "line_range": "1-220",
+      "path": "controllergate/isomorphism/compiler.py",
+      "raw_evidence": {
+        "authority_allowed": "candidate coverage",
+        "authority_forbidden": [
+          "complete production implementation",
+          "automatic production promotion"
+        ],
+        "automatic_rejection_count": 0,
+        "disposition_coverage": 1.0,
+        "dispositions": {
+          "BLOCKED_MISSING_SOURCE_DETAIL": 3038,
+          "SCHEMA_COMPILED": 13776
+        },
+        "execution_depth": "complete_16814_reaction_translation_pass",
+        "producer": "scripts/run_batch092_translation_and_scenarios.py",
+        "rejected_after_executed_ablation_count": 0,
+        "rejection_without_ablation_count": 0,
+        "semantic_scope": "candidate translation disposition coverage",
+        "silent_omission_count": 0,
+        "source_reaction_count": 16814,
+        "status": "PASS",
+        "translation_candidate_count": 16814
+      },
+      "red_to_green_test": "test_structural_translation_compiler",
+      "required_correction": "Compile from RPIR v2 participants, controls, and edges.",
+      "risk": "Keyword routing does not derive contracts from structured topology.",
+      "status": "EXPECTED_RED",
+      "symbol": "compile_translation"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-011",
+      "line_range": "n/a",
+      "path": "outputs/.../reactome_translation_coverage.json",
+      "raw_evidence": {
+        "BLOCKED_MISSING_SOURCE_DETAIL": 3038,
+        "SCHEMA_COMPILED": 13776
+      },
+      "red_to_green_test": "test_translation_depth_firewall",
+      "required_correction": "Separate structural, shadow, installed, and product depths.",
+      "risk": "Schema coverage can be mistaken for execution.",
+      "status": "EXPECTED_RED",
+      "symbol": "dispositions"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-012",
+      "line_range": "1-260",
+      "path": "controllergate/isomorphism/scenarios.py",
+      "raw_evidence": "representative scenarios are registry-defined",
+      "red_to_green_test": "test_source_derived_scenarios",
+      "required_correction": "Derive scenarios from RPIR v2 stable IDs.",
+      "risk": "Scenario inputs are not proved source-derived.",
+      "status": "EXPECTED_RED",
+      "symbol": "chapter_scenarios"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-013",
+      "line_range": "1-220",
+      "path": "scripts/run_batch092_installed_scenarios.py",
+      "raw_evidence": "installed wrapper executes scenario summaries",
+      "red_to_green_test": "test_installed_canonical_reachability",
+      "required_correction": "Route through canonical registry, broker, and SQLite events.",
+      "risk": "Installed reachability does not prove canonical stage integration.",
+      "status": "EXPECTED_RED",
+      "symbol": "main"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-014",
+      "line_range": "1-420",
+      "path": "scripts/run_batch092_causal_authority.py",
+      "raw_evidence": {
+        "receipt_count": 80
+      },
+      "red_to_green_test": "test_role_measurement_producers",
+      "required_correction": "Create role-specific decision-time producers and verifiers.",
+      "risk": "Legacy files are assigned fresh semantic role names.",
+      "status": "EXPECTED_RED",
+      "symbol": "role evidence mapping"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-015",
+      "line_range": "n/a",
+      "path": "outputs/.../amds_role_identity_receipts.jsonl",
+      "raw_evidence": {
+        "reuse_without_equivalence": 64
+      },
+      "red_to_green_test": "test_no_unproved_role_reuse",
+      "required_correction": "Measure each role or prove equivalence.",
+      "risk": "Receipt reuse prevents cohort eligibility.",
+      "status": "EXPECTED_RED",
+      "symbol": "role receipts"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-016",
+      "line_range": "1-420",
+      "path": "scripts/run_batch092_causal_authority.py",
+      "raw_evidence": "Batch014/Batch039 legacy summaries",
+      "red_to_green_test": "test_frozen_decision_time_inputs",
+      "required_correction": "Use frozen raw decision-time capsules.",
+      "risk": "Decision-time facts are not reconstructed from raw candidate trees.",
+      "status": "EXPECTED_RED",
+      "symbol": "candidate_paths"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-017",
+      "line_range": "n/a",
+      "path": "outputs/.../amds_quality_gate.json",
+      "raw_evidence": 0,
+      "red_to_green_test": "test_exact_eight_episode_cohort",
+      "required_correction": "Freeze and verify the exact cohort before probing.",
+      "risk": "The eight-episode minimum cohort is not eligible.",
+      "status": "EXPECTED_RED",
+      "symbol": "eligible_cohort_count"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-018",
+      "line_range": "n/a",
+      "path": "outputs/.../amds_quality_gate.json",
+      "raw_evidence": 0,
+      "red_to_green_test": "test_amds_execution_gate",
+      "required_correction": "Execute canonical causal-board episodes only after eligibility.",
+      "risk": "No historical AMDS episode executed.",
+      "status": "EXPECTED_RED",
+      "symbol": "executed_episode_count"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-019",
+      "line_range": "n/a",
+      "path": "outputs/.../amds_quality_gate.json",
+      "raw_evidence": 0,
+      "red_to_green_test": "test_reachable_contradiction_backtrack",
+      "required_correction": "Execute reachable contradiction fixtures.",
+      "risk": "Contradiction/backtracking remains unexercised.",
+      "status": "EXPECTED_RED",
+      "symbol": "contradiction_count"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-020",
+      "line_range": "n/a",
+      "path": "outputs/.../amds_executed_baselines.json",
+      "raw_evidence": "NOT_RUN under cohort block",
+      "red_to_green_test": "test_actual_baseline_execution",
+      "required_correction": "Run equal-budget baselines only for a frozen eligible cohort.",
+      "risk": "Baseline quality is not established.",
+      "status": "EXPECTED_RED",
+      "symbol": "baseline results"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-021",
+      "line_range": "n/a",
+      "path": "outputs/.../human_authorization_receipts.jsonl",
+      "raw_evidence": "PENDING_OFFICIAL_WORKFLOW_BINDING",
+      "red_to_green_test": "test_external_human_authority",
+      "required_correction": "Consume protected-environment or detached external approval.",
+      "risk": "Repository-generated intent is not external human authority.",
+      "status": "EXPECTED_RED",
+      "symbol": "authorization"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-022",
+      "line_range": "n/a",
+      "path": "outputs/.../historical_lifecycle_results.json",
+      "raw_evidence": "BLOCKED_BY_AMDS_AND_AUTHORITY",
+      "red_to_green_test": "test_historical_actuation_gate",
+      "required_correction": "Keep actuation blocked until AMDS and authorization pass.",
+      "risk": "Historical lifecycles have no corrected authority chain.",
+      "status": "EXPECTED_RED",
+      "symbol": "lifecycles"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-023",
+      "line_range": "n/a",
+      "path": "outputs/.../canary_and_rollback_decision.json",
+      "raw_evidence": "NOT_RUN",
+      "red_to_green_test": "test_slot_lifecycle_gate",
+      "required_correction": "Run broker-backed slots only after authority.",
+      "risk": "Real package-slot lifecycle is not revalidated under corrected authority.",
+      "status": "EXPECTED_RED",
+      "symbol": "deployment"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-024",
+      "line_range": "1-420",
+      "path": "scripts/batch092_standalone_critic.py",
+      "raw_evidence": "compact evidence reconstruction",
+      "red_to_green_test": "test_batch093_raw_critic",
+      "required_correction": "Rebuild critic over copied raw Batch093 evidence.",
+      "risk": "Mutation depth does not include structured RPIR v2 and fresh role receipts.",
+      "status": "EXPECTED_RED",
+      "symbol": "critic inputs"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-025",
+      "line_range": "n/a",
+      "path": "outputs/.../reactome_source_coverage.json",
+      "raw_evidence": {
+        "authority_allowed": "100 percent candidate translation intake",
+        "authority_forbidden": [
+          "complete production implementation",
+          "automatic repair authority"
+        ],
+        "duplicate_chapter_count": 0,
+        "execution_depth": "complete_release_document_and_event_count_reconciliation",
+        "expected_pathway_count": 2916,
+        "expected_reaction_count": 16814,
+        "glossary_count": 1,
+        "normal_variant_pair_count": 2177,
+        "observed_pathway_count": 2916,
+        "observed_reaction_count": 16814,
+        "omitted_event_count": 2311,
+        "parse_warning_count": 0,
+        "parse_warnings": [],
+        "producer": "controllergate.reactome_ir.ingest:pymupdf_text_v1",
+        "reactome_release": 97,
+        "semantic_scope": "Reactome release 97 source coverage",
+        "shared_event_occurrence_count": 740,
+        "silent_omission_count": 0,
+        "source_database_path_outside_git": "C:\\Dev\\ControllerGate_Runtime\\batch092-reactome\\reactome_release97.sqlite3",
+        "source_database_read_only": true,
+        "stable_id_conflict_count": 0,
+        "stable_id_conflicts": [],
+        "status": "PASS",
+        "uncertain_event_count": 727,
+        "unique_chapter_count": 29,
+        "unique_stable_id_count": 18990,
+        "unresolved_normal_variant_pair_count": 2177
+      },
+      "red_to_green_test": "test_coverage_dimension_reconciliation",
+      "required_correction": "Publish a dimension-specific reconciliation.",
+      "risk": "Occurrence coverage can be laundered into semantic-graph coverage.",
+      "status": "EXPECTED_RED",
+      "symbol": "source coverage"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-026",
+      "line_range": "n/a",
+      "path": "outputs/.../reactome_reactions.jsonl",
+      "raw_evidence": {
+        "occurrences": 16814,
+        "unique_stable_ids": 16107
+      },
+      "red_to_green_test": "test_occurrence_structural_join",
+      "required_correction": "Join occurrence coverage to one canonical structured event per stable ID.",
+      "risk": "Shared chapter occurrences are not structural duplicates.",
+      "status": "EXPECTED_RED",
+      "symbol": "reaction rows"
+    },
+    {
+      "commit": "09626d3e994a6f397f4e14f83032a3f781d16047",
+      "finding_id": "B093-PREF-027",
+      "line_range": "n/a",
+      "path": "outputs/.../batch092_internal_release_decision.json",
+      "raw_evidence": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+      "red_to_green_test": "test_external_review_pending_v3_boundary",
+      "required_correction": "Require all Batch093 internal criteria and keep external review pending.",
+      "risk": "Release remains blocked and must not be promoted by source coverage alone.",
+      "status": "EXPECTED_RED",
+      "symbol": "release boundary"
+    }
+  ],
+  "input_hashes": {
+    "amds_quality_gate": "74f002c6761e6fc997424138d77bbed0fe781c4c22332edd569030761a5eb81b",
+    "amds_role_identity_receipts": "b52b9da0089f65c6b2b8d01fbe2d412b52474c2ed9a5c7afca533874f21126ae",
+    "reactome_source_coverage": "55be6dabe0895030b0e0fc3496d29f00a17101e56a37b3e745f6b0a4a9c6ff5d",
+    "reactome_translation_coverage": "03961e573c465e1f99ed71021d0783ab6db09bef3890728600f790a522139320"
+  },
+  "observed_head": "09626d3e994a6f397f4e14f83032a3f781d16047",
+  "producer": "scripts/audit_batch093_pre_fix_structured_rpir_and_role_cohort.py",
+  "semantic_scope": "Batch092 structured-semantic and AMDS role-cohort authority",
+  "status": "BATCH093_PRE_FIX_AUDIT_FAIL_EXPECTED"
+}

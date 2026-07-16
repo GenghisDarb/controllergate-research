@@ -1,0 +1,68 @@
+{
+  "authority_allowed": "tamper rejection",
+  "authority_forbidden": "external approval",
+  "executed": 8,
+  "execution_depth": "raw_file_seal_mutation",
+  "producer": "scripts/batch093_standalone_critic.py",
+  "rejected": 8,
+  "results": [
+    {
+      "mutated_sha256": "68553d55170cdae593bd91aa717a2009af338fa11ca002437f8e4b0511f136f6",
+      "original_sha256": "5a3eba99957ba00902553509ffcfe1256e47fa011b6b17f5767ca2e7d9ebdbea",
+      "path": "reactome_structured_rpir_v2_reactions.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "6af2b941020e36b8130c8f46f30635b3aecd804f653c8179d2b80ea61e174d8e",
+      "original_sha256": "36878b160a263fb586ba5bb27fe9ebaf1972038d06713be4d12e083e7123f55e",
+      "path": "reactome_structured_participants.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "a7b91dd1c4fcc3dd71689cda8c58678788b01c1902b9cde8a111380284ea22fa",
+      "original_sha256": "753a949adff014c0853098b591965de49fc00bd27d9caf008f7f6afe41a741ff",
+      "path": "reactome_structured_catalysts.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "2aee32a4c3d2f7959d73c66843ec41acd27d4df8cb25df512f408aa93378063a",
+      "original_sha256": "6cd8a522419cbc1557d2fb313dda2453d127c09974aeb988493ea8904a8e93a2",
+      "path": "reactome_structured_regulations.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "be2a20e1830a5ee9e9ccfd37ea4d0374657bdac551fa31b662c75563dbda41ee",
+      "original_sha256": "0ffe6c8da68fe48ffd822785fc6b09f635ae8414f1e0136e94241bfa308a8986",
+      "path": "reactome_structured_relations.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "e62965c03d095d169c947061cc8a4b28b6ced6625178e922a374910eb656f7d5",
+      "original_sha256": "5129be2cc345189815098359e3ed1558286bc36588108e2f8b141baa33d5435e",
+      "path": "reactome_translation_candidates_v2.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "841b38a48799cfd47f31cc6b275e392f7f124a296b5c1f76c57b6eb14ff61cad",
+      "original_sha256": "8faafdd22eeb83a8d0bcb09b7a41cefb99e00ed0db6f9d1f646cfd33cb9237bf",
+      "path": "primitive_execution_coverage_v2.json",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    },
+    {
+      "mutated_sha256": "b733f6d4cc56005d79c92c870689184b27072070550c2518a3da4bd2b682bed6",
+      "original_sha256": "f7e26776a59066b3c4360b047aa7b218c03b9f2e5d17a0d323489f676284183c",
+      "path": "role_measurement_execution_receipts.jsonl",
+      "rejected": true,
+      "result": "REJECTED_SEAL_MISMATCH"
+    }
+  ],
+  "semantic_scope": "input seal integrity",
+  "status": "PASS"
+}

@@ -1,0 +1,260 @@
+{
+  "authority": "shadow_non_authorizing",
+  "chapter": "cross_chapter_integrated",
+  "integrated_mechanisms": [
+    "sensor",
+    "signal",
+    "compartment_transport",
+    "checkpoint",
+    "resource_budget",
+    "actuation",
+    "quality_control",
+    "stall_collision_rescue",
+    "normal_variant_divergence",
+    "residual_activity",
+    "redundancy",
+    "resistance_bypass",
+    "cleanup",
+    "lineage"
+  ],
+  "primitive_ids": [
+    "EVENT_CONTRACT",
+    "ENTITY_STATE",
+    "COMPLEX_ASSEMBLY",
+    "CANDIDATE_SET",
+    "DEMONSTRATED_MEMBER",
+    "COMPARTMENT",
+    "TRANSLOCATION",
+    "TARGETING",
+    "CATALYST",
+    "COFACTOR",
+    "POSITIVE_REGULATOR",
+    "NEGATIVE_REGULATOR",
+    "CHECKPOINT",
+    "FEEDBACK_LOOP",
+    "OSCILLATOR",
+    "PHASE_MACHINE",
+    "RESOURCE_FLUX",
+    "FLOW_CONTROL",
+    "REVERSIBLE_REACTION",
+    "IRREVERSIBLE_REACTION",
+    "PROCESSIVE_CYCLE",
+    "QUALITY_CONTROL",
+    "STALL_DETECTION",
+    "COLLISION_DETECTION",
+    "RESCUE",
+    "RECYCLING",
+    "DEGRADATION",
+    "SELECTIVE_CLEANUP",
+    "BULK_CLEANUP",
+    "FOLDING_OR_CONFORMANCE",
+    "MODIFICATION_CODE",
+    "ACCESSIBILITY_STATE",
+    "LINEAGE",
+    "ORTHOLOGY",
+    "NORMAL_VARIANT_PAIR",
+    "NEGATIVE_REACTION",
+    "RESIDUAL_ACTIVITY",
+    "REDUNDANCY_COMPENSATION",
+    "THREAT_HIJACK",
+    "RESISTANCE_BYPASS",
+    "LOCAL_CONTAINMENT",
+    "CONTROLLED_TERMINATION",
+    "SENSOR_TRANSDUCER",
+    "EVENT_CHANNEL",
+    "ACTUATOR",
+    "DISTRIBUTION_CLEARANCE"
+  ],
+  "scenario_id": "batch093-cross-chapter-integrated",
+  "source_database_id": 5665868,
+  "source_derivation_hash": "cae2d753551d88f83609c78acbe7f88936c2bdd557fe906083716c9337304e9a",
+  "source_event": {
+    "access_policy": {
+      "primitive": "ACCESSIBILITY_STATE",
+      "sequence": 32
+    },
+    "actuation_request": {
+      "primitive": "ACTUATOR",
+      "sequence": 45
+    },
+    "alternate_route": {
+      "primitive": "REDUNDANCY_COMPENSATION",
+      "sequence": 38
+    },
+    "bypass_route": {
+      "primitive": "RESISTANCE_BYPASS",
+      "sequence": 40
+    },
+    "candidates": {
+      "primitive": "CANDIDATE_SET",
+      "sequence": 4
+    },
+    "catalyst": {
+      "primitive": "CATALYST",
+      "sequence": 9
+    },
+    "channel_message": {
+      "primitive": "EVENT_CHANNEL",
+      "sequence": 44
+    },
+    "checkpoint": {
+      "primitive": "CHECKPOINT",
+      "sequence": 13
+    },
+    "cleanup_scope": {
+      "primitive": "BULK_CLEANUP",
+      "sequence": 29
+    },
+    "clearance_target": {
+      "primitive": "DISTRIBUTION_CLEARANCE",
+      "sequence": 46
+    },
+    "cofactor": {
+      "primitive": "COFACTOR",
+      "sequence": 10
+    },
+    "collision_key": {
+      "primitive": "COLLISION_DETECTION",
+      "sequence": 24
+    },
+    "commit_transition": {
+      "primitive": "IRREVERSIBLE_REACTION",
+      "sequence": 20
+    },
+    "compartment": {
+      "primitive": "COMPARTMENT",
+      "sequence": 6
+    },
+    "conformance_contract": {
+      "primitive": "FOLDING_OR_CONFORMANCE",
+      "sequence": 30
+    },
+    "containment_scope": {
+      "primitive": "LOCAL_CONTAINMENT",
+      "sequence": 41
+    },
+    "cycle_step": {
+      "primitive": "PROCESSIVE_CYCLE",
+      "sequence": 21
+    },
+    "degradation_target": {
+      "primitive": "DEGRADATION",
+      "sequence": 27
+    },
+    "demonstrated_member": {
+      "primitive": "DEMONSTRATED_MEMBER",
+      "sequence": 5
+    },
+    "destination": {
+      "primitive": "TRANSLOCATION",
+      "sequence": 7
+    },
+    "entity_state": {
+      "primitive": "ENTITY_STATE",
+      "sequence": 2
+    },
+    "event_type": {
+      "primitive": "EVENT_CONTRACT",
+      "sequence": 1
+    },
+    "feedback": {
+      "primitive": "FEEDBACK_LOOP",
+      "sequence": 14
+    },
+    "flow_limit": {
+      "primitive": "FLOW_CONTROL",
+      "sequence": 18
+    },
+    "inference_source": {
+      "primitive": "ORTHOLOGY",
+      "sequence": 34
+    },
+    "members": {
+      "primitive": "COMPLEX_ASSEMBLY",
+      "sequence": 3
+    },
+    "modification": {
+      "primitive": "MODIFICATION_CODE",
+      "sequence": 31
+    },
+    "negative_outcome": {
+      "primitive": "NEGATIVE_REACTION",
+      "sequence": 36
+    },
+    "negative_signal": {
+      "primitive": "NEGATIVE_REGULATOR",
+      "sequence": 12
+    },
+    "normal_variant_pair": {
+      "primitive": "NORMAL_VARIANT_PAIR",
+      "sequence": 35
+    },
+    "parent_identity": {
+      "primitive": "LINEAGE",
+      "sequence": 33
+    },
+    "phase": {
+      "primitive": "OSCILLATOR",
+      "sequence": 15
+    },
+    "phase_transition": {
+      "primitive": "PHASE_MACHINE",
+      "sequence": 16
+    },
+    "positive_signal": {
+      "primitive": "POSITIVE_REGULATOR",
+      "sequence": 11
+    },
+    "progress_clock": {
+      "primitive": "STALL_DETECTION",
+      "sequence": 23
+    },
+    "quality_measurement": {
+      "primitive": "QUALITY_CONTROL",
+      "sequence": 22
+    },
+    "recyclable_resource": {
+      "primitive": "RECYCLING",
+      "sequence": 26
+    },
+    "rescue_route": {
+      "primitive": "RESCUE",
+      "sequence": 25
+    },
+    "residual_fraction": {
+      "primitive": "RESIDUAL_ACTIVITY",
+      "sequence": 37
+    },
+    "resource_delta": {
+      "primitive": "RESOURCE_FLUX",
+      "sequence": 17
+    },
+    "reverse_transition": {
+      "primitive": "REVERSIBLE_REACTION",
+      "sequence": 19
+    },
+    "selected_cleanup_target": {
+      "primitive": "SELECTIVE_CLEANUP",
+      "sequence": 28
+    },
+    "sensor_reading": {
+      "primitive": "SENSOR_TRANSDUCER",
+      "sequence": 43
+    },
+    "source_occurrence_identity": "structured-source-conformance",
+    "target": {
+      "primitive": "TARGETING",
+      "sequence": 8
+    },
+    "termination_token": {
+      "primitive": "CONTROLLED_TERMINATION",
+      "sequence": 42
+    },
+    "untrusted_controller": {
+      "primitive": "THREAT_HIJACK",
+      "sequence": 39
+    }
+  },
+  "source_occurrence_identity": "87f701a5b12e56f7024975698f165e4943bde51cef432e4b232803381cde1dff",
+  "source_stable_id": "R-HSA-5665868"
+}

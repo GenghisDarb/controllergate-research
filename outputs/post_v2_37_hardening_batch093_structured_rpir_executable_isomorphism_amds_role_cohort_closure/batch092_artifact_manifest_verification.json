@@ -1,0 +1,61 @@
+{
+  "authority_allowed": "official evidence ingest",
+  "authority_forbidden": [
+    "rewriting Batch092 evidence",
+    "repair authority"
+  ],
+  "custody": {
+    "compiled_cache_environment_payloads": 0,
+    "duplicate_paths": 0,
+    "json_parse_failures": 0,
+    "jsonl_parse_failures": 0,
+    "nested_archives": 0,
+    "symlinks": 0,
+    "unsafe_paths": 0,
+    "zip_entries": 95
+  },
+  "execution_depth": "byte_level_zip_and_semantic_manifest_verification",
+  "json_failures": [],
+  "jsonl_failures": [],
+  "manifests": [
+    {
+      "checked": 93,
+      "malformed": 0,
+      "manifest": "ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 88,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction/ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 87,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction/PORTABLE_ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 89,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch092_reactome_complete_pathway_ir_external_review_correction/SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    }
+  ],
+  "producer": "scripts/batch093_ingest_and_reconcile_batch092.py",
+  "semantic_scope": "official Batch092 artifact custody",
+  "status": "PASS"
+}

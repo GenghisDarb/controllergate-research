@@ -1,5 +1,18 @@
 # Capability inventory
 
+## Batch093 capability additions
+
+- Exact release-bound structured-source custody and documentary/structured crosswalk.
+- RPIR v2 structured reactions with stable identities and qualified field absence states.
+- Topology-based candidate compilation with keyword routing retained only as a nonauthorizing baseline.
+- Forty-six distinct executable generic primitive contracts with negative and adversarial controls.
+- Source-derived chapter scenario selection and canonical read-only stage/SQLite execution.
+- Reusable ten-role AMDS measurement producers and independent verifiers.
+- A frozen-cohort gate that prevents probes and repair when fresh role evidence is incomplete.
+- A standard-library critic that reconstructs raw ledgers and rejects physical re-signed semantic mutations.
+
+Installed shadow reachability is not repair authority. Historical AMDS effectiveness, stage-produced repair authority, real historical deployment, prospective memory lift, production readiness, and self-maintaining software remain not established.
+
 ## Batch091 verified internal capability boundary
 
 Batch091 adds deterministic lossless Git-tree and provider capsule custody, physically blinded eight-episode historical diagnosis, stage-produced proof authority, installed canonical historical lifecycles, repaired-distribution reproducibility checks, distinct local canary compartments, three independent health classes, negative control, local package switching, exact rollback, and a standard-library semantic reconstruction critic. Re-signed evidence is rejected through semantic invariants rather than byte mismatch alone.

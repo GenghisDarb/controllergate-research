@@ -1,0 +1,46 @@
+{
+  "Batch092_evidence_preserved": true,
+  "Batch092_internal_decision": "PRODUCT_BETA_RC_BLOCKED_EXACT",
+  "Batch092_product_beta_rc": false,
+  "Batch092_transport_and_target_execution_progress_real": true,
+  "authority_allowed": "corrected current claim boundary",
+  "authority_forbidden": [
+    "semantic graph claim from PDF occurrences",
+    "AMDS quality claim"
+  ],
+  "dimensions": {
+    "AMDS_role_cohort": {
+      "eligible_cohort_count": 0,
+      "status": "BLOCK"
+    },
+    "canonical_stage_integration": {
+      "status": "NOT_ESTABLISHED"
+    },
+    "documentary_occurrence_coverage": {
+      "pathways": 2916,
+      "reactions": 16814,
+      "status": "PASS"
+    },
+    "generic_primitive_vocabulary": {
+      "primitive_count": 46,
+      "status": "PASS"
+    },
+    "installed_reachability": {
+      "status": "PASS"
+    },
+    "primitive_semantic_distinctness": {
+      "status": "NOT_ESTABLISHED"
+    },
+    "structured_semantic_graph": {
+      "status": "NOT_ESTABLISHED"
+    }
+  },
+  "execution_depth": "dimension_specific_external_review_reconciliation",
+  "producer": "scripts/batch093_ingest_and_reconcile_batch092.py",
+  "semantic_scope": "Batch092 capability depth",
+  "status": "PASS",
+  "translation_dispositions": {
+    "BLOCKED_MISSING_SOURCE_DETAIL": 3038,
+    "SCHEMA_COMPILED": 13776
+  }
+}

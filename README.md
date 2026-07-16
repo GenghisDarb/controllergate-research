@@ -1,5 +1,13 @@
 # ControllerGate
 
+## Batch093 structured semantic graph and role-cohort boundary
+
+Batch093 acquires exact Reactome release 97 structured data from the official Zenodo release, reconciles 2,916 pathway occurrences and 16,814 reaction occurrences to stable structured identities, and extends RPIR to `controllergate-rpir-v2`. Participants, controls, compartments, source relations, evidence maturity, and field-level absence states are represented explicitly. The 29 documentary chapters remain the narrative boundary; structured coverage is candidate-translation input, not production implementation or repair authority.
+
+The structural compiler assigns every reaction occurrence a nonauthorizing disposition without using title keywords as authority. Forty-six generic primitive contracts execute distinct positive, negative, and adversarial behavior through the canonical read-only stage and SQLite state. Installed Windows scenarios pass locally; the official workflow must independently run Linux and Windows installed-wheel scenarios before cross-platform equivalence can pass.
+
+The frozen eight-episode historical AMDS cohort remains blocked because fresh decision-time capsules and all ten independently verified role measurements are unavailable. No probes, proofs, patches, repair licenses, historical lifecycles, deployment switches, or count increments run after that blocker. The release decision is `PRODUCT_BETA_RC_BLOCKED_EXACT`; protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, counts remain 6 issue-derived and 4 native external with historical increment 0, and full scoring, public writes, automatic merge, production readiness, memory lift, and self-maintaining software remain disabled or not demonstrated.
+
 ## Batch092 corrected external-review boundary
 
 Batch092 independently reconciles the official Batch091 artifact and preserves its transport and target-execution progress while removing unsupported AMDS, proof-authority, slot-rollback, and critic-depth conclusions from current authority. The Batch091 outer manifest's invalid self-entry is recorded explicitly; all 107 non-self entries and all 105 portable entries verify.
