@@ -1,0 +1,109 @@
+{
+  "adversarial_control_status": "BLOCK",
+  "all_component_origins_site_packages": true,
+  "authority": "shadow_non_authorizing",
+  "canonical_stage_shortcut_negative_control": {
+    "status": "PASS",
+    "verification": {
+      "checks": {
+        "mechanism_results": true,
+        "nonauthorizing": true,
+        "producer_executed": false,
+        "registered_stage": true,
+        "source_event": true
+      },
+      "execution_raw_output_hash": "0c711e989ecaaae305c61b748f93b545f06af8808c2c6490f6a92b13bb90a587",
+      "status": "FAIL",
+      "verified": false,
+      "verifier_executed": true,
+      "verifier_identity": "controllergate.pathways.canonical_maintenance.verify_simulation_stage"
+    }
+  },
+  "component_origins": {
+    "broker": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\execution\\execution_broker.py",
+    "cli": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\cli.py",
+    "compiler": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\isomorphism\\value_bound.py",
+    "primitive_runtime": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\isomorphism\\behavior.py",
+    "rpir": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\reactome_ir\\schema.py",
+    "stage_executor_and_verifier": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\pathways\\canonical_maintenance.py",
+    "state_repository": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\state\\repository.py"
+  },
+  "database": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\state\\integrated.sqlite3",
+  "execution_receipt_id": "6d4a440b1e075e25dc6fb8b25d682491752c5e1e924254de69b2990cade1a619",
+  "external_operation_count": 0,
+  "installed_site_packages_origin": true,
+  "mechanism_status": "PASS",
+  "module_origin": "C:\\Dev\\ControllerGate_Runtime\\batch094-installed-windows\\venv\\Lib\\site-packages\\controllergate\\isomorphism\\runtime.py",
+  "negative_control_count": 16,
+  "platform": "windows",
+  "positive_execution_count": 16,
+  "primitive_trace": [
+    "SENSOR_TRANSDUCER",
+    "EVENT_CHANNEL",
+    "TRANSLOCATION",
+    "CHECKPOINT",
+    "RESOURCE_FLUX",
+    "ACTUATOR",
+    "QUALITY_CONTROL",
+    "STALL_DETECTION",
+    "COLLISION_DETECTION",
+    "RESCUE",
+    "NORMAL_VARIANT_PAIR",
+    "RESIDUAL_ACTIVITY",
+    "REDUNDANCY_COMPENSATION",
+    "RESISTANCE_BYPASS",
+    "SELECTIVE_CLEANUP",
+    "LINEAGE"
+  ],
+  "run_id": "reactome-540f8410b108a2d580b476f7",
+  "scenario_id": "reactome-r97-integrated-value-bound",
+  "source_stable_id": "R-HSA-integrated",
+  "stage_event_hash": "24e657a57895e8300e66a89a6d82ffb6255a64fd64607baba3c710232f3d3942",
+  "stage_execution_receipt": {
+    "anchor_hash": "d78d35a7b402c06ba0dfc826eec3bea79c9d59cceb9065d04d053abfc4338e75",
+    "authority": "shadow_non_authorizing",
+    "candidate_id": "R-HSA-integrated",
+    "mechanism_result_sha256s": [
+      "ce578e1b7b8a876ae5feb4117c353af4e9effe9231a5b2a71863ee3f569ba6af",
+      "68441fcb5e369cfc6e705b0592353e956a80375bb757169f84e08b93f0e1ce26",
+      "5cf3d221ad21a998642e4dec1204153e85ee391ea59aad8b0fca59cc8e3bab41",
+      "4f9636bbb06d2821b8a6da565671b327a7da483ce46b307e79d11b0ce1a7a0c7",
+      "e47571b8cbfa1ed08705e570ee5e4b2c2d872e29fc6e0161b7b7d4a0443008f8",
+      "13be6a2dd94655088d268f207f1060554614b3575413ac0b9f5bf82e1c7c2d14",
+      "9422958076e582ac25ab4cad055ffe9d862f59c615f7c6bf0540fbf20a111e19",
+      "e52f12652759dca86c6236151e5a159bedae98f9f39f95be7cce4f273239ab44",
+      "a4156fa1daff59b1c5aabfe9c93d7713f2b3798b99c2e1091472268d595086b4",
+      "47260aa1ca671601206d9d0306f959a72d0c8d077c9b34781b733e659a1c8ed7",
+      "52f1e438f24f113661e57a0b52af3d193f9becd4a67d8aefc46ffee57260ac45",
+      "5a8d911e9e0b7b08ab73a57551ad8ffec22047494bb13f4eac3a723473af3a6b",
+      "1be17abd03ca72c96558db72e0cdf0deb14d62493c605c6f4a9164cad604d2ad",
+      "a11fd79a57d39acb3d6b7bdb7ee34756a93291fcb0dcaa66548afdf8f96373b6",
+      "de605a6e9709f0915a1a1a4f4fac4cec44d64d2bf7a5aa1cd038a239fdcb728b",
+      "e8aaf73c1f139b2a04ab143a99d648fcb6ca5fc7e41e8b0a9aa89ef6191deac4"
+    ],
+    "producer_executed": true,
+    "producer_identity": "controllergate.pathways.canonical_maintenance.execute_simulation_stage",
+    "raw_output_hash": "0c711e989ecaaae305c61b748f93b545f06af8808c2c6490f6a92b13bb90a587",
+    "run_id": "reactome-540f8410b108a2d580b476f7",
+    "source_event_sha256": "56e25fc9b430f3827691c87ceab816ec3f6497e85612547c31e563a7373838fe",
+    "stage_id": "plan_maturation",
+    "status": "PASS"
+  },
+  "stage_id": "plan_maturation",
+  "stage_verification_receipt": {
+    "checks": {
+      "mechanism_results": true,
+      "nonauthorizing": true,
+      "producer_executed": true,
+      "registered_stage": true,
+      "source_event": true
+    },
+    "execution_raw_output_hash": "0c711e989ecaaae305c61b748f93b545f06af8808c2c6490f6a92b13bb90a587",
+    "status": "PASS",
+    "verified": true,
+    "verifier_executed": true,
+    "verifier_identity": "controllergate.pathways.canonical_maintenance.verify_simulation_stage"
+  },
+  "status": "PASS",
+  "unbrokered_external_operation_count": 0
+}

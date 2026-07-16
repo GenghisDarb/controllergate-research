@@ -1,0 +1,816 @@
+{
+  "authority": "shadow_non_authorizing",
+  "chapter": "cross_chapter_integrated",
+  "execution_depth": "cross_chapter_source_value_composition",
+  "primitive_ids": [
+    "SENSOR_TRANSDUCER",
+    "EVENT_CHANNEL",
+    "TRANSLOCATION",
+    "CHECKPOINT",
+    "RESOURCE_FLUX",
+    "ACTUATOR",
+    "QUALITY_CONTROL",
+    "STALL_DETECTION",
+    "COLLISION_DETECTION",
+    "RESCUE",
+    "NORMAL_VARIANT_PAIR",
+    "RESIDUAL_ACTIVITY",
+    "REDUNDANCY_COMPENSATION",
+    "RESISTANCE_BYPASS",
+    "SELECTIVE_CLEANUP",
+    "LINEAGE"
+  ],
+  "producer": "controllergate.isomorphism.source_bound:integrated_source_bound_scenario",
+  "scenario_id": "reactome-r97-integrated-value-bound",
+  "source_event": {
+    "actuation_request": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "alternate_route": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "bypass_route": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "channel_message": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "checkpoint": [
+      {
+        "edge_hash": "fdc9f648cf94b088d39fcb65677ea2b63f1df42d47f307a3944e9899600b33a2",
+        "relation": "preceding",
+        "source": "Event_2_precedingEvent",
+        "source_stable_id": "R-HSA-9646685",
+        "target_stable_id": "R-HSA-9646679"
+      },
+      {
+        "edge_hash": "f3058b7772bc059dd728df9a0627b168738e398a24939caf655e476421a70408",
+        "relation": "following",
+        "source": "computed_inverse_of_Event_2_precedingEvent",
+        "source_stable_id": "R-HSA-9646685",
+        "target_stable_id": "R-HSA-9646348"
+      },
+      {
+        "edge_hash": "6693c04ca5bda35db3cd8c6a5aa1f56a5be3c41841091b5151b62060b0e43686",
+        "relation": "following",
+        "source": "computed_inverse_of_Event_2_precedingEvent",
+        "source_stable_id": "R-HSA-9646685",
+        "target_stable_id": "R-HSA-9646390"
+      },
+      {
+        "edge_hash": "f052eae4d0a3ab0bc52e1f055c524f09a15da39a0b8d64f30e4d46547c0f59c8",
+        "relation": "following",
+        "source": "computed_inverse_of_Event_2_precedingEvent",
+        "source_stable_id": "R-HSA-9646685",
+        "target_stable_id": "R-HSA-9615721"
+      }
+    ],
+    "collision_key": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "destination": [
+      {
+        "destination_compartments": [
+          "Compartment 70101"
+        ],
+        "event_stable_id": "R-HSA-9646685",
+        "source_compartments": [
+          "Compartment 18667"
+        ],
+        "transition_hash": "6bb17e3f26d630ab0b43a6f3313c2758c851fe8372986cc1ebb3126921d3fa38",
+        "transport_direction": "source_to_destination"
+      }
+    ],
+    "normal_variant_pair": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "parent_identity": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "progress_clock": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "quality_measurement": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "rescue_route": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "residual_fraction": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "resource_delta": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "selected_cleanup_target": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "sensor_reading": [
+      {
+        "class": "Complex",
+        "database_id": 9646684,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6:Microtubule:Dynein complex [microtubule organizing center]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "input",
+        "stable_id": "R-HSA-9646684",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 190599,
+        "display_name": "Microtubule [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 0,
+        "role": "output",
+        "stable_id": "R-HSA-190599",
+        "stable_id_version": "2"
+      },
+      {
+        "class": "Complex",
+        "database_id": 2029145,
+        "display_name": "Dynein complex [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 1,
+        "role": "output",
+        "stable_id": "R-HSA-2029145",
+        "stable_id_version": "1"
+      },
+      {
+        "class": "Complex",
+        "database_id": 9646686,
+        "display_name": "Poly-vimentin:PolyUb-Misfolded Proteins:HDAC6 [cytosol]",
+        "event_occurrence_identity": "66324680e3e2e7fa413f0e1d15944b9440a030ed8fd7a088b056d0bfcdc9ce5c",
+        "event_stable_id": "R-HSA-9646685",
+        "rank": 2,
+        "role": "output",
+        "stable_id": "R-HSA-9646686",
+        "stable_id_version": "1"
+      }
+    ],
+    "source_occurrence_identity": "integrated-release97-source-bound"
+  },
+  "source_graph_hash": "be12e31c105d8c069f0fe2c06b5c4b054b2e81fb186cd8b5d5e50fc7d6b2ef2b",
+  "source_occurrence_identity": "integrated-release97-source-bound",
+  "source_stable_id": "R-HSA-integrated",
+  "source_value_parents": [
+    {
+      "primitive": "SENSOR_TRANSDUCER",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "EVENT_CHANNEL",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "TRANSLOCATION",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "destination"
+    },
+    {
+      "primitive": "CHECKPOINT",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "checkpoint"
+    },
+    {
+      "primitive": "RESOURCE_FLUX",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "ACTUATOR",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "QUALITY_CONTROL",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "STALL_DETECTION",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "COLLISION_DETECTION",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "RESCUE",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "NORMAL_VARIANT_PAIR",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "RESIDUAL_ACTIVITY",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "REDUNDANCY_COMPENSATION",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "RESISTANCE_BYPASS",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "SELECTIVE_CLEANUP",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    },
+    {
+      "primitive": "LINEAGE",
+      "scenario_id": "reactome-r97-value-bound-01",
+      "source_stable_id": "R-HSA-9646685",
+      "source_value_field": "entity_state"
+    }
+  ]
+}

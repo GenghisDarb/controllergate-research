@@ -151,6 +151,54 @@ def execute_stage(stage: PathwayStage, *, candidate_id: str, run_id: str,
     )
 
 
+def execute_simulation_stage(stage: PathwayStage, *, candidate_id: str, run_id: str,
+                             source_event: dict[str, Any], mechanism_results: list[dict[str, Any]],
+                             anchor_hash: str) -> dict[str, Any]:
+    """Execute the canonical nonauthorizing stage producer for installed simulations."""
+    if stage.stage_id != "plan_maturation":
+        raise ValueError("simulation producer is limited to the registered plan_maturation stage")
+    if not source_event.get("source_occurrence_identity"):
+        raise ValueError("simulation source occurrence identity missing")
+    if not mechanism_results or any(row.get("status") != "PASS" for row in mechanism_results):
+        raise ValueError("simulation mechanism results are incomplete")
+    raw = {
+        "candidate_id": candidate_id,
+        "run_id": run_id,
+        "stage_id": stage.stage_id,
+        "source_event_sha256": canonical_hash(source_event),
+        "mechanism_result_sha256s": [canonical_hash(row) for row in mechanism_results],
+        "anchor_hash": anchor_hash,
+        "authority": "shadow_non_authorizing",
+    }
+    return {
+        **raw,
+        "status": "PASS",
+        "producer_identity": "controllergate.pathways.canonical_maintenance.execute_simulation_stage",
+        "producer_executed": True,
+        "raw_output_hash": canonical_hash(raw),
+    }
+
+
+def verify_simulation_stage(stage: PathwayStage, execution: dict[str, Any], *,
+                            source_event: dict[str, Any], mechanism_results: list[dict[str, Any]]) -> dict[str, Any]:
+    """Independently verify the installed simulation producer's raw output."""
+    checks = {
+        "registered_stage": stage.stage_id == "plan_maturation" == execution.get("stage_id"),
+        "producer_executed": execution.get("producer_executed") is True,
+        "source_event": execution.get("source_event_sha256") == canonical_hash(source_event),
+        "mechanism_results": execution.get("mechanism_result_sha256s") == [canonical_hash(row) for row in mechanism_results],
+        "nonauthorizing": execution.get("authority") == "shadow_non_authorizing",
+    }
+    return {
+        "status": "PASS" if all(checks.values()) else "FAIL",
+        "verified": all(checks.values()),
+        "checks": checks,
+        "execution_raw_output_hash": execution.get("raw_output_hash"),
+        "verifier_identity": "controllergate.pathways.canonical_maintenance.verify_simulation_stage",
+        "verifier_executed": True,
+    }
+
+
 def generated_proof_matrix(*, candidate_id: str, run_id: str,
                            tokens: list[dict[str, Any]], contact_proofs: dict[str, str]) -> dict[str, Any]:
     rows = [stage.output_token_type for stage in CANONICAL_PATHWAY]
