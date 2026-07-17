@@ -1,0 +1,65 @@
+{
+  "authority_allowed": "official Batch094 evidence custody and corrected Batch095 starting authority",
+  "authority_forbidden": [
+    "rewriting Batch094 evidence",
+    "repair authority",
+    "external release approval"
+  ],
+  "custody": {
+    "compiled_cache_environment_payloads": 0,
+    "duplicate_paths": 0,
+    "json_parse_failures": 0,
+    "jsonl_parse_failures": 0,
+    "nested_archives": 0,
+    "pdfs": 0,
+    "sqlite_databases": 0,
+    "symlinks": 0,
+    "unsafe_paths": 0,
+    "wheels": 0,
+    "zip_entries": 109
+  },
+  "execution_depth": "byte_level_archive_and_semantic_manifest_verification",
+  "json_failures": [],
+  "jsonl_failures": [],
+  "manifests": [
+    {
+      "checked": 108,
+      "malformed": 0,
+      "manifest": "ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 101,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 100,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/PORTABLE_ARTIFACT_SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    },
+    {
+      "checked": 102,
+      "malformed": 0,
+      "manifest": "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/SHA256SUMS.txt",
+      "mismatches": 0,
+      "missing": 0,
+      "self_entries": 0,
+      "status": "PASS"
+    }
+  ],
+  "producer": "scripts/batch095_ingest_and_reconcile_batch094.py",
+  "semantic_scope": "official Batch094 artifact custody",
+  "status": "PASS"
+}

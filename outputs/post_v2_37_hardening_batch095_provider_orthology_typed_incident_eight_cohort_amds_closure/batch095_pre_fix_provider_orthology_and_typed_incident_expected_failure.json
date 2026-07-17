@@ -1,0 +1,189 @@
+{
+  "authority_allowed": "Batch095 red-to-green implementation plan",
+  "authority_forbidden": [
+    "current PASS authority",
+    "repair authorization",
+    "release approval"
+  ],
+  "batch094_head": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+  "execution_depth": "independent_expected_red_static_and_artifact_evidence_audit",
+  "finding_count": 11,
+  "findings": [
+    {
+      "batch094_artifact_evidence": {
+        "provider_versions": [
+          "3.13.14"
+        ]
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-001",
+      "line_range": "156-430",
+      "path": "controllergate/amds/fresh_cohort.py",
+      "red_to_green_test": "test_provider_recipe_selected_before_target",
+      "required_correction": "select and freeze candidate-specific provider recipes before target execution",
+      "risk": "one orchestration interpreter is treated as every candidate provider",
+      "status": "EXPECTED_RED",
+      "symbol": "_attempt_episode"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "provider_labels": [
+          "batch094-fresh-candidate-provider"
+        ]
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-002",
+      "line_range": "86-145",
+      "path": "controllergate/amds/fresh_cohort.py",
+      "red_to_green_test": "test_provider_identity_uniqueness",
+      "required_correction": "derive provider identity from interpreter, ABI, platform, lock, and package graph",
+      "risk": "a constant provider label is not a measured provider identity",
+      "status": "EXPECTED_RED",
+      "symbol": "BrokerRunner.run"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "darker": {
+          "candidate_id": "darker_issue_112_relative_git_dir",
+          "exact_blockers": [
+            "provider_dependency_and_project_install_failed"
+          ]
+        }
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-003",
+      "line_range": "280-329",
+      "path": "controllergate/amds/fresh_cohort.py",
+      "red_to_green_test": "test_darker_python37_provider_lock",
+      "required_correction": "materialize or independently prove an equivalent Python 3.7 provider",
+      "risk": "Darker ignores the verified Python 3.7 decision-time provider lock",
+      "status": "EXPECTED_RED",
+      "symbol": "provider_venv_materialization"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "openbb": {
+          "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+          "exact_blockers": [
+            "project_target_failure_not_materialized"
+          ]
+        }
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-004",
+      "line_range": "191-226",
+      "path": "configs/batch094_fresh_cohort_acquisition.json",
+      "red_to_green_test": "test_openbb_secondary_source_and_service",
+      "required_correction": "freeze cutoff commit and broker the local secondary-source service lifecycle",
+      "risk": "OpenBB secondary source and local service are absent",
+      "status": "EXPECTED_RED",
+      "symbol": "incident_openbb_7585_modular_openapi_reproducer"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "predicate_style": "nonzero_return_plus_markers_with_candidate_branch"
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-005",
+      "line_range": "355-370",
+      "path": "controllergate/amds/fresh_cohort.py",
+      "red_to_green_test": "test_generic_typed_incident_verifier",
+      "required_correction": "use data-driven typed incident product contracts and independent verification",
+      "risk": "process status and broad markers can misclassify transport or product failures",
+      "status": "EXPECTED_RED",
+      "symbol": "incident_materialized"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "candidate_branch": true
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-006",
+      "line_range": "360-365",
+      "path": "controllergate/amds/fresh_cohort.py",
+      "red_to_green_test": "test_candidate_id_branch_rejected",
+      "required_correction": "migrate Poetry to SUCCESS_WITH_STATE_DEFECT contract data",
+      "risk": "candidate-ID branches encode expected outcomes in production execution",
+      "status": "EXPECTED_RED",
+      "symbol": "incident_poetry_10974_init_duplicate_name branch"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "markers": [
+          "failed",
+          "warning"
+        ]
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-007",
+      "line_range": "163-188",
+      "path": "configs/batch094_fresh_cohort_acquisition.json",
+      "red_to_green_test": "test_broad_marker_rejection",
+      "required_correction": "bind exact preregistered warning family and test identities",
+      "risk": "broad words do not establish exact warning/test identity",
+      "status": "EXPECTED_RED",
+      "symbol": "pytest_13480 expected_failure_markers"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "materialized_count": 6
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-008",
+      "line_range": "1-8",
+      "path": "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/historical_materialization_results.jsonl",
+      "red_to_green_test": "test_batch094_rows_not_fresh_batch095_roles",
+      "required_correction": "rerun all eight in one frozen Batch095 evidence lineage",
+      "risk": "prior PASS rows are recipe hints, not fresh Batch095 role evidence",
+      "status": "EXPECTED_RED",
+      "symbol": "Batch094 materialization rows"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "upstream_cohort_status": "BLOCK"
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-009",
+      "line_range": "1-30",
+      "path": "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/external_human_authorization_gate.json",
+      "red_to_green_test": "test_authorization_is_dormant_before_source_ownership",
+      "required_correction": "classify approval as a dormant downstream condition until AMDS and source ownership pass",
+      "risk": "human approval is presented alongside upstream scientific blockers",
+      "status": "EXPECTED_RED",
+      "symbol": "human authorization gate"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "blocker": "BLOCK_MINIMUM_COHORT_NOT_MET"
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-010",
+      "line_range": "1-40",
+      "path": "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/batch094_internal_release_decision.json",
+      "red_to_green_test": "test_blocker_dependency_taxonomy",
+      "required_correction": "emit one typed dependency-ordered blocker graph",
+      "risk": "claim boundaries and shadow limitations are flattened into active blockers",
+      "status": "EXPECTED_RED",
+      "symbol": "exact_blockers"
+    },
+    {
+      "batch094_artifact_evidence": {
+        "critic_source_sha256": "0473756e5b5f5ebff911956f789d119777aabbcf95df4504fb62afe0b74011a9"
+      },
+      "commit": "2918803db312d1999ab791d8bd7031a0399cb4f2",
+      "finding_id": "B095-RED-011",
+      "line_range": "130-230",
+      "path": "scripts/batch094_standalone_critic.py",
+      "red_to_green_test": "test_batch095_actual_evidence_mutations",
+      "required_correction": "mutate and re-sign copied actual evidence bundles",
+      "risk": "most mutations target aggregates rather than underlying provider, product, role, and stage evidence",
+      "status": "EXPECTED_RED",
+      "symbol": "semantic mutation campaign"
+    }
+  ],
+  "producer": "scripts/audit_batch095_pre_fix_provider_orthology_and_typed_incident.py",
+  "reopen_condition": "make every named red-to-green test pass from fresh evidence",
+  "sealed_before_production_edit": true,
+  "semantic_scope": "Batch094 provider orthology, typed incident, blocker taxonomy, and critic depth",
+  "status": "BATCH095_PRE_FIX_AUDIT_FAIL_EXPECTED"
+}

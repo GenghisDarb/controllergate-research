@@ -1,0 +1,113 @@
+{
+  "active_root_count": 1,
+  "node_count": 11,
+  "nodes": [
+    {
+      "blocker_class": "ACTIVE_ROOT_BLOCKER",
+      "blocker_id": "eight_episode_semantic_materialization_not_complete",
+      "evidence": [
+        "historical_frozen_cohort_v2.json"
+      ],
+      "node_hash": "e90d90c3a8133887dd1fb2d6095c12f689a6005bba5e2b686b5701e22234e42a",
+      "parent_id": null,
+      "reopen_condition": "materialize all eight exact episodes",
+      "status": "ACTIVE"
+    },
+    {
+      "blocker_class": "ACTIVE_CHILD_BLOCKER",
+      "blocker_id": "darker_provider_orthology_not_materialized",
+      "evidence": [
+        "batch094_external_depth_reconciliation.json"
+      ],
+      "node_hash": "a4ef97dd61b2ecf89443690ed13182e717ee8693a2f754b70b9c2bb0355e2140",
+      "parent_id": "eight_episode_semantic_materialization_not_complete",
+      "reopen_condition": "materialize Python 3.7 provider and exact incident",
+      "status": "ACTIVE"
+    },
+    {
+      "blocker_class": "ACTIVE_CHILD_BLOCKER",
+      "blocker_id": "openbb_secondary_input_service_and_invalid_product_not_materialized",
+      "evidence": [
+        "batch094_external_depth_reconciliation.json"
+      ],
+      "node_hash": "0ddf7e33dd4dbdba8eb22e13e570e94e5932430ecd5fac0f32592e4956b92b40",
+      "parent_id": "eight_episode_semantic_materialization_not_complete",
+      "reopen_condition": "materialize cutoff source, service, and invalid product",
+      "status": "ACTIVE"
+    },
+    {
+      "blocker_class": "DOWNSTREAM_NOT_RUN",
+      "blocker_id": "80_role_measurements_not_complete",
+      "evidence": [],
+      "node_hash": "65340496eb120bafae100cc3df1b14cd4f1345bdd233e74a25c2900555034099",
+      "parent_id": "eight_episode_semantic_materialization_not_complete",
+      "reopen_condition": "pass eight-episode materialization first",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker_class": "DOWNSTREAM_NOT_RUN",
+      "blocker_id": "historical_blinded_amds_not_run",
+      "evidence": [],
+      "node_hash": "d5cc7627becce97f49bf4596f0e38b4ddc622e9c6470f072cd6209d5cdb88374",
+      "parent_id": "80_role_measurements_not_complete",
+      "reopen_condition": "pass 80-role gate first",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker_class": "DOWNSTREAM_NOT_RUN",
+      "blocker_id": "stage_authority_not_run",
+      "evidence": [],
+      "node_hash": "af9146ae72cb37feef763e1102167fc7bcaf32e013e7b26f493b6fe935021c80",
+      "parent_id": "historical_blinded_amds_not_run",
+      "reopen_condition": "run source stages only for source-owned terminals",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker_class": "DORMANT_EXTERNAL_CONDITION",
+      "blocker_id": "external_human_authorization_pending_after_AMDS_and_source_ownership",
+      "evidence": [],
+      "node_hash": "3874cbd0a1819514c15f080b77ff525adffccd87c96c7bd1812dc1536732ed00",
+      "parent_id": null,
+      "reopen_condition": "obtain protected external approval after scientific pass",
+      "status": "DORMANT"
+    },
+    {
+      "blocker_class": "CLAIM_BOUNDARY",
+      "blocker_id": "AMDS_PROSPECTIVE_EFFECTIVENESS_NOT_ESTABLISHED",
+      "evidence": [],
+      "node_hash": "5e1aad6a20588f2ba6e99bb8e3e8df1d0a09d1df0b0b47fc5755c9bd56ed3539",
+      "parent_id": null,
+      "reopen_condition": "run a separately preregistered prospective study",
+      "status": "NOT_ESTABLISHED"
+    },
+    {
+      "blocker_class": "CLAIM_BOUNDARY",
+      "blocker_id": "prospective_memory_lift_not_demonstrated",
+      "evidence": [],
+      "node_hash": "67eb98bd372c1a9818f574abfbd8a8148146e3465dce66fefd3c1fbacf4e04af",
+      "parent_id": null,
+      "reopen_condition": "run a prospective matched comparison",
+      "status": "NOT_DEMONSTRATED"
+    },
+    {
+      "blocker_class": "CLAIM_BOUNDARY",
+      "blocker_id": "full_scoring_not_run",
+      "evidence": [],
+      "node_hash": "77fe85c2b4050658a3dde825b72a2af32efa86a6bfcca69a41f5d779a3cac50e",
+      "parent_id": null,
+      "reopen_condition": "requires separate authorization",
+      "status": "NOT_RUN_DISALLOWED"
+    },
+    {
+      "blocker_class": "SHADOW_CAPABILITY_LIMIT",
+      "blocker_id": "numeric_stoichiometry_partial",
+      "evidence": [],
+      "node_hash": "b8f515a2bcd6777a89a04c1e9c2666ce103786e766f7983d7b17a23322b494db",
+      "parent_id": null,
+      "reopen_condition": "admit an exact-release numeric source in the shadow lane",
+      "status": "PARTIAL"
+    }
+  ],
+  "reasons": [],
+  "status": "PASS"
+}

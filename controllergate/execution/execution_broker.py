@@ -21,6 +21,7 @@ ALLOWED_EXTERNAL_OPERATION_TYPES = {
     "duplicate_replay", "canary_installation", "canary_execution", "health_observation",
     "rollback", "proof_append", "count_decision", "plan_maturation", "transport",
     "local_actuation", "cleanup", "artifact_build",
+    "service_start", "service_readiness", "service_request", "service_stop", "service_cleanup",
 }
 
 SECRET_MARKERS = ("TOKEN", "SECRET", "PASSWORD", "PRIVATE_KEY", "CREDENTIAL")

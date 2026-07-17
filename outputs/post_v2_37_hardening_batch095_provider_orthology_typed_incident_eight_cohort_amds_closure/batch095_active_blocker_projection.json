@@ -1,0 +1,69 @@
+{
+  "active_children": [
+    {
+      "blocker_class": "ACTIVE_CHILD_BLOCKER",
+      "blocker_id": "darker_provider_orthology_not_materialized",
+      "evidence": [
+        "batch094_external_depth_reconciliation.json"
+      ],
+      "node_hash": "a4ef97dd61b2ecf89443690ed13182e717ee8693a2f754b70b9c2bb0355e2140",
+      "parent_id": "eight_episode_semantic_materialization_not_complete",
+      "reopen_condition": "materialize Python 3.7 provider and exact incident",
+      "status": "ACTIVE"
+    },
+    {
+      "blocker_class": "ACTIVE_CHILD_BLOCKER",
+      "blocker_id": "openbb_secondary_input_service_and_invalid_product_not_materialized",
+      "evidence": [
+        "batch094_external_depth_reconciliation.json"
+      ],
+      "node_hash": "0ddf7e33dd4dbdba8eb22e13e570e94e5932430ecd5fac0f32592e4956b92b40",
+      "parent_id": "eight_episode_semantic_materialization_not_complete",
+      "reopen_condition": "materialize cutoff source, service, and invalid product",
+      "status": "ACTIVE"
+    }
+  ],
+  "active_root": [
+    {
+      "blocker_class": "ACTIVE_ROOT_BLOCKER",
+      "blocker_id": "eight_episode_semantic_materialization_not_complete",
+      "evidence": [
+        "historical_frozen_cohort_v2.json"
+      ],
+      "node_hash": "e90d90c3a8133887dd1fb2d6095c12f689a6005bba5e2b686b5701e22234e42a",
+      "parent_id": null,
+      "reopen_condition": "materialize all eight exact episodes",
+      "status": "ACTIVE"
+    }
+  ],
+  "downstream_not_run": [
+    {
+      "blocker_class": "DOWNSTREAM_NOT_RUN",
+      "blocker_id": "80_role_measurements_not_complete",
+      "evidence": [],
+      "node_hash": "65340496eb120bafae100cc3df1b14cd4f1345bdd233e74a25c2900555034099",
+      "parent_id": "eight_episode_semantic_materialization_not_complete",
+      "reopen_condition": "pass eight-episode materialization first",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker_class": "DOWNSTREAM_NOT_RUN",
+      "blocker_id": "historical_blinded_amds_not_run",
+      "evidence": [],
+      "node_hash": "d5cc7627becce97f49bf4596f0e38b4ddc622e9c6470f072cd6209d5cdb88374",
+      "parent_id": "80_role_measurements_not_complete",
+      "reopen_condition": "pass 80-role gate first",
+      "status": "NOT_RUN"
+    },
+    {
+      "blocker_class": "DOWNSTREAM_NOT_RUN",
+      "blocker_id": "stage_authority_not_run",
+      "evidence": [],
+      "node_hash": "af9146ae72cb37feef763e1102167fc7bcaf32e013e7b26f493b6fe935021c80",
+      "parent_id": "historical_blinded_amds_not_run",
+      "reopen_condition": "run source stages only for source-owned terminals",
+      "status": "NOT_RUN"
+    }
+  ],
+  "status": "PASS"
+}
