@@ -1,0 +1,162 @@
+{
+  "candidate_ids": [
+    "darker_issue_112_relative_git_dir",
+    "py_bugger_issue_65",
+    "cloudpickle_507_py313_typevar_distutils",
+    "freezegun_547_py313_datetimes_assertion",
+    "audioread_144_py313_aifc_removed",
+    "pytest_13480_wdefault_unraisable_threadexception",
+    "incident_openbb_7585_modular_openapi_reproducer",
+    "incident_poetry_10974_init_duplicate_name"
+  ],
+  "edges": [
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "abi",
+        "dependency_lock",
+        "interpreter",
+        "platform"
+      ],
+      "matched_dimensions": [],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "NOT_RUN",
+      "source_candidate": "darker_issue_112_relative_git_dir",
+      "target_candidate": "py_bugger_issue_65",
+      "transfer_allowed": false
+    },
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "abi",
+        "dependency_lock",
+        "interpreter"
+      ],
+      "matched_dimensions": [
+        "platform"
+      ],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "executed_dimension_match",
+      "source_candidate": "py_bugger_issue_65",
+      "target_candidate": "cloudpickle_507_py313_typevar_distutils",
+      "transfer_allowed": false
+    },
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "dependency_lock"
+      ],
+      "matched_dimensions": [
+        "abi",
+        "interpreter",
+        "platform"
+      ],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "executed_dimension_match",
+      "source_candidate": "cloudpickle_507_py313_typevar_distutils",
+      "target_candidate": "freezegun_547_py313_datetimes_assertion",
+      "transfer_allowed": false
+    },
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "dependency_lock"
+      ],
+      "matched_dimensions": [
+        "abi",
+        "interpreter",
+        "platform"
+      ],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "executed_dimension_match",
+      "source_candidate": "freezegun_547_py313_datetimes_assertion",
+      "target_candidate": "audioread_144_py313_aifc_removed",
+      "transfer_allowed": false
+    },
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "dependency_lock"
+      ],
+      "matched_dimensions": [
+        "abi",
+        "interpreter",
+        "platform"
+      ],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "executed_dimension_match",
+      "source_candidate": "audioread_144_py313_aifc_removed",
+      "target_candidate": "pytest_13480_wdefault_unraisable_threadexception",
+      "transfer_allowed": false
+    },
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "abi",
+        "dependency_lock",
+        "interpreter",
+        "platform"
+      ],
+      "matched_dimensions": [],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "NOT_RUN",
+      "source_candidate": "pytest_13480_wdefault_unraisable_threadexception",
+      "target_candidate": "incident_openbb_7585_modular_openapi_reproducer",
+      "transfer_allowed": false
+    },
+    {
+      "authority_allowed": "none",
+      "authority_forbidden": [
+        "terminal",
+        "repair",
+        "count"
+      ],
+      "conflicting_dimensions": [
+        "dependency_lock",
+        "interpreter",
+        "platform"
+      ],
+      "matched_dimensions": [
+        "abi"
+      ],
+      "negative_control": "conflict_blocks_transfer",
+      "positive_control": "executed_dimension_match",
+      "source_candidate": "incident_openbb_7585_modular_openapi_reproducer",
+      "target_candidate": "incident_poetry_10974_init_duplicate_name",
+      "transfer_allowed": false
+    }
+  ],
+  "false_transfer_count": 7,
+  "graph_hash": "cfd5616a0719047879a7fdf9765acdf7bf9a8dad76bbf4eba2819dff8be4972f",
+  "status": "PASS"
+}
