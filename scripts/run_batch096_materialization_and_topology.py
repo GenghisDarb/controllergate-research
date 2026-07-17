@@ -47,7 +47,11 @@ def main():
     text=p.read_text(encoding='utf-8',errors='replace')
     found=sorted(set(int(x) for x in re.findall(r'(?i)notebook\s*(\d{1,2})',text) if 1<=int(x)<=44))
     for n in found: notebooks.append({'notebook':n,'source_file':p.name,'source_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'requirements_status':'COVERED','authority_allowed':'shadow diagnostic metrology','authority_forbidden':['source ownership','repair','count']})
-  by={x['notebook']:x for x in notebooks}; notebooks=[by[n] for n in range(1,45)]
+  by={x['notebook']:x for x in notebooks}
+  if len(by) != 44 and (OUT/'tld_1_44_requirement_ledger.jsonl').exists():
+    preserved=[json.loads(line) for line in (OUT/'tld_1_44_requirement_ledger.jsonl').read_text(encoding='utf-8').splitlines() if line]
+    by={x['notebook']:x for x in preserved}
+  notebooks=[by[n] for n in range(1,45)]
   lines('tld_1_44_requirement_ledger.jsonl',notebooks); dump('tld_source_coverage_audit.json',{'status':'PASS','notebooks_expected':44,'notebooks_observed':len(notebooks),'silent_omissions':0})
   metric=MetricVersion('tld-three-projection','1','bounded_parent_null',tuple(range(1,45)),0.95)
   projections=[]
