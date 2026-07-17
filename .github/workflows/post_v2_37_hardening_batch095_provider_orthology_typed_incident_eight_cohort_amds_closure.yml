@@ -98,14 +98,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 0}
+      - id: provider_python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "${{ matrix.python }}"
+          update-environment: false
       - uses: actions/setup-python@v5
-        with: {python-version: "${{ matrix.python }}"}
+        with: {python-version: "3.13"}
       - run: python -m pip install --upgrade pip setuptools wheel packaging tomli
       - name: Execute candidate-specific provider and typed incident
         run: |
           mkdir -p "candidate-outputs/${{ matrix.candidate }}"
           python scripts/run_batch095_candidate_lane.py \
             --candidate "${{ matrix.candidate }}" \
+            --provider-python "${{ steps.provider_python.outputs.python-path }}" \
             --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch095/${{ matrix.candidate }}" \
             --output "candidate-outputs/${{ matrix.candidate }}"
       - uses: actions/upload-artifact@v4

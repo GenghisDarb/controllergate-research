@@ -278,7 +278,13 @@ def run_generic_controls(contract: IncidentOutcomeContract, broker: LaneBroker, 
     return {contract.positive_control_id: positive, contract.negative_control_id: negative}
 
 
-def run_lane(candidate_id: str, repo_root: Path, runtime_root: Path, output: Path) -> dict[str, Any]:
+def run_lane(
+    candidate_id: str,
+    repo_root: Path,
+    runtime_root: Path,
+    output: Path,
+    provider_python_path: str | None = None,
+) -> dict[str, Any]:
     provider_rows = json.loads((repo_root / "configs/batch095_provider_recipe_registry.json").read_text(encoding="utf-8"))["episodes"]
     incident_rows = json.loads((repo_root / "configs/batch095_incident_outcome_contracts.json").read_text(encoding="utf-8"))["contracts"]
     old_rows = json.loads((repo_root / "configs/batch094_fresh_cohort_acquisition.json").read_text(encoding="utf-8"))["episodes"]
@@ -297,7 +303,16 @@ def run_lane(candidate_id: str, repo_root: Path, runtime_root: Path, output: Pat
     blockers: list[str] = []
 
     expected_python = tuple(int(part) for part in row["python_version"].split(".")[:2])
-    observed_python = sys.version_info[:2]
+    provider_python = Path(provider_python_path or sys.executable).resolve()
+    provider_rc, provider_stdout, _, _ = broker.run(
+        "provider_base_identity", "provider_verification",
+        [str(provider_python), "-c", "import json,sys; print(json.dumps(list(sys.version_info[:2])))"],
+        repo_root,
+    )
+    try:
+        observed_python = tuple(json.loads(provider_stdout.strip().splitlines()[-1])) if provider_rc == 0 else ()
+    except (IndexError, json.JSONDecodeError, TypeError):
+        observed_python = ()
     if observed_python != expected_python:
         blockers.append("candidate_provider_python_version_mismatch")
     source_ok, source_capsule = acquire_source(row, source, broker)
@@ -309,7 +324,7 @@ def run_lane(candidate_id: str, repo_root: Path, runtime_root: Path, output: Pat
 
     provider_install_rc: int | None = None
     if not blockers:
-        rc, _, _, _ = broker.run("provider_create", "provider_build", [sys.executable, "-m", "venv", str(provider)], workspace, timeout=300)
+        rc, _, _, _ = broker.run("provider_create", "provider_build", [str(provider_python), "-m", "venv", str(provider)], workspace, timeout=300)
         if rc != 0:
             blockers.append("provider_materialization_failed")
     if not blockers and row.get("decision_time_lock_path"):
@@ -461,9 +476,13 @@ def main() -> int:
     parser.add_argument("--candidate", required=True)
     parser.add_argument("--runtime-root", required=True)
     parser.add_argument("--output", required=True)
+    parser.add_argument("--provider-python")
     args = parser.parse_args()
     repo_root = Path(__file__).resolve().parents[1]
-    run_lane(args.candidate, repo_root, Path(args.runtime_root).resolve(), Path(args.output).resolve())
+    run_lane(
+        args.candidate, repo_root, Path(args.runtime_root).resolve(), Path(args.output).resolve(),
+        provider_python_path=args.provider_python,
+    )
     return 0
 
 
