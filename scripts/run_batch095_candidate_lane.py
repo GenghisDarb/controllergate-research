@@ -9,7 +9,10 @@ import re
 import shutil
 import stat
 import sys
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:  # Python 3.7 decision-time provider
+    import tomli as tomllib
 from pathlib import Path
 from typing import Any
 
@@ -188,7 +191,7 @@ def remove_tree(path: Path) -> None:
         os.chmod(target, stat.S_IWRITE)
         function(target)
     if path.exists():
-        shutil.rmtree(path, onexc=retry)
+        shutil.rmtree(path, onerror=retry)
 
 
 def acquire_source(row: dict[str, Any], source: Path, broker: LaneBroker, *, secondary: bool = False) -> tuple[bool, dict[str, Any]]:
