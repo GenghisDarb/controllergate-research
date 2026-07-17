@@ -1,0 +1,36 @@
+{
+  "authority_allowed": "one exact Batch096 input-custody blocker",
+  "authority_forbidden": [
+    "substituting summaries or regenerated sources",
+    "repository genome reconstruction",
+    "TLD implementation claims",
+    "candidate execution",
+    "AMDS execution",
+    "protected historical actuation"
+  ],
+  "blocker": "BATCH096_REQUIRED_INPUT_CUSTODY_BLOCKED_EXACT",
+  "embedded_frozen_contracts_unavailable": [
+    "ControllerGate_Canonical_Topology_Compiled_AMDS_Integration_Contract_v1.md",
+    "ControllerGate_Next_Prompt_NonOmission_Ledger_v1.json",
+    "ControllerGate_Next_Prompt_Mandatory_Topology_TLD_OSQN_Addendum_v1.txt"
+  ],
+  "execution_depth": "exact-name and repository-history availability scan",
+  "expected_input": {
+    "archive_members": 20,
+    "filename": "ControllerGate_TLD_1-44_Historical_Architecture_Recovery_Source_Bundle_2026-07-17.zip",
+    "sha256": "c32609066a7d86934a9a6e8b62d57fd335e51a14c8fdebcb95bb7d1584c6438b",
+    "size": 5389984,
+    "uncompressed_bytes": 22131530
+  },
+  "observed_matching_inputs": 0,
+  "parent_evidence": [
+    "batch095_artifact_ingest.json",
+    "batch095_artifact_manifest_verification.json",
+    "batch096_starting_boundary_preflight.json"
+  ],
+  "producer": "Batch096 required-input custody gate",
+  "reopen_condition": "place the exact byte-matching historical/TLD source bundle in incoming_artifacts or attach it for scoped copying and verification",
+  "semantic_scope": "Batch096 required documentary source custody",
+  "status": "BLOCK",
+  "substitution_attempted": false
+}
