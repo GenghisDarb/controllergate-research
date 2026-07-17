@@ -51,8 +51,10 @@ def main():
  names=('ARTIFACT_SHA256SUMS.txt','PORTABLE_ARTIFACT_SHA256SUMS.txt','SHA256SUMS.txt')
  for name in names:
   rows=[]
-  for path in sorted(p for p in OUT.iterdir() if p.is_file() and p.name not in names):
-   rows.append(f'{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}')
+  excluded=set(names) if name!='SHA256SUMS.txt' else {'SHA256SUMS.txt'}
+  for path in sorted(p for p in OUT.iterdir() if p.is_file() and p.name not in excluded):
+   data=path.read_bytes().replace(b'\r\n',b'\n')
+   rows.append(f'{hashlib.sha256(data).hexdigest()}  {path.name}')
   (OUT/name).write_text('\n'.join(rows)+'\n',encoding='utf-8')
  print('BATCH096_AMDS_RELEASE_PASS_WITH_PROTECTED_BLOCK')
 if __name__=='__main__': main()

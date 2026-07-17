@@ -809,3 +809,8 @@ Reactome release 97 source coverage passes at 29 unique chapters, 2,916 pathway 
 Corrected historical AMDS is blocked at semantic-role eligibility: zero of eight episodes has ten independently verified decision-time role identities. No corrected terminal, baseline comparison, source-ownership proof, repair license, historical patch, repair recount, or historical package-slot deployment ran. The canonical slot manager and standalone critic are implemented and independently tested, but capability tests are not historical canary evidence.
 
 Current protocol: `v2.19`. Package version: `0.2.0b2.dev0`. Issue-derived repairs: `6`. Native external repairs: `4`. Historical increment: `0`. Product Beta RC: `PRODUCT_BETA_RC_BLOCKED_EXACT`. Full scoring: `NOT_RUN/disallowed`. Public writes and automatic merge: inactive. Production readiness: false. Self-maintaining software: false/not demonstrated.
+# Batch096 evidence-only closure
+
+Batch096 reconstructs the complete repository-history denominator, preserves the frozen eight-candidate boundary, and binds environment alignment, source-contact topology, documentary shadow metrology, observer state, and independent evidence modalities into the canonical AMDS decision frame. The ordinary run performs no patch operation and no repair-count increment.
+
+The current protocol remains v2.19 and the package remains 0.2.0b2.dev0. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT`; protected historical actuation and independent external review remain outside this workflow. Public writes and automatic merge remain inactive. Production readiness and self-maintaining software are not demonstrated.

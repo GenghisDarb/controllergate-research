@@ -905,3 +905,6 @@ python scripts/controllergate_run.py --protocol current --dry-run
 - Next allowed action: `batch059_pre_repair_replay_wave_3_limited`.
 - Issue-derived repair count remains `2`; native external repair count remains `4`.
 - Full scoring remains `NOT_RUN/disallowed`; memory lift remains `not_demonstrated`; self-maintaining software remains `false/not_demonstrated`.
+# ControllerGate current boundary
+
+The current evidence campaign has reached Batch096’s repository-history and topology-compiled diagnostic boundary. This adds complete historical disposition coverage and candidate-scoped diagnostic safeguards without turning documentary models into repair authority. Protocol v2.19 remains current; full scoring, public writes, automatic merge, production readiness, and self-maintaining-software claims remain disabled or not demonstrated.

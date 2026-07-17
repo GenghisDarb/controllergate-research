@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json
+import hashlib, json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'outputs/post_v2_37_hardening_batch096_repository_genome_topology_compiled_amds_unification'
 def load(n): return json.loads((OUT/n).read_text())
@@ -15,5 +15,13 @@ def main():
  }
  result={'status':'PASS' if all(checks.values()) else 'BLOCK','checks':checks,'patch_operations':0,'historical_increment':0,'protocol':'v2.19'}
  (OUT/'batch096_final_audit.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+ manifest_names=('ARTIFACT_SHA256SUMS.txt','PORTABLE_ARTIFACT_SHA256SUMS.txt','SHA256SUMS.txt')
+ for name in manifest_names:
+  rows=[]
+  excluded=set(manifest_names) if name!='SHA256SUMS.txt' else {'SHA256SUMS.txt'}
+  for path in sorted(p for p in OUT.iterdir() if p.is_file() and p.name not in excluded):
+   data=path.read_bytes().replace(b'\r\n',b'\n')
+   rows.append(f'{hashlib.sha256(data).hexdigest()}  {path.name}')
+  (OUT/name).write_text('\n'.join(rows)+'\n',encoding='utf-8')
  print('BATCH096_AUDIT_'+result['status']); return 0 if all(checks.values()) else 1
 if __name__=='__main__': raise SystemExit(main())
