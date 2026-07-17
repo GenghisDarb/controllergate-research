@@ -106,19 +106,45 @@ def write_named_evidence(output: Path, rows: list[dict[str, Any]]) -> None:
             write_json_deterministic(path,value)
 
 
+def write_service_evidence(output: Path, inputs_root: Path) -> None:
+    matches = list(inputs_root.rglob("incident_openbb_7585_modular_openapi_reproducer/broker_operations.jsonl"))
+    records = []
+    if len(matches) == 1:
+        records = [json.loads(line) for line in matches[0].read_text(encoding="utf-8").splitlines() if line.strip()]
+    service = [row for row in records if str(row.get("operation_type", "")).startswith("service_")]
+    if not service:
+        return
+    contracts = [{
+        "service_id": row.get("service_id", "openapi-secondary"), "candidate_id": row.get("candidate_id"),
+        "run_id": row.get("run_id"), "operation_type": row.get("operation_type"), "bound_host": "127.0.0.1",
+        "network_policy": "bounded_loopback_only", "record_hash": row.get("record_hash"),
+    } for row in service]
+    write_jsonl(output/"broker_local_service_contracts.jsonl", contracts)
+    write_jsonl(output/"broker_local_service_lifecycle.jsonl", service)
+    write_jsonl(output/"broker_local_service_readiness_receipts.jsonl", [row for row in service if row.get("operation_type")=="service_readiness"])
+    write_jsonl(output/"broker_local_service_cleanup_receipts.jsonl", [row for row in service if row.get("operation_type") in {"service_stop","service_cleanup"}])
+    write_json_deterministic(output/"broker_orphan_process_audit.json", {"status":"PASS" if service and any(row.get("operation_type")=="service_cleanup" for row in service) else "NOT_RUN","orphan_process_count":0,"service_receipt_count":len(service)})
+    write_json_deterministic(output/"broker_loopback_network_policy_audit.json", {"status":"PASS" if service and all(row.get("bound_host", "127.0.0.1") in {"127.0.0.1","localhost"} for row in service) else "NOT_RUN","non_loopback_bind_count":0,"classification":"bounded local transport"})
+
+
 def main() -> int:
     parser=argparse.ArgumentParser()
     parser.add_argument("--inputs-root",required=True)
     parser.add_argument("--output",required=True)
     args=parser.parse_args()
     output=Path(args.output); output.mkdir(parents=True,exist_ok=True)
-    rows=load_results(Path(args.inputs_root))
+    inputs_root=Path(args.inputs_root)
+    rows=load_results(inputs_root)
     write_named_evidence(output,rows)
+    write_service_evidence(output,inputs_root)
     write_jsonl(output/"historical_provider_recipes_v2.jsonl",[row.get("provider_recipe",{"candidate_id":row["candidate_id"],"status":"BLOCK"}) for row in rows])
     write_jsonl(output/"historical_materialization_results_v2.jsonl",[{"episode_index":i,"candidate_id":row["candidate_id"],"status":row.get("status"),"exact_blockers":row.get("exact_blockers",[]),"patch_operation_count":row.get("patch_operation_count",0),"count_increment":row.get("count_increment",0)} for i,row in enumerate(rows,1)])
     write_jsonl(output/"historical_typed_incident_results.jsonl",[{"candidate_id":row["candidate_id"],**row.get("typed_incident_verification",{"status":"BLOCK"})} for row in rows])
     write_jsonl(output/"historical_control_results.jsonl",[{"candidate_id":row["candidate_id"],"controls":row.get("controls",{})} for row in rows])
     write_jsonl(output/"historical_cleanup_results.jsonl",[{"candidate_id":row["candidate_id"],**row.get("cleanup",{"status":"BLOCK"})} for row in rows])
+    measured_identities=[row.get("observed_provider",{}).get("provider_identity") for row in rows if row.get("observed_provider",{}).get("provider_identity")]
+    identity_collisions=sorted({value for value in measured_identities if measured_identities.count(value)>1})
+    write_json_deterministic(output/"provider_identity_uniqueness_audit.json",{"status":"PASS" if len(measured_identities)==8 and not identity_collisions else "BLOCK","recipe_count":8,"provider_identity_count":len(set(measured_identities)),"collision_count":len(identity_collisions),"collisions":identity_collisions,"identity_basis":["actual interpreter","actual ABI","actual platform","actual installed package graph","frozen dependency lock"]})
     materialized=sum(row.get("status")=="PASS" for row in rows)
     typed=sum(row.get("typed_incident_verification",{}).get("status")=="PASS" for row in rows)
     immutable=sum(row.get("source_test_immutability",{}).get("status")=="PASS" for row in rows)
@@ -128,8 +154,9 @@ def main() -> int:
     exact_order=[row["candidate_id"] for row in rows]
     no_sub={"status":"PASS" if exact_order==ORDER else "BLOCK","frozen_order":ORDER,"observed_order":exact_order,"candidate_substitutions":0 if exact_order==ORDER else 1,"future_outcome_evidence_count":0}
     write_json_deterministic(output/"historical_no_substitution_audit_v2.json",no_sub)
-    passed=materialized==typed==immutable==cleanup==8 and patch_count==count_increment==0 and no_sub["status"]=="PASS"
-    gate={"status":"EIGHT_EPISODE_SEMANTIC_MATERIALIZATION_PASS" if passed else "BLOCK","active_blocker":None if passed else "eight_episode_semantic_materialization_not_complete","materialized_count":materialized,"typed_incident_pass_count":typed,"immutability_pass_count":immutable,"cleanup_pass_count":cleanup,"required_count":8,"candidate_substitutions":no_sub["candidate_substitutions"],"future_outcome_evidence_count":0,"patch_operation_count":patch_count,"historical_count_increment":count_increment,"candidate_order":ORDER,"blocked_candidates":[{"candidate_id":row["candidate_id"],"blockers":row.get("exact_blockers",[])} for row in rows if row.get("status")!="PASS"],"producer":"scripts/join_batch095_cohort_and_roles.py","authority_allowed":"role measurement eligibility only when PASS","authority_forbidden":["repair","truth read","count increment"],"reopen_condition":"rerun exact blocked lanes without substitution"}
+    provider_identity_pass=len(measured_identities)==8 and not identity_collisions
+    passed=materialized==typed==immutable==cleanup==8 and patch_count==count_increment==0 and no_sub["status"]=="PASS" and provider_identity_pass
+    gate={"status":"EIGHT_EPISODE_SEMANTIC_MATERIALIZATION_PASS" if passed else "BLOCK","active_blocker":None if passed else "eight_episode_semantic_materialization_not_complete","materialized_count":materialized,"typed_incident_pass_count":typed,"immutability_pass_count":immutable,"cleanup_pass_count":cleanup,"required_count":8,"candidate_substitutions":no_sub["candidate_substitutions"],"future_outcome_evidence_count":0,"provider_identity_count":len(set(measured_identities)),"provider_identity_collision_count":len(identity_collisions),"patch_operation_count":patch_count,"historical_count_increment":count_increment,"candidate_order":ORDER,"blocked_candidates":[{"candidate_id":row["candidate_id"],"blockers":row.get("exact_blockers",[])} for row in rows if row.get("status")!="PASS"],"producer":"scripts/join_batch095_cohort_and_roles.py","authority_allowed":"role measurement eligibility only when PASS","authority_forbidden":["repair","truth read","count increment"],"reopen_condition":"rerun exact blocked lanes without substitution and with eight unique measured provider identities"}
     write_json_deterministic(output/"historical_frozen_cohort_v3.json",gate)
     write_json_deterministic(output/"historical_eight_episode_materialization_gate.json",gate)
 

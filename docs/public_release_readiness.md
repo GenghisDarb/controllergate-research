@@ -1,5 +1,11 @@
 # Public release readiness
 
+## Batch095 decision boundary
+
+Batch095 remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Its ordinary workflow is an evidence-only scientific run that may close the exact eight-episode, role-measurement, and historical-calibration gates, but it cannot apply historical source patches. Even a complete scientific pass leaves `PROTECTED_HISTORICAL_ACTUATION_NOT_AUTHORIZED_AFTER_SCIENTIFIC_PASS` until a later environment-approved continuation completes the remaining lifecycles and external review.
+
+No tag, package publication, public write, automatic merge, counted historical repair, or production deployment is authorized. Protocol stays `v2.19`, package version stays `0.2.0b2.dev0`, repair counts stay 6 issue-derived and 4 native external, full scoring stays disallowed, prospective effectiveness and memory lift remain unestablished, and self-maintaining software remains false/not demonstrated.
+
 ## Batch094 decision
 
 Batch094 remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. The value-bound Reactome compiler and installed shadow scenarios are internal capabilities, not production promotion. Only six of eight frozen historical episodes materialize, so semantic-role measurement, AMDS baselines, repair authority, historical actuation, and real package deployment remain not run. Human authorization is absent.

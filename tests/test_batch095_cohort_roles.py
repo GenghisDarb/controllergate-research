@@ -25,7 +25,7 @@ def lane(candidate_id: str, passing: bool = True) -> dict:
             "dependency_lock_identity": digest,
         },
         "provider_verification": {"status": "PASS"},
-        "observed_provider": {"python": {"version": "3.11"}, "package_graph_hash": digest, "provider_install_return_code": 0},
+        "observed_provider": {"python": {"version": "3.11"}, "provider_identity": (candidate_id.encode().hex() + digest)[:64], "package_graph_hash": digest, "provider_install_return_code": 0},
         "source_capsule": {"repository": "https://example.invalid/repo", "observed_commit": "b" * 40, "object_type": "commit", "source_tree_hash": digest, "identity_record_hash": digest},
         "source_test_immutability": {"status": "PASS", "source_tree_before": digest, "source_tree_after": digest, "test_tree_before": digest, "test_tree_after": digest, "source_mutated": False, "tests_mutated": False},
         "process": {"record_hash": digest, "stdout_sha256": digest, "stderr_sha256": digest, "return_code": 1},
@@ -67,3 +67,19 @@ def test_blocked_lane_stops_before_role_receipt_generation(tmp_path: Path, monke
     assert roles["status"] == "NOT_RUN"
     assert not (output / "role_measurement_execution_receipts_v3.jsonl").exists()
     assert not (output / "role_measurement_verification_receipts_v3.jsonl").exists()
+
+
+def test_provider_identity_collision_stops_before_role_receipts(tmp_path: Path, monkeypatch) -> None:
+    inputs = tmp_path / "inputs"; output = tmp_path / "output"
+    write_lanes(inputs)
+    for candidate_id in ORDER[:2]:
+        path = inputs / candidate_id / "candidate_lane_result.json"
+        record = json.loads(path.read_text(encoding="utf-8"))
+        record["observed_provider"]["provider_identity"] = "shared-provider-identity"
+        path.write_text(json.dumps(record), encoding="utf-8")
+    monkeypatch.setattr("sys.argv", ["join", "--inputs-root", str(inputs), "--output", str(output)])
+    assert main() == 0
+    gate = json.loads((output / "historical_eight_episode_materialization_gate.json").read_text())
+    assert gate["status"] == "BLOCK"
+    assert gate["provider_identity_collision_count"] == 1
+    assert not (output / "role_measurement_execution_receipts_v3.jsonl").exists()

@@ -1,5 +1,13 @@
 # Current status
 
+## Batch095 current implementation boundary
+
+Batch095 introduces eight candidate-specific provider recipes, actual interpreter/ABI/platform/package-graph identities, typed product verifiers, and broker-managed local-service evidence. All eight frozen episodes must materialize and pass source/test immutability and cleanup before the 80-role boundary or canonical historical AMDS can execute.
+
+Truth is withheld from the AMDS builder until its ControllerAudit terminals are sealed. Baselines execute separately rather than copying active scores. Source-ownership evidence is produced only by executed candidate-scoped stages and distinct verifiers. The ordinary run cannot patch, recount, deploy, or synthesize human approval; protected actuation remains separately gated.
+
+The current status remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Protocol remains `v2.19`, package version `0.2.0b2.dev0`, counts remain 6 issue-derived and 4 native external with historical increment 0, prospective AMDS effectiveness remains `NOT_ESTABLISHED`, full scoring is disallowed, public writes and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
 ## Batch094 value-bound source and fresh-cohort status
 
 Batch094 preserves protocol `v2.19`, package version `0.2.0b2.dev0`, six issue-derived repairs, four native external repairs, and historical increment zero. RPIR v2.1 covers all 2,916 pathway and 16,814 reaction occurrences with zero silent omissions and assigns every reaction a value-bound, nonauthorizing candidate translation. Forty-six generic primitives have distinct behavioral tests. Exact numeric stoichiometry remains source-format blocked and is not inferred.

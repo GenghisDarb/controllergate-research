@@ -1,5 +1,13 @@
 # ControllerGate shareable summary
 
+## Batch095 provider and historical-calibration boundary
+
+Batch095 replaces the prior generic provider attempt with eight frozen candidate-specific recipes and generic typed incident-product verification. A candidate must pass exact source identity, provider measurement, positive and negative controls, semantic incident verification, immutability, and cleanup before any role or AMDS evidence can exist. The OpenBB secondary source uses a cutoff-bound broker-managed loopback service; transport failure is not accepted as the target issue.
+
+The historical builder uses the canonical causal board without truth, actual baseline operations, and ControllerAudit-only terminals. Truth joins only after terminal sealing. Stage source-ownership evidence is candidate-scoped and independently verified, and the standalone critic mutates copied actual evidence. The ordinary run remains non-actuating; protected continuation and human approval are separate downstream conditions.
+
+The public boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`: protocol `v2.19`, package `0.2.0b2.dev0`, six issue-derived and four native external repairs, zero historical increment, AMDS prospective effectiveness not established, full scoring disallowed, writes and automatic merge inactive, production readiness false, and self-maintaining software not demonstrated.
+
 ## Batch094 external-review boundary
 
 Batch094 extends RPIR to a value-bound v2.1 representation and preserves complete 2,916-pathway/16,814-reaction candidate coverage with zero silent omissions. All translations remain nonauthorizing; 46 primitive families execute distinct shadow behavior. The exact source does not expose numeric stoichiometry, so the missing values remain an explicit format blocker.

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Iterable
@@ -153,15 +154,21 @@ def scan_provider_evidence(evidence: dict[str, Any]) -> dict[str, Any]:
 def verify_orthology_transfer(recipe: ProviderRecipe, observed: dict[str, Any]) -> dict[str, Any]:
     reasons: list[str] = []
     recipe.validate()
+    expected_version = re.search(r"(\d+)\.(\d+)", recipe.interpreter_identity)
+    observed_version = re.search(r"(\d+)\.(\d+)", str(observed.get("interpreter_identity", "")))
+    observed_platform = str(observed.get("interpreter_identity", "")).lower()
+    version_invariant = bool(expected_version and observed_version and expected_version.groups() == observed_version.groups())
+    platform_invariant = any(platform_name.lower() in observed_platform for platform_name in recipe.supported_platforms)
+    verified_transfer = observed.get("orthology_invariants_verified") is True and version_invariant and platform_invariant
     if observed.get("candidate_id") != recipe.candidate_id:
         reasons.append("candidate_relabeling_detected")
     if observed.get("source_commit") != recipe.source_commit:
         reasons.append("source_commit_mismatch")
-    if observed.get("interpreter_identity") != recipe.interpreter_identity:
+    if observed.get("interpreter_identity") != recipe.interpreter_identity and not verified_transfer:
         reasons.append("unproven_interpreter_change")
-    if tuple(observed.get("abi_tags", ())) != recipe.abi_tags:
+    if tuple(observed.get("abi_tags", ())) != recipe.abi_tags and not verified_transfer:
         reasons.append("unproven_abi_change")
-    if tuple(observed.get("platform_tags", ())) != recipe.platform_tags:
+    if tuple(observed.get("platform_tags", ())) != recipe.platform_tags and not verified_transfer:
         reasons.append("unproven_platform_change")
     if observed.get("dependency_lock_identity") != recipe.dependency_lock_identity:
         reasons.append("dependency_lock_mismatch")
@@ -177,6 +184,10 @@ def verify_orthology_transfer(recipe: ProviderRecipe, observed: dict[str, Any]) 
         "provider_identity": recipe.provider_identity,
         "reasons": reasons,
         "future_outcome_scan": scan,
+        "orthology_invariants_verified": verified_transfer,
+        "observed_interpreter_identity": observed.get("interpreter_identity"),
+        "observed_abi_tags": list(observed.get("abi_tags", ())),
+        "observed_platform_tags": list(observed.get("platform_tags", ())),
         "producer_identity": "controllergate.amds.provider_orthology.verify_orthology_transfer",
         "authority_allowed": "candidate provider materialization",
         "authority_forbidden": ["target classification", "repair authority"],

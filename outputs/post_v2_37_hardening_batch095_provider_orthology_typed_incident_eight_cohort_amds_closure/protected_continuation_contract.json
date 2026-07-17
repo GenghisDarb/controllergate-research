@@ -1,0 +1,29 @@
+{
+  "authority_allowed": "dependency wiring and negative tests",
+  "authority_forbidden": [
+    "ordinary-run actuation",
+    "count"
+  ],
+  "historical_count_increment": 0,
+  "historical_patch_bindings": {
+    "cloudpickle_507_py313_typevar_distutils": "a06b5343f41a49daaa9d6902513966c6796e44124640ba29fcf80ede99d06e63",
+    "freezegun_547_py313_datetimes_assertion": "8daf31c4d59ead1832aa3bdc6260bae3c92a1052f140c9f0442a550c4ebf3247"
+  },
+  "ordinary_run_patch_count": 0,
+  "required_inputs": [
+    "run_historical_actuation",
+    "cloudpickle_patch_confirmation",
+    "freezegun_patch_confirmation",
+    "authorization_scope_confirmation",
+    "scientific_parent_artifact_sha256"
+  ],
+  "required_parent_gates": [
+    "EIGHT_EPISODE_SEMANTIC_MATERIALIZATION_PASS",
+    "EIGHT_EPISODE_TEN_ROLE_BOUNDARY_PASS",
+    "AMDS_HISTORICAL_BLINDED_CAUSAL_MECHANISM_PASS_V4",
+    "source_ownership_proof_PASS",
+    "external_human_authorization_PASS"
+  ],
+  "run_historical_actuation_default": false,
+  "status": "DORMANT"
+}

@@ -83,6 +83,27 @@ def test_provider_relabel_and_after_outcome_are_rejected() -> None:
     assert "provider_selected_after_target_outcome" in result["reasons"]
 
 
+def test_verified_platform_orthology_preserves_python_minor() -> None:
+    item = recipe()
+    result = verify_orthology_transfer(item, {
+        "candidate_id": item.candidate_id,
+        "source_commit": item.source_commit,
+        "interpreter_identity": "cpython-3.11-linux-x86_64",
+        "abi_tags": ["cp311"],
+        "platform_tags": ["linux-x86_64"],
+        "dependency_lock_identity": item.dependency_lock_identity,
+        "orthology_invariants_verified": True,
+    })
+    assert result["status"] == "PASS"
+    changed = dict(
+        candidate_id=item.candidate_id, source_commit=item.source_commit,
+        interpreter_identity="cpython-3.12-linux-x86_64", abi_tags=["cp312"],
+        platform_tags=["linux-x86_64"], dependency_lock_identity=item.dependency_lock_identity,
+        orthology_invariants_verified=True,
+    )
+    assert verify_orthology_transfer(item, changed)["status"] == "BLOCK"
+
+
 def incident_contract(family: IncidentOutcomeFamily = IncidentOutcomeFamily.SUCCESS_WITH_INVALID_PRODUCT) -> IncidentOutcomeContract:
     return IncidentOutcomeContract(
         contract_id="openapi-invalid-product-v1",

@@ -324,22 +324,26 @@ def run_lane(candidate_id: str, repo_root: Path, runtime_root: Path, output: Pat
     measured: dict[str, Any] = {}
     package_graph_hash = None
     if not blockers:
-        rc, stdout, _, _ = broker.run("provider_identity_probe", "provider_verification", [str(venv_python(provider)), "-c", "import json,platform,sys,sysconfig; print(json.dumps({'implementation':sys.implementation.name,'version':platform.python_version(),'cache_tag':sys.implementation.cache_tag,'platform':sysconfig.get_platform()}))"], source)
+        rc, stdout, _, _ = broker.run("provider_identity_probe", "provider_verification", [str(venv_python(provider)), "-c", "import json,platform,sys,sysconfig; print(json.dumps({'implementation':sys.implementation.name,'version':platform.python_version(),'cache_tag':sys.implementation.cache_tag,'soabi':sysconfig.get_config_var('SOABI'),'platform':sysconfig.get_platform(),'machine':platform.machine(),'system':platform.system().lower()}))"], source)
         rc2, packages, _, _ = broker.run("provider_package_graph", "provider_verification", [str(venv_python(provider)), "-m", "pip", "freeze", "--all"], source)
         if rc == 0 and rc2 == 0:
             measured = json.loads(stdout.strip().splitlines()[-1])
             package_graph_hash = sha_text("\n".join(sorted(packages.splitlines())))
         else:
             blockers.append("provider_identity_measurement_failed")
-    normalized_interpreter = f"{measured.get('implementation','cpython')}-{'.'.join(str(measured.get('version','')).split('.')[:2])}-{platform.system().lower()}-{platform.machine().lower()}"
-    if row["interpreter_identity"].startswith("cpython-"):
-        normalized_interpreter = row["interpreter_identity"] if observed_python == expected_python else normalized_interpreter
+    normalized_interpreter = f"{measured.get('implementation','cpython')}-{'.'.join(str(measured.get('version','')).split('.')[:2])}-{measured.get('system',platform.system().lower())}-{str(measured.get('machine',platform.machine())).lower()}"
+    actual_abi = [f"cp{observed_python[0]}{observed_python[1]}{'m' if observed_python < (3, 8) else ''}"] if measured else []
+    actual_platform = [str(measured.get("platform"))] if measured.get("platform") else []
     orthology = verify_orthology_transfer(recipe, {
         "candidate_id": candidate_id, "source_commit": row["source_commit"], "interpreter_identity": normalized_interpreter,
-        "abi_tags": row["abi_tags"], "platform_tags": row["platform_tags"], "dependency_lock_identity": row["dependency_lock_identity"],
+        "abi_tags": actual_abi, "platform_tags": actual_platform, "dependency_lock_identity": row["dependency_lock_identity"],
+        "orthology_invariants_verified": observed_python == expected_python and measured.get("system") in row["supported_platforms"],
     }) if not blockers else {"status":"BLOCK","reasons":blockers,"provider_identity":recipe.provider_identity}
     if orthology["status"] != "PASS" and "provider_identity_measurement_failed" not in blockers:
         blockers.append("provider_orthology_verification_failed")
+    measured_provider_identity = hash_record({"interpreter": normalized_interpreter, "abi": actual_abi, "platform": actual_platform, "package_graph": package_graph_hash, "dependency_lock": row["dependency_lock_identity"]}) if measured else None
+    if measured_provider_identity:
+        broker.provider_identity = measured_provider_identity
 
     target_rc: int | None = None
     target_stdout = ""
@@ -391,7 +395,7 @@ def run_lane(candidate_id: str, repo_root: Path, runtime_root: Path, output: Pat
             if rc != 0 or cutoff_sha.strip() != row["expected_secondary_commit"]:
                 blockers.append("secondary_source_cutoff_mismatch")
         if not blockers:
-            service = BrokeredLocalService(service_id="openapi-secondary",candidate_id=candidate_id,run_id=RUN_ID,frame_id=FRAME_ID,argv_template=(str(venv_python(provider)),"-m","http.server","{PORT}","--bind","127.0.0.1"),cwd=secondary,runtime_root=runtime_root)
+            service = BrokeredLocalService(service_id="openapi-secondary",candidate_id=candidate_id,run_id=RUN_ID,frame_id=FRAME_ID,argv_template=(str(venv_python(provider)),"-m","http.server","{PORT}","--bind","127.0.0.1"),cwd=secondary,runtime_root=runtime_root,runtime_attestation_hash=str(broker.attestation["attestation_hash"]))
             try:
                 service.start("/openapi.yaml")
                 target_cwd = workspace / "consumer"
@@ -428,7 +432,7 @@ def run_lane(candidate_id: str, repo_root: Path, runtime_root: Path, output: Pat
 
     compact = {
         "candidate_id":candidate_id,"run_id":RUN_ID,"frame_id":FRAME_ID,"provider_recipe":recipe.record(),
-        "provider_verification":orthology,"observed_provider":{"python":measured,"package_graph_hash":package_graph_hash,"provider_install_return_code":provider_install_rc},
+        "provider_verification":orthology,"observed_provider":{"python":measured,"abi_tags":actual_abi,"platform_tags":actual_platform,"provider_identity":measured_provider_identity,"package_graph_hash":package_graph_hash,"provider_install_return_code":provider_install_rc},
         "source_capsule":source_capsule,"source_test_immutability":immutability,"process":process,"product":product,"controls":controls,
         "typed_incident_verification":verification,"service_lifecycle":service_lifecycle,"broker_operation_count":len(broker.records),
         "patch_operation_count":0,"count_increment":0,"status":"PASS" if not blockers else "BLOCK","exact_blockers":sorted(set(blockers)),

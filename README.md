@@ -1,5 +1,13 @@
 # ControllerGate
 
+## Batch095 provider orthology and historical calibration closure
+
+Batch095 replaces the prior single-interpreter cohort attempt with eight candidate-specific provider recipes selected before target execution. It adds measured provider identities, generic typed incident-product verification, a canonical broker-managed loopback-service lifecycle, an exact eight-episode join, and an 80-receipt role boundary that cannot run after an upstream materialization block.
+
+Historical AMDS now uses the canonical causal board with truth withheld until terminal commitment, actual brokered baseline executions, and stage-produced source-ownership evidence only for source-owned terminals. The ordinary workflow is evidence-only: protected historical actuation remains dormant, patch and historical count increments remain zero, and Reactome numeric stoichiometry remains a nonauthorizing shadow limitation unless a product dependency is proven.
+
+The release boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, counts remain 6 issue-derived and 4 native external repairs with historical increment 0, AMDS prospective effectiveness is `NOT_ESTABLISHED`, full scoring is disallowed, public writes and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+
 ## Batch094 value-bound RPIR and frozen historical cohort
 
 Batch094 extends the exact Reactome release 97 representation to `controllergate-rpir-v2.1`. All 2,916 pathway occurrences and 16,814 reaction occurrences remain represented with zero silent omissions. Value-bound translation records preserve source members, complexes, compartments, stable edges, normal/variant relations, literature and edition lineage, timing annotations, and first divergence. The consumed exact-release tables do not expose numeric stoichiometry, so that field remains an explicit source-format blocker rather than a fabricated value.
@@ -35,15 +43,15 @@ The strongest authorized internal status is `PRODUCT_BETA_RC_EXTERNAL_REVIEW_PEN
 <!-- CONTROLLERGATE_GENERATED_CURRENT_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's current protocol remains `v2.19`. Batch092 represents the complete Reactome release 97 documentary boundary at candidate-translation depth while correcting unsupported Batch091 authority claims. SQLite preserves 6 issue-derived and 4 native external repairs, with historical increment 0. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
+ControllerGate's current protocol remains `v2.19`. Batch095 implements candidate-specific provider orthology, typed incident-product verification, an exact eight-episode role boundary, truth-separated canonical historical AMDS, and a protected continuation gate. SQLite preserves 6 issue-derived and 4 native external repairs, with historical increment 0. Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at development version `0.2.0b2.dev0`. Full scoring is disallowed, public write connectors and automatic merge are inactive, production readiness is false, and self-maintaining software is not demonstrated.
 <!-- CONTROLLERGATE_GENERATED_CURRENT_END -->
 
 <!-- CONTROLLERGATE_CURRENT_STATUS_BEGIN -->
 ## Current validated boundary
 
-ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch092 verifies 29 Reactome chapters, 2,916 pathway occurrences, and 16,814 reaction occurrences and compiles all reactions to candidate dispositions through reusable, nonauthorizing primitives.
+ControllerGate's validated protocol remains `v2.19`. The canonical SQLite and proof/count authority preserves 6 issue-derived and 4 native external repairs. Batch095 keeps complete Reactome candidate-translation coverage nonauthorizing while separating its stoichiometry limitation from the active provider, role, and historical-calibration dependency graph.
 
-Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. Corrected historical AMDS has zero eligible episodes because independent semantic-role receipts are missing, so baselines, proof chains, historical patch actuation, and repaired-package deployment remain not run. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
+Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT` at `0.2.0b2.dev0`. The ordinary Batch095 run may establish scientific cohort and historical-calibration depth, but it cannot actuate a source patch; a separately approved protected continuation is required after all scientific prerequisites pass. Full scoring, public writes, automatic merge, production readiness, prospective memory lift, and self-maintaining software remain disabled or not demonstrated.
 <!-- CONTROLLERGATE_CURRENT_STATUS_END -->
 
 ControllerGate is a proof-gated runtime and compiler layer for safe AI software repair.

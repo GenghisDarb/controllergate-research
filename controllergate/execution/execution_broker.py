@@ -128,3 +128,47 @@ def execute_external_operation(
     }
     record["record_hash"] = hash_record(record)
     return run, record
+
+
+def record_external_service_event(
+    *, operation_type: str, service_id: str, candidate_id: str, run_id: str,
+    frame_id: str, host: str, port: int | None, runtime_root: Path,
+    runtime_attestation_hash: str, parent_ledger_hash: str | None,
+    values: dict[str, object],
+) -> dict[str, object]:
+    if operation_type not in {"service_start", "service_readiness", "service_request", "service_stop", "service_cleanup"}:
+        raise ValueError("unsupported service operation type")
+    if host not in {"127.0.0.1", "localhost", "::1"}:
+        raise ValueError("brokered local service requires loopback")
+    if not runtime_attestation_hash:
+        raise ValueError("runtime attestation hash required")
+    record: dict[str, object] = {
+        "operation_type": operation_type, "service_id": service_id,
+        "candidate_id": candidate_id, "run_id": run_id, "frame_id": frame_id,
+        "bound_host": host, "actual_port": port, "runtime_root_identity": str(runtime_root.resolve()),
+        "runtime_attestation_hash": runtime_attestation_hash,
+        "network_policy": "bounded_loopback_only", "ledger_parent_hash": parent_ledger_hash,
+        "broker_identity": "controllergate.execution.execution_broker.record_external_service_event",
+        **values,
+    }
+    record["record_hash"] = hash_record(record)
+    return record
+
+
+def start_brokered_service_process(
+    *, argv: list[str], cwd: Path, env: Mapping[str, str] | None,
+    service_id: str, candidate_id: str, run_id: str, frame_id: str,
+    host: str, port: int, requested_port: int, runtime_root: Path, runtime_attestation_hash: str,
+    parent_ledger_hash: str | None,
+) -> tuple[subprocess.Popen[bytes], dict[str, object]]:
+    if host not in {"127.0.0.1", "localhost", "::1"}:
+        raise ValueError("brokered local service requires loopback")
+    process = subprocess.Popen(argv, cwd=cwd, env=dict(env or {}) or None, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    record = record_external_service_event(
+        operation_type="service_start", service_id=service_id, candidate_id=candidate_id,
+        run_id=run_id, frame_id=frame_id, host=host, port=port,
+        runtime_root=runtime_root, runtime_attestation_hash=runtime_attestation_hash,
+        parent_ledger_hash=parent_ledger_hash,
+        values={"exact_argv": argv, "cwd": str(cwd.resolve()), "process_identity": process.pid, "requested_port": requested_port, "status": "STARTED"},
+    )
+    return process, record

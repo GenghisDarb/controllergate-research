@@ -1,0 +1,306 @@
+name: post_v2_37_hardening_batch095_provider_orthology_typed_incident_eight_cohort_amds_closure
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_historical_actuation:
+        type: boolean
+        required: false
+        default: false
+      cloudpickle_patch_confirmation:
+        type: string
+        required: false
+        default: ""
+      freezegun_patch_confirmation:
+        type: string
+        required: false
+        default: ""
+      authorization_scope_confirmation:
+        type: string
+        required: false
+        default: ""
+      scientific_parent_artifact_sha256:
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  OUTPUT: outputs/post_v2_37_hardening_batch095_provider_orthology_typed_incident_eight_cohort_amds_closure
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  custody_contracts:
+    name: 01-08 custody, expected red, provider recipes, typed outcomes, and broker controls
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - name: Enforce ordinary evidence-only dispatch
+        shell: bash
+        run: |
+          if [[ "${{ inputs.run_historical_actuation }}" == "true" || -n "${{ inputs.cloudpickle_patch_confirmation }}" || -n "${{ inputs.freezegun_patch_confirmation }}" || -n "${{ inputs.authorization_scope_confirmation }}" || -n "${{ inputs.scientific_parent_artifact_sha256 }}" ]]; then
+            echo "HUMAN_AUTHORIZATION_BLOCKED_EXACT"
+            exit 1
+          fi
+      - name: Retrieve and verify exact official Batch094 artifact
+        run: |
+          RUNTIME="$RUNNER_TEMP/controllergate-runtime/batch095/custody"
+          mkdir -p "$RUNTIME"
+          curl --fail --location --retry 3 -H "Authorization: Bearer $GITHUB_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/artifacts/8381634867/zip" -o "$RUNTIME/batch094.zip"
+          python scripts/batch095_ingest_and_reconcile_batch094.py --artifact "$RUNTIME/batch094.zip" --output "$OUTPUT"
+      - name: Contract and negative-control tests
+        run: |
+          python scripts/run_batch095_contracts.py
+          python scripts/generate_batch095_boundaries_and_shadow.py --output "$OUTPUT"
+          python -m pytest tests/test_batch095_provider_incident_service.py tests/test_batch095_blocker_taxonomy.py tests/test_batch095_protected_shadow.py -q
+          python scripts/audit_batch095_pre_fix_provider_orthology_and_typed_incident.py
+          python scripts/audit_no_batch_core_logic.py
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_public_language.py
+          git diff --check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch095_custody_contract_evidence
+          path: ${{ env.OUTPUT }}
+          retention-days: 1
+
+  candidate_lanes:
+    name: ${{ matrix.order }} ${{ matrix.candidate }} provider and typed incident lane
+    needs: custody_contracts
+    runs-on: ubuntu-22.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {order: "09", candidate: darker_issue_112_relative_git_dir, python: "3.7"}
+          - {order: "10", candidate: py_bugger_issue_65, python: "3.11"}
+          - {order: "11", candidate: cloudpickle_507_py313_typevar_distutils, python: "3.13"}
+          - {order: "12", candidate: freezegun_547_py313_datetimes_assertion, python: "3.13"}
+          - {order: "13", candidate: audioread_144_py313_aifc_removed, python: "3.13"}
+          - {order: "14", candidate: pytest_13480_wdefault_unraisable_threadexception, python: "3.13"}
+          - {order: "15", candidate: incident_openbb_7585_modular_openapi_reproducer, python: "3.11"}
+          - {order: "16", candidate: incident_poetry_10974_init_duplicate_name, python: "3.11"}
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "${{ matrix.python }}"}
+      - run: python -m pip install --upgrade pip setuptools wheel packaging
+      - name: Execute candidate-specific provider and typed incident
+        run: |
+          mkdir -p "candidate-outputs/${{ matrix.candidate }}"
+          python scripts/run_batch095_candidate_lane.py \
+            --candidate "${{ matrix.candidate }}" \
+            --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch095/${{ matrix.candidate }}" \
+            --output "candidate-outputs/${{ matrix.candidate }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch095_lane_${{ matrix.candidate }}
+          path: candidate-outputs
+          retention-days: 1
+
+  cohort_roles:
+    name: 17-22 exact cohort join, role producers, verifiers, and identity graph
+    needs: candidate_lanes
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch095_lane_*, path: candidate-inputs}
+      - name: Join exact eight and execute role boundary only after PASS
+        run: |
+          mkdir -p cohort-output
+          python scripts/join_batch095_cohort_and_roles.py --inputs-root candidate-inputs --output cohort-output
+          python -m pytest tests/test_batch095_cohort_roles.py -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch095_cohort_role_evidence
+          path: cohort-output
+          retention-days: 1
+
+  sealed_truth:
+    name: 23 sealed truth custody separated from builder
+    needs: candidate_lanes
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python scripts/seal_batch095_amds_truth.py --runtime "$RUNNER_TEMP/controllergate-runtime/batch095/truth" --manifest-output truth-manifest/amds_truth_manifest_v4.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch095_amds_sealed_truth
+          path: |
+            ${{ runner.temp }}/controllergate-runtime/batch095/truth/batch095_amds_sealed_truth.json
+            truth-manifest/amds_truth_manifest_v4.json
+          retention-days: 1
+
+  amds_builder:
+    name: 24-28 truth-blind canonical causal-board builder and terminal seal
+    needs: cohort_roles
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_cohort_role_evidence, path: cohort-output}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch095_lane_*, path: candidate-inputs}
+      - name: Execute canonical blinded AMDS without truth
+        run: |
+          python scripts/run_batch095_amds_builder.py --cohort-output cohort-output --candidate-inputs-root candidate-inputs --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch095/amds" --output amds-builder-output
+          python -m pytest tests/test_batch095_amds_stage_boundary.py -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch095_amds_builder_terminals
+          path: amds-builder-output
+          retention-days: 1
+
+  truth_join_stage:
+    name: 29-33 truth join, baselines, AMDS quality, and stage source ownership
+    needs: [amds_builder, sealed_truth]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_amds_builder_terminals, path: scientific-output}
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_amds_sealed_truth, path: sealed-truth}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch095_lane_*, path: candidate-inputs}
+      - name: Join truth only after terminal commitment and verify stage evidence
+        run: |
+          TRUTH=$(find sealed-truth -name batch095_amds_sealed_truth.json -print -quit)
+          python scripts/join_batch095_amds_truth.py --builder-output scientific-output --truth "$TRUTH" --output scientific-output
+          python scripts/run_batch095_stage_source_ownership.py --amds-output scientific-output --candidate-inputs-root candidate-inputs --output scientific-output
+          python scripts/generate_batch095_boundaries_and_shadow.py --output scientific-output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch095_scientific_stage_evidence
+          path: scientific-output
+          retention-days: 1
+
+  critic_and_compact_handoff:
+    name: 34-39 public state, standalone critic, mutations, audit, and compact handoff
+    needs: [custody_contracts, cohort_roles, amds_builder, truth_join_stage]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 300
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_custody_contract_evidence, path: joined/custody}
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_cohort_role_evidence, path: joined/cohort}
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_amds_builder_terminals, path: joined/amds}
+      - uses: actions/download-artifact@v4
+        with: {name: batch095_scientific_stage_evidence, path: joined/scientific}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch095_lane_*, path: candidate-inputs}
+      - name: Reconstruct actual evidence and blocked release boundary
+        run: |
+          find joined -type f -exec cp {} "$OUTPUT/" \;
+          python scripts/batch095_standalone_critic.py --evidence "$OUTPUT" --candidate-inputs-root candidate-inputs --runtime "$RUNNER_TEMP/controllergate-runtime/batch095/critic-mutations"
+          python scripts/finalize_batch095.py --output "$OUTPUT" --workflow-run "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA"
+      - name: Complete tests and preservation audits
+        run: |
+          python -m pytest -q
+          python scripts/audit_batch073_count5_revalidation_frozen_wave1.py
+          python scripts/audit_batch074_sterile_high_yield_amds_memory_wave1.py
+          python scripts/audit_batch075_provider_harness_amds_memory_wave1a.py
+          python scripts/audit_batch076_amds_causal_memory_calibration.py
+          python scripts/audit_batch077_typed_event_pathway_memory_v2.py
+          python scripts/audit_batch078_count6_minimal_closure_memory_wave1b.py
+          python scripts/audit_batch079_count6_runtime_incident_memory_wave1c.py
+          python scripts/audit_batch080_executed_preflight_provider_memory_wave1d.py
+          python scripts/audit_batch081_execution_constitution_provider_incident_pilot.py
+          python scripts/audit_batch082_ci_native_maintenance_order_provider_wave1f.py --output outputs/post_v2_37_hardening_batch082_ci_native_maintenance_order_provider_wave1f
+          python scripts/audit_batch083_reaction_product_cross_area_wave1g.py --out outputs/post_v2_37_hardening_batch083_reaction_product_cross_area_wave1g
+          python scripts/audit_batch084_real_amds_canary_product_beta.py --out outputs/post_v2_37_hardening_batch084_real_amds_canary_product_beta
+          python scripts/audit_batch085_canonical_kernel_product_beta_rc.py
+          python scripts/audit_batch086_historical_lifecycle_dpp14_product_beta_rc.py
+          python scripts/audit_batch087_canonical_execution_blind_dpp14_product_beta_revalidation.py --verify-only
+          python scripts/audit_batch088_causal_amds_historical_capsule_product_beta_closure.py
+          python scripts/audit_batch089_full_isomorphism_reaction_complete_vertical_closure.py --verify-manifests
+          python scripts/audit_batch090_evidence_delaundering_installed_vertical_closure.py --official-reconciliation
+          python scripts/audit_batch091_lossless_capsule_blinded_amds_historical_canary_semantic_critic_closure.py
+          python scripts/audit_batch092_reactome_complete_pathway_ir_external_review_correction.py
+          python scripts/audit_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure.py
+          python scripts/audit_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure.py
+      - name: Current authority, security, and Batch095 audit
+        run: |
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_no_batch_core_logic.py
+          python scripts/audit_installed_product_reachability.py
+          python scripts/audit_no_legacy_production_imports.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_public_language.py
+          python scripts/audit_current_state_view_sync.py
+          python scripts/audit_public_frontier_sync.py
+          python scripts/audit_batch089_security_and_sbom.py --verify-only
+          python scripts/audit_batch095_provider_orthology_typed_incident_eight_cohort_amds_closure.py
+          python scripts/byte_custody_preflight.py
+          git diff --check
+      - name: Stage compact artifact with no runtime or source payloads
+        run: python scripts/stage_batch094_artifact.py --repo . --output "$OUTPUT" --stage "$RUNNER_TEMP/batch095-main"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch095_provider_orthology_typed_incident_eight_cohort_amds_closure_artifacts
+          path: ${{ runner.temp }}/batch095-main
+
+  protected_continuation:
+    name: 40-45 protected historical continuation remains dormant
+    needs: critic_and_compact_handoff
+    if: ${{ inputs.run_historical_actuation == true }}
+    environment: historical-maintenance-approval
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - run: |
+          echo "This prompt does not authorize a protected continuation dispatch."
+          echo "HUMAN_AUTHORIZATION_BLOCKED_EXACT"
+          exit 1

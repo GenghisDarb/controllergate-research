@@ -1,5 +1,11 @@
 # Capability inventory
 
+## Batch095 additions and boundaries
+
+Implemented: candidate-specific provider recipe selection before target execution; actual provider identity measurement; verified cross-environment transfer; generic typed incident-product contracts; canonical broker-backed loopback service lifecycle; exact eight-episode cohort joining; 80 producer/verifier role receipts behind the cohort gate; truth-separated canonical causal-board execution; actual baseline operations; stage-produced source-ownership evidence; standalone actual-evidence mutation review; and a dormant protected-continuation contract.
+
+Not established by implementation alone: eight-episode materialization success, historical AMDS quality, prospective AMDS effectiveness, source-actuation authority, historical lifecycle completion, package-slot deployment, external review, production readiness, or self-maintaining software. Reactome numeric stoichiometry remains a read-only shadow limitation and is not a Product Beta blocker without a production-reachable dependency.
+
 ## Batch094 additions and boundaries
 
 Batch094 implements `controllergate-rpir-v2.1` value-bound source evidence, 16,814 nonauthorizing translation candidates, and behaviorally distinct execution for all 46 generic primitive families. Installed CLI scenarios remain shadow evidence. Numeric stoichiometry is explicitly blocked where the exact release tables do not expose a value.

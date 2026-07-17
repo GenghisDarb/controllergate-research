@@ -12,6 +12,7 @@ from typing import Any, Mapping
 from urllib.request import urlopen
 
 from controllergate.core.evidence import hash_record
+from controllergate.execution.execution_broker import record_external_service_event, start_brokered_service_process
 
 
 def _loopback(host: str) -> bool:
@@ -48,6 +49,7 @@ class BrokeredLocalService:
     request_budget: int = 32
     byte_budget: int = 16_000_000
     parent_ledger_hash: str | None = None
+    runtime_attestation_hash: str | None = None
     process: subprocess.Popen[bytes] | None = field(default=None, init=False)
     port: int | None = field(default=None, init=False)
     receipts: list[dict[str, Any]] = field(default_factory=list, init=False)
@@ -55,21 +57,14 @@ class BrokeredLocalService:
     bytes_observed: int = field(default=0, init=False)
 
     def _receipt(self, operation_type: str, **values: Any) -> dict[str, Any]:
-        record = {
-            "service_id": self.service_id,
-            "candidate_id": self.candidate_id,
-            "run_id": self.run_id,
-            "frame_id": self.frame_id,
-            "operation_type": operation_type,
-            "bound_host": self.host,
-            "actual_port": self.port,
-            "network_policy": "bounded_loopback_only",
-            "request_budget": self.request_budget,
-            "byte_budget": self.byte_budget,
-            "parent_ledger_hash": self.parent_ledger_hash,
-            **values,
-        }
-        record["record_hash"] = hash_record(record)
+        record = record_external_service_event(
+            operation_type=operation_type, service_id=self.service_id, candidate_id=self.candidate_id,
+            run_id=self.run_id, frame_id=self.frame_id, host=self.host, port=self.port,
+            runtime_root=self.runtime_root,
+            runtime_attestation_hash=self.runtime_attestation_hash or hash_record([self.candidate_id, self.run_id, str(self.runtime_root.resolve())]),
+            parent_ledger_hash=self.parent_ledger_hash,
+            values={"request_budget": self.request_budget, "byte_budget": self.byte_budget, **values},
+        )
         self.parent_ledger_hash = record["record_hash"]
         self.receipts.append(record)
         return record
@@ -82,21 +77,15 @@ class BrokeredLocalService:
             raise ValueError("requested local service port is already in use")
         argv = [value.replace("{PORT}", str(self.port)) for value in self.argv_template]
         environment = {key: os.environ[key] for key in self.environment_allowlist if key in os.environ}
-        self.process = subprocess.Popen(
-            argv,
-            cwd=self.cwd,
-            env=environment or None,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
+        self.process, start_receipt = start_brokered_service_process(
+            argv=argv, cwd=self.cwd, env=environment or None,
+            service_id=self.service_id, candidate_id=self.candidate_id, run_id=self.run_id,
+            frame_id=self.frame_id, host=self.host, port=self.port, requested_port=self.requested_port, runtime_root=self.runtime_root,
+            runtime_attestation_hash=self.runtime_attestation_hash or hash_record([self.candidate_id, self.run_id, str(self.runtime_root.resolve())]),
+            parent_ledger_hash=self.parent_ledger_hash,
         )
-        start_receipt = self._receipt(
-            "service_start",
-            exact_argv=argv,
-            cwd=str(self.cwd.resolve()),
-            process_identity=self.process.pid,
-            requested_port=self.requested_port,
-            status="STARTED",
-        )
+        self.parent_ledger_hash = str(start_receipt["record_hash"])
+        self.receipts.append(start_receipt)
         deadline = time.monotonic() + timeout
         while time.monotonic() < deadline:
             if self.process.poll() is not None:
