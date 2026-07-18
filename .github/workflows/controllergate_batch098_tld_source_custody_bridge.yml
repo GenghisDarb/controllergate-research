@@ -1,0 +1,53 @@
+name: controllergate_batch098_tld_source_custody_bridge
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exact-source-custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Acquire protected exact source bytes once
+        env:
+          CONTROLLERGATE_TLD_BUNDLE_URL: ${{ secrets.CONTROLLERGATE_TLD_BUNDLE_URL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CONTROLLERGATE_TLD_BUNDLE_URL"
+          case "$CONTROLLERGATE_TLD_BUNDLE_URL" in https://*) ;; *) exit 2 ;; esac
+          mkdir -p "$RUNNER_TEMP/controllergate-batch098-custody"
+          curl --silent --show-error --fail --location --proto '=https' --tlsv1.2 \
+            --output "$RUNNER_TEMP/controllergate-batch098-custody/ControllerGate_TLD_1-44_Historical_Architecture_Recovery_Source_Bundle_2026-07-17.zip" \
+            "$CONTROLLERGATE_TLD_BUNDLE_URL"
+      - name: Verify exact unchanged bundle
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/verify_batch098_tld_source_bundle.py \
+            --bundle "$RUNNER_TEMP/controllergate-batch098-custody/ControllerGate_TLD_1-44_Historical_Architecture_Recovery_Source_Bundle_2026-07-17.zip" \
+            --report "$RUNNER_TEMP/controllergate-batch098-custody-report/batch098_tld_source_custody_report.json"
+      - name: Upload exact unchanged source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: controllergate_batch098_exact_tld_source_bundle
+          path: ${{ runner.temp }}/controllergate-batch098-custody/ControllerGate_TLD_1-44_Historical_Architecture_Recovery_Source_Bundle_2026-07-17.zip
+          compression-level: 0
+          retention-days: 30
+          if-no-files-found: error
+      - name: Upload compact custody report separately
+        uses: actions/upload-artifact@v4
+        with:
+          name: controllergate_batch098_tld_source_custody_report
+          path: ${{ runner.temp }}/controllergate-batch098-custody-report/batch098_tld_source_custody_report.json
+          retention-days: 30
+          if-no-files-found: error

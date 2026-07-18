@@ -70,7 +70,14 @@ class TypedObservationParser:
                     outcome = child.tag
                     detail = {"type": child.attrib.get("type"), "message": child.attrib.get("message"), "text_sha256": sha256_bytes((child.text or "").encode())}
                     break
-            cases.append({"node_id": "::".join(filter(None, (case.attrib.get("classname"), case.attrib.get("name")))), "outcome": outcome, "detail": detail})
+            cases.append({
+                "node_id": "::".join(filter(None, (case.attrib.get("classname"), case.attrib.get("name")))),
+                "file": case.attrib.get("file"),
+                "classname": case.attrib.get("classname"),
+                "name": case.attrib.get("name"),
+                "outcome": outcome,
+                "detail": detail,
+            })
         return {"schema": "junit-xml", "path": path.name, "sha256": sha256_bytes(path.read_bytes()), "cases": cases, "case_count": len(cases)}
 
     @staticmethod
