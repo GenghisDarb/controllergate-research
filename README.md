@@ -1,5 +1,7 @@
 # ControllerGate
 
+Start with the credential-free [read-only quick start](docs/QUICKSTART.md). The [claim envelope](docs/CLAIM_ENVELOPE.md) states the current evidence and release boundaries.
+
 ## Batch095 provider orthology and historical calibration closure
 
 Batch095 replaces the prior single-interpreter cohort attempt with eight candidate-specific provider recipes selected before target execution. It adds measured provider identities, generic typed incident-product verification, a canonical broker-managed loopback-service lifecycle, an exact eight-episode join, and an 80-receipt role boundary that cannot run after an upstream materialization block.
