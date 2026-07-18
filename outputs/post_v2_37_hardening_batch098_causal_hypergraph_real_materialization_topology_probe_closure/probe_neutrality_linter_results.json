@@ -1,0 +1,34 @@
+{
+  "authority_allowed": "implementation and negative-control verification only",
+  "authority_forbidden": [
+    "candidate causal state",
+    "source ownership",
+    "repair license",
+    "patch",
+    "count mutation",
+    "release mutation"
+  ],
+  "execution_depth": "non_authorizing_contract_and_adversarial_fixture",
+  "independent_verifier": "tests.test_batch098_addendum_handoff_abstention_recovery",
+  "neutral_probe_result": {
+    "findings": [],
+    "linter": "ProbeNeutralityLinterV1",
+    "rejection_count": 0,
+    "status": "PASS"
+  },
+  "probe_neutrality_rejection_count": 1,
+  "producer": "scripts.build_batch098_addendum_artifacts",
+  "rejection_probe_result": {
+    "findings": [
+      {
+        "path": "output_schema.source_owned",
+        "reason": "causal_family_encoded_in_output_key"
+      }
+    ],
+    "linter": "ProbeNeutralityLinterV1",
+    "rejection_count": 1,
+    "status": "REJECTED"
+  },
+  "semantic_scope": "probe neutrality static/runtime linter",
+  "status": "PASS"
+}

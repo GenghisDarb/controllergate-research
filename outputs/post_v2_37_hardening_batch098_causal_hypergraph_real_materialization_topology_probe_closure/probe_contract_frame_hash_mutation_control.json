@@ -1,0 +1,22 @@
+{
+  "authority_allowed": "implementation and negative-control verification only",
+  "authority_forbidden": [
+    "candidate causal state",
+    "source ownership",
+    "repair license",
+    "patch",
+    "count mutation",
+    "release mutation"
+  ],
+  "execution_depth": "non_authorizing_contract_and_adversarial_fixture",
+  "independent_verifier": "tests.test_batch098_addendum_handoff_abstention_recovery",
+  "observed_result": {
+    "expected_frame_hash": "b1f287cae4da56a6086e3c8c9dc83a32408298c4a8fbeff00f7749ee4725fd7a",
+    "observed_frame_hash": "8f7a3461a4ee4241b9e182552b23644c96eea43c1de5add9fc6c070acbffe9ba",
+    "status": "INVALIDATED",
+    "unexecuted_probe_authorizations_valid": false
+  },
+  "producer": "scripts.build_batch098_addendum_artifacts",
+  "semantic_scope": "probe contract frame mutation",
+  "status": "PASS"
+}

@@ -1,0 +1,39 @@
+{
+  "aliases": [
+    "environment_owned",
+    "expectation_owned",
+    "gold_terminal",
+    "harness_owned",
+    "insufficient_evidence",
+    "mixed_failure",
+    "platform_owned",
+    "provider_owned",
+    "providerownership",
+    "runner_owned",
+    "safe_abstention",
+    "source_owned",
+    "sourceownership",
+    "transport_owned"
+  ],
+  "authority_allowed": "implementation and negative-control verification only",
+  "authority_forbidden": [
+    "candidate causal state",
+    "source ownership",
+    "repair license",
+    "patch",
+    "count mutation",
+    "release mutation"
+  ],
+  "execution_depth": "non_authorizing_contract_and_adversarial_fixture",
+  "independent_verifier": "tests.test_batch098_addendum_handoff_abstention_recovery",
+  "producer": "scripts.build_batch098_addendum_artifacts",
+  "provenance_field_exemption": [
+    "candidate_id",
+    "project_id",
+    "repository",
+    "repo_url",
+    "source_commit"
+  ],
+  "semantic_scope": "causal-family alias registry",
+  "status": "PASS"
+}

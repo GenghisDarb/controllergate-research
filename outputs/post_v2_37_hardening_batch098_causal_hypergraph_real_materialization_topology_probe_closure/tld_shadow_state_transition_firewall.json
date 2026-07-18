@@ -1,0 +1,28 @@
+{
+  "TLD_shadow_direct_state_write_count": 0,
+  "authority_allowed": "implementation and negative-control verification only",
+  "authority_forbidden": [
+    "candidate causal state",
+    "source ownership",
+    "repair license",
+    "patch",
+    "count mutation",
+    "release mutation"
+  ],
+  "execution_depth": "non_authorizing_contract_and_adversarial_fixture",
+  "forbidden_transition_keys": [
+    "NSS",
+    "S_e",
+    "T_e",
+    "UI",
+    "numerical_elbow",
+    "shadow_hint",
+    "tld_projection_result",
+    "tld_shadow_state",
+    "winner_N"
+  ],
+  "independent_verifier": "tests.test_batch098_addendum_handoff_abstention_recovery",
+  "producer": "scripts.build_batch098_addendum_artifacts",
+  "semantic_scope": "TLD shadow state transition",
+  "status": "PASS"
+}

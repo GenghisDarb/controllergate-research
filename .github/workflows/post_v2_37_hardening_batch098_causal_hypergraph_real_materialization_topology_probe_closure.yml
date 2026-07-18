@@ -1,0 +1,208 @@
+name: post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch097_artifact_id:
+        description: Exact official Batch097 Actions artifact ID
+        required: true
+        default: "8424390383"
+      tld_source_artifact_id:
+        description: Optional exact pre-existing TLD source-custody Actions artifact ID
+        required: false
+        default: ""
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  custody:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    outputs:
+      ready: ${{ steps.bridge.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Acquire exact Batch097 artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.batch097_artifact_id }}/zip" > "$RUNNER_TEMP/batch097.zip"
+      - name: Acquire exact TLD source bundle through a protected bridge
+        id: bridge
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CONTROLLERGATE_TLD_BUNDLE_URL: ${{ secrets.CONTROLLERGATE_TLD_BUNDLE_URL }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "$CONTROLLERGATE_TLD_BUNDLE_URL" ]; then
+            curl --fail --location --proto '=https' "$CONTROLLERGATE_TLD_BUNDLE_URL" --output "$RUNNER_TEMP/tld.zip"
+          elif [ -n "${{ inputs.tld_source_artifact_id }}" ]; then
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.tld_source_artifact_id }}/zip" > "$RUNNER_TEMP/tld-transport.zip"
+            python -c "import zipfile; z=zipfile.ZipFile(r'$RUNNER_TEMP/tld-transport.zip'); names=[n for n in z.namelist() if n.endswith('.zip')]; assert len(names)==1; open(r'$RUNNER_TEMP/tld.zip','wb').write(z.read(names[0]))"
+          else
+            echo 'BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT' >&2
+            exit 1
+          fi
+          echo ready=true >> "$GITHUB_OUTPUT"
+      - name: Verify both exact inputs
+        run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/custody"
+          python scripts/run_batch098_custody_and_reconciliation.py --batch097 "$RUNNER_TEMP/batch097.zip" --tld "$RUNNER_TEMP/tld.zip" --output "$RUNNER_TEMP/controllergate-runtime/custody" --tld-ci-bridge configured
+          python scripts/parse_batch098_tld_bundle.py --bundle "$RUNNER_TEMP/tld.zip" --output "$RUNNER_TEMP/controllergate-runtime/custody" --custody-depth ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch098-custody
+          path: ${{ runner.temp }}/controllergate-runtime/custody
+          retention-days: 1
+
+  regression:
+    needs: custody
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install . pytest
+      - run: python -m pytest -q
+      - run: python scripts/audit_batch097_evidence_reconstitution_real_repository_genome_topology_amds.py
+      - run: python scripts/controllergate_audit.py --protocol current
+      - run: python scripts/controllergate_run.py --protocol current --dry-run
+
+  installed-product:
+    needs: custody
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip wheel . --no-deps --wheel-dir "${{ runner.temp }}/controllergate-runtime/wheel"
+      - shell: bash
+        run: |
+          python -m venv "$RUNNER_TEMP/controllergate-runtime/installed"
+          if [ "$RUNNER_OS" = Windows ]; then PY="$RUNNER_TEMP/controllergate-runtime/installed/Scripts/python.exe"; CG="$RUNNER_TEMP/controllergate-runtime/installed/Scripts/controllergate.exe"; else PY="$RUNNER_TEMP/controllergate-runtime/installed/bin/python"; CG="$RUNNER_TEMP/controllergate-runtime/installed/bin/controllergate"; fi
+          "$PY" -m pip install "$RUNNER_TEMP"/controllergate-runtime/wheel/controllergate-*.whl
+          cd "$RUNNER_TEMP/controllergate-runtime"
+          "$CG" evidence inspect-contracts --contracts "$GITHUB_WORKSPACE/configs/candidate_execution_contracts_v2.jsonl"
+
+  materialize:
+    needs: [custody, regression, installed-product]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {candidate: darker_issue_112_relative_git_dir, os: ubuntu-latest, provider_python: "3.7"}
+          - {candidate: py_bugger_issue_65, os: ubuntu-latest, provider_python: "3.11"}
+          - {candidate: cloudpickle_507_py313_typevar_distutils, os: ubuntu-latest, provider_python: "3.13"}
+          - {candidate: freezegun_547_py313_datetimes_assertion, os: ubuntu-latest, provider_python: "3.13"}
+          - {candidate: audioread_144_py313_aifc_removed, os: ubuntu-latest, provider_python: "3.13"}
+          - {candidate: pytest_13480_wdefault_unraisable_threadexception, os: ubuntu-latest, provider_python: "3.13"}
+          - {candidate: incident_openbb_7585_modular_openapi_reproducer, os: ubuntu-latest, provider_python: "3.11"}
+          - {candidate: incident_poetry_10974_init_duplicate_name, os: windows-latest, provider_python: "3.11"}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        id: provider
+        with: {python-version: "${{ matrix.provider_python }}"}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install .
+      - name: Execute one installed, sealed candidate lane
+        shell: bash
+        run: |
+          controllergate evidence materialize-candidate \
+            --contracts "$GITHUB_WORKSPACE/configs/candidate_execution_contracts_v2.jsonl" \
+            --candidate "${{ matrix.candidate }}" \
+            --runtime-root "$RUNNER_TEMP/controllergate-runtime" \
+            --output "$RUNNER_TEMP/controllergate-evidence/${{ matrix.candidate }}" \
+            --provider-python "${{ steps.provider.outputs.python-path }}" \
+            --forbidden-repo-root "$GITHUB_WORKSPACE" \
+            --run-id "$GITHUB_RUN_ID-${{ matrix.candidate }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch098-candidate-${{ matrix.candidate }}
+          path: ${{ runner.temp }}/controllergate-evidence/${{ matrix.candidate }}
+          retention-days: 1
+
+  scientific-gate:
+    needs: [custody, materialize]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install .
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: batch098-candidate-*
+          path: ${{ runner.temp }}/controllergate-evidence
+          merge-multiple: false
+      - name: Produce, independently verify, and compile candidate topology
+        shell: bash
+        run: |
+          set -euo pipefail
+          for artifact in "$RUNNER_TEMP"/controllergate-evidence/batch098-candidate-*; do
+            candidate="${artifact##*batch098-candidate-}"
+            normalized="$RUNNER_TEMP/controllergate-candidates/$candidate"
+            mkdir -p "$normalized"
+            cp -a "$artifact"/. "$normalized"/
+            mkdir -p "$RUNNER_TEMP/controllergate-topology/$candidate/producer" "$RUNNER_TEMP/controllergate-topology/$candidate/verified" "$RUNNER_TEMP/controllergate-topology/$candidate/frame"
+            controllergate topology produce --candidate-evidence "$normalized" --contracts "$GITHUB_WORKSPACE/configs/candidate_execution_contracts_v2.jsonl" --output "$RUNNER_TEMP/controllergate-topology/$candidate/producer"
+            controllergate topology verify --candidate-evidence "$normalized" --producer-evidence "$RUNNER_TEMP/controllergate-topology/$candidate/producer" --output "$RUNNER_TEMP/controllergate-topology/$candidate/verified"
+            controllergate topology compile-board --candidate-evidence "$normalized" --verified-topology "$RUNNER_TEMP/controllergate-topology/$candidate/verified" --contracts "$GITHUB_WORKSPACE/configs/candidate_execution_contracts_v2.jsonl" --output "$RUNNER_TEMP/controllergate-topology/$candidate/frame"
+          done
+          controllergate amds diagnose --candidate-evidence-root "$RUNNER_TEMP/controllergate-candidates" --topology-root "$RUNNER_TEMP/controllergate-topology" --contracts "$GITHUB_WORKSPACE/configs/candidate_execution_contracts_v2.jsonl" --output "$RUNNER_TEMP/controllergate-amds"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch098-scientific-evidence
+          path: |
+            ${{ runner.temp }}/controllergate-topology
+            ${{ runner.temp }}/controllergate-amds
+          retention-days: 1
+
+  final:
+    needs: [custody, regression, installed-product, scientific-gate]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch098-custody
+          path: ${{ runner.temp }}/controllergate-runtime/custody
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch098-scientific-evidence
+          path: ${{ runner.temp }}/controllergate-runtime/scientific
+      - name: Join scoped workflow evidence and preserve exact blocked boundary
+        run: python scripts/finalize_batch098_workflow_state.py --custody "${{ runner.temp }}/controllergate-runtime/custody" --scientific "${{ runner.temp }}/controllergate-runtime/scientific/controllergate-amds"
+      - run: python scripts/build_batch098_addendum_artifacts.py
+      - run: python scripts/byte_custody_preflight.py
+      - run: python scripts/audit_batch098_causal_hypergraph_real_materialization_topology_probe_closure.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure_artifacts
+          path: outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure
+          retention-days: 1

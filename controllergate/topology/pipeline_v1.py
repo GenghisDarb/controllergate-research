@@ -17,6 +17,8 @@ from controllergate.topology.causal_hypergraph import (
 )
 from controllergate.topology.modality_conflicts_v1 import MODALITIES, ModalityProposal, reconcile_modalities
 from controllergate.topology.probe_compiler_v1 import compile_topology_decision_frame, probe_stagnation_control
+from controllergate.topology.environment_handoff_v1 import emit_environment_exhausted_handoff
+from controllergate.topology.frame_binding_v1 import freeze_complete_frame
 
 
 DIMENSIONS = (
@@ -140,6 +142,17 @@ def verify_topology(candidate_dir: str | Path, producer_dir: str | Path, output:
         cells.append(BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], ownership, ownership.lower(), CellState.UNRESOLVED, source_parents, f"ownership-producer:{identity([ownership, source_parents])}", f"ownership-verifier:{identity([ownership, source_parents, 'independent'])}", "source-bound ownership uncertainty", "hypothesis only", ("terminal", "repair authority"), "execute discriminating MinimalProbe"))
     process_cell = BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], "PROCESS_PRODUCT_CONTACT", "candidate target product", CellState.VERIFIED_TRUE if observation.get("operation_id") != "not-run" else CellState.UNRESOLVED, (identity(product),), str(observation.get("operation_id")), f"product-verifier:{identity([observation.get('operation_id'), product])}", "executed process/product", "causal observation", ("source ownership",), "rerun typed target")
     cells.append(process_cell)
+    handoff = None
+    handoff_error = None
+    try:
+        handoff = emit_environment_exhausted_handoff(
+            environment_cells=[row for row in cells if row.cell_class == "ENVIRONMENT_BOUNDARY"],
+            causal_cells=[row for row in cells if row.cell_class.endswith("CONTACT") or row.cell_class.startswith("OWNERSHIP_")],
+            environment_alignment_plan_hash=identity(measurements),
+            observer_state_hash=identity([result["candidate_id"], result["run_id"], result["frame_id"], "ACTIVE_PROVISIONAL"]),
+        )
+    except ValueError as error:
+        handoff_error = str(error)
     regions = connected_regions(result["candidate_id"], cells, board_edges)
     projection_rows = load_jsonl(source / "projection_pair_contracts_v1.jsonl")
     projections = []
@@ -153,6 +166,9 @@ def verify_topology(candidate_dir: str | Path, producer_dir: str | Path, output:
     write_jsonl(out / "boundary_cell_verification_receipts_v1.jsonl", measurement_verifications); write_jsonl(out / "local_brot_edge_verification_receipts_v4.jsonl", edge_verifications)
     write_jsonl(out / "board_cell_registry_v1.jsonl", [row.record() for row in cells]); write_jsonl(out / "board_edge_registry_v1.jsonl", [row.record() for row in board_edges]); write_jsonl(out / "causal_region_registry_v1.jsonl", [row.record() for row in regions])
     write_jsonl(out / "projection_pairs_v1.jsonl", [row.record() for row in projections]); write_json(out / "five_modality_reconciliation_v3.json", modality); write_json(out / "board_identity_and_authority_audit.json", audit)
+    if handoff:
+        write_json(out / "environment_exhausted_handoff_v1.json", handoff.record())
+    write_json(out / "environment_exhausted_handoff_audit.json", {"status": "PASS" if handoff else "NOT_EMITTED", "handoff_emitted": bool(handoff), "reason": handoff_error, "authority_forbidden": ["cell state transition", "source ownership", "repair authority"]})
     summary = {"status": "PASS" if audit["status"] == "PASS" and all(row["status"] == "PASS" for row in measurement_verifications) else "SCIENTIFIC_BLOCK", "candidate_id": result["candidate_id"], "cells": len(cells), "verified_cells": sum(row.state == CellState.VERIFIED_TRUE for row in cells), "unresolved_cells": sum(row.state == CellState.UNRESOLVED for row in cells), "contradicted_cells": sum(row.state == CellState.CONTRADICTED for row in cells), "edges": len(board_edges), "edge_verification_blocks": sum(row["status"] != "PASS" for row in edge_verifications), "causal_regions": len(regions), "projection_pairs": len(projections), "false_terminal_transfers": 0, "modality": modality}
     write_json(out / "topology_verification_summary.json", summary); return summary
 
@@ -170,7 +186,28 @@ def compile_candidate_frame(candidate_dir: str | Path, verified_dir: str | Path,
     contract = next(row.record() for row in load_contracts(contracts_path) if row.candidate_id == candidate["candidate_id"])
     cells = [_cell(row) for row in load_jsonl(verified / "board_cell_registry_v1.jsonl")]; edges = [_edge(row) for row in load_jsonl(verified / "board_edge_registry_v1.jsonl")]; regions = connected_regions(candidate["candidate_id"], cells, edges)
     frame = compile_topology_decision_frame(candidate=candidate, contract=contract, cells=cells, edges=edges, regions=regions, budgets=contract["resource_budget"])
+    observation = load_json(Path(candidate_dir) / "neutral_observation_v2.json")
+    handoff_path = verified / "environment_exhausted_handoff_v1.json"
+    complete_payload = {
+        "board_cells": [row.record() for row in cells], "board_edges": [row.record() for row in edges], "causal_regions": [row.record() for row in regions],
+        "boundary_cells": [row.record() for row in cells if row.cell_class == "ENVIRONMENT_BOUNDARY"],
+        "environment_exhausted_handoff": load_json(handoff_path) if handoff_path.is_file() else None,
+        "projection_pairs": load_jsonl(verified / "projection_pairs_v1.jsonl"), "orthology_invariants": [],
+        "causal_hypotheses": frame["hypotheses"], "constraints": frame["constraints"], "minimal_probes": frame["probes"],
+        "predicted_partitions": {row["probe_id"]: row["predicted_neutral_partitions"] for row in frame["probes"]},
+        "semantic_verifiers": sorted({row["semantic_verifier_id"] for row in frame["probes"]}),
+        "controls": {"positive": contract["positive_controls"], "negative": contract["negative_controls"], "adversarial": contract["adversarial_controls"]},
+        "budgets": contract["resource_budget"], "probe_nonces": sorted(row["single_use_nonce"] for row in frame["probes"]),
+        "observer_state_contract": {"observer_state": observation["observer_state"], "observer_identity": observation["producer_installed_code_hash"]},
+        "provisional_branch_root": identity([candidate["candidate_id"], candidate["run_id"], "branch-root"]),
+        "modality_contracts": load_json(verified / "five_modality_reconciliation_v3.json"),
+        "tld_shadow_identities": {"source_bundle_sha256": "c32609066a7d86934a9a6e8b62d57fd335e51a14c8fdebcb95bb7d1584c6438b", "authority": "shadow_only"},
+        "sealed_truth_custody_identity": "truth-vault-physically-withheld-until-terminal-seal",
+        "proof_release_parent": contract["contract_hash"], "legal_probe_exhaustion_root": None, "nogood_store_root": identity([]),
+    }
+    complete_frame = freeze_complete_frame(complete_payload)
+    frame["frame_hash"] = complete_frame["frame_hash"]
     stagnation = probe_stagnation_control([], [], threshold=2)
-    write_json(out / "topology_compiled_decision_frame_v3.json", frame); write_jsonl(out / "topology_derived_hypotheses_v3.jsonl", frame["hypotheses"]); write_jsonl(out / "topology_derived_constraints_v3.jsonl", frame["constraints"]); write_jsonl(out / "topology_derived_probe_contracts_v3.jsonl", frame["probes"]); write_json(out / "probe_stagnation_control_v1.json", stagnation)
+    write_json(out / "topology_compiled_decision_frame_v3.json", frame); write_json(out / "complete_decision_frame_v1.json", complete_frame); write_jsonl(out / "topology_derived_hypotheses_v3.jsonl", frame["hypotheses"]); write_jsonl(out / "topology_derived_constraints_v3.jsonl", frame["constraints"]); write_jsonl(out / "topology_derived_probe_contracts_v3.jsonl", frame["probes"]); write_json(out / "probe_stagnation_control_v1.json", stagnation)
     audit = {"status": "PASS" if frame["empty_derivation_hypothesis_count"] == frame["non_executable_probe_count"] == frame["partitionless_probe_count"] == frame["caller_supplied_decisive_input_count"] == 0 else "BLOCK", "empty_derivation_hypothesis_count": frame["empty_derivation_hypothesis_count"], "non_executable_probe_count": frame["non_executable_probe_count"], "partitionless_probe_count": frame["partitionless_probe_count"], "caller_supplied_decisive_input_count": frame["caller_supplied_decisive_input_count"]}
     write_json(out / "no_external_decisive_input_audit_v2.json", audit); return {**audit, "candidate_id": candidate["candidate_id"], "hypotheses": len(frame["hypotheses"]), "constraints": len(frame["constraints"]), "probes": len(frame["probes"])}
