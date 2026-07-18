@@ -52,6 +52,9 @@ class MinimalProbeV1:
     controls: Mapping[str, tuple[str, ...]]
     forbidden_outputs: tuple[str, ...]
     reopen_condition: str
+    probe_kind: str
+    structured_result_schema: Mapping[str, Any]
+    partition_rule: Mapping[str, Any]
 
 
 def _probe_for(
@@ -61,12 +64,27 @@ def _probe_for(
     budgets: Mapping[str, int],
     hypothesis_by_cell: Mapping[str, str],
 ) -> MinimalProbeV1:
-    argv = tuple(contract.get("target_argv", ()))
-    if not argv:
-        raise ValueError("topology-derived MinimalProbe requires executable argv")
+    class_to_kind = {
+        "OWNERSHIP_SOURCE": "contact_edge",
+        "OWNERSHIP_PROVIDER": "provider_variation",
+        "OWNERSHIP_ENVIRONMENT_PLATFORM": "boundary_dimension",
+        "OWNERSHIP_RUNNER": "runner_variation",
+        "OWNERSHIP_HARNESS_FIXTURE": "harness_variation",
+        "OWNERSHIP_SERVICE_TRANSPORT": "service_variation",
+        "OWNERSHIP_TEST_EXPECTATION": "expectation_relation",
+        "OWNERSHIP_MIXED": "modality_conflict",
+    }
+    kind = class_to_kind.get(cell.cell_class, "recovery_region")
+    subject = f"{cell.cell_class}|{cell.subject}|{cell.cell_id}"
+    argv = (
+        "{python}", "-m", "controllergate.evidence.probe_worker_v2",
+        "--kind", kind, "--subject", subject,
+    )
+    positive_code = f"{kind}_observed"
+    negative_code = f"{kind}_not_observed"
     partitions = {
-        "contact_observed": (hypothesis_by_cell[cell.cell_id],),
-        "contact_not_observed": tuple(sorted(hypothesis_by_cell[row.cell_id] for row in competing if row.cell_id != cell.cell_id)),
+        positive_code: (hypothesis_by_cell[cell.cell_id],),
+        negative_code: tuple(sorted(hypothesis_by_cell[row.cell_id] for row in competing if row.cell_id != cell.cell_id)),
     }
     if not all(partitions.values()):
         partitions["insufficient_evidence"] = tuple(sorted(hypothesis_by_cell[row.cell_id] for row in competing))
@@ -79,7 +97,10 @@ def _probe_for(
         required_raw_outputs=("process_observation", "typed_product", "semantic_verification"), budgets=dict(budgets), timeout_seconds=int(budgets.get("timeout_seconds", 300)),
         single_use_nonce=identity([cell.candidate_id, source, "single-use"])[:32],
         controls={"positive": tuple(row["control_id"] for row in contract.get("positive_controls", ())), "negative": tuple(row["control_id"] for row in contract.get("negative_controls", ())), "adversarial": tuple(row["control_id"] for row in contract.get("adversarial_controls", ()))},
-        forbidden_outputs=("terminal_class", "source_owned", "repair_patch", "future_outcome"), reopen_condition=cell.reopen_condition,
+        forbidden_outputs=("terminal_class", "source_owned", "repair_patch", "future_outcome", "diagnosis"), reopen_condition=cell.reopen_condition,
+        probe_kind=kind,
+        structured_result_schema={"type": "object", "required": ("kind", "subject", "subject_hash", "diagnosis_label_present")},
+        partition_rule={"rule_id": f"{kind}-semantic-v1", "positive_when": "kind-specific structured predicate is true", "negative_when": "predicate is false", "subject": subject},
     )
 
 

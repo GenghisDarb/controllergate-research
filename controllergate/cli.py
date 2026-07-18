@@ -18,6 +18,7 @@ from .isomorphism.scenarios import execute_scenario
 from .isomorphism.runtime import execute_structured_scenario
 from .evidence.contracts import load_contracts, seal_contracts
 from .evidence.materializer import materialize_candidate
+from .evidence.probe_executor_v2 import execute_probe_contract
 from .topology.pipeline_v1 import compile_candidate_frame, produce_topology, verify_topology
 from .amds.batch098_diagnose import diagnose_batch098
 
@@ -64,6 +65,9 @@ def main(argv: list[str] | None = None) -> int:
     verify_incident.add_argument("--result", required=True)
     inspect_contracts = evidence_sub.add_parser("inspect-contracts")
     inspect_contracts.add_argument("--contracts", required=True)
+    execute_probe = evidence_sub.add_parser("execute-probe")
+    execute_probe.add_argument("--contract", required=True)
+    execute_probe.add_argument("--output", required=True)
     topology = sub.add_parser("topology")
     topology_sub = topology.add_subparsers(dest="topology_command", required=True)
     topology_produce = topology_sub.add_parser("produce")
@@ -124,6 +128,9 @@ def main(argv: list[str] | None = None) -> int:
             "authority_allowed": "contract inspection only",
             "authority_forbidden": ["candidate execution", "patch", "repair count", "release promotion"],
         }
+    elif args.command == "evidence" and args.evidence_command == "execute-probe":
+        probe_contract = json.loads(Path(args.contract).read_text(encoding="utf-8"))
+        result = execute_probe_contract(probe_contract, args.output)
     elif args.command == "topology" and args.topology_command == "produce":
         result = produce_topology(args.candidate_evidence, args.contracts, args.output)
     elif args.command == "topology" and args.topology_command == "verify":

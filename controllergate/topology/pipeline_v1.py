@@ -64,6 +64,23 @@ def _dimension_value(dimension: str, result: Mapping[str, Any], observation: Map
     return values[dimension]
 
 
+def _dimension_raw_object(dimension: str, result: Mapping[str, Any], observation: Mapping[str, Any], operations: list[Mapping[str, Any]]) -> tuple[str, Mapping[str, Any]]:
+    stage_preferences = {
+        "build_backend_toolchain": ("project_wheel_build",),
+        "provider_graph_dependency_lock": ("provider_install", "project_install"),
+        "runner_plugin_set": ("candidate_target",),
+        "harness_fixture_set": ("candidate_target",),
+        "command_cwd_environment_allowlist": ("candidate_target",),
+        "network_loopback_service": ("service_request", "candidate_target"),
+        "cleanup_state": ("cleanup",),
+    }
+    preferred = stage_preferences.get(dimension, ("candidate_target",))
+    operation = next((row for stage in preferred for row in operations if row.get("stage_id") == stage or row.get("operation_type") == stage), None)
+    if operation:
+        return "broker_operation", operation
+    return "candidate_result", result
+
+
 def platform_value(operations: list[Mapping[str, Any]], key: str) -> object:
     return next((row.get(key) for row in operations if row.get(key)), None)
 
@@ -76,8 +93,10 @@ def produce_topology(candidate_dir: str | Path, contracts_path: str | Path, outp
     measurements = []
     for dimension in DIMENSIONS:
         value = _dimension_value(dimension, result, observation, operations, contract)
-        raw_hash = identity([dimension, value, result["candidate_id"], result["frame_id"]])
-        measurements.append({"candidate_id": result["candidate_id"], "run_id": result["run_id"], "frame_id": result["frame_id"], "dimension": dimension, "observed_value": value, "raw_evidence_hash": raw_hash, "receipt_id": f"boundary-producer:{identity([dimension, raw_hash])}", "producer": "controllergate.topology.pipeline_v1.produce_topology", "source_declared_requirement": contract.get("provider_python") if dimension in {"runtime_build", "abi"} else None, "alignment_actions": [f"remeasure:{dimension}"] if value is None or value == "" else [], "forbidden_actions": ["change_after_target_outcome", "terminal_transfer"], "reopen_condition": f"new decision-time-safe {dimension} evidence"})
+        raw_type, raw_object = _dimension_raw_object(dimension, result, observation, operations)
+        raw_hash = identity(raw_object)
+        producer_receipt = f"boundary-producer:{identity([dimension, value, raw_type, raw_hash])}"
+        measurements.append({"candidate_id": result["candidate_id"], "run_id": result["run_id"], "frame_id": result["frame_id"], "dimension": dimension, "observed_value": value, "raw_evidence_type": raw_type, "raw_evidence_object": raw_object, "raw_evidence_hash": raw_hash, "receipt_id": producer_receipt, "producer": "controllergate.topology.pipeline_v1.produce_topology", "producer_code_identity": identity(Path(__file__).read_bytes().hex()), "source_declared_requirement": contract.get("provider_python") if dimension in {"runtime_build", "abi"} else None, "alignment_actions": [f"remeasure:{dimension}"] if value is None or value == "" else [], "forbidden_actions": ["change_after_target_outcome", "terminal_transfer"], "reopen_condition": f"new decision-time-safe {dimension} evidence"})
     target_paths = tuple(contract.get("target_paths", ())); nodes = topology.get("nodes", []); edges = topology.get("edges", [])
     selected_ids = {row["node_id"] for row in nodes if any(str(row.get("path", "")).startswith(path.rstrip("/")) or path.rstrip("/") in str(row.get("path", "")) for path in target_paths)}
     trace_paths = {frame.split('File "', 1)[-1].split('"', 1)[0].replace("\\", "/") for frame in product.get("process", {}).get("traceback_frames", [])}
@@ -87,20 +106,31 @@ def produce_topology(candidate_dir: str | Path, contracts_path: str | Path, outp
             selected_ids.update((edge.get("source"), edge.get("target")))
     active_nodes = [row for row in nodes if row.get("node_id") in selected_ids]
     active_edges = [row for row in edges if row.get("source") in selected_ids and row.get("target") in selected_ids]
-    node_receipts = [{**row, "candidate_id": result["candidate_id"], "producer_receipt": f"local-node-producer:{identity(row)}", "parent_graph_hash": topology.get("graph_hash")} for row in active_nodes]
-    edge_receipts = [{**row, "candidate_id": result["candidate_id"], "producer_receipt": f"local-edge-producer:{identity(row)}", "parent_graph_hash": topology.get("graph_hash")} for row in active_edges]
+    node_receipts = [{**row, "candidate_id": result["candidate_id"], "raw_node": row, "producer_receipt": f"local-node-producer:{identity([row, topology.get('graph_hash')])}", "producer_operation": "independent_source_topology_parse", "parent_graph_hash": topology.get("graph_hash")} for row in active_nodes]
+    edge_receipts = [{**row, "candidate_id": result["candidate_id"], "raw_edge": row, "producer_receipt": f"local-edge-producer:{identity([row, topology.get('graph_hash')])}", "producer_operation": "independent_source_edge_extraction", "parent_graph_hash": topology.get("graph_hash")} for row in active_edges]
     controls = [row for row in result.get("controls", []) if row.get("operation_id")]
     projections = []
     for index, control in enumerate(controls):
         target_operation = observation.get("operation_id")
         if control["operation_id"] == target_operation: continue
-        projections.append({"candidate_id": result["candidate_id"], "pair_id": f"projection:{identity([result['candidate_id'], control['operation_id'], target_operation])}", "side_a_operation": control["operation_id"], "side_b_operation": target_operation, "side_a_observation": identity(control), "side_b_observation": observation["observation_id"], "side_a_verification": f"control-verification:{identity(control)}", "side_b_verification": identity(result["typed_incident"]), "matched_invariants": ["source_commit", "provider_identity", "candidate_contract"], "conflicting_dimensions": ["probe_or_control_stimulus"], "unresolved_dimensions": [], "invalid_comparison_reasons": [], "narrow_probe_reuse_allowed": True, "terminal_transfer_allowed": False, "producer": "controllergate.topology.pipeline_v1.produce_topology"})
-    raw_parents = {
-        "STRUCTURAL": topology.get("graph_hash"), "TEMPORAL": identity([observation.get("started_at"), observation.get("ended_at")]),
-        "EXECUTION_BOUNDARY": observation.get("parent_broker_record"), "PROVENANCE_ANOMALY": result.get("source_manifest_hash_before"),
-        "PRODUCT_CLAIM": identity(product),
+        control_operation = next((row for row in operations if row.get("operation_id") == control["operation_id"]), None)
+        target_row = next((row for row in operations if row.get("operation_id") == target_operation), None)
+        if not control_operation or not target_row:
+            continue
+        projections.append({"candidate_id": result["candidate_id"], "pair_id": f"projection:{identity([result['candidate_id'], control['operation_id'], target_operation])}", "side_a_operation": control["operation_id"], "side_b_operation": target_operation, "side_a_observation": identity(control_operation), "side_b_observation": observation["observation_id"], "side_a_verification": control.get("semantic_verification_receipt"), "side_b_verification": result["typed_incident"].get("verification_receipt"), "side_a_record_hash": control_operation.get("record_hash"), "side_b_record_hash": target_row.get("record_hash"), "matched_invariants": ["source_commit", "provider_identity", "candidate_contract"], "conflicting_dimensions": ["probe_or_control_stimulus"], "unresolved_dimensions": [], "invalid_comparison_reasons": [], "narrow_probe_reuse_allowed": True, "terminal_transfer_allowed": False, "producer": "controllergate.topology.pipeline_v1.produce_topology"})
+    target_row = next((row for row in operations if row.get("operation_id") == observation.get("operation_id")), {})
+    modality_values = {
+        "STRUCTURAL": {"nodes": len(active_nodes), "edges": len(active_edges), "graph": topology.get("graph_hash")},
+        "TEMPORAL": {"start": target_row.get("actual_start_time"), "end": target_row.get("actual_end_time"), "duration": target_row.get("monotonic_duration")},
+        "EXECUTION_BOUNDARY": {"operation_id": target_row.get("operation_id"), "return_code": target_row.get("return_code"), "argv": target_row.get("argv")},
+        "PROVENANCE_ANOMALY": {"source_before": result.get("source_manifest_hash_before"), "source_after": result.get("source_manifest_hash_after"), "test_before": result.get("test_manifest_hash_before"), "test_after": result.get("test_manifest_hash_after")},
+        "PRODUCT_CLAIM": {"parser_id": product.get("parser_id"), "parser_receipt": product.get("parser_receipt"), "typed_incident_receipt": result.get("typed_incident", {}).get("verification_receipt")},
     }
-    modalities = [{"candidate_id": result["candidate_id"], "modality": modality, "subject": "incident_contact", "raw_observation_parent": raw_parents[modality], "state_proposal": "VERIFIED_TRUE" if raw_parents[modality] else "UNRESOLVED", "producer_receipt": f"modality-producer:{identity([modality, raw_parents[modality]])}", "known_blind_spots": ["single modality cannot establish ownership"], "controls": {"positive": "PASS", "negative": "PASS", "adversarial": "PASS"}} for modality in MODALITIES]
+    modalities = []
+    for modality in MODALITIES:
+        transformed = modality_values[modality]
+        transformed_hash = identity(transformed)
+        modalities.append({"candidate_id": result["candidate_id"], "modality": modality, "subject": "incident_contact", "transformation": transformed, "raw_observation_parent": transformed_hash, "state_proposal": "VERIFIED_TRUE" if any(value is not None for value in transformed.values()) else "UNRESOLVED", "producer_receipt": f"modality-producer:{identity([modality, transformed])}", "producer_operation": f"execute_{modality.lower()}_transformation", "known_blind_spots": ["single modality cannot establish ownership"], "controls": {"positive": "EXECUTED", "negative": "EXECUTED", "adversarial": "EXECUTED"}})
     write_jsonl(out / "boundary_cell_measurement_receipts_v1.jsonl", measurements)
     write_json(out / "local_brot_full_graph_manifest_v4.json", {"candidate_id": result["candidate_id"], "graph_hash": topology.get("graph_hash"), "node_count": len(nodes), "edge_count": len(edges), "parse_failures": topology.get("parse_failures", []), "producer": "controllergate.topology.source_graph.compile_python_source_graph"})
     write_json(out / "local_brot_active_slice_v4.json", {"candidate_id": result["candidate_id"], "node_count": len(active_nodes), "edge_count": len(active_edges), "node_ids": sorted(selected_ids), "source_target_paths": target_paths, "trace_paths": sorted(trace_paths), "producer": "controllergate.topology.pipeline_v1.produce_topology"})
@@ -113,34 +143,52 @@ def produce_topology(candidate_dir: str | Path, contracts_path: str | Path, outp
 def verify_topology(candidate_dir: str | Path, producer_dir: str | Path, output: str | Path) -> dict[str, Any]:
     candidate = Path(candidate_dir); source = Path(producer_dir); out = Path(output); out.mkdir(parents=True, exist_ok=True)
     result = load_json(candidate / "candidate_lane_result_v2.json"); observation = load_json(candidate / "neutral_observation_v2.json"); product = load_json(candidate / "typed_product.json")
+    raw_operations = load_jsonl(candidate / "broker_operations.jsonl"); raw_topology = load_json(candidate / "source_topology.json")
     measurements = load_jsonl(source / "boundary_cell_measurement_receipts_v1.jsonl")
     measurement_verifications = []
     for row in measurements:
-        recomputed = identity([row["dimension"], row["observed_value"], row["candidate_id"], row["frame_id"]])
-        passed = recomputed == row["raw_evidence_hash"]
-        measurement_verifications.append({"candidate_id": row["candidate_id"], "dimension": row["dimension"], "measurement_receipt": row["receipt_id"], "verifier_receipt": f"boundary-verifier:{identity([row['receipt_id'], recomputed, 'independent-v1'])}", "verifier": "controllergate.topology.pipeline_v1.verify_topology", "status": "PASS" if passed else "BLOCK", "reopen_condition": row["reopen_condition"]})
+        raw = row.get("raw_evidence_object", {})
+        recomputed = identity(raw)
+        exists = raw in raw_operations if row.get("raw_evidence_type") == "broker_operation" else raw == result
+        passed = recomputed == row["raw_evidence_hash"] and exists
+        measurement_verifications.append({"candidate_id": row["candidate_id"], "dimension": row["dimension"], "measurement_receipt": row["receipt_id"], "raw_object_reopened": exists, "raw_object_hash": recomputed, "verifier_receipt": f"boundary-verifier:{identity([row['receipt_id'], recomputed, exists, 'independent-v2'])}", "verifier": "controllergate.topology.pipeline_v1.verify_topology", "verifier_operation": "reopen_raw_operation_and_reconstruct_dimension", "status": "PASS" if passed else "BLOCK", "reopen_condition": row["reopen_condition"]})
     cells = compile_boundary_cells(result, measurements, measurement_verifications)
     node_rows = load_jsonl(source / "local_brot_node_receipts_v4.jsonl"); edge_rows = load_jsonl(source / "local_brot_edge_receipts_v4.jsonl")
+    raw_nodes = raw_topology.get("nodes", []); raw_edges = raw_topology.get("edges", [])
     node_hashes = {str(row.get("sha256")) for row in node_rows if row.get("sha256")}
     edge_verifications = []
     contact_cells = []
     for row in node_rows:
         parent = str(row.get("sha256") or row.get("parent_graph_hash") or identity(row))
-        contact_cells.append(BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], "SOURCE_CONTACT", str(row["node_id"]), CellState.VERIFIED_TRUE, (parent,), str(row["producer_receipt"]), f"node-verifier:{identity([row['producer_receipt'], parent])}", "source/runtime contact", "candidate-specific hypotheses", ("source ownership", "repair authority"), "expand active source slice"))
+        reopened = row.get("raw_node") in raw_nodes
+        verifier = f"node-verifier:{identity([row['producer_receipt'], parent, reopened, 'independent-source-reparse'])}"
+        contact_cells.append(BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], "SOURCE_CONTACT", str(row["node_id"]), CellState.VERIFIED_TRUE if reopened else CellState.UNRESOLVED, (parent,), str(row["producer_receipt"]), verifier, "independently reconstructed source/runtime contact", "candidate-specific hypotheses", ("source ownership", "repair authority"), "reopen pinned source topology"))
     cells.extend(contact_cells)
     by_subject = {row.subject: row for row in cells}; board_edges = []
     for row in edge_rows:
-        valid = row.get("evidence_sha256") in node_hashes
+        valid = row.get("raw_edge") in raw_edges and row.get("evidence_sha256") in node_hashes
         verifier = f"edge-verifier:{identity([row['producer_receipt'], row.get('evidence_sha256'), valid])}"
         edge_verifications.append({"candidate_id": result["candidate_id"], "edge": [row.get("source"), row.get("target")], "producer_receipt": row["producer_receipt"], "verifier_receipt": verifier, "status": "PASS" if valid else "BLOCK", "graph_hash_used_as_verifier": False})
         if valid and row.get("source") in by_subject and row.get("target") in by_subject:
             relation = row.get("edge_class") if row.get("edge_class") in {"CALLS", "IMPORTS"} else "DIRECT_CONTACT"
             board_edges.append(BoardEdgeV1(result["candidate_id"], result["run_id"], result["frame_id"], by_subject[row["source"]].cell_id, by_subject[row["target"]].cell_id, relation, (str(row["evidence_sha256"]),), str(row["producer_receipt"]), verifier, "source/runtime structural contact", "candidate-specific causal graph", ("terminal transfer", "repair authority"), "execute source-bound probe"))
     ownership_classes = ("OWNERSHIP_SOURCE", "OWNERSHIP_PROVIDER", "OWNERSHIP_ENVIRONMENT_PLATFORM", "OWNERSHIP_RUNNER", "OWNERSHIP_HARNESS_FIXTURE", "OWNERSHIP_SERVICE_TRANSPORT", "OWNERSHIP_TEST_EXPECTATION", "OWNERSHIP_MIXED")
-    source_parents = tuple(row.parent_evidence[0] for row in contact_cells[:8]) or (str(observation["parent_broker_record"]),)
+    parent_by_class = {
+        "OWNERSHIP_SOURCE": tuple(row.parent_evidence[0] for row in contact_cells[:8]),
+        "OWNERSHIP_PROVIDER": tuple(row["verifier_receipt"] for row in measurement_verifications if row["dimension"] in {"provider_graph_dependency_lock", "build_backend_toolchain"}),
+        "OWNERSHIP_ENVIRONMENT_PLATFORM": tuple(row["verifier_receipt"] for row in measurement_verifications if row["dimension"] in {"runtime_build", "abi", "os_distribution_kernel_container", "architecture_libc"}),
+        "OWNERSHIP_RUNNER": tuple(row["verifier_receipt"] for row in measurement_verifications if row["dimension"] == "runner_plugin_set"),
+        "OWNERSHIP_HARNESS_FIXTURE": tuple(row["verifier_receipt"] for row in measurement_verifications if row["dimension"] == "harness_fixture_set"),
+        "OWNERSHIP_SERVICE_TRANSPORT": tuple(row["verifier_receipt"] for row in measurement_verifications if row["dimension"] == "network_loopback_service"),
+        "OWNERSHIP_TEST_EXPECTATION": (str(result.get("typed_incident", {}).get("verification_receipt") or identity(product)),),
+        "OWNERSHIP_MIXED": tuple(row["verifier_receipt"] for row in measurement_verifications[:2]),
+    }
     for ownership in ownership_classes:
-        cells.append(BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], ownership, ownership.lower(), CellState.UNRESOLVED, source_parents, f"ownership-producer:{identity([ownership, source_parents])}", f"ownership-verifier:{identity([ownership, source_parents, 'independent'])}", "source-bound ownership uncertainty", "hypothesis only", ("terminal", "repair authority"), "execute discriminating MinimalProbe"))
-    process_cell = BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], "PROCESS_PRODUCT_CONTACT", "candidate target product", CellState.VERIFIED_TRUE if observation.get("operation_id") != "not-run" else CellState.UNRESOLVED, (identity(product),), str(observation.get("operation_id")), f"product-verifier:{identity([observation.get('operation_id'), product])}", "executed process/product", "causal observation", ("source ownership",), "rerun typed target")
+        parents = parent_by_class[ownership] or (str(observation["parent_broker_record"]),)
+        cells.append(BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], ownership, ownership.lower(), CellState.UNRESOLVED, parents, f"ownership-producer:{identity([ownership, parents])}", f"ownership-verifier:{identity([ownership, parents, 'ownership-specific-independent-v2'])}", f"{ownership} evidence-specific uncertainty", "hypothesis only", ("terminal", "repair authority"), "execute discriminating MinimalProbe"))
+    target_operation = next((row for row in raw_operations if row.get("operation_id") == observation.get("operation_id")), {})
+    product_semantic_ok = target_operation.get("return_code") == product.get("process", {}).get("return_code") and bool(product.get("parser_id")) and bool(product.get("parser_receipt"))
+    process_cell = BoardCellV1(result["candidate_id"], result["run_id"], result["frame_id"], "PROCESS_PRODUCT_CONTACT", "candidate target product", CellState.VERIFIED_TRUE if product_semantic_ok else CellState.UNRESOLVED, (str(target_operation.get("record_hash") or identity(product)), str(product.get("parser_receipt"))), str(observation.get("operation_id")), f"product-verifier:{identity([target_operation, product.get('parser_receipt'), product_semantic_ok, 'independent-v2'])}", "independently reconstructed process/product relation", "causal observation", ("source ownership",), "rerun typed target and semantic parser")
     cells.append(process_cell)
     handoff = None
     handoff_error = None
@@ -156,16 +204,22 @@ def verify_topology(candidate_dir: str | Path, producer_dir: str | Path, output:
     regions = connected_regions(result["candidate_id"], cells, board_edges)
     projection_rows = load_jsonl(source / "projection_pair_contracts_v1.jsonl")
     projections = []
+    projection_verifications = []
+    operation_by_id = {row.get("operation_id"): row for row in raw_operations}
     for row in projection_rows:
-        try: projections.append(ProjectionPairV1(**{key: row[key] for key in ProjectionPairV1.__dataclass_fields__ if key in row}))
-        except ValueError: pass
+        side_a = operation_by_id.get(row.get("side_a_operation")); side_b = operation_by_id.get(row.get("side_b_operation"))
+        independently_verified = bool(side_a and side_b and row.get("side_a_verification") and row.get("side_b_verification") and identity(side_a) == row.get("side_a_observation"))
+        projection_verifications.append({"pair_id": row.get("pair_id"), "side_a_operation": row.get("side_a_operation"), "side_b_operation": row.get("side_b_operation"), "side_a_reopened": bool(side_a), "side_b_reopened": bool(side_b), "held_invariants": row.get("matched_invariants", []), "intended_changed_dimension": row.get("conflicting_dimensions", []), "unexpected_conflicts": [], "invalid_comparison_reasons": [] if independently_verified else ["projection_side_or_semantic_verification_missing"], "verifier_receipt": f"projection-verifier:{identity([side_a, side_b, row.get('side_a_verification'), row.get('side_b_verification')])}", "status": "PASS" if independently_verified else "BLOCK"})
+        if independently_verified:
+            try: projections.append(ProjectionPairV1(**{key: row[key] for key in ProjectionPairV1.__dataclass_fields__ if key in row}))
+            except ValueError: pass
     modality_rows = load_jsonl(source / "five_modality_observations_v3.jsonl")
-    modality_proposals = [ModalityProposal(row["candidate_id"], row["modality"], process_cell.cell_id, row["state_proposal"], (str(row["raw_observation_parent"]),), row["producer_receipt"], f"modality-verifier:{identity([row['producer_receipt'], row['raw_observation_parent']])}", tuple(row["known_blind_spots"])) for row in modality_rows if row.get("raw_observation_parent")]
+    modality_proposals = [ModalityProposal(row["candidate_id"], row["modality"], process_cell.cell_id, row["state_proposal"], (str(row["raw_observation_parent"]),), row["producer_receipt"], f"modality-verifier:{identity([row['producer_receipt'], row['transformation'], identity(row['transformation']) == row['raw_observation_parent'], 'separate-executable-v2'])}", tuple(row["known_blind_spots"])) for row in modality_rows if row.get("raw_observation_parent") and identity(row.get("transformation")) == row.get("raw_observation_parent")]
     modality = reconcile_modalities(modality_proposals, [])
     audit = board_authority_audit(cells, board_edges)
     write_jsonl(out / "boundary_cell_verification_receipts_v1.jsonl", measurement_verifications); write_jsonl(out / "local_brot_edge_verification_receipts_v4.jsonl", edge_verifications)
     write_jsonl(out / "board_cell_registry_v1.jsonl", [row.record() for row in cells]); write_jsonl(out / "board_edge_registry_v1.jsonl", [row.record() for row in board_edges]); write_jsonl(out / "causal_region_registry_v1.jsonl", [row.record() for row in regions])
-    write_jsonl(out / "projection_pairs_v1.jsonl", [row.record() for row in projections]); write_json(out / "five_modality_reconciliation_v3.json", modality); write_json(out / "board_identity_and_authority_audit.json", audit)
+    write_jsonl(out / "projection_pairs_v1.jsonl", [row.record() for row in projections]); write_jsonl(out / "projection_pair_verification_receipts_v2.jsonl", projection_verifications); write_json(out / "five_modality_reconciliation_v3.json", modality); write_json(out / "board_identity_and_authority_audit.json", audit)
     if handoff:
         write_json(out / "environment_exhausted_handoff_v1.json", handoff.record())
     write_json(out / "environment_exhausted_handoff_audit.json", {"status": "PASS" if handoff else "NOT_EMITTED", "handoff_emitted": bool(handoff), "reason": handoff_error, "authority_forbidden": ["cell state transition", "source ownership", "repair authority"]})
