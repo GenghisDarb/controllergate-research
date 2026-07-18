@@ -4,6 +4,7 @@ import hashlib
 import json
 import re
 import subprocess
+import argparse
 from pathlib import Path
 
 
@@ -47,6 +48,16 @@ def finding(number: int, title: str, path: str, symbol: str, detected: bool, tok
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--verify-seal", action="store_true")
+    args = parser.parse_args()
+    sealed_path = OUT / "batch098_pre_dispatch_real_depth_expected_failure.json"
+    if args.verify_seal:
+        sealed = json.loads(sealed_path.read_text(encoding="utf-8"))
+        if sealed.get("status") != "BATCH098_PRE_DISPATCH_REAL_DEPTH_FAIL_EXPECTED" or sealed.get("finding_count") != 43 or not all(row.get("detected") for row in sealed.get("findings", ())):
+            raise SystemExit("BATCH098_EXPECTED_RED_SEAL_INVALID")
+        print("BATCH098_PRE_DISPATCH_REAL_DEPTH_EXPECTED_RED_SEAL_PASS")
+        return 0
     if subprocess.check_output(["git", "rev-parse", START], cwd=ROOT, text=True).strip() != START:
         raise SystemExit("BATCH098_STARTING_HEAD_UNRESOLVED")
     workflow = at_head(WORKFLOW)
@@ -116,7 +127,7 @@ def main() -> int:
         "authority_forbidden": ["scientific pass", "patch", "count mutation", "release promotion"],
     }
     OUT.mkdir(parents=True, exist_ok=True)
-    path = OUT / "batch098_pre_dispatch_real_depth_expected_failure.json"
+    path = sealed_path
     path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(result["status"])
     return 0

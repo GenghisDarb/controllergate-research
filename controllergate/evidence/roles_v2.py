@@ -111,10 +111,8 @@ class RoleReceipt:
         return dict(self.__dict__)
 
 
-def execute_and_verify_roles(evidence: Mapping[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """Execute explicit role producers, then verify their content independently."""
+def produce_roles(evidence: Mapping[str, Any]) -> list[dict[str, Any]]:
     produced: list[dict[str, Any]] = []
-    verified: list[dict[str, Any]] = []
     for role in ROLE_NAMES:
         result = PRODUCERS[role](evidence)
         producer_id = f"controllergate.evidence.roles_v2.produce_{role}"
@@ -132,29 +130,43 @@ def execute_and_verify_roles(evidence: Mapping[str, Any]) -> tuple[list[dict[str
             "authority_forbidden": ["terminal class", "repair authority"],
         }
         produced.append(producer_row)
+    return produced
+
+
+def verify_role_receipts(produced: list[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    verified: list[dict[str, Any]] = []
+    for producer_row in produced:
+        role = str(producer_row["role"])
+        receipt_id = str(producer_row["receipt_id"])
         verifier_payload = {
             "receipt_id": receipt_id,
             "role": role,
-            "value_hash": _hash(result["value"]),
-            "parent_hash": _hash(result["parents"]),
+            "value_hash": _hash(producer_row["observed_value"]),
+            "parent_hash": _hash(producer_row["raw_evidence_parents"]),
         }
         verifier_receipt = f"role-verifier:{_hash(verifier_payload)}"
         verified.append(
             {
                 "verification_receipt": verifier_receipt,
                 "producer_receipt": receipt_id,
-                "candidate_id": evidence["candidate_id"],
-                "run_id": evidence["run_id"],
-                "frame_id": evidence["frame_id"],
+                "candidate_id": producer_row["candidate_id"],
+                "run_id": producer_row["run_id"],
+                "frame_id": producer_row["frame_id"],
                 "role": role,
                 "verifier": "controllergate.evidence.roles_v2.verify_role_receipt",
-                "producer_verifier_distinct": producer_id != "controllergate.evidence.roles_v2.verify_role_receipt",
-                "status": "PASS" if result["parents"] else "BLOCK",
+                "producer_verifier_distinct": producer_row["producer"] != "controllergate.evidence.roles_v2.verify_role_receipt",
+                "status": "PASS" if producer_row["raw_evidence_parents"] else "BLOCK",
                 "authority_allowed": "role-receipt integrity only",
                 "authority_forbidden": ["semantic role equivalence", "terminal class", "repair authority"],
             }
         )
-    return produced, verified
+    return verified
+
+
+def execute_and_verify_roles(evidence: Mapping[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Compatibility coordinator; official workflow isolates these executors."""
+    produced = produce_roles(evidence)
+    return produced, verify_role_receipts(produced)
 
 
 def role_quality_gate(produced: list[Mapping[str, Any]], verified: list[Mapping[str, Any]], candidate_count: int) -> dict[str, Any]:

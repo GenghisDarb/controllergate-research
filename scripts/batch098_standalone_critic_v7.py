@@ -15,6 +15,20 @@ FORBIDDEN_KEYS = {
     "source_owned_label",
 }
 
+SEMANTIC_MUTATION_FINDINGS = {
+    "combined_scientific_responsibilities", "sealed_truth_available_before_terminal", "architecture_arm_not_executed",
+    "baseline_not_executed", "critic_imports_product", "partial_tree_mutation", "main_artifact_retention_short",
+    "control_not_executed", "openbb_placeholder_control", "generic_source_control", "openbb_ancestry_absent",
+    "openbb_cutoff_unverified", "openbb_loopback_absent", "openbb_port_missing", "openbb_product_not_executed",
+    "copied_post_manifest", "source_vault_not_reverified", "broker_record_rehashed", "local_wheel_network_enabled",
+    "local_project_network_enabled", "candidate_id_parser_dispatch", "exact_node_unverified", "audioread_text_only",
+    "pytest_warning_identity_missing", "poetry_name_too_broad", "boundary_summary_only", "summary_hash_verifier",
+    "brot_label_receipt", "ownership_parent_reuse", "product_hash_only", "projection_side_missing",
+    "modality_parent_presence", "uniform_target_probe", "probe_relation_not_executed", "generic_partition_rule",
+    "execute_probe_cli_missing", "dpp14_stage_name_only", "dpp14_same_runtime_verifier", "diagnose_skips_probes",
+    "diagnose_skips_experiments", "truth_join_not_separated", "source_ownership_not_stage_produced", "shallow_final_package",
+}
+
 
 def digest(path: Path) -> str:
     value = hashlib.sha256()
@@ -62,6 +76,17 @@ def scan_tree(root: Path) -> dict[str, Any]:
                 findings.append({"finding": "CONFIGURED_VALUE_INJECTION", "path": relative, "row": index})
             if row.get("marker_only_verifier_count", 0):
                 findings.append({"finding": "MARKER_ONLY_AUTHORITY", "path": relative, "row": index})
+            mutation = row.get("semantic_mutation_kind")
+            if mutation:
+                findings.append({"finding": "RE_SIGNED_RAW_SEMANTIC_MUTATION", "path": relative, "row": index, "mutation": mutation, "registered": mutation in SEMANTIC_MUTATION_FINDINGS})
+            if row.get("complete_copied_raw_evidence_tree_mutation") is False:
+                findings.append({"finding": "INCOMPLETE_RAW_TREE_MUTATION", "path": relative, "row": index})
+            if row.get("network_policy") not in {None, "none", "bounded_loopback_only", "bounded_acquisition"}:
+                findings.append({"finding": "UNREGISTERED_NETWORK_POLICY", "path": relative, "row": index})
+            if row.get("terminal_writer") and not str(row.get("terminal_writer")).endswith("ControllerAudit"):
+                findings.append({"finding": "NON_CONTROLLER_AUDIT_TERMINAL_WRITER", "path": relative, "row": index})
+            if row.get("legal_probe_exhaustion_receipt", {}).get("status") == "BLOCK" and row.get("terminal") in {"INSUFFICIENT_EVIDENCE", "safe_abstention_insufficient_evidence"}:
+                findings.append({"finding": "UNEARNED_INSUFFICIENT_EVIDENCE", "path": relative, "row": index})
     return {
         "status": "PASS" if not findings else "BLOCK",
         "raw_file_count": len(files),
@@ -69,6 +94,7 @@ def scan_tree(root: Path) -> dict[str, Any]:
         "findings": findings,
         "finding_count": len(findings),
         "critic_imports_controllergate": False,
+        "reconstructed_domains": ["materialization", "incident products", "controls", "source/test integrity", "boundary cells", "BROT edges", "projection pairs", "modalities", "probe partitions", "causal facts", "branches", "terminals", "baselines", "source ownership", "public state"],
         "producer": "scripts.batch098_standalone_critic_v7",
         "execution_depth": "independent_standard_library_raw_tree_reconstruction",
         "authority_allowed": "internal evidence criticism",
