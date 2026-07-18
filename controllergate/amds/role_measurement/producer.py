@@ -28,7 +28,7 @@ def measure_role(candidate_id: str, role: str, raw_measurement: dict[str, Any]) 
     forbidden = sorted(key for key in FORBIDDEN_EVIDENCE_KEYS if raw_measurement.get(key) not in (None, False, "", [], {}))
     freshness = (
         raw_measurement.get("fresh_batch093_measurement") is True
-        or raw_measurement.get("fresh_measurement_epoch") == "batch095"
+        or raw_measurement.get("fresh_measurement_epoch") in {"batch095", "batch097"}
     )
     status = "PASS" if not missing and not forbidden and freshness else "BLOCK"
     blocker = None
@@ -54,7 +54,7 @@ def measure_role(candidate_id: str, role: str, raw_measurement: dict[str, Any]) 
         "producer_execution_receipt": raw_measurement.get("producer_execution_receipt"),
         "raw_operation_hash": raw_measurement.get("raw_operation_hash"),
         "raw_output_hashes": raw_measurement.get("raw_output_hashes", []),
-        "freshness": "batch095" if raw_measurement.get("fresh_measurement_epoch") == "batch095" else "batch093",
+        "freshness": raw_measurement.get("fresh_measurement_epoch", "batch093"),
         "decision_time_safe": not forbidden,
         "revocation_state": "CURRENT",
         "parent_evidence": raw_measurement.get("parent_evidence", []),

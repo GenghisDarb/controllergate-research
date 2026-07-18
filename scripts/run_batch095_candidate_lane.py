@@ -16,7 +16,8 @@ except ModuleNotFoundError:  # Python 3.7 decision-time provider
 from pathlib import Path
 from typing import Any
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+if os.environ.get("CONTROLLERGATE_INSTALLED_ONLY") != "1":
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from controllergate.amds.incident_outcome import (  # noqa: E402
     IncidentOutcomeContract,
@@ -32,10 +33,11 @@ from controllergate.core.evidence import hash_record, sha256_file, write_json_de
 from controllergate.execution.execution_broker import execute_external_operation  # noqa: E402
 from controllergate.execution.local_service import BrokeredLocalService  # noqa: E402
 from controllergate.runtime.runtime_root_attestation import attest_runtime_root  # noqa: E402
+from controllergate.topology.source_graph import compile_python_source_graph  # noqa: E402
 
 
-RUN_ID = "batch095:frozen-cohort"
-FRAME_ID = "batch095:frozen-before-target"
+RUN_ID = os.environ.get("CONTROLLERGATE_RUN_ID", "batch095:frozen-cohort")
+FRAME_ID = os.environ.get("CONTROLLERGATE_FRAME_ID", "batch095:frozen-before-target")
 
 
 def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -210,6 +212,8 @@ def acquire_source(row: dict[str, Any], source: Path, broker: LaneBroker, *, sec
             return False, {"status": "BLOCK", "blocker": f"{stage}_failed"}
     rc, stdout, _, record = broker.run(f"{stages}_head", "git_metadata", ["git", "rev-parse", "HEAD"], source)
     rc2, kind, _, _ = broker.run(f"{stages}_type", "git_metadata", ["git", "cat-file", "-t", row["source_commit"]], source)
+    rc3, tree_object, _, _ = broker.run(f"{stages}_tree", "git_metadata", ["git", "rev-parse", "HEAD^{tree}"], source)
+    rc4, commit_time, _, _ = broker.run(f"{stages}_timestamp", "git_metadata", ["git", "show", "-s", "--format=%cI", "HEAD"], source)
     observed = stdout.strip()
     result = {
         "status": "PASS" if rc == 0 and rc2 == 0 and observed == row["source_commit"] and kind.strip() == "commit" else "BLOCK",
@@ -217,6 +221,8 @@ def acquire_source(row: dict[str, Any], source: Path, broker: LaneBroker, *, sec
         "expected_commit": row["source_commit"],
         "observed_commit": observed,
         "object_type": kind.strip(),
+        "tree_object": tree_object.strip() if rc3 == 0 else None,
+        "source_revision_timestamp": commit_time.strip() if rc4 == 0 else None,
         "source_tree_hash": tree_hash(source),
         "identity_record_hash": record.get("record_hash"),
     }
@@ -321,6 +327,15 @@ def run_lane(
     target_paths = old.get("target_paths", [])
     source_before = tree_hash(source) if source_ok else None
     test_before = tree_hash(source, target_paths) if source_ok else None
+    tracked_paths: list[str] = []
+    source_topology: dict[str, Any] = {"status": "BLOCK", "blocker": "source_not_acquired"}
+    if source_ok:
+        rc, tracked_stdout, _, tracked_record = broker.run("source_tracked_manifest", "git_metadata", ["git", "ls-files"], source)
+        if rc == 0:
+            tracked_paths = [line.strip() for line in tracked_stdout.splitlines() if line.strip()]
+            source_topology = {"status": "PASS", "tracked_manifest_operation": tracked_record.get("record_hash"), **compile_python_source_graph(source, tracked_paths)}
+        else:
+            blockers.append("source_tracked_manifest_failed")
 
     provider_install_rc: int | None = None
     if not blockers:
@@ -453,8 +468,10 @@ def run_lane(
         "provider_verification":orthology,"observed_provider":{"python":measured,"abi_tags":actual_abi,"platform_tags":actual_platform,"provider_identity":measured_provider_identity,"package_graph_hash":package_graph_hash,"provider_install_return_code":provider_install_rc},
         "source_capsule":source_capsule,"source_test_immutability":immutability,"process":process,"product":product,"controls":controls,
         "typed_incident_verification":verification,"service_lifecycle":service_lifecycle,"broker_operation_count":len(broker.records),
+        "source_topology":source_topology,
         "patch_operation_count":0,"count_increment":0,"status":"PASS" if not blockers else "BLOCK","exact_blockers":sorted(set(blockers)),
         "authority_allowed":"frozen cohort eligibility only","authority_forbidden":["repair","count increment","terminal truth"],
+        "execution_parent":{"workflow_run_id":os.environ.get("GITHUB_RUN_ID", RUN_ID),"workflow_head":os.environ.get("GITHUB_SHA"),"frame_id":FRAME_ID},
     }
     write_json_deterministic(output / "candidate_lane_result.json", compact)
     write_jsonl(output / "broker_operations.jsonl", broker.records)
@@ -462,6 +479,7 @@ def run_lane(
     write_json_deterministic(output / "provider_verification.json", orthology)
     write_json_deterministic(output / "typed_incident_result.json", verification)
     write_json_deterministic(output / "source_test_immutability.json", immutability)
+    write_json_deterministic(output / "source_topology.json", source_topology)
     remove_tree(workspace)
     cleanup = {"status":"PASS" if not workspace.exists() else "BLOCK","workspace_removed":not workspace.exists(),"orphan_process":False,"source_checkout_committed":False,"provider_environment_committed":False}
     write_json_deterministic(output / "cleanup_result.json", cleanup)
