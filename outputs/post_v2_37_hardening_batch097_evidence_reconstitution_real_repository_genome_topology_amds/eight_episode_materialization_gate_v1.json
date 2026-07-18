@@ -1,0 +1,66 @@
+{
+  "authority_allowed": "role measurement eligibility only when PASS",
+  "authority_forbidden": [
+    "repair",
+    "count",
+    "release"
+  ],
+  "blocked_candidates": [
+    {
+      "blockers": [
+        "source_or_test_mutation_detected",
+        "typed_incident_not_materialized"
+      ],
+      "candidate_id": "darker_issue_112_relative_git_dir"
+    },
+    {
+      "blockers": [
+        "source_or_test_mutation_detected",
+        "typed_incident_not_materialized"
+      ],
+      "candidate_id": "py_bugger_issue_65"
+    },
+    {
+      "blockers": [
+        "source_or_test_mutation_detected"
+      ],
+      "candidate_id": "cloudpickle_507_py313_typevar_distutils"
+    },
+    {
+      "blockers": [
+        "source_or_test_mutation_detected"
+      ],
+      "candidate_id": "freezegun_547_py313_datetimes_assertion"
+    },
+    {
+      "blockers": [
+        "source_or_test_mutation_detected"
+      ],
+      "candidate_id": "audioread_144_py313_aifc_removed"
+    },
+    {
+      "blockers": [
+        "source_or_test_mutation_detected"
+      ],
+      "candidate_id": "pytest_13480_wdefault_unraisable_threadexception"
+    },
+    {
+      "blockers": [
+        "secondary_source_cutoff_mismatch",
+        "typed_incident_not_materialized"
+      ],
+      "candidate_id": "incident_openbb_7585_modular_openapi_reproducer"
+    }
+  ],
+  "counts": {
+    "cleanup": 8,
+    "count_increment": 0,
+    "future_outcome_evidence": 0,
+    "materialized": 1,
+    "patches": 0,
+    "source_test_integrity": 2,
+    "substitutions": 0,
+    "typed_incidents": 5
+  },
+  "status": "BLOCK"
+}

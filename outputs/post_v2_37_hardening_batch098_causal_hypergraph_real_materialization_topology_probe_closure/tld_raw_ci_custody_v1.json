@@ -1,0 +1,42 @@
+{
+  "authority_allowed": "source custody only",
+  "authority_forbidden": [
+    "TLD board authority",
+    "repair authority"
+  ],
+  "ci_bridge_configured": false,
+  "exact_blocker": "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT",
+  "execution_depth": "local direct bytes; CI bridge configuration audit",
+  "local_custody": {
+    "checks": {
+      "compiled_or_forbidden_payload": true,
+      "duplicates": true,
+      "entry_count": true,
+      "json": true,
+      "jsonl": true,
+      "manifests": true,
+      "nested_archives": true,
+      "path_safety": true,
+      "sha256": true,
+      "size": true,
+      "symlinks": true,
+      "uncompressed_bytes": true
+    },
+    "duplicate_paths": [],
+    "entry_count": 20,
+    "forbidden_payloads": [],
+    "json_parse_failures": [],
+    "jsonl_parse_failures": [],
+    "manifests": [],
+    "nested_archives": [],
+    "path": "incoming_artifacts\\ControllerGate_TLD_1-44_Historical_Architecture_Recovery_Source_Bundle_2026-07-17.zip",
+    "sha256": "c32609066a7d86934a9a6e8b62d57fd335e51a14c8fdebcb95bb7d1584c6438b",
+    "size": 5389984,
+    "status": "PASS",
+    "symlinks": [],
+    "uncompressed_bytes": 22131530,
+    "unsafe_paths": []
+  },
+  "producer": "scripts/run_batch098_custody_and_reconciliation.py",
+  "status": "BLOCK"
+}

@@ -16,6 +16,8 @@ from .proof.count_service import public_counts
 from .watch.controller import WatchController
 from .isomorphism.scenarios import execute_scenario
 from .isomorphism.runtime import execute_structured_scenario
+from .evidence.materializer import materialize_candidate
+from .topology.pipeline_v1 import compile_candidate_frame, produce_topology, verify_topology
 
 
 def _load_scenario(path: str, scenario_id: str | None = None) -> dict[str, object]:
@@ -46,6 +48,26 @@ def main(argv: list[str] | None = None) -> int:
     reactome = sub.add_parser("reactome-simulate"); reactome.add_argument("--scenario", required=True); reactome.add_argument("--scenario-id"); reactome.add_argument("--database", required=True); reactome.add_argument("--platform", required=True)
     structured_reactome = sub.add_parser("reactome-execute"); structured_reactome.add_argument("--scenario", required=True); structured_reactome.add_argument("--scenario-id"); structured_reactome.add_argument("--database", required=True); structured_reactome.add_argument("--platform", required=True)
     reactome_run = sub.add_parser("reactome-run"); reactome_run.add_argument("--scenario", required=True); reactome_run.add_argument("--scenario-id"); reactome_run.add_argument("--database", required=True); reactome_run.add_argument("--platform", required=True)
+    evidence = sub.add_parser("evidence")
+    evidence_sub = evidence.add_subparsers(dest="evidence_command", required=True)
+    materialize = evidence_sub.add_parser("materialize-candidate")
+    materialize.add_argument("--contracts", required=True)
+    materialize.add_argument("--candidate", required=True)
+    materialize.add_argument("--runtime-root", required=True)
+    materialize.add_argument("--output", required=True)
+    materialize.add_argument("--provider-python")
+    materialize.add_argument("--forbidden-repo-root", required=True)
+    materialize.add_argument("--run-id")
+    verify_incident = evidence_sub.add_parser("verify-incident")
+    verify_incident.add_argument("--result", required=True)
+    topology = sub.add_parser("topology")
+    topology_sub = topology.add_subparsers(dest="topology_command", required=True)
+    topology_produce = topology_sub.add_parser("produce")
+    topology_produce.add_argument("--candidate-evidence", required=True); topology_produce.add_argument("--contracts", required=True); topology_produce.add_argument("--output", required=True)
+    topology_verify = topology_sub.add_parser("verify")
+    topology_verify.add_argument("--candidate-evidence", required=True); topology_verify.add_argument("--producer-evidence", required=True); topology_verify.add_argument("--output", required=True)
+    topology_compile = topology_sub.add_parser("compile-board")
+    topology_compile.add_argument("--candidate-evidence", required=True); topology_compile.add_argument("--verified-topology", required=True); topology_compile.add_argument("--contracts", required=True); topology_compile.add_argument("--output", required=True)
     args = parser.parse_args(argv)
     if args.command == "doctor":
         result = doctor(args.runtime_root, deep=args.deep, repo_root=args.repo_root)
@@ -73,6 +95,20 @@ def main(argv: list[str] | None = None) -> int:
         result = execute_scenario(_load_scenario(args.scenario, args.scenario_id), args.database, platform=args.platform)
     elif args.command in {"reactome-execute", "reactome-run"}:
         result = execute_structured_scenario(_load_scenario(args.scenario, args.scenario_id), args.database, platform=args.platform)
+    elif args.command == "evidence" and args.evidence_command == "materialize-candidate":
+        result = materialize_candidate(
+            args.contracts, args.candidate, args.runtime_root, args.output,
+            provider_python=args.provider_python, forbidden_repo_root=args.forbidden_repo_root, run_id=args.run_id,
+        )
+    elif args.command == "evidence" and args.evidence_command == "verify-incident":
+        value = json.loads(Path(args.result).read_text(encoding="utf-8"))
+        result = {"status": "PASS" if value.get("typed_incident", {}).get("status") == "PASS" else "SCIENTIFIC_BLOCK", "candidate_id": value.get("candidate_id"), "typed_incident": value.get("typed_incident")}
+    elif args.command == "topology" and args.topology_command == "produce":
+        result = produce_topology(args.candidate_evidence, args.contracts, args.output)
+    elif args.command == "topology" and args.topology_command == "verify":
+        result = verify_topology(args.candidate_evidence, args.producer_evidence, args.output)
+    elif args.command == "topology" and args.topology_command == "compile-board":
+        result = compile_candidate_frame(args.candidate_evidence, args.verified_topology, args.contracts, args.output)
     elif args.command == "migrate-state":
         repository = ControllerStateRepository(args.database)
         try: result = repository.migrate_json_state(getattr(args, "from_json"))

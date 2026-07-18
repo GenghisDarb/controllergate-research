@@ -1,0 +1,44 @@
+{
+  "authority_allowed": "artifact custody and historical reconstruction",
+  "authority_forbidden": [
+    "causal authority",
+    "repair authority",
+    "release promotion"
+  ],
+  "execution_depth": "direct artifact byte and archive inspection",
+  "manifests": [
+    {
+      "expected_entries": 148,
+      "malformed_entries": [],
+      "manifest": "ARTIFACT_SHA256SUMS.txt",
+      "mismatches": [],
+      "missing": [],
+      "observed_entries": 148,
+      "self_entries": [],
+      "status": "PASS"
+    },
+    {
+      "expected_entries": 148,
+      "malformed_entries": [],
+      "manifest": "PORTABLE_ARTIFACT_SHA256SUMS.txt",
+      "mismatches": [],
+      "missing": [],
+      "observed_entries": 148,
+      "self_entries": [],
+      "status": "PASS"
+    },
+    {
+      "expected_entries": 150,
+      "malformed_entries": [],
+      "manifest": "SHA256SUMS.txt",
+      "mismatches": [],
+      "missing": [],
+      "observed_entries": 150,
+      "self_entries": [],
+      "status": "PASS"
+    }
+  ],
+  "producer": "scripts/run_batch098_custody_and_reconciliation.py",
+  "semantic_scope": "portable checksum manifests",
+  "status": "PASS"
+}

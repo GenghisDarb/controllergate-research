@@ -1,0 +1,102 @@
+{
+  "AMDS_prospective_effectiveness": "NOT_ESTABLISHED",
+  "active_blocker": "historical_blinded_amds_quality_not_established",
+  "actual_baseline_results": {
+    "A_CANONICAL_WITHOUT_NEW_TOPOLOGY": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.18509772799995972
+    },
+    "B_ACTIVE_BOUNDARY": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12242007399993327
+    },
+    "C_SOURCE_BOUND_LOCAL_GRAPH": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12271318299997347
+    },
+    "D_COUPLED_GRAPH_AND_BOUNDARY": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12316421699995317
+    },
+    "E_TLD_INTERLOCK": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12288062699997226
+    },
+    "F_OBSERVER_PROVISIONAL_MODALITIES": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12362801500000842
+    },
+    "G_FIXED_REGISTERED_ORDER": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.1232693530000688
+    },
+    "H_RANDOM_LEGAL_ORDER": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12518789499995364
+    },
+    "I_NO_MEMORY_ACTIVE_PLANNER": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12396218499998213
+    },
+    "J_MAJORITY_BASELINE": {
+      "accuracy": 0.0,
+      "episode_count": 1,
+      "operation_count": 3,
+      "wall_time_seconds": 0.12384915899997395
+    }
+  },
+  "authority_allowed": "historical calibration only when PASS",
+  "authority_forbidden": [
+    "prospective effectiveness",
+    "repair",
+    "count"
+  ],
+  "backtracks": 1,
+  "conditions": {
+    "actual_baselines": false,
+    "baseline_superiority_or_lower_cost_noninferiority": false,
+    "eligible_episodes": false,
+    "executed_episodes": false,
+    "forced_guesses_zero": true,
+    "four_terminal_classes": false,
+    "largest_class_at_most_half": true,
+    "safe_abstention_accuracy": false,
+    "semantic_leakage_zero": true,
+    "truth_overlap_zero": true,
+    "wrong_authorization_zero": true
+  },
+  "contradictions": 1,
+  "eligible_episodes": 1,
+  "executed_episodes": 1,
+  "macro_accuracy": 0.0,
+  "memory_status": "not demonstrated",
+  "per_class_accuracy": {
+    "network_or_transport_owned": 0.0
+  },
+  "probes": 30,
+  "reopen_condition": "derive candidate-specific neutral probes that distinguish at least four causal classes without label leakage, then rerun the frozen cohort and equal-budget baselines",
+  "rounds": 14,
+  "safe_abstention_accuracy": 0.0,
+  "status": "BLOCK",
+  "terminal_distribution": {
+    "safe_abstention_insufficient_evidence": 1
+  }
+}

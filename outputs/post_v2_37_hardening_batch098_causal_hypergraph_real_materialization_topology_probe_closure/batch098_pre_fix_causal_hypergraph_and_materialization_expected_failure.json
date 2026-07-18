@@ -1,0 +1,476 @@
+{
+  "authority_allowed": "expected-red correction plan",
+  "authority_forbidden": [
+    "scientific PASS",
+    "repair authority",
+    "release promotion"
+  ],
+  "execution_depth": "direct pre-implementation source and artifact inspection",
+  "finding_count": 33,
+  "findings": [
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d526387dfe1719bc2b49c95d3601117ec0d1a3352b73cea72fd84ebc1743ce97"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-001",
+      "line_range": "15-27",
+      "path": "scripts/run_batch097_installed_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_001.py",
+      "required_correction": "installed CLI owns candidate orchestration",
+      "risk": "runpy checkout execution",
+      "symbol": "main"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-002",
+      "line_range": "427-439",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_002.py",
+      "required_correction": "sealed installed CandidateExecutionContract",
+      "risk": "checkout config and reusable lane behavior",
+      "symbol": "main"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-003",
+      "line_range": "35-47",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_003.py",
+      "required_correction": "six-compartment materializer",
+      "risk": "project installation may run from acquired source",
+      "symbol": "LaneBroker.run"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-004",
+      "line_range": "52-64",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_004.py",
+      "required_correction": "Git tracked integrity verifier",
+      "risk": "all-files hashing conflates residue and tracked mutation",
+      "symbol": "tree_hash"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-005",
+      "line_range": "35-47",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_005.py",
+      "required_correction": "measured post-operation identities",
+      "risk": "post-operation hashes copy before values",
+      "symbol": "LaneBroker.run"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": null
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-006",
+      "line_range": "artifact-or-config-scope",
+      "path": "outputs/post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds",
+      "red_to_green_test": "tests/batch098/test_b098_006.py",
+      "required_correction": "path mutation and residue ledgers",
+      "risk": "no path-level tracked diff for blocked lanes",
+      "symbol": "materialization outputs"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-007",
+      "line_range": "232-244",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_007.py",
+      "required_correction": "typed product parsers",
+      "risk": "marker conjunction derives semantic booleans",
+      "symbol": "derive_product"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-008",
+      "line_range": "232-244",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_008.py",
+      "required_correction": "observed-value-only parser",
+      "risk": "configured values copied into evidence",
+      "symbol": "derive_product"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-009",
+      "line_range": "232-244",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_009.py",
+      "required_correction": "structured source-validated parser",
+      "risk": "OpenBB word-count product parsing",
+      "symbol": "derive_product"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "10a83e3b57e2f91a67c8a0f0fccee3e1f54b793bf22318a2addbc03c0d595c37"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-010",
+      "line_range": "1-17",
+      "path": "configs/batch093_amds_frozen_cohort.json",
+      "red_to_green_test": "tests/batch098/test_b098_010.py",
+      "required_correction": "candidate-specific controls",
+      "risk": "generic controls lack issue-specific contracts",
+      "symbol": "controls"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "10a83e3b57e2f91a67c8a0f0fccee3e1f54b793bf22318a2addbc03c0d595c37"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-011",
+      "line_range": "1-17",
+      "path": "configs/batch093_amds_frozen_cohort.json",
+      "red_to_green_test": "tests/batch098/test_b098_011.py",
+      "required_correction": "exit-1 traceback contract",
+      "risk": "obsolete return-code 123 contract",
+      "symbol": "darker contract"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "10a83e3b57e2f91a67c8a0f0fccee3e1f54b793bf22318a2addbc03c0d595c37"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-012",
+      "line_range": "1-17",
+      "path": "configs/batch093_amds_frozen_cohort.json",
+      "red_to_green_test": "tests/batch098/test_b098_012.py",
+      "required_correction": "control-specific verifier",
+      "risk": "exit 1 accepted without product contract",
+      "symbol": "darker control"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-013",
+      "line_range": "1-20",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_013.py",
+      "required_correction": "JUnit/report-log parser",
+      "risk": "text markers replace structured exact-node results",
+      "symbol": "pytest observation"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-014",
+      "line_range": "1-20",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_014.py",
+      "required_correction": "cutoff ancestry verifier",
+      "risk": "detached secondary commit lacks branch ancestry",
+      "symbol": "OpenBB acquisition"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "d431006f4f72db41aeb2b83c77198c303586f2d8311be176295710559c9336a4"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-015",
+      "line_range": "1-20",
+      "path": "scripts/run_batch095_candidate_lane.py",
+      "red_to_green_test": "tests/batch098/test_b098_015.py",
+      "required_correction": "brokered control operation",
+      "risk": "inline control declared without execution",
+      "symbol": "OpenBB positive control"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "1d5c6377fa83c01dc7c6312253ef828a8ae9d1493a2d31a2fd860372c55a3f35"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-016",
+      "line_range": "1-20",
+      "path": ".github/workflows/post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds.yml",
+      "red_to_green_test": "tests/batch098/test_b098_016.py",
+      "required_correction": "exact source-custody bridge",
+      "risk": "raw TLD bundle absent in CI",
+      "symbol": "TLD job"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "fb3d18b47cc69bafdf97a65b74ca93410e80e9457ed348d3d3030948282c0ac3"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-017",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_topology_producers.py",
+      "red_to_green_test": "tests/batch098/test_b098_017.py",
+      "required_correction": "dimension-specific producer/verifier receipts",
+      "risk": "nonempty values treated as verified",
+      "symbol": "ToT-BULB"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "fb3d18b47cc69bafdf97a65b74ca93410e80e9457ed348d3d3030948282c0ac3"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-018",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_topology_producers.py",
+      "red_to_green_test": "tests/batch098/test_b098_018.py",
+      "required_correction": "executed independent edge verifier",
+      "risk": "graph hash used as verifier identity",
+      "symbol": "local BROT"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "fb3d18b47cc69bafdf97a65b74ca93410e80e9457ed348d3d3030948282c0ac3"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-019",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_topology_producers.py",
+      "red_to_green_test": "tests/batch098/test_b098_019.py",
+      "required_correction": "eligible executed operation",
+      "risk": "producer not-run",
+      "symbol": "OpenBB process-product edge"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "fb3d18b47cc69bafdf97a65b74ca93410e80e9457ed348d3d3030948282c0ac3"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-020",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_topology_producers.py",
+      "red_to_green_test": "tests/batch098/test_b098_020.py",
+      "required_correction": "executed ProjectionPair",
+      "risk": "named rows lack two executed sides",
+      "symbol": "coupled projection"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "b5973d1956121094e15b108980e142f91b07d63931f992cbfa11856916707a97"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-021",
+      "line_range": "111-123",
+      "path": "controllergate/topology/evidence_compiler.py",
+      "red_to_green_test": "tests/batch098/test_b098_021.py",
+      "required_correction": "source-bound causal-contact hypotheses",
+      "risk": "fixed ontology permits empty derivation",
+      "symbol": "compile_decisive_board"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "b5973d1956121094e15b108980e142f91b07d63931f992cbfa11856916707a97"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-022",
+      "line_range": "111-123",
+      "path": "controllergate/topology/evidence_compiler.py",
+      "red_to_green_test": "tests/batch098/test_b098_022.py",
+      "required_correction": "ownership uncertainty cells",
+      "risk": "one generic terminal cell per candidate",
+      "symbol": "compile_decisive_board"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "b5973d1956121094e15b108980e142f91b07d63931f992cbfa11856916707a97"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-023",
+      "line_range": "1-20",
+      "path": "controllergate/topology/evidence_compiler.py",
+      "red_to_green_test": "tests/batch098/test_b098_023.py",
+      "required_correction": "MinimalProbeV1",
+      "risk": "probe lacks executable contract and partitions",
+      "symbol": "probe compiler"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-024",
+      "line_range": "76-78",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_024.py",
+      "required_correction": "installed AMDS consumes frozen frame",
+      "risk": "topology-derived frame ignored",
+      "symbol": "builder"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-025",
+      "line_range": "76-78",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_025.py",
+      "required_correction": "graph-derived inputs only",
+      "risk": "fixed hypotheses with empty constraints/contracts",
+      "symbol": "builder"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-026",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_026.py",
+      "required_correction": "component-specific execution ledgers",
+      "risk": "same evidence hashes reused by all arms",
+      "symbol": "arms"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-027",
+      "line_range": "43-55",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_027.py",
+      "required_correction": "independent semantic fact verifier",
+      "risk": "zero causal facts derived",
+      "symbol": "observations"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-028",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_028.py",
+      "required_correction": "installed stage producers",
+      "risk": "declared rows replace executed transitions",
+      "symbol": "DPP-14 stages"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-029",
+      "line_range": "74-78",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_029.py",
+      "required_correction": "observation-driven contradiction",
+      "risk": "injected control counted as backtracking",
+      "symbol": "contradiction"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "33880772fb3c88b0ce61cae29ae8040b2d07b4c3fa5d5ca397c36d07bd7b084b"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-030",
+      "line_range": "1-20",
+      "path": "scripts/run_batch097_amds_builder.py",
+      "red_to_green_test": "tests/batch098/test_b098_030.py",
+      "required_correction": "isolated verifier execution",
+      "risk": "producer also creates verifier rows",
+      "symbol": "stage verification"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "2565241fdbaa92d4b1500510645deb35940db6e39391790550d1dc97ae5ee1cb"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-031",
+      "line_range": "1-20",
+      "path": "scripts/batch097_standalone_critic.py",
+      "red_to_green_test": "tests/batch098/test_b098_031.py",
+      "required_correction": "complete raw-tree mutation",
+      "risk": "summary mutation lacks copied raw tree",
+      "symbol": "mutation campaign"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "c9833e997242d9276675c6acfda933de06754090d8c14973eaa1caf0fffe1fee"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-032",
+      "line_range": "20-24",
+      "path": "scripts/join_batch097_truth_and_quality.py",
+      "red_to_green_test": "tests/batch098/test_b098_032.py",
+      "required_correction": "eight-episode causal quality gate",
+      "risk": "one episode and no causal facts",
+      "symbol": "quality"
+    },
+    {
+      "artifact_evidence": {
+        "exists": true,
+        "sha256": "851b941225b12767b726cba4849d129bece1cf371abea1f6bfde33f5e1849a8d"
+      },
+      "commit": "6b940fb6f42c215ca45b00c293b452595b4f4ab4",
+      "finding_id": "B098-033",
+      "line_range": "1-20",
+      "path": "README.md",
+      "red_to_green_test": "tests/batch098/test_b098_033.py",
+      "required_correction": "truthful v2.19 quick start",
+      "risk": "current scope lacks concise installed read-only path",
+      "symbol": "public entry"
+    }
+  ],
+  "producer": "scripts/audit_batch098_pre_fix_causal_hypergraph_and_materialization.py",
+  "status": "BATCH098_PRE_FIX_CAUSAL_HYPERGRAPH_AND_MATERIALIZATION_FAIL_EXPECTED"
+}

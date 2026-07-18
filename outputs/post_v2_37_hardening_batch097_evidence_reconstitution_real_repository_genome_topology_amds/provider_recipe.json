@@ -1,0 +1,71 @@
+{
+  "abi_tags": [
+    "cp311"
+  ],
+  "allowed_adaptations": [
+    "ephemeral_runtime_root"
+  ],
+  "candidate_id": "py_bugger_issue_65",
+  "dependency_lock_identity": "sha256:5fb37532154c439ef2be293f139141367814e61cb9c6756753d6f3b7d49a517b",
+  "environment_allowlist": [
+    "PATH",
+    "HOME",
+    "LANG"
+  ],
+  "forbidden_adaptations": [
+    "source_revision",
+    "tests",
+    "patch"
+  ],
+  "historical_decision_time_safe_provider_evidence": [
+    "49fceb1a21aaaae576dc6fa5034bdba22ecd72943ef666804790d2890761e680"
+  ],
+  "independent_verifier_identity": "controllergate.amds.provider_orthology.verify_orthology_transfer",
+  "install_command": [
+    "{python}",
+    "-m",
+    "pip",
+    "install",
+    ".",
+    "pytest"
+  ],
+  "negative_control_id": "py-bugger-unrelated-test-control",
+  "network_acquisition_policy": "bounded_read_only_acquisition",
+  "orthology_source_environment": "source-declared-python",
+  "orthology_target_environment": "linux/cpython-3.11/cp311",
+  "platform_tags": [
+    "manylinux_2_28_x86_64"
+  ],
+  "positive_control_id": "py-bugger-test-collection-control",
+  "preserved_invariants": [
+    "source_commit",
+    "exact_test_node",
+    "project_test_tree"
+  ],
+  "producer_identity": "controllergate.amds.provider_orthology.ProviderRecipe",
+  "project_target_command": [
+    "{python}",
+    "-m",
+    "pytest",
+    "tests/integration_tests/test_modifications.py::test_indentationerror_multiple_trys",
+    "-q",
+    "--tb=no"
+  ],
+  "provider_identity": "d6b77a1a904d7f2e4a1d6c91d22fe946783f45b306b66769a78ee074a65c4dae",
+  "provider_image_or_interpreter_identity": "cpython-3.11-linux-x86_64",
+  "provider_source_class": "SOURCE_DECLARED",
+  "recipe_hash": "3efa056ebb7bf81814b1ba96314a8c2877f6e2880e14c7d5c75a26e1323e2aff",
+  "secondary_cofactor_lock_identity": null,
+  "selection_evidence_hashes": [
+    "49fceb1a21aaaae576dc6fa5034bdba22ecd72943ef666804790d2890761e680"
+  ],
+  "selection_frozen_before_target_execution": true,
+  "semantic_outcome_contract_id": "py-bugger-issue65-exact-node-v2",
+  "source_commit": "67cf214f2d619848e90280fd4469377123e81b94",
+  "source_declared_platform_assumptions": [
+    "linux",
+    "windows"
+  ],
+  "source_declared_supported_runtime_range": ">=3.8",
+  "working_directory_policy": "source_root"
+}

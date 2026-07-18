@@ -1,0 +1,55 @@
+{
+  "authority_allowed": "workspace separation and integrity classification",
+  "authority_forbidden": [
+    "causal terminal",
+    "patch",
+    "repair count"
+  ],
+  "compartments": [
+    {
+      "candidate_lane_access": true,
+      "name": "SOURCE_VAULT",
+      "nonnested": true,
+      "read_only": true
+    },
+    {
+      "candidate_lane_access": true,
+      "name": "BUILD_WORKSPACE",
+      "nonnested": true,
+      "read_only": false
+    },
+    {
+      "candidate_lane_access": true,
+      "name": "PROVIDER_STORE",
+      "nonnested": true,
+      "read_only": false
+    },
+    {
+      "candidate_lane_access": true,
+      "name": "EXECUTION_WORKSPACE",
+      "nonnested": true,
+      "read_only": false
+    },
+    {
+      "candidate_lane_access": true,
+      "name": "CONSUMER_OR_TARGET_WORKSPACE",
+      "nonnested": true,
+      "read_only": false
+    },
+    {
+      "candidate_lane_access": false,
+      "name": "TRUTH_AND_OUTCOME_VAULT",
+      "nonnested": true,
+      "read_only": true
+    }
+  ],
+  "editable_install_forbidden": true,
+  "exact_compartment_count": 6,
+  "execution_depth": "installed_product_contract_or_static_authority_firewall",
+  "independent_verifier": "scripts.audit_batch098_causal_hypergraph_real_materialization_topology_probe_closure",
+  "producer": "controllergate.evidence.materializer",
+  "schema_version": "controllergate-materialization-compartment-contract-v3",
+  "semantic_scope": "physical candidate materialization",
+  "source_install_forbidden": true,
+  "status": "PASS"
+}
