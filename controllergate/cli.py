@@ -16,8 +16,10 @@ from .proof.count_service import public_counts
 from .watch.controller import WatchController
 from .isomorphism.scenarios import execute_scenario
 from .isomorphism.runtime import execute_structured_scenario
+from .evidence.contracts import load_contracts, seal_contracts
 from .evidence.materializer import materialize_candidate
 from .topology.pipeline_v1 import compile_candidate_frame, produce_topology, verify_topology
+from .amds.batch098_diagnose import diagnose_batch098
 
 
 def _load_scenario(path: str, scenario_id: str | None = None) -> dict[str, object]:
@@ -60,6 +62,8 @@ def main(argv: list[str] | None = None) -> int:
     materialize.add_argument("--run-id")
     verify_incident = evidence_sub.add_parser("verify-incident")
     verify_incident.add_argument("--result", required=True)
+    inspect_contracts = evidence_sub.add_parser("inspect-contracts")
+    inspect_contracts.add_argument("--contracts", required=True)
     topology = sub.add_parser("topology")
     topology_sub = topology.add_subparsers(dest="topology_command", required=True)
     topology_produce = topology_sub.add_parser("produce")
@@ -68,6 +72,10 @@ def main(argv: list[str] | None = None) -> int:
     topology_verify.add_argument("--candidate-evidence", required=True); topology_verify.add_argument("--producer-evidence", required=True); topology_verify.add_argument("--output", required=True)
     topology_compile = topology_sub.add_parser("compile-board")
     topology_compile.add_argument("--candidate-evidence", required=True); topology_compile.add_argument("--verified-topology", required=True); topology_compile.add_argument("--contracts", required=True); topology_compile.add_argument("--output", required=True)
+    amds = sub.add_parser("amds")
+    amds_sub = amds.add_subparsers(dest="amds_command", required=True)
+    diagnose = amds_sub.add_parser("diagnose")
+    diagnose.add_argument("--candidate-evidence-root", required=True); diagnose.add_argument("--topology-root", required=True); diagnose.add_argument("--contracts", required=True); diagnose.add_argument("--output", required=True)
     args = parser.parse_args(argv)
     if args.command == "doctor":
         result = doctor(args.runtime_root, deep=args.deep, repo_root=args.repo_root)
@@ -103,12 +111,27 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "evidence" and args.evidence_command == "verify-incident":
         value = json.loads(Path(args.result).read_text(encoding="utf-8"))
         result = {"status": "PASS" if value.get("typed_incident", {}).get("status") == "PASS" else "SCIENTIFIC_BLOCK", "candidate_id": value.get("candidate_id"), "typed_incident": value.get("typed_incident")}
+    elif args.command == "evidence" and args.evidence_command == "inspect-contracts":
+        contracts = load_contracts(args.contracts)
+        sealed = seal_contracts(contracts)
+        result = {
+            "status": sealed["status"],
+            "candidate_count": len(contracts),
+            "candidate_ids": [row.candidate_id for row in contracts],
+            "bundle_hash": sealed["bundle_hash"],
+            "read_only": True,
+            "patch_operation_count": 0,
+            "authority_allowed": "contract inspection only",
+            "authority_forbidden": ["candidate execution", "patch", "repair count", "release promotion"],
+        }
     elif args.command == "topology" and args.topology_command == "produce":
         result = produce_topology(args.candidate_evidence, args.contracts, args.output)
     elif args.command == "topology" and args.topology_command == "verify":
         result = verify_topology(args.candidate_evidence, args.producer_evidence, args.output)
     elif args.command == "topology" and args.topology_command == "compile-board":
         result = compile_candidate_frame(args.candidate_evidence, args.verified_topology, args.contracts, args.output)
+    elif args.command == "amds" and args.amds_command == "diagnose":
+        result = diagnose_batch098(args.candidate_evidence_root, args.topology_root, args.contracts, args.output)
     elif args.command == "migrate-state":
         repository = ControllerStateRepository(args.database)
         try: result = repository.migrate_json_state(getattr(args, "from_json"))
