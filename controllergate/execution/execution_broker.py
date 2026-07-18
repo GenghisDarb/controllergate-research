@@ -4,7 +4,9 @@ import hashlib
 import json
 import os
 import subprocess
+import socket
 import time
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Mapping
@@ -25,6 +27,26 @@ ALLOWED_EXTERNAL_OPERATION_TYPES = {
 }
 
 SECRET_MARKERS = ("TOKEN", "SECRET", "PASSWORD", "PRIVATE_KEY", "CREDENTIAL")
+
+
+def allocate_loopback_port() -> int:
+    """Allocate a transient loopback port inside the external-operation boundary."""
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
+        listener.bind(("127.0.0.1", 0))
+        return int(listener.getsockname()[1])
+
+
+def wait_for_loopback_url(url: str, *, attempts: int = 50, timeout: float = 0.2, interval: float = 0.05) -> bool:
+    if not url.startswith(("http://127.0.0.1:", "http://localhost:", "http://[::1]:")):
+        raise ValueError("readiness URL must be loopback")
+    for _ in range(attempts):
+        try:
+            with urllib.request.urlopen(url, timeout=timeout) as response:
+                if response.status == 200:
+                    return True
+        except OSError:
+            time.sleep(interval)
+    return False
 
 
 def execute_command(*, argv: list[str], cwd: Path, runtime_root: Path, stage_id: str, candidate_id: str, authorization_id: str, env: Mapping[str, str] | None = None, timeout: int = 120, required_sentinels: list[str] | None = None) -> tuple[subprocess.CompletedProcess[str], ExecutionRecord]:

@@ -64,7 +64,7 @@ def test_public_boundary_preserves_locked_claims() -> None:
     decision = json.loads((OUT / "batch098_internal_release_decision.json").read_text(encoding="utf-8"))
     claims = json.loads((OUT / "batch098_claim_boundary.json").read_text(encoding="utf-8"))
     assert decision["status"] == "PRODUCT_BETA_RC_BLOCKED_EXACT"
-    assert decision["exact_blockers"] == ["BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT"]
+    assert decision["exact_blockers"] == ["BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"]
     assert claims["protocol"] == "v2.19"
     assert claims["package_version"] == "0.2.0b2.dev0"
     assert claims["issue_derived_repairs"] == 6
@@ -74,8 +74,10 @@ def test_public_boundary_preserves_locked_claims() -> None:
 
 def test_workflow_requires_protected_tld_bridge() -> None:
     workflow = (ROOT / ".github" / "workflows" / "post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml").read_text(encoding="utf-8")
-    assert "CONTROLLERGATE_TLD_BUNDLE_URL" in workflow
-    assert "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT" in workflow
+    custody = (ROOT / ".github" / "workflows" / "controllergate_batch098_tld_source_custody_bridge.yml").read_text(encoding="utf-8")
+    assert "CONTROLLERGATE_TLD_BUNDLE_URL" not in workflow
+    assert "CONTROLLERGATE_TLD_BUNDLE_URL" in custody
     assert "actions/artifacts/${{ inputs.tld_source_artifact_id }}/zip" in workflow
     assert "materialize-candidate" in workflow
-    assert "controllergate amds diagnose" in workflow
+    assert "truth_blind_amds_candidate_groups" in workflow
+    assert "retention-days: 30" in workflow

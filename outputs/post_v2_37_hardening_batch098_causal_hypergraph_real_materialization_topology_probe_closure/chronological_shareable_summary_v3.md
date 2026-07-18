@@ -1,3 +1,3 @@
 # Batch098 chronological summary
 
-Batch097 custody and local TLD custody pass. Batch098 installed materialization, causal-hypergraph, topology-probe, truth-maintenance, and read-only onboarding code is implemented locally. The official workflow is not dispatched because the exact TLD raw-source CI custody bridge is unavailable. Product Beta RC remains blocked.
+Batch097 custody and local TLD custody pass. The corrective continuation implements and tests executed controls, raw-operation topology reconstruction, relation-specific probes, real DPP-14 transitions, separated workflow jobs, and a complete-tree critic campaign. The official workflow remains undispatched because the protected one-time TLD URL has not been supplied. Product Beta RC remains blocked.

@@ -1,19 +1,10 @@
 from __future__ import annotations
 
 import json
-import socket
-import time
-import urllib.request
 from pathlib import Path
 from typing import Any, Mapping
 
-from controllergate.execution.execution_broker import record_external_service_event, start_brokered_service_process
-
-
-def _free_loopback_port() -> int:
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as listener:
-        listener.bind(("127.0.0.1", 0))
-        return int(listener.getsockname()[1])
+from controllergate.execution.execution_broker import allocate_loopback_port, record_external_service_event, start_brokered_service_process, wait_for_loopback_url
 
 
 def _payload(mode: str) -> str:
@@ -30,7 +21,7 @@ def execute_openapi_service_operation(
     *, broker: Any, python: Path, target_argv: list[str], cwd: Path, output_path: Path,
     mode: str, stage: str, expected_codes: set[int], environment: Mapping[str, str],
 ) -> dict[str, Any]:
-    port = _free_loopback_port()
+    port = allocate_loopback_port()
     service_root = cwd / f"controllergate-loopback-{stage}"
     service_root.mkdir(parents=True, exist_ok=True)
     source = service_root / "openapi.yaml"
@@ -44,15 +35,7 @@ def execute_openapi_service_operation(
         parent_ledger_hash=broker.parent,
     )
     broker.append_service_record(start)
-    ready = False
-    for _ in range(50):
-        try:
-            with urllib.request.urlopen(f"http://127.0.0.1:{port}/openapi.yaml", timeout=0.2) as response:
-                ready = response.status == 200
-            if ready:
-                break
-        except OSError:
-            time.sleep(0.05)
+    ready = wait_for_loopback_url(f"http://127.0.0.1:{port}/openapi.yaml")
     readiness = record_external_service_event(
         operation_type="service_readiness", service_id=service_id, candidate_id=broker.contract.candidate_id,
         run_id=broker.run_id, frame_id=f"batch098:{broker.run_id}:materialization", host="127.0.0.1", port=port,

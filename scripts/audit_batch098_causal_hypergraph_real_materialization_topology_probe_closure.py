@@ -7,7 +7,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "outputs" / "post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure"
-BLOCKER = "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT"
+BLOCKER = "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"
+PRIOR_BRIDGE_BLOCKER = "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT"
 
 
 def load(name: str) -> dict:
@@ -27,6 +28,14 @@ def main() -> int:
         "insufficient_evidence_earnability_audit.json", "failed_branch_recovery_registry.jsonl",
         "probe_neutrality_linter_results.json", "complete_decision_frame_binding_audit.json",
         "tld_shadow_state_transition_firewall.json", "batch098_addendum_metrics.json",
+        "batch098_pre_dispatch_real_depth_expected_failure.json", "batch098_tld_bridge_current_status.json",
+        "materializer_chain_integrity_audit.json", "candidate_control_execution_audit.json",
+        "exact_incident_node_and_product_audit.json", "openbb_complete_lifecycle_audit.json",
+        "candidate_specific_probe_binding_audit.json", "probe_operation_existence_audit.json",
+        "predicted_partition_semantic_reconstructability_audit.json", "same_operation_multi_hypothesis_negative_control.json",
+        "dpp14_real_transition_audit.json", "probe_execution_to_fact_lineage_audit.json",
+        "truth_maintenance_fixed_point_audit.json", "observation_driven_backtracking_audit.json",
+        "controller_audit_sole_writer_audit.json",
         "ARTIFACT_SHA256SUMS.txt", "PORTABLE_ARTIFACT_SHA256SUMS.txt", "SHA256SUMS.txt",
     )
     missing = [name for name in required if not (OUT / name).is_file()]
@@ -35,6 +44,8 @@ def main() -> int:
     assert load("batch097_artifact_ingest.json")["status"] == "PASS"
     assert all(row["status"] == "PASS" for row in load("batch097_artifact_manifest_verification.json")["manifests"])
     assert load("batch098_pre_fix_causal_hypergraph_and_materialization_expected_failure.json")["status"] == "BATCH098_PRE_FIX_CAUSAL_HYPERGRAPH_AND_MATERIALIZATION_FAIL_EXPECTED"
+    assert load("batch098_pre_dispatch_real_depth_expected_failure.json")["status"] == "BATCH098_PRE_DISPATCH_REAL_DEPTH_FAIL_EXPECTED"
+    assert load("batch098_pre_dispatch_real_depth_expected_failure.json")["finding_count"] == 43
     assert load("candidate_contract_custody_audit.json")["candidate_count"] == 8
     assert load("materialization_compartment_contract_v3.json")["exact_compartment_count"] == 6
     assert load("mixed_depth_execution_audit.json")["mixed_depth_official_execution_count"] == 0
@@ -43,7 +54,7 @@ def main() -> int:
     bridge = load("tld_raw_ci_custody_v1.json")
     assert bridge["status"] in {"PASS", "BLOCK"}
     if bridge["status"] == "BLOCK":
-        assert bridge["exact_blocker"] == BLOCKER
+        assert bridge["exact_blocker"] in {PRIOR_BRIDGE_BLOCKER, BLOCKER}
     assert load("tld_raw_parse_audit_v1.json")["notebook_count"] == 44
     assert load("tld_notebook26_source_resolution_v1.json")["status"] == "PASS"
     addendum = json.loads((ROOT / "configs" / "batch098_addendum_contract.json").read_text(encoding="utf-8"))
@@ -53,6 +64,9 @@ def main() -> int:
     assert load("insufficient_evidence_earnability_audit.json")["unearned_insufficient_evidence_count"] == 0
     assert load("probe_neutrality_linter_results.json")["probe_neutrality_rejection_count"] >= 1
     assert load("tld_shadow_state_transition_firewall.json")["TLD_shadow_direct_state_write_count"] == 0
+    assert load("batch098_tld_bridge_current_status.json")["exact_blocker"] == BLOCKER
+    for name in ("materializer_chain_integrity_audit.json", "candidate_control_execution_audit.json", "exact_incident_node_and_product_audit.json", "openbb_complete_lifecycle_audit.json", "candidate_specific_probe_binding_audit.json", "probe_operation_existence_audit.json", "predicted_partition_semantic_reconstructability_audit.json", "same_operation_multi_hypothesis_negative_control.json", "dpp14_real_transition_audit.json", "probe_execution_to_fact_lineage_audit.json", "truth_maintenance_fixed_point_audit.json", "observation_driven_backtracking_audit.json", "controller_audit_sole_writer_audit.json"):
+        assert load(name)["status"] == "PASS"
     decision = load("batch098_internal_release_decision.json")
     assert decision["status"] == "PRODUCT_BETA_RC_BLOCKED_EXACT"
     if bridge["status"] == "BLOCK":

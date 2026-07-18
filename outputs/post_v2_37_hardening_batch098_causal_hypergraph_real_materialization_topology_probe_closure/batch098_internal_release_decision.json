@@ -1,7 +1,7 @@
 {
   "active_child_blockers": [],
   "active_root_blockers": [
-    "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT"
+    "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"
   ],
   "authority_allowed": "claim-boundary and blocker reporting",
   "authority_forbidden": [
@@ -17,7 +17,7 @@
     "official main-artifact packaging"
   ],
   "exact_blockers": [
-    "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_BLOCKED_EXACT"
+    "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"
   ],
   "execution_depth": "current_evidence_root_block_reconstruction",
   "historical_count_increment": 0,
@@ -26,7 +26,7 @@
   "producer": "scripts.finalize_batch098_blocked_state",
   "protected_historical_actuation": "NOT_AUTHORIZED",
   "reopen_conditions": [
-    "configure CONTROLLERGATE_TLD_BUNDLE_URL to the exact immutable bundle or provide the exact existing Actions artifact identity"
+    "run scripts/configure_batch098_tld_bridge.ps1 and paste a time-limited HTTPS URL for the exact frozen bundle; then pass the resulting exact Actions artifact ID to the main workflow"
   ],
   "semantic_scope": "Batch098 current public boundary",
   "status": "PRODUCT_BETA_RC_BLOCKED_EXACT"

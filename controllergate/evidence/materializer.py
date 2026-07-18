@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any, Mapping
 
 from controllergate.core.evidence import hash_record
-from controllergate.execution.execution_broker import execute_external_operation
+from controllergate.execution.execution_broker import allocate_loopback_port, execute_external_operation
 from controllergate.runtime.runtime_root_attestation import attest_runtime_root
 from controllergate.topology.source_graph import compile_python_source_graph
 from .openbb_lifecycle_v2 import execute_openapi_service_operation
@@ -305,8 +305,7 @@ def _candidate_controls(contract: CandidateExecutionContract, broker: Materializ
             argv = [*expand_argv(contract.target_argv, python=python, provider=provider, product_dir=execution / "controllergate-control-products", build_source=contract.project_build_source), "--name", "controllergate-explicit"]
             cwd = consumer
         elif mode == "service_unavailable":
-            with __import__("socket").socket() as probe_socket:
-                probe_socket.bind(("127.0.0.1", 0)); port = probe_socket.getsockname()[1]
+            port = allocate_loopback_port()
             argv = [value.replace("{PORT}", str(port)) for value in expand_argv(contract.target_argv, python=python, provider=provider, product_dir=execution / "controllergate-control-products", build_source=contract.project_build_source)]
             expected_codes = {1, 2}
         elif mode in {"brokered_inline_service", "corrupt_yaml"}:
