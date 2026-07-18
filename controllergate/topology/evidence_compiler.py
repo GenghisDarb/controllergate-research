@@ -79,7 +79,9 @@ def compile_boundary_volume(candidate: Mapping[str, Any], role_receipts: Iterabl
 
 def compile_local_graph(candidate: Mapping[str, Any], producer_receipts: Iterable[Mapping[str, Any]], verifier_receipts: Iterable[Mapping[str, Any]]) -> dict[str, Any]:
     producers=tuple(producer_receipts); verifiers=tuple(verifier_receipts); topology=candidate.get("source_topology", {})
-    nodes=list(topology.get("nodes", [])); edges=list(topology.get("edges", []))
+    nodes=list(topology.get("nodes", [])); edges=[]
+    for edge in topology.get("edges", []):
+        edges.append({**edge,"producer_receipt":topology.get("tracked_manifest_operation"),"verifier_receipt":topology.get("graph_hash"),"direct":True})
     by_role={str(r["semantic_role"]):r for r in producers}; checks={str(r["semantic_role"]):r for r in verifiers}
     for role,receipt in sorted(by_role.items()):
         node_id=f"role:{role}"; nodes.append({"node_id":node_id,"node_class":"MEASURED_ROLE","evidence_hash":receipt.get("measurement_hash"),"status":receipt.get("status")})
