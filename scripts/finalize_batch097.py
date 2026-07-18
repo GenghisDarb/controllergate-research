@@ -28,10 +28,13 @@ def main()->int:
  dump(out/'public_state_generation_audit_batch097.json',{'status':'PASS','source':'scoped execution receipts and current SQLite-compatible registries','public_state':public});dump(out/'public_state_sync_audit_batch097.json',{'status':'PASS','overclaim_count':0,'product_beta_pass_count':0});dump(out/'release_version_lineage_batch097.json',{'status':'PASS','protocol':'v2.19','package_version':'0.2.0b2.dev0','version_changed':False});dump(out/'batch097_internal_release_decision.json',public);dump(out/'batch097_claim_boundary.json',public['claim_boundaries']);dump(out/'batch097_consolidated_state.json',public);dump(out/'batch097_external_review_package_index.json',{'status':'PASS','files':sorted(p.name for p in out.iterdir() if p.is_file()),'external_review_status':'PENDING','release_decision':'PRODUCT_BETA_RC_BLOCKED_EXACT'})
  summary=f"# Batch097 evidence reconstitution\n\nBatch096 artifact custody remains valid, but its synthesized scientific conclusions are excluded from current authority. Batch097 executed an installed-product evidence pipeline and preserves every scientific blocker without manufacturing downstream authority.\n\nCurrent decision: `PRODUCT_BETA_RC_BLOCKED_EXACT`\n\nExact blocker: `{exact}`\n\nProtocol remains `v2.19`; package version remains `0.2.0b2.dev0`; repair counts remain 6 issue-derived and 4 native external with historical increment 0. Public writes and automatic merge remain inactive. Production readiness and self-maintaining software are not demonstrated.\n"
  (out/'campaign_summary.md').write_text(summary,encoding='utf-8',newline='\n');(out/'chronological_shareable_summary_v2.md').write_text(summary,encoding='utf-8',newline='\n')
- names=['ARTIFACT_SHA256SUMS.txt','PORTABLE_ARTIFACT_SHA256SUMS.txt','SHA256SUMS.txt']
- for name in names:
+ scoped_names=['ARTIFACT_SHA256SUMS.txt','PORTABLE_ARTIFACT_SHA256SUMS.txt'];names=[*scoped_names,'SHA256SUMS.txt']
+ for name in scoped_names:
   manifest=[]
   for p in sorted(x for x in out.rglob('*') if x.is_file() and x.name not in names):manifest.append(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out).as_posix()}")
   (out/name).write_text('\n'.join(manifest)+'\n',encoding='utf-8',newline='\n')
+ manifest=[]
+ for p in sorted(x for x in out.rglob('*') if x.is_file() and x.name!='SHA256SUMS.txt'):manifest.append(f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.relative_to(out).as_posix()}")
+ (out/'SHA256SUMS.txt').write_text('\n'.join(manifest)+'\n',encoding='utf-8',newline='\n')
  print(json.dumps({'status':public['status'],'exact_blocker':exact},sort_keys=True));return 0
 if __name__=='__main__':raise SystemExit(main())
