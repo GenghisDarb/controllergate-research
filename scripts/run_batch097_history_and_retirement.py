@@ -23,7 +23,9 @@ def main():
  graph=python_call_graph(ROOT,roots); dump('repository_current_static_call_graph.json',graph); dump('repository_current_dynamic_call_graph.json',{'status':'PASS','roots':roots,'execution_receipts':'installed CLI tests required in later phase'})
  retire=[]
  for path in RETIRE:
-  archive_commit=git(ROOT,'log','-n','1','--format=%H','HEAD^','--',path).strip(); data=subprocess.check_output(['git','show',f'{archive_commit}:{path}'],cwd=ROOT); blob=git(ROOT,'rev-parse',f'{archive_commit}:{path}').strip()
+  removal_commit=git(ROOT,'log','--diff-filter=D','-n','1','--format=%H','--',path).strip()
+  if not removal_commit: raise RuntimeError(f'missing removal commit for {path}')
+  archive_commit=git(ROOT,'rev-parse',f'{removal_commit}^').strip(); data=subprocess.check_output(['git','show',f'{archive_commit}:{path}'],cwd=ROOT); blob=git(ROOT,'rev-parse',f'{archive_commit}:{path}').strip()
   retire.append({'path':path,'blob':blob,'sha256':hashlib.sha256(data).hexdigest(),'archive_commit':archive_commit,'introduced_commit':git(ROOT,'log','--diff-filter=A','--format=%H','--',path).splitlines()[-1], 'disposition':'APPROVED_RETIRE_FROM_CURRENT_AUTHORITY','historical_bytes_preserved_in_git':True})
  lines('batch096_negative_fixture_registry.jsonl',retire); lines('batch096_shortcut_retirement_ledger.jsonl',retire); lines('approved_removal_execution_ledger_v2.jsonl',[{**x,'removal_commit':'pending_checkpoint_commit'} for x in retire]); lines('batch096_negative_fixture_registry.jsonl',retire)
  components=['CLI','engine','stage_registry','execution_broker','SQLite_authority','artifact_source_custody','materialization_compartments','provider_acquisition_orthology','typed_incident_verifier','role_measurement','topology_compiler','AMDS_causal_board','probe_planner','semantic_verifier','branch_nogood_ledger','ControllerAudit','source_ownership_proof_service','repair_license_service','actuator','package_builder','deployment_slot_manager','health_monitor','rollback','cleanup','public_state_generator','standalone_critic','read_only_reference_services']
