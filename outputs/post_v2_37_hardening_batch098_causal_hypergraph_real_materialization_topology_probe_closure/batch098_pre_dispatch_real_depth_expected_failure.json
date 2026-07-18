@@ -1,0 +1,704 @@
+{
+  "authority_allowed": "corrective implementation requirements only",
+  "authority_forbidden": [
+    "scientific pass",
+    "patch",
+    "count mutation",
+    "release promotion"
+  ],
+  "execution_depth": "frozen-starting-commit source inspection",
+  "finding_count": 43,
+  "findings": [
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-01",
+      "line_range": [
+        19,
+        19
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_01",
+      "required_correction": "Separate custody, production, verification, truth, baselines, critic, and adjudication jobs.",
+      "risk": "Shallow evidence could be misclassified as workflow independence closure.",
+      "symbol": "jobs",
+      "title": "workflow independence"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-02",
+      "line_range": [
+        19,
+        19
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_02",
+      "required_correction": "Add a physically isolated sealed-truth custody job.",
+      "risk": "Shallow evidence could be misclassified as sealed truth isolation closure.",
+      "symbol": "jobs",
+      "title": "sealed truth isolation"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-03",
+      "line_range": [
+        19,
+        19
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_03",
+      "required_correction": "Execute independent architecture-arm jobs.",
+      "risk": "Shallow evidence could be misclassified as architecture arm execution closure.",
+      "symbol": "jobs",
+      "title": "architecture arm execution"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-04",
+      "line_range": [
+        19,
+        19
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_04",
+      "required_correction": "Execute independent baseline jobs.",
+      "risk": "Shallow evidence could be misclassified as baseline execution closure.",
+      "symbol": "jobs",
+      "title": "baseline execution"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-05",
+      "line_range": [
+        19,
+        19
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_05",
+      "required_correction": "Add a standard-library-only critic job.",
+      "risk": "Shallow evidence could be misclassified as standalone critic isolation closure.",
+      "symbol": "jobs",
+      "title": "standalone critic isolation"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-06",
+      "line_range": [
+        19,
+        19
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_06",
+      "required_correction": "Run re-signed mutations over a complete copied evidence tree.",
+      "risk": "Shallow evidence could be misclassified as complete copied raw-tree mutation closure.",
+      "symbol": "jobs",
+      "title": "complete copied raw-tree mutation"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-07",
+      "line_range": [
+        63,
+        63
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_07",
+      "required_correction": "Retain the final main artifact for at least 30 days.",
+      "risk": "Shallow evidence could be misclassified as main artifact retention closure.",
+      "symbol": "final",
+      "title": "main artifact retention"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-08",
+      "line_range": [
+        280,
+        280
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_08",
+      "required_correction": "Require an operation or copied-evidence rejection receipt for every control.",
+      "risk": "Shallow evidence could be misclassified as executed adversarial controls closure.",
+      "symbol": "_candidate_controls",
+      "title": "executed adversarial controls"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-09",
+      "line_range": [
+        323,
+        323
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_09",
+      "required_correction": "Execute service and structural controls with raw products.",
+      "risk": "Shallow evidence could be misclassified as openbb real controls closure.",
+      "symbol": "_candidate_controls",
+      "title": "OpenBB real controls"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-10",
+      "line_range": [
+        322,
+        322
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_10",
+      "required_correction": "Derive direct and unrelated calls from pinned candidate source.",
+      "risk": "Shallow evidence could be misclassified as source-derived controls closure.",
+      "symbol": "_candidate_controls",
+      "title": "source-derived controls"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-11",
+      "line_range": [
+        366,
+        366
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_11",
+      "required_correction": "Acquire bounded origin/main ancestry.",
+      "risk": "Shallow evidence could be misclassified as openbb ancestry acquisition closure.",
+      "symbol": "materialize_candidate",
+      "title": "OpenBB ancestry acquisition"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-12",
+      "line_range": [
+        366,
+        366
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_12",
+      "required_correction": "Recompute and verify cutoff and ancestry.",
+      "risk": "Shallow evidence could be misclassified as openbb cutoff verification closure.",
+      "symbol": "materialize_candidate",
+      "title": "OpenBB cutoff verification"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-13",
+      "line_range": [
+        252,
+        252
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_13",
+      "required_correction": "Execute a broker-managed dynamic loopback service.",
+      "risk": "Shallow evidence could be misclassified as openbb loopback service closure.",
+      "symbol": "materialize_candidate",
+      "title": "OpenBB loopback service"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-14",
+      "line_range": [
+        427,
+        427
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_14",
+      "required_correction": "Supply the acquired dynamic port to target expansion.",
+      "risk": "Shallow evidence could be misclassified as openbb port substitution closure.",
+      "symbol": "materialize_candidate",
+      "title": "OpenBB port substitution"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-15",
+      "line_range": [
+        276,
+        276
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_15",
+      "required_correction": "Execute structural OpenAPI verification for each control.",
+      "risk": "Shallow evidence could be misclassified as openbb structural product controls closure.",
+      "symbol": "_candidate_controls",
+      "title": "OpenBB structural product controls"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-16",
+      "line_range": [
+        441,
+        441
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_16",
+      "required_correction": "Freshly remeasure source, build, and execution after operations.",
+      "risk": "Shallow evidence could be misclassified as fresh post-operation manifests closure.",
+      "symbol": "materialize_candidate",
+      "title": "fresh post-operation manifests"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-17",
+      "line_range": [
+        443,
+        443
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_17",
+      "required_correction": "Reverify HEAD, tree, tracked manifests, and clean diff after execution.",
+      "risk": "Shallow evidence could be misclassified as post-operation git revalidation closure.",
+      "symbol": "materialize_candidate",
+      "title": "post-operation Git revalidation"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-18",
+      "line_range": [
+        460,
+        460
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_18",
+      "required_correction": "Emit a child integrity receipt instead of mutating a chained record.",
+      "risk": "Shallow evidence could be misclassified as immutable broker chain closure.",
+      "symbol": "materialize_candidate",
+      "title": "immutable broker chain"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-19",
+      "line_range": [
+        398,
+        398
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_19",
+      "required_correction": "Use network none for local wheel build/install.",
+      "risk": "Shallow evidence could be misclassified as local wheel network policy closure.",
+      "symbol": "materialize_candidate",
+      "title": "local wheel network policy"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-20",
+      "line_range": [
+        408,
+        408
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_20",
+      "required_correction": "Use network none for local project installs.",
+      "risk": "Shallow evidence could be misclassified as additional local install network policy closure.",
+      "symbol": "materialize_candidate",
+      "title": "additional local install network policy"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-21",
+      "line_range": [
+        214,
+        214
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_21",
+      "required_correction": "Dispatch only through sealed parser_id and verifier_id registries.",
+      "risk": "Shallow evidence could be misclassified as sealed parser verifier registry closure.",
+      "symbol": "_parse_products",
+      "title": "sealed parser verifier registry"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-22",
+      "line_range": [
+        243,
+        243
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_22",
+      "required_correction": "Bind exact collected node and structured outcome family.",
+      "risk": "Shallow evidence could be misclassified as exact junit node verification closure.",
+      "symbol": "_verify_incident",
+      "title": "exact JUnit node verification"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-23",
+      "line_range": [
+        246,
+        246
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_23",
+      "required_correction": "Use the structured missing-module field and import origin.",
+      "risk": "Shallow evidence could be misclassified as audioread structured module evidence closure.",
+      "symbol": "_verify_incident",
+      "title": "Audioread structured module evidence"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-24",
+      "line_range": [
+        251,
+        251
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_24",
+      "required_correction": "Bind exact nodes, warning configuration, and structured warnings.",
+      "risk": "Shallow evidence could be misclassified as pytest exact warning evidence closure.",
+      "symbol": "_verify_incident",
+      "title": "Pytest exact warning evidence"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-25",
+      "line_range": [
+        259,
+        259
+      ],
+      "path": "controllergate/evidence/materializer.py",
+      "raw_evidence_sha256": "e7310016f2086b530e708e1d9930e618d2cfa5ee67e800cab2f66b94fa5f4418",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_25",
+      "required_correction": "Compare parsed name to the exact path-derived expected name and explicit-name control.",
+      "risk": "Shallow evidence could be misclassified as poetry exact path-derived defect closure.",
+      "symbol": "_verify_incident",
+      "title": "Poetry exact path-derived defect"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-26",
+      "line_range": [
+        79,
+        79
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_26",
+      "required_correction": "Bind producers to exact raw operation objects.",
+      "risk": "Shallow evidence could be misclassified as raw boundary producer receipts closure.",
+      "symbol": "produce_topology",
+      "title": "raw boundary producer receipts"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-27",
+      "line_range": [
+        119,
+        119
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_27",
+      "required_correction": "Reopen raw operations and reconstruct observed dimensions.",
+      "risk": "Shallow evidence could be misclassified as independent boundary reconstruction closure.",
+      "symbol": "verify_topology",
+      "title": "independent boundary reconstruction"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-28",
+      "line_range": [
+        90,
+        90
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_28",
+      "required_correction": "Execute source parsing/trace producers and independent reopen verifiers.",
+      "risk": "Shallow evidence could be misclassified as executed local graph receipts closure.",
+      "symbol": "produce_topology",
+      "title": "executed local graph receipts"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-29",
+      "line_range": [
+        140,
+        140
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_29",
+      "required_correction": "Derive each ownership cell from role-specific evidence.",
+      "risk": "Shallow evidence could be misclassified as ownership-specific derivation closure.",
+      "symbol": "verify_topology",
+      "title": "ownership-specific derivation"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-30",
+      "line_range": [
+        143,
+        143
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_30",
+      "required_correction": "Execute a distinct semantic product verifier.",
+      "risk": "Shallow evidence could be misclassified as semantic process-product verification closure.",
+      "symbol": "verify_topology",
+      "title": "semantic process-product verification"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-31",
+      "line_range": [
+        97,
+        97
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_31",
+      "required_correction": "Execute and independently verify both projection sides.",
+      "risk": "Shallow evidence could be misclassified as executed projection sides closure.",
+      "symbol": "produce_topology",
+      "title": "executed projection sides"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-32",
+      "line_range": [
+        103,
+        103
+      ],
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "fff9596ba45d5fa22e037e61fa39cfe880c88dbc9ac357f525e075de117d25c5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_32",
+      "required_correction": "Run distinct modality transformations and verifiers.",
+      "risk": "Shallow evidence could be misclassified as executed modality transformations closure.",
+      "symbol": "produce_topology",
+      "title": "executed modality transformations"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-33",
+      "line_range": [
+        64,
+        64
+      ],
+      "path": "controllergate/topology/probe_compiler_v1.py",
+      "raw_evidence_sha256": "c0ede44af0425fa5f71627b74d423e316715b0ac2dde773fccfa4ccbc758c1c3",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_33",
+      "required_correction": "Compile relation-specific operations instead of reusing target argv.",
+      "risk": "Shallow evidence could be misclassified as candidate-specific ownership operations closure.",
+      "symbol": "_probe_for",
+      "title": "candidate-specific ownership operations"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-34",
+      "line_range": [
+        40,
+        40
+      ],
+      "path": "controllergate/topology/probe_compiler_v1.py",
+      "raw_evidence_sha256": "c0ede44af0425fa5f71627b74d423e316715b0ac2dde773fccfa4ccbc758c1c3",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_34",
+      "required_correction": "Bind each probe to its actual edge, region, projection, or boundary operation.",
+      "risk": "Shallow evidence could be misclassified as relation-specific probes closure.",
+      "symbol": "_probe_for",
+      "title": "relation-specific probes"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-35",
+      "line_range": [
+        68,
+        68
+      ],
+      "path": "controllergate/topology/probe_compiler_v1.py",
+      "raw_evidence_sha256": "c0ede44af0425fa5f71627b74d423e316715b0ac2dde773fccfa4ccbc758c1c3",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_35",
+      "required_correction": "Bind partitions to candidate-specific verifier rules.",
+      "risk": "Shallow evidence could be misclassified as semantic predicted partitions closure.",
+      "symbol": "_probe_for",
+      "title": "semantic predicted partitions"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-36",
+      "line_range": [
+        76,
+        76
+      ],
+      "path": "controllergate/topology/probe_compiler_v1.py",
+      "raw_evidence_sha256": "c0ede44af0425fa5f71627b74d423e316715b0ac2dde773fccfa4ccbc758c1c3",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_36",
+      "required_correction": "Implement the installed brokered execute-probe command.",
+      "risk": "Shallow evidence could be misclassified as installed execute-probe command closure.",
+      "symbol": "MinimalProbeV1",
+      "title": "installed execute-probe command"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-37",
+      "line_range": [
+        45,
+        45
+      ],
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "raw_evidence_sha256": "1654bbef4455795ed12c08d166ff10868c3b5ec21a62ce201039c5c139f57a84",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_37",
+      "required_correction": "Execute board, planner, broker, verifier, truth maintenance, and audit mechanisms.",
+      "risk": "Shallow evidence could be misclassified as real dpp-14 mechanisms closure.",
+      "symbol": "execute_stage",
+      "title": "real DPP-14 mechanisms"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-38",
+      "line_range": [
+        83,
+        83
+      ],
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "raw_evidence_sha256": "1654bbef4455795ed12c08d166ff10868c3b5ec21a62ce201039c5c139f57a84",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_38",
+      "required_correction": "Use isolated verifier executables that reconstruct transitions.",
+      "risk": "Shallow evidence could be misclassified as isolated stage verification closure.",
+      "symbol": "run_dpp14",
+      "title": "isolated stage verification"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-39",
+      "line_range": [
+        23,
+        23
+      ],
+      "path": "controllergate/amds/batch098_diagnose.py",
+      "raw_evidence_sha256": "cdf32f9cc7008059f030a5d04323b5b8276a31797036613863523b7f74912f7f",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_39",
+      "required_correction": "Execute topology-derived probes through the broker.",
+      "risk": "Shallow evidence could be misclassified as diagnostic probe execution closure.",
+      "symbol": "diagnose_batch098",
+      "title": "diagnostic probe execution"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-40",
+      "line_range": [
+        23,
+        23
+      ],
+      "path": "controllergate/amds/batch098_diagnose.py",
+      "raw_evidence_sha256": "cdf32f9cc7008059f030a5d04323b5b8276a31797036613863523b7f74912f7f",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_40",
+      "required_correction": "Execute distinct arms and baselines.",
+      "risk": "Shallow evidence could be misclassified as real arms and baselines closure.",
+      "symbol": "diagnose_batch098",
+      "title": "real arms and baselines"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-41",
+      "line_range": [
+        23,
+        23
+      ],
+      "path": "controllergate/amds/batch098_diagnose.py",
+      "raw_evidence_sha256": "cdf32f9cc7008059f030a5d04323b5b8276a31797036613863523b7f74912f7f",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_41",
+      "required_correction": "Join sealed truth only after terminal commitment.",
+      "risk": "Shallow evidence could be misclassified as truth-separated scoring closure.",
+      "symbol": "diagnose_batch098",
+      "title": "truth-separated scoring"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-42",
+      "line_range": [
+        23,
+        23
+      ],
+      "path": "controllergate/amds/batch098_diagnose.py",
+      "raw_evidence_sha256": "cdf32f9cc7008059f030a5d04323b5b8276a31797036613863523b7f74912f7f",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_42",
+      "required_correction": "Run producer/verifier source-ownership stages.",
+      "risk": "Shallow evidence could be misclassified as stage-produced source ownership closure.",
+      "symbol": "diagnose_batch098",
+      "title": "stage-produced source ownership"
+    },
+    {
+      "commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea",
+      "detected": true,
+      "finding_id": "BATCH098-PRE-DISPATCH-43",
+      "line_range": [
+        182,
+        182
+      ],
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "3ec8601ca5edd3da1ecabd86f3e978ddadf4bac4e9229226cebd97cee6684aa5",
+      "red_to_green_test": "tests/test_batch098_corrective_real_depth.py::test_finding_43",
+      "required_correction": "Gate packaging on raw critic, mutations, truth join, and adjudication.",
+      "risk": "Shallow evidence could be misclassified as shallow final packaging closure.",
+      "symbol": "final",
+      "title": "shallow final packaging"
+    }
+  ],
+  "producer": "scripts.audit_batch098_pre_dispatch_real_depth",
+  "status": "BATCH098_PRE_DISPATCH_REAL_DEPTH_FAIL_EXPECTED",
+  "target_commit": "b68b0a5c37d12daa21d2e0366179caf2771cd1ea"
+}
