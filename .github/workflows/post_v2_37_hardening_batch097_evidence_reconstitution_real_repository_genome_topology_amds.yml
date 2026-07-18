@@ -1,0 +1,354 @@
+name: post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_historical_actuation:
+        type: boolean
+        default: false
+        required: false
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  OUTPUT: outputs/post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  custody_expected_red:
+    name: 01-05 custody, expected red, invalidation, and regression
+    runs-on: ubuntu-22.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - name: Reject protected actuation
+        run: |
+          if [[ "${{ inputs.run_historical_actuation }}" == "true" ]]; then
+            echo PROTECTED_HISTORICAL_ACTUATION_NOT_AUTHORIZED_AFTER_SCIENTIFIC_PASS
+            exit 1
+          fi
+      - name: Retrieve exact Batch096 artifact and reconstruct invalidation
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/batch097/custody"
+          curl --fail --location --retry 3 -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/artifacts/8399956632/zip" \
+            -o "$RUNNER_TEMP/controllergate-runtime/batch097/custody/batch096.zip"
+          python scripts/run_batch097_custody_and_invalidation.py \
+            --artifact "$RUNNER_TEMP/controllergate-runtime/batch097/custody/batch096.zip" --output "$OUTPUT"
+          python scripts/audit_batch097_pre_fix_batch096_evidence_reconstitution.py
+          python scripts/run_batch097_history_and_retirement.py
+      - name: TLD raw source CI availability boundary
+        run: python scripts/verify_batch097_tld_workflow_source.py --output "$OUTPUT/batch097_tld_workflow_source_custody.json"
+      - name: Focused regression and hygiene
+        run: |
+          python -m pytest tests/core/test_batch097_batch096_retirement.py tests/core/test_batch097_no_synthetic_evidence.py tests/core/test_batch097_topology_compiler.py tests/core/test_batch097_tld_source_binding.py tests/core/test_batch097_amds_no_guess.py -q
+          python scripts/audit_no_batch_core_logic.py
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_public_language.py
+          python scripts/byte_custody_preflight.py
+          git diff --check
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_custody_history, path: "${{ env.OUTPUT }}", retention-days: 1}
+
+  sealed_product:
+    name: 06-10 sealed installed ControllerGate product
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install build wheel setuptools
+      - run: python -m build --wheel --outdir "$RUNNER_TEMP/wheel"
+      - run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          wheels=list(pathlib.Path('${{ runner.temp }}/wheel').glob('*.whl'))
+          assert len(wheels)==1
+          pathlib.Path('${{ runner.temp }}/wheel/wheel_manifest.json').write_text(json.dumps({'sha256':hashlib.sha256(wheels[0].read_bytes()).hexdigest(),'size':wheels[0].stat().st_size,'filename':wheels[0].name},indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel", retention-days: 1}
+
+  candidate_lanes:
+    name: ${{ matrix.order }} ${{ matrix.candidate }} real materialization
+    needs: [custody_expected_red, sealed_product]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {order: "11", candidate: darker_issue_112_relative_git_dir, python: "3.7"}
+          - {order: "12", candidate: py_bugger_issue_65, python: "3.11"}
+          - {order: "13", candidate: cloudpickle_507_py313_typevar_distutils, python: "3.13"}
+          - {order: "14", candidate: freezegun_547_py313_datetimes_assertion, python: "3.13"}
+          - {order: "15", candidate: audioread_144_py313_aifc_removed, python: "3.13"}
+          - {order: "16", candidate: pytest_13480_wdefault_unraisable_threadexception, python: "3.13"}
+          - {order: "17", candidate: incident_openbb_7585_modular_openapi_reproducer, python: "3.11"}
+          - {order: "18", candidate: incident_poetry_10974_init_duplicate_name, python: "3.11"}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - id: provider_python
+        uses: actions/setup-python@v5
+        with: {python-version: "${{ matrix.python }}", update-environment: false}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel"}
+      - name: Install sealed product and execute isolated lane
+        run: |
+          WHEEL=$(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)
+          python -m pip install --force-reinstall "$WHEEL"
+          mkdir -p "candidate-outputs/${{ matrix.candidate }}"
+          env -u PYTHONPATH python scripts/run_batch097_installed_candidate_lane.py \
+            --candidate "${{ matrix.candidate }}" \
+            --provider-python "${{ steps.provider_python.outputs.python-path }}" \
+            --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch097/${{ matrix.candidate }}" \
+            --output "candidate-outputs/${{ matrix.candidate }}"
+      - uses: actions/upload-artifact@v4
+        with: {name: "batch097_lane_${{ matrix.candidate }}", path: candidate-outputs, retention-days: 1}
+
+  cohort_join:
+    name: 19-21 exact cohort and raw evidence object registry
+    needs: candidate_lanes
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - run: python scripts/join_batch097_materialization_evidence.py --inputs-root candidate-inputs --output cohort-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_cohort, path: cohort-output, retention-days: 1}
+
+  role_producers:
+    name: 22 role producer execution
+    needs: [cohort_join, sealed_product]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - run: |
+          python -m pip install --force-reinstall $(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)
+          env -u PYTHONPATH python scripts/run_batch097_role_producers.py --inputs-root candidate-inputs --output role-producer-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_role_producers, path: role-producer-output, retention-days: 1}
+
+  role_verifiers:
+    name: 23 independent role verification
+    needs: [role_producers, sealed_product]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_role_producers, path: role-producers}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - run: |
+          python -m pip install --force-reinstall $(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)
+          env -u PYTHONPATH python scripts/run_batch097_role_verifiers.py --producer-output role-producers --inputs-root candidate-inputs --output role-verifier-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_role_verifiers, path: role-verifier-output, retention-days: 1}
+
+  topology_producers:
+    name: 24-28 boundary, local graph, coupled graph, observer, modalities
+    needs: [role_producers, role_verifiers, sealed_product]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_role_producers, path: role-producers}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_role_verifiers, path: role-verifiers}
+      - run: |
+          python -m pip install --force-reinstall $(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)
+          env -u PYTHONPATH python scripts/run_batch097_topology_producers.py --inputs-root candidate-inputs --role-producers role-producers --role-verifiers role-verifiers --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch097/topology" --output topology-producer-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_topology_producers, path: topology-producer-output, retention-days: 1}
+
+  topology_verifiers:
+    name: 29-31 independent topology verification and decisive board
+    needs: [topology_producers, sealed_product]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_role_producers, path: role-producers}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_role_verifiers, path: role-verifiers}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_topology_producers, path: topology-producers}
+      - run: |
+          python -m pip install --force-reinstall $(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)
+          env -u PYTHONPATH python scripts/run_batch097_topology_verifiers_and_board.py --inputs-root candidate-inputs --role-producers role-producers --role-verifiers role-verifiers --topology-producers topology-producers --output topology-verifier-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_topology_verifiers, path: topology-verifier-output, retention-days: 1}
+
+  tld_projections:
+    name: 32 TLD source-bound candidate projections
+    needs: topology_verifiers
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_topology_producers, path: topology-producers}
+      - run: python scripts/run_batch097_tld_projections.py --inputs-root candidate-inputs --source-ledger "$OUTPUT" --topology topology-producers --output tld-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_tld_projections, path: tld-output, retention-days: 1}
+
+  sealed_truth:
+    name: 33 sealed truth custody
+    needs: cohort_join
+    runs-on: ubuntu-22.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python scripts/seal_batch097_amds_truth.py --runtime "$RUNNER_TEMP/controllergate-runtime/batch097/truth" --manifest-output truth/amds_truth_manifest_v6.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch097_sealed_truth
+          path: |
+            ${{ runner.temp }}/controllergate-runtime/batch097/truth/batch097_amds_sealed_truth.json
+            truth/amds_truth_manifest_v6.json
+          retention-days: 1
+
+  amds_builder:
+    name: 34-39 topology-compiled truth-blind AMDS and actual arms
+    needs: [topology_verifiers, tld_projections, sealed_product]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_controllergate_wheel, path: "${{ runner.temp }}/wheel"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_lane_*, path: candidate-inputs, merge-multiple: true}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_role_producers, path: role-producers}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_topology_verifiers, path: topology-verifiers}
+      - run: |
+          python -m pip install --force-reinstall $(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)
+          env -u PYTHONPATH python scripts/run_batch097_amds_builder.py --inputs-root candidate-inputs --topology topology-verifiers --roles role-producers --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch097/amds" --output amds-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_amds_builder, path: amds-output, retention-days: 1}
+
+  truth_join:
+    name: 40-42 truth join, quality, and protected continuation gate
+    needs: [amds_builder, sealed_truth]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_amds_builder, path: amds-output}
+      - uses: actions/download-artifact@v4
+        with: {name: batch097_sealed_truth, path: sealed-truth}
+      - run: python scripts/join_batch097_truth_and_quality.py --builder-output amds-output --truth $(find sealed-truth -name batch097_amds_sealed_truth.json -print -quit) --output quality-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_quality, path: quality-output, retention-days: 1}
+
+  standalone_critic:
+    name: 43-45 standalone actual-evidence critic and mutations
+    needs: [custody_expected_red, cohort_join, role_producers, role_verifiers, topology_producers, topology_verifiers, tld_projections, amds_builder, truth_join]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_*, path: joined}
+      - run: python -I scripts/batch097_standalone_critic.py --evidence joined --output critic-output
+      - uses: actions/upload-artifact@v4
+        with: {name: batch097_critic, path: critic-output, retention-days: 1}
+
+  compact_handoff:
+    name: 46-49 public state, audit, compact artifact handoff
+    needs: [standalone_critic]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13"}
+      - run: python -m pip install pytest build wheel setuptools packaging
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch097_*, path: joined}
+      - run: python scripts/finalize_batch097.py --joined joined --output "$OUTPUT" --workflow-run "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA"
+      - name: Complete regression and authority audits
+        run: |
+          python -m pytest -q
+          python scripts/audit_v2_18_evidence_derived_topology_historical_provider.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_no_batch_core_logic.py
+          python scripts/audit_installed_product_reachability.py
+          python scripts/audit_no_legacy_production_imports.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_public_language.py
+          python scripts/audit_current_state_view_sync.py
+          python scripts/audit_batch097_evidence_reconstitution_real_repository_genome_topology_amds.py
+          python scripts/byte_custody_preflight.py
+          git diff --check
+      - name: Stage compact artifact
+        run: |
+          mkdir -p "$RUNNER_TEMP/batch097-main"
+          cp -a "$OUTPUT/." "$RUNNER_TEMP/batch097-main/"
+          if find "$RUNNER_TEMP/batch097-main" -type f \( -name '*.pyc' -o -path '*/__pycache__/*' -o -name '*.zip' \) | grep -q .; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds_artifacts
+          path: ${{ runner.temp }}/batch097-main
+          retention-days: 30

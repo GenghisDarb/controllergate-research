@@ -1,10 +1,9 @@
 from __future__ import annotations
-import hashlib,json,stat,zipfile
+import argparse,hashlib,json,stat,zipfile
 from pathlib import Path,PurePosixPath
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'outputs/post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds'
 ZIP=ROOT/'incoming_artifacts/post_v2_37_hardening_batch096_repository_genome_topology_compiled_amds_unification_artifacts.zip'
-REVIEW=ROOT/'incoming_artifacts/Batch096_independent_external_depth_review.json'
 def sha(b): return hashlib.sha256(b).hexdigest()
 def dump(n,v): (OUT/n).write_text(json.dumps(v,indent=2,sort_keys=True)+'\n')
 def verify_manifest(z,name):
@@ -22,6 +21,10 @@ def verify_manifest(z,name):
   if actual!=expected: mismatch.append(path)
  return {'manifest':name,'checked':len(checked),'missing':missing,'mismatches':mismatch,'malformed':malformed,'self_entries':self_entries,'status':'PASS' if not(missing or mismatch or malformed or self_entries) else 'BLOCK'}
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--artifact');parser.add_argument('--output');args=parser.parse_args()
+ global OUT,ZIP
+ if args.artifact: ZIP=Path(args.artifact)
+ if args.output: OUT=Path(args.output)
  OUT.mkdir(parents=True,exist_ok=True); raw=ZIP.read_bytes()
  with zipfile.ZipFile(ZIP) as z:
   infos=z.infolist(); names=[i.filename for i in infos]; unsafe=[]; symlinks=[]; parse=[]
@@ -41,8 +44,7 @@ def main():
  custody={'status':'PASS','artifact_id':8399956632,'size':len(raw),'sha256':sha(raw),'zip_entries':len(infos),'uncompressed_bytes':sum(i.file_size for i in infos),'unsafe_paths':unsafe,'duplicate_paths':len(names)-len(set(names)),'symlinks':symlinks,'nested_archives':[n for n in names if n.lower().endswith(('.zip','.tar','.tgz','.whl'))],'json_parse_failures':parse}
  if not(len(raw)==159683 and custody['sha256']=='8aa0c74a2a66e423cc2c34a2e57901c54bae625cadbb537fdf130fa2e82d83d7' and len(infos)==108 and all(m['status']=='PASS' for m in manifests) and not any((unsafe,symlinks,parse))): custody['status']='BLOCK'
  dump('batch096_artifact_ingest.json',custody); dump('batch096_artifact_manifest_verification.json',{'status':'PASS' if all(m['status']=='PASS' for m in manifests) else 'BLOCK','manifests':manifests}); dump('batch096_raw_evidence_preservation.json',{'status':'PASS','raw_zip_outside_git':True,'historical_outputs_immutable':True,'sha256':custody['sha256']})
- verdict=json.loads(REVIEW.read_text())
- corrected={'status':'PASS','external_verdict':verdict['verdict'],'classification':{'ARTIFACT_CUSTODY':'PASS','ARCHITECTURE_SCAFFOLDING':'REAL_PROGRESS','REPOSITORY_GENOME':'NOT_ESTABLISHED','EIGHT_EPISODE_MATERIALIZATION':'NOT_RUN','ROLE_MEASUREMENT':'NOT_RUN','ACTIVE_BROT_BULB_TOPOLOGY':'NOT_RUN','TLD_1_44_EXECUTION':'NOT_ESTABLISHED','TOPOLOGY_COMPILED_DECISIVE_AMDS':'NOT_ESTABLISHED','HISTORICAL_AMDS_QUALITY':'NOT_ESTABLISHED','SOURCE_OWNERSHIP':'NOT_ESTABLISHED','PROTECTED_ACTUATION':'NOT_RUN','PRODUCT_BETA_RC':'PRODUCT_BETA_RC_BLOCKED_EXACT'},'exact_blocker':'BATCH096_SYNTHETIC_SCIENTIFIC_EVIDENCE_RECONSTITUTION_REQUIRED'}
+ corrected={'status':'PASS','external_review_json_sha256':'9ddbf0eed147c9b40b49f1a3044a87749a5f8206550ea5f8996586eabec487e3','external_review_markdown_sha256':'0986305d0f6eab40e3c041ac8356aa0f0bc18787048afa1c17b43b9d500dd3fe','external_verdict':'BATCH096_ARTIFACT_CUSTODY_PASS_ARCHITECTURE_SCAFFOLD_PROGRESS_REAL_SCIENTIFIC_CLOSURE_INVALIDATED_SYNTHETIC_EVIDENCE_RECONSTITUTION_REQUIRED','classification':{'ARTIFACT_CUSTODY':'PASS','ARCHITECTURE_SCAFFOLDING':'REAL_PROGRESS','REPOSITORY_GENOME':'NOT_ESTABLISHED','EIGHT_EPISODE_MATERIALIZATION':'NOT_RUN','ROLE_MEASUREMENT':'NOT_RUN','ACTIVE_BROT_BULB_TOPOLOGY':'NOT_RUN','TLD_1_44_EXECUTION':'NOT_ESTABLISHED','TOPOLOGY_COMPILED_DECISIVE_AMDS':'NOT_ESTABLISHED','HISTORICAL_AMDS_QUALITY':'NOT_ESTABLISHED','SOURCE_OWNERSHIP':'NOT_ESTABLISHED','PROTECTED_ACTUATION':'NOT_RUN','PRODUCT_BETA_RC':'PRODUCT_BETA_RC_BLOCKED_EXACT'},'exact_blocker':'BATCH096_SYNTHETIC_SCIENTIFIC_EVIDENCE_RECONSTITUTION_REQUIRED'}
  dump('batch096_external_scientific_reconstruction.json',corrected); dump('batch096_scientific_claim_invalidation.json',corrected); dump('batch096_public_language_correction.json',{'status':'PASS','required_statement':'Batch096 architecture scaffolding is retained; synthetic scientific conclusions are excluded from current authority.'})
  excluded=['repository_genome','eight_episode_materialization','role_measurement','active_brot_bulb_topology','tld_execution','amds_quality','source_ownership','critic_mutations']
  (OUT/'batch096_current_authority_exclusion_registry.jsonl').write_text(''.join(json.dumps({'claim':x,'status':'EXCLUDED','reason':'synthetic Batch096 evidence'})+'\n' for x in excluded))
