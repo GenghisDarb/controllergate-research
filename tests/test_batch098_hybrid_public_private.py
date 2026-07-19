@@ -113,6 +113,9 @@ def test_workflows_and_local_boundary_are_explicit() -> None:
     assert "--output \"$RUNNER_TEMP/controllergate-runtime/contracts/candidate_execution_contracts_v2.jsonl\"" in decision
     assert "cmp configs/frozen_provider_environment_contracts_v1.jsonl" in decision
     assert "public_decision_time_artifact_id" in truth_blind and "opaque_plan_commit_sha" in truth_blind
+    assert "ref: ${{ inputs.opaque_plan_commit_sha }}" not in truth_blind
+    assert "git show \"${{ inputs.opaque_plan_commit_sha }}:configs/batch098_opaque_probe_plan_registry_v1.jsonl\"" in truth_blind
+    assert "cmp \"$RUNNER_TEMP/committed-opaque-plan.jsonl\" configs/batch098_opaque_probe_plan_registry_v1.jsonl" in truth_blind
     assert "PublicDecisionEvidenceArtifactId" in local and "PublicTruthBlindExecutionArtifactId" in local
     assert "LOCAL_WINDOWS_DIAGNOSTIC_NONPARITY" in local
     assert "materialize-candidate" not in local
