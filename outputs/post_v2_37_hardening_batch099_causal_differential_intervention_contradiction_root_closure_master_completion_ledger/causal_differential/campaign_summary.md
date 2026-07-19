@@ -1,0 +1,3 @@
+# Batch099 causal differential closure
+
+The official Batch098 artifact is ingested and immutable. All 432 prior contradictions were reconstructed as false mutual exclusions caused by treating contact as ownership. The corrected constraint model preserves compatible contacts and emits no ownership terminal without matched differential evidence. Existing frozen evidence contains sensitivity comparisons but no ownership-grade matched counterfactual, so causal coverage remains zero and the campaign is scientifically blocked. No patch, repair-count change, protected actuation, or release promotion occurred.

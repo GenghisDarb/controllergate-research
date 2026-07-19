@@ -1,6 +1,6 @@
 {
   "batch": "Batch099",
-  "status": "ACTIVE_AFTER_OFFICIAL_INGEST",
+  "status": "ACTIVE_SCIENTIFIC_BLOCK",
   "goals": [
     {
       "goal_id": "CG-GOAL-000-OFFICIAL-BATCH098-INGEST",
@@ -20,11 +20,11 @@
       "receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
       "checkpoint_commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0"
     },
-    {"goal_id": "CG-GOAL-001-CONTRADICTION-ROOTS", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"]},
-    {"goal_id": "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-001-CONTRADICTION-ROOTS"]},
-    {"goal_id": "CG-GOAL-003-CAUSAL-EVIDENCE-HIERARCHY", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"]},
-    {"goal_id": "CG-GOAL-004-CORRECTED-CONSTRAINT-MODEL", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-003-CAUSAL-EVIDENCE-HIERARCHY"]},
-    {"goal_id": "CG-GOAL-005-TRUTH-BLIND-SEMANTIC-RERUN", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "CG-GOAL-004-CORRECTED-CONSTRAINT-MODEL"]},
-    {"goal_id": "CG-GOAL-006-ARCHITECTURE-GAIN", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-005-TRUTH-BLIND-SEMANTIC-RERUN"]}
+    {"goal_id": "CG-GOAL-001-CONTRADICTION-ROOTS", "status": "COMPLETE", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"], "evidence": "causal_differential/batch099_contradiction_root_map_v1.jsonl"},
+    {"goal_id": "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "status": "BLOCKED_NARROW_COUNTERFACTUAL_EXECUTION_REQUIRED", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-001-CONTRADICTION-ROOTS"], "evidence": "causal_differential/batch099_counterfactual_adequacy_gate.json"},
+    {"goal_id": "CG-GOAL-003-CAUSAL-EVIDENCE-HIERARCHY", "status": "COMPLETE", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"], "evidence": "causal_differential/batch099_causal_evidence_hierarchy_v1.json"},
+    {"goal_id": "CG-GOAL-004-CORRECTED-CONSTRAINT-MODEL", "status": "COMPLETE", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-003-CAUSAL-EVIDENCE-HIERARCHY"], "evidence": "causal_differential/batch099_corrected_constraint_model_v1.json"},
+    {"goal_id": "CG-GOAL-005-TRUTH-BLIND-SEMANTIC-RERUN", "status": "COMPLETE_WITH_SCIENTIFIC_BLOCK", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "CG-GOAL-004-CORRECTED-CONSTRAINT-MODEL"], "evidence": "causal_differential/batch099_corrected_semantic_replay_summary.json"},
+    {"goal_id": "CG-GOAL-006-ARCHITECTURE-GAIN", "status": "NOT_ESTABLISHED", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-005-TRUTH-BLIND-SEMANTIC-RERUN"], "evidence": "causal_differential/batch099_architecture_component_gain_gate.json"}
   ]
 }
