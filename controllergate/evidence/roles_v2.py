@@ -111,10 +111,21 @@ class RoleReceipt:
         return dict(self.__dict__)
 
 
-def produce_roles(evidence: Mapping[str, Any]) -> list[dict[str, Any]]:
+def produce_roles(evidence: Mapping[str, Any], *, preserve_blocked: bool = False) -> list[dict[str, Any]]:
     produced: list[dict[str, Any]] = []
     for role in ROLE_NAMES:
-        result = PRODUCERS[role](evidence)
+        try:
+            result = PRODUCERS[role](evidence)
+            producer_status = "PASS"
+            blocker = None
+        except (KeyError, ValueError) as error:
+            if not preserve_blocked:
+                raise
+            incident = evidence.get("typed_incident", {})
+            parent = incident.get("verification_receipt") or _hash(incident)
+            result = {"value": None, "parents": [parent]}
+            producer_status = "BLOCK"
+            blocker = str(error)
         producer_id = f"controllergate.evidence.roles_v2.produce_{role}"
         receipt_id = f"role-producer:{_hash([evidence['candidate_id'], evidence['run_id'], evidence['frame_id'], role, result])}"
         producer_row = {
@@ -126,6 +137,8 @@ def produce_roles(evidence: Mapping[str, Any]) -> list[dict[str, Any]]:
             "observed_value": result["value"],
             "raw_evidence_parents": result["parents"],
             "producer": producer_id,
+            "status": producer_status,
+            "blocker": blocker,
             "authority_allowed": "role-specific measurement",
             "authority_forbidden": ["terminal class", "repair authority"],
         }
@@ -155,7 +168,7 @@ def verify_role_receipts(produced: list[Mapping[str, Any]]) -> list[dict[str, An
                 "role": role,
                 "verifier": "controllergate.evidence.roles_v2.verify_role_receipt",
                 "producer_verifier_distinct": producer_row["producer"] != "controllergate.evidence.roles_v2.verify_role_receipt",
-                "status": "PASS" if producer_row["raw_evidence_parents"] else "BLOCK",
+                "status": "PASS" if producer_row.get("status", "PASS") == "PASS" and producer_row["raw_evidence_parents"] else "BLOCK",
                 "authority_allowed": "role-receipt integrity only",
                 "authority_forbidden": ["semantic role equivalence", "terminal class", "repair authority"],
             }

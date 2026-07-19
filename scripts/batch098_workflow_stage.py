@@ -48,10 +48,45 @@ def incident_verify(source: Path, output: Path) -> dict:
     values = []
     for path in sorted(source.glob("*/candidate_lane_result_v2.json")):
         value = json.loads(path.read_text(encoding="utf-8"))
-        incident = value.get("typed_incident", {})
-        values.append({"candidate_id": value["candidate_id"], "status": "PASS" if incident.get("status") == "PASS" and incident.get("verification_receipt") else "BLOCK", "verification_receipt": incident.get("verification_receipt"), "structured_product_parents": incident.get("structured_product_parents", [])})
+        incident_path = path.parent / "typed_incident_verification.json"
+        incident = json.loads(incident_path.read_text(encoding="utf-8"))
+        embedded = value.get("typed_incident", {})
+        incident_status = incident.get("status")
+        independently_reopened = incident == embedded
+        explicit_result = incident_status in {"PASS", "BLOCK"} and bool(
+            incident.get("verification_receipt") or incident.get("reasons")
+        )
+        verification_status = "PASS" if independently_reopened and explicit_result else "BLOCK"
+        receipt_payload = {
+            "candidate_id": value["candidate_id"],
+            "incident_file_sha256": hashlib.sha256(incident_path.read_bytes()).hexdigest(),
+            "embedded_incident_sha256": hashlib.sha256(json.dumps(embedded, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
+            "incident_status": incident_status,
+            "independently_reopened": independently_reopened,
+            "verification_status": verification_status,
+        }
+        values.append({
+            **receipt_payload,
+            "status": verification_status,
+            "typed_incident_materialized": incident.get("typed_incident_materialized") is True,
+            "scientific_block_preserved": incident_status == "BLOCK",
+            "verification_receipt": hashlib.sha256(json.dumps(receipt_payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest(),
+            "structured_product_parents": incident.get("structured_product_parents", []),
+            "producer": "scripts.batch098_workflow_stage.incident_verify",
+            "authority_allowed": "incident verification execution custody",
+            "authority_forbidden": ["incident materialization from blocked evidence", "terminal", "repair", "count", "release"],
+        })
     write_jsonl(output / "incident_verification.jsonl", values)
-    return {"status": "PASS" if len(values) == 8 and all(row["status"] == "PASS" for row in values) else "BLOCK", "count": len(values)}
+    verification_pass = len(values) == 8 and all(row["status"] == "PASS" for row in values)
+    result = {
+        "status": "PASS_VERIFICATION_EXECUTED" if verification_pass else "BLOCK",
+        "count": len(values),
+        "materialized_count": sum(row["typed_incident_materialized"] for row in values),
+        "scientific_block_count": sum(row["scientific_block_preserved"] for row in values),
+        "authority_forbidden": ["incident PASS aggregation", "terminal", "repair", "count", "release"],
+    }
+    write_json(output / "incident_verification_summary.json", result)
+    return result
 
 
 def role_produce(source: Path, output: Path) -> dict:
@@ -59,9 +94,10 @@ def role_produce(source: Path, output: Path) -> dict:
     for path in sorted(source.glob("*/candidate_lane_result_v2.json")):
         candidate = json.loads(path.read_text(encoding="utf-8"))
         candidate["neutral_observation"] = json.loads((path.parent / "neutral_observation_v2.json").read_text(encoding="utf-8"))
-        produced.extend(produce_roles(candidate))
+        produced.extend(produce_roles(candidate, preserve_blocked=True))
     write_jsonl(output / "role_producers.jsonl", produced)
-    return {"status": "PASS" if len(produced) == 80 else "BLOCK", "count": len(produced)}
+    blocked = sum(row.get("status") == "BLOCK" for row in produced)
+    return {"status": "PASS_EXECUTION_WITH_SCIENTIFIC_BLOCKS" if len(produced) == 80 else "BLOCK", "count": len(produced), "blocked_role_count": blocked}
 
 
 def role_verify(source: Path, output: Path) -> dict:
@@ -70,7 +106,12 @@ def role_verify(source: Path, output: Path) -> dict:
     quality = role_quality_gate(produced, verified, 8)
     write_jsonl(output / "role_verifiers.jsonl", verified)
     write_json(output / "role_quality.json", quality)
-    return quality
+    return {
+        "status": "PASS_EXECUTION_WITH_SCIENTIFIC_BLOCKS" if len(produced) == len(verified) == 80 else "BLOCK",
+        "role_quality_status": quality["status"],
+        "blocked_role_count": sum(row.get("status") == "BLOCK" for row in verified),
+        "quality": quality,
+    }
 
 
 def frame_verify(source: Path, output: Path) -> dict:

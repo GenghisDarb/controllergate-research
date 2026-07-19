@@ -7,7 +7,9 @@ from pathlib import Path
 from controllergate.amds.opaque_plan_v1 import compile_opaque_plans, verify_opaque_plans
 from controllergate.amds.stage_runtime_v7 import run_dpp14
 from controllergate.evidence.provider_parity import load_provider_contracts, public_provider_negative_controls, verify_provider_observation
+from controllergate.evidence.roles_v2 import produce_roles, role_quality_gate, verify_role_receipts
 from controllergate.topology.pre_tld_frame_v1 import canonical_hash, verify_pre_tld_frame
+from scripts.batch098_workflow_stage import incident_verify
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -111,3 +113,50 @@ def test_workflows_and_local_boundary_are_explicit() -> None:
     assert "PublicDecisionEvidenceArtifactId" in local and "PublicTruthBlindExecutionArtifactId" in local
     assert "LOCAL_WINDOWS_DIAGNOSTIC_NONPARITY" in local
     assert "materialize-candidate" not in local
+
+
+def test_independent_incident_verification_preserves_scientific_blocks(tmp_path: Path) -> None:
+    for index in range(8):
+        candidate = f"candidate-{index}"
+        root = tmp_path / "cohort" / candidate
+        root.mkdir(parents=True)
+        incident = {
+            "status": "PASS" if index == 0 else "BLOCK",
+            "typed_incident_materialized": index == 0,
+            "reasons": [] if index == 0 else ["target_behavior_absent"],
+            "verification_receipt": canonical_hash([candidate, "incident"]),
+            "structured_product_parents": [canonical_hash([candidate, "product"])],
+        }
+        (root / "typed_incident_verification.json").write_text(json.dumps(incident), encoding="utf-8")
+        (root / "candidate_lane_result_v2.json").write_text(
+            json.dumps({"candidate_id": candidate, "typed_incident": incident}), encoding="utf-8"
+        )
+    result = incident_verify(tmp_path / "cohort", tmp_path / "verified")
+    assert result == {
+        "status": "PASS_VERIFICATION_EXECUTED",
+        "count": 8,
+        "materialized_count": 1,
+        "scientific_block_count": 7,
+        "authority_forbidden": ["incident PASS aggregation", "terminal", "repair", "count", "release"],
+    }
+
+
+def test_role_execution_preserves_unavailable_incident_role() -> None:
+    digest = "a" * 64
+    evidence = {
+        "candidate_id": "candidate", "run_id": "run", "frame_id": "frame", "source_commit": digest,
+        "contract_hash": digest, "source_manifest_hash_before": digest, "source_manifest_hash_after": digest,
+        "test_manifest_hash_before": digest, "test_manifest_hash_after": digest,
+        "neutral_observation": {
+            "provider_identity": digest, "producer_installed_code_hash": digest, "probe_id": "probe",
+            "stdout_sha256": digest, "stderr_sha256": digest, "parent_broker_record": digest,
+            "argv": ["python"], "runner_identity": "runner", "harness_identity": "harness",
+        },
+        "typed_incident": {"status": "BLOCK", "verification_receipt": digest, "reasons": ["absent"]},
+    }
+    produced = produce_roles(evidence, preserve_blocked=True)
+    verified = verify_role_receipts(produced)
+    assert len(produced) == len(verified) == 10
+    assert sum(row["status"] == "BLOCK" for row in produced) == 1
+    assert sum(row["status"] == "BLOCK" for row in verified) == 1
+    assert role_quality_gate(produced, verified, 1)["status"] == "BLOCK"
