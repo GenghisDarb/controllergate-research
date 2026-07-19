@@ -1,0 +1,156 @@
+name: controllergate_batch098_public_truth_blind_execution
+
+on:
+  workflow_dispatch:
+    inputs:
+      public_decision_time_artifact_id:
+        description: Exact public decision-time evidence artifact ID
+        required: true
+      opaque_plan_commit_sha:
+        description: Exact commit containing the frozen opaque plan registry
+        required: true
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  CG_RUNTIME: ${{ runner.temp }}/controllergate-runtime
+  CG_EXECUTION_SURFACE: PUBLIC_TRUTH_BLIND_EXECUTION_ONLY
+
+jobs:
+  public_input_custody_and_plan_freeze:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.opaque_plan_commit_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13.14", check-latest: false, architecture: x64}
+      - run: python -m pip install .
+      - name: Verify exact opaque-plan commit
+        run: |
+          test "$(git cat-file -t '${{ inputs.opaque_plan_commit_sha }}')" = commit
+          test "$(git rev-parse HEAD)" = "${{ inputs.opaque_plan_commit_sha }}"
+      - name: Acquire exact public decision-time artifact
+        env: {GH_TOKEN: "${{ github.token }}"}
+        run: |
+          mkdir -p "$CG_RUNTIME/decision"
+          gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.public_decision_time_artifact_id }}/zip" > "$RUNNER_TEMP/public-decision.zip"
+          unzip -q "$RUNNER_TEMP/public-decision.zip" -d "$CG_RUNTIME/decision"
+      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$CG_RUNTIME/decision" --kind decision --output "$CG_RUNTIME/public_decision_artifact_verification.json"
+      - run: >-
+          python scripts/verify_batch098_public_opaque_plan.py
+          --plan-registry configs/batch098_opaque_probe_plan_registry_v1.jsonl
+          --commit "${{ inputs.opaque_plan_commit_sha }}"
+          --output "$CG_RUNTIME/opaque_plan_public_verification.json"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch098-truth-public-input, path: "${{ runner.temp }}/controllergate-runtime", retention-days: 1}
+
+  candidate_truth_blind_execution:
+    needs: public_input_custody_and_plan_freeze
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {candidate: darker_issue_112_relative_git_dir, provider_python: "3.7.17"}
+          - {candidate: py_bugger_issue_65, provider_python: "3.11.15"}
+          - {candidate: cloudpickle_507_py313_typevar_distutils, provider_python: "3.13.14"}
+          - {candidate: freezegun_547_py313_datetimes_assertion, provider_python: "3.13.14"}
+          - {candidate: audioread_144_py313_aifc_removed, provider_python: "3.13.14"}
+          - {candidate: pytest_13480_wdefault_unraisable_threadexception, provider_python: "3.13.14"}
+          - {candidate: incident_openbb_7585_modular_openapi_reproducer, provider_python: "3.11.15"}
+          - {candidate: incident_poetry_10974_init_duplicate_name, provider_python: "3.11.15"}
+    runs-on: ubuntu-22.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.opaque_plan_commit_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        id: provider
+        with: {python-version: "${{ matrix.provider_python }}", check-latest: false, architecture: x64}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13.14", check-latest: false, architecture: x64}
+      - uses: actions/download-artifact@v4
+        with: {name: batch098-truth-public-input, path: "${{ runner.temp }}/public-input"}
+      - name: Locate sealed public inputs
+        id: paths
+        run: |
+          echo "decision=$RUNNER_TEMP/public-input/decision" >> "$GITHUB_OUTPUT"
+          echo "wheel=$(find "$RUNNER_TEMP/public-input/decision" -name 'controllergate-*.whl' -type f | head -1)" >> "$GITHUB_OUTPUT"
+          echo "contracts=$(find "$RUNNER_TEMP/public-input/decision" -name 'candidate_execution_contracts_v2.jsonl' -type f | head -1)" >> "$GITHUB_OUTPUT"
+          echo "provider_contracts=$(find "$RUNNER_TEMP/public-input/decision" -name 'frozen_provider_environment_contracts_v1.jsonl' -type f | head -1)" >> "$GITHUB_OUTPUT"
+      - run: python -m pip install "${{ steps.paths.outputs.wheel }}"
+      - name: Verify exact provider again
+        run: >-
+          python scripts/verify_batch098_frozen_provider.py
+          --candidate "${{ matrix.candidate }}"
+          --python "${{ steps.provider.outputs.python-path }}"
+          --contracts "${{ steps.paths.outputs.provider_contracts }}"
+          --output "$RUNNER_TEMP/truth/${{ matrix.candidate }}/exact_provider_verification_v1.json"
+      - name: Reconstruct exact candidate environment and target
+        run: >-
+          controllergate evidence materialize-candidate
+          --contracts "${{ steps.paths.outputs.contracts }}"
+          --candidate "${{ matrix.candidate }}"
+          --runtime-root "$CG_RUNTIME/reconstruction/${{ matrix.candidate }}"
+          --output "$RUNNER_TEMP/reconstruction/${{ matrix.candidate }}"
+          --provider-python "${{ steps.provider.outputs.python-path }}"
+          --forbidden-repo-root "$GITHUB_WORKSPACE"
+          --run-id "$GITHUB_RUN_ID-reconstruction-${{ matrix.candidate }}"
+      - name: Verify equivalence to first materialization
+        run: >-
+          python scripts/verify_batch098_reconstruction_equivalence.py
+          --decision-artifact "${{ steps.paths.outputs.decision }}"
+          --candidate-evidence "$RUNNER_TEMP/reconstruction/${{ matrix.candidate }}"
+          --candidate "${{ matrix.candidate }}"
+          --provider-receipt "$RUNNER_TEMP/truth/${{ matrix.candidate }}/exact_provider_verification_v1.json"
+          --output "$RUNNER_TEMP/truth/${{ matrix.candidate }}/environment_equivalence_proof_v1.json"
+      - run: >-
+          python scripts/extract_batch098_public_decision_candidate.py
+          --decision-root "${{ steps.paths.outputs.decision }}"
+          --candidate "${{ matrix.candidate }}"
+          --output "$RUNNER_TEMP/frame/${{ matrix.candidate }}"
+      - name: Execute canonical DPP-14 arms and baselines without truth
+        run: >-
+          python scripts/run_batch098_public_truth_blind.py
+          --frame "$RUNNER_TEMP/frame/${{ matrix.candidate }}/pre_tld_decision_frame_v1.json"
+          --plan-registry configs/batch098_opaque_probe_plan_registry_v1.jsonl
+          --provider-python "${{ steps.provider.outputs.python-path }}"
+          --provider-receipt "$RUNNER_TEMP/truth/${{ matrix.candidate }}/exact_provider_verification_v1.json"
+          --output "$RUNNER_TEMP/truth/${{ matrix.candidate }}"
+      - uses: actions/upload-artifact@v4
+        with: {name: "batch098-truth-candidate-${{ matrix.candidate }}", path: "${{ runner.temp }}/truth/${{ matrix.candidate }}", retention-days: 1}
+
+  public_truth_blind_evidence_seal:
+    needs: candidate_truth_blind_execution
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.opaque_plan_commit_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.13.14", check-latest: false, architecture: x64}
+      - run: python -m pip install .
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch098-truth-candidate-*, path: "${{ runner.temp }}/truth-input"}
+      - run: >-
+          python scripts/seal_batch098_public_artifact.py
+          --source "$RUNNER_TEMP/truth-input"
+          --output "$CG_RUNTIME/public-truth-blind-evidence"
+          --kind truth-blind
+          --workflow-run-id "$GITHUB_RUN_ID"
+          --workflow-head "$GITHUB_SHA"
+      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$CG_RUNTIME/public-truth-blind-evidence" --kind truth-blind
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch098_public_truth_blind_execution_evidence
+          path: "${{ runner.temp }}/controllergate-runtime/public-truth-blind-evidence"
+          retention-days: 30
+          if-no-files-found: error

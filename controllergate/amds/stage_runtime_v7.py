@@ -115,13 +115,19 @@ def execute_stage(stage_index: int, state: Mapping[str, Any], work_root: Path) -
         if not result["legal_probe_count"]:
             result["scientific_blocker"] = "topology_compiler_produced_no_legal_probe"
     elif stage == "SelectMinimalProbe":
-        selected = deterministic_minimax_probe(result["probe_contracts"], result["active_hypotheses"])
+        planned = list(result.get("planned_probe_order", ()))
+        by_id = {row["probe_id"]: row for row in result["probe_contracts"]}
+        if planned and (set(planned) != set(by_id) or len(planned) != len(set(planned))):
+            raise ValueError("planned probe order must be a complete permutation of legal probes")
+        selected = by_id.get(planned[0]) if planned else deterministic_minimax_probe(result["probe_contracts"], result["active_hypotheses"])
         result["selected_probe_id"] = selected.get("probe_id") if selected else None
         result["planner_receipt"] = _hash([result["active_hypotheses"], result["probe_contracts"], result["selected_probe_id"]])
         if selected is None and result["probe_contracts"]:
             result["scientific_blocker"] = "no_legal_discriminating_probe"
     elif stage == "ExecuteProbe":
-        ordered = sorted(result["probe_contracts"], key=lambda row: (row["probe_id"] != result.get("selected_probe_id"), row["probe_id"]))
+        planned = list(result.get("planned_probe_order", ()))
+        by_id = {row["probe_id"]: row for row in result["probe_contracts"]}
+        ordered = [by_id[probe_id] for probe_id in planned] if planned else sorted(result["probe_contracts"], key=lambda row: (row["probe_id"] != result.get("selected_probe_id"), row["probe_id"]))
         executions = []
         for index, probe in enumerate(ordered):
             executed = execute_probe_contract(probe, work_root / f"probe-{index:03d}")

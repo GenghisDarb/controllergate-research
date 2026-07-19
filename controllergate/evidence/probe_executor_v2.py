@@ -25,7 +25,8 @@ def execute_probe_contract(contract: Mapping[str, Any], output: str | Path) -> d
     missing = sorted(required - contract.keys())
     if missing:
         raise ValueError(f"probe contract fields missing: {','.join(missing)}")
-    argv = [sys.executable if value == "{python}" else str(value) for value in contract["exact_argv"]]
+    provider_python = str(contract.get("provider_python_executable") or sys.executable)
+    argv = [provider_python if value == "{python}" else str(value) for value in contract["exact_argv"]]
     if not argv:
         raise ValueError("probe requires exact executable argv")
     root = Path(output).resolve()
@@ -34,12 +35,12 @@ def execute_probe_contract(contract: Mapping[str, Any], output: str | Path) -> d
     cwd = Path(str(contract.get("cwd", installed_import_root))).resolve()
     if not cwd.is_dir():
         cwd = root
-    attestation = {"status": "PASS", "attestation_hash": _hash([sys.executable, sys.version, sys.platform])}
+    attestation = {"status": "PASS", "attestation_hash": _hash([provider_python, contract.get("provider_identity_receipt"), sys.platform])}
     completed, operation = execute_external_operation(
         operation_type="diagnostic_probe", argv=argv, cwd=cwd, runtime_root=root,
         stage_id=str(contract["probe_id"]), candidate_id=str(contract["candidate_id"]),
         authorization_id=f"evidence-only:{_hash(contract)}", runtime_attestation=attestation,
-        platform=sys.platform, runtime=sys.version, network_policy="none",
+        platform=sys.platform, runtime=str(contract.get("provider_exact_version") or sys.version), network_policy="none",
         env=dict(contract.get("environment_delta", {})), timeout=int(contract.get("timeout_seconds", 60)),
         run_id=str(contract["run_id"]), nonce=str(contract["single_use_nonce"]),
     )

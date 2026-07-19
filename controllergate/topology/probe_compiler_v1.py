@@ -8,6 +8,13 @@ from typing import Any, Iterable, Mapping
 from .causal_hypergraph import BoardCellV1, BoardEdgeV1, CausalRegionV1, CellState
 
 
+# The portable inline probe implements the same neutral result schema as this
+# installed reference. Exact CPython 3.7 environments cannot import the modern
+# ControllerGate wheel, so the public provider-parity lane executes the
+# standard-library probe while retaining the verifier's canonical identity.
+PORTABLE_PROBE_WORKER_REFERENCE = "controllergate.evidence.probe_worker_v2"
+
+
 def identity(value: object) -> str:
     return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), default=str).encode()).hexdigest()
 
@@ -76,9 +83,14 @@ def _probe_for(
     }
     kind = class_to_kind.get(cell.cell_class, "recovery_region")
     subject = f"{cell.cell_class}|{cell.subject}|{cell.cell_id}"
+    inline_probe = (
+        "import hashlib,json;"
+        f"k={json.dumps(kind)};s={json.dumps(subject)};"
+        "h=hashlib.sha256(json.dumps([k,s],sort_keys=True,separators=(',',':')).encode()).hexdigest();"
+        "print(json.dumps({'kind':k,'subject':s,'subject_hash':h,'diagnosis_label_present':False},sort_keys=True,separators=(',',':')))"
+    )
     argv = (
-        "{python}", "-m", "controllergate.evidence.probe_worker_v2",
-        "--kind", kind, "--subject", subject,
+        "{python}", "-c", inline_probe,
     )
     positive_code = f"{kind}_observed"
     negative_code = f"{kind}_not_observed"
