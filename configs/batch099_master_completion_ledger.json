@@ -1,11 +1,11 @@
 {
   "batch": "Batch099",
-  "status": "PROVISIONAL_INGEST_AWAITING_CHECKPOINT_COMMIT",
+  "status": "ACTIVE_AFTER_OFFICIAL_INGEST",
   "goals": [
     {
       "goal_id": "CG-GOAL-000-OFFICIAL-BATCH098-INGEST",
       "title": "Officially ingest and reconcile the corrected Batch098 semantic-closure artifact",
-      "status": "PENDING_COMMITTED_INGEST_VERIFICATION",
+      "status": "COMPLETE",
       "prerequisites": [],
       "required_evidence": [
         "official ingest receipt",
@@ -18,7 +18,7 @@
         "ingest checkpoint commit"
       ],
       "receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
-      "checkpoint_commit": "PENDING_COMMITTED_INGEST_VERIFICATION"
+      "checkpoint_commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0"
     },
     {"goal_id": "CG-GOAL-001-CONTRADICTION-ROOTS", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"]},
     {"goal_id": "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-001-CONTRADICTION-ROOTS"]},
