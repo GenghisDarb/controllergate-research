@@ -1,0 +1,30 @@
+{
+  "batch": "Batch099",
+  "status": "PROVISIONAL_INGEST_AWAITING_CHECKPOINT_COMMIT",
+  "goals": [
+    {
+      "goal_id": "CG-GOAL-000-OFFICIAL-BATCH098-INGEST",
+      "title": "Officially ingest and reconcile the corrected Batch098 semantic-closure artifact",
+      "status": "PENDING_COMMITTED_INGEST_VERIFICATION",
+      "prerequisites": [],
+      "required_evidence": [
+        "official ingest receipt",
+        "outer artifact custody",
+        "payload manifest verification",
+        "semantic reconciliation",
+        "claim-boundary reconciliation",
+        "private-content scan",
+        "committed extracted tree",
+        "ingest checkpoint commit"
+      ],
+      "receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+      "checkpoint_commit": "PENDING_COMMITTED_INGEST_VERIFICATION"
+    },
+    {"goal_id": "CG-GOAL-001-CONTRADICTION-ROOTS", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"]},
+    {"goal_id": "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-001-CONTRADICTION-ROOTS"]},
+    {"goal_id": "CG-GOAL-003-CAUSAL-EVIDENCE-HIERARCHY", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST"]},
+    {"goal_id": "CG-GOAL-004-CORRECTED-CONSTRAINT-MODEL", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-003-CAUSAL-EVIDENCE-HIERARCHY"]},
+    {"goal_id": "CG-GOAL-005-TRUTH-BLIND-SEMANTIC-RERUN", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-002-MATCHED-COUNTERFACTUALS", "CG-GOAL-004-CORRECTED-CONSTRAINT-MODEL"]},
+    {"goal_id": "CG-GOAL-006-ARCHITECTURE-GAIN", "status": "PENDING", "prerequisites": ["CG-GOAL-000-OFFICIAL-BATCH098-INGEST", "CG-GOAL-005-TRUTH-BLIND-SEMANTIC-RERUN"]}
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "allowed_terminal_classes": [
+    "SOURCE_OWNED_BEHAVIOR_DEFECT",
+    "PROVIDER_OWNED",
+    "ENVIRONMENT_PLATFORM_OWNED",
+    "RUNNER_OWNED",
+    "HARNESS_FIXTURE_OWNED",
+    "SERVICE_TRANSPORT_OWNED",
+    "TEST_EXPECTATION_FRAGILITY",
+    "MIXED_FAILURE",
+    "INSUFFICIENT_EVIDENCE"
+  ],
+  "authority_allowed": "historical diagnostic terminal only",
+  "authority_forbidden": [
+    "repair",
+    "repair count",
+    "release"
+  ],
+  "generic_provisional_terminal_authority": "RETIRED",
+  "schema": "ControllerAuditCausalTerminalContractV2",
+  "sole_writer": "controllergate.amds.semantic_closure_v8.ControllerAudit"
+}
