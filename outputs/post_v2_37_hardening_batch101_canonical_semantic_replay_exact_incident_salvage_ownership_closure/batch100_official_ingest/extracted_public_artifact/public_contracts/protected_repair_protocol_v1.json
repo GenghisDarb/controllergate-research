@@ -1,0 +1,36 @@
+{
+  "active_blockers": [
+    "protected_repair_prerequisites_not_met"
+  ],
+  "authority_allowed": [
+    "preregistration",
+    "future evidence planning",
+    "audit enforcement"
+  ],
+  "authority_forbidden": [
+    "validation completion",
+    "repair authority",
+    "repair count mutation",
+    "release promotion"
+  ],
+  "completion_rule": "all requirements must be evidenced by independent executed receipts",
+  "execution_depth": "schema and blocker implementation",
+  "goal_id": "CG-GOAL-016-PROTECTED-REPAIR-ACTUATION",
+  "producer": "scripts/build_batch100_future_protocols.py",
+  "protocol_hash": "7dcb9827c74014552cec96afdbff01d7c36b0f7e67796d0bd9d93d6841a9d424",
+  "protocol_id": "protected_repair_protocol_v1",
+  "protocol_version": "v1",
+  "requirements": [
+    "source-owned terminal",
+    "human authorization",
+    "source-only patch",
+    "no test mutation",
+    "target validation",
+    "regression validation",
+    "clean replay",
+    "rollback",
+    "external review"
+  ],
+  "semantic_scope": "future ControllerGate validation protocol",
+  "status": "PROTOCOL_READY"
+}

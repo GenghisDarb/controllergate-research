@@ -1,0 +1,34 @@
+{
+  "active_blockers": [
+    "memory_lift_not_demonstrated"
+  ],
+  "authority_allowed": [
+    "preregistration",
+    "future evidence planning",
+    "audit enforcement"
+  ],
+  "authority_forbidden": [
+    "validation completion",
+    "repair authority",
+    "repair count mutation",
+    "release promotion"
+  ],
+  "completion_rule": "all requirements must be evidenced by independent executed receipts",
+  "execution_depth": "schema and blocker implementation",
+  "goal_id": "CG-GOAL-015-MEMORY-LIFT-VALIDATION",
+  "producer": "scripts/build_batch100_future_protocols.py",
+  "protocol_hash": "3bcc574b5670f54bd44b6ffb9ea460750be65136d03ce61b8a325db24edce650",
+  "protocol_id": "memory_lift_validation_protocol_v1",
+  "protocol_version": "v1",
+  "requirements": [
+    "matched memory/no-memory planners",
+    "same evidence",
+    "same budget",
+    "fresh candidates",
+    "irrelevant-memory control",
+    "shuffled-memory control",
+    "leakage control"
+  ],
+  "semantic_scope": "future ControllerGate validation protocol",
+  "status": "PROTOCOL_READY"
+}

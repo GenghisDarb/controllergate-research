@@ -1,0 +1,33 @@
+{
+  "active_blockers": [
+    "external_replication_not_run"
+  ],
+  "authority_allowed": [
+    "preregistration",
+    "future evidence planning",
+    "audit enforcement"
+  ],
+  "authority_forbidden": [
+    "validation completion",
+    "repair authority",
+    "repair count mutation",
+    "release promotion"
+  ],
+  "completion_rule": "all requirements must be evidenced by independent executed receipts",
+  "execution_depth": "schema and blocker implementation",
+  "goal_id": "CG-GOAL-017-EXTERNAL-REPLICATION",
+  "producer": "scripts/build_batch100_future_protocols.py",
+  "protocol_hash": "1f7371a79bf69b8fa2f19cd992706a68f3b106faa24aba5b6d5f4a202284894d",
+  "protocol_id": "external_replication_protocol_v1",
+  "protocol_version": "v1",
+  "requirements": [
+    "outside operator or clean independent environment",
+    "reproduce custody",
+    "reproduce typed incident",
+    "reproduce matched intervention",
+    "reproduce terminal",
+    "reproduce scores"
+  ],
+  "semantic_scope": "future ControllerGate validation protocol",
+  "status": "PROTOCOL_READY"
+}

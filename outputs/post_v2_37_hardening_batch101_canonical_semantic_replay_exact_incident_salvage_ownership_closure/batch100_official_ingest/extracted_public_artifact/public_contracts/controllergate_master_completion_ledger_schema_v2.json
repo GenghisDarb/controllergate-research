@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "controllergate-master-completion-ledger-v2",
+  "type": "object",
+  "required": ["schema_version", "append_only", "goals", "batch_output_links", "supersession_receipts"],
+  "properties": {
+    "schema_version": {"const": "controllergate-master-completion-ledger-v2"},
+    "append_only": {"const": true},
+    "goals": {
+      "type": "array",
+      "minItems": 21,
+      "items": {
+        "type": "object",
+        "required": ["goal_id", "title", "status", "prerequisites", "required_evidence", "current_evidence", "evidence_hashes", "completion_commit", "completion_batch", "active_blockers", "reopen_conditions", "authority_allowed", "authority_forbidden", "last_updated_commit", "last_updated_timestamp"],
+        "properties": {
+          "status": {"enum": ["NOT_STARTED", "PROTOCOL_READY", "IN_PROGRESS", "BLOCKED", "COMPLETE_WITH_LIMITED_SCOPE", "COMPLETE", "REOPENED"]},
+          "prerequisites": {"type": "array", "items": {"type": "string"}},
+          "required_evidence": {"type": "array", "items": {"type": "string"}},
+          "current_evidence": {"type": "array", "items": {"type": "string"}},
+          "evidence_hashes": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[0-9a-f]{64}$"}},
+          "active_blockers": {"type": "array", "items": {"type": "string"}},
+          "reopen_conditions": {"type": "array", "items": {"type": "string"}},
+          "authority_allowed": {"type": "array", "items": {"type": "string"}},
+          "authority_forbidden": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
