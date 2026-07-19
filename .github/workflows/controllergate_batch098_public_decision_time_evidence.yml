@@ -73,12 +73,17 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.13.14", check-latest: false, architecture: x64}
-      - run: python scripts/build_batch098_candidate_contracts.py
-      - run: python scripts/build_batch098_frozen_provider_contracts.py
       - run: |
           mkdir -p "$RUNNER_TEMP/controllergate-runtime/contracts"
-          cp configs/candidate_execution_contracts_v2.jsonl configs/frozen_provider_environment_contracts_v1.jsonl "$RUNNER_TEMP/controllergate-runtime/contracts/"
-          cp outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure/frozen_provider_contract_custody_v1.json "$RUNNER_TEMP/controllergate-runtime/contracts/"
+          python scripts/build_batch098_candidate_contracts.py \
+            --output "$RUNNER_TEMP/controllergate-runtime/contracts/candidate_execution_contracts_v2.jsonl" \
+            --custody "$RUNNER_TEMP/controllergate-runtime/contracts/candidate_contract_custody_audit.json"
+          python scripts/build_batch098_frozen_provider_contracts.py \
+            --output "$RUNNER_TEMP/controllergate-runtime/contracts/frozen_provider_environment_contracts_v1.jsonl" \
+            --custody "$RUNNER_TEMP/controllergate-runtime/contracts/frozen_provider_contract_custody_v1.json"
+          cmp configs/candidate_execution_contracts_v2.jsonl "$RUNNER_TEMP/controllergate-runtime/contracts/candidate_execution_contracts_v2.jsonl"
+          cmp configs/frozen_provider_environment_contracts_v1.jsonl "$RUNNER_TEMP/controllergate-runtime/contracts/frozen_provider_environment_contracts_v1.jsonl"
+          cmp outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure/frozen_provider_contract_custody_v1.json "$RUNNER_TEMP/controllergate-runtime/contracts/frozen_provider_contract_custody_v1.json"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-sealed-candidate-contracts, path: "${{ runner.temp }}/controllergate-runtime/contracts", retention-days: 1}
 

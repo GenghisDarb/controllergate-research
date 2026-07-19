@@ -104,6 +104,9 @@ def test_workflows_and_local_boundary_are_explicit() -> None:
     assert "CG_RUNTIME: ${{ runner.temp }}" not in decision + truth_blind
     assert "$CG_RUNTIME" not in decision + truth_blind
     assert "$RUNNER_TEMP/controllergate-runtime" in decision + truth_blind
+    assert "build_batch098_candidate_contracts.py" in decision
+    assert "--output \"$RUNNER_TEMP/controllergate-runtime/contracts/candidate_execution_contracts_v2.jsonl\"" in decision
+    assert "cmp configs/frozen_provider_environment_contracts_v1.jsonl" in decision
     assert "public_decision_time_artifact_id" in truth_blind and "opaque_plan_commit_sha" in truth_blind
     assert "PublicDecisionEvidenceArtifactId" in local and "PublicTruthBlindExecutionArtifactId" in local
     assert "LOCAL_WINDOWS_DIAGNOSTIC_NONPARITY" in local
