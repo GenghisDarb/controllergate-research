@@ -1,0 +1,251 @@
+{
+  "all_findings_detected": true,
+  "authority_allowed": "implementation gate only",
+  "authority_forbidden": [
+    "scientific pass",
+    "repair",
+    "count",
+    "release"
+  ],
+  "execution_depth": "Git-object inspection of the untouched parent commit",
+  "expected_red_seal_sha256": "c6a0a5eaf9d743d1fb1bcd345f56af3e8f66135d5fb8a0ba771999fb7c25984b",
+  "expected_starting_head": "254febdab654a090c126d9b5232b92a8b7dea703",
+  "finding_count": 21,
+  "findings": [
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-001",
+      "line_range": "161-161",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_flat_truth_dictionary_rejected",
+      "required_correction": "Require a verified sealed CandidateTruthRecordV2 bundle.",
+      "risk": "Flat truth dictionaries are not candidate-bound evidence.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-002",
+      "line_range": "165-165",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_generic_terminal_string_not_scored",
+      "required_correction": "Compare terminal_class with verified causal_class under scoreability rules.",
+      "risk": "Generic strings can be scored as causal truth.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-003",
+      "line_range": "161-161",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_truth_record_identity_bindings",
+      "required_correction": "Validate all CandidateTruthRecordV2 identity bindings.",
+      "risk": "Truth is not bound to repository, incident, commit, contract, fix, or regression evidence.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-004",
+      "line_range": "160-160",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_unverified_truth_bundle_rejected",
+      "required_correction": "Verify deterministic bundle, producer/verifier independence, and rebuild identity.",
+      "risk": "Truth construction is trusted without an independent verifier receipt.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-005",
+      "line_range": "181-181",
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "red_to_green_test": "test_controller_audit_terminal_contract_v2",
+      "required_correction": "Emit the causal terminal contract V2 fields and classes.",
+      "risk": "ControllerAudit emits a generic causal terminal.",
+      "symbol": "execute_stage"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-006",
+      "line_range": "183-183",
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "red_to_green_test": "test_causal_terminal_is_candidate_bound",
+      "required_correction": "Bind class, cell, hypothesis, facts, observations, exclusions, and scope.",
+      "risk": "Terminal records omit a candidate-bound causal class.",
+      "symbol": "execute_stage"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-007",
+      "line_range": "149-149",
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "red_to_green_test": "test_first_partition_default_count_zero",
+      "required_correction": "Resolve partitions from verified structured observations only.",
+      "risk": "Constraint updates select the first declared partition.",
+      "symbol": "execute_stage"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-008",
+      "line_range": "56-56",
+      "path": "controllergate/evidence/probe_executor_v2.py",
+      "red_to_green_test": "test_semantic_verifier_returns_partition_key",
+      "required_correction": "Return partition_key, evidence, fact proposals, and unmatched reason.",
+      "risk": "Semantic verification has no explicit observation-bound partition_key.",
+      "symbol": "execute_probe_contract"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-009",
+      "line_range": "132-132",
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "red_to_green_test": "test_probe_selection_update_interleaving",
+      "required_correction": "Execute one selected probe per DPP round.",
+      "risk": "All probes execute before the first constraint update.",
+      "symbol": "execute_stage"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-010",
+      "line_range": "199-199",
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "red_to_green_test": "test_second_probe_depends_on_first_observation",
+      "required_correction": "Recompute the frontier and next probe after every verified observation.",
+      "risk": "The planner cannot react to the first observation.",
+      "symbol": "run_dpp14"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-011",
+      "line_range": "210-210",
+      "path": "controllergate/amds/stage_runtime_v7.py",
+      "red_to_green_test": "test_iterative_dpp14_rounds",
+      "required_correction": "Iterate fourteen stages per round until terminal or explicit exhaustion.",
+      "risk": "DPP-14 has one pass and no round registry.",
+      "symbol": "run_dpp14"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-012",
+      "line_range": "60-60",
+      "path": "scripts/run_batch098_public_truth_blind.py",
+      "red_to_green_test": "test_synthetic_component_reachability_retired",
+      "required_correction": "Compile arm-specific frames with real component effects.",
+      "risk": "Synthetic reachability probes stand in for architecture activation.",
+      "symbol": "component_probe"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-013",
+      "line_range": "61-61",
+      "path": "scripts/run_batch098_public_truth_blind.py",
+      "red_to_green_test": "test_arm_components_change_compiled_frame",
+      "required_correction": "Prove cell, edge, constraint, and legal-inventory additions/removals.",
+      "risk": "Component execution does not change the board or planner.",
+      "symbol": "component_probe"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-014",
+      "line_range": "110-110",
+      "path": "scripts/run_batch098_public_truth_blind.py",
+      "red_to_green_test": "test_arm_specific_frame_hashes",
+      "required_correction": "Compile and hash each arm frame independently.",
+      "risk": "All arms reuse one frame and probe inventory.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-015",
+      "line_range": "32-32",
+      "path": "scripts/run_batch098_public_truth_blind.py",
+      "red_to_green_test": "test_baseline_i_policy_distinct",
+      "required_correction": "Implement a distinct no-memory active planner policy.",
+      "risk": "Baseline I is only a component label.",
+      "symbol": "BASELINE_COMPONENTS"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-016",
+      "line_range": "33-33",
+      "path": "scripts/run_batch098_public_truth_blind.py",
+      "red_to_green_test": "test_baseline_j_executes_zero_probes",
+      "required_correction": "Implement a zero-probe registered constant/majority baseline.",
+      "risk": "Baseline J still executes diagnostic probes.",
+      "symbol": "BASELINE_COMPONENTS"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-017",
+      "line_range": "149-149",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_historical_confusion_matrices",
+      "required_correction": "Implement scoreability-aware per-arm confusion matrices.",
+      "risk": "Scoring cannot produce per-class confusion matrices.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-018",
+      "line_range": "165-165",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_scoring_case_taxonomy",
+      "required_correction": "Apply explicit causal and abstention scoring rules.",
+      "risk": "Scoring conflates causal abstention, correct abstention, false attribution, and unresolved truth.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-019",
+      "line_range": "212-212",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_source_ownership_reconstructed_not_fixed",
+      "required_correction": "Reconstruct decision-time source proofs only for eligible source terminals.",
+      "risk": "Source-ownership proof count is hardcoded.",
+      "symbol": "main"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-020",
+      "line_range": "70-70",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_complete_semantic_mutation_depth",
+      "required_correction": "Execute and reject at least thirty structured semantic mutations.",
+      "risk": "Only one semantic mutation is exercised.",
+      "symbol": "semantic_mutation_control"
+    },
+    {
+      "commit": "254febdab654a090c126d9b5232b92a8b7dea703",
+      "detected": true,
+      "finding_id": "B098-PTS-021",
+      "line_range": "77-77",
+      "path": "scripts/finalize_batch098_hybrid_private_run.py",
+      "red_to_green_test": "test_complete_raw_tree_mutation_coverage",
+      "required_correction": "Copy full relevant trees, re-sign them, and independently reject every mutation family.",
+      "risk": "The compact artifact lacks mutation coverage over truth, partitions, terminals, arms, scoring, and authority.",
+      "symbol": "semantic_mutation_control"
+    }
+  ],
+  "observed_starting_head": "254febdab654a090c126d9b5232b92a8b7dea703",
+  "producer": "scripts/audit_batch098_pre_private_truth_semantic_closure.py",
+  "semantic_scope": "expected-red private truth and semantic closure gaps",
+  "status": "BATCH098_PRE_PRIVATE_TRUTH_SEMANTIC_CLOSURE_FAIL_EXPECTED"
+}
