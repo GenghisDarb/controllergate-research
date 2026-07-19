@@ -1,0 +1,181 @@
+{
+  "authority_allowed": "expected-red implementation guidance",
+  "authority_forbidden": [
+    "provider parity",
+    "scientific closure",
+    "repair",
+    "count",
+    "release"
+  ],
+  "finding_count": 15,
+  "findings": [
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-001",
+      "line_range": "1-1",
+      "path": "scripts/run_batch098_with_local_tld_sources.ps1",
+      "raw_evidence_sha256": "4a72d26a81f5681ef23d31e8ec1bf22f16d86ddfd2ef5d09c11285eafbb9afb9",
+      "red_to_green_test": "test_hybrid_mode_does_not_materialize_locally",
+      "required_correction": "replace primary execution with public exact-Linux provider evidence",
+      "risk": "local Windows executable routing cannot establish frozen Linux parity",
+      "symbol": "provider map"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-002",
+      "line_range": "1-1",
+      "path": "scripts/run_batch098_with_local_tld_sources.ps1",
+      "raw_evidence_sha256": "4a72d26a81f5681ef23d31e8ec1bf22f16d86ddfd2ef5d09c11285eafbb9afb9",
+      "red_to_green_test": "test_windows_series_is_false_parity",
+      "required_correction": "bind implementation, microrelease, OS, architecture, ABI, SOABI, runner, and command",
+      "risk": "major/minor matching omits platform parity",
+      "symbol": "provider series"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-003",
+      "line_range": "1-1",
+      "path": "scripts/run_batch098_with_local_tld_sources.ps1",
+      "raw_evidence_sha256": "4a72d26a81f5681ef23d31e8ec1bf22f16d86ddfd2ef5d09c11285eafbb9afb9",
+      "red_to_green_test": "test_provider_microrelease_exact",
+      "required_correction": "require exact frozen microrelease verification",
+      "risk": "provider mapping does not require exact microrelease",
+      "symbol": "CG_PYTHON provider map"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-004",
+      "line_range": "1-1",
+      "path": "scripts/run_batch098_with_local_tld_sources.ps1",
+      "raw_evidence_sha256": "4a72d26a81f5681ef23d31e8ec1bf22f16d86ddfd2ef5d09c11285eafbb9afb9",
+      "red_to_green_test": "test_default_python_requires_independent_measurement",
+      "required_correction": "measure and verify the exact executable identity",
+      "risk": "default python is assumed to satisfy the 3.13 provider role",
+      "symbol": "default python"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-005",
+      "line_range": "37-45",
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "c781f467d3778a2f581649f3be6aecb4a7a5fa6b4e08939ddc863b7f57719cb1",
+      "red_to_green_test": "test_public_decision_workflow_has_no_tld_dependency",
+      "required_correction": "split public TLD-independent evidence from private TLD continuation",
+      "risk": "TLD custody is permanently disabled",
+      "symbol": "tld_source_artifact_custody"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-006",
+      "line_range": "1-1",
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "c781f467d3778a2f581649f3be6aecb4a7a5fa6b4e08939ddc863b7f57719cb1",
+      "red_to_green_test": "test_public_materialization_is_reachable",
+      "required_correction": "remove TLD from public decision-time dependencies",
+      "risk": "public materialization depends on the skipped TLD job",
+      "symbol": "materialization.needs"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-007",
+      "line_range": "1-1",
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "c781f467d3778a2f581649f3be6aecb4a7a5fa6b4e08939ddc863b7f57719cb1",
+      "red_to_green_test": "test_poetry_requires_linux",
+      "required_correction": "run all eight frozen candidates on ubuntu-22.04",
+      "risk": "Poetry is assigned to Windows despite the frozen Linux receipt",
+      "symbol": "materialization matrix"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-008",
+      "line_range": "27-35",
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "c781f467d3778a2f581649f3be6aecb4a7a5fa6b4e08939ddc863b7f57719cb1",
+      "red_to_green_test": "test_exact_setup_python_versions",
+      "required_correction": "freeze and verify 3.7.17, 3.11.15, and 3.13.14",
+      "risk": "provider requests use a version series rather than exact microreleases",
+      "symbol": "setup-python"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-009",
+      "line_range": "1-1",
+      "path": ".github/workflows/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml",
+      "raw_evidence_sha256": "c781f467d3778a2f581649f3be6aecb4a7a5fa6b4e08939ddc863b7f57719cb1",
+      "red_to_green_test": "test_public_decision_artifact_contract",
+      "required_correction": "seal a public truth-blind pre-TLD evidence artifact",
+      "risk": "no public decision-time artifact supports later private continuation",
+      "symbol": "artifact boundary"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-010",
+      "line_range": "1-1",
+      "path": "scripts/run_batch098_with_local_tld_sources.ps1",
+      "raw_evidence_sha256": "4a72d26a81f5681ef23d31e8ec1bf22f16d86ddfd2ef5d09c11285eafbb9afb9",
+      "red_to_green_test": "test_hybrid_artifact_inputs",
+      "required_correction": "add exact artifact-ID hybrid continuation inputs",
+      "risk": "local runner cannot consume public decision and truth-blind artifacts",
+      "symbol": "parameters"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-011",
+      "line_range": "1-1",
+      "path": "scripts/run_batch098_with_local_tld_sources.ps1",
+      "raw_evidence_sha256": "4a72d26a81f5681ef23d31e8ec1bf22f16d86ddfd2ef5d09c11285eafbb9afb9",
+      "red_to_green_test": "test_hybrid_local_execution_counts_zero",
+      "required_correction": "forbid local candidate execution in hybrid mode",
+      "risk": "local runner rematerializes candidates instead of consuming frozen public evidence",
+      "symbol": "scientific runner"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-012",
+      "line_range": "238-246",
+      "path": "controllergate/topology/pipeline_v1.py",
+      "raw_evidence_sha256": "7ca764c18abd98c2623563c7e97914eef9b432416d63d0422d37a407ea6bc097",
+      "red_to_green_test": "test_pre_tld_frame_excludes_tld_identity",
+      "required_correction": "introduce PreTLDDecisionFrameV1 with pending private join",
+      "risk": "public frame binds a TLD identity before private join",
+      "symbol": "compile_candidate_frame"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-013",
+      "line_range": "1-1",
+      "path": "configs",
+      "raw_evidence_sha256": "26943c8dba6622ec3d7c27d48d9f657c3c2523e54bf9c0e5e7e1cde2d4fae5b2",
+      "red_to_green_test": "test_opaque_plan_schema",
+      "required_correction": "compile only legal opaque probe identifiers and aggregate identities",
+      "risk": "no public-safe opaque private-TLD plan format exists",
+      "symbol": "opaque plan registry"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-014",
+      "line_range": "1-1",
+      "path": "scripts",
+      "raw_evidence_sha256": "97d7569585cce2a19fa2b927de6b3804d3ff29af24902cd685dbd086fe5f2117",
+      "red_to_green_test": "test_opaque_plan_private_source_leakage",
+      "required_correction": "scan plans against the sealed private corpus and forbidden classes",
+      "risk": "no audit proves opaque plans exclude private TLD content",
+      "symbol": "private-source leakage audit"
+    },
+    {
+      "commit": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+      "finding_id": "HYB-015",
+      "line_range": "1-1",
+      "path": "scripts",
+      "raw_evidence_sha256": "97d7569585cce2a19fa2b927de6b3804d3ff29af24902cd685dbd086fe5f2117",
+      "red_to_green_test": "test_opaque_plan_predates_execution",
+      "required_correction": "bind plan commit and creation receipt before all planned probe operations",
+      "risk": "no two-phase proof establishes plan freeze before execution",
+      "symbol": "plan timing"
+    }
+  ],
+  "parent_head": "228e72533ebb6d70dc3094b5a4dd9512eb38dbc3",
+  "report_hash": "c5f4ecc385cb2dd53c481e99567c0395c8700587abecaa11d0bbc37cadb94ecd",
+  "status": "BATCH098_PRE_HYBRID_EXECUTION_FAIL_EXPECTED"
+}
