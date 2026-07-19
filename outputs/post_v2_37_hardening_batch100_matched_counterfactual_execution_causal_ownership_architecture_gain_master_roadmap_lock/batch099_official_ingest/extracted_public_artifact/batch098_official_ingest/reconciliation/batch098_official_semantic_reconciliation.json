@@ -1,0 +1,66 @@
+{
+  "aggregate": {
+    "backtracks": 432,
+    "contradictions": 432,
+    "facts": 504,
+    "probes": 504,
+    "rounds": 504
+  },
+  "arm_frame_count": 48,
+  "baseline_frame_count": 32,
+  "checks": {
+    "alternative_exclusion": true,
+    "arm_frames": true,
+    "baseline_audit": true,
+    "baseline_frames": true,
+    "distinct_frames": true,
+    "frame_audit": true,
+    "generic_terminal_retired": true,
+    "partition_audit": true,
+    "row_counts": true,
+    "summary_counts": true,
+    "terminal_distribution": true
+  },
+  "expected_row_counts": {
+    "arm_component_addition_proofs_v2.jsonl": 80,
+    "arm_component_removal_proofs_v2.jsonl": 80,
+    "arm_specific_frame_registry_v2.jsonl": 80,
+    "baseline_execution_receipts_v2.jsonl": 32,
+    "baseline_policy_registry_v2.jsonl": 4,
+    "controller_audit_terminal_records_v2.jsonl": 80,
+    "decision_time_source_ownership_proofs_v2.jsonl": 0,
+    "dpp14_fixed_point_events_v1.jsonl": 504,
+    "dpp14_iterative_round_execution_receipts_v8.jsonl": 7056,
+    "dpp14_iterative_round_verification_receipts_v8.jsonl": 7056,
+    "dpp14_legal_probe_exhaustion_v1.jsonl": 80,
+    "dpp14_probe_selection_history_v1.jsonl": 504,
+    "dpp14_round_state_registry_v1.jsonl": 504,
+    "public_failed_branches_v2.jsonl": 432,
+    "public_neutral_observations_v2.jsonl": 504,
+    "public_nogoods_v2.jsonl": 432,
+    "public_provisional_facts_v2.jsonl": 504
+  },
+  "observed_row_counts": {
+    "arm_component_addition_proofs_v2.jsonl": 80,
+    "arm_component_removal_proofs_v2.jsonl": 80,
+    "arm_specific_frame_registry_v2.jsonl": 80,
+    "baseline_execution_receipts_v2.jsonl": 32,
+    "baseline_policy_registry_v2.jsonl": 4,
+    "controller_audit_terminal_records_v2.jsonl": 80,
+    "decision_time_source_ownership_proofs_v2.jsonl": 0,
+    "dpp14_fixed_point_events_v1.jsonl": 504,
+    "dpp14_iterative_round_execution_receipts_v8.jsonl": 7056,
+    "dpp14_iterative_round_verification_receipts_v8.jsonl": 7056,
+    "dpp14_legal_probe_exhaustion_v1.jsonl": 80,
+    "dpp14_probe_selection_history_v1.jsonl": 504,
+    "dpp14_round_state_registry_v1.jsonl": 504,
+    "public_failed_branches_v2.jsonl": 432,
+    "public_neutral_observations_v2.jsonl": 504,
+    "public_nogoods_v2.jsonl": 432,
+    "public_provisional_facts_v2.jsonl": 504
+  },
+  "status": "PASS",
+  "terminal_distribution": {
+    "INSUFFICIENT_EVIDENCE": 80
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "active_blockers": [
+    "matched_counterfactual_execution_not_available_in_frozen_artifact",
+    "nonbaseline_causal_coverage_zero"
+  ],
+  "checks": {
+    "architecture": true,
+    "blockers": true,
+    "contact_reclassification": true,
+    "contradiction_roots": true,
+    "coverage_and_safety": true,
+    "existing_pairs": true,
+    "no_actuation": true,
+    "terminals": true
+  },
+  "observed": {
+    "architecture_gain": {
+      "comparisons": [
+        {
+          "comparison": "A_vs_B",
+          "component": "environment discrimination",
+          "result": "NOT_ESTABLISHED"
+        },
+        {
+          "comparison": "A_vs_C",
+          "component": "source/contact discrimination",
+          "result": "NOT_ESTABLISHED"
+        },
+        {
+          "comparison": "B_or_C_vs_D",
+          "component": "executed projection isolation",
+          "result": "NOT_ESTABLISHED"
+        },
+        {
+          "comparison": "D_vs_E",
+          "component": "ordering efficiency",
+          "result": "NOT_ESTABLISHED"
+        },
+        {
+          "comparison": "E_vs_F",
+          "component": "observer/modal conflict resolution",
+          "result": "NOT_ESTABLISHED"
+        }
+      ],
+      "official_ingest_receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+      "reason": "no nonbaseline causal coverage from ownership-grade differential evidence",
+      "routing_authority_granted": [],
+      "status": "BLOCK",
+      "tld_mode": "SHADOW_ONLY"
+    },
+    "contradiction_roots": {
+      "arm_distribution": {
+        "A": 32,
+        "B": 40,
+        "C": 40,
+        "D": 48,
+        "E": 48,
+        "F": 56,
+        "G": 56,
+        "H": 56,
+        "I": 56
+      },
+      "candidate_distribution": {
+        "audioread_144_py313_aifc_removed": 54,
+        "cloudpickle_507_py313_typevar_distutils": 54,
+        "darker_issue_112_relative_git_dir": 54,
+        "freezegun_547_py313_datetimes_assertion": 54,
+        "incident_openbb_7585_modular_openapi_reproducer": 54,
+        "incident_poetry_10974_init_duplicate_name": 54,
+        "py_bugger_issue_65": 54,
+        "pytest_13480_wdefault_unraisable_threadexception": 54
+      },
+      "classification_distribution": {
+        "false_mutual_exclusion": 432
+      },
+      "classified_count": 432,
+      "contradiction_count": 432,
+      "false_mutual_exclusion_count": 432,
+      "genuine_logical_contradiction_count": 0,
+      "official_ingest_binding_required": true,
+      "official_ingest_receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+      "ownership_facts_surviving_contact_only": 0,
+      "status": "PASS",
+      "symmetric_54_per_candidate_detected": true
+    },
+    "counterfactual_gate": {
+      "active_blocker": "matched_counterfactual_execution_not_available_in_frozen_artifact",
+      "evaluated_existing_pair_count": 15,
+      "exit_requirement_met": false,
+      "next_allowed_action": "execute preregistered narrow paired probes from the frozen source/provider capsules without patching or broad reacquisition",
+      "official_ingest_receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+      "ownership_supporting_pair_count": 0,
+      "scoreable_candidate_positive_negative_ownership_partition_count": 0,
+      "sensitivity_pair_count": 2,
+      "status": "BLOCK"
+    },
+    "execution": {
+      "contradictions_reconstructed": 432,
+      "corrected_genuine_contradictions": 0,
+      "existing_pairs_evaluated": 15,
+      "fact_admissions_reclassified": 504,
+      "historical_increment": 0,
+      "official_ingest_receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+      "ownership_pairs": 0,
+      "patch_operations": 0,
+      "private_tld_access": 0,
+      "sensitivity_pairs": 2,
+      "source_ownership_proofs": 0,
+      "status": "SCIENTIFIC_BLOCK",
+      "terminal_distribution": {
+        "INSUFFICIENT_EVIDENCE": 80
+      },
+      "truth_access": 0,
+      "workflow_run_id": "29698579903"
+    },
+    "semantic_replay": {
+      "active_blocker": "matched_counterfactual_execution_not_available_in_frozen_artifact",
+      "contact_fact_count": 504,
+      "false_attribution_count": 0,
+      "false_mutual_exclusion_count_after_correction": 0,
+      "genuine_contradiction_count": 0,
+      "nonbaseline_causal_coverage": 0.0,
+      "official_ingest_receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+      "ownership_fact_count": 0,
+      "status": "PASS_WITH_SCIENTIFIC_BLOCK",
+      "terminal_count": 80,
+      "terminal_distribution": {
+        "INSUFFICIENT_EVIDENCE": 80
+      },
+      "workflow_run_id": "29698579903"
+    }
+  },
+  "status": "PASS"
+}
