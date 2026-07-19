@@ -36,10 +36,15 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import hashlib, pathlib
+          import hashlib, pathlib, subprocess
           repo=pathlib.Path('outputs/post_v2_37_hardening_batch099_causal_differential_intervention_contradiction_root_closure_master_completion_ledger/batch098_official_ingest/extracted_public_artifact')
           downloaded=pathlib.Path('${{ runner.temp }}/controllergate-runtime/batch098-corrected')
-          left={p.relative_to(repo).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in repo.rglob('*') if p.is_file()}
+          left={}
+          for p in repo.rglob('*'):
+              if p.is_file():
+                  rel=p.relative_to(repo).as_posix()
+                  blob=subprocess.check_output(['git','show',f'HEAD:{p.as_posix()}'])
+                  left[rel]=hashlib.sha256(blob).hexdigest()
           right={p.relative_to(downloaded).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in downloaded.rglob('*') if p.is_file()}
           assert left == right
           assert len(left) == 33

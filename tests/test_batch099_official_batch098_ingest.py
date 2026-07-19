@@ -12,11 +12,11 @@ from controllergate.evidence.batch098_official_ingest import (
     EXPECTED_ROW_COUNTS,
     EXPECTED_SHA256,
     claim_boundary_reconciliation,
+    git_blob_tree_hash,
     inspect_outer_artifact,
     parse_payload_manifest,
     private_content_scan,
     semantic_reconciliation,
-    tree_hash,
     verify_extracted_payload,
 )
 
@@ -50,7 +50,7 @@ def test_official_receipt_and_tree_binding() -> None:
     receipt = json.loads((INGEST / "ingest_receipts" / "batch098_official_ingest_receipt.json").read_text())
     assert receipt["ingest_status"] == "PASS_OFFICIAL_BATCH098_ARTIFACT_INGEST"
     assert receipt["outer_sha256"] == EXPECTED_SHA256
-    assert receipt["extracted_tree_hash"] == tree_hash(EXTRACTED)
+    assert receipt["extracted_tree_hash"] == git_blob_tree_hash(EXTRACTED)
 
 
 def test_private_content_scan_passes() -> None:

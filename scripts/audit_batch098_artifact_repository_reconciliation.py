@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from controllergate.evidence.batch098_official_ingest import read_json, sha256_file, tree_hash
+from controllergate.evidence.batch098_official_ingest import git_blob_tree_hash, read_json, sha256_file
 
 
 def main() -> int:
@@ -21,13 +21,13 @@ def main() -> int:
     receipt_path = root / "ingest_receipts" / "batch098_official_ingest_receipt.json"
     receipt = read_json(receipt_path)
     observed_receipt = sha256_file(receipt_path)
-    observed_tree = tree_hash(root / "extracted_public_artifact")
+    observed_tree = git_blob_tree_hash(root / "extracted_public_artifact")
     checks = {
         "receipt_frozen": args.receipt_sha256 is None or args.receipt_sha256 == observed_receipt,
         "tree_frozen": receipt["extracted_tree_hash"] == observed_tree,
         "batch098_immutable": not Path("outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure").is_symlink(),
     }
-    result = {"status": "PASS" if all(checks.values()) else "BLOCK", "checks": checks, "receipt_sha256": observed_receipt, "extracted_tree_hash": observed_tree}
+    result = {"status": "PASS" if all(checks.values()) else "BLOCK", "checks": checks, "receipt_sha256": observed_receipt, "extracted_tree_hash": observed_tree, "tree_hash_source": "committed_git_blob_bytes"}
     print(json.dumps(result, sort_keys=True))
     return 0 if result["status"] == "PASS" else 1
 

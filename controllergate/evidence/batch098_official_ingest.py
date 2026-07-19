@@ -8,6 +8,7 @@ import mimetypes
 import re
 import shutil
 import stat
+import subprocess
 import zipfile
 from collections import Counter
 from pathlib import Path, PurePosixPath
@@ -269,6 +270,46 @@ def verify_extracted_payload(root: Path) -> tuple[dict[str, Any], list[dict[str,
 def tree_hash(root: Path) -> str:
     rows = [f"{sha256_file(path)}  {path.relative_to(root).as_posix()}" for path in sorted(root.rglob("*")) if path.is_file()]
     return sha256_bytes(("\n".join(rows) + "\n").encode("utf-8"))
+
+
+def git_blob_tree_hash(root: Path, revision: str = "HEAD") -> str:
+    """Hash committed blobs using the frozen case-insensitive ingest ordering."""
+    repository = Path(
+        subprocess.run(
+            ["git", "rev-parse", "--show-toplevel"],
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+    ).resolve()
+    relative_root = root.resolve().relative_to(repository).as_posix()
+    listing = subprocess.run(
+        ["git", "ls-tree", "-r", "-z", revision, "--", relative_root],
+        cwd=repository,
+        check=True,
+        capture_output=True,
+    ).stdout
+    rows: list[tuple[str, str]] = []
+    prefix = relative_root.rstrip("/") + "/"
+    for record in listing.split(b"\0"):
+        if not record:
+            continue
+        metadata, encoded_path = record.split(b"\t", 1)
+        object_id = metadata.split()[2].decode("ascii")
+        repository_path = encoded_path.decode("utf-8")
+        if not repository_path.startswith(prefix):
+            raise ValueError(f"tracked path escaped requested tree: {repository_path}")
+        blob = subprocess.run(
+            ["git", "cat-file", "blob", object_id],
+            cwd=repository,
+            check=True,
+            capture_output=True,
+        ).stdout
+        relative_path = repository_path[len(prefix):]
+        rows.append((relative_path, f"{sha256_bytes(blob)}  {relative_path}"))
+    ordered = sorted(rows, key=lambda item: item[0].casefold())
+    return sha256_bytes(("\n".join(row for _, row in ordered) + "\n").encode("utf-8"))
 
 
 def semantic_reconciliation(root: Path) -> dict[str, Any]:
