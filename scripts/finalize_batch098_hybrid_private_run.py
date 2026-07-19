@@ -68,6 +68,11 @@ def semantic_mutation_control(source: Path, output: Path) -> dict:
             "resigned_raw_semantic_mutation_manifest_status": resigned["status"],
             "resigned_raw_semantic_mutation_rejected": semantic_rejected,
             "mutation": "truth_access_count_zero_to_one",
+            "producer": "scripts/finalize_batch098_hybrid_private_run.py:semantic_mutation_control",
+            "execution_depth": "complete copied public truth-blind artifact tree with seal-breaking and consistently re-signed semantic mutations",
+            "semantic_scope": "truth-access boundary mutation resistance",
+            "authority_allowed": "hybrid critic input",
+            "authority_forbidden": ["truth fabrication", "repair", "count", "release"],
         }
         write_json(output / "complete_copied_raw_tree_mutation_result.json", result)
         return result
@@ -125,6 +130,9 @@ def main() -> int:
             "truth_access_before_terminal": 0,
             "authority_allowed": "historical quality reconstruction after sealed truth is supplied",
             "authority_forbidden": ["repair", "count", "release"],
+            "producer": "scripts/finalize_batch098_hybrid_private_run.py",
+            "execution_depth": "private TLD identity join after public terminal commitment",
+            "semantic_scope": "candidate-bound complete decision frame without sealed truth",
         }
         payload["complete_frame_hash"] = hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
         complete_frames.append(payload)
@@ -142,6 +150,11 @@ def main() -> int:
         "safe_abstention_accuracy": None,
         "AMDS_prospective_effectiveness": "NOT_ESTABLISHED",
         "memory_status": "not demonstrated",
+        "producer": "scripts/finalize_batch098_hybrid_private_run.py",
+        "execution_depth": "post-terminal private truth-join gate",
+        "semantic_scope": "historical non-counting quality only",
+        "authority_allowed": "historical quality calculation after valid sealed truth",
+        "authority_forbidden": ["truth inference", "repair", "count", "release"],
     }
     if sealed_truth and sealed_truth.is_file():
         truth = json.loads(sealed_truth.read_text(encoding="utf-8"))
@@ -211,9 +224,23 @@ def main() -> int:
         "self_maintaining_software": "false/not demonstrated",
         "active_blockers": [truth_join["active_blocker"]] if truth_join.get("active_blocker") else [],
         "claim_boundary": "historical non-counting hybrid calibration only",
+        "producer": "scripts/finalize_batch098_hybrid_private_run.py",
+        "execution_depth": "verified public artifacts plus post-terminal private TLD identity join",
+        "semantic_scope": "hybrid historical calibration boundary",
+        "authority_allowed": "manual compact artifact handoff only",
+        "authority_forbidden": ["automatic ingest", "repair", "count", "release"],
     }
     write_json(output / "batch098_hybrid_private_final_decision.json", decision_value)
-    write_json(output / "batch098_hybrid_private_critic_reconstruction.json", {"status": "PASS" if not critic_findings else "BLOCK", "checks": checks, "finding_count": len(critic_findings)})
+    write_json(output / "batch098_hybrid_private_critic_reconstruction.json", {
+        "status": "PASS" if not critic_findings else "BLOCK",
+        "checks": checks,
+        "finding_count": len(critic_findings),
+        "producer": "scripts/finalize_batch098_hybrid_private_run.py",
+        "execution_depth": "independent reconstruction from both verified public artifact trees and committed opaque plan",
+        "semantic_scope": "hybrid artifact integrity and claim-boundary checks",
+        "authority_allowed": "private final decision input",
+        "authority_forbidden": ["truth fabrication", "repair", "count", "release"],
+    })
     manifests = write_manifests(output)
     artifact = Path(args.artifact)
     artifact.parent.mkdir(parents=True, exist_ok=True)
@@ -224,6 +251,9 @@ def main() -> int:
         "status": decision_value["status"], "artifact_path": str(artifact), "artifact_size": artifact.stat().st_size,
         "artifact_sha256": file_sha256(artifact), "manifest": manifests, "active_blockers": decision_value["active_blockers"],
         "authority_allowed": "manual local artifact handoff only", "authority_forbidden": ["automatic ingest", "repair", "count", "release"],
+        "producer": "scripts/finalize_batch098_hybrid_private_run.py",
+        "execution_depth": "verified compact local artifact packaging",
+        "semantic_scope": "historical non-counting hybrid calibration boundary",
     }
     write_json(Path(args.artifact_report), report)
     print(json.dumps(report, sort_keys=True))

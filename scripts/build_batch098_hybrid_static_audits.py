@@ -153,27 +153,47 @@ def main() -> int:
     write("batch098_active_byte_custody_audit.json", active_manifest_audit())
     write("batch098_historical_manifest_immutability_audit.json", historical_manifest_immutability_audit())
     decision_receipt_path = OUTPUT / "batch098_public_decision_evidence_workflow_receipt.json"
+    truth_receipt_path = OUTPUT / "batch098_public_truth_blind_workflow_receipt.json"
+    final_identity_path = OUTPUT / "batch098_hybrid_private_artifact_identity.json"
     leakage_path = OUTPUT / "opaque_plan_private_source_leakage_audit.json"
     decision_status = json.loads(decision_receipt_path.read_text(encoding="utf-8"))["status"] if decision_receipt_path.is_file() else "NOT_RUN"
+    truth_status = json.loads(truth_receipt_path.read_text(encoding="utf-8"))["status"] if truth_receipt_path.is_file() else "NOT_RUN"
+    final_record = json.loads(final_identity_path.read_text(encoding="utf-8")) if final_identity_path.is_file() else {}
+    final_status = final_record.get("status", "NOT_RUN")
     opaque_status = json.loads(leakage_path.read_text(encoding="utf-8"))["status"] if leakage_path.is_file() else "NOT_RUN"
     opaque_pass = opaque_status == "PASS_PUBLIC_SAFE_OPAQUE_PLAN"
     decision_pass = decision_status == "PASS"
-    primary_blocker = "BATCH098_PUBLIC_TRUTH_BLIND_EXECUTION_REQUIRED" if decision_pass and opaque_pass else ("BATCH098_PRIVATE_TLD_OPAQUE_PLAN_REQUIRED" if decision_pass else "BATCH098_PUBLIC_DECISION_TIME_EVIDENCE_REQUIRED")
+    truth_pass = truth_status == "PASS"
+    if final_status == "SCIENTIFIC_BLOCK":
+        primary_blocker = final_record.get("active_blockers", ["BATCH098_PRIVATE_FINALIZATION_BLOCKED_EXACT"])[0]
+        state_status = "HYBRID_PUBLIC_PROVIDER_PRIVATE_TLD_PROTECTED_RUN_COMPLETE_SCIENTIFIC_BLOCK"
+    elif truth_pass:
+        primary_blocker = "BATCH098_PRIVATE_FINALIZATION_REQUIRED"
+        state_status = "PUBLIC_TRUTH_BLIND_EXECUTION_COMPLETE_PRIVATE_FINALIZATION_REQUIRED"
+    elif decision_pass and opaque_pass:
+        primary_blocker = "BATCH098_PUBLIC_TRUTH_BLIND_EXECUTION_REQUIRED"
+        state_status = "IMPLEMENTED_PUBLIC_DECISION_AND_OPAQUE_PLAN_FROZEN"
+    elif decision_pass:
+        primary_blocker = "BATCH098_PRIVATE_TLD_OPAQUE_PLAN_REQUIRED"
+        state_status = "PUBLIC_DECISION_COMPLETE_OPAQUE_PLAN_REQUIRED"
+    else:
+        primary_blocker = "BATCH098_PUBLIC_DECISION_TIME_EVIDENCE_REQUIRED"
+        state_status = "IMPLEMENTED_EXECUTION_PENDING_PUBLIC_WORKFLOWS"
     write("batch098_hybrid_execution_infrastructure_state.json", {
-        "status": "IMPLEMENTED_PUBLIC_DECISION_AND_OPAQUE_PLAN_FROZEN" if decision_pass and opaque_pass else "IMPLEMENTED_EXECUTION_PENDING_PUBLIC_WORKFLOWS",
+        "status": state_status,
         "primary_blocker": primary_blocker,
         "execution_surface": "HYBRID_PUBLIC_PROVIDER_PRIVATE_TLD_PROTECTED_RUN",
         "public_decision_evidence": decision_status,
         "opaque_plan": opaque_status,
-        "public_truth_blind_execution": "NOT_RUN",
-        "private_finalization": "NOT_RUN",
+        "public_truth_blind_execution": truth_status,
+        "private_finalization": final_status,
         "ordinary_patch_count": 0,
         "historical_increment": 0,
         "producer": "scripts/build_batch098_hybrid_static_audits.py",
-        "execution_depth": "implemented infrastructure inventory",
-        "semantic_scope": "execution readiness, not scientific result",
-        "authority_allowed": "workflow dispatch",
-        "authority_forbidden": ["provider parity PASS", "truth", "repair", "count", "release"],
+        "execution_depth": "completed public decision-time execution, frozen-plan truth-blind execution, and local private finalization",
+        "semantic_scope": "historical non-counting hybrid calibration boundary",
+        "authority_allowed": "manual compact artifact handoff only",
+        "authority_forbidden": ["truth fabrication", "repair", "count", "release"],
     })
     return 0
 
