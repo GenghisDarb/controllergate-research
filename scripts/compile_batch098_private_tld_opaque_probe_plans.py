@@ -2,7 +2,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from controllergate.amds.opaque_plan_v1 import compile_opaque_plans, file_sha256, verify_opaque_plans
 from controllergate.evidence.public_artifact_v1 import verify_manifest

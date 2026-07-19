@@ -4,8 +4,13 @@ import argparse
 import hashlib
 import json
 import random
+import sys
 from pathlib import Path
 from typing import Any, Mapping
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from controllergate.amds.opaque_plan_v1 import canonical_hash
 from controllergate.amds.stage_runtime_v7 import run_dpp14

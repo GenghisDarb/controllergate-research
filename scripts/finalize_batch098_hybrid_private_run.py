@@ -4,10 +4,15 @@ import argparse
 import hashlib
 import json
 import shutil
+import sys
 import tempfile
 import zipfile
 from collections import Counter
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from controllergate.amds.opaque_plan_v1 import compile_opaque_plans, file_sha256
 from controllergate.evidence.public_artifact_v1 import verify_manifest, write_manifests

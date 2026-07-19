@@ -4,7 +4,12 @@ import argparse
 import json
 import os
 import subprocess
+import sys
 from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from controllergate.evidence.provider_parity import contract_for_candidate, load_provider_contracts, verify_provider_observation
 
