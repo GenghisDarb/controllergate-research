@@ -12,6 +12,7 @@ from controllergate.evidence.roles_v2 import produce_roles, role_quality_gate, v
 from controllergate.topology.pre_tld_frame_v1 import canonical_hash, verify_pre_tld_frame
 from scripts.batch098_workflow_stage import incident_verify
 from scripts.audit_batch098_public_topology_layer import audit_layer
+from scripts.run_batch098_public_truth_blind import ARM_COMPONENTS, BASELINE_COMPONENTS, components_for_arm
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -189,3 +190,9 @@ def test_public_scanner_allows_forbidden_field_metadata_but_blocks_patch_content
     leaked = tmp_path / "leaked.json"
     leaked.write_text(json.dumps({"payload": "gold_patch_content"}), encoding="utf-8")
     assert private_marker_hits([leaked]) == [{"path": leaked.as_posix(), "marker": "gold_patch_content"}]
+
+
+def test_all_architecture_arms_and_baselines_have_explicit_components() -> None:
+    assert set(ARM_COMPONENTS) == set("ABCDEF")
+    assert set(BASELINE_COMPONENTS) == set("GHIJ")
+    assert all(components_for_arm(arm_id) for arm_id in "ABCDEFGHIJ")

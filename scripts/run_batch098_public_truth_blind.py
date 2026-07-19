@@ -34,6 +34,14 @@ BASELINE_COMPONENTS = {
 }
 
 
+def components_for_arm(arm_id: str) -> tuple[str, ...]:
+    if arm_id in ARM_COMPONENTS:
+        return ARM_COMPONENTS[arm_id]
+    if arm_id in BASELINE_COMPONENTS:
+        return BASELINE_COMPONENTS[arm_id]
+    raise ValueError(f"unknown architecture arm or baseline: {arm_id}")
+
+
 def write_json(path: Path, value: object) -> None:
     path.write_text(json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
 
@@ -100,7 +108,7 @@ def main() -> int:
     states: dict[str, dict[str, Any]] = {}
 
     for arm_id in "ABCDEFGHIJ":
-        components = ARM_COMPONENTS.get(arm_id, BASELINE_COMPONENTS[arm_id])
+        components = components_for_arm(arm_id)
         probes = []
         for probe in frame["legal_probes"]:
             value = dict(probe)
