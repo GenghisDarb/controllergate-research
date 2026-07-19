@@ -40,7 +40,7 @@ def main() -> int:
     ownership = read_jsonl(out / "ownership_support_receipts_v1.jsonl")
     blockers = read_jsonl(out / "batch100_active_blockers_v1.jsonl")
     critic = read_json(out / "critic/batch100_semantic_mutation_campaign_summary.json", {})
-    parity = read_jsonl(ROOT / "configs/batch100_incident_identity_registry_v2.jsonl")
+    parity = read_jsonl(ROOT / "configs/batch100_incident_provider_registry_v2.jsonl")
     protocols = read_json(out / "future_protocol_readiness.json", {})
     terminal_distribution = dict(sorted(Counter(row["terminal_class"] for row in terminals).items()))
     pair_classes = dict(sorted(Counter(row["single_factor_status"] for row in evidence).items()))

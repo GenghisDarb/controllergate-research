@@ -57,15 +57,34 @@ jobs:
           - {slice: poetry-py313-linux-control, candidate: incident_poetry_10974_init_duplicate_name, os: ubuntu-latest, python: "3.13"}
     runs-on: ${{ matrix.os }}
     steps:
+      - name: Enable Windows long paths before checkout
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: git config --global core.longpaths true
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
+            outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock
       - id: setup_python
         continue-on-error: true
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python }}
           allow-prereleases: true
+      - id: target_python
+        if: steps.setup_python.outcome == 'success'
+        shell: pwsh
+        run: |
+          "path=$(python -c 'import sys; print(sys.executable)')" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+      - name: Install orchestration Python
+        if: always()
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
       - name: Record setup blocker when exact provider is unavailable
         if: steps.setup_python.outcome != 'success'
         shell: pwsh
@@ -79,7 +98,7 @@ jobs:
         if: steps.setup_python.outcome == 'success'
         shell: pwsh
         run: |
-          python scripts/run_batch100_candidate_program.py --candidate-id "${{ matrix.candidate }}" --runtime-root "${{ runner.temp }}/controllergate-runtime/${{ matrix.slice }}" --output-dir "${{ runner.temp }}/batch100-out/${{ matrix.slice }}"
+          python scripts/run_batch100_candidate_program.py --candidate-id "${{ matrix.candidate }}" --provider-python "${{ steps.target_python.outputs.path }}" --runtime-root "${{ runner.temp }}/controllergate-runtime/${{ matrix.slice }}" --output-dir "${{ runner.temp }}/batch100-out/${{ matrix.slice }}"
       - name: Upload candidate-scoped public evidence
         if: always()
         uses: actions/upload-artifact@v4

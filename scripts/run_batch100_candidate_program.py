@@ -78,9 +78,10 @@ def safe_env(extra: dict[str, str] | None = None) -> dict[str, str]:
 
 
 class Broker:
-    def __init__(self, *, runtime_root: Path, candidate_id: str) -> None:
+    def __init__(self, *, runtime_root: Path, candidate_id: str, provider_python_version: str) -> None:
         self.runtime_root = runtime_root
         self.candidate_id = candidate_id
+        self.provider_python_version = provider_python_version
         self.records: list[dict[str, Any]] = []
         self.parent: str | None = None
         self.attestation = attest_runtime_root(runtime_root, repo_root=ROOT)
@@ -92,7 +93,7 @@ class Broker:
             operation_type=operation_type, argv=argv, cwd=cwd, runtime_root=self.runtime_root,
             stage_id=stage, candidate_id=self.candidate_id, authorization_id="batch100:public-evidence-only",
             runtime_attestation=self.attestation, platform=platform.system().lower(), runtime=platform.python_version(),
-            provider_identity=f"python:{platform.python_version()}:{platform.system().lower()}",
+            provider_identity=f"python:{self.provider_python_version}:{platform.system().lower()}",
             network_policy="bounded_read_only_acquisition" if network else "none",
             network_request_budget=256 if network else 0, network_byte_budget=2_000_000_000 if network else 0,
             env=env, timeout=timeout, parent_ledger_hash=self.parent,
@@ -106,9 +107,8 @@ class Broker:
         return completed
 
 
-def provider_matches(provider: dict[str, Any]) -> bool:
+def provider_matches(provider: dict[str, Any], observed: str) -> bool:
     requested = str(provider["requested_version"])
-    observed = platform.python_version()
     version_ok = observed == requested if ("a" in requested or "b" in requested or "rc" in requested) else observed.startswith(requested + ".") or observed == requested
     system = platform.system().lower()
     requested_os = str(provider["os"]).lower()
@@ -141,8 +141,8 @@ def copy_source(source: Path, destination: Path) -> None:
         raise RuntimeError(result.stderr[-500:])
 
 
-def install_provider(broker: Broker, candidate: str, source: Path, provider_root: Path, variant: str, stage: str) -> tuple[Path, list[dict[str, Any]]]:
-    create = broker.run(argv=[sys.executable, "-m", "venv", str(provider_root)], cwd=source, stage=stage + "-venv", operation_type="provider_build")
+def install_provider(broker: Broker, provider_python: Path, candidate: str, source: Path, provider_root: Path, variant: str, stage: str) -> tuple[Path, list[dict[str, Any]]]:
+    create = broker.run(argv=[str(provider_python), "-m", "venv", str(provider_root)], cwd=source, stage=stage + "-venv", operation_type="provider_build")
     if create.returncode:
         raise RuntimeError(create.stderr[-500:])
     python = venv_python(provider_root)
@@ -272,6 +272,7 @@ def main() -> int:
     parser.add_argument("--candidate-id", required=True)
     parser.add_argument("--runtime-root", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument("--provider-python", type=Path, default=Path(sys.executable))
     args = parser.parse_args()
     candidate = args.candidate_id
     args.runtime_root.mkdir(parents=True, exist_ok=True)
@@ -279,8 +280,9 @@ def main() -> int:
     contracts = {row["candidate_id"]: row for row in read_jsonl(ROOT / "configs/candidate_execution_contracts_v2.jsonl")}
     cells = [row for row in read_jsonl(ROOT / "configs/batch100_counterfactual_cell_registry_v2.jsonl") if row["candidate_id"] == candidate]
     providers = {row["capsule_id"]: row for row in read_jsonl(ROOT / "outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/matched_counterfactual/provider_capsule_registry_v2.jsonl")}
-    matching = [row for row in cells if provider_matches(providers[row["provider_capsule_id"]])]
-    broker = Broker(runtime_root=args.runtime_root, candidate_id=candidate)
+    provider_version = subprocess.check_output([str(args.provider_python), "-c", "import platform; print(platform.python_version())"], text=True).strip()
+    matching = [row for row in cells if provider_matches(providers[row["provider_capsule_id"]], provider_version)]
+    broker = Broker(runtime_root=args.runtime_root, candidate_id=candidate, provider_python_version=provider_version)
     source_vault = args.runtime_root / "source" / candidate
     receipts: list[dict[str, Any]] = []
     provider_receipts: list[dict[str, Any]] = []
@@ -308,7 +310,7 @@ def main() -> int:
             copy_source(source_vault, source)
             source_tree = subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], cwd=source, text=True).strip()
             try:
-                python, install_rows = install_provider(broker, candidate, source, provider_root, cell_row["provider_capsule_id"], f"{cell_row['cell_name']}-r{replay}")
+                python, install_rows = install_provider(broker, args.provider_python, candidate, source, provider_root, cell_row["provider_capsule_id"], f"{cell_row['cell_name']}-r{replay}")
                 provider_receipts.append({"cell_id": cell_row["cell_id"], "replay_index": replay, "provider_capsule_id": cell_row["provider_capsule_id"], "observed_python": subprocess.check_output([str(python), "-c", "import platform; print(platform.python_version())"], text=True).strip(), "install_receipts": install_rows, "status": "MATERIALIZED"})
                 values = prepare_fixture(candidate, cell_row, consumer, source, instrumentation)
                 values["RUNTIME_ROOT"] = str(args.runtime_root.resolve())
@@ -362,7 +364,7 @@ def main() -> int:
     write_jsonl(args.output_dir / "broker_operations_v1.jsonl", broker_records)
     write_jsonl(args.output_dir / "candidate_blockers_v1.jsonl", blockers)
     summary = {
-        "candidate_id": candidate, "observed_platform": platform.system().lower(), "observed_python": platform.python_version(),
+        "candidate_id": candidate, "observed_platform": platform.system().lower(), "observed_python": provider_version,
         "registered_cell_count": len(cells), "matching_provider_cell_count": len(matching),
         "executed_replay_count": len(receipts), "reproducible_cell_count": sum(row["reproducibility_status"] == "REPRODUCIBLE" for row in receipts) // 2,
         "blocker_count": len(blockers), "blockers": blockers,
