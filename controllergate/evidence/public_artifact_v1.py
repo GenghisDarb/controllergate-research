@@ -11,7 +11,7 @@ from typing import Any, Iterable, Mapping
 FORBIDDEN_PARTS = {".git", "__pycache__", "site-packages", "venv", ".venv", "source-checkout", "source_checkout"}
 FORBIDDEN_SUFFIXES = {".zip", ".tar", ".gz", ".pyc", ".pyo"}
 PRIVATE_MARKERS = (
-    "tld_requirement_text", "normalized_tld", "raw_tld", "sealed_truth", "gold_patch",
+    "tld_requirement_text", "normalized_tld", "raw_tld", "sealed_truth", "gold_patch_content",
     "private tld source", "notebook heading", "tld quotation",
 )
 

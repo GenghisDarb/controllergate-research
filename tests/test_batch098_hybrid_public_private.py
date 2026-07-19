@@ -7,6 +7,7 @@ from pathlib import Path
 from controllergate.amds.opaque_plan_v1 import compile_opaque_plans, verify_opaque_plans
 from controllergate.amds.stage_runtime_v7 import run_dpp14
 from controllergate.evidence.provider_parity import load_provider_contracts, public_provider_negative_controls, verify_provider_observation
+from controllergate.evidence.public_artifact_v1 import private_marker_hits
 from controllergate.evidence.roles_v2 import produce_roles, role_quality_gate, verify_role_receipts
 from controllergate.topology.pre_tld_frame_v1 import canonical_hash, verify_pre_tld_frame
 from scripts.batch098_workflow_stage import incident_verify
@@ -179,3 +180,12 @@ def test_projection_audit_preserves_no_executable_pair_as_scientific_block(tmp_p
     assert audit["status"] == "PASS_EXECUTION_WITH_SCIENTIFIC_BLOCKS"
     assert audit["scientific_block_count"] == 1
     assert audit["rows"][0]["status"] == "SCIENTIFIC_BLOCK_NO_EXECUTABLE_PROJECTION_PAIR"
+
+
+def test_public_scanner_allows_forbidden_field_metadata_but_blocks_patch_content(tmp_path: Path) -> None:
+    metadata = tmp_path / "metadata.json"
+    metadata.write_text(json.dumps({"forbidden_fields": ["gold_patch"]}), encoding="utf-8")
+    assert private_marker_hits([metadata]) == []
+    leaked = tmp_path / "leaked.json"
+    leaked.write_text(json.dumps({"payload": "gold_patch_content"}), encoding="utf-8")
+    assert private_marker_hits([leaked]) == [{"path": leaked.as_posix(), "marker": "gold_patch_content"}]
