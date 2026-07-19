@@ -13,7 +13,6 @@ permissions:
   contents: read
 
 env:
-  CG_RUNTIME: ${{ runner.temp }}/controllergate-runtime
   CG_CONTRACTS: ${{ github.workspace }}/configs/candidate_execution_contracts_v2.jsonl
   CG_PROVIDER_CONTRACTS: ${{ github.workspace }}/configs/frozen_provider_environment_contracts_v1.jsonl
   CG_EXECUTION_SURFACE: PUBLIC_DECISION_TIME_EVIDENCE_ONLY
@@ -30,7 +29,7 @@ jobs:
       - name: Acquire official Batch097 bytes by exact artifact ID
         env: {GH_TOKEN: "${{ github.token }}"}
         run: gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.batch097_artifact_id }}/zip" > "$RUNNER_TEMP/batch097.zip"
-      - run: python scripts/verify_batch097_official_artifact.py --artifact "$RUNNER_TEMP/batch097.zip" --output "$CG_RUNTIME/batch097-custody"
+      - run: python scripts/verify_batch097_official_artifact.py --artifact "$RUNNER_TEMP/batch097.zip" --output "$RUNNER_TEMP/controllergate-runtime/batch097-custody"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-batch097-custody, path: "${{ runner.temp }}/controllergate-runtime/batch097-custody", retention-days: 1}
 
@@ -57,7 +56,7 @@ jobs:
         with: {fetch-depth: 0}
       - uses: actions/setup-python@v5
         with: {python-version: "3.13.14", check-latest: false, architecture: x64}
-      - run: python -m pip wheel . --no-deps --wheel-dir "$CG_RUNTIME/wheel"
+      - run: python -m pip wheel . --no-deps --wheel-dir "$RUNNER_TEMP/controllergate-runtime/wheel"
       - shell: python
         run: |
           import hashlib, json, pathlib
@@ -77,9 +76,9 @@ jobs:
       - run: python scripts/build_batch098_candidate_contracts.py
       - run: python scripts/build_batch098_frozen_provider_contracts.py
       - run: |
-          mkdir -p "$CG_RUNTIME/contracts"
-          cp configs/candidate_execution_contracts_v2.jsonl configs/frozen_provider_environment_contracts_v1.jsonl "$CG_RUNTIME/contracts/"
-          cp outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure/frozen_provider_contract_custody_v1.json "$CG_RUNTIME/contracts/"
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/contracts"
+          cp configs/candidate_execution_contracts_v2.jsonl configs/frozen_provider_environment_contracts_v1.jsonl "$RUNNER_TEMP/controllergate-runtime/contracts/"
+          cp outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure/frozen_provider_contract_custody_v1.json "$RUNNER_TEMP/controllergate-runtime/contracts/"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-sealed-candidate-contracts, path: "${{ runner.temp }}/controllergate-runtime/contracts", retention-days: 1}
 
@@ -124,7 +123,7 @@ jobs:
           controllergate evidence materialize-candidate
           --contracts "$RUNNER_TEMP/contracts/candidate_execution_contracts_v2.jsonl"
           --candidate "${{ matrix.candidate }}"
-          --runtime-root "$CG_RUNTIME/${{ matrix.candidate }}"
+          --runtime-root "$RUNNER_TEMP/controllergate-runtime/${{ matrix.candidate }}"
           --output "$RUNNER_TEMP/candidate/${{ matrix.candidate }}"
           --provider-python "${{ steps.provider.outputs.python-path }}"
           --forbidden-repo-root "$GITHUB_WORKSPACE"
@@ -143,7 +142,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {pattern: batch098-public-candidate-*, path: "${{ runner.temp }}/candidate-artifacts"}
-      - run: python scripts/batch098_workflow_stage.py normalize-candidates --source "$RUNNER_TEMP/candidate-artifacts" --output "$CG_RUNTIME/cohort"
+      - run: python scripts/batch098_workflow_stage.py normalize-candidates --source "$RUNNER_TEMP/candidate-artifacts" --output "$RUNNER_TEMP/controllergate-runtime/cohort"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/controllergate-runtime/cohort", retention-days: 1}
 
@@ -157,7 +156,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/cohort"}
-      - run: python scripts/batch098_workflow_stage.py incident-verify --source "$RUNNER_TEMP/cohort" --output "$CG_RUNTIME/incidents"
+      - run: python scripts/batch098_workflow_stage.py incident-verify --source "$RUNNER_TEMP/cohort" --output "$RUNNER_TEMP/controllergate-runtime/incidents"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-independent-incidents, path: "${{ runner.temp }}/controllergate-runtime/incidents", retention-days: 1}
 
@@ -171,7 +170,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/cohort"}
-      - run: python scripts/batch098_workflow_stage.py role-produce --source "$RUNNER_TEMP/cohort" --output "$CG_RUNTIME/roles-produced"
+      - run: python scripts/batch098_workflow_stage.py role-produce --source "$RUNNER_TEMP/cohort" --output "$RUNNER_TEMP/controllergate-runtime/roles-produced"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-role-producers, path: "${{ runner.temp }}/controllergate-runtime/roles-produced", retention-days: 1}
 
@@ -185,7 +184,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {name: batch098-public-role-producers, path: "${{ runner.temp }}/roles"}
-      - run: python scripts/batch098_workflow_stage.py role-verify --source "$RUNNER_TEMP/roles" --output "$CG_RUNTIME/roles-verified"
+      - run: python scripts/batch098_workflow_stage.py role-verify --source "$RUNNER_TEMP/roles" --output "$RUNNER_TEMP/controllergate-runtime/roles-verified"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-role-verifiers, path: "${{ runner.temp }}/controllergate-runtime/roles-verified", retention-days: 1}
 
@@ -203,7 +202,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/cohort"}
-      - run: controllergate topology produce --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --contracts "$CG_CONTRACTS" --output "$CG_RUNTIME/bulb/${{ matrix.candidate }}"
+      - run: controllergate topology produce --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --contracts "$CG_CONTRACTS" --output "$RUNNER_TEMP/controllergate-runtime/bulb/${{ matrix.candidate }}"
       - uses: actions/upload-artifact@v4
         with: {name: "batch098-public-bulb-producer-${{ matrix.candidate }}", path: "${{ runner.temp }}/controllergate-runtime/bulb/${{ matrix.candidate }}", retention-days: 1}
 
@@ -220,7 +219,7 @@ jobs:
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/cohort"}
       - uses: actions/download-artifact@v4
         with: {name: "batch098-public-bulb-producer-${{ matrix.candidate }}", path: "${{ runner.temp }}/producer"}
-      - run: controllergate topology verify --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --producer-evidence "$RUNNER_TEMP/producer" --output "$CG_RUNTIME/bulb-verified/${{ matrix.candidate }}"
+      - run: controllergate topology verify --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --producer-evidence "$RUNNER_TEMP/producer" --output "$RUNNER_TEMP/controllergate-runtime/bulb-verified/${{ matrix.candidate }}"
       - uses: actions/upload-artifact@v4
         with: {name: "batch098-public-bulb-verifier-${{ matrix.candidate }}", path: "${{ runner.temp }}/controllergate-runtime/bulb-verified/${{ matrix.candidate }}", retention-days: 1}
 
@@ -235,7 +234,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/cohort"}
-      - run: controllergate topology produce --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --contracts "$CG_CONTRACTS" --output "$CG_RUNTIME/brot/${{ matrix.candidate }}"
+      - run: controllergate topology produce --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --contracts "$CG_CONTRACTS" --output "$RUNNER_TEMP/controllergate-runtime/brot/${{ matrix.candidate }}"
       - uses: actions/upload-artifact@v4
         with: {name: "batch098-public-brot-producer-${{ matrix.candidate }}", path: "${{ runner.temp }}/controllergate-runtime/brot/${{ matrix.candidate }}", retention-days: 1}
 
@@ -252,7 +251,7 @@ jobs:
         with: {name: batch098-public-cohort, path: "${{ runner.temp }}/cohort"}
       - uses: actions/download-artifact@v4
         with: {name: "batch098-public-brot-producer-${{ matrix.candidate }}", path: "${{ runner.temp }}/producer"}
-      - run: controllergate topology verify --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --producer-evidence "$RUNNER_TEMP/producer" --output "$CG_RUNTIME/brot-verified/${{ matrix.candidate }}"
+      - run: controllergate topology verify --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}" --producer-evidence "$RUNNER_TEMP/producer" --output "$RUNNER_TEMP/controllergate-runtime/brot-verified/${{ matrix.candidate }}"
       - uses: actions/upload-artifact@v4
         with: {name: "batch098-public-brot-verifier-${{ matrix.candidate }}", path: "${{ runner.temp }}/controllergate-runtime/brot-verified/${{ matrix.candidate }}", retention-days: 1}
 
@@ -265,7 +264,7 @@ jobs:
         with: {python-version: "3.13.14", check-latest: false, architecture: x64}
       - uses: actions/download-artifact@v4
         with: {pattern: batch098-public-brot-verifier-*, path: "${{ runner.temp }}/verified"}
-      - run: python scripts/audit_batch098_public_topology_layer.py --source "$RUNNER_TEMP/verified" --kind projection --output "$CG_RUNTIME/projection"
+      - run: python scripts/audit_batch098_public_topology_layer.py --source "$RUNNER_TEMP/verified" --kind projection --output "$RUNNER_TEMP/controllergate-runtime/projection"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-projection-verification, path: "${{ runner.temp }}/controllergate-runtime/projection", retention-days: 1}
 
@@ -278,7 +277,7 @@ jobs:
         with: {python-version: "3.13.14", check-latest: false, architecture: x64}
       - uses: actions/download-artifact@v4
         with: {pattern: batch098-public-brot-verifier-*, path: "${{ runner.temp }}/verified"}
-      - run: python scripts/audit_batch098_public_topology_layer.py --source "$RUNNER_TEMP/verified" --kind modality --output "$CG_RUNTIME/modality"
+      - run: python scripts/audit_batch098_public_topology_layer.py --source "$RUNNER_TEMP/verified" --kind modality --output "$RUNNER_TEMP/controllergate-runtime/modality"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-modality-verification, path: "${{ runner.temp }}/controllergate-runtime/modality", retention-days: 1}
 
@@ -300,7 +299,7 @@ jobs:
           --candidate-evidence "$RUNNER_TEMP/cohort/${{ matrix.candidate }}"
           --verified-topology "$RUNNER_TEMP/topology"
           --contracts "$CG_CONTRACTS"
-          --output "$CG_RUNTIME/pre-tld/${{ matrix.candidate }}"
+          --output "$RUNNER_TEMP/controllergate-runtime/pre-tld/${{ matrix.candidate }}"
       - uses: actions/upload-artifact@v4
         with: {name: "batch098-public-pre-tld-${{ matrix.candidate }}", path: "${{ runner.temp }}/controllergate-runtime/pre-tld/${{ matrix.candidate }}", retention-days: 1}
 
@@ -314,7 +313,7 @@ jobs:
       - run: python -m pip install .
       - uses: actions/download-artifact@v4
         with: {pattern: batch098-public-pre-tld-*, path: "${{ runner.temp }}/pre-tld"}
-      - run: python scripts/verify_batch098_pre_tld_frames.py --source "$RUNNER_TEMP/pre-tld" --output "$CG_RUNTIME/pre-tld-verified"
+      - run: python scripts/verify_batch098_pre_tld_frames.py --source "$RUNNER_TEMP/pre-tld" --output "$RUNNER_TEMP/controllergate-runtime/pre-tld-verified"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-public-pre-tld-verified, path: "${{ runner.temp }}/controllergate-runtime/pre-tld-verified", retention-days: 1}
 
@@ -333,11 +332,11 @@ jobs:
       - run: >-
           python scripts/seal_batch098_public_artifact.py
           --source "$RUNNER_TEMP/public-input"
-          --output "$CG_RUNTIME/public-decision-evidence"
+          --output "$RUNNER_TEMP/controllergate-runtime/public-decision-evidence"
           --kind decision
           --workflow-run-id "$GITHUB_RUN_ID"
           --workflow-head "$GITHUB_SHA"
-      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$CG_RUNTIME/public-decision-evidence" --kind decision
+      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$RUNNER_TEMP/controllergate-runtime/public-decision-evidence" --kind decision
       - uses: actions/upload-artifact@v4
         with:
           name: batch098_public_decision_time_evidence

@@ -101,6 +101,9 @@ def test_workflows_and_local_boundary_are_explicit() -> None:
     local = (ROOT / "scripts/run_batch098_with_local_tld_sources.ps1").read_text(encoding="utf-8")
     assert "incident_poetry_10974_init_duplicate_name, provider_python: \"3.11.15\"" in decision
     assert "runs-on: ubuntu-22.04" in decision
+    assert "CG_RUNTIME: ${{ runner.temp }}" not in decision + truth_blind
+    assert "$CG_RUNTIME" not in decision + truth_blind
+    assert "$RUNNER_TEMP/controllergate-runtime" in decision + truth_blind
     assert "public_decision_time_artifact_id" in truth_blind and "opaque_plan_commit_sha" in truth_blind
     assert "PublicDecisionEvidenceArtifactId" in local and "PublicTruthBlindExecutionArtifactId" in local
     assert "LOCAL_WINDOWS_DIAGNOSTIC_NONPARITY" in local

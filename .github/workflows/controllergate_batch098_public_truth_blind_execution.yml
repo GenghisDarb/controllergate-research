@@ -15,7 +15,6 @@ permissions:
   contents: read
 
 env:
-  CG_RUNTIME: ${{ runner.temp }}/controllergate-runtime
   CG_EXECUTION_SURFACE: PUBLIC_TRUTH_BLIND_EXECUTION_ONLY
 
 jobs:
@@ -37,15 +36,15 @@ jobs:
       - name: Acquire exact public decision-time artifact
         env: {GH_TOKEN: "${{ github.token }}"}
         run: |
-          mkdir -p "$CG_RUNTIME/decision"
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/decision"
           gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${{ inputs.public_decision_time_artifact_id }}/zip" > "$RUNNER_TEMP/public-decision.zip"
-          unzip -q "$RUNNER_TEMP/public-decision.zip" -d "$CG_RUNTIME/decision"
-      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$CG_RUNTIME/decision" --kind decision --output "$CG_RUNTIME/public_decision_artifact_verification.json"
+          unzip -q "$RUNNER_TEMP/public-decision.zip" -d "$RUNNER_TEMP/controllergate-runtime/decision"
+      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$RUNNER_TEMP/controllergate-runtime/decision" --kind decision --output "$RUNNER_TEMP/controllergate-runtime/public_decision_artifact_verification.json"
       - run: >-
           python scripts/verify_batch098_public_opaque_plan.py
           --plan-registry configs/batch098_opaque_probe_plan_registry_v1.jsonl
           --commit "${{ inputs.opaque_plan_commit_sha }}"
-          --output "$CG_RUNTIME/opaque_plan_public_verification.json"
+          --output "$RUNNER_TEMP/controllergate-runtime/opaque_plan_public_verification.json"
       - uses: actions/upload-artifact@v4
         with: {name: batch098-truth-public-input, path: "${{ runner.temp }}/controllergate-runtime", retention-days: 1}
 
@@ -97,7 +96,7 @@ jobs:
           controllergate evidence materialize-candidate
           --contracts "${{ steps.paths.outputs.contracts }}"
           --candidate "${{ matrix.candidate }}"
-          --runtime-root "$CG_RUNTIME/reconstruction/${{ matrix.candidate }}"
+          --runtime-root "$RUNNER_TEMP/controllergate-runtime/reconstruction/${{ matrix.candidate }}"
           --output "$RUNNER_TEMP/reconstruction/${{ matrix.candidate }}"
           --provider-python "${{ steps.provider.outputs.python-path }}"
           --forbidden-repo-root "$GITHUB_WORKSPACE"
@@ -143,11 +142,11 @@ jobs:
       - run: >-
           python scripts/seal_batch098_public_artifact.py
           --source "$RUNNER_TEMP/truth-input"
-          --output "$CG_RUNTIME/public-truth-blind-evidence"
+          --output "$RUNNER_TEMP/controllergate-runtime/public-truth-blind-evidence"
           --kind truth-blind
           --workflow-run-id "$GITHUB_RUN_ID"
           --workflow-head "$GITHUB_SHA"
-      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$CG_RUNTIME/public-truth-blind-evidence" --kind truth-blind
+      - run: python scripts/verify_batch098_public_artifact.py --artifact-root "$RUNNER_TEMP/controllergate-runtime/public-truth-blind-evidence" --kind truth-blind
       - uses: actions/upload-artifact@v4
         with:
           name: batch098_public_truth_blind_execution_evidence
