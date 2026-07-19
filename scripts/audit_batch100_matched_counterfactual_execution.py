@@ -31,7 +31,7 @@ def main() -> int:
     if hashlib.sha256(ingest.read_bytes()).hexdigest() != "55f9549fe1bf9d0d417980686434daf2c5336195b0955bd7acdd3452c428f2f3":
         errors.append("batch099_ingest_receipt_identity_mismatch")
     ledger = read_json(ROOT / "configs/controllergate_master_completion_ledger_v2.json")
-    if len(ledger.get("goals", [])) != 21:
+    if len(ledger.get("goals", [])) != 22:
         errors.append("master_ledger_goal_count_mismatch")
     protocol_paths = [
         "historical_cohort_expansion_protocol_v1.json", "abstention_required_cohort_protocol_v1.json",

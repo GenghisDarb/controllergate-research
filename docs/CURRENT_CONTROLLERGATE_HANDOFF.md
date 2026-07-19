@@ -9,3 +9,49 @@ Batch100 separated issue-reported provider identity from the Batch098 execution 
 The independent copied-tree critic rejected all fifty semantic mutations. The local-only truth join verified the eight-candidate private bundle and found six scoreable causal cases, zero causal coverage, zero causal accuracy, and zero false attribution for every policy. Causal feasibility and historical calibration are blocked; architecture and private-ordering gain remain not established. No protected repair is eligible.
 
 Continue from `configs/controllergate_master_completion_ledger_v2.json`. The next safe action is to materialize the remaining exact-provider cells—starting with the OpenBB secondary-source service fixture—and then preregister necessity, sufficiency, or factorial exclusions before another ownership evaluation. Run `python scripts/audit_controllergate_master_completion_ledger.py` before and after each batch. Do not change protocol v2.19, repair counts, production readiness, or release status without their later independent goals completing.
+## Batch101 official Batch100 ingest and exact-salvage boundary
+
+Batch101 officially ingests the exact Batch100 public artifact before changing execution semantics. The ingest checkpoint is `ffb74368beeb0b4e85b1bf0288d91f9a0a169a97`; its outer SHA256 is `37cb3b9657863d830abeee8f73385a838fee25f3f610250dd171153805358945`. Batch100 remains immutable and authoritative for what it actually executed, while the following execution-semantic defects are carried forward explicitly:
+
+1. The artifact had not been officially ingested at the Batch100 handoff.
+2. Candidate-specific code, rather than the frozen outcome registry, decided predicates.
+3. The Py-bugger accounting predicate required equality even though count inflation is the incident.
+4. Reproducible Py-bugger observations `62/7/1` and `49/5/1` were misclassified.
+5. Replay reproducibility compared complete observation dictionaries.
+6. Volatile hashes, durations, traces, paths, addresses, and installation paths affected replay identity.
+7. Raw custody identity and semantic identity were not separated.
+8. Pair validity did not require both incident and control predicate satisfaction.
+9. Factorial validity did not require every factor corner.
+10. Sensitivity used whole-observation inequality rather than a frozen projection.
+11. Necessity, sufficiency, and interaction were not computed from executed cells.
+12. OpenBB was blocked before execution.
+13. Its secondary source was not acquired, served, flattened, or compared.
+14. Four registered OpenBB cells remained unexecuted.
+15. Poetry fixture metadata was not reflected in the actual working-directory basename.
+16. Poetry therefore inferred `consumer`, not the requested spaced directory name.
+17. The exact Poetry incident and control predicates were never tested.
+18. Audioread lacked pytest in the provider environment.
+19. Missing Audioread structured evidence was treated as control success.
+20. Pytest identified as `0.1.dev1` and failed its own minimum-version gate.
+21. Pytest Git-derived build-version metadata was not preserved.
+22. Darker failed before the Git-directory incident layer.
+23. Darker 1.2.2 source parity was not established.
+24. Git-trace timestamps were treated as semantic differences.
+25. The selected Cloudpickle TypeVar combination did not reproduce the incident.
+26. Cloudpickle source/provider selection was not tightly issue-time bound.
+27. Cloudpickle distutils evidence was stronger than its presence-only label.
+28. Volatile warnings made Cloudpickle Python 3.11 replays appear nonreproducible.
+29. Pytest-duration differences made Freezegun replays appear nonreproducible.
+30. Provider matching accepted a major/minor prefix as exact parity.
+31. Exact and series-limited provider states were conflated.
+32. Shallow tagless source custody could collapse setuptools-scm versions.
+33. Raw workspaces were removed before independent semantic reconstruction.
+34. The outcome-semantic registry was not the sole predicate authority.
+35. That registry lacked a generic declarative predicate language.
+36. Stable and volatile observation fields were not declared.
+37. Held invariants were copied from contracts rather than proven from receipts.
+38. Materialization, validity, difference, sensitivity, causal relations, and ownership were conflated.
+39. Permanent project memory did not record these exact execution-semantic defects.
+40. No corrected-cell Batch101 workflow existed.
+
+The sealed expected-red record is `outputs/post_v2_37_hardening_batch101_canonical_semantic_replay_exact_incident_salvage_ownership_closure/batch101_pre_exact_incident_salvage_expected_failure.json`. These findings do not authorize a patch, repair-count change, Product Beta promotion, prospective-effectiveness claim, memory claim, production-readiness claim, or self-maintaining-software claim.
