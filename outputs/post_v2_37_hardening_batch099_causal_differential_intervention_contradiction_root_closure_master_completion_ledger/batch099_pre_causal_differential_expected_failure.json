@@ -1,0 +1,103 @@
+{
+  "authority_allowed": "expected-red implementation gate only",
+  "authority_forbidden": [
+    "scientific pass",
+    "repair",
+    "repair count",
+    "release"
+  ],
+  "finding_count": 8,
+  "findings": [
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-001",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/public_provisional_facts_v2.jsonl",
+      "raw_evidence_sha256": "6f85f2ea3fac607903acfb9b0b6f611b6b9e53ac9f3b13a57d8371b221c27a9c",
+      "red_to_green_test": "test_contact_is_ownership",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "Contact-shaped probe partitions directly create ownership-class facts.",
+      "symbol": "contact_is_ownership"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-002",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/public_failed_branches_v2.jsonl",
+      "raw_evidence_sha256": "1b4d9f365f0a0f70513b2e66f0e8306830e78abc8bb09b696f982fb1ca1e7cb0",
+      "red_to_green_test": "test_false_mutual_exclusion",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "Coexisting ownership contacts are treated as mutually exclusive.",
+      "symbol": "false_mutual_exclusion"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-003",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/arm_probe_inventory_comparison_v2.json",
+      "raw_evidence_sha256": "0f20905f439ae992096821d2a3b1dff2f7958607b193cef237851b306e5d8586",
+      "red_to_green_test": "test_no_counterfactual_pairs",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "No probe contract binds a changed dimension and held invariants to paired operations.",
+      "symbol": "no_counterfactual_pairs"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-004",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/controller_audit_terminal_contract_v2.json",
+      "raw_evidence_sha256": "b8e43913af15daeb35f5e587cb1848fd9588b667224a2a888e2da943ab2100b5",
+      "red_to_green_test": "test_no_evidence_hierarchy",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "The terminal contract does not distinguish contact, sensitivity, necessity, sufficiency, interaction, and ownership.",
+      "symbol": "no_evidence_hierarchy"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-005",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/public_failed_branches_v2.jsonl",
+      "raw_evidence_sha256": "1b4d9f365f0a0f70513b2e66f0e8306830e78abc8bb09b696f982fb1ca1e7cb0",
+      "red_to_green_test": "test_mixed_failure_unmeasured",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "Multiple active classes have no factorial interaction test.",
+      "symbol": "mixed_failure_unmeasured"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-006",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/public_failed_branches_v2.jsonl",
+      "raw_evidence_sha256": "1b4d9f365f0a0f70513b2e66f0e8306830e78abc8bb09b696f982fb1ca1e7cb0",
+      "red_to_green_test": "test_symmetric_contradictions",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "Every candidate has the same 54-contradiction shape.",
+      "symbol": "symmetric_contradictions"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-007",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/controller_audit_terminal_records_v2.jsonl",
+      "raw_evidence_sha256": "f0ed490340ee22a24a241ec29d6b3a5a31f766c19dd28202f7e740812317f7d8",
+      "red_to_green_test": "test_zero_causal_coverage",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "All eighty policies terminate with insufficient evidence.",
+      "symbol": "zero_causal_coverage"
+    },
+    {
+      "commit": "9813ac5d4503bed8e09e4ae92e33083563bddcd0",
+      "finding_id": "B099-CDI-008",
+      "line_range": "whole evidence object",
+      "path": "batch098_official_ingest/extracted_public_artifact/arm_probe_inventory_comparison_v2.json",
+      "raw_evidence_sha256": "0f20905f439ae992096821d2a3b1dff2f7958607b193cef237851b306e5d8586",
+      "red_to_green_test": "test_architecture_gain_unmeasured",
+      "required_correction": "Introduce matched differential evidence and level-aware constraint semantics.",
+      "risk": "Component additions are not tied to a preregistered causal-performance improvement.",
+      "symbol": "architecture_gain_unmeasured"
+    }
+  ],
+  "missing_inputs": [],
+  "official_ingest_receipt_sha256": "a7f0b785ea0c3095e179c1b1b5168f0999bd8c7df1a08441c42a2632ac53fd4c",
+  "status": "BATCH099_PRE_CAUSAL_DIFFERENTIAL_FAIL_EXPECTED"
+}
