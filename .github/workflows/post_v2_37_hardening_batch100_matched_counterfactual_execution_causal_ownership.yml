@@ -1,0 +1,155 @@
+name: post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  custody_contracts_and_capsules:
+    name: Custody, expected-red, ledger, contracts, and capsule verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: 01 Batch099 official-ingest custody
+        run: python -m pytest tests/test_batch100_official_batch099_ingest.py -q
+      - name: 02 Batch098 decision-artifact custody and 03 master-ledger audit
+        run: python scripts/audit_controllergate_master_completion_ledger.py
+      - name: 04 prompt contract through 06 candidate supersession
+        run: python scripts/audit_batch100_matched_counterfactual_execution.py --pre-execution
+      - name: 07 through 10 source and provider capsule independent verification
+        run: python scripts/verify_batch100_capsules.py --output-root outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/matched_counterfactual
+      - name: Contract and critic unit tests
+        run: python -m pytest tests/test_batch100_incident_counterfactual_contracts.py tests/test_batch100_master_completion_ledger.py tests/test_batch100_critic_and_protocols.py -q
+
+  candidate_counterfactual_matrix:
+    name: Candidate ${{ matrix.slice }}
+    needs: custody_contracts_and_capsules
+    continue-on-error: true
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {slice: darker-py37-linux, candidate: darker_issue_112_relative_git_dir, os: ubuntu-22.04, python: "3.7"}
+          - {slice: pybugger-py311-linux, candidate: py_bugger_issue_65, os: ubuntu-latest, python: "3.11"}
+          - {slice: cloudpickle-py311-linux, candidate: cloudpickle_507_py313_typevar_distutils, os: ubuntu-latest, python: "3.11"}
+          - {slice: cloudpickle-py312-linux, candidate: cloudpickle_507_py313_typevar_distutils, os: ubuntu-latest, python: "3.12"}
+          - {slice: freezegun-py312-linux, candidate: freezegun_547_py313_datetimes_assertion, os: ubuntu-latest, python: "3.12"}
+          - {slice: freezegun-py313b1-linux, candidate: freezegun_547_py313_datetimes_assertion, os: ubuntu-latest, python: "3.13.0-beta.1"}
+          - {slice: audioread-py312-linux, candidate: audioread_144_py313_aifc_removed, os: ubuntu-latest, python: "3.12"}
+          - {slice: audioread-py313b2-linux, candidate: audioread_144_py313_aifc_removed, os: ubuntu-latest, python: "3.13.0-beta.2"}
+          - {slice: pytest-py3133-linux, candidate: pytest_13480_wdefault_unraisable_threadexception, os: ubuntu-latest, python: "3.13.3"}
+          - {slice: openbb-py311-debian12, candidate: incident_openbb_7585_modular_openapi_reproducer, os: ubuntu-latest, python: "3.11"}
+          - {slice: poetry-py313-windows, candidate: incident_poetry_10974_init_duplicate_name, os: windows-latest, python: "3.13"}
+          - {slice: poetry-py313-linux-control, candidate: incident_poetry_10974_init_duplicate_name, os: ubuntu-latest, python: "3.13"}
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: setup_python
+        continue-on-error: true
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          allow-prereleases: true
+      - name: Record setup blocker when exact provider is unavailable
+        if: steps.setup_python.outcome != 'success'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force "${{ runner.temp }}/batch100-out/${{ matrix.slice }}" | Out-Null
+          '{"candidate_id":"${{ matrix.candidate }}","blocker":"EXACT_PROVIDER_SETUP_UNAVAILABLE","requested_provider":"${{ matrix.python }}","authority_allowed":"exact blocker","authority_forbidden":["causal ownership","patch","count mutation","release"]}' | Set-Content -Encoding utf8NoBOM "${{ runner.temp }}/batch100-out/${{ matrix.slice }}/candidate_blockers_v1.jsonl"
+          '' | Set-Content -Encoding utf8NoBOM "${{ runner.temp }}/batch100-out/${{ matrix.slice }}/cell_execution_receipts_v1.jsonl"
+          '' | Set-Content -Encoding utf8NoBOM "${{ runner.temp }}/batch100-out/${{ matrix.slice }}/provider_materialization_receipts_v1.jsonl"
+          '' | Set-Content -Encoding utf8NoBOM "${{ runner.temp }}/batch100-out/${{ matrix.slice }}/broker_operations_v1.jsonl"
+      - name: 11 through 15 typed incident, cells, duplicate replay, and semantic verification
+        if: steps.setup_python.outcome == 'success'
+        shell: pwsh
+        run: |
+          python scripts/run_batch100_candidate_program.py --candidate-id "${{ matrix.candidate }}" --runtime-root "${{ runner.temp }}/controllergate-runtime/${{ matrix.slice }}" --output-dir "${{ runner.temp }}/batch100-out/${{ matrix.slice }}"
+      - name: Upload candidate-scoped public evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch100-candidate-${{ matrix.slice }}
+          path: ${{ runner.temp }}/batch100-out/${{ matrix.slice }}
+          retention-days: 1
+          if-no-files-found: error
+
+  join_compile_and_evaluate:
+    name: Pair join, evidence hierarchy, DPP, arms, and source-ownership gate
+    if: always()
+    needs: [custody_contracts_and_capsules, candidate_counterfactual_matrix]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: batch100-candidate-*
+          path: ${{ runner.temp }}/batch100-candidates
+      - name: 16 pair join through 24 source-ownership proof reconstruction
+        run: |
+          python scripts/finalize_batch100_public_execution.py --candidate-artifacts-root "${{ runner.temp }}/batch100-candidates" --output-root outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock --workflow-run-id "${{ github.run_id }}"
+      - name: Upload joined public evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch100-joined-public-evidence
+          path: outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock
+          retention-days: 1
+
+  critic_mutations_and_packaging:
+    name: Standalone critic, 50 mutations, final audit, and compact packaging
+    needs: join_compile_and_evaluate
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/download-artifact@v4
+        with:
+          name: batch100-joined-public-evidence
+          path: outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock
+      - name: 25 standalone critic and 26 copied-tree mutation campaign
+        run: python scripts/run_batch100_independent_critic.py --output-root outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/critic
+      - name: Stage public contracts and finalize release boundary
+        run: |
+          python scripts/stage_batch100_public_contracts.py --output-root outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock
+          python scripts/finalize_batch100_release_outputs.py --output-root outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock --workflow-run-id "${{ github.run_id }}"
+      - name: Final Batch100 audit
+        run: python scripts/audit_batch100_matched_counterfactual_execution.py
+      - name: Validate portable manifest and payload hygiene
+        shell: pwsh
+        run: |
+          $root = 'outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock'
+          $bad = Get-ChildItem $root -Recurse -File | Where-Object { $_.Name -match '\.pyc$|\.zip$|\.tar$' -or $_.FullName -match '__pycache__|site-packages|\.git([\\/]|$)' }
+          if ($bad) { $bad.FullName; exit 1 }
+      - name: 27 upload compact main artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_artifacts
+          path: outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock
+          retention-days: 30
+          if-no-files-found: error

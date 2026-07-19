@@ -137,7 +137,10 @@ def conservative_evidence_from_cells(
     else:
         pair_status = "VALID_FACTORIAL_INTERACTION"
     outcome_difference = bool(incident and control and incident.get("semantic_observation") != control.get("semantic_observation"))
-    sensitivity = pair_status in {"VALID_SINGLE_FACTOR_PAIR", "VALID_FACTORIAL_INTERACTION"} and outcome_difference
+    sensitivity = (
+        pair_status in {"VALID_SINGLE_FACTOR_PAIR", "VALID_FACTORIAL_INTERACTION"}
+        and incident_materialized and control_materialized and outcome_difference
+    )
     evidence_level = "DIMENSION_SENSITIVITY_VERIFIED" if sensitivity else "PRESENCE_VERIFIED"
     unresolved = [] if sensitivity else ["matched incident/control outcome difference not established"]
     return MatchedCounterfactualEvidenceV2(

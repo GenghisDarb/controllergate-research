@@ -103,22 +103,24 @@ def main() -> int:
     fixture = {"type": "deterministic-git-consumer", "tracked_path": "src/example.py", "dirty_change": "x = 2", "initial": "x=1\n"}
     p = "provider:darker_issue_112_relative_git_dir:incident-series"
     darker_argv = ["darker", "--check", "src"]
-    a = cell(candidate, pid, "relative-git-dir", argv=darker_argv, env={"GIT_DIR": ".git", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "relative", "route": "darker"}, role="incident", provider=p)
-    b = cell(candidate, pid, "absolute-git-dir", argv=darker_argv, env={"GIT_DIR": "${ABS_GIT_DIR}", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "absolute", "route": "darker"}, role="control", provider=p)
-    c = cell(candidate, pid, "git-dir-unset", argv=darker_argv, env={"LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "unset", "route": "darker"}, role="exclusion", provider=p)
-    d = cell(candidate, pid, "invalid-absolute", argv=darker_argv, env={"GIT_DIR": "${RUNTIME_ROOT}/missing/.git", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "invalid_absolute", "route": "darker"}, role="negative", provider=p)
-    e = cell(candidate, pid, "direct-git-relative", argv=["git", "diff", "--name-only", "HEAD", "--", "src"], env={"GIT_DIR": ".git", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "relative", "route": "direct_git"}, role="exclusion", provider=p)
-    f = cell(candidate, pid, "direct-git-absolute", argv=["git", "diff", "--name-only", "HEAD", "--", "src"], env={"GIT_DIR": "${ABS_GIT_DIR}", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "absolute", "route": "direct_git"}, role="exclusion", provider=p)
+    trace = {"GIT_TRACE": "1", "CONTROLLERGATE_INSTRUMENTATION": "git-trace-v1"}
+    a = cell(candidate, pid, "relative-git-dir", argv=darker_argv, env={**trace, "GIT_DIR": ".git", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "relative", "route": "darker"}, role="incident", provider=p)
+    b = cell(candidate, pid, "absolute-git-dir", argv=darker_argv, env={**trace, "GIT_DIR": "${ABS_GIT_DIR}", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "absolute", "route": "darker"}, role="control", provider=p)
+    c = cell(candidate, pid, "git-dir-unset", argv=darker_argv, env={**trace, "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "unset", "route": "darker"}, role="exclusion", provider=p)
+    d = cell(candidate, pid, "invalid-absolute", argv=darker_argv, env={**trace, "GIT_DIR": "${RUNTIME_ROOT}/missing/.git", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "invalid_absolute", "route": "darker"}, role="negative", provider=p)
+    e = cell(candidate, pid, "direct-git-relative", argv=["git", "diff", "--name-only", "HEAD", "--", "src"], env={**trace, "GIT_DIR": ".git", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "relative", "route": "direct_git"}, role="exclusion", provider=p)
+    f = cell(candidate, pid, "direct-git-absolute", argv=["git", "diff", "--name-only", "HEAD", "--", "src"], env={**trace, "GIT_DIR": "${ABS_GIT_DIR}", "LC_ALL": "C.UTF-8"}, fixture=fixture, factors={"git_dir": "absolute", "route": "direct_git"}, role="exclusion", provider=p)
     add(candidate, "relative_git_dir", a, b, [c, d, e, f], ["environment.GIT_DIR"], ["source", "wheel", "consumer tree", "dirty state", "cwd", "command", "Git", "locale", "budget"], {"not_a_git_repository": True}, {"not_a_git_repository": False}, {"git_dir": ["relative", "absolute"], "route": ["darker", "direct_git"]}, "factorial_diagnostic")
 
     # Py-bugger: CLI accounting with externally injected deterministic attempt mask.
     candidate = "py_bugger_issue_65"; pid = "batch100-py-bugger-65-accounting"; p = "provider:py_bugger_issue_65:reported-cli-sensitivity"
     fixture = {"type": "deterministic-python-target", "path": "target.py", "sha_seed": "batch100-py-bugger-65", "requested_mutations": 10}
     argv = ["py-bugger", "--target-file", "${TARGET_FILE}", "-n", "10"]
-    a = cell(candidate, pid, "all-attempts-succeed", argv=argv, env={"CONTROLLERGATE_MUTATION_MASK": "1111111111", "PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "all", "route": "cli"}, role="incident", provider=p)
-    b = cell(candidate, pid, "subset-attempts-fail", argv=argv, env={"CONTROLLERGATE_MUTATION_MASK": "1101010011", "PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "subset", "route": "cli"}, role="control", provider=p)
-    c = cell(candidate, pid, "internal-all-success", argv=["python", "${EXTERNAL_ACCOUNTING_HARNESS}", "--route", "internal", "--mask", "1111111111"], env={"PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "all", "route": "internal"}, role="exclusion", provider=p)
-    d = cell(candidate, pid, "internal-subset-failure", argv=["python", "${EXTERNAL_ACCOUNTING_HARNESS}", "--route", "internal", "--mask", "1101010011"], env={"PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "subset", "route": "internal"}, role="exclusion", provider=p)
+    instrumentation = {"PYTHONPATH": "${INSTRUMENTATION_DIR}", "CONTROLLERGATE_INSTRUMENTATION": "pybugger-accounting-sitecustomize-v1", "PY_BUGGER_RANDOM_SEED": "10065"}
+    a = cell(candidate, pid, "all-attempts-succeed", argv=argv, env={**instrumentation, "CONTROLLERGATE_MUTATION_MASK": "1111111111", "PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "all", "route": "cli"}, role="incident", provider=p)
+    b = cell(candidate, pid, "subset-attempts-fail", argv=argv, env={**instrumentation, "CONTROLLERGATE_MUTATION_MASK": "1101010011", "PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "subset", "route": "cli"}, role="control", provider=p)
+    c = cell(candidate, pid, "internal-all-success", argv=["python", "${EXTERNAL_ACCOUNTING_HARNESS}", "--target", "${TARGET_FILE}", "--mask", "1111111111"], env={**instrumentation, "CONTROLLERGATE_MUTATION_MASK": "1111111111", "PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "all", "route": "internal"}, role="exclusion", provider=p)
+    d = cell(candidate, pid, "internal-subset-failure", argv=["python", "${EXTERNAL_ACCOUNTING_HARNESS}", "--target", "${TARGET_FILE}", "--mask", "1101010011"], env={**instrumentation, "CONTROLLERGATE_MUTATION_MASK": "1101010011", "PYTHONHASHSEED": "10065"}, fixture=fixture, factors={"success_mask": "subset", "route": "internal"}, role="exclusion", provider=p)
     add(candidate, "mutation_count_accounting", a, b, [c, d], ["external_attempt_success_mask"], ["source", "provider", "target input", "requested count", "seed", "budget"], {"reported_count_basis": "attempted"}, {"reported_count_basis": "successful_or_persisted"}, {"success_mask": ["all", "subset"], "route": ["cli", "internal"]}, "factorial_diagnostic")
 
     # Cloudpickle: separate TypeVar and distutils programs.
@@ -149,10 +151,11 @@ def main() -> int:
     candidate = "audioread_144_py313_aifc_removed"; pid = "batch100-audioread-144-aifc"; pc = "provider:audioread_144_py313_aifc_removed:supported-control"; pi = "provider:audioread_144_py313_aifc_removed:exact-incident"
     nodes = ["test/test_audioread.py::test_audioread_early_exit[test-1]", "test/test_audioread.py::test_audioread_early_exit[test-2]", "test/test_audioread.py::test_audioread_full[test-1]", "test/test_audioread.py::test_audioread_full[test-2]"]
     fixture = {"type": "source-audio-fixtures", "nodes": nodes}
-    a = cell(candidate, pid, "python313-rawread", argv=["python", "-c", "import aifc; import audioread.rawread; print('RAWREAD_OK')"], env={}, fixture=fixture, factors={"python": "3.13.0b2", "route": "rawread"}, role="incident", provider=pi)
-    b = cell(candidate, pid, "python312-rawread", argv=["python", "-c", "import aifc; import audioread.rawread; print('RAWREAD_OK')"], env={}, fixture=fixture, factors={"python": "3.12", "route": "rawread"}, role="control", provider=pc)
-    c = cell(candidate, pid, "python313-unrelated", argv=["python", "-c", "import audioread; print(len(audioread.available_backends()))"], env={}, fixture=fixture, factors={"python": "3.13.0b2", "route": "unrelated_backend"}, role="exclusion", provider=pi)
-    d = cell(candidate, pid, "python312-unrelated", argv=["python", "-c", "import audioread; print(len(audioread.available_backends()))"], env={}, fixture=fixture, factors={"python": "3.12", "route": "unrelated_backend"}, role="exclusion", provider=pc)
+    harness = ["python", "${AUDIOREAD_HARNESS}"]
+    a = cell(candidate, pid, "python313-rawread", argv=[*harness, "--route", "rawread", "--run-exact-tests"], env={}, fixture=fixture, factors={"python": "3.13.0b2", "route": "rawread"}, role="incident", provider=pi)
+    b = cell(candidate, pid, "python312-rawread", argv=[*harness, "--route", "rawread", "--run-exact-tests"], env={}, fixture=fixture, factors={"python": "3.12", "route": "rawread"}, role="control", provider=pc)
+    c = cell(candidate, pid, "python313-unrelated", argv=[*harness, "--route", "unrelated_backend", "--run-exact-tests"], env={}, fixture=fixture, factors={"python": "3.13.0b2", "route": "unrelated_backend"}, role="exclusion", provider=pi)
+    d = cell(candidate, pid, "python312-unrelated", argv=[*harness, "--route", "unrelated_backend", "--run-exact-tests"], env={}, fixture=fixture, factors={"python": "3.12", "route": "unrelated_backend"}, role="exclusion", provider=pc)
     add(candidate, "aifc_removed", a, b, [c, d], ["provider.python"], ["source", "fixtures", "command per route", "dependencies", "runner"], {"exception_type": "ModuleNotFoundError", "module": "aifc"}, {"rawread_import": "success"}, {"python": ["3.12", "3.13.0b2"], "route": ["rawread", "unrelated_backend"]}, "factorial_diagnostic")
 
     # pytest exact nodes with warning-mode factor.
