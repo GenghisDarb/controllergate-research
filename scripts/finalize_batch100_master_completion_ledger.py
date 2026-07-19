@@ -22,7 +22,7 @@ def main() -> int:
     updates = {
         "CG-GOAL-005-INCIDENT-IDENTITY-AND-PARITY": ("COMPLETE_WITH_LIMITED_SCOPE", ["exact_incident_provider_parity_limited_for_registered_candidates"]),
         "CG-GOAL-006-TYPED-INCIDENT-REMATERIALIZATION": ("BLOCKED", ["typed_incident_materialized_2_of_9", "registered_exact_provider_cells_missing"]),
-        "CG-GOAL-007-MATCHED-COUNTERFACTUAL-EXECUTION": ("COMPLETE_WITH_LIMITED_SCOPE", ["16_of_32_registered_cells_received_duplicate_clean_replay", "remaining_exact_provider_cells_blocked"]),
+        "CG-GOAL-007-MATCHED-COUNTERFACTUAL-EXECUTION": ("COMPLETE_WITH_LIMITED_SCOPE", ["subset_of_32_registered_cells_received_duplicate_clean_replay", "observed_reproducible_cell_count_varied_between_15_and_16_across_official_runs", "remaining_exact_provider_cells_blocked"]),
         "CG-GOAL-008-CAUSAL-OWNERSHIP-CLOSURE": ("BLOCKED", ["necessity_sufficiency_interaction_and_ownership_receipts_zero"]),
         "CG-GOAL-009-ARCHITECTURE-GAIN": ("BLOCKED", ["causal_coverage_zero", "architecture_gain_not_established"]),
         "CG-GOAL-010-TLD-ROUTING-GAIN": ("BLOCKED", ["tld_ordering_gain_not_established"]),
