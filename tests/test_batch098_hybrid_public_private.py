@@ -10,6 +10,7 @@ from controllergate.evidence.provider_parity import load_provider_contracts, pub
 from controllergate.evidence.roles_v2 import produce_roles, role_quality_gate, verify_role_receipts
 from controllergate.topology.pre_tld_frame_v1 import canonical_hash, verify_pre_tld_frame
 from scripts.batch098_workflow_stage import incident_verify
+from scripts.audit_batch098_public_topology_layer import audit_layer
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -160,3 +161,21 @@ def test_role_execution_preserves_unavailable_incident_role() -> None:
     assert sum(row["status"] == "BLOCK" for row in produced) == 1
     assert sum(row["status"] == "BLOCK" for row in verified) == 1
     assert role_quality_gate(produced, verified, 1)["status"] == "BLOCK"
+
+
+def test_projection_audit_preserves_no_executable_pair_as_scientific_block(tmp_path: Path) -> None:
+    source = tmp_path / "verified"
+    for index in range(8):
+        root = source / f"candidate-{index}"
+        root.mkdir(parents=True)
+        (root / "topology_verification_summary.json").write_text(
+            json.dumps({"candidate_id": f"candidate-{index}", "status": "PASS"}), encoding="utf-8"
+        )
+        rows = [] if index == 0 else [{"pair_id": f"pair-{index}", "status": "PASS"}]
+        (root / "projection_pair_verification_receipts_v2.jsonl").write_text(
+            "".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8"
+        )
+    audit = audit_layer(source, tmp_path / "audit", "projection")
+    assert audit["status"] == "PASS_EXECUTION_WITH_SCIENTIFIC_BLOCKS"
+    assert audit["scientific_block_count"] == 1
+    assert audit["rows"][0]["status"] == "SCIENTIFIC_BLOCK_NO_EXECUTABLE_PROJECTION_PAIR"
