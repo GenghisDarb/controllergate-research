@@ -142,6 +142,9 @@ def audit() -> tuple[dict[str, Any], list[str]]:
     later_batch093_prefix = "outputs/post_v2_37_hardening_batch093_structured_rpir_executable_isomorphism_amds_role_cohort_closure/"
     later_batch094_prefix = "outputs/post_v2_37_hardening_batch094_value_bound_rpir_fresh_amds_cohort_historical_closure/"
     later_batch095_prefix = "outputs/post_v2_37_hardening_batch095_provider_orthology_typed_incident_eight_cohort_amds_closure/"
+    later_batch096_prefix = "outputs/post_v2_37_hardening_batch096_repository_genome_topology_compiled_amds_unification/"
+    later_batch097_prefix = "outputs/post_v2_37_hardening_batch097_evidence_reconstitution_real_repository_genome_topology_amds/"
+    later_batch098_prefix = "outputs/post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure/"
     historical_changes = [
         name for name in git_diff
         if "batch089" not in name
@@ -152,6 +155,9 @@ def audit() -> tuple[dict[str, Any], list[str]]:
         and not name.replace("\\", "/").startswith(later_batch093_prefix)
         and not name.replace("\\", "/").startswith(later_batch094_prefix)
         and not name.replace("\\", "/").startswith(later_batch095_prefix)
+        and not name.replace("\\", "/").startswith(later_batch096_prefix)
+        and not name.replace("\\", "/").startswith(later_batch097_prefix)
+        and not name.replace("\\", "/").startswith(later_batch098_prefix)
     ]
     if historical_changes:
         failures.append("historical_output_mutation_detected")

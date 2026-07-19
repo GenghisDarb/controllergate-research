@@ -1,7 +1,7 @@
 {
   "active_child_blockers": [],
   "active_root_blockers": [
-    "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"
+    "BATCH098_LOCAL_PROVIDER_INTERPRETER_PARITY_BLOCKED_EXACT"
   ],
   "authority_allowed": "claim-boundary and blocker reporting",
   "authority_forbidden": [
@@ -17,7 +17,7 @@
     "official main-artifact packaging"
   ],
   "exact_blockers": [
-    "BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"
+    "BATCH098_LOCAL_PROVIDER_INTERPRETER_PARITY_BLOCKED_EXACT"
   ],
   "execution_depth": "current_evidence_root_block_reconstruction",
   "historical_count_increment": 0,
@@ -26,7 +26,7 @@
   "producer": "scripts.finalize_batch098_blocked_state",
   "protected_historical_actuation": "NOT_AUTHORIZED",
   "reopen_conditions": [
-    "run scripts/configure_batch098_tld_bridge.ps1 and paste a time-limited HTTPS URL for the exact frozen bundle; then pass the resulting exact Actions artifact ID to the main workflow"
+    "provide approved Python 3.7 and Python 3.11 provider interpreter executables through CG_PYTHON_37 and CG_PYTHON_311, then rerun scripts/run_batch098_with_local_tld_sources.ps1"
   ],
   "semantic_scope": "Batch098 current public boundary",
   "status": "PRODUCT_BETA_RC_BLOCKED_EXACT"

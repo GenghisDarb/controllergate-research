@@ -50,21 +50,21 @@ def test_standalone_critic_rejects_semantic_mutation(tmp_path: Path) -> None:
     assert result["findings"][0]["finding"] == "ORDINARY_RUN_ACTUATION_OR_COUNT"
 
 
-def test_tld_local_parse_is_not_ci_custody() -> None:
-    custody = json.loads((OUT / "tld_raw_ci_custody_v1.json").read_text(encoding="utf-8"))
-    parse = json.loads((OUT / "tld_raw_parse_audit_v1.json").read_text(encoding="utf-8"))
-    firewall = json.loads((OUT / "tld_shadow_authority_firewall_v4.json").read_text(encoding="utf-8"))
-    assert custody["local_custody"]["status"] == "PASS"
-    assert custody["status"] == "BLOCK"
-    assert parse["notebook_count"] == 44
-    assert firewall["local_parse_is_ci_custody"] is False
+def test_tld_private_direct_source_custody_is_not_a_ci_claim() -> None:
+    coverage = json.loads((OUT / "tld_direct_source_coverage_v1.json").read_text(encoding="utf-8"))
+    identity = json.loads((OUT / "tld_direct_bundle_canonical_identity_v1.json").read_text(encoding="utf-8"))
+    status = json.loads((OUT / "batch098_tld_direct_source_current_status.json").read_text(encoding="utf-8"))
+    assert coverage["status"] == "PASS_44_OF_44"
+    assert identity["status"] == "PASS_BYTE_IDENTICAL_REBUILD"
+    assert status["github_raw_tld_custody"] == "NOT_APPLICABLE_PRIVATE_DIRECT_SOURCE_MODE"
+    assert status["github_scientific_workflow"] == "NOT_RUN_PRIVATE_SOURCE_MODE"
 
 
 def test_public_boundary_preserves_locked_claims() -> None:
     decision = json.loads((OUT / "batch098_internal_release_decision.json").read_text(encoding="utf-8"))
     claims = json.loads((OUT / "batch098_claim_boundary.json").read_text(encoding="utf-8"))
     assert decision["status"] == "PRODUCT_BETA_RC_BLOCKED_EXACT"
-    assert decision["exact_blockers"] == ["BATCH098_TLD_SOURCE_CUSTODY_BRIDGE_AWAITING_BRAD_URL"]
+    assert decision["exact_blockers"] == ["BATCH098_LOCAL_PROVIDER_INTERPRETER_PARITY_BLOCKED_EXACT"]
     assert claims["protocol"] == "v2.19"
     assert claims["package_version"] == "0.2.0b2.dev0"
     assert claims["issue_derived_repairs"] == 6
@@ -72,12 +72,13 @@ def test_public_boundary_preserves_locked_claims() -> None:
     assert claims["historical_increment"] == 0
 
 
-def test_workflow_requires_protected_tld_bridge() -> None:
+def test_public_workflow_cannot_acquire_private_tld_sources() -> None:
     workflow = (ROOT / ".github" / "workflows" / "post_v2_37_hardening_batch098_causal_hypergraph_real_materialization_topology_probe_closure.yml").read_text(encoding="utf-8")
-    custody = (ROOT / ".github" / "workflows" / "controllergate_batch098_tld_source_custody_bridge.yml").read_text(encoding="utf-8")
     assert "CONTROLLERGATE_TLD_BUNDLE_URL" not in workflow
-    assert "CONTROLLERGATE_TLD_BUNDLE_URL" in custody
-    assert "actions/artifacts/${{ inputs.tld_source_artifact_id }}/zip" in workflow
+    assert "tld_source_artifact_id" not in workflow
+    assert "PUBLIC_REGRESSION_NO_PRIVATE_TLD" in workflow
+    assert "if: ${{ false }}" in workflow
+    assert not (ROOT / ".github" / "workflows" / "controllergate_batch098_tld_source_custody_bridge.yml").exists()
     assert "materialize-candidate" in workflow
     assert "truth_blind_amds_candidate_groups" in workflow
     assert "retention-days: 30" in workflow
