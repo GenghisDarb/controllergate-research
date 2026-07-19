@@ -1,0 +1,72 @@
+name: controllergate_batch098_public_truth_blind_semantic_closure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  corrected-truth-blind-semantic-closure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install ControllerGate
+        run: python -m pip install . pytest
+      - name: Download immutable public decision-time artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: batch098_public_decision_time_evidence
+          run-id: 29671958790
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/controllergate-runtime/public-decision
+      - name: Verify immutable decision artifact identity and manifests
+        shell: bash
+        run: |
+          test "$(find "$RUNNER_TEMP/controllergate-runtime/public-decision" -type f | wc -l)" -gt 600
+          python scripts/verify_batch098_public_artifact.py \
+            --artifact-root "$RUNNER_TEMP/controllergate-runtime/public-decision" \
+            --kind decision \
+            --output "$RUNNER_TEMP/controllergate-runtime/decision-verification.json"
+          grep -q 9f5d7aa5579b450e550a2bebdd1d83411b3dfe1d95e111f25db9361ceabe641a configs/batch098_private_truth_semantic_closure_addendum_contract.json
+      - name: Run semantic closure unit and audit suite
+        run: |
+          python -m pytest tests/test_batch098_private_truth_semantic_closure.py tests/test_batch098_hybrid_public_private.py -q
+          python scripts/audit_batch098_private_truth_semantic_closure.py
+      - name: Execute corrected truth-blind semantic closure
+        shell: bash
+        run: |
+          python scripts/run_batch098_public_truth_blind_semantic_closure.py \
+            --decision-artifact "$RUNNER_TEMP/controllergate-runtime/public-decision" \
+            --plan-registry configs/batch098_opaque_probe_plan_registry_v2.jsonl \
+            --output "$RUNNER_TEMP/controllergate-runtime/public-truth-blind-semantic-v2" \
+            --workflow-run-id "${{ github.run_id }}"
+      - name: Enforce public boundary and compact payload
+        shell: bash
+        run: |
+          ROOT="$RUNNER_TEMP/controllergate-runtime/public-truth-blind-semantic-v2"
+          test "$(find "$ROOT" -type f \( -name '*.pyc' -o -path '*/__pycache__/*' \) | wc -l)" -eq 0
+          test "$(grep -R -E 'candidate_truth_records|sealed.truth|accepted_fix_commit|private_truth_sources' "$ROOT" 2>/dev/null | wc -l)" -eq 0
+          python - <<'PY'
+          import json, os, pathlib
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'controllergate-runtime/public-truth-blind-semantic-v2'
+          value=json.loads((root/'public_truth_blind_semantic_closure_summary.json').read_text())
+          assert value['truth_access_count']==0
+          assert value['private_tld_source_access_count']==0
+          assert value['patch_operation_count']==0
+          assert value['historical_increment']==0
+          assert value['claim_boundary']=='PRODUCT_BETA_RC_BLOCKED_EXACT'
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch098_public_truth_blind_semantic_closure_v2
+          path: ${{ runner.temp }}/controllergate-runtime/public-truth-blind-semantic-v2
+          retention-days: 1
+          if-no-files-found: error
