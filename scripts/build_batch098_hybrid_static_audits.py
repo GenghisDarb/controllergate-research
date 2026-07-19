@@ -152,12 +152,19 @@ def main() -> int:
     })
     write("batch098_active_byte_custody_audit.json", active_manifest_audit())
     write("batch098_historical_manifest_immutability_audit.json", historical_manifest_immutability_audit())
+    decision_receipt_path = OUTPUT / "batch098_public_decision_evidence_workflow_receipt.json"
+    leakage_path = OUTPUT / "opaque_plan_private_source_leakage_audit.json"
+    decision_status = json.loads(decision_receipt_path.read_text(encoding="utf-8"))["status"] if decision_receipt_path.is_file() else "NOT_RUN"
+    opaque_status = json.loads(leakage_path.read_text(encoding="utf-8"))["status"] if leakage_path.is_file() else "NOT_RUN"
+    opaque_pass = opaque_status == "PASS_PUBLIC_SAFE_OPAQUE_PLAN"
+    decision_pass = decision_status == "PASS"
+    primary_blocker = "BATCH098_PUBLIC_TRUTH_BLIND_EXECUTION_REQUIRED" if decision_pass and opaque_pass else ("BATCH098_PRIVATE_TLD_OPAQUE_PLAN_REQUIRED" if decision_pass else "BATCH098_PUBLIC_DECISION_TIME_EVIDENCE_REQUIRED")
     write("batch098_hybrid_execution_infrastructure_state.json", {
-        "status": "IMPLEMENTED_EXECUTION_PENDING_PUBLIC_WORKFLOWS",
-        "primary_blocker": "BATCH098_PUBLIC_DECISION_TIME_EVIDENCE_REQUIRED",
+        "status": "IMPLEMENTED_PUBLIC_DECISION_AND_OPAQUE_PLAN_FROZEN" if decision_pass and opaque_pass else "IMPLEMENTED_EXECUTION_PENDING_PUBLIC_WORKFLOWS",
+        "primary_blocker": primary_blocker,
         "execution_surface": "HYBRID_PUBLIC_PROVIDER_PRIVATE_TLD_PROTECTED_RUN",
-        "public_decision_evidence": "NOT_RUN",
-        "opaque_plan": "NOT_RUN",
+        "public_decision_evidence": decision_status,
+        "opaque_plan": opaque_status,
         "public_truth_blind_execution": "NOT_RUN",
         "private_finalization": "NOT_RUN",
         "ordinary_patch_count": 0,

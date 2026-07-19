@@ -71,6 +71,15 @@ def main() -> int:
         "authority_forbidden": ["post-execution plan mutation"],
     }
     (output / "opaque_plan_outcome_blindness_audit.json").write_text(json.dumps(timing, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
+    timing_audit = {
+        **timing,
+        "producer": "scripts/compile_batch098_private_tld_opaque_probe_plans.py",
+        "execution_depth": "pre-execution plan timing verification",
+        "semantic_scope": "opaque plan freeze timing only",
+        "authority_allowed": "public truth-blind workflow dispatch after commit",
+        "authority_forbidden": ["post-execution plan mutation", "truth", "repair", "count", "release"],
+    }
+    (output / "opaque_plan_timing_audit.json").write_text(json.dumps(timing_audit, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     mutation = {
         "status": "PASS",
         "control": "post_execution_plan_mutation",
