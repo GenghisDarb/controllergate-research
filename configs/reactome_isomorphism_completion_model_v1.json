@@ -1,0 +1,42 @@
+{
+  "completion_rule": "Reactome isomorphism completion requires R5; R6 remains separately required for prospective validation.",
+  "levels": [
+    {
+      "level": "R0_SOURCE_CUSTODY",
+      "required_evidence": ["byte-identified Reactome release", "member manifest", "source hashes"],
+      "starting_status": "PASS"
+    },
+    {
+      "level": "R1_LOSSLESS_RPIR_GRAPH",
+      "required_evidence": ["2916 pathways", "16814 reactions", "explicit absent-source states"],
+      "starting_status": "PASS_WITH_FORMAT_LIMITATIONS"
+    },
+    {
+      "level": "R2_SOURCE_BOUND_TRANSLATION",
+      "required_evidence": ["field-origin registry", "translation loss audit", "zero silent omissions"],
+      "starting_status": "PASS_WITH_GROUNDING_CAVEATS"
+    },
+    {
+      "level": "R3_EXECUTABLE_SHADOW",
+      "required_evidence": ["reaction-specific shadow receipts", "independent verification", "nonauthorizing boundary"],
+      "starting_status": "PASS_NONAUTHORIZING_SHADOW"
+    },
+    {
+      "level": "R4_CAUSAL_PLANNING_GAIN",
+      "required_evidence": ["matched Reactome-on/off ablation", "improvement on at least two candidates", "zero truth leakage", "zero unsafe authority"],
+      "starting_status": "NOT_ESTABLISHED"
+    },
+    {
+      "level": "R5_CROSS_CANDIDATE_GENERALIZATION",
+      "required_evidence": ["gain on at least three candidates", "at least two causal families", "more than one repository/provider class"],
+      "starting_status": "NOT_ESTABLISHED"
+    },
+    {
+      "level": "R6_PROSPECTIVE_VALIDATION",
+      "required_evidence": ["future preregistered held-out prospective campaign"],
+      "starting_status": "NOT_RUN"
+    }
+  ],
+  "maximum_batch103_level": "R5_CROSS_CANDIDATE_GENERALIZATION",
+  "schema": "ReactomeIsomorphismCompletionModelV1"
+}

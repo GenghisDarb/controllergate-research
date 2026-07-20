@@ -1,0 +1,31 @@
+{
+  "$id": "reactome-software-translation-schema-v2",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "claim_boundary": "No translation is proof by metaphor.",
+  "properties": {
+    "authority_boundary": {"type": "object"},
+    "counterfactual_meaning": {"type": "string"},
+    "losses": {"type": "array", "items": {"type": "string"}},
+    "reactome_concept": {"type": "string"},
+    "reversibility": {"type": "string"},
+    "software_relation": {"type": "string"},
+    "source_relation": {"type": "string"},
+    "test_method": {"type": "string"},
+    "translation_id": {"type": "string"},
+    "uncertainty": {"type": "array", "items": {"type": "string"}}
+  },
+  "required": [
+    "translation_id",
+    "reactome_concept",
+    "source_relation",
+    "software_relation",
+    "losses",
+    "uncertainty",
+    "reversibility",
+    "counterfactual_meaning",
+    "test_method",
+    "authority_boundary"
+  ],
+  "type": "object"
+}

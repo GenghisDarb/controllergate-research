@@ -1,0 +1,69 @@
+{
+  "$id": "controllergate-isomorphism-evidence-schema-v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "authority_allowed": {"type": "array", "items": {"type": "string"}},
+    "authority_forbidden": {"type": "array", "items": {"type": "string"}},
+    "completion_level": {
+      "enum": [
+        "NOT_IMPLEMENTED",
+        "DOCUMENTED_ONLY",
+        "IMPLEMENTED_UNTESTED",
+        "SHADOW_TESTED",
+        "LOCAL_EFFECT_DEMONSTRATED",
+        "CROSS_CANDIDATE_EFFECT_DEMONSTRATED",
+        "PROSPECTIVELY_VALIDATED"
+      ]
+    },
+    "current_evidence": {"type": "array", "items": {"type": "string"}},
+    "current_tests": {"type": "array", "items": {"type": "string"}},
+    "evidence_level": {
+      "enum": [
+        "SOURCE_DOCUMENTED",
+        "SOURCE_DERIVED",
+        "CONTROLLERGATE_OPERATIONAL_TRANSLATION",
+        "EXECUTABLE_SHADOW",
+        "EMPIRICAL_LOCAL_EFFECT",
+        "EMPIRICAL_CROSS_CANDIDATE_EFFECT",
+        "PROSPECTIVE_EFFECT",
+        "HEURISTIC_ONLY",
+        "DEPRECATED",
+        "CONTRADICTED"
+      ]
+    },
+    "implementation_paths": {"type": "array", "items": {"type": "string"}},
+    "isomorphism_id": {"type": "string", "minLength": 1},
+    "known_errors": {"type": "array", "items": {"type": "string"}},
+    "last_verified_commit": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
+    "operational_translation": {"type": "string", "minLength": 1},
+    "reopen_conditions": {"type": "array", "items": {"type": "string"}},
+    "source_document": {"type": "string", "minLength": 1},
+    "source_domain": {"type": "string", "minLength": 1},
+    "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_location": {"type": "string", "minLength": 1},
+    "source_statement": {"type": "string", "minLength": 1},
+    "target_software_domain": {"type": "string", "minLength": 1}
+  },
+  "required": [
+    "isomorphism_id",
+    "source_domain",
+    "source_document",
+    "source_hash",
+    "source_location",
+    "source_statement",
+    "target_software_domain",
+    "operational_translation",
+    "implementation_paths",
+    "current_tests",
+    "current_evidence",
+    "evidence_level",
+    "completion_level",
+    "authority_allowed",
+    "authority_forbidden",
+    "known_errors",
+    "reopen_conditions",
+    "last_verified_commit"
+  ],
+  "type": "object"
+}
