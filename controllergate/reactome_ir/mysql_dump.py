@@ -124,7 +124,8 @@ def extract_core_tables(source: str | Path, database: str | Path, *, tables: Ite
             if not names:
                 raise ValueError(f"missing table schema for {table}")
             if table not in created:
-                connection.execute(f'CREATE TABLE "{table}" ({",".join(f"\"{name}\" TEXT" for name in names)})')
+                column_definitions = ",".join(f'"{name}" TEXT' for name in names)
+                connection.execute(f'CREATE TABLE "{table}" ({column_definitions})')
                 created.add(table)
             rows = list(_rows(line))
             if any(len(row) != len(names) for row in rows):
