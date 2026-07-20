@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "configs/controllergate_master_completion_ledger_v2.json"
 OUT = ROOT / "outputs/post_v2_37_hardening_batch101_canonical_semantic_replay_exact_incident_salvage_ownership_closure"
 STAMP = "2026-07-19T23:59:00Z"
+IMPLEMENTATION_COMMIT = "d9bf6b53bc9a8cf9c01c0f5fd41920dc057a3e54"
 
 
 def digest(path: Path) -> str:
@@ -44,10 +45,10 @@ def main() -> int:
         if goal["goal_id"] in exact:
             goal["active_blockers"] = sorted(set(goal.get("active_blockers", []) + exact[goal["goal_id"]]))
         goal["last_updated_timestamp"] = STAMP
-        goal["last_updated_commit"] = "BATCH101_FINAL_IMPLEMENTATION_COMMIT_PENDING"
+        goal["last_updated_commit"] = IMPLEMENTATION_COMMIT
     ledger["last_updated_batch"] = "Batch101"
     ledger["last_updated_timestamp"] = STAMP
-    ledger["last_updated_commit"] = "BATCH101_FINAL_IMPLEMENTATION_COMMIT_PENDING"
+    ledger["last_updated_commit"] = IMPLEMENTATION_COMMIT
     LEDGER.write_text(json.dumps(ledger, indent=2, sort_keys=True) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({"status": "PASS", "goals_reviewed": len(ledger["goals"]), "transition_receipts": len(receipts)}, sort_keys=True))
     return 0
