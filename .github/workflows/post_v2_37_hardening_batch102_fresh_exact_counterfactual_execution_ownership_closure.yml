@@ -24,7 +24,7 @@ jobs:
       - run: python -m pip install --disable-pip-version-check pytest PyYAML
       - name: 01 Batch101 custody and 02 ledger
         run: |
-          python scripts/verify_batch101_official_artifact_ingest.py --output-root "$BATCH102_OUT/batch101_official_ingest"
+          python scripts/verify_batch101_official_artifact_ingest.py --output-root "$BATCH102_OUT"
           python scripts/audit_controllergate_master_completion_ledger.py
       - name: 03 prompt 04 expected red and 05 contracts
         run: |
