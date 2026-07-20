@@ -24,7 +24,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test dependencies
-        run: python -m pip install --disable-pip-version-check pytest
+        run: python -m pip install --disable-pip-version-check pytest PyYAML
       - name: 01 retrieve exact official Batch100 artifact bytes by artifact ID
         env:
           GH_TOKEN: ${{ github.token }}
@@ -68,7 +68,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test dependencies
-        run: python -m pip install --disable-pip-version-check pytest
+        run: python -m pip install --disable-pip-version-check pytest PyYAML
       - name: 09-11 source-version, provider-exactness, and dependency preflight
         run: python scripts/build_batch101_counterfactual_contracts.py
       - name: 12-20 Darker, Py-bugger, Cloudpickle, Freezegun, Audioread, pytest, OpenBB, and Poetry reconstruction
@@ -92,7 +92,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test dependencies
-        run: python -m pip install --disable-pip-version-check pytest
+        run: python -m pip install --disable-pip-version-check pytest PyYAML
       - name: 23-25 semantic normalization and provider negative controls
         run: python -m pytest tests/test_batch101_semantic_predicates.py tests/test_batch101_contract_freeze.py -q
       - name: 26-27 current audit and ordinary non-TLD dry-run
@@ -113,7 +113,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Install test dependencies
-        run: python -m pip install --disable-pip-version-check pytest
+        run: python -m pip install --disable-pip-version-check pytest PyYAML
       - name: 28-29 outcome vault, architecture arms, and baselines
         run: python scripts/finalize_batch101_public_evidence.py
       - name: 30 independent critic and 66 copied-tree semantic mutations
