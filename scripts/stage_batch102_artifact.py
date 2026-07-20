@@ -5,7 +5,7 @@ FORBIDDEN={".zip",".tar",".gz",".pyc",".pyd",".so",".dll"}
 MANIFESTS={"ARTIFACT_SHA256SUMS.txt","PORTABLE_ARTIFACT_SHA256SUMS.txt","SHA256SUMS.txt"}
 
 def rows(root:Path,excluded:set[str])->list[str]:
- return [f"{hashlib.sha256(x.read_bytes()).hexdigest()}  {x.relative_to(root).as_posix()}" for x in sorted(root.rglob("*")) if x.is_file() and x.name not in excluded]
+ return [f"{hashlib.sha256(x.read_bytes()).hexdigest()}  {x.relative_to(root).as_posix()}" for x in sorted(root.rglob("*")) if x.is_file() and x.relative_to(root).as_posix() not in excluded]
 
 def write_manifests(root:Path)->dict[str,int]:
  artifact_rows=rows(root,MANIFESTS)

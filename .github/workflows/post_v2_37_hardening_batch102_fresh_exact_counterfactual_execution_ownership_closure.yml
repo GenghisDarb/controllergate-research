@@ -189,7 +189,7 @@ jobs:
           python scripts/audit_batch089_security_and_sbom.py
           git diff --check
           python scripts/stage_batch102_artifact.py --source "$BATCH102_OUT" --destination "$RUNNER_TEMP/batch102-artifact" --write-source-manifests
-          python scripts/byte_custody_preflight.py --manifest "$BATCH102_OUT/SHA256SUMS.txt"
+          python scripts/verify_batch102_staged_artifact.py --root "$RUNNER_TEMP/batch102-artifact"
       - uses: actions/upload-artifact@v4
         with:
           name: post_v2_37_hardening_batch102_fresh_exact_counterfactual_execution_necessity_sufficiency_ownership_closure_artifacts
