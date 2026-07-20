@@ -39,7 +39,17 @@ def main() -> int:
     parser.add_argument("--destination", type=Path, required=True)
     args = parser.parse_args()
     shutil.rmtree(args.destination, ignore_errors=True)
-    shutil.copytree(args.static_source, args.destination, ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+    shutil.copytree(
+        args.static_source,
+        args.destination,
+        ignore=shutil.ignore_patterns(
+            "__pycache__",
+            "*.pyc",
+            # A prior downloaded-artifact handoff receipt is local verification
+            # state, not an input to a later official artifact.
+            "batch103_official_artifact_handoff_verification.json",
+        ),
+    )
     for path in sorted(args.overlays_root.rglob("*")):
         if not path.is_file() or path.name in MANIFESTS:
             continue
@@ -53,6 +63,7 @@ def main() -> int:
     governance.mkdir(exist_ok=True)
     documentation.mkdir(exist_ok=True)
     shutil.copy2(ROOT / "configs/controllergate_master_completion_ledger_v2.json", governance)
+    shutil.copy2(ROOT / "configs/controllergate_isomorphism_registry_v3.jsonl", governance)
     for name in (
         "current_status.md",
         "CURRENT_CONTROLLERGATE_HANDOFF.md",

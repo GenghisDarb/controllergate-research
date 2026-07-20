@@ -23,9 +23,14 @@
     "release promotion"
   ],
   "automatic_ingest": false,
+  "exact_blocker": "required canonical isomorphism registry payload absent from packaged artifact",
+  "missing_required_payloads": [
+    "governance/controllergate_isomorphism_registry_v3.jsonl"
+  ],
+  "packaging_contract_status": "BLOCK",
   "private_content_included": false,
   "private_truth_join_order_gate": "PASS_ARTIFACT_VERIFIED_BEFORE_LOCAL_JOIN",
-  "status": "PASS_HANDOFF_ONLY",
+  "status": "SUPERSEDED_PACKAGING_OMISSION",
   "workflow": {
     "conclusion": "success",
     "head": "af8072a69b24a8a63a3fd261cc39d96a64b06960",

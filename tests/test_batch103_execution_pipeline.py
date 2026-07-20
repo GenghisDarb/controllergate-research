@@ -161,6 +161,8 @@ def test_truth_blind_empty_outcome_pipeline_is_conservative(tmp_path: Path):
     )
     run("scripts/verify_batch103_staged_artifact.py", "--root", staged)
     assert (staged / "ARTIFACT_SHA256SUMS.txt").is_file()
+    assert (staged / "governance/controllergate_isomorphism_registry_v3.jsonl").is_file()
+    assert not (staged / "batch103_official_artifact_handoff_verification.json").exists()
 
 
 def test_gain_compiler_rejects_missing_arm_isolation(tmp_path: Path):

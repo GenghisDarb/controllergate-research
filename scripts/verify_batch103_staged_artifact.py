@@ -27,6 +27,7 @@ REQUIRED = {
     "batch103_public_artifact_boundary.json",
     "batch103_official_workflow_execution_receipt.json",
     "governance/controllergate_master_completion_ledger_v2.json",
+    "governance/controllergate_isomorphism_registry_v3.jsonl",
 }
 
 

@@ -57,9 +57,7 @@ def main() -> int:
     goal31["last_updated_timestamp"] = STAMP
 
     transitions = {row["transition_id"] for row in ledger.get("supersession_receipts", [])}
-    if TRANSITION_ID not in transitions:
-        ledger.setdefault("supersession_receipts", []).append(
-            {
+    transition_value = {
                 "transition_id": TRANSITION_ID,
                 "goal_id": goal30["goal_id"],
                 "previous_status": previous_status,
@@ -83,7 +81,15 @@ def main() -> int:
                     "completion without evidence",
                 ],
             }
+    if TRANSITION_ID not in transitions:
+        ledger.setdefault("supersession_receipts", []).append(transition_value)
+    else:
+        transition = next(
+            row for row in ledger["supersession_receipts"]
+            if row["transition_id"] == TRANSITION_ID
         )
+        transition["evidence_paths"] = transition_value["evidence_paths"]
+        transition["evidence_sha256s"] = transition_value["evidence_sha256s"]
     ledger["last_updated_batch"] = "Batch103"
     ledger["last_updated_commit"] = WORKFLOW_HEAD
     ledger["last_updated_timestamp"] = STAMP
