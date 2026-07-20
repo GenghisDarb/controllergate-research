@@ -85,7 +85,13 @@ jobs:
     timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            controllergate
+            scripts
+            configs
+            outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock
       - uses: actions/setup-python@v5
         continue-on-error: true
         with: {python-version: "3.13.14", check-latest: true}
@@ -137,6 +143,8 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: scripts
       - uses: actions/setup-python@v5
         with: {python-version: "3.11"}
       - uses: actions/download-artifact@v4
