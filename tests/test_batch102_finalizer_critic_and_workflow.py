@@ -21,17 +21,20 @@ def test_batch102_workflow_has_real_matrix_and_windows_slice()->None:
   assert name in text
  assert "runs-on: windows-latest" in text and "retention-days: 30" in text
  assert "run_batch102_candidate_slice.py" in text and "finalize_batch102_public_evidence.py" in text
- assert "--write-source-manifests" in text and '--manifest "$BATCH102_OUT/SHA256SUMS.txt"' in text
+ assert "--write-source-manifests" in text and "verify_batch102_staged_artifact.py" in text
 
 def test_stage_manifests_have_correct_scope_and_no_self_entry(tmp_path:Path)->None:
- source=tmp_path/"source";destination=tmp_path/"artifact";source.mkdir()
- (source/"evidence.json").write_text('{"status":"PASS"}\n',encoding="utf-8",newline="\n")
- subprocess.run([sys.executable,str(ROOT/"scripts/stage_batch102_artifact.py"),"--source",str(source),"--destination",str(destination),"--write-source-manifests"],cwd=ROOT,check=True)
- artifact=(destination/"ARTIFACT_SHA256SUMS.txt").read_text().splitlines()
- portable=(destination/"PORTABLE_ARTIFACT_SHA256SUMS.txt").read_text().splitlines()
- complete=(destination/"SHA256SUMS.txt").read_text().splitlines()
- assert artifact==portable and len(artifact)==1 and len(complete)==3
- assert all("ARTIFACT_SHA256SUMS.txt  ARTIFACT_SHA256SUMS.txt" not in row for row in complete)
- assert not any(row.endswith("  SHA256SUMS.txt") for row in complete)
- for row in complete:
-  digest,rel=row.split("  ",1);assert hashlib.sha256((destination/rel).read_bytes()).hexdigest()==digest
+    source=tmp_path/"source";destination=tmp_path/"artifact";source.mkdir()
+    (source/"evidence.json").write_text('{"status":"PASS"}\n',encoding="utf-8",newline="\n")
+    nested=source/"nested";nested.mkdir();(nested/"SHA256SUMS.txt").write_text("historical manifest payload\n",encoding="utf-8",newline="\n")
+    subprocess.run([sys.executable,str(ROOT/"scripts/stage_batch102_artifact.py"),"--source",str(source),"--destination",str(destination),"--write-source-manifests"],cwd=ROOT,check=True)
+    artifact=(destination/"ARTIFACT_SHA256SUMS.txt").read_text().splitlines()
+    portable=(destination/"PORTABLE_ARTIFACT_SHA256SUMS.txt").read_text().splitlines()
+    complete=(destination/"SHA256SUMS.txt").read_text().splitlines()
+    assert artifact==portable and len(artifact)==2 and len(complete)==4
+    assert any(row.endswith("  nested/SHA256SUMS.txt") for row in artifact)
+    assert all("ARTIFACT_SHA256SUMS.txt  ARTIFACT_SHA256SUMS.txt" not in row for row in complete)
+    assert not any(row.endswith("  SHA256SUMS.txt") for row in complete)
+    for row in complete:
+        digest,rel=row.split("  ",1);assert hashlib.sha256((destination/rel).read_bytes()).hexdigest()==digest
+    subprocess.run([sys.executable,str(ROOT/"scripts/verify_batch102_staged_artifact.py"),"--root",str(destination)],cwd=ROOT,check=True)
