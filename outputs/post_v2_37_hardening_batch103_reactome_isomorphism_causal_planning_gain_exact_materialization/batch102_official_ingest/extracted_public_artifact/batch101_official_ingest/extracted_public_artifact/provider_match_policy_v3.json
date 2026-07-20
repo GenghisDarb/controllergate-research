@@ -1,0 +1,28 @@
+{
+  "authority_allowed": "provider classification",
+  "authority_forbidden": [
+    "exact parity from prefix matching",
+    "ownership",
+    "patch",
+    "repair count"
+  ],
+  "exact_fields": [
+    "implementation",
+    "major",
+    "minor",
+    "micro",
+    "prerelease",
+    "operating_system",
+    "architecture",
+    "abi",
+    "soabi"
+  ],
+  "modes": [
+    "EXACT_PROVIDER",
+    "SERIES_LIMITED_PROVIDER",
+    "NEAREST_REPRODUCIBLE_PROVIDER",
+    "UNAVAILABLE_PROVIDER"
+  ],
+  "prefix_matching_authority": false,
+  "schema": "controllergate-provider-match-policy-v3"
+}
