@@ -1,0 +1,134 @@
+name: post_v2_37_hardening_batch101_exact_incident_salvage_ownership_closure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  BATCH101_OUT: outputs/post_v2_37_hardening_batch101_canonical_semantic_replay_exact_incident_salvage_ownership_closure
+
+jobs:
+  custody_expected_red_contracts:
+    name: 01-08 custody, ledger, expected-red, contracts, and source identity
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: 01 retrieve exact official Batch100 artifact bytes by artifact ID
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/batch101/incoming" "$RUNNER_TEMP/controllergate-runtime/batch101/quarantine" "$RUNNER_TEMP/controllergate-runtime/batch101/verified"
+          gh api "/repos/${GITHUB_REPOSITORY}/actions/artifacts/8448195842/zip" > "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip"
+          test "$(stat -c%s "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip")" = "1855296"
+          test "$(sha256sum "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip" | cut -d' ' -f1)" = "37cb3b9657863d830abeee8f73385a838fee25f3f610250dd171153805358945"
+      - name: 02 official ingest reconstruction and 03 manifest custody
+        run: |
+          python scripts/ingest_batch100_official_artifact.py --artifact "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip" --quarantine "$RUNNER_TEMP/controllergate-runtime/batch101/quarantine" --output-root "$RUNNER_TEMP/controllergate-runtime/batch101/verified" --acquisition-route exact_artifact_id_8448195842
+          python scripts/verify_batch100_official_artifact_ingest.py --output-root "$RUNNER_TEMP/controllergate-runtime/batch101/verified"
+      - name: 04 ledger and 05 prompt contract
+        run: python scripts/audit_controllergate_master_completion_ledger.py
+      - name: 06 expected-red seal and 07 supersession custody
+        run: python scripts/audit_batch101_pre_exact_incident_salvage.py --verify-sealed
+      - name: 08 semantic and predicate contract tests
+        run: python -m pytest tests/test_batch101_official_batch100_ingest.py tests/test_batch101_contract_freeze.py tests/test_batch101_semantic_predicates.py -q
+
+  provider_source_and_candidate_matrix:
+    name: 09-22 provider, source, candidate, pair, and DPP reconstruction
+    needs: custody_expected_red_contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: 09-11 source-version, provider-exactness, and dependency preflight
+        run: python scripts/build_batch101_counterfactual_contracts.py
+      - name: 12-20 Darker, Py-bugger, Cloudpickle, Freezegun, Audioread, pytest, OpenBB, and Poetry reconstruction
+        run: python scripts/finalize_batch101_public_evidence.py
+      - name: 21 pair and factorial audit; 22 counterfactual DPP
+        run: python -m pytest tests/test_batch101_public_evidence.py -q
+
+  cross_platform_public_mode:
+    name: 23-27 Windows public non-TLD and cross-platform contract checks
+    needs: custody_expected_red_contracts
+    runs-on: windows-latest
+    timeout-minutes: 60
+    steps:
+      - name: Enable Windows long paths
+        shell: pwsh
+        run: git config --global core.longpaths true
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: 23-25 semantic normalization and provider negative controls
+        run: python -m pytest tests/test_batch101_semantic_predicates.py tests/test_batch101_contract_freeze.py -q
+      - name: 26-27 current audit and ordinary non-TLD dry-run
+        run: |
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+
+  critic_release_and_packaging:
+    name: 28-38 arms, critic, mutations, claims, regression, and artifact
+    needs: [provider_source_and_candidate_matrix, cross_platform_public_mode]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: python -m pip install --disable-pip-version-check pytest
+      - name: 28-29 outcome vault, architecture arms, and baselines
+        run: python scripts/finalize_batch101_public_evidence.py
+      - name: 30 independent critic and 66 copied-tree semantic mutations
+        run: python scripts/run_batch101_independent_critic.py
+      - name: 31-34 source-ownership firewall, future goals, public state, and release boundary
+        run: python scripts/finalize_batch101_release_outputs.py --workflow-run-id "${{ github.run_id }}"
+      - name: 35 Batch101 audit
+        run: python scripts/audit_batch101_exact_incident_salvage.py
+      - name: 36 full regression and current protocol
+        run: |
+          python -m pytest -q
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+      - name: 37 security, external-operation boundary, and portable hygiene
+        run: |
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_batch089_security_and_sbom.py
+          git diff --check
+      - name: 38 stage compact artifact and non-self manifests
+        run: |
+          python scripts/stage_batch101_artifact.py --source "$BATCH101_OUT" --destination "$RUNNER_TEMP/batch101-artifact"
+          test -z "$(find "$RUNNER_TEMP/batch101-artifact" -type f \( -name '*.zip' -o -name '*.pyc' -o -name '*.pyd' \) -print -quit)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch101_canonical_semantic_replay_exact_incident_salvage_ownership_closure_artifacts
+          path: ${{ runner.temp }}/batch101-artifact
+          retention-days: 30
+          if-no-files-found: error

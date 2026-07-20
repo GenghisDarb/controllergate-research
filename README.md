@@ -2,6 +2,12 @@
 
 Start with the credential-free [read-only quick start](docs/QUICKSTART.md). The [claim envelope](docs/CLAIM_ENVELOPE.md) states the current evidence and release boundaries.
 
+## Batch101 official Batch100 ingest and semantic replay correction
+
+Batch101 officially ingests the exact Batch100 artifact and keeps its 56 raw replay records immutable. A reusable semantic projection layer and frozen declarative predicate engine separate raw custody from scientific replay identity. The corrected registry accounts for all 33 cells: 28 retain official execution evidence and five have exact blockers. Py-bugger issue 65 now correctly materializes count inflation (`62/7/1` and `49/5/1`) at bounded factorial-sensitivity depth; necessity, sufficiency, remaining-alternative exclusion, and source ownership are not established.
+
+All nine current causal terminals safely abstain with `INSUFFICIENT_EVIDENCE`. The independent critic rejects 66 of 66 re-signed copied-tree semantic mutations. No patch or repair-count increment occurs. Protocol remains `v2.19`, package version remains `0.2.0b2.dev0`, counts remain 6 issue-derived and 4 native external repairs with historical increment 0, and the release boundary remains `PRODUCT_BETA_BLOCKED_EXACT`. Prospective effectiveness and memory lift are not established; full scoring is disallowed; public writes and automatic merge are inactive; production readiness and self-maintaining software remain false/not demonstrated.
+
 ## Batch095 provider orthology and historical calibration closure
 
 Batch095 replaces the prior single-interpreter cohort attempt with eight candidate-specific provider recipes selected before target execution. It adds measured provider identities, generic typed incident-product verification, a canonical broker-managed loopback-service lifecycle, an exact eight-episode join, and an 80-receipt role boundary that cannot run after an upstream materialization block.

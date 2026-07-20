@@ -1,5 +1,11 @@
 # Current status
 
+## Batch101 exact-incident salvage boundary
+
+Batch101 has an official, byte-verified Batch100 input and a frozen v3 counterfactual registry. Raw execution custody and canonical semantic observations are separate. Twenty-eight of 33 cells have preserved official execution evidence; the missing Cloudpickle factorial corner and four OpenBB cells are explicitly blocked. The corrected Py-bugger predicate materializes count inflation and supports bounded factorial sensitivity, but it does not establish necessity, sufficiency, complete alternative exclusion, or ownership.
+
+All nine ControllerAudit terminals remain `INSUFFICIENT_EVIDENCE`, source-ownership proof count is zero, protected-repair eligibility count is zero, and no patch or repair-count mutation is authorized. The current protocol is `v2.19`; package version is `0.2.0b2.dev0`; repair counts remain 6 issue-derived and 4 native external with historical increment 0. Product Beta remains `PRODUCT_BETA_BLOCKED_EXACT`, full scoring is disallowed, public writes and automatic merge are inactive, and production readiness, prospective memory lift, and self-maintaining software remain unestablished.
+
 ## Batch095 current implementation boundary
 
 Batch095 introduces eight candidate-specific provider recipes, actual interpreter/ABI/platform/package-graph identities, typed product verifiers, and broker-managed local-service evidence. All eight frozen episodes must materialize and pass source/test immutability and cleanup before the 80-role boundary or canonical historical AMDS can execute.
