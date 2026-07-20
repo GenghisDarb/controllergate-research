@@ -17,7 +17,7 @@ def test_batch103_goals_are_append_only_and_conservative():
     assert goals["CG-GOAL-027-CANONICAL-ISOMORPHISM-RECONCILIATION"]["status"] == "IN_PROGRESS"
     assert goals["CG-GOAL-028-REACTOME-RPIR-SOURCE-GROUNDING"]["status"] == "IN_PROGRESS"
     assert goals["CG-GOAL-029-REACTOME-EXECUTABLE-MAINTENANCE-MAPPING"]["status"] == "IN_PROGRESS"
-    assert goals["CG-GOAL-030-REACTOME-CAUSAL-PLANNING-GAIN"]["status"] == "IN_PROGRESS"
+    assert goals["CG-GOAL-030-REACTOME-CAUSAL-PLANNING-GAIN"]["status"] == "BLOCKED"
     assert goals["CG-GOAL-031-REACTOME-CROSS-CANDIDATE-GENERALIZATION"]["status"] == "NOT_STARTED"
     assert goals["CG-GOAL-032-ISOMORPHIC-ARCHITECTURE-EXTERNAL-VALIDATION"]["status"] == "NOT_STARTED"
     assert goals["CG-GOAL-033-REACTOME-PROSPECTIVE-VALIDATION"]["status"] == "NOT_STARTED"
