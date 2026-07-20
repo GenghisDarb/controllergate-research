@@ -30,7 +30,18 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p "$RUNNER_TEMP/controllergate-runtime/batch101/incoming" "$RUNNER_TEMP/controllergate-runtime/batch101/quarantine" "$RUNNER_TEMP/controllergate-runtime/batch101/verified"
-          gh api "/repos/${GITHUB_REPOSITORY}/actions/artifacts/8448195842/zip" > "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip"
+          artifact="$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip"
+          for attempt in 1 2 3 4 5 6; do
+            rm -f "$artifact"
+            if gh api "/repos/${GITHUB_REPOSITORY}/actions/artifacts/8448195842/zip" > "$artifact"; then
+              break
+            fi
+            if [ "$attempt" = "6" ]; then
+              echo "exact artifact download unavailable after bounded retries" >&2
+              exit 1
+            fi
+            sleep $((attempt * 10))
+          done
           test "$(stat -c%s "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip")" = "1855296"
           test "$(sha256sum "$RUNNER_TEMP/controllergate-runtime/batch101/incoming/batch100.zip" | cut -d' ' -f1)" = "37cb3b9657863d830abeee8f73385a838fee25f3f610250dd171153805358945"
       - name: 02 official ingest reconstruction and 03 manifest custody
