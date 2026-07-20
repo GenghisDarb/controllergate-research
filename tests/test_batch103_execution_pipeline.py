@@ -193,3 +193,5 @@ def test_workflow_exposes_all_34_required_groups_and_fresh_matrix():
     assert "scripts/run_batch103_planner_arm.py" in text
     assert "retention-days: 30" in text
     assert "raw private truth" not in text.casefold()
+    assert "sparse-checkout-cone-mode: false" in text
+    assert "matched_counterfactual/provider_capsule_registry_v2.jsonl" in text

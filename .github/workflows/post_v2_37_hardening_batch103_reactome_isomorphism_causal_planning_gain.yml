@@ -133,7 +133,14 @@ jobs:
     timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
-        with: {fetch-depth: 0}
+        with:
+          fetch-depth: 0
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /controllergate/
+            /scripts/
+            /configs/
+            /outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/matched_counterfactual/provider_capsule_registry_v2.jsonl
       - uses: actions/setup-python@v5
         id: provider
         continue-on-error: true
