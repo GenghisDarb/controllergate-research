@@ -59,3 +59,11 @@ The sealed expected-red record is `outputs/post_v2_37_hardening_batch101_canonic
 Batch101 corrects the predicate and replay layers without rewriting Batch100. Its frozen v3 registry has 33 cells, of which 28 retain official execution evidence and five are explicitly blocked. Py-bugger reaches a valid bounded factorial-sensitivity result under the corrected declarative predicate, but ownership remains open because necessity, sufficiency, and alternative exclusion have not run. The other eight programs safely abstain at their exact materialization, provider, source, or invariant boundary. All nine current terminals are `INSUFFICIENT_EVIDENCE`; no protected repair is eligible.
 
 The next smallest scientific experiment is a preregistered Py-bugger intervention that separately tests necessity and sufficiency while holding the frozen source, provider, target, command, and accounting ledger invariant. In parallel, the Cloudpickle 2x2 matrix needs its Python 3.11/setuptools-present corner and OpenBB needs exact main/secondary source capsules plus the brokered loopback service. These are evidence-acquisition tasks, not patch authorization.
+
+## Batch102 execution-origin correction and fresh-operation boundary
+
+Batch101 was a semantic-reprojection campaign. It preserved and re-evaluated 56 raw operations executed during Batch100, but it performed zero fresh candidate target operations during the Batch101 workflow. Its 28 executed-cell records therefore mean `BATCH100_INHERITED_RAW_EXECUTION_BATCH101_REPROJECTION`, not fresh Batch101 execution.
+
+Batch102 requires current-workflow broker receipts before any cell is classified as freshly executed. Inherited Batch100 or Batch101 records cannot satisfy that contract. Every future executed count must identify its execution epoch, workflow run, workflow job and attempt, workflow HEAD, broker operation, source tree, provider identity, raw output custody, independent verifier, and cleanup result.
+
+This correction does not invalidate Batch101's semantic-contract work and does not authorize a repair. Necessity, sufficiency, alternative exclusion, causal ownership, architecture gain, prospective effectiveness, Product Beta, production readiness, and self-maintaining software remain unestablished until their executed evidence gates pass.
