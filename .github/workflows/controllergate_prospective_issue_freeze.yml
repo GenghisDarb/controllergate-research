@@ -1,0 +1,35 @@
+name: controllergate prospective issue freeze
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_id: {description: "Fresh candidate ID", required: true, type: string}
+      repository: {description: "Public repository URL", required: true, type: string}
+      issue_url: {description: "Public issue URL", required: true, type: string}
+      source_commit: {description: "Decision-time exact source commit", required: true, type: string}
+
+permissions:
+  contents: read
+
+jobs:
+  freeze_without_diagnosis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - name: Freeze public identity without diagnosis
+        run: >-
+          python scripts/freeze_prospective_issue.py
+          --candidate-id "${{ inputs.candidate_id }}"
+          --repository "${{ inputs.repository }}"
+          --issue-url "${{ inputs.issue_url }}"
+          --source-commit "${{ inputs.source_commit }}"
+          --output "$RUNNER_TEMP/prospective-freeze/frozen_issue.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: controllergate-prospective-issue-freeze
+          path: ${{ runner.temp }}/prospective-freeze
+          retention-days: 30
+          if-no-files-found: error

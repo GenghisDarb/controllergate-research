@@ -1,0 +1,189 @@
+name: post_v2_37_hardening_batch102_fresh_exact_counterfactual_execution_ownership_closure
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  BATCH102_OUT: outputs/post_v2_37_hardening_batch102_fresh_exact_counterfactual_execution_necessity_sufficiency_ownership_closure
+
+jobs:
+  custody_contracts:
+    name: 01-05 custody ledger prompt expected-red and frozen contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check pytest PyYAML
+      - name: 01 Batch101 custody and 02 ledger
+        run: |
+          python scripts/verify_batch101_official_artifact_ingest.py --output-root "$BATCH102_OUT/batch101_official_ingest"
+          python scripts/audit_controllergate_master_completion_ledger.py
+      - name: 03 prompt 04 expected red and 05 contracts
+        run: |
+          python scripts/audit_batch102_pre_fresh_execution.py --verify-sealed
+          python scripts/build_batch102_counterfactual_contracts.py
+          git diff --exit-code -- configs/batch102_candidate_counterfactual_programs_v4.jsonl configs/batch102_counterfactual_cell_registry_v4.jsonl configs/batch102_outcome_semantic_registry_v4.jsonl configs/batch102_semantic_projection_registry_v2.jsonl configs/batch102_contract_supersession_registry_v1.jsonl configs/batch102_alternative_exclusion_programs_v1.jsonl
+          python -m pytest tests/test_batch102_official_batch101_ingest.py tests/test_batch102_master_ledger_and_expected_red.py tests/test_batch102_contract_freeze.py -q
+
+  candidate_linux:
+    name: candidate ${{ matrix.slice_id }}
+    needs: custody_contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {slice_id: darker_py37_linux, candidate: darker_issue_112_relative_git_dir, requested_python: 3.7.17, setup_python: 3.7.17, source_commit: bc751841439a02f5fd7277bbddb28190d4dcedd3}
+          - {slice_id: pybugger_exact_linux, candidate: py_bugger_issue_65, requested_python: 3.11.0, setup_python: 3.11.0, source_commit: 67cf214f2d619848e90280fd4469377123e81b94}
+          - {slice_id: cloudpickle_py311_linux, candidate: cloudpickle_507_py313_typevar_distutils, requested_python: 3.11.0, setup_python: 3.11.0, source_commit: a76f0812ccdbbd1397f36d536dc4d57b6d0557d6}
+          - {slice_id: cloudpickle_issue_py312_linux, candidate: cloudpickle_507_py313_typevar_distutils, requested_python: 3.12.0b3, setup_python: 3.12.0-beta.3, source_commit: a76f0812ccdbbd1397f36d536dc4d57b6d0557d6}
+          - {slice_id: freezegun_py312_linux, candidate: freezegun_547_py313_datetimes_assertion, requested_python: 3.12.0, setup_python: 3.12.0, source_commit: df263dcec48f43154a5873eb0dff2d4ba94374da}
+          - {slice_id: freezegun_py313b1_linux, candidate: freezegun_547_py313_datetimes_assertion, requested_python: 3.13.0b1, setup_python: 3.13.0-beta.1, source_commit: df263dcec48f43154a5873eb0dff2d4ba94374da}
+          - {slice_id: audioread_py312_linux, candidate: audioread_144_py313_aifc_removed, requested_python: 3.12.0, setup_python: 3.12.0, source_commit: 577f8e2cbe99f33dd7d236deb1626e372f4762e9}
+          - {slice_id: audioread_py313b2_linux, candidate: audioread_144_py313_aifc_removed, requested_python: 3.13.0b2, setup_python: 3.13.0-beta.2, source_commit: 577f8e2cbe99f33dd7d236deb1626e372f4762e9}
+          - {slice_id: pytest_py3133_linux, candidate: pytest_13480_wdefault_unraisable_threadexception, requested_python: 3.13.3, setup_python: 3.13.3, source_commit: 80dfa2db8e6157bf706c2f2656ba0fd7bc13195a}
+          - {slice_id: openbb_py311_linux, candidate: incident_openbb_7585_modular_openapi_reproducer, requested_python: 3.11.0, setup_python: 3.11.0, source_commit: 1c74893140292944e71ff5cdd9536edf12f05483}
+          - {slice_id: poetry_linux_secondary, candidate: incident_poetry_10974_init_duplicate_name, requested_python: 3.13.14, setup_python: 3.13.14, source_commit: 811a12dae0fe81f199e3f1b88b8b8be9eed543c2}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        continue-on-error: true
+        with:
+          python-version: ${{ matrix.setup_python }}
+          check-latest: true
+      - name: 06-10 source provider and dependency materialization
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/batch102/${{ matrix.slice_id }}" "$RUNNER_TEMP/batch102-cell/${{ matrix.slice_id }}"
+          python scripts/run_batch102_candidate_slice.py --candidate-id "${{ matrix.candidate }}" --slice-id "${{ matrix.slice_id }}" --requested-python "${{ matrix.requested_python }}" --requested-os linux --source-commit "${{ matrix.source_commit }}" --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch102/${{ matrix.slice_id }}" --output-dir "$RUNNER_TEMP/batch102-cell/${{ matrix.slice_id }}"
+      - name: 11-12 candidate execution and fresh receipt verification
+        shell: bash
+        run: |
+          test -f "$RUNNER_TEMP/batch102-cell/${{ matrix.slice_id }}/batch102_slice_summary.json"
+          if test -s "$RUNNER_TEMP/batch102-cell/${{ matrix.slice_id }}/batch102_fresh_execution_receipts_v1.jsonl"; then python scripts/verify_batch102_fresh_execution_receipts.py --receipts "$RUNNER_TEMP/batch102-cell/${{ matrix.slice_id }}/batch102_fresh_execution_receipts_v1.jsonl" --workflow-run-id "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch102-cell-${{ matrix.slice_id }}
+          path: ${{ runner.temp }}/batch102-cell/${{ matrix.slice_id }}
+          retention-days: 1
+          if-no-files-found: error
+
+  poetry_windows:
+    name: candidate poetry_windows_py31314
+    needs: custody_contracts
+    runs-on: windows-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        continue-on-error: true
+        with: {python-version: "3.13.14", check-latest: true}
+      - name: 11 Poetry Windows exact cwd factorial
+        shell: pwsh
+        run: |
+          $runtime = Join-Path $env:RUNNER_TEMP 'controllergate-runtime\batch102\poetry-windows'
+          $output = Join-Path $env:RUNNER_TEMP 'batch102-cell\poetry_windows_py31314'
+          python scripts/run_batch102_candidate_slice.py --candidate-id incident_poetry_10974_init_duplicate_name --slice-id poetry_windows_py31314 --requested-python 3.13.14 --requested-os windows --source-commit 811a12dae0fe81f199e3f1b88b8b8be9eed543c2 --runtime-root $runtime --output-dir $output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch102-cell-poetry_windows_py31314
+          path: ${{ runner.temp }}/batch102-cell/poetry_windows_py31314
+          retention-days: 1
+          if-no-files-found: error
+
+  build_wheel:
+    name: build installed public non-TLD wheel
+    needs: custody_contracts
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check build && python -m build --wheel --outdir "$RUNNER_TEMP/batch102-wheel"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch102-controllergate-wheel, path: "${{ runner.temp }}/batch102-wheel/*.whl", retention-days: 1, if-no-files-found: error}
+
+  smoke_linux:
+    name: public non-TLD installed smoke Linux
+    needs: build_wheel
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch102-controllergate-wheel, path: "${{ runner.temp }}/wheel"}
+      - run: python scripts/run_batch102_installed_nontld_smoke.py --wheel "$(find "$RUNNER_TEMP/wheel" -name '*.whl' -print -quit)" --output "$RUNNER_TEMP/smoke-linux/batch102_installed_nontld_smoke.json"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch102-smoke-linux, path: "${{ runner.temp }}/smoke-linux", retention-days: 1, if-no-files-found: error}
+
+  smoke_windows:
+    name: public non-TLD installed smoke Windows
+    needs: build_wheel
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch102-controllergate-wheel, path: "${{ runner.temp }}/wheel"}
+      - shell: pwsh
+        run: |
+          $wheel = Get-ChildItem (Join-Path $env:RUNNER_TEMP 'wheel') -Filter *.whl | Select-Object -First 1 -ExpandProperty FullName
+          python scripts/run_batch102_installed_nontld_smoke.py --wheel $wheel --output (Join-Path $env:RUNNER_TEMP 'smoke-windows\batch102_installed_nontld_smoke.json')
+      - uses: actions/upload-artifact@v4
+        with: {name: batch102-smoke-windows, path: "${{ runner.temp }}/smoke-windows", retention-days: 1, if-no-files-found: error}
+
+  join_critic_package:
+    name: 13-30 replay causal arms critic and compact artifact
+    needs: [candidate_linux, poetry_windows, smoke_linux, smoke_windows]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check pytest PyYAML
+      - uses: actions/download-artifact@v4
+        with: {pattern: "batch102-cell-*", path: "${{ runner.temp }}/batch102-cells"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: "batch102-smoke-*", path: "${{ runner.temp }}/batch102-smokes"}
+      - name: 13-27 replay predicates pairs interventions alternatives ownership vault arms baselines terminals
+        run: |
+          cp -R "$RUNNER_TEMP/batch102-smokes" "$RUNNER_TEMP/batch102-cells/smokes"
+          python scripts/finalize_batch102_public_evidence.py --cell-artifacts-root "$RUNNER_TEMP/batch102-cells" --output-root "$BATCH102_OUT" --workflow-run-id "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA"
+      - name: 28 independent critic and 29 semantic mutations
+        run: python scripts/run_batch102_independent_critic.py --evidence-root "$BATCH102_OUT" --output-root "$BATCH102_OUT" --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch102-critic"
+      - name: 30 audit regression security and compact packaging
+        run: |
+          python scripts/audit_batch102_fresh_execution_closure.py
+          python -m pytest -q
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_batch089_security_and_sbom.py
+          git diff --check
+          python scripts/stage_batch102_artifact.py --source "$BATCH102_OUT" --destination "$RUNNER_TEMP/batch102-artifact" --write-source-manifests
+          python scripts/byte_custody_preflight.py --manifest "$BATCH102_OUT/SHA256SUMS.txt"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch102_fresh_exact_counterfactual_execution_necessity_sufficiency_ownership_closure_artifacts
+          path: ${{ runner.temp }}/batch102-artifact
+          retention-days: 30
+          if-no-files-found: error

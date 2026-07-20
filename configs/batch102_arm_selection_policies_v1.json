@@ -1,0 +1,20 @@
+{
+  "authority_allowed": "outcome-blind evidence selection planning",
+  "authority_forbidden": ["open all outcomes", "copy another arm terminal", "truth access", "private TLD access", "patch", "repair count"],
+  "frozen_before_outcomes": true,
+  "policy_version": "batch102-arm-selection-v1",
+  "policies": [
+    {"arm": "A", "label": "canonical AMDS only", "selector": "registered_order_stride", "stride": 10, "offset": 0, "maximum_envelopes": 7},
+    {"arm": "B", "label": "A plus public tree search", "selector": "stable_hash_rank", "salt": "arm-b", "maximum_envelopes": 9},
+    {"arm": "C", "label": "A plus local branch ordering", "selector": "program_round_robin", "salt": "arm-c", "maximum_envelopes": 9},
+    {"arm": "D", "label": "combined public search ordering", "selector": "stable_hash_rank", "salt": "arm-d", "maximum_envelopes": 11},
+    {"arm": "E", "label": "D plus public-safe opaque ordering", "selector": "registered_order_stride", "stride": 7, "offset": 2, "maximum_envelopes": 11},
+    {"arm": "F", "label": "E plus provisional state and modalities", "selector": "program_round_robin", "salt": "arm-f", "maximum_envelopes": 12},
+    {"arm": "G", "label": "fixed registered order baseline", "selector": "fixed_registered_order", "maximum_envelopes": 10},
+    {"arm": "H", "label": "frozen random legal order baseline", "selector": "stable_hash_rank", "salt": "frozen-random-102", "maximum_envelopes": 10},
+    {"arm": "I", "label": "no-memory active minimax baseline", "selector": "program_round_robin", "salt": "minimax-no-memory", "maximum_envelopes": 10},
+    {"arm": "J", "label": "zero-probe constant baseline", "selector": "constant_abstention", "maximum_envelopes": 0}
+  ],
+  "private_tld_access": 0,
+  "truth_access": 0
+}

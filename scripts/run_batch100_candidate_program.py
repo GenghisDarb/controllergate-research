@@ -78,10 +78,13 @@ def safe_env(extra: dict[str, str] | None = None) -> dict[str, str]:
 
 
 class Broker:
-    def __init__(self, *, runtime_root: Path, candidate_id: str, provider_python_version: str) -> None:
+    def __init__(self, *, runtime_root: Path, candidate_id: str, provider_python_version: str,
+                 authorization_id: str = "batch100:public-evidence-only", execution_label: str = "batch100") -> None:
         self.runtime_root = runtime_root
         self.candidate_id = candidate_id
         self.provider_python_version = provider_python_version
+        self.authorization_id = authorization_id
+        self.execution_label = execution_label
         self.records: list[dict[str, Any]] = []
         self.parent: str | None = None
         self.attestation = attest_runtime_root(runtime_root, repo_root=ROOT)
@@ -91,13 +94,13 @@ class Broker:
     def run(self, *, argv: list[str], cwd: Path, stage: str, operation_type: str, network: bool = False, env: dict[str, str] | None = None, timeout: int = 1800) -> subprocess.CompletedProcess[str]:
         completed, record = execute_external_operation(
             operation_type=operation_type, argv=argv, cwd=cwd, runtime_root=self.runtime_root,
-            stage_id=stage, candidate_id=self.candidate_id, authorization_id="batch100:public-evidence-only",
+            stage_id=stage, candidate_id=self.candidate_id, authorization_id=self.authorization_id,
             runtime_attestation=self.attestation, platform=platform.system().lower(), runtime=platform.python_version(),
             provider_identity=f"python:{self.provider_python_version}:{platform.system().lower()}",
             network_policy="bounded_read_only_acquisition" if network else "none",
             network_request_budget=256 if network else 0, network_byte_budget=2_000_000_000 if network else 0,
             env=env, timeout=timeout, parent_ledger_hash=self.parent,
-            run_id=os.environ.get("GITHUB_RUN_ID", "batch100-local"),
+            run_id=os.environ.get("GITHUB_RUN_ID", f"{self.execution_label}-local"),
             nonce=canonical_hash([self.candidate_id, stage, self.parent])[:32],
         )
         self.parent = str(record["record_hash"])
@@ -273,16 +276,23 @@ def main() -> int:
     parser.add_argument("--runtime-root", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
     parser.add_argument("--provider-python", type=Path, default=Path(sys.executable))
+    parser.add_argument("--source-commit", help="Optional later-batch exact source override; Batch100 defaults remain unchanged")
+    parser.add_argument("--batch102-exact-fixtures", action="store_true", help="Use later-batch exact fixture paths while preserving Batch100 defaults")
+    parser.add_argument("--authorization-id", default="batch100:public-evidence-only")
+    parser.add_argument("--execution-label", default="batch100")
     args = parser.parse_args()
     candidate = args.candidate_id
     args.runtime_root.mkdir(parents=True, exist_ok=True)
     args.output_dir.mkdir(parents=True, exist_ok=True)
     contracts = {row["candidate_id"]: row for row in read_jsonl(ROOT / "configs/candidate_execution_contracts_v2.jsonl")}
+    if args.source_commit:
+        contracts[candidate] = {**contracts[candidate], "source_commit": args.source_commit}
     cells = [row for row in read_jsonl(ROOT / "configs/batch100_counterfactual_cell_registry_v2.jsonl") if row["candidate_id"] == candidate]
     providers = {row["capsule_id"]: row for row in read_jsonl(ROOT / "outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/matched_counterfactual/provider_capsule_registry_v2.jsonl")}
     provider_version = subprocess.check_output([str(args.provider_python), "-c", "import platform; print(platform.python_version())"], text=True).strip()
     matching = [row for row in cells if provider_matches(providers[row["provider_capsule_id"]], provider_version)]
-    broker = Broker(runtime_root=args.runtime_root, candidate_id=candidate, provider_python_version=provider_version)
+    broker = Broker(runtime_root=args.runtime_root, candidate_id=candidate, provider_python_version=provider_version,
+                    authorization_id=args.authorization_id, execution_label=args.execution_label)
     source_vault = args.runtime_root / "source" / candidate
     receipts: list[dict[str, Any]] = []
     provider_receipts: list[dict[str, Any]] = []
@@ -306,6 +316,8 @@ def main() -> int:
             source = replay_root / "source"
             provider_root = replay_root / "provider"
             consumer = replay_root / "consumer"
+            if args.batch102_exact_fixtures and candidate == "incident_poetry_10974_init_duplicate_name":
+                consumer = replay_root / ("my project with spaces" if "spaces" in cell_row["cell_name"] else "my-project-with-spaces")
             replay_root.mkdir(parents=True, exist_ok=True)
             copy_source(source_vault, source)
             source_tree = subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], cwd=source, text=True).strip()
