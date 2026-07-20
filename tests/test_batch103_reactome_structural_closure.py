@@ -88,6 +88,9 @@ def test_brot_terminology_is_classified_without_unsupported_usage():
     assert audit["status"] == "PASS"
     assert audit["ambiguous_or_unsupported_count"] == 0
     assert audit["historical_translation_receipt_count"] > 0
+    audit_source = (ROOT / "scripts/audit_brot_tot_brot_tot_bulb_terminology.py").read_text()
+    assert '"--others"' not in audit_source
+    assert 'relative.startswith("incoming_artifacts/")' in audit_source
 
 
 def test_reactome_mapping_covers_locked_source_without_defaults():

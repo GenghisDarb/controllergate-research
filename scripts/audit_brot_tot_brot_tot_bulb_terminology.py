@@ -39,7 +39,7 @@ def classification(path: str, term: str) -> str:
 
 def main() -> int:
     tracked = subprocess.run(
-        ["git", "ls-files", "--cached", "--others", "--exclude-standard"],
+        ["git", "ls-files", "--cached"],
         cwd=ROOT,
         check=True,
         text=True,
@@ -48,6 +48,8 @@ def main() -> int:
     usages = []
     receipts = []
     for relative in tracked:
+        if relative.startswith("incoming_artifacts/"):
+            continue
         if relative.startswith(
             "outputs/post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain_exact_materialization/"
         ):
