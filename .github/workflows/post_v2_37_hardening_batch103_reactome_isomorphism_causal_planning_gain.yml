@@ -1,0 +1,375 @@
+name: post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain
+
+on:
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+  BATCH103_OUT: outputs/post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain_exact_materialization
+
+jobs:
+  custody_ingest:
+    name: 01 Batch102 official-ingest custody
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check pytest
+      - run: |
+          python scripts/verify_batch102_official_artifact_ingest.py --output-root "$BATCH103_OUT"
+          python -m pytest -q tests/test_batch103_official_batch102_ingest.py
+
+  structural_gates:
+    name: ${{ matrix.name }}
+    needs: custody_ingest
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: 02 isomorphism source-registry custody
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_canonical_isomorphism_registry_has_complete_authority_fields
+          - name: 03 TLD lexicon and errata custody
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_canonical_isomorphism_registry_has_complete_authority_fields tests/test_batch103_reactome_structural_closure.py::test_brot_terminology_is_classified_without_unsupported_usage
+          - name: 04 Reactome source-map custody
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_reactome_mapping_covers_locked_source_without_defaults tests/test_batch103_reactome_structural_closure.py::test_all_29_requested_chapter_families_are_present
+          - name: 05 RPIR graph custody
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_field_grounding_registry_covers_every_reaction_and_field tests/test_batch103_reactome_structural_closure.py::test_source_grounded_scenarios_have_no_round_robin_authority
+          - name: 06 expected-red audit
+            command: python scripts/audit_batch103_pre_isomorphism_reactome_closure.py && git diff --exit-code -- "$BATCH103_OUT/batch103_pre_isomorphism_reactome_closure_expected_failure.json" && python -m pytest -q tests/test_batch103_expected_red.py
+          - name: 07 canonical-stack audit
+            command: python scripts/audit_canonical_isomorphism_stack_v3.py && git diff --exit-code -- "$BATCH103_OUT/canonical_isomorphism_stack_v3_audit.json" && python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_corrected_stack_order_contact_slots_and_claim_rejections
+          - name: 08 BROT ToT-BROT ToT-BULB audit
+            command: python scripts/audit_brot_tot_brot_tot_bulb_terminology.py && git diff --exit-code -- "$BATCH103_OUT/brot_tot_brot_tot_bulb_terminology_audit_v2.json" "$BATCH103_OUT/brot_historical_translation_receipts_v2.jsonl"
+          - name: 09 Reactome field-grounding audit
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_field_grounding_registry_covers_every_reaction_and_field
+          - name: 10 legacy round-robin retirement audit
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_source_grounded_scenarios_have_no_round_robin_authority
+          - name: 11 reaction-translation audit
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_scenario_compiler_derives_from_source_relations tests/test_batch103_reactome_structural_closure.py::test_translation_registry_has_typed_losses_and_counterfactuals
+          - name: 12 reaction-specific shadow execution
+            command: python -m pytest -q tests/test_batch103_reactome_structural_closure.py::test_reaction_specific_shadow_receipts_are_nonauthorizing
+          - name: 13 planner-plan freeze
+            command: python scripts/freeze_batch103_reactome_planner_contracts.py && git diff --exit-code -- "$BATCH103_OUT/batch103_candidate_intervention_registry_v1.jsonl" "$BATCH103_OUT/reactome_planner_arm_contracts_v1.jsonl" "$BATCH103_OUT/reactome_planner_pre_outcome_plans_v1.jsonl" "$BATCH103_OUT/reactome_planner_outcome_vault_registry_v1.json" && python -m pytest -q tests/test_batch103_planner_contract_freeze.py
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check pytest
+      - run: ${{ matrix.command }}
+
+  candidate_preparation:
+    name: 14 candidate source and provider preparation
+    needs: structural_gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          python -m py_compile scripts/run_batch103_candidate_slice.py scripts/run_batch102_candidate_slice.py
+          test "$(wc -l < configs/batch102_counterfactual_cell_registry_v4.jsonl)" -eq 70
+          test "$(wc -l < configs/batch102_candidate_counterfactual_programs_v4.jsonl)" -eq 9
+          git diff --check
+
+  candidate_execution_linux:
+    name: 15 candidate execution matrix ${{ matrix.slice_id }}
+    needs: candidate_preparation
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {slice_id: darker_py37_linux, candidate: darker_issue_112_relative_git_dir, requested_python: 3.7.17, setup_python: 3.7.17, source_commit: bc751841439a02f5fd7277bbddb28190d4dcedd3}
+          - {slice_id: pybugger_exact_linux, candidate: py_bugger_issue_65, requested_python: 3.11.0, setup_python: 3.11.0, source_commit: 67cf214f2d619848e90280fd4469377123e81b94}
+          - {slice_id: cloudpickle_py311_linux, candidate: cloudpickle_507_py313_typevar_distutils, requested_python: 3.11.0, setup_python: 3.11.0, source_commit: a76f0812ccdbbd1397f36d536dc4d57b6d0557d6}
+          - {slice_id: cloudpickle_issue_py312_linux, candidate: cloudpickle_507_py313_typevar_distutils, requested_python: 3.12.0b3, setup_python: 3.12.0-beta.3, source_commit: a76f0812ccdbbd1397f36d536dc4d57b6d0557d6}
+          - {slice_id: freezegun_py312_linux, candidate: freezegun_547_py313_datetimes_assertion, requested_python: 3.12.0, setup_python: 3.12.0, source_commit: df263dcec48f43154a5873eb0dff2d4ba94374da}
+          - {slice_id: freezegun_py313b1_linux, candidate: freezegun_547_py313_datetimes_assertion, requested_python: 3.13.0b1, setup_python: 3.13.0-beta.1, source_commit: df263dcec48f43154a5873eb0dff2d4ba94374da}
+          - {slice_id: audioread_py312_linux, candidate: audioread_144_py313_aifc_removed, requested_python: 3.12.0, setup_python: 3.12.0, source_commit: 577f8e2cbe99f33dd7d236deb1626e372f4762e9}
+          - {slice_id: audioread_py313b2_linux, candidate: audioread_144_py313_aifc_removed, requested_python: 3.13.0b2, setup_python: 3.13.0-beta.2, source_commit: 577f8e2cbe99f33dd7d236deb1626e372f4762e9}
+          - {slice_id: pytest_py3133_linux, candidate: pytest_13480_wdefault_unraisable_threadexception, requested_python: 3.13.3, setup_python: 3.13.3, source_commit: 80dfa2db8e6157bf706c2f2656ba0fd7bc13195a}
+          - {slice_id: openbb_py311_linux, candidate: incident_openbb_7585_modular_openapi_reproducer, requested_python: 3.11.0, setup_python: 3.11.0, source_commit: 1c74893140292944e71ff5cdd9536edf12f05483}
+          - {slice_id: poetry_linux_secondary, candidate: incident_poetry_10974_init_duplicate_name, requested_python: 3.13.14, setup_python: 3.13.14, source_commit: 811a12dae0fe81f199e3f1b88b8b8be9eed543c2}
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        id: provider
+        continue-on-error: true
+        with: {python-version: "${{ matrix.setup_python }}", check-latest: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: |
+          mkdir -p "$RUNNER_TEMP/controllergate-runtime/batch103/${{ matrix.slice_id }}" "$RUNNER_TEMP/batch103-cell/${{ matrix.slice_id }}"
+          provider_python="${{ steps.provider.outputs.python-path }}"
+          if test -z "$provider_python"; then provider_python="$(command -v python)"; fi
+          python scripts/run_batch103_candidate_slice.py --candidate-id "${{ matrix.candidate }}" --slice-id "${{ matrix.slice_id }}" --requested-python "${{ matrix.requested_python }}" --requested-os linux --source-commit "${{ matrix.source_commit }}" --provider-python "$provider_python" --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch103/${{ matrix.slice_id }}" --output-dir "$RUNNER_TEMP/batch103-cell/${{ matrix.slice_id }}"
+          test -f "$RUNNER_TEMP/batch103-cell/${{ matrix.slice_id }}/batch103_slice_summary.json"
+          if test -s "$RUNNER_TEMP/batch103-cell/${{ matrix.slice_id }}/batch103_fresh_execution_receipts_v1.jsonl"; then python scripts/verify_batch103_fresh_execution_receipts.py --receipts "$RUNNER_TEMP/batch103-cell/${{ matrix.slice_id }}/batch103_fresh_execution_receipts_v1.jsonl" --workflow-run-id "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA"; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch103-cell-${{ matrix.slice_id }}
+          path: ${{ runner.temp }}/batch103-cell/${{ matrix.slice_id }}
+          retention-days: 1
+          if-no-files-found: error
+
+  candidate_execution_windows:
+    name: 15 candidate execution matrix Poetry Windows
+    needs: candidate_preparation
+    runs-on: windows-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        id: provider
+        continue-on-error: true
+        with: {python-version: "3.13.14", check-latest: true}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - shell: pwsh
+        run: |
+          $runtime = Join-Path $env:RUNNER_TEMP 'controllergate-runtime/batch103/poetry-windows'
+          $output = Join-Path $env:RUNNER_TEMP 'batch103-cell/poetry_windows_py31314'
+          $provider = "${{ steps.provider.outputs.python-path }}"
+          if (-not $provider) { $provider = (Get-Command python).Source }
+          python scripts/run_batch103_candidate_slice.py --candidate-id incident_poetry_10974_init_duplicate_name --slice-id poetry_windows_py31314 --requested-python 3.13.14 --requested-os windows --source-commit 811a12dae0fe81f199e3f1b88b8b8be9eed543c2 --provider-python $provider --runtime-root $runtime --output-dir $output
+      - uses: actions/upload-artifact@v4
+        with:
+          name: batch103-cell-poetry_windows_py31314
+          path: ${{ runner.temp }}/batch103-cell/poetry_windows_py31314
+          retention-days: 1
+          if-no-files-found: error
+
+  intervention_verification:
+    name: 16 intervention semantic verification
+    needs: [candidate_execution_linux, candidate_execution_windows]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch103-cell-*, path: "${{ runner.temp }}/batch103-cells"}
+      - run: python scripts/audit_batch103_candidate_artifacts.py --root "$RUNNER_TEMP/batch103-cells" --workflow-run-id "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA" --output "$RUNNER_TEMP/batch103-verification/batch103_candidate_artifact_audit_v1.json"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-candidate-verification, path: "${{ runner.temp }}/batch103-verification", retention-days: 1, if-no-files-found: error}
+
+  outcome_sealing:
+    name: 17 outcome envelope sealing
+    needs: intervention_verification
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch103-cell-*, path: "${{ runner.temp }}/batch103-cells"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-candidate-verification, path: "${{ runner.temp }}/batch103-verification"}
+      - run: |
+          python scripts/seal_batch103_candidate_outcomes.py --cell-artifacts-root "$RUNNER_TEMP/batch103-cells" --output-root "$RUNNER_TEMP/batch103-outcomes" --workflow-run-id "$GITHUB_RUN_ID" --workflow-head "$GITHUB_SHA"
+          cp "$RUNNER_TEMP/batch103-verification/batch103_candidate_artifact_audit_v1.json" "$RUNNER_TEMP/batch103-outcomes/"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-outcomes, path: "${{ runner.temp }}/batch103-outcomes", retention-days: 1, if-no-files-found: error}
+
+  isolated_planner_arms:
+    name: ${{ matrix.group }} arm ${{ matrix.arm }}
+    needs: outcome_sealing
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {group: 18 canonical AMDS, arm: A}
+          - {group: 19 structural RPIR, arm: B}
+          - {group: 20 source-grounded translations, arm: C}
+          - {group: 21 reaction-specific shadow, arm: D}
+          - {group: 22 corrected stack, arm: E}
+          - {group: 23 public-safe opaque ordering, arm: F}
+          - {group: 24 fixed legal order baseline, arm: G}
+          - {group: 25 frozen random baseline, arm: H}
+          - {group: 26 no-memory minimax baseline, arm: I}
+          - {group: 27 zero-operation abstention baseline, arm: J}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-outcomes, path: "${{ runner.temp }}/batch103-outcomes"}
+      - run: python scripts/run_batch103_planner_arm.py --arm "${{ matrix.arm }}" --outcome-root "$RUNNER_TEMP/batch103-outcomes" --output-root "$RUNNER_TEMP/batch103-arm-${{ matrix.arm }}"
+      - uses: actions/upload-artifact@v4
+        with: {name: "batch103-arm-${{ matrix.arm }}", path: "${{ runner.temp }}/batch103-arm-${{ matrix.arm }}", retention-days: 1, if-no-files-found: error}
+
+  planner_gain:
+    name: 28 planner-gain evaluation
+    needs: isolated_planner_arms
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch103-arm-*, path: "${{ runner.temp }}/batch103-arms"}
+      - run: python scripts/compile_batch103_public_evidence.py --phase gain --arm-artifacts-root "$RUNNER_TEMP/batch103-arms" --output-root "$RUNNER_TEMP/batch103-gain"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-gain, path: "${{ runner.temp }}/batch103-gain", retention-days: 1, if-no-files-found: error}
+
+  causal_compilation:
+    name: 29 causal-evidence compilation
+    needs: [planner_gain, outcome_sealing]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-outcomes, path: "${{ runner.temp }}/batch103-outcomes"}
+      - run: python scripts/compile_batch103_public_evidence.py --phase causal --outcome-root "$RUNNER_TEMP/batch103-outcomes" --output-root "$RUNNER_TEMP/batch103-causal"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-causal, path: "${{ runner.temp }}/batch103-causal", retention-days: 1, if-no-files-found: error}
+
+  controller_audit_join:
+    name: 30 ControllerAudit terminal join
+    needs: causal_compilation
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {pattern: batch103-arm-*, path: "${{ runner.temp }}/batch103-arms"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-causal, path: "${{ runner.temp }}/batch103-causal"}
+      - run: python scripts/compile_batch103_public_evidence.py --phase terminal --arm-artifacts-root "$RUNNER_TEMP/batch103-arms" --causal-root "$RUNNER_TEMP/batch103-causal" --output-root "$RUNNER_TEMP/batch103-terminal"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-terminal, path: "${{ runner.temp }}/batch103-terminal", retention-days: 1, if-no-files-found: error}
+
+  source_ownership:
+    name: 31 source-ownership reconstruction
+    needs: controller_audit_join
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-causal, path: "${{ runner.temp }}/batch103-causal"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-terminal, path: "${{ runner.temp }}/batch103-terminal"}
+      - run: python scripts/compile_batch103_public_evidence.py --phase ownership --causal-root "$RUNNER_TEMP/batch103-causal" --terminal-root "$RUNNER_TEMP/batch103-terminal" --output-root "$RUNNER_TEMP/batch103-ownership"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-ownership, path: "${{ runner.temp }}/batch103-ownership", retention-days: 1, if-no-files-found: error}
+
+  independent_critic:
+    name: 32 independent critic
+    needs: source_ownership
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-outcomes, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-gain, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-causal, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-terminal, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-ownership, path: "${{ runner.temp }}/batch103-evidence"}
+      - run: python scripts/audit_batch103_public_evidence_for_critic.py --evidence-root "$RUNNER_TEMP/batch103-evidence" --output "$RUNNER_TEMP/batch103-critic-input/batch103_independent_critic_input_audit_v1.json"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-critic-input, path: "${{ runner.temp }}/batch103-critic-input", retention-days: 1, if-no-files-found: error}
+
+  mutation_campaign:
+    name: 33 mutation campaign
+    needs: independent_critic
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-gain, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-causal, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-terminal, path: "${{ runner.temp }}/batch103-evidence"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-ownership, path: "${{ runner.temp }}/batch103-evidence"}
+      - run: python scripts/run_batch103_independent_critic.py --evidence-root "$RUNNER_TEMP/batch103-evidence" --output-root "$RUNNER_TEMP/batch103-mutations" --runtime-root "$RUNNER_TEMP/controllergate-runtime/batch103-critic"
+      - uses: actions/upload-artifact@v4
+        with: {name: batch103-critic-mutations, path: "${{ runner.temp }}/batch103-mutations", retention-days: 1, if-no-files-found: error}
+
+  artifact_packaging:
+    name: 34 artifact packaging
+    needs: mutation_campaign
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install --disable-pip-version-check pytest PyYAML
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-outcomes, path: "${{ runner.temp }}/batch103-overlays/outcomes"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-gain, path: "${{ runner.temp }}/batch103-overlays/gain"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-causal, path: "${{ runner.temp }}/batch103-overlays/causal"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-terminal, path: "${{ runner.temp }}/batch103-overlays/terminal"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-ownership, path: "${{ runner.temp }}/batch103-overlays/ownership"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-critic-input, path: "${{ runner.temp }}/batch103-overlays/critic-input"}
+      - uses: actions/download-artifact@v4
+        with: {name: batch103-critic-mutations, path: "${{ runner.temp }}/batch103-overlays/critic-mutations"}
+      - name: full preservation current dry-run security and language audits
+        run: |
+          python -m pytest -q
+          python scripts/audit_controllergate_master_completion_ledger.py
+          python scripts/controllergate_audit.py --protocol current
+          python scripts/controllergate_run.py --protocol current --dry-run
+          python scripts/audit_canonical_component_uniqueness.py
+          python scripts/audit_no_legacy_production_imports.py
+          python scripts/audit_installed_product_reachability.py
+          python scripts/audit_external_operation_boundaries.py
+          python scripts/audit_v2_18_origin_licensing_source_acquisition.py
+          python scripts/audit_v2_19_authorized_amds_active_maintenance.py
+          python scripts/audit_batch089_security_and_sbom.py
+          python scripts/audit_public_language.py
+          private_key_pattern='BEGIN ''RSA PRIVATE KEY'
+          if git grep -n "$private_key_pattern"; then exit 1; fi
+          git diff --check
+      - name: public artifact byte custody
+        run: |
+          python scripts/stage_batch103_artifact.py --static-source "$BATCH103_OUT" --overlays-root "$RUNNER_TEMP/batch103-overlays" --destination "$RUNNER_TEMP/batch103-artifact"
+          python scripts/verify_batch103_staged_artifact.py --root "$RUNNER_TEMP/batch103-artifact"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain_exact_materialization_artifacts
+          path: ${{ runner.temp }}/batch103-artifact
+          retention-days: 30
+          if-no-files-found: error

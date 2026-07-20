@@ -820,3 +820,11 @@ Current protocol: `v2.19`. Package version: `0.2.0b2.dev0`. Issue-derived repair
 Batch096 artifact custody passed and its canonical scaffolding remains useful. Independent review found that its candidate materialization, role measurements, topology execution, AMDS terminals and metrics, proof rows, and critic mutation results were synthesized from configured labels and declared values rather than produced by the claimed operations. They are excluded from current scientific authority.
 
 The exact active blocker is `BATCH096_SYNTHETIC_SCIENTIFIC_EVIDENCE_RECONSTITUTION_REQUIRED`. Batch097 must rebuild current authority from resolvable raw evidence and independently executed producers and verifiers. The current protocol remains v2.19, the package remains 0.2.0b2.dev0, repair counts remain 6 issue-derived and 4 native external with historical increment 0, and Product Beta RC remains `PRODUCT_BETA_RC_BLOCKED_EXACT`.
+
+## Batch103 structural and pre-outcome boundary
+
+Batch103 officially ingested the exact Batch102 public artifact and reconciled its 139 entries without rewriting Batch102. The permanent ledger now contains 34 append-only goals; official Batch102 ingest is complete, while canonical reconciliation, source grounding, executable maintenance mapping, and causal-planning gain remain open at their stated evidence depths.
+
+The structural source mapping covers 2,916 pathways, 16,814 reactions, 46 reusable software-operation primitives, and 29 normalized source families. Every claim-bearing field is classified as direct source value, derived source value, or structural relation. There are zero claim-bearing defaults, zero hidden cross-family fallbacks, and zero current-authority chapter-position round-robin mappings.
+
+All ten planner arms use frozen equal-budget contracts. Their 90 plans and 70 outcome vaults were sealed before outcomes at commit `261fd73e`; no fresh Batch103 candidate receipt is represented in the tracked tree. The next authorized action is the public Batch103 workflow, which must execute current-run candidate operations, seal outcomes, run each arm in isolation, compile conservative causal evidence, and package the public artifact. R4 and R5 remain not established; R6 has not run.

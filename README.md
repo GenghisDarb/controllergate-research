@@ -916,3 +916,15 @@ python scripts/controllergate_run.py --protocol current --dry-run
 # ControllerGate current boundary
 
 Independent review confirmed Batch096 artifact custody and useful architecture scaffolding, but invalidated its scientific closure: its materialization, role, topology, AMDS, metric, proof, and critic conclusions were generated declarations rather than reconstructed execution evidence. Those conclusions are excluded from current authority while Batch097 reconstitutes the evidence boundary. Protocol v2.19 remains current; full scoring, public writes, automatic merge, production readiness, and self-maintaining-software claims remain disabled or not demonstrated.
+
+## Batch103 current boundary
+
+Batch103 officially ingests the exact Batch102 public artifact and adds a source-grounded, reaction-specific maintenance-planning layer. In ordinary software terms, it models prerequisites, environment compartments, blockers, ordered stages, alternative legal routes, failed branches, rollback, verification, and safe termination. The mapped public source contains 2,916 pathways and 16,814 reactions and compiles to 46 nonauthorizing operation primitives.
+
+The ten matched planner arms and baselines have equal inputs, equal eight-operation budgets, frozen legal actions, isolated outcome vaults, no private truth access, and no repair authority. Their contracts were committed before outcome execution. Measured causal-planning gain is not yet established; neither structural coverage nor executable shadow behavior is treated as gain.
+
+### INTERNAL DESIGN ANALOGY / OPERATIONAL TRANSLATION
+
+The canonical isomorphism and Reactome vocabulary is an internal design aid, not biological or physical proof. Current authority preserves the corrected 5/14/6/196 operational order, distinguishes `TORUS-BROT`, `ToT-BROT`, and `ToT-BULB`, rejects deprecated or contradicted mappings, and removes chapter-position round-robin mapping from current authority.
+
+Protocol remains v2.19, package version remains 0.2.0b2.dev0, repair counts remain 6 issue-derived and 4 native external with historical increment 0, and the release boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Production readiness and self-maintaining software remain false or not demonstrated.

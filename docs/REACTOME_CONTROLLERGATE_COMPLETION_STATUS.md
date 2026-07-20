@@ -27,3 +27,9 @@ Reaction-specific shadow operations cover source identity, compartment and prere
 ## Causal-planning boundary
 
 R4 requires a frozen, equal-budget Reactome-on/off ablation. A Reactome-enabled arm must improve at least one preregistered metric over canonical AMDS on at least two candidates without worsening false attribution, unsafe authority, truth leakage, or private-data leakage. R5 additionally requires replication across at least three candidates, two causal families, and more than one repository/provider class. Until those gates pass, structural coverage and executable shadow must not be described as causal gain.
+
+## Batch103 execution status
+
+The ten matched arm contracts and all 90 program/arm plans were frozen at commit `261fd73e` before any Batch103 outcome was available. They share the same candidate evidence hashes, 70-cell legal intervention inventory, source/provider availability hashes, eight-operation budget, truth blindness, and repair prohibition. The pre-outcome vault registry contains 70 unmaterialized vaults and zero outcomes.
+
+Fresh candidate execution, isolated outcome opening, arm evaluation, and the post-terminal private truth join remain workflow work. Therefore the current repository establishes R0-R3 only. R4 and R5 remain `NOT_ESTABLISHED`, R6 remains `NOT_RUN`, and no structural count or software analogy is reported as measured planning gain.

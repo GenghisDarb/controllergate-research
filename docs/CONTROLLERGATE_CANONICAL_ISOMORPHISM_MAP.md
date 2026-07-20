@@ -35,3 +35,5 @@ Reactome pathway coupling is a structured source relation. `ToT-BROT` is Control
 ## Evidence boundary
 
 The 46 Reactome-derived primitive contracts have executable, nonauthorizing shadow evidence. The corrected v3 stack and terminology have structural tests and current-authority errata. Reactome release 97 source custody and RPIR coverage do not establish causal-planning gain, cross-candidate generalization, prospective effectiveness, production readiness, or repair authority.
+
+Batch103 records 69 canonical registry entries: executable-shadow and stack/terminology mappings are separated from 10 contradicted claims and one deprecated mapping. Contradicted and deprecated mappings remain queryable for audit history but have no current authority. The current executable mapping uses reaction-level source relations; the retired chapter-position round-robin routine remains a nonauthorizing historical fixture.

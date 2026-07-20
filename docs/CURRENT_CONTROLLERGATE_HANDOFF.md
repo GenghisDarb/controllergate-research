@@ -67,3 +67,11 @@ Batch101 was a semantic-reprojection campaign. It preserved and re-evaluated 56 
 Batch102 requires current-workflow broker receipts before any cell is classified as freshly executed. Inherited Batch100 or Batch101 records cannot satisfy that contract. Every future executed count must identify its execution epoch, workflow run, workflow job and attempt, workflow HEAD, broker operation, source tree, provider identity, raw output custody, independent verifier, and cleanup result.
 
 This correction does not invalidate Batch101's semantic-contract work and does not authorize a repair. Necessity, sufficiency, alternative exclusion, causal ownership, architecture gain, prospective effectiveness, Product Beta, production readiness, and self-maintaining software remain unestablished until their executed evidence gates pass.
+
+## Batch103 handoff
+
+The official Batch102 artifact is now ingested at checkpoint `ba8631281b75bff89a6b881fb19c0a972a4c8bfb`. Batch103 has a source-grounded, reaction-specific, nonauthorizing maintenance map and a corrected canonical architecture registry. The ten matched planner arms and their legal intervention sequences were frozen at `261fd73e` before outcomes.
+
+Continue by dispatching `.github/workflows/post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain.yml` at the current branch HEAD. Accept only receipts with epoch `BATCH103_FRESH_OPERATION`, the current workflow run, current job, current HEAD, a new canonical broker operation, source and provider attestations, semantic verification, and cleanup. Batch102 observations may be historical parents only.
+
+After the public artifact verifies independently, join the exact private truth bundle locally. Do not tune the frozen plans from that join. Until false attribution and gain are evaluated, R4 and R5 remain not established. R6, prospective effectiveness, memory lift, production readiness, and self-maintaining software remain unestablished. Repair counts remain 6 issue-derived, 4 native external, and 0 historical; the release boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`.
