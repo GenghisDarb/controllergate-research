@@ -11,8 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "configs/controllergate_master_completion_ledger_v2.json"
 OUT = ROOT / "outputs/post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain_exact_materialization"
 HANDOFF = OUT / "batch103_official_artifact_handoff_verification.json"
-WORKFLOW_HEAD = "af8072a69b24a8a63a3fd261cc39d96a64b06960"
-STAMP = "2026-07-20T14:23:59Z"
+WORKFLOW_HEAD = "3aa1a749be0a1e13bd735623c812335af9795f76"
+STAMP = "2026-07-20T15:17:38Z"
 TRANSITION_ID = "batch103:CG-GOAL-030-REACTOME-CAUSAL-PLANNING-GAIN:post-artifact-evaluation"
 
 
@@ -33,15 +33,15 @@ def main() -> int:
 
     handoff_rel = HANDOFF.relative_to(ROOT).as_posix()
     goal30 = goals["CG-GOAL-030-REACTOME-CAUSAL-PLANNING-GAIN"]
-    previous_status = goal30["status"]
+    previous_status = "IN_PROGRESS"
     goal30["status"] = "BLOCKED"
     if handoff_rel not in goal30["current_evidence"]:
         goal30["current_evidence"].append(handoff_rel)
     goal30["evidence_hashes"][handoff_rel] = _sha256(HANDOFF)
     goal30["active_blockers"] = [
         "zero candidates improved a preregistered public metric",
-        "post-freeze aggregate truth join measured zero causal coverage",
         "post-freeze aggregate truth join measured zero causal accuracy",
+        "each Reactome arm produced one false attribution in the post-freeze aggregate truth join",
         "R4 not established",
     ]
     goal30["last_updated_commit"] = WORKFLOW_HEAD
@@ -88,8 +88,7 @@ def main() -> int:
             row for row in ledger["supersession_receipts"]
             if row["transition_id"] == TRANSITION_ID
         )
-        transition["evidence_paths"] = transition_value["evidence_paths"]
-        transition["evidence_sha256s"] = transition_value["evidence_sha256s"]
+        transition.update(transition_value)
     ledger["last_updated_batch"] = "Batch103"
     ledger["last_updated_commit"] = WORKFLOW_HEAD
     ledger["last_updated_timestamp"] = STAMP
