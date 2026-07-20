@@ -72,6 +72,15 @@ def tree_hash(root: Path) -> str:
     return hashlib.sha256(("\n".join(rows) + "\n").encode()).hexdigest()
 
 
+def verify_sealed_member_tree(root: Path, member_manifest: Path, expected_tree_hash: str) -> bool:
+    """Verify original ingest ordering and current bytes without OS path-order dependence."""
+    rows = read_jsonl(member_manifest)
+    sealed = hashlib.sha256(("\n".join(f"{row['sha256']}  {row['relative_path']}" for row in rows) + "\n").encode()).hexdigest()
+    expected = {row["relative_path"]: row["sha256"] for row in rows}
+    observed = {path.relative_to(root).as_posix(): sha256_file(path) for path in root.rglob("*") if path.is_file()}
+    return sealed == expected_tree_hash and observed == expected
+
+
 def inspect_artifact(path: Path, acquisition_route: str) -> tuple[dict[str, Any], list[zipfile.ZipInfo]]:
     if acquisition_route not in ACQUISITION_ROUTES:
         raise ValueError("unsupported acquisition route")
