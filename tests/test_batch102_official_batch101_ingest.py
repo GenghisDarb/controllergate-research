@@ -8,6 +8,7 @@ from controllergate.evidence.batch101_official_ingest import (
     platform_path,
     semantic_reconciliation,
     verify_manifests,
+    verify_sealed_member_tree,
 )
 
 
@@ -30,6 +31,12 @@ def test_all_manifests_and_semantic_counts_pass():
     assert semantic["status"] == "PASS"
     assert semantic["raw_replay_records"] == 56
     assert semantic["semantically_reproducible_cells"] == 28
+
+
+def test_sealed_member_tree_is_cross_platform_and_byte_bound():
+    extracted = platform_path(INGEST / "extracted_public_artifact")
+    receipt = json.loads((INGEST / "ingest_receipts/batch101_official_ingest_receipt.json").read_text())
+    assert verify_sealed_member_tree(extracted, INGEST / "custody/batch101_official_extracted_member_manifest.jsonl", receipt["extracted_tree_hash"])
 
 
 def test_execution_origin_correction_rejects_fresh_batch101_claim():
