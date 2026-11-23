@@ -928,3 +928,8 @@ The ten matched planner arms and baselines have equal inputs, equal eight-operat
 Specialized architecture names and their source translations are confined to the dedicated internal isomorphism document. This public summary records only the software boundary: the corrected operational order is preserved, deprecated or contradicted mappings have no current authority, and chapter-position round-robin mapping is retired from current execution authority. These design analogies are not scientific or physical proof.
 
 Protocol remains v2.19, package version remains 0.2.0b2.dev0, repair counts remain 6 issue-derived and 4 native external with historical increment 0, and the release boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Production readiness and self-maintaining software remain false or not demonstrated.
+
+
+## Research continuity update — 23 November 2026
+
+Read [the preserved research and correction index](docs/RESEARCH_CUSTODY_POINTER.md) before assessing the current research. It links the completed evidence, later historical repairs and bounded new results.
