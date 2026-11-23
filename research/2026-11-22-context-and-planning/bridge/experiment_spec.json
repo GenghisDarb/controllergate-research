@@ -1,0 +1,44 @@
+{
+  "schema": "ConditionalAcquisitionControlV1",
+  "purpose": "Test freezing a conditional observation-acquisition policy instead of a fixed order; separate adaptation and explicit shared prerequisites from biological labels.",
+  "scope": "NEW SYNTHETIC FINITE CONTROL. Not archived provider replay, biological simulation, causal ownership evidence, or a ControllerGate production patch.",
+  "source_commit": "38897b79588f3ff4b1b9002eedc299a9bcf05140",
+  "budget": 8,
+  "unit_action_cost": 1,
+  "resource_count": 3,
+  "route_count": 4,
+  "vaults_per_route": 2,
+  "resource_semantics": "Three hypothetical source/provider/service prerequisites. Their joint availability is initially unknown; all 8 Boolean worlds have equal prior weight. A route is available iff all its declared prerequisites are true.",
+  "observation_contract": "A costed vault access returns a valid synthetic role-specific receipt when its route is available, otherwise UNAVAILABLE without naming the missing prerequisite. A costed prerequisite probe reveals exactly one availability bit. No unsolicited observation is allowed.",
+  "goal": "Acquire both incident-role and control-role synthetic receipts from the same route/context. This is an evidence-acquisition goal, not a causal or ownership conclusion.",
+  "termination": "All arms stop on an acquired pair or exhausted budget. Adaptive arms may additionally stop when their observations imply every route is unavailable, or when the remaining budget cannot improve their declared goal probability. Those reasons stay distinct.",
+  "policy_objective": "Maximize expected pair acquisition probability within budget, then minimize expected action cost under the declared prior; action ordinal breaks exact ties. Exact rational finite-state dynamic programming is the competent generic adaptive reference.",
+  "fixed_order_reference": "Globally minimum expected-cost permutation of all 8 vault accesses under the same public model, using exact subset dynamic programming and success-only early stopping. Pure prerequisite probes cannot improve a fixed order with no contingent decision and no pair receipt, so are weakly dominated and omitted. This is a stronger control than an arbitrary historical order.",
+  "arms": [
+    "BEST_FROZEN_ORDER",
+    "GENERIC_ADAPTIVE_VAULT_ONLY",
+    "GENERIC_ADAPTIVE_WITH_PROBES",
+    "REACTION_SCHEMA_ADAPTER",
+    "RELABELLED_REACTION_ADAPTER",
+    "UNKNOWN_AS_UNAVAILABLE_NEGATIVE_CONTROL"
+  ],
+  "adapter_contract": "Reaction-style rows must supply explicit requires_all resource references and two role-specific vaults. The adapter compiles this schema to the generic model. It cannot infer quantitative dependencies from Reactome names or operation labels. It is expected to tie the same-information generic reference; this is a compiler/conformance check, not independent algorithm superiority.",
+  "frozen_evaluation_graphs": [
+    {"id": "triangle_and_complex", "requires_all": [[0,1],[0,2],[1,2],[0,1,2]]},
+    {"id": "mixed_arity", "requires_all": [[0],[1],[0,2],[1,2]]},
+    {"id": "shared_bottleneck", "requires_all": [[0],[0,1],[0,2],[0,1,2]]},
+    {"id": "redundant_route", "requires_all": [[0,1],[0,1],[0,2],[1,2]]}
+  ],
+  "evaluation_states": "Every availability world 0..7 in each graph: 32 synthetic scenarios, 192 arm/scenario runs. Code, tests and specification must be sealed before those evaluations. No tuning, seed search or selective graph removal after opening results.",
+  "heldout_meaning": "These are prospectively frozen synthetic evaluation combinations, separate from development unit fixtures. They are not independently sampled biological or software incidents, and exhaustive state coverage is not a population-generalization claim.",
+  "primary_outcomes": ["pair acquisitions", "total action cost", "failed vault accesses"],
+  "secondary_outcomes": ["justified model-relative unreachable stops", "budget stops", "same-information generic/adapter trace equality", "biological-label invariance"],
+  "falsification_gates": [
+    "Any uncharged/private observation invalidates the run.",
+    "Any false pair, false unreachable claim, or budget overrun invalidates the relevant arm implementation.",
+    "A generic/adapter discrepancy fails semantic compilation equivalence.",
+    "If adaptation offers no cost reduction at equal acquisition coverage, retain that negative finding.",
+    "If costed prerequisite probes offer no additional gain over adaptive vault access, retain that negative finding.",
+    "No result can establish Reactome-specific benefit, real-provider improvement, physical causality, or authorization."
+  ]
+}

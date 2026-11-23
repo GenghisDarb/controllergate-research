@@ -1,5 +1,9 @@
 # ControllerGate canonical isomorphism map
 
+## Research context and corrections
+
+The dedicated [research interpretations](RESEARCH_INTERPRETATIONS.md) and [continuity index](RESEARCH_CONTINUITY.md) preserve functional-isomorphism, engine/coupling/shell and broader closure context with evidence boundaries. They supplement this operational map; they do not silently promote analogy to empirical authority or rewrite its frozen registries.
+
 ## INTERNAL DESIGN ANALOGY / OPERATIONAL TRANSLATION
 
 This map is an internal software-engineering aid. It does not make a biological or physical claim, and source coverage, shared terminology, shared numbers, visual resemblance, synthetic fixtures, or documentation do not create empirical authority.

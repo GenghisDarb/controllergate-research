@@ -1,0 +1,638 @@
+{
+  "completed_utc": "2026-11-23T08:35:01.387260+00:00",
+  "frozen_analysis_sha256": "a194f04fc90a571182aff6ba466a4292e832f590176256573e2fadd9b1c9aef0",
+  "inputs": {
+    "SpotOn_main.m": "581c88dbe1fd596859583a8d19f0ba4d22fc0ff3c76163f3f6cfaa5706e1e253",
+    "ctcf_rep1_cell01.mat": "6547e6b6e5f3dc2424dd7d1ceb17f116408acf7fff8ae67091c08b5d2f2850c1",
+    "ctcf_rep3_cell01.mat": "9cb8e989666f634a005a0ede86a02230705bf62ee2e36840131aefad4b490351",
+    "spoton_matlab_README.md": "883d06bba01298d9b5e625b9016727daf0ae3d25c43b28f37fc69b19a5fdd650"
+  },
+  "limits": [
+    "Not a full Spot-On reproduction; no defocalization correction or state-transition inference.",
+    "Mixture weights describe selected observed displacements, not molecular bound fractions.",
+    "Tracked coordinates are processed detections, not raw images; tracking and detection biases remain.",
+    "Overlapping multi-lag increments are not treated as independent biological replicates; scoring is trajectory-averaged and bootstrap clusters by trajectory.",
+    "Two selected cells do not establish population generalization; bootstrap is conditional on the model fit.",
+    "Equal observation law in this comparison does not show that the law is complete or biologically correct.",
+    "No TORUS-specific mechanism, fourteen-layer result, or causally identified count of molecular states."
+  ],
+  "model_M1": {
+    "all_starts": [
+      {
+        "initial": [
+          -3.506557897319982,
+          -3.912023005428146
+        ],
+        "iterations": 14,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.051583772404003,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -0.9842109392827352,
+          -2.5902671654458267
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          -2.995732273553991
+        ],
+        "iterations": 7,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.0515837724040018,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -0.9842108714286584,
+          -2.5902671654458267
+        ]
+      },
+      {
+        "initial": [
+          -1.2039728043259361,
+          -3.912023005428146
+        ],
+        "iterations": 14,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.051583772404003,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -0.984210966062215,
+          -2.5902671654458267
+        ]
+      },
+      {
+        "initial": [
+          -1.2039728043259361,
+          -2.995732273553991
+        ],
+        "iterations": 10,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.0515837724040025,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -0.9842110738919694,
+          -2.5902671654458267
+        ]
+      },
+      {
+        "initial": [
+          1.0986122886681098,
+          -3.912023005428146
+        ],
+        "iterations": 17,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.0515837724040031,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -0.9842109931886198,
+          -2.5902671654458267
+        ]
+      },
+      {
+        "initial": [
+          1.0986122886681098,
+          -2.995732273553991
+        ],
+        "iterations": 11,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.0515837724040007,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -0.9842111447243526,
+          -2.5902671654458267
+        ]
+      }
+    ],
+    "near_bound_parameter_indices": [
+      1
+    ],
+    "parameters": {
+      "D_um2_per_s": 0.37373398929981505,
+      "sigma_um": 0.075
+    },
+    "theta": [
+      -0.9842109931886198,
+      -2.5902671654458267
+    ],
+    "train_mean_marginal_log_score": 1.0515837724040031
+  },
+  "model_M2": {
+    "all_starts": [
+      {
+        "initial": [
+          -5.298317366548036,
+          -0.6931471805599453,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 23,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.639359583438448,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185122373643392,
+          1.2203413754853638,
+          -3.0746513625040146,
+          1.3143230140246767
+        ]
+      },
+      {
+        "initial": [
+          -5.298317366548036,
+          -0.6931471805599453,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.639359583438426,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185120188071004,
+          1.2203411444110068,
+          -3.07465164536093,
+          1.3143209266423097
+        ]
+      },
+      {
+        "initial": [
+          -5.298317366548036,
+          1.0986122886681098,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 24,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.6393595834376575,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185178162364595,
+          1.2203404300551086,
+          -3.0746505332940903,
+          1.3143215643329693
+        ]
+      },
+      {
+        "initial": [
+          -5.298317366548036,
+          1.0986122886681098,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 27,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834363104,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185232879697199,
+          1.2203401982283948,
+          -3.0746496415135844,
+          1.3143215497163905
+        ]
+      },
+      {
+        "initial": [
+          -5.298317366548036,
+          2.302585092994046,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.639359583438319,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.18506623782476,
+          1.220342623787542,
+          -3.074652827028417,
+          1.314320972183252
+        ]
+      },
+      {
+        "initial": [
+          -5.298317366548036,
+          2.302585092994046,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.639359583436637,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.184928651705027,
+          1.2203404259081105,
+          -3.0746557423891963,
+          1.3143205217821523
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          -0.6931471805599453,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834385282,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.1851015107525695,
+          1.2203398325984631,
+          -3.0746521641593643,
+          1.3143208119656102
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          -0.6931471805599453,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 24,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834386603,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185037956675922,
+          1.2203406288770264,
+          -3.07465286806558,
+          1.314322031622663
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          1.0986122886681098,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 24,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.639359583438496,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185111722825813,
+          1.2203419461793503,
+          -3.07465148259336,
+          1.3143220551055257
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          1.0986122886681098,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 22,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.6393595834379557,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185161359562742,
+          1.2203402420714595,
+          -3.0746508446038048,
+          1.3143217062114216
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          2.302585092994046,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 25,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834348693,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.184957038721729,
+          1.2203386876289746,
+          -3.074655630411791,
+          1.3143134062575925
+        ]
+      },
+      {
+        "initial": [
+          -3.506557897319982,
+          2.302585092994046,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 25,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "objective": -1.6393595834374144,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185190420231355,
+          1.2203412046476239,
+          -3.074650225156585,
+          1.3143220884275095
+        ]
+      },
+      {
+        "initial": [
+          -1.8971199848858813,
+          -0.6931471805599453,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 21,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834376051,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.184952519258071,
+          1.2203413109885408,
+          -3.0746543983156718,
+          1.3143215848770835
+        ]
+      },
+      {
+        "initial": [
+          -1.8971199848858813,
+          -0.6931471805599453,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834373205,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185163739088272,
+          1.220338263504217,
+          -3.074650427902267,
+          1.3143219858538893
+        ]
+      },
+      {
+        "initial": [
+          -1.8971199848858813,
+          1.0986122886681098,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.63935958343749,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185083569360193,
+          1.220345220883581,
+          -3.0746516630690146,
+          1.31432495701279
+        ]
+      },
+      {
+        "initial": [
+          -1.8971199848858813,
+          1.0986122886681098,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 20,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834307524,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.1853696592624035,
+          1.220341042085779,
+          -3.074647076228827,
+          1.314322703763813
+        ]
+      },
+      {
+        "initial": [
+          -1.8971199848858813,
+          2.302585092994046,
+          -3.3524072174927233,
+          -1.0986122886681098
+        ],
+        "iterations": 22,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.639359583438446,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185058427420118,
+          1.220339951498882,
+          -3.074652984392208,
+          1.314319173472339
+        ]
+      },
+      {
+        "initial": [
+          -1.8971199848858813,
+          2.302585092994046,
+          -3.3524072174927233,
+          1.0986122886681098
+        ],
+        "iterations": 23,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "objective": -1.6393595834374528,
+        "status": 0,
+        "success": true,
+        "theta": [
+          -5.185083704079277,
+          1.2203425322211758,
+          -3.0746529080003207,
+          1.3143184813454476
+        ]
+      }
+    ],
+    "near_bound_parameter_indices": [],
+    "parameters": {
+      "D_fast_um2_per_s": 3.3883417041019923,
+      "D_slow_um2_per_s": 0.005599724064363105,
+      "interpretation": "Descriptive observed-displacement mixture; not a molecular bound fraction.",
+      "observed_slow_component_weight": 0.7882354894358098,
+      "sigma_um": 0.046205665059990936
+    },
+    "theta": [
+      -5.185037956675922,
+      1.2203406288770264,
+      -3.07465286806558,
+      1.314322031622663
+    ],
+    "train_mean_marginal_log_score": 1.6393595834386603
+  },
+  "primary_heldout_rep1": {
+    "by_lag": {
+      "1": {
+        "mean_displacement_um": [
+          0.0015375278153677617,
+          0.003282373600828841
+        ],
+        "mean_log_score_M1": 1.3337800761113703,
+        "mean_log_score_M2": 1.8511756606335168,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.35977962096465477,
+          "M2": 0.09979118754271254
+        },
+        "seconds": 0.007500000000000062,
+        "trajectories": 1206,
+        "variance_x_over_y": 1.1680087983578746
+      },
+      "2": {
+        "mean_displacement_um": [
+          0.005837317999232331,
+          -0.0019134745718177497
+        ],
+        "mean_log_score_M1": 0.940039145232731,
+        "mean_log_score_M2": 1.6326448396488664,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.4001189743738971,
+          "M2": 0.06540028055076891
+        },
+        "seconds": 0.015000000000000568,
+        "trajectories": 823,
+        "variance_x_over_y": 1.0170454215555789
+      },
+      "3": {
+        "mean_displacement_um": [
+          0.0074670081269272055,
+          -0.008579180894724743
+        ],
+        "mean_log_score_M1": 0.5945983614274439,
+        "mean_log_score_M2": 1.4771958148030857,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.42687812252026935,
+          "M2": 0.06156472599907667
+        },
+        "seconds": 0.022500000000000853,
+        "trajectories": 587,
+        "variance_x_over_y": 1.104288732420194
+      },
+      "4": {
+        "mean_displacement_um": [
+          0.0017460381297785537,
+          -0.006946840283540662
+        ],
+        "mean_log_score_M1": 0.6128972220693463,
+        "mean_log_score_M2": 1.4145418721859015,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.45226215557413074,
+          "M2": 0.05544517915959235
+        },
+        "seconds": 0.030000000000001137,
+        "trajectories": 457,
+        "variance_x_over_y": 0.9432455703695628
+      }
+    },
+    "eligible_trajectories": 1206,
+    "marginal_displacements": 3073,
+    "mean_track_averaged_log_score_M1": 0.9988785054187406,
+    "mean_track_averaged_log_score_M2": 1.6147661460562872,
+    "paired_score_gain_M2_minus_M1": 0.6158876406375465,
+    "trajectory_bootstrap_95pct_interval": [
+      0.5261808351682894,
+      0.7107823764808079
+    ],
+    "uncertainty_scope": "Conditional on fitted models; trajectory resampling within one cell. Not independent-cell population inference."
+  },
+  "schema": "CTCFDisplacementExploratoryResultsV1",
+  "scope": "Actual empirical displacement reanalysis of two named author-provided cells, using simplified observation models.",
+  "secondary_rep3_no_refit": {
+    "by_lag": {
+      "1": {
+        "mean_displacement_um": [
+          0.006171141177677093,
+          -0.002049201390343428
+        ],
+        "mean_log_score_M1": 0.5930092894294862,
+        "mean_log_score_M2": 1.235231083570224,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.24334079163896782,
+          "M2": 0.11220282588048414
+        },
+        "seconds": 0.007500000000000284,
+        "trajectories": 2812,
+        "variance_x_over_y": 0.9357278684525133
+      },
+      "2": {
+        "mean_displacement_um": [
+          0.005098380492276657,
+          0.0043141116228913555
+        ],
+        "mean_log_score_M1": -0.13431260098564957,
+        "mean_log_score_M2": 0.9967041807734854,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.29273439080581065,
+          "M2": 0.10749398831342694
+        },
+        "seconds": 0.015000000000000568,
+        "trajectories": 1762,
+        "variance_x_over_y": 1.0727933043991789
+      },
+      "3": {
+        "mean_displacement_um": [
+          -0.00022911420342917361,
+          0.008678932921554567
+        ],
+        "mean_log_score_M1": -0.2842345945534998,
+        "mean_log_score_M2": 0.9062788948147028,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.33249026394746173,
+          "M2": 0.10890511270008008
+        },
+        "seconds": 0.022500000000000853,
+        "trajectories": 1249,
+        "variance_x_over_y": 1.0605119048469
+      },
+      "4": {
+        "mean_displacement_um": [
+          0.006045656868812727,
+          0.0021903701224104547
+        ],
+        "mean_log_score_M1": -0.39533727552776726,
+        "mean_log_score_M2": 0.9377992755735057,
+        "radial_CDF_max_discrepancy": {
+          "M1": 0.37615163504466664,
+          "M2": 0.08470527341848066
+        },
+        "seconds": 0.030000000000001137,
+        "trajectories": 924,
+        "variance_x_over_y": 0.9848622974104068
+      }
+    },
+    "eligible_trajectories": 2812,
+    "marginal_displacements": 6747,
+    "mean_track_averaged_log_score_M1": 0.11737337357031855,
+    "mean_track_averaged_log_score_M2": 0.994861523514605,
+    "paired_score_gain_M2_minus_M1": 0.8774881499442863,
+    "trajectory_bootstrap_95pct_interval": [
+      0.7772557686450973,
+      0.9822677183372754
+    ],
+    "uncertainty_scope": "Conditional on fitted models; trajectory resampling within one cell. Not independent-cell population inference."
+  },
+  "source_paper": "10.7554/eLife.33125",
+  "status": "PASS"
+}

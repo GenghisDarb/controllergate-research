@@ -1,0 +1,24 @@
+{
+  "schema": "functional_translation_experiment.v1",
+  "authority": "local_shadow_non_authorizing",
+  "question": "Preservation of a declared source-grounded untimed token transition model, not superiority of biological vocabulary or full cellular dynamics",
+  "source_selection": "Six fixed official directional events selected before outcomes: LDH71849/70510, MCT373875/373867, GAPDH70449/70482",
+  "initial_inventory_levels": [0, 1, 2],
+  "event_local_grid": "For each event, enumerate every ternary assignment to all its input/output/catalyst places. All unrelated places are zero. If a chemically identical place in another compartment is outside that support, repeat every assignment with those remote counterpart places set to two. No other initial states are added after seeing results.",
+  "one_step_arms": ["faithful_atomic", "generic_incidence", "edge_only", "consume_catalyst", "pool_compartments"],
+  "oracle": "separately written direct source-contract interpreter",
+  "metrics": ["status disagreement", "false enabling", "false blocking", "exact successor mismatch", "negative resource count", "catalyst depletion"],
+  "generic_fairness": "The competent generic incidence interpreter receives all the same participant coefficients, identities, compartment distinctions and active-catalyst assertions. No comparative compute-efficiency claim is made.",
+  "concurrency_grid": "Every ordered pair of the six events under three initial states: componentwise maximum of the two reactant demands, their componentwise sum, and all metabolite counts zero. Every catalyst used by the pair has one active-role token. Compare declared sequential atomic commit order with independent initial-snapshot approvals.",
+  "coupled_traces": [
+    {"id": "cofactor_recycling", "initial": {"GA3P_c": 2, "Pi_c": 2, "NAD_c": 1, "PYR_c": 2, "active_GAPDH": 1, "active_LDH": 1}, "events": ["R-HSA-70449", "R-HSA-71849", "R-HSA-70449", "R-HSA-71849"]},
+    {"id": "missing_regeneration", "initial": {"GA3P_c": 2, "Pi_c": 2, "NAD_c": 1, "PYR_c": 2, "active_GAPDH": 1, "active_LDH": 1}, "events": ["R-HSA-70449", "R-HSA-71849", "R-HSA-71849"]},
+    {"id": "source_reverse_pair", "initial": {"PYR_c": 1, "NADH_c": 1, "H_c": 1, "active_LDH": 1}, "events": ["R-HSA-71849", "R-HSA-70510"]},
+    {"id": "transport_reverse_pair", "initial": {"LACT_c": 1, "H_c": 1, "active_BSG_MCT": 1}, "events": ["R-HSA-373875", "R-HSA-373867"]},
+    {"id": "reusable_catalyst", "initial": {"PYR_c": 2, "NADH_c": 2, "H_c": 2, "active_LDH": 1}, "events": ["R-HSA-71849", "R-HSA-71849"]},
+    {"id": "remote_resource_is_not_local", "initial": {"PYR_c": 1, "NADH_c": 1, "H_e": 1, "active_LDH": 1, "active_BSG_MCT": 1, "LACT_e": 1}, "events": ["R-HSA-71849", "R-HSA-373867", "R-HSA-71849"]}
+  ],
+  "missingness_policy": "Unknown required inventory or output baseline is UNRESOLVED unless a known absent prerequisite already proves BLOCK. Unknown rates and completion times are always UNRESOLVED.",
+  "stop_rule": "Run this fixed grid, batches and traces once after freeze, retain every mismatch and generic tie, repair implementation bugs only with an explicit versioned correction receipt; do not optimize tasks or initial conditions after results.",
+  "eligible_conclusion": "Bounded compiler/semantic fidelity to a declared model, with separately proved conditional preservation; not biological validation, TORUS closure proof, efficacy against providers, novel mathematical theory or superiority over an equivalent generic algorithm."
+}

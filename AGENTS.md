@@ -1,5 +1,9 @@
-# Research continuity: read first
+# ControllerGate research continuity
 
-Before interpreting the research state, read [docs/RESEARCH_CUSTODY_POINTER.md](docs/RESEARCH_CUSTODY_POINTER.md). It identifies the 23 November 2026 evidence branch, completed checks, recovered history and corrections to earlier categorical claims.
+Read [docs/RESEARCH_CONTINUITY.md](docs/RESEARCH_CONTINUITY.md) before interpreting the current research state. It indexes the dated evidence, corrections, definitions, reproducible checks, and open claims.
 
-Use [docs/CURRENT_CONTROLLERGATE_HANDOFF.md](docs/CURRENT_CONTROLLERGATE_HANDOFF.md) and the existing claim envelope for operational authority. The evidence package does not by itself promote a release or establish biological/physical superiority. Preserve frozen results and follow later repairs before declaring a historical issue unresolved.
+The operational release boundary remains in [docs/CURRENT_CONTROLLERGATE_HANDOFF.md](docs/CURRENT_CONTROLLERGATE_HANDOFF.md) and [docs/CLAIM_ENVELOPE.md](docs/CLAIM_ENVELOPE.md). A new local experiment, research interpretation, or passing unit test does not silently change that boundary.
+
+Preserve frozen source, specification and result bytes. Record corrections as explicit superseding entries, with source and scope, rather than rewriting an old result. Follow later evidence after a first failure before describing a problem as unresolved. Consult the dedicated research-interpretation document for specialized project terminology; use ordinary software terms in the public product summary.
+
+The dated research package contains synthetic integration fixtures, a bounded reaction-model experiment, and a separate limited real-data analysis. Keep their evidence types distinct. The claim ledger is an index to evidence, not independent verification of its own entries.

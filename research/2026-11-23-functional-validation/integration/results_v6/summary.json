@@ -1,0 +1,114 @@
+{
+  "actual_audioread": [
+    {
+      "control": true,
+      "incident": false,
+      "return_code": 0,
+      "route": "rawread"
+    },
+    {
+      "control": null,
+      "incident": false,
+      "return_code": 0,
+      "route": "unrelated_backend"
+    }
+  ],
+  "errors": 0,
+  "failures": 0,
+  "imported_actual_scripts": [
+    "run_batch100_candidate_program.py",
+    "run_batch102_candidate_slice.py",
+    "run_batch103_planner_arm.py"
+  ],
+  "original_test_count": 8,
+  "original_unmodified_test_functions": [
+    "test_batch101_semantic_predicates.test_missing_field_is_an_evaluation_error_not_a_positive_result",
+    "test_batch101_semantic_predicates.test_no_candidate_specific_branch_exists_in_generic_engine",
+    "test_batch101_semantic_predicates.test_predicate_engine_supports_composition_and_field_relations",
+    "test_batch101_semantic_predicates.test_projection_binds_raw_and_semantic_hashes",
+    "test_batch101_semantic_predicates.test_volatile_execution_fields_do_not_break_semantic_reproducibility",
+    "test_batch102_causal_interventions.test_interaction_requires_complete_executed_factorial",
+    "test_batch102_causal_interventions.test_necessity_and_sufficiency_require_all_checks",
+    "test_batch102_causal_interventions.test_ownership_is_blocked_until_every_alternative_is_resolved"
+  ],
+  "pipeline": {
+    "arm_program_executions": 90,
+    "causal_sensitivity_claims": 0,
+    "commands_executed": 15,
+    "descriptive_contrasts": {
+      "batch100-audioread-144-aifc": {
+        "contrast": null,
+        "reason": "common_predicate_vector_incomplete",
+        "status": "UNRESOLVED"
+      },
+      "batch100-cloudpickle-507-distutils": {
+        "contrast": null,
+        "reason": "missing_pair",
+        "status": "UNRESOLVED"
+      },
+      "batch100-cloudpickle-507-typevar": {
+        "contrast": null,
+        "reason": "missing_pair",
+        "status": "UNRESOLVED"
+      },
+      "batch100-darker-112-git-dir": {
+        "causal_authority": false,
+        "contrast": true,
+        "control_vector": [
+          false,
+          true
+        ],
+        "incident_vector": [
+          true,
+          false
+        ],
+        "status": "DESCRIPTIVE_CONTRAST"
+      },
+      "batch100-freezegun-547-three-nodes": {
+        "contrast": null,
+        "reason": "missing_pair",
+        "status": "UNRESOLVED"
+      },
+      "batch100-openbb-7585-topology": {
+        "contrast": null,
+        "reason": "missing_pair",
+        "status": "UNRESOLVED"
+      },
+      "batch100-poetry-10974-path-name": {
+        "contrast": null,
+        "reason": "missing_pair",
+        "status": "UNRESOLVED"
+      },
+      "batch100-py-bugger-65-accounting": {
+        "causal_authority": false,
+        "contrast": false,
+        "control_vector": [
+          true,
+          true
+        ],
+        "incident_vector": [
+          true,
+          true
+        ],
+        "status": "NO_DECLARED_OUTCOME_CONTRAST"
+      },
+      "batch100-pytest-13480-warning-mode": {
+        "contrast": null,
+        "reason": "missing_pair",
+        "status": "UNRESOLVED"
+      }
+    },
+    "official_provider_operations": 0,
+    "ownership_proofs": 0,
+    "registered_cells_accounted": 70,
+    "represented_cells": 6,
+    "role_classified_pairs": 2,
+    "scope": "real imported producer/parser + wrapper binder; actual seal/compiler/planner CLIs over explicitly synthetic receipts",
+    "status": "PASS_WITH_LOCAL_FIXTURE_SCOPE",
+    "synthetic_receipts": 12
+  },
+  "pytest_status": "not installed; attempted pinned install had no accessible index candidate; exact plain source tests executed through unittest",
+  "remote_head": "38897b79588f3ff4b1b9002eedc299a9bcf05140",
+  "scope": "local integration correction, not causal/biological repair gain",
+  "test_methods": 42
+}

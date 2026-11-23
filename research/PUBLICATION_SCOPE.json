@@ -1,0 +1,58 @@
+{
+  "schema": "public_export_scope_review.v1",
+  "status": "PASS_WITH_EXPLICIT_EXCLUSIONS",
+  "checked_utc_date": "2026-11-23",
+  "scope": "Both full derivative archives and expanded payloads; publication-scope review, not a universal privacy or legal guarantee.",
+  "text_or_pdf_payloads_scanned": 537,
+  "sensitive_pattern_matches": [],
+  "article_or_media_distribution": "Only two project-authored report PDFs and two project-generated PNG plots; no third-party journal full texts, raw video, frame images or full transcripts.",
+  "private_material": "Raw private definition excerpt, Guide receipt and uploaded-media identity receipt excluded. Old own-report prose mentions the Guide title and version/read date only; no Guide text, URL or board contents.",
+  "third_party_source_license_records": [
+    {
+      "material": "Spot-On author example and README",
+      "license": "GPLv3-or-later source header plus retained GPLv3 repository license; source attribution preserved",
+      "retained_license_path": "research/2026-11-23-functional-validation/research/SpotOn_LICENSE.md"
+    },
+    {
+      "material": "Audioread source",
+      "license": "MIT with copyright and permission notice preserved",
+      "retained_license_path": "research/2026-11-23-functional-validation/integration/vendor_source/audioread_577f8e2/LICENSE"
+    },
+    {
+      "material": "Reactome selected-event data transcription",
+      "license": "CC0 per official Reactome license page checked on 2026-11-23",
+      "source_url": "https://reactome.org/license"
+    }
+  ],
+  "raw_data_decision": "Both CTCF MAT files omitted from public derivative because a separate data redistribution license was not verified. Exact original hashes and pinned retrieval helper retained. Local original analysis inputs/results unchanged.",
+  "references": [
+    "https://reactome.org/license",
+    "https://zenodo.org/records/834781",
+    "https://github.com/elifesciences-publications/spot-on-matlab/tree/f155c4c889ea124a8f55ab8f620e540628e18f92",
+    "https://github.com/beetbox/audioread/tree/577f8e2cbe99f33dd7d236deb1626e372f4762e9"
+  ],
+  "archives": [
+    {
+      "path": "research/2026-11-23-functional-validation/full-evidence-public.zip",
+      "bytes": 1777171,
+      "sha256": "17929733ba015aedfb1854f6d5f9d14a0c3daeb99e9fc4be2c235712f6bd2c0f",
+      "member_count": 395,
+      "pdfs": [
+        "deliverables/Reactome_ControllerGate_Functional_Validation_2026-11-23.pdf"
+      ],
+      "no_raw_mat_inputs": true,
+      "no_excluded_private_payloads": true
+    },
+    {
+      "path": "research/2026-11-22-context-and-planning/full-evidence-public.zip",
+      "bytes": 730453,
+      "sha256": "130091e1b60dd0fa9333dfa24b69c8f4de3d81b45f71b14d46f1b8c1a1adf934",
+      "member_count": 144,
+      "pdfs": [
+        "deliverables/Reactome_ControllerGate_Research_Review_2026-11-22.pdf"
+      ],
+      "no_raw_mat_inputs": true,
+      "no_excluded_private_payloads": true
+    }
+  ]
+}

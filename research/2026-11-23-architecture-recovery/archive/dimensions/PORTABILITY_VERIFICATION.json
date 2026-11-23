@@ -1,0 +1,94 @@
+{
+  "reviewed_at_utc": "2026-11-23T14:11:00.015622+00:00",
+  "status": "PASS",
+  "original_script_preserved": {
+    "path": "audit_work/architecture_recovery_2026_11_23/archive/dimensions/check_ghost_definitions.py",
+    "sha256": "a06d685b74752e525121801269781bbdf6ccd8449876d8392a767283ca6581cf",
+    "matches_original_result_record": true
+  },
+  "original_results_preserved": {
+    "path": "audit_work/architecture_recovery_2026_11_23/archive/dimensions/ghost_definition_results.json",
+    "sha256": "438e7a4f6b9f3f9958366687dcc0e5fdb374daea5bb38cb4b73b7e8f9c2d9436",
+    "matches_preserved_stdout_copy": true
+  },
+  "portable_derivative": {
+    "path": "audit_work/architecture_recovery_2026_11_23/archive/dimensions/check_ghost_definitions_portable.py",
+    "sha256": "7552c64b1f1a74bbf53c01751a45c7b53050e56d79b494574e3c05fb542e39e3",
+    "source_hash_default_status": "recorded provenance only; source bytes not rechecked",
+    "output_policy": "required --output-dir must be new; existing directory rejected"
+  },
+  "scientific_comparison": {
+    "precision_decimal_digits": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "python": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "mpmath": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "definitions": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "eta": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "j": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "chi10": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "dependent_geometric_means": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "new_coupling_toy": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "ghost_score_example": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "partition_reconstruction": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    },
+    "source_definition_sha256": {
+      "verified_run_equals_original": true,
+      "recorded_run_equals_original": true
+    }
+  },
+  "verified_archive_run": {
+    "mode": "provided_archive_verified",
+    "source_bytes_rechecked": true,
+    "recorded_sha256": "912d0eb970b1ca53b33d3b156555429753738de071a8e0a762d6ef67b68a3059",
+    "observed_sha256": "912d0eb970b1ca53b33d3b156555429753738de071a8e0a762d6ef67b68a3059",
+    "note": "Provided original source bytes match the pinned historical source hash."
+  },
+  "default_run": {
+    "mode": "recorded_provenance_only",
+    "source_bytes_rechecked": false,
+    "recorded_sha256": "912d0eb970b1ca53b33d3b156555429753738de071a8e0a762d6ef67b68a3059",
+    "note": "Default portable execution records a historical hash; it does not recheck unavailable source bytes."
+  },
+  "negative_controls": {
+    "existing_output_directory": {
+      "exit_code": 2,
+      "existing_result_hash_unchanged": true
+    },
+    "mismatched_source": {
+      "exit_code": 2,
+      "output_directory_not_created": true
+    }
+  },
+  "scope": "Numerical portability and provenance checks; no new physical or biological validation."
+}

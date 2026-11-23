@@ -1,0 +1,26 @@
+{
+  "schema": "CTCFDisplacementExploratoryV1",
+  "scope": "New exploratory reanalysis of two real author-provided CTCF tracking files. Not a full Spot-On replication, a biological population estimate, or evidence for TORUS-specific dynamics.",
+  "source_paper": "https://doi.org/10.7554/eLife.33125",
+  "source_repository": "https://github.com/elifesciences-publications/spot-on-matlab",
+  "selection": "First lexicographically named cell in each of the two supplied replicate directories, rep1 and rep3. Selected from file inventory before fitting; no cell choice based on numerical outcomes.",
+  "inputs": ["../ctcf_rep1_cell01.mat", "../ctcf_rep3_cell01.mat", "../SpotOn_main.m", "../spoton_matlab_README.md"],
+  "identity": "U2OS C32 Halo-CTCF, PA-JF646, 1ms 633nm excitation, nominal134Hz. Internal filenames identify acquisition dates2017-02-23 and2017-03-09. Coordinates in micrometers.",
+  "pre_fit_inspection": "File identity, shapes, first-track schema, provider/Git hashes and timing metadata were inspected before this specification. No distribution/model fitting or train/heldout performance was inspected.",
+  "timing": "Use recorded per-observation timestamps and verify their consistency with each file's settings.Delay=0.0075s. Author example script says7.477ms, which differs slightly; report this discrepancy explicitly rather than silently substituting a value.",
+  "lags_in_frames": [1, 2, 3, 4],
+  "selection_per_trajectory": "At each lag, use the first available endpoint pair with exactly that frame-number difference; at most one displacement per trajectory per lag. No displacement-size trimming or velocity-based selection.",
+  "split": "In rep1, SHA256('ctcf-split-v1:'+trajectory_ordinal), first8hex digits modulo10:0..6=train,7..9=heldout. All lags of a trajectory stay together. All eligible rep3 trajectories form a secondary cell/replicate transfer check; do not refit there.",
+  "primary_score": "Mean over eligible heldout rep1 trajectories of each trajectory's mean marginal two-dimensional log-density across its available lags. This is a composite marginal prediction score, not a joint independent-increment likelihood.",
+  "models": {
+    "M1": "One zero-drift isotropic Brownian displacement population with diffusion D and localization error sigma.",
+    "M2": "Two zero-drift isotropic Brownian displacement components with distinct D values, a shared sigma, and a constant mixture weight. Component labels are descriptive slow/fast, not molecular bound/free labels.",
+    "observation_law": "For each component, vector displacement density exp(-r²/[4(D*(dt-exposure/3)+sigma²)])/[4*pi*(D*(dt-exposure/3)+sigma²)], exposure=0.001s. Both models use the same timestamp, exposure and localization-error convention. This simplified observation model omits defocalization, tracking selection and state transitions.",
+    "bounds": {"D_um2_per_s": [0.0001, 25], "sigma_um": [0.010, 0.075], "mixture_weight": [0.01, 0.99]},
+    "fit": "Deterministic multistart L-BFGS-B minimizing negative mean per-trajectory marginal log score. M1 starts D in[.03,.3,3]×sigma in[.02,.05]. M2 starts D1 in[.005,.03,.15]×D2 in[.5,3,10]×weight in[.25,.75],sigma=.035. All starts and failures retained. No component-count tuning."
+  },
+  "uncertainty": "1000 paired bootstrap resamples of heldout trajectory-average score differences, seed20261123. This is conditional on fitted parameters and exchangeability of recorded trajectories; it is not biological replicate-level uncertainty or parameter uncertainty.",
+  "secondary_diagnostics": ["Same model parameters scored on rep3 cell01", "Scores by lag", "CDF discrepancy by lag without an independence-based p-value", "Displacement mean/anisotropy", "Track-length and lag survival counts", "Parameter bounds and optimizer statuses"],
+  "gates": ["Verify Git-blob and SHA256 source provenance", "Require finite positions/times, strict frame ordering, consistent timestamp step, and at least100eligible trajectories in each scoring partition", "Freeze code/spec and input hashes before fitting", "Report negative heldout results and all optimizer failures", "No individual displacement is called an independent biological replicate", "No claim that a two-component fit identifies two molecular states or a physical bound fraction", "No14-component tuning or inferred fourteen-layer mechanism"],
+  "reporting": "Small-domain observed-displacement evidence only. The second cell is a distinct recorded replicate, but two cells do not establish population generalization. Missing singletons and defocalization can change observed mixture proportions."
+}

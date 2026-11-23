@@ -1,0 +1,35 @@
+{
+  "schema": "public_evidence_export.v1",
+  "original_package_manifest_sha256": "74aa9441d408f1d842a432308ba4a721bd4d017a8d64245567b8c1ac44f21742",
+  "original_zip_sha256": "c8bec77a8879981695e0a78e2079b92a9a0053eadcb92f8ed8b1650f8605cca3",
+  "original_reference": "Private delivered research package of 2026-11-23; public export is a separately manifest-bound derivative.",
+  "copied_payloads": 390,
+  "omitted": [
+    {
+      "path": "formal/project_definition_context.txt",
+      "reason": "Private project-source excerpt; only public-safe definitions and source identifiers are carried forward."
+    },
+    {
+      "path": "research/ctcf_rep1_cell01.mat",
+      "reason": "Raw experimental input omitted from this public derivative because a separate data redistribution license was not verified. The pinned retrieval helper and original hashes preserve reproducibility."
+    },
+    {
+      "path": "research/ctcf_rep3_cell01.mat",
+      "reason": "Raw experimental input omitted from this public derivative because a separate data redistribution license was not verified. The pinned retrieval helper and original hashes preserve reproducibility."
+    }
+  ],
+  "wrapper_changes": [
+    "README.txt replaced by public-export wrapper; original preserved as HISTORICAL_README.txt",
+    "CORRECTIONS.json and PUBLIC_EXPORT.json added",
+    "research/retrieve_ctcf_inputs.py added for exact upstream data retrieval",
+    "PACKAGE_MANIFEST.json regenerated for this public export"
+  ],
+  "frozen_scientific_bytes_changed": false,
+  "repository_baseline": "38897b79588f3ff4b1b9002eedc299a9bcf05140",
+  "constraints": [
+    "No private Systems Guide or board content",
+    "No raw private project chat archives",
+    "No credentials or provider envelopes",
+    "Source, model, experiment and final integration scope remain explicit"
+  ]
+}

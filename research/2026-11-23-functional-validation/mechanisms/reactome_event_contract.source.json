@@ -1,0 +1,35 @@
+{
+  "schema": "SourceGroundedReactomeEventContractV1",
+  "scope": "Manually extracted event-level contract from official Reactome rendered records, checked against displayed participant lists and reaction equations. This is not an exact SBML/JSON byte export and contains no kinetic parameters or concentration data.",
+  "coefficient_status": "All reaction participants below have coefficient one as written in the source reaction equations and participant lists. Exact SBML export retrieval was blocked; do not describe this file as a byte-faithful SBML conversion.",
+  "compartments": {"cytosol": "GO:0005829", "plasma_membrane": "GO:0005886", "extracellular_region": "GO:0005576"},
+  "participants": {
+    "PYR_c": {"id": "R-ALL-29398", "name": "PYR", "compartment": "cytosol"},
+    "NADH_c": {"id": "R-ALL-73473", "name": "NADH", "compartment": "cytosol"},
+    "H_c": {"id": "R-ALL-70106", "name": "H+", "compartment": "cytosol"},
+    "LACT_c": {"id": "R-ALL-29708", "name": "LACT", "compartment": "cytosol"},
+    "NAD_c": {"id": "R-ALL-29360", "name": "NAD+", "compartment": "cytosol"},
+    "H_e": {"id": "R-ALL-351626", "name": "H+", "compartment": "extracellular_region"},
+    "LACT_e": {"id": "R-ALL-373863", "name": "LACT", "compartment": "extracellular_region"},
+    "GA3P_c": {"id": "R-ALL-29578", "name": "GA3P", "compartment": "cytosol"},
+    "Pi_c": {"id": "R-ALL-29372", "name": "Pi", "compartment": "cytosol"},
+    "BPG13_c": {"id": "R-ALL-29800", "name": "1,3BPG", "compartment": "cytosol"}
+  },
+  "catalysts": {
+    "LDH": {"id": "R-HSA-184549", "compartment": "cytosol", "source_type": "DefinedSet", "activity": "GO:0004459", "members": ["R-HSA-70513", "R-HSA-70504", "R-HSA-70508", "R-HSA-70506", "R-HSA-70516", "R-HSA-6807528", "R-HSA-6807601"], "abstraction": "An available active alternative supplies the modeled catalytic role; the set is not an AND requirement for all tetramers and does not establish exclusive biological alternatives."},
+    "BSG_MCT": {"id": "R-HSA-204396", "compartment": "plasma_membrane", "source_type": "Complex", "activity": "GO:0015129", "source_composition": "Two BSG proteins plus one Monocarboxylate Transporter Homodimers defined-set member.", "abstraction": "Aggregate available transport complex; its assembly and individual transporter kinetics are not modeled."},
+    "GAPDH": {"id": "R-HSA-372871", "compartment": "cytosol", "source_type": "DefinedSet", "activity": "GO:0004365", "member_descriptions": ["glyceraldehyde-3-phosphate dehydrogenase tetramer", "testis-specific glyceraldehyde-3-phosphate dehydrogenase tetramer"], "abstraction": "Available active alternative; no AND requirement for both tissue-specific isoforms."}
+  },
+  "events": [
+    {"id": "R-HSA-71849", "source_title": "LDH tetramer reduces PYR to LACT", "inputs": {"PYR_c": 1, "NADH_c": 1, "H_c": 1}, "outputs": {"LACT_c": 1, "NAD_c": 1}, "catalyst": "LDH", "reverse_event": "R-HSA-70510", "source": "https://reactome.org/content/detail/R-HSA-71849", "source_ref": "turn552957849view6", "participant_lines": "219-253", "direction_note": "Official page explicitly links reverse event. The event BioPAX text says LEFT-TO-RIGHT; the reversible chemistry is represented by separate directional events."},
+    {"id": "R-HSA-70510", "source_title": "LDH tetramer oxidises LACT to PYR", "inputs": {"LACT_c": 1, "NAD_c": 1}, "outputs": {"PYR_c": 1, "NADH_c": 1, "H_c": 1}, "catalyst": "LDH", "reverse_event": "R-HSA-71849", "source": "https://reactome.org/content/detail/R-HSA-70510", "source_ref": "turn552957849view5", "participant_lines": "219-248"},
+    {"id": "R-HSA-373875", "source_title": "BSG:MCTs cotransport LACT, H+ from cytosol to extracellular region", "inputs": {"LACT_c": 1, "H_c": 1}, "outputs": {"LACT_e": 1, "H_e": 1}, "catalyst": "BSG_MCT", "reverse_event": "R-HSA-373867", "source": "https://reactome.org/content/detail/R-HSA-373875", "source_ref": "turn552957849view4", "participant_lines": "213-240", "primary_reference_pmid": "15917240"},
+    {"id": "R-HSA-373867", "source_title": "BSG:MCTs cotransport LACT, H+ from extracellular region to cytosol", "inputs": {"LACT_e": 1, "H_e": 1}, "outputs": {"LACT_c": 1, "H_c": 1}, "catalyst": "BSG_MCT", "reverse_event": "R-HSA-373875", "source": "https://reactome.org/content/detail/R-HSA-373867", "source_ref": "turn247779360view0", "participant_lines": "213-240", "primary_reference_pmid": "15917240"},
+    {"id": "R-HSA-70449", "source_title": "GADPH tetramer dehydrogenates GA3P", "title_note": "GADPH is the title spelling on the retrieved Reactome record; catalyst is GAPDH.", "inputs": {"GA3P_c": 1, "Pi_c": 1, "NAD_c": 1}, "outputs": {"BPG13_c": 1, "NADH_c": 1, "H_c": 1}, "catalyst": "GAPDH", "reverse_event": "R-HSA-70482", "source": "https://reactome.org/content/detail/R-HSA-70449", "source_ref": "turn712569073view0", "participant_lines": "218-253", "primary_reference_pmids": ["18910717", "18910716", "7144574"]},
+    {"id": "R-HSA-70482", "source_title": "GAPDH tetramers reduce 1,3BPG to GA3P", "inputs": {"BPG13_c": 1, "NADH_c": 1, "H_c": 1}, "outputs": {"GA3P_c": 1, "NAD_c": 1, "Pi_c": 1}, "catalyst": "GAPDH", "reverse_event": "R-HSA-70449", "source": "https://reactome.org/content/detail/R-HSA-70482", "source_ref": "turn192546410search6", "evidence_level": "Primary indexed reaction equation plus explicit reverse link from forward event; full rendered reverse event should be opened for final citation if used."}
+  ],
+  "regulation_not_quantified": [{"events": ["R-HSA-71849", "R-HSA-70510"], "regulator_id": "R-HSA-9861549", "name": "PolyUb-LDHA", "effect": "negative regulation", "limit": "No quantitative law or magnitude obtained. A hard inhibitor arc or zero propensity would be an added modeling assumption, not a source-derived result."}],
+  "kinetic_status": "UNRESOLVED: no measured rates, initial concentrations, enzyme activities, pH, thermodynamic driving forces or transport kinetics in this compact contract.",
+  "catalyst_semantics_limit": "Requiring a catalyst is a guard for the selected annotated catalyzed event, not proof that no alternative or uncatalyzed physical pathway can occur.",
+  "coupling": "GAPDH forward produces the same cytosolic NADH and H+ consumed by LDH forward; LDH restores the cytosolic NAD+ consumed by GAPDH. Shared entity IDs support a genuine cofactor-recycling token-network test. They do not supply clock rates or establish whole-cell dynamics."
+}

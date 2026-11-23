@@ -1,5 +1,9 @@
 # Current ControllerGate Handoff
 
+## Local research checkpoint — 23 November 2026
+
+Read [Research continuity](RESEARCH_CONTINUITY.md) before continuing from this historical handoff. The new dated evidence preserves the earlier source and results, adds an independently reviewed local semantic-integration candidate, and records explicit interpretation corrections. It is a research and custody checkpoint, not a new official provider campaign, historical outcome reclassification, release promotion or repair-count change.
+
 Batch100 began from commit `c9646cdf5f9e321d179397082d9fa9439c15c196` and officially ingested the successful Batch099 public artifact before new science. The ingest checkpoint is recorded in the permanent completion ledger.
 
 Batch099 established that all 432 apparent contradictions were false mutual exclusions caused by treating contact as causal ownership. It reclassified 504 admissions as contact evidence, preserved zero ownership facts, and correctly terminated all 80 policies with insufficient evidence. The remaining scientific blockers are the absence of candidate-bound matched counterfactual execution and zero nonbaseline causal coverage.
@@ -75,8 +79,3 @@ The official Batch102 artifact is now ingested at checkpoint `ba8631281b75bff89a
 Corrected official workflow run `29753821142` succeeded at execution HEAD `3aa1a749be0a1e13bd735623c812335af9795f76`: all 45 jobs passed. It submitted 34 current-epoch receipts covering 15 freshly executed cells; 55 of 70 preregistered vaults remained explicitly unmaterialized. No historical receipt was counted as fresh, and no public step accessed truth or private TLD data. Its 224-file artifact independently passed all three manifests (221 portable entries and 223 full entries), contains `governance/controllergate_isomorphism_registry_v3.jsonl`, and excludes the superseded handoff receipt. The downloaded archive remains quarantined and is not automatically ingested.
 
 The post-artifact local truth join ran only after public terminals and artifact manifests were frozen and verified. Arms A-I each reached 1/6 causal coverage (16.67%) but zero causal accuracy and one false attribution; arm J abstained on all six scoreable programs. Reactome arms B-F therefore contributed five false attributions in aggregate. No candidate improved a preregistered public metric, while unsafe authority and leakage remained zero. Architecture gain, TLD ordering gain, R4, and R5 remain `NOT_ESTABLISHED`; R6 remains `NOT_RUN`. Goal 030 is `BLOCKED`, with a new preregistered experiment required to reopen it. The private calibration file and truth labels remain quarantined and untracked. Prospective effectiveness, memory lift, production readiness, and self-maintaining software remain unestablished. Repair counts remain 6 issue-derived, 4 native external, and 0 historical; the release boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`.
-
-
-## Research continuity supplement — 23 November 2026
-
-The [research custody pointer](RESEARCH_CUSTODY_POINTER.md) links the preserved evidence and interpretation corrections. This documentation supplement does not change the operational claim envelope above.
