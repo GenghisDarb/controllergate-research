@@ -1,0 +1,530 @@
+{
+  "schema": "independent_observer_review.v1",
+  "executed_utc": "2026-11-23T14:00:22.214384+00:00",
+  "result": "PASS_WITH_STATED_SCOPE",
+  "method": "Independent raw-JSON dense stoichiometry/read-arc parser, set-frontier reachability, SymPy exact algebra and observation fibers. Implementation imported only as system under test; no implementation oracle/graph/rank/case generator reused.",
+  "source_hashes": {
+    "observer_interlock.py": "1dacba4bb15e6ed523a80c27f59a5187e47d45203e43aecd0261292fc92fd5ca",
+    "experiment_spec.json": "76818ba30807ce19de2a5bdad56093aef37140eba5a532ed126c6fbe200a1056",
+    "FROZEN_EXTENSION.json": "3cee13942508d35303578bab870c6734b20551c30dad99ed89695a4cc84d8665",
+    "model/token_contract.json": "67eb24b895bc139d4364383ef2f96ef23e65d0599db3421041f627ea5335fb6c",
+    "results.json": "7765e915f5a09a69fbaec488701e8cf137345c1eb9d5b882dbeb04a3e852df0e",
+    "independent_observer_review.py": "834c5d60c0676f9ac2e0dd3b756c2d518a8145efdd0f113f4a79e4c95cc95075"
+  },
+  "frozen_files_match": {
+    "experiment_spec.json": true,
+    "observer_interlock.py": true,
+    "model/token_contract.json": true,
+    "model/token_translation.py": true,
+    "model/source_snapshot/controllergate/isomorphism/primitives.py": true
+  },
+  "local_grid": {
+    "cases": 12150,
+    "source_enabled": 2592,
+    "shell_disagreements": 0
+  },
+  "linear_algebra": {
+    "rank": 3,
+    "left_nullity": 7,
+    "observer_basis_matrix": [
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "observer_basis_determinant": 1,
+    "all_three_readout_subsets_tested": 120,
+    "other_sufficient_readout_triples_count": 69,
+    "all_sufficient_triples": [
+      [
+        "PYR_c",
+        "NADH_c",
+        "H_c"
+      ],
+      [
+        "PYR_c",
+        "NADH_c",
+        "LACT_c"
+      ],
+      [
+        "PYR_c",
+        "NADH_c",
+        "H_e"
+      ],
+      [
+        "PYR_c",
+        "NADH_c",
+        "LACT_e"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "LACT_c"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "NAD_c"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "H_e"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "LACT_e"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "GA3P_c"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "Pi_c"
+      ],
+      [
+        "PYR_c",
+        "H_c",
+        "BPG13_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_c",
+        "NAD_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_c",
+        "GA3P_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_c",
+        "Pi_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_c",
+        "BPG13_c"
+      ],
+      [
+        "PYR_c",
+        "NAD_c",
+        "H_e"
+      ],
+      [
+        "PYR_c",
+        "NAD_c",
+        "LACT_e"
+      ],
+      [
+        "PYR_c",
+        "H_e",
+        "GA3P_c"
+      ],
+      [
+        "PYR_c",
+        "H_e",
+        "Pi_c"
+      ],
+      [
+        "PYR_c",
+        "H_e",
+        "BPG13_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_e",
+        "GA3P_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_e",
+        "Pi_c"
+      ],
+      [
+        "PYR_c",
+        "LACT_e",
+        "BPG13_c"
+      ],
+      [
+        "NADH_c",
+        "H_c",
+        "LACT_c"
+      ],
+      [
+        "NADH_c",
+        "H_c",
+        "GA3P_c"
+      ],
+      [
+        "NADH_c",
+        "H_c",
+        "Pi_c"
+      ],
+      [
+        "NADH_c",
+        "H_c",
+        "BPG13_c"
+      ],
+      [
+        "NADH_c",
+        "LACT_c",
+        "H_e"
+      ],
+      [
+        "NADH_c",
+        "LACT_c",
+        "LACT_e"
+      ],
+      [
+        "NADH_c",
+        "LACT_c",
+        "GA3P_c"
+      ],
+      [
+        "NADH_c",
+        "LACT_c",
+        "Pi_c"
+      ],
+      [
+        "NADH_c",
+        "LACT_c",
+        "BPG13_c"
+      ],
+      [
+        "NADH_c",
+        "H_e",
+        "GA3P_c"
+      ],
+      [
+        "NADH_c",
+        "H_e",
+        "Pi_c"
+      ],
+      [
+        "NADH_c",
+        "H_e",
+        "BPG13_c"
+      ],
+      [
+        "NADH_c",
+        "LACT_e",
+        "GA3P_c"
+      ],
+      [
+        "NADH_c",
+        "LACT_e",
+        "Pi_c"
+      ],
+      [
+        "NADH_c",
+        "LACT_e",
+        "BPG13_c"
+      ],
+      [
+        "H_c",
+        "LACT_c",
+        "NAD_c"
+      ],
+      [
+        "H_c",
+        "LACT_c",
+        "H_e"
+      ],
+      [
+        "H_c",
+        "LACT_c",
+        "LACT_e"
+      ],
+      [
+        "H_c",
+        "LACT_c",
+        "GA3P_c"
+      ],
+      [
+        "H_c",
+        "LACT_c",
+        "Pi_c"
+      ],
+      [
+        "H_c",
+        "LACT_c",
+        "BPG13_c"
+      ],
+      [
+        "H_c",
+        "NAD_c",
+        "GA3P_c"
+      ],
+      [
+        "H_c",
+        "NAD_c",
+        "Pi_c"
+      ],
+      [
+        "H_c",
+        "NAD_c",
+        "BPG13_c"
+      ],
+      [
+        "H_c",
+        "H_e",
+        "GA3P_c"
+      ],
+      [
+        "H_c",
+        "H_e",
+        "Pi_c"
+      ],
+      [
+        "H_c",
+        "H_e",
+        "BPG13_c"
+      ],
+      [
+        "H_c",
+        "LACT_e",
+        "GA3P_c"
+      ],
+      [
+        "H_c",
+        "LACT_e",
+        "Pi_c"
+      ],
+      [
+        "H_c",
+        "LACT_e",
+        "BPG13_c"
+      ],
+      [
+        "LACT_c",
+        "NAD_c",
+        "H_e"
+      ],
+      [
+        "LACT_c",
+        "NAD_c",
+        "LACT_e"
+      ],
+      [
+        "LACT_c",
+        "NAD_c",
+        "GA3P_c"
+      ],
+      [
+        "LACT_c",
+        "NAD_c",
+        "Pi_c"
+      ],
+      [
+        "LACT_c",
+        "NAD_c",
+        "BPG13_c"
+      ],
+      [
+        "LACT_c",
+        "H_e",
+        "GA3P_c"
+      ],
+      [
+        "LACT_c",
+        "H_e",
+        "Pi_c"
+      ],
+      [
+        "LACT_c",
+        "H_e",
+        "BPG13_c"
+      ],
+      [
+        "LACT_c",
+        "LACT_e",
+        "GA3P_c"
+      ],
+      [
+        "LACT_c",
+        "LACT_e",
+        "Pi_c"
+      ],
+      [
+        "LACT_c",
+        "LACT_e",
+        "BPG13_c"
+      ],
+      [
+        "NAD_c",
+        "H_e",
+        "GA3P_c"
+      ],
+      [
+        "NAD_c",
+        "H_e",
+        "Pi_c"
+      ],
+      [
+        "NAD_c",
+        "H_e",
+        "BPG13_c"
+      ],
+      [
+        "NAD_c",
+        "LACT_e",
+        "GA3P_c"
+      ],
+      [
+        "NAD_c",
+        "LACT_e",
+        "Pi_c"
+      ],
+      [
+        "NAD_c",
+        "LACT_e",
+        "BPG13_c"
+      ]
+    ]
+  },
+  "graphs": {
+    "all_metabolites_one": {
+      "states": 18,
+      "edges": 58,
+      "all_nodes_and_edges_match": true,
+      "every_edge_has_curated_reverse": true,
+      "all_observation_statistics_match": true,
+      "observations": {
+        "substrate": {
+          "observation_fibers": 3,
+          "false_full_return_ordered_distinct_pairs": 92,
+          "ambiguous_enabledness_fibers": 3,
+          "minimum_enabledness_pattern_errors_uniform_states": 15
+        },
+        "redox": {
+          "observation_fibers": 4,
+          "false_full_return_ordered_distinct_pairs": 88,
+          "ambiguous_enabledness_fibers": 3,
+          "minimum_enabledness_pattern_errors_uniform_states": 14
+        },
+        "boundary": {
+          "observation_fibers": 3,
+          "false_full_return_ordered_distinct_pairs": 104,
+          "ambiguous_enabledness_fibers": 3,
+          "minimum_enabledness_pattern_errors_uniform_states": 13
+        },
+        "substrate+redox": {
+          "observation_fibers": 8,
+          "false_full_return_ordered_distinct_pairs": 26,
+          "ambiguous_enabledness_fibers": 7,
+          "minimum_enabledness_pattern_errors_uniform_states": 10
+        },
+        "substrate+boundary": {
+          "observation_fibers": 8,
+          "false_full_return_ordered_distinct_pairs": 26,
+          "ambiguous_enabledness_fibers": 7,
+          "minimum_enabledness_pattern_errors_uniform_states": 10
+        },
+        "redox+boundary": {
+          "observation_fibers": 9,
+          "false_full_return_ordered_distinct_pairs": 22,
+          "ambiguous_enabledness_fibers": 7,
+          "minimum_enabledness_pattern_errors_uniform_states": 9
+        },
+        "substrate+redox+boundary": {
+          "observation_fibers": 18,
+          "false_full_return_ordered_distinct_pairs": 0,
+          "ambiguous_enabledness_fibers": 0,
+          "minimum_enabledness_pattern_errors_uniform_states": 0
+        }
+      },
+      "off_intervention_changes_full_context_without_metabolite_change": true,
+      "off_intervention_not_reachable_under_six_reactions": true
+    },
+    "recycling_seed": {
+      "states": 6,
+      "edges": 10,
+      "all_nodes_and_edges_match": true,
+      "every_edge_has_curated_reverse": true,
+      "all_observation_statistics_match": true,
+      "observations": {
+        "substrate": {
+          "observation_fibers": 3,
+          "false_full_return_ordered_distinct_pairs": 8,
+          "ambiguous_enabledness_fibers": 2,
+          "minimum_enabledness_pattern_errors_uniform_states": 3
+        },
+        "redox": {
+          "observation_fibers": 3,
+          "false_full_return_ordered_distinct_pairs": 8,
+          "ambiguous_enabledness_fibers": 2,
+          "minimum_enabledness_pattern_errors_uniform_states": 3
+        },
+        "boundary": {
+          "observation_fibers": 2,
+          "false_full_return_ordered_distinct_pairs": 20,
+          "ambiguous_enabledness_fibers": 1,
+          "minimum_enabledness_pattern_errors_uniform_states": 4
+        },
+        "substrate+redox": {
+          "observation_fibers": 5,
+          "false_full_return_ordered_distinct_pairs": 2,
+          "ambiguous_enabledness_fibers": 1,
+          "minimum_enabledness_pattern_errors_uniform_states": 1
+        },
+        "substrate+boundary": {
+          "observation_fibers": 4,
+          "false_full_return_ordered_distinct_pairs": 4,
+          "ambiguous_enabledness_fibers": 2,
+          "minimum_enabledness_pattern_errors_uniform_states": 2
+        },
+        "redox+boundary": {
+          "observation_fibers": 4,
+          "false_full_return_ordered_distinct_pairs": 4,
+          "ambiguous_enabledness_fibers": 2,
+          "minimum_enabledness_pattern_errors_uniform_states": 2
+        },
+        "substrate+redox+boundary": {
+          "observation_fibers": 6,
+          "false_full_return_ordered_distinct_pairs": 0,
+          "ambiguous_enabledness_fibers": 0,
+          "minimum_enabledness_pattern_errors_uniform_states": 0
+        }
+      },
+      "off_intervention_changes_full_context_without_metabolite_change": true,
+      "off_intervention_not_reachable_under_six_reactions": true
+    }
+  },
+  "certification_controls": {
+    "valid": true,
+    "stale_snapshot": true,
+    "wrong_model_hash": true,
+    "unknown_event": true,
+    "wrong_metabolite_successor": true,
+    "catalyst_consumption": true,
+    "wrong_block_status": true
+  },
+  "scope_notes": [
+    "Joint observability is conditional on fixed stoichiometric class and known catalytic context. It is not global injectivity over arbitrary inventories.",
+    "Three readouts are one sufficient choice; alternative independent triples exist. No unique biological triad is selected.",
+    "Ordered collision-pair counts are ambiguity witnesses over finite reachable states, not empirical false-positive rates.",
+    "Uniform-state minimum pattern errors are a finite combinatorial lower bound under that specified weighting, not kinetic prediction accuracy.",
+    "Pure functional commit supplies no cross-process transaction isolation, authenticated provenance or physical causal closure.",
+    "Agreement on the 12150 fixed known-state cases and two finite reachability classes does not extend to all unknown/large-integer states; the archived float guard retains its stated exact-integer range restriction.",
+    "The frozen source oracle can require PASS beyond the archived backend exact range and reject a backend UNRESOLVED there; this wrapper is validated here only in the small-count domain.",
+    "No14-selection, physical dimension, reaction-rate, thermodynamic or quantum-observer conclusion follows.",
+    "Local recorded hash freeze is not an external preregistration authority."
+  ]
+}

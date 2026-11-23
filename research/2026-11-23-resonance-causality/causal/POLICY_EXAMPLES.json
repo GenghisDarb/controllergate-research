@@ -1,0 +1,1354 @@
+{
+  "schema": "derived_adaptive_policy_examples.v1",
+  "executed_utc": "2026-11-23T14:50:13.322249+00:00",
+  "status": "All original initial states replayed successfully under exported adaptive policies",
+  "source": "Derived from the frozen primary deterministic game; not independent verification",
+  "policies": [
+    {
+      "graph": "all_metabolites_one",
+      "observation": "GA3P_c",
+      "status_observed": true,
+      "guarantee": "Identify initial and current state for every allowed initial hypothesis; no state-merging within an identical response",
+      "worst_case_commands": 3,
+      "all_initial_state_replays": [
+        {
+          "initial_state_id": 0,
+          "final_state_id": 9,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                7
+              ]
+            },
+            {
+              "action": "R-HSA-70510",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7
+              ],
+              "belief_after": [
+                8,
+                9
+              ]
+            },
+            {
+              "action": "R-HSA-373867",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                8,
+                9
+              ],
+              "belief_after": [
+                9
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 1,
+          "final_state_id": 9,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                7
+              ]
+            },
+            {
+              "action": "R-HSA-70510",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7
+              ],
+              "belief_after": [
+                8,
+                9
+              ]
+            },
+            {
+              "action": "R-HSA-373867",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                8,
+                9
+              ],
+              "belief_after": [
+                9
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 2,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "belief_after": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 3,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "belief_after": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4
+              ],
+              "belief_after": [
+                2,
+                3
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 4,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "belief_after": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4
+              ],
+              "belief_after": [
+                2,
+                3
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 5,
+          "final_state_id": 5,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                13,
+                14,
+                17
+              ],
+              "belief_after": [
+                5,
+                6
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6
+              ],
+              "belief_after": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 6,
+          "final_state_id": 5,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                13,
+                14,
+                17
+              ],
+              "belief_after": [
+                5,
+                6
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6
+              ],
+              "belief_after": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 7,
+          "final_state_id": 7,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                7
+              ]
+            },
+            {
+              "action": "R-HSA-70510",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7
+              ],
+              "belief_after": [
+                7
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 8,
+          "final_state_id": 0,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                8,
+                9
+              ],
+              "belief_after": [
+                0,
+                1
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1
+              ],
+              "belief_after": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 9,
+          "final_state_id": 0,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                8,
+                9
+              ],
+              "belief_after": [
+                0,
+                1
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1
+              ],
+              "belief_after": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 10,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "belief_after": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 11,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "belief_after": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4
+              ],
+              "belief_after": [
+                2,
+                3
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 12,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "belief_after": [
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3,
+                4
+              ],
+              "belief_after": [
+                2,
+                3
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                2,
+                3
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 13,
+          "final_state_id": 5,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                13,
+                14,
+                17
+              ],
+              "belief_after": [
+                5,
+                6,
+                14
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                14
+              ],
+              "belief_after": [
+                5,
+                6
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6
+              ],
+              "belief_after": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 14,
+          "final_state_id": 5,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                13,
+                14,
+                17
+              ],
+              "belief_after": [
+                5,
+                6,
+                14
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                14
+              ],
+              "belief_after": [
+                5,
+                6
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6
+              ],
+              "belief_after": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 15,
+          "final_state_id": 0,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                8,
+                9
+              ],
+              "belief_after": [
+                0,
+                1
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1
+              ],
+              "belief_after": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 16,
+          "final_state_id": 0,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                7,
+                8,
+                9,
+                15,
+                16
+              ],
+              "belief_after": [
+                0,
+                1,
+                8,
+                9
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                8,
+                9
+              ],
+              "belief_after": [
+                0,
+                1
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                0,
+                1
+              ],
+              "belief_after": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 17,
+          "final_state_id": 6,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                13,
+                14,
+                17
+              ],
+              "belief_after": [
+                5,
+                6,
+                14
+              ]
+            },
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  2
+                ]
+              ],
+              "belief_before": [
+                5,
+                6,
+                14
+              ],
+              "belief_after": [
+                6
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "graph": "recycling_seed",
+      "observation": "LACT_e",
+      "status_observed": true,
+      "guarantee": "Identify initial and current state for every allowed initial hypothesis; no state-merging within an identical response",
+      "worst_case_commands": 3,
+      "all_initial_state_replays": [
+        {
+          "initial_state_id": 0,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "belief_after": [
+                0,
+                1,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-70510",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                4
+              ],
+              "belief_after": [
+                3,
+                5
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "PASS",
+                [
+                  1
+                ]
+              ],
+              "belief_before": [
+                3,
+                5
+              ],
+              "belief_after": [
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 1,
+          "final_state_id": 5,
+          "initial_state_identified": true,
+          "commands": 3,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "belief_after": [
+                0,
+                1,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-70510",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                4
+              ],
+              "belief_after": [
+                3,
+                5
+              ]
+            },
+            {
+              "action": "R-HSA-373875",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                3,
+                5
+              ],
+              "belief_after": [
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 2,
+          "final_state_id": 2,
+          "initial_state_identified": true,
+          "commands": 0,
+          "history": []
+        },
+        {
+          "initial_state_id": 3,
+          "final_state_id": 0,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "belief_after": [
+                0,
+                1
+              ]
+            },
+            {
+              "action": "R-HSA-70449",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1
+              ],
+              "belief_after": [
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 4,
+          "final_state_id": 4,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "belief_after": [
+                0,
+                1,
+                4
+              ]
+            },
+            {
+              "action": "R-HSA-70510",
+              "response": [
+                "BLOCK",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                4
+              ],
+              "belief_after": [
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "initial_state_id": 5,
+          "final_state_id": 3,
+          "initial_state_identified": true,
+          "commands": 2,
+          "history": [
+            {
+              "action": "R-HSA-71849",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "belief_after": [
+                0,
+                1
+              ]
+            },
+            {
+              "action": "R-HSA-70449",
+              "response": [
+                "PASS",
+                [
+                  0
+                ]
+              ],
+              "belief_before": [
+                0,
+                1
+              ],
+              "belief_after": [
+                3
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hashes": {
+    "causal_history.py": "9cef3f96795ebf72b261cd2f4f65b4a5997775b8df5633a8d0999f8d92f82ccc",
+    "results.json": "05cfa527324ba4535113bc900dc63cbb1281ece5fbf006c4c2cdb38f89db6c4b",
+    "export_policies.py": "e6c68437d9550d238c5d7eb351fa7b34c4fed63efece1e6a88272b91229d7759"
+  }
+}

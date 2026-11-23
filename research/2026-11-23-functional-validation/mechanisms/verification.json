@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "arm_case_totals": true,
+    "batch_totals": true,
+    "frozen_inputs_unchanged": true,
+    "legacy_witness_freeze_binding": true,
+    "observed_unit_test_receipt": true,
+    "oracle_enabled_totals": true,
+    "original_resource_guard_negative_control": true,
+    "per_event_totals": true,
+    "result_freeze_binding": true,
+    "truth_id_sequence": true,
+    "truth_row_count": true
+  },
+  "payload_sha256": {
+    "FROZEN_DESIGN.json": "af696374373df50e63e84d93aea9af84d0a9bfc6b5fd79c638e4e467a08bb552",
+    "legacy_witnesses.json": "ec5cad4b3078927ae6ddeac3e05abce60f91139447c982c1b5a640923879965b",
+    "results.json": "20df2d2a307f24c33f6bdb815e3cbf9d8395b8b84566dc729a60635aa0f9f27c",
+    "source_oracle_truth_table.csv": "b2ae75260098e6c0dc5eb4766bed1b244582d812e76f8141009d3110d332d094",
+    "test_receipt.json": "e53ab430b7e0cc5344264d47e6b4f3ef0d612849464aa1261e3017316021d6a4"
+  },
+  "schema": "functional_translation_artifact_verification.v1",
+  "scope": "Checks the original pre-outcome input freeze and structural artifact consistency. Independent source-direct outcome recomputation is recorded separately by the parent reviewer; this manifest does not authenticate its own anchor or prove biology.",
+  "status": "PASS"
+}

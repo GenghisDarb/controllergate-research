@@ -1,0 +1,21 @@
+{
+  "schema":"projected_reference_admissibility.v1",
+  "status":"declared_before_extension_outcomes",
+  "reason":"Review-triggered extension after deriving that unprojected reference restoration need not preserve nonnegative state coordinates. Original parent experiment remains frozen and unchanged.",
+  "source":"Archived LadderKernel._relax; exact source bytes copied beside this specification",
+  "N":[12,13,14,15,28],
+  "anchoring_rational":["0","1/5","1/2","1"],
+  "step_rational":"21/50",
+  "candidate":"F(x)=projection_nonnegative[p+A(x-p)], where A is the exact recovered cycle update matrix",
+  "admissible_domain":"x,y,p are nonnegative rational vectors; p is supplied and fixed for each pair",
+  "cases_per_N_a":20,
+  "structured_cases":5,
+  "random_cases":15,
+  "random_seed":20261123,
+  "random_values":"multiples of1/20 from0to2, with additional declared zeroing probabilities",
+  "exact_checks":["nonnegative projected state","parent fixed point","squared distance to parent contracts by q^2","squared pairwise distance contracts by q^2","quadratic energy decreases by at least(79/42)*squared_step"],
+  "q":"1-(21/50)*a; strict contraction only when a>0",
+  "floating_source_parity_absolute_tolerance":1e-12,
+  "explicit_counterexample":{"N":14,"a":"1/2","x":"zero vector","p":"unit impulse at index0","expected_unprojected_neighbor":"-21/400 = -0.0525"},
+  "limits":["New projected algorithm, not an unchanged historical kernel","Nonnegative orthant only; no stoichiometric or biochemical enabling proof","Supplied reference is restored, not independently predicted","Projection makes the global dynamics nonlinear and invalidates direct use of the unprojected frequency transfer formula","At a=0 only nonexpansiveness is claimed; projection need not preserve the original mean","Energy statement assumes fixed parent/anchoring and feasible input","Known projected-gradient/contraction mathematics applied to source-derived operator; no necessary14 claim"]
+}

@@ -1,0 +1,278 @@
+{
+  "analysis_chronology": {
+    "primary_completed_utc": "2026-11-23T08:35:01.387260+00:00",
+    "primary_frozen_utc": "2026-11-23T08:34:55.469225+00:00",
+    "scope": "Local inspectable sequence, not external preregistration or independent timestamp attestation.",
+    "sensitivity_completed_utc": "2026-11-23T08:38:43.830245+00:00",
+    "sensitivity_frozen_utc": "2026-11-23T08:37:49.793480+00:00"
+  },
+  "created_utc": "2026-11-23T08:45:17.596418+00:00",
+  "local_artifacts": [
+    {
+      "bytes": 6409,
+      "path": "reactome_event_contract.json",
+      "sha256": "3ff1a48296743786be42d32f25a5dfae0a569baf462e696c578def2844008af6"
+    },
+    {
+      "bytes": 333,
+      "path": "spoton_repository_commit.json",
+      "sha256": "1715a623d95ce842b7507e14f1ae643ad07f98737a75497f222b99a54089cb7c"
+    },
+    {
+      "bytes": 1130,
+      "path": "public_download_attempts.json",
+      "sha256": "0f8e24119b2c6b54d39b955f7d166b5949b9a705c8909b700cdff49b7682c63b"
+    },
+    {
+      "bytes": 15041,
+      "path": "RESEARCH_MEMO.md",
+      "sha256": "80ea1bdb541369ded5748db05d100108c2a269c7fca21c801b0bd30bf48e12d7"
+    },
+    {
+      "bytes": 8361,
+      "path": "build_source_manifest.py",
+      "sha256": "16d7a4037782afc2451d8e3710ae411e37e65be2b2cabb206afed772974bc140"
+    },
+    {
+      "bytes": 793,
+      "path": "ctcf_reanalysis/FROZEN_ANALYSIS.json",
+      "sha256": "a194f04fc90a571182aff6ba466a4292e832f590176256573e2fadd9b1c9aef0"
+    },
+    {
+      "bytes": 528,
+      "path": "ctcf_reanalysis/GAUSSIAN_SENSITIVITY_SEAL.json",
+      "sha256": "168a5280bb7d37645440bdceee3b05c6a77b4221e98c0e3c712749af2e4f6067"
+    },
+    {
+      "bytes": 6438,
+      "path": "ctcf_reanalysis/README.md",
+      "sha256": "1b130cb9940fa7bb22739a8f793d0d2b477946df49c775541a4d1fac84a2f856"
+    },
+    {
+      "bytes": 4623,
+      "path": "ctcf_reanalysis/analysis_spec.json",
+      "sha256": "f8e2bbf98b8da35c33fcff7e79b09d6a4a6f61cd5e8c74bfb5fe7b283dd33286"
+    },
+    {
+      "bytes": 14960,
+      "path": "ctcf_reanalysis/analyze_ctcf.py",
+      "sha256": "12cd87389358786bb9017908fc83d5d0f51e05b98b36c62b775136e3a55cd507"
+    },
+    {
+      "bytes": 201661,
+      "path": "ctcf_reanalysis/ctcf_heldout_cdfs.png",
+      "sha256": "e0f5de139bf3aaa8383ee99ce7210ab04b6c87b1e53544fbd68420356c8803fa"
+    },
+    {
+      "bytes": 2488,
+      "path": "ctcf_reanalysis/data_quality.json",
+      "sha256": "dabae9b28cad0baa016ccc7a77bf7fafdc18ede50c5a51273bbbc4477d42e9e9"
+    },
+    {
+      "bytes": 1453,
+      "path": "ctcf_reanalysis/gaussian_null_spec.json",
+      "sha256": "917ba9c6b6257b5bf5092cdcfc73f0647ca759a10372542b03c65acab38defbe"
+    },
+    {
+      "bytes": 4873,
+      "path": "ctcf_reanalysis/gaussian_sensitivity.py",
+      "sha256": "a2f992da083856e7ef3aa014ff086792cd2d905460c800d1ec1dbb31cef14b99"
+    },
+    {
+      "bytes": 4304,
+      "path": "ctcf_reanalysis/gaussian_sensitivity_results.json",
+      "sha256": "cfc7726c73a03aeb499d1d35e8657b6ca031621745872b2db5d5695bd6b380ca"
+    },
+    {
+      "bytes": 18782,
+      "path": "ctcf_reanalysis/results.json",
+      "sha256": "17aefe0c08bae8967f7a75f0a0e534d2b71736e83239c35fdcfb5d470bbff281"
+    }
+  ],
+  "method_limits": [
+    "Two named cells do not estimate biological population variability.",
+    "Within-track lags overlap; score is marginal/composite and bootstrap resamples trajectories.",
+    "Tracking/defocalization selection and repeated-molecule identity are not modeled.",
+    "Two-component weight is not a physical bound fraction; free-Gaussian sensitivity remains post-result.",
+    "CTCF data do not validate the LDH/GAPDH network or any whole-cell/ControllerGate isomorphism."
+  ],
+  "packaging": {
+    "exclude_patterns": [
+      "*.provider.json",
+      "*.capture.json",
+      "__pycache__/*",
+      "spoton_standard_csv.csv"
+    ],
+    "include": "Exact two MAT files, author example/README/license, compact provenance, own specs/code/results/plot/memos.",
+    "reason": "Provider payloads duplicate base64 data; bulk web captures are unnecessary for replay. Unidentified format-example CSV was not used in empirical analysis."
+  },
+  "primary_sources": [
+    {
+      "doi": "10.7554/eLife.33125",
+      "open_text": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5809147/",
+      "scope": "Source paper and author/publisher data provenance. Our analysis is a simplified reanalysis, not full Spot-On reproduction.",
+      "title": "Robust model-based analysis of single-particle tracking experiments with Spot-On",
+      "url": "https://doi.org/10.7554/eLife.33125"
+    },
+    {
+      "doi": "10.1186/1471-2105-7-196",
+      "retrieval_ref": "turn748473305view1",
+      "scope": "Primary source for existing logical verification of Reactome; no independent reproduction.",
+      "title": "A case study in pathway knowledgebase verification",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1522024/"
+    },
+    {
+      "doi": "10.4230/LIPIcs.CONCUR.2015.226",
+      "retrieval_ref": "turn748473305view3",
+      "scope": "Official proceedings abstract/metadata inspected; exact reduction prior art, not a new proof here.",
+      "title": "Forward and Backward Bisimulations for Chemical Reaction Networks",
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CONCUR.2015.226"
+    },
+    {
+      "doi": "10.1038/s41540-024-00464-z",
+      "retrieval_ref": "turn748473305view2",
+      "scope": "Primary article inspected for signaling-Petri-net compilation prior art; no numerical reproduction.",
+      "title": "Automatic construction of Petri net models for computational simulations of molecular interaction network",
+      "url": "https://www.nature.com/articles/s41540-024-00464-z"
+    },
+    {
+      "identifier": "arXiv:1812.03789v4",
+      "retrieval_ref": "turn801065390view0",
+      "scope": "Primary formal source for distinct abstraction strengths and intervention scope.",
+      "title": "Abstracting Causal Models",
+      "url": "https://arxiv.org/abs/1812.03789"
+    }
+  ],
+  "reactome_contract": {
+    "additional_full_record_confirmation": {
+      "agent": "/root/bridge_review",
+      "event": "R-HSA-70482",
+      "note": "Full reverse record independently opened after original manual contract was sealed; contract bytes unchanged.",
+      "retrieval_ref": "turn902408076view0",
+      "url": "https://reactome.org/content/detail/R-HSA-70482"
+    },
+    "bytes": 6409,
+    "events": [
+      {
+        "id": "R-HSA-71849",
+        "original_retrieval_ref": "turn552957849view6",
+        "url": "https://reactome.org/content/detail/R-HSA-71849"
+      },
+      {
+        "id": "R-HSA-70510",
+        "original_retrieval_ref": "turn552957849view5",
+        "url": "https://reactome.org/content/detail/R-HSA-70510"
+      },
+      {
+        "id": "R-HSA-373875",
+        "original_retrieval_ref": "turn552957849view4",
+        "url": "https://reactome.org/content/detail/R-HSA-373875"
+      },
+      {
+        "id": "R-HSA-373867",
+        "original_retrieval_ref": "turn247779360view0",
+        "url": "https://reactome.org/content/detail/R-HSA-373867"
+      },
+      {
+        "id": "R-HSA-70449",
+        "original_retrieval_ref": "turn712569073view0",
+        "url": "https://reactome.org/content/detail/R-HSA-70449"
+      },
+      {
+        "id": "R-HSA-70482",
+        "original_retrieval_ref": "turn192546410search6",
+        "url": "https://reactome.org/content/detail/R-HSA-70482"
+      }
+    ],
+    "path": "reactome_event_contract.json",
+    "sha256": "3ff1a48296743786be42d32f25a5dfae0a569baf462e696c578def2844008af6",
+    "source_kind": "Manual transcription of official rendered records, not original JSON/SBML bytes.",
+    "unresolved": [
+      "Exact SBML/source export byte verification",
+      "kinetic rates and concentrations",
+      "quantitative regulation",
+      "context-specific enzyme activity and tissue expression"
+    ]
+  },
+  "runtime": {
+    "matplotlib": "3.10.8",
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "scipy": "1.17.0"
+  },
+  "schema": "FunctionalTransferResearchProvenanceV1",
+  "source_files": [
+    {
+      "byte_provenance": "Decoded GitHub connector response; bytes independently matched Git object hash.",
+      "bytes": 630482,
+      "git_blob_sha1": "6486d6b15c68faf47395f54427d25f1680fc7acd",
+      "git_blob_verified": true,
+      "path": "ctcf_rep1_cell01.mat",
+      "receipt_timing_precision": "date only; exact response time not separately attested",
+      "repository_commit": "f155c4c889ea124a8f55ab8f620e540628e18f92",
+      "repository_path": "Data/CTCF_134Hz_rep1/U2OS_C32_Halo-CTCF_PA-JF646_1ms-633nm_134Hz_rep1_cell01.mat",
+      "retrieved_date_utc": "2026-11-23",
+      "scope": "Real experimental record used in primary fit/heldout split.",
+      "sha256": "6547e6b6e5f3dc2424dd7d1ceb17f116408acf7fff8ae67091c08b5d2f2850c1",
+      "source_url": "https://github.com/elifesciences-publications/spot-on-matlab/blob/f155c4c889ea124a8f55ab8f620e540628e18f92/Data/CTCF_134Hz_rep1/U2OS_C32_Halo-CTCF_PA-JF646_1ms-633nm_134Hz_rep1_cell01.mat"
+    },
+    {
+      "byte_provenance": "Decoded GitHub connector response; bytes independently matched Git object hash.",
+      "bytes": 435233,
+      "git_blob_sha1": "49627183cf193d00c6a663750c2de408f58a4919",
+      "git_blob_verified": true,
+      "path": "ctcf_rep3_cell01.mat",
+      "receipt_timing_precision": "date only; exact response time not separately attested",
+      "repository_commit": "f155c4c889ea124a8f55ab8f620e540628e18f92",
+      "repository_path": "Data/CTCF_134Hz_rep3/U2OS_C32_Halo-CTCF_PA-JF646_1ms-633nm_134Hz_rep3_cell01.mat",
+      "retrieved_date_utc": "2026-11-23",
+      "scope": "Real experimental record used for secondary no-refit check.",
+      "sha256": "9cb8e989666f634a005a0ede86a02230705bf62ee2e36840131aefad4b490351",
+      "source_url": "https://github.com/elifesciences-publications/spot-on-matlab/blob/f155c4c889ea124a8f55ab8f620e540628e18f92/Data/CTCF_134Hz_rep3/U2OS_C32_Halo-CTCF_PA-JF646_1ms-633nm_134Hz_rep3_cell01.mat"
+    },
+    {
+      "byte_provenance": "Decoded GitHub connector response; bytes independently matched Git object hash.",
+      "bytes": 7425,
+      "git_blob_sha1": "d25a94b206d9e4b3f11ceac60fbbfd8a7f36d236",
+      "git_blob_verified": true,
+      "path": "SpotOn_main.m",
+      "receipt_timing_precision": "date only; exact response time not separately attested",
+      "repository_commit": "f155c4c889ea124a8f55ab8f620e540628e18f92",
+      "repository_path": "SpotOn_main.m",
+      "retrieved_date_utc": "2026-11-23",
+      "scope": "Author example source inspected for metadata/model context; full author pipeline not executed.",
+      "sha256": "581c88dbe1fd596859583a8d19f0ba4d22fc0ff3c76163f3f6cfaa5706e1e253",
+      "source_url": "https://github.com/elifesciences-publications/spot-on-matlab/blob/f155c4c889ea124a8f55ab8f620e540628e18f92/SpotOn_main.m"
+    },
+    {
+      "byte_provenance": "Decoded GitHub connector response; bytes independently matched Git object hash.",
+      "bytes": 1182,
+      "git_blob_sha1": "b80587eb95d8439012f512b3db2f9f96cee98693",
+      "git_blob_verified": true,
+      "path": "spoton_matlab_README.md",
+      "receipt_timing_precision": "date only; exact response time not separately attested",
+      "repository_commit": "f155c4c889ea124a8f55ab8f620e540628e18f92",
+      "repository_path": "README.md",
+      "retrieved_date_utc": "2026-11-23",
+      "scope": "Author attribution, source-paper and usage context.",
+      "sha256": "883d06bba01298d9b5e625b9016727daf0ae3d25c43b28f37fc69b19a5fdd650",
+      "source_url": "https://github.com/elifesciences-publications/spot-on-matlab/blob/f155c4c889ea124a8f55ab8f620e540628e18f92/README.md"
+    },
+    {
+      "byte_provenance": "Decoded GitHub connector response; bytes independently matched Git object hash.",
+      "bytes": 35142,
+      "git_blob_sha1": "5dc6b429ba4a658bcd584331a5a38b20e6e3f3c3",
+      "git_blob_verified": true,
+      "path": "SpotOn_LICENSE.md",
+      "receipt_timing_precision": "date only; exact response time not separately attested",
+      "repository_commit": "f155c4c889ea124a8f55ab8f620e540628e18f92",
+      "repository_path": "LICENSE.md",
+      "retrieved_date_utc": "2026-11-23",
+      "scope": "Repository GPLv3 license retained. No separate data-license declaration recovered in inspected README/license.",
+      "sha256": "8646559c866597b7bf28d110cde63de18f6d97354bf22559053301bc3ca492c5",
+      "source_url": "https://github.com/elifesciences-publications/spot-on-matlab/blob/f155c4c889ea124a8f55ab8f620e540628e18f92/LICENSE.md"
+    }
+  ],
+  "status": "PASS",
+  "status_scope": "Exact source-byte and local-seal checks; not a scientific truth certificate."
+}

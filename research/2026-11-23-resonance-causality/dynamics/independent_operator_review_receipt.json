@@ -1,0 +1,85 @@
+{
+  "status": "PASS_WITH_DECLARED_SCOPE",
+  "reviewed_utc": "2026-11-23T14:52:16.141945+00:00",
+  "reviewer": "independent resonance-history agent",
+  "independence": "No root audit functions imported. Only pinned source SUT executed; references use edge-list gradients, coefficient-expanded updates, independent seeded trajectory reconstruction and scalar forcing.",
+  "files": {
+    "experiment_spec.json": "36ae9dc1f207615170cb7dda7660bb418e6e42382e29466c1cfd5664168fb563",
+    "FROZEN_DESIGN.json": "de6e58fe535c1607a4488909b9ceb9f54d39dc077b43bc655d932c7a31edef3d",
+    "run_operator_audit.py": "0f34c822e65ee136678da9360d6e5d977d33baf80a50b0fea2edc0525e56107b",
+    "results.json": "096bebb8f3cfed00fa2b7a7b173e1b23e8e4974ea5ade159c8d98ee2c0d6cc95",
+    "summary.json": "1f9164895374e2fffea75f29bcc7d15eed1410a11400884f4330ae6e05ede0bb",
+    "source_snapshot/kernels.py": "b40a865a3cb96975c0999a5af1f7cbd56a8a68ae617dfb98e6707cb462f4b510",
+    "source_snapshot/SOURCE_PROVENANCE.json": "897469c2b8399eccd8902134cfb1a84520d9b9fe312a5b5b4d1af4d1b8966180",
+    "independent_operator_review.py": "1cfa82aac027f0bbe951b368803591d15a2b057d9a6f21a2eb0ae6a5a19340ef"
+  },
+  "source_provenance": {
+    "sha256_matches": true,
+    "git_blob_object_hash_matches": true,
+    "commit": "abe12e1da964c8902978ac7460028975f1f0324d",
+    "fresh_remote_read": "Coordinating audit receipt checked; not independently repeated in this review."
+  },
+  "checked_cases": 20,
+  "gradient_states": 400,
+  "full_energy_trajectories_reconstructed": 40,
+  "impulse_trajectories_reconstructed": 20,
+  "analytic_and_saved_measured_gain_rows_checked": 120,
+  "independent_scalar_forcing_replays": [
+    {
+      "omega": 0.0,
+      "independent_scalar_gain": 0.9528205510708078,
+      "root_vector_gain": 0.9528205510708078,
+      "absolute_difference": 0.0
+    },
+    {
+      "omega": 0.7853981633974483,
+      "independent_scalar_gain": 0.29543623644910383,
+      "root_vector_gain": 0.2954362364491039,
+      "absolute_difference": 5.551115123125783e-17
+    },
+    {
+      "omega": 3.141592653589793,
+      "independent_scalar_gain": 0.11800393106309497,
+      "root_vector_gain": 0.11800393106309495,
+      "absolute_difference": 1.3877787807814457e-17
+    }
+  ],
+  "maximum_absolute_errors": {
+    "source_direct": 8.881784197001252e-16,
+    "matrix": 1.1102230246251565e-16,
+    "gradient": 4.440892098500626e-16,
+    "candidate_gradient": 6.661338147750939e-16,
+    "energy_trajectory": 5.134781488891349e-16,
+    "final_rms": 3.6637359812630166e-15,
+    "impulse_history": 6.661338147750939e-16,
+    "forced_analytic": 1.6653345369377348e-15,
+    "finite_difference_gradient": 1.54847468181174e-10,
+    "stationary": 1.942890293094024e-16
+  },
+  "irregular_monotone_metric_max_error": 0.0,
+  "energy_descent_bound": "E(next)-E(now)<=-(.42-.42^2/2)||gradient||^2=-.3318||gradient||^2 because Hessian eigenvalues are in[0,1].",
+  "candidate_goal": "Recover the supplied nonuniform parent while retaining the original perturbation Jacobian; candidate is p+A(x-p).",
+  "candidate_caveat": "For a=0, constant residual is conserved and every p+c1 is fixed. Arbitrary parent recovery requires a>0; the parent is supplied, not predicted.",
+  "a05_N14_visibility": {
+    "nodes_above_declared_floors": [
+      3,
+      9,
+      14
+    ],
+    "floors": [
+      0.01,
+      0.0001,
+      1e-06
+    ],
+    "opposite_node_first_nonzero_step": 7,
+    "opposite_node_first_above_1e_minus6_step": 17
+  },
+  "interpretive_limits": [
+    "All20 cases are supplied synthetic models, not independent physical systems.",
+    "All120 saved forcing gains checked analytically; only three forced recurrences independently replayed.",
+    "The frequency response is low-pass in iteration units; no measured physical clock or nonzero-frequency resonance is established.",
+    "The causal cone is intervention sensitivity in this declared local model; no inference of real-world causal law.",
+    "No14-versus15 selection is supplied by these formulas.",
+    "The synchronization splay pattern is constructed; no spontaneous lock or historical global-resultant code bug is claimed."
+  ]
+}

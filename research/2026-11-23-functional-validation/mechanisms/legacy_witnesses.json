@@ -1,0 +1,383 @@
+{
+  "archived_numeric_underflow_negative_control": {
+    "blocker": "resource_budget_underflow",
+    "state": {
+      "primitive_trace": [],
+      "resource_balance": {
+        "balance": 0
+      }
+    },
+    "status": "BLOCK"
+  },
+  "candidate": {
+    "actual_active_unit_references": [],
+    "actual_catalyst_references": [
+      "98e94b176ed396f3ae0d1d831f2956061eb5625c7e762dca0a0440fba9ab4bf5"
+    ],
+    "actual_compartment_transition_references": [],
+    "actual_complex_set_membership_references": [],
+    "actual_modification_references": [],
+    "actual_output_references": [
+      "c3f7cc4c17131a402100408f644aa7d1a0c12c582e168d40b8276eaecb02f1b5",
+      "931df9e3a2ce93580d97af56bb91f7bf6d482ec9b1d3e70e1c7e9c0fa1160263"
+    ],
+    "actual_participant_role_references": [
+      "6c12f96b63d215cf7d5ccbcbdba648f68120835f4913c46e2513fafc451caae6",
+      "1fad24876b18d957f8d59de9bdb86344ca754a616ccc3be00ed935a7bd5fb56c",
+      "3d92d474bc42f44865583e9726479d6b8d24beb9948494f1e9c74c38321a994f",
+      "c3f7cc4c17131a402100408f644aa7d1a0c12c582e168d40b8276eaecb02f1b5",
+      "931df9e3a2ce93580d97af56bb91f7bf6d482ec9b1d3e70e1c7e9c0fa1160263"
+    ],
+    "actual_positive_negative_regulator_references": [],
+    "actual_predecessor_follower_references": [],
+    "actual_required_input_references": [],
+    "adversarial_control": "attempt evidence-maturity escalation and require rejection",
+    "authority_allowed": "shadow candidate execution",
+    "authority_forbidden": [
+      "repair authorization",
+      "production promotion",
+      "source metadata as software causal proof"
+    ],
+    "compensating_actions": [
+      "preserve candidate state",
+      "record exact blocker",
+      "reopen on release-bound source detail"
+    ],
+    "event_class": "Reaction",
+    "evidence_maturity": "DIRECT_CURATED",
+    "execution_depth": "value_bound_structural_compilation",
+    "execution_maturity": "schema_compiled_value_bound",
+    "failure_terminals": [
+      "MISSING_REQUIRED_INPUT",
+      "UNRESOLVED_CONTENT_REFERENCE",
+      "SOURCE_DETAIL_OPEN"
+    ],
+    "generic_primitive_bindings": [
+      "EVENT_CONTRACT",
+      "ENTITY_STATE",
+      "COMPARTMENT",
+      "CATALYST",
+      "IRREVERSIBLE_REACTION"
+    ],
+    "invariants": [
+      "source identity immutable",
+      "content references resolve exactly",
+      "source evidence cannot grant repair authority"
+    ],
+    "negative_control": "remove one required input and require a block",
+    "normal_variant_references": [],
+    "parent_evidence": [
+      "b97b00597c3066ab59f7a81738df58c39d92ef8adbe45f2adbaa7f6d8fc295b8"
+    ],
+    "plain_engineering_translation": "Apply a Reaction transition from R-ALL-29398 to R-ALL-29708; enforce 0 required inputs, 1 catalyst activities, 0 regulator edges, and 1 compartment bindings.",
+    "positive_control": "execute resolved source transition",
+    "postconditions": [
+      "all output references resolve",
+      "source graph hash is preserved"
+    ],
+    "preconditions": [
+      "all required input references resolve",
+      "source graph identity remains frozen"
+    ],
+    "producer": "controllergate.isomorphism.value_bound:compile_value_bound_candidate",
+    "resource_cofactor_requirements": [],
+    "semantic_scope": "release-97 candidate translation",
+    "source_chapter": "local_fixture_only",
+    "source_database_id": 71849,
+    "source_graph_hash": "b97b00597c3066ab59f7a81738df58c39d92ef8adbe45f2adbaa7f6d8fc295b8",
+    "source_occurrence_id": "manual-source-fixture:R-HSA-71849",
+    "source_stable_id": "R-HSA-71849",
+    "transition_relation": {
+      "direction": "source_ordered",
+      "event_class": "Reaction",
+      "relation_kind": "source_bound_state_transition"
+    },
+    "translation_candidate_id": "1da6567f6299f4ba81e9f47811ae22e083136db9f447297fdd97e25ebae4f96f",
+    "translation_state": "SCHEMA_COMPILED",
+    "uncertainty_boundary": "structured_source_boundary",
+    "unknown_structural_pattern": false
+  },
+  "downstream_scope": "canonical_maintenance verifies stage, source-event/result hashes and authority; inspected code does not reconstruct resource balances from molecular participants.",
+  "frozen_design_sha256": "af696374373df50e63e84d93aea9af84d0a9bfc6b5fd79c638e4e467a08bb552",
+  "generic_catalyst_presence_control": {
+    "blocker": null,
+    "contract": {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "active_catalyst",
+      "input_contract": "source_occurrence_identity + catalyst",
+      "negative_control": "missing_catalyst_blocks_without_active_catalyst",
+      "output_contract": "state.active_catalyst",
+      "primitive_id": "CATALYST",
+      "required_event_field": "catalyst"
+    },
+    "mechanism_outcome": {
+      "effect_key": "active_catalyst",
+      "transition_sequence": 1
+    },
+    "state": {
+      "active_catalyst": {
+        "observed": {
+          "state": "explicit_empty"
+        },
+        "source_occurrence_identity": "presence-control",
+        "transition_sequence": 1
+      },
+      "authority": "shadow_non_authorizing",
+      "primitive_trace": [
+        "CATALYST"
+      ]
+    },
+    "status": "PASS"
+  },
+  "integrated_resource_delta_type": "list",
+  "integrated_resource_origin": {
+    "primitive": "RESOURCE_FLUX",
+    "scenario_id": "manual-source-fixture",
+    "source_stable_id": "R-HSA-71849",
+    "source_value_field": "entity_state"
+  },
+  "integrated_resource_result": {
+    "blocker": null,
+    "contract": {
+      "authority": "shadow_non_authorizing",
+      "effect_key": "resource_balance",
+      "input_contract": "source_occurrence_identity + resource_delta",
+      "negative_control": "missing_resource_delta_blocks_without_resource_balance",
+      "output_contract": "state.resource_balance",
+      "primitive_id": "RESOURCE_FLUX",
+      "required_event_field": "resource_delta"
+    },
+    "mechanism_outcome": {
+      "effect_key": "resource_balance",
+      "transition_sequence": 1
+    },
+    "state": {
+      "authority": "shadow_non_authorizing",
+      "primitive_trace": [
+        "RESOURCE_FLUX"
+      ],
+      "resource_balance": {
+        "observed": [
+          {
+            "class": "SimpleEntity",
+            "compartment": "cytosol",
+            "role": "input",
+            "stable_id": "R-ALL-29398",
+            "stoichiometry": 1
+          },
+          {
+            "class": "SimpleEntity",
+            "compartment": "cytosol",
+            "role": "input",
+            "stable_id": "R-ALL-73473",
+            "stoichiometry": 1
+          },
+          {
+            "class": "SimpleEntity",
+            "compartment": "cytosol",
+            "role": "input",
+            "stable_id": "R-ALL-70106",
+            "stoichiometry": 1
+          },
+          {
+            "class": "SimpleEntity",
+            "compartment": "cytosol",
+            "role": "output",
+            "stable_id": "R-ALL-29708",
+            "stoichiometry": 1
+          },
+          {
+            "class": "SimpleEntity",
+            "compartment": "cytosol",
+            "role": "output",
+            "stable_id": "R-ALL-29360",
+            "stoichiometry": 1
+          }
+        ],
+        "source_occurrence_identity": "integrated-release97-source-bound",
+        "transition_sequence": 1
+      }
+    },
+    "status": "PASS"
+  },
+  "interpretation": "The archived PASS means source-bound primitive conformance. It is not relabeled as a physical enabledness claim. The source-event projection supplied to this path contains no changing world inventory and therefore cannot distinguish the paired states; the local typed repair adds that missing contract.",
+  "paired_worlds": [
+    {
+      "id": "local_proton_present",
+      "inventory": {
+        "BPG13_c": 0,
+        "GA3P_c": 0,
+        "H_c": 1,
+        "H_e": 0,
+        "LACT_c": 0,
+        "LACT_e": 0,
+        "NADH_c": 1,
+        "NAD_c": 0,
+        "PYR_c": 1,
+        "Pi_c": 0,
+        "active_BSG_MCT": 0,
+        "active_GAPDH": 0,
+        "active_LDH": 1
+      },
+      "legacy_source_event_sha256": "321351e65bf9cc6e91b48ad192fcb43ddd1a3aa96cf3a16a333b8d43b4c0e00e",
+      "source_oracle_status": "PASS"
+    },
+    {
+      "id": "same_total_proton_remote",
+      "inventory": {
+        "BPG13_c": 0,
+        "GA3P_c": 0,
+        "H_c": 0,
+        "H_e": 1,
+        "LACT_c": 0,
+        "LACT_e": 0,
+        "NADH_c": 1,
+        "NAD_c": 0,
+        "PYR_c": 1,
+        "Pi_c": 0,
+        "active_BSG_MCT": 0,
+        "active_GAPDH": 0,
+        "active_LDH": 1
+      },
+      "legacy_source_event_sha256": "321351e65bf9cc6e91b48ad192fcb43ddd1a3aa96cf3a16a333b8d43b4c0e00e",
+      "source_oracle_status": "BLOCK"
+    }
+  ],
+  "positive_primitive_results": [
+    {
+      "primitive": "EVENT_CONTRACT",
+      "status": "PASS"
+    },
+    {
+      "primitive": "ENTITY_STATE",
+      "status": "PASS"
+    },
+    {
+      "primitive": "COMPARTMENT",
+      "status": "PASS"
+    },
+    {
+      "primitive": "CATALYST",
+      "status": "PASS"
+    },
+    {
+      "primitive": "IRREVERSIBLE_REACTION",
+      "status": "PASS"
+    }
+  ],
+  "repository_commit": "38897b79588f3ff4b1b9002eedc299a9bcf05140",
+  "resource_flux_selected": false,
+  "schema": "archived_translation_semantics_witness.v1",
+  "source_adapter_fields_requested": [
+    "candidate_set_members",
+    "catalyst_details",
+    "complex_components",
+    "edition_lineage",
+    "entity_compartments",
+    "entity_set_members",
+    "literature_records",
+    "modification_details",
+    "normal_variant_graph",
+    "regulator_details",
+    "source_destination_transitions",
+    "source_value_binding",
+    "stable_event_edges",
+    "timing_annotations"
+  ],
+  "source_event": {
+    "catalyst": [
+      {
+        "activity": "GO:0004459",
+        "catalyst": "R-HSA-184549"
+      }
+    ],
+    "commit_transition": {
+      "inputs": [
+        {
+          "class": "SimpleEntity",
+          "compartment": "cytosol",
+          "role": "input",
+          "stable_id": "R-ALL-29398",
+          "stoichiometry": 1
+        },
+        {
+          "class": "SimpleEntity",
+          "compartment": "cytosol",
+          "role": "input",
+          "stable_id": "R-ALL-73473",
+          "stoichiometry": 1
+        },
+        {
+          "class": "SimpleEntity",
+          "compartment": "cytosol",
+          "role": "input",
+          "stable_id": "R-ALL-70106",
+          "stoichiometry": 1
+        }
+      ],
+      "outputs": [
+        {
+          "class": "SimpleEntity",
+          "compartment": "cytosol",
+          "role": "output",
+          "stable_id": "R-ALL-29708",
+          "stoichiometry": 1
+        },
+        {
+          "class": "SimpleEntity",
+          "compartment": "cytosol",
+          "role": "output",
+          "stable_id": "R-ALL-29360",
+          "stoichiometry": 1
+        }
+      ],
+      "reverse": false
+    },
+    "compartment": [
+      {
+        "compartment": "GO:0005829",
+        "name": "cytosol"
+      }
+    ],
+    "entity_state": [
+      {
+        "class": "SimpleEntity",
+        "compartment": "cytosol",
+        "role": "input",
+        "stable_id": "R-ALL-29398",
+        "stoichiometry": 1
+      },
+      {
+        "class": "SimpleEntity",
+        "compartment": "cytosol",
+        "role": "input",
+        "stable_id": "R-ALL-73473",
+        "stoichiometry": 1
+      },
+      {
+        "class": "SimpleEntity",
+        "compartment": "cytosol",
+        "role": "input",
+        "stable_id": "R-ALL-70106",
+        "stoichiometry": 1
+      },
+      {
+        "class": "SimpleEntity",
+        "compartment": "cytosol",
+        "role": "output",
+        "stable_id": "R-ALL-29708",
+        "stoichiometry": 1
+      },
+      {
+        "class": "SimpleEntity",
+        "compartment": "cytosol",
+        "role": "output",
+        "stable_id": "R-ALL-29360",
+        "stoichiometry": 1
+      }
+    ],
+    "event_type": "Reaction",
+    "source_occurrence_identity": "manual-source-fixture:R-HSA-71849"
+  },
+  "source_fixture_scope": "Manually source-grounded RPIR-shaped fixture with an in-memory resolver; not a replay of original full release-97 registry or installed runtime."
+}

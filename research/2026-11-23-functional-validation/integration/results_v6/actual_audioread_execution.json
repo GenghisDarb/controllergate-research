@@ -1,0 +1,357 @@
+[
+  {
+    "adaptation": {
+      "observation": {
+        "aifc": {
+          "module": "aifc",
+          "origin": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/aifc.py",
+          "status": "IMPORTED"
+        },
+        "backend_discovery": {
+          "backend_count": 2,
+          "backend_names": [
+            "RawAudioFile",
+            "FFmpegAudioFile"
+          ],
+          "status": "OBSERVED"
+        },
+        "exact_test_nodes": [
+          "test/test_audioread.py::test_audioread_early_exit[test-1]",
+          "test/test_audioread.py::test_audioread_early_exit[test-2]",
+          "test/test_audioread.py::test_audioread_full[test-1]",
+          "test/test_audioread.py::test_audioread_full[test-2]"
+        ],
+        "exact_test_return_code": null,
+        "exception_type": null,
+        "module": "aifc",
+        "rawread_import": "success",
+        "return_code": 0,
+        "route": "rawread",
+        "route_import": {
+          "module": "audioread.rawread",
+          "origin": "/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/vendor_source/audioread_577f8e2/audioread/rawread.py",
+          "status": "IMPORTED"
+        },
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "940f02a6d34e5717e00b64e91a649e9737c527d50f8ac7959177c7b337b65062"
+      },
+      "receipt": {
+        "adapted_hash": "f8679c2f78517af87c96bb0e20392abf1b135b2c2d2853925f88084e654a5acb",
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "derivations": [
+          {
+            "field": "module",
+            "source": "batch100_audioread_harness.import_observation(aifc)",
+            "value": "aifc"
+          },
+          {
+            "field": "exception_type",
+            "source": "explicit IMPORTED status; no exception",
+            "value": null
+          },
+          {
+            "field": "rawread_import",
+            "source": "observed rawread route import",
+            "value": "success"
+          }
+        ],
+        "errors": [],
+        "raw_hash": "d53932fe1629f2b54f73dc77386c15696b92e87c164218e41048d524e1055632",
+        "receipt_hash": "ae6facadd7098e7b8776e9fbc6693e34bc296fa8257c76aa56ab5513d67a6d22",
+        "scope": "measured field translation only; not a causal or execution attestation",
+        "status": "ADAPTED",
+        "version": "batch100-to-v4-observation-adapters-local-v2"
+      }
+    },
+    "command": {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/checkout/scripts/batch100_audioread_harness.py",
+        "--route",
+        "rawread"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "BATCH100_AUDIOREAD_OBSERVATION={\"aifc\":{\"module\":\"aifc\",\"origin\":\"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/aifc.py\",\"status\":\"IMPORTED\"},\"backend_discovery\":{\"backend_count\":2,\"backend_names\":[\"RawAudioFile\",\"FFmpegAudioFile\"],\"status\":\"OBSERVED\"},\"exact_test_nodes\":[\"test/test_audioread.py::test_audioread_early_exit[test-1]\",\"test/test_audioread.py::test_audioread_early_exit[test-2]\",\"test/test_audioread.py::test_audioread_full[test-1]\",\"test/test_audioread.py::test_audioread_full[test-2]\"],\"exact_test_return_code\":null,\"route\":\"rawread\",\"route_import\":{\"module\":\"audioread.rawread\",\"origin\":\"/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/vendor_source/audioread_577f8e2/audioread/rawread.py\",\"status\":\"IMPORTED\"}}\n"
+    },
+    "diagnostic_frozen_predicates": {
+      "control": {
+        "authority_allowed": "declared outcome classification and scoped replay comparison only",
+        "authority_forbidden": [
+          "fresh execution attestation",
+          "causal ownership",
+          "patch",
+          "repair count",
+          "biological or physical inference"
+        ],
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "execution_context_hash": "c4be7b2906a4726be19aec024fb9df99191fe1c86063ff1ecdb0a368390abc88",
+        "expected_registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "observed_operands": {
+          "rawread_import": "success"
+        },
+        "predicate_hash": "4e04360c06e7abea6a2d38b63e3781a7829b15e42d91e133cef8b092081f68ba",
+        "program_id": "batch100-audioread-144-aifc",
+        "projection_fields": [
+          "rawread_import"
+        ],
+        "projection_id": "program-role-operand-projection-v2-local-candidate",
+        "raw_observation_hash": "f8679c2f78517af87c96bb0e20392abf1b135b2c2d2853925f88084e654a5acb",
+        "record_hash": "8a589235b1cbdf84711ee8125c29fd11dd7f9ed6b47e284cd60aede9986e7bfc",
+        "registry_entry_hash": "4a3df58c740816b0231ffa145f4a595a3607e1bad99793e77b36738231e64f7d",
+        "registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "role": "control",
+        "satisfied": true,
+        "schema": "registry-bound-outcome-repair-candidate-v2",
+        "semantic_projection_hash": "cef5743b623e4e529a1714c5f397095c1e64922f41097937ee869931ad24a4f5",
+        "status": "EVALUATED",
+        "unresolved_reason": null,
+        "verdict": "SATISFIED"
+      },
+      "incident": {
+        "authority_allowed": "declared outcome classification and scoped replay comparison only",
+        "authority_forbidden": [
+          "fresh execution attestation",
+          "causal ownership",
+          "patch",
+          "repair count",
+          "biological or physical inference"
+        ],
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "execution_context_hash": "c4be7b2906a4726be19aec024fb9df99191fe1c86063ff1ecdb0a368390abc88",
+        "expected_registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "observed_operands": {
+          "exception_type": null,
+          "module": "aifc"
+        },
+        "predicate_hash": "a81f91a1dd9ac8feb0f460984a730db43f3f0a0ba374ae15d3e305ee28606037",
+        "program_id": "batch100-audioread-144-aifc",
+        "projection_fields": [
+          "exception_type",
+          "module"
+        ],
+        "projection_id": "program-role-operand-projection-v2-local-candidate",
+        "raw_observation_hash": "f8679c2f78517af87c96bb0e20392abf1b135b2c2d2853925f88084e654a5acb",
+        "record_hash": "7d810b3c6b5c7aa8b9dadd5e5dd88811d91552c8df0cd0eba8ebd224565f63f3",
+        "registry_entry_hash": "4a3df58c740816b0231ffa145f4a595a3607e1bad99793e77b36738231e64f7d",
+        "registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "role": "incident",
+        "satisfied": false,
+        "schema": "registry-bound-outcome-repair-candidate-v2",
+        "semantic_projection_hash": "6c0b26c6353eed28d093025b067f6f5ed0c63320d9168c2a88a1fc8e51defc4e",
+        "status": "EVALUATED",
+        "unresolved_reason": null,
+        "verdict": "NOT_SATISFIED"
+      }
+    },
+    "exact_historical_provider_reproduced": false,
+    "exact_pytest_nodes_executed": false,
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14",
+    "raw_observation": {
+      "aifc": {
+        "module": "aifc",
+        "origin": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/aifc.py",
+        "status": "IMPORTED"
+      },
+      "backend_discovery": {
+        "backend_count": 2,
+        "backend_names": [
+          "RawAudioFile",
+          "FFmpegAudioFile"
+        ],
+        "status": "OBSERVED"
+      },
+      "exact_test_nodes": [
+        "test/test_audioread.py::test_audioread_early_exit[test-1]",
+        "test/test_audioread.py::test_audioread_early_exit[test-2]",
+        "test/test_audioread.py::test_audioread_full[test-1]",
+        "test/test_audioread.py::test_audioread_full[test-2]"
+      ],
+      "exact_test_return_code": null,
+      "return_code": 0,
+      "route": "rawread",
+      "route_import": {
+        "module": "audioread.rawread",
+        "origin": "/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/vendor_source/audioread_577f8e2/audioread/rawread.py",
+        "status": "IMPORTED"
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "940f02a6d34e5717e00b64e91a649e9737c527d50f8ac7959177c7b337b65062"
+    },
+    "scope": "ACTUAL_LOCAL_SOURCE_AND_HARNESS_EXECUTION; not official provider capsule or historical replay"
+  },
+  {
+    "adaptation": {
+      "observation": {
+        "aifc": {
+          "module": "aifc",
+          "origin": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/aifc.py",
+          "status": "IMPORTED"
+        },
+        "backend_discovery": {
+          "backend_count": 2,
+          "backend_names": [
+            "RawAudioFile",
+            "FFmpegAudioFile"
+          ],
+          "status": "OBSERVED"
+        },
+        "exact_test_nodes": [
+          "test/test_audioread.py::test_audioread_early_exit[test-1]",
+          "test/test_audioread.py::test_audioread_early_exit[test-2]",
+          "test/test_audioread.py::test_audioread_full[test-1]",
+          "test/test_audioread.py::test_audioread_full[test-2]"
+        ],
+        "exact_test_return_code": null,
+        "exception_type": null,
+        "module": "aifc",
+        "return_code": 0,
+        "route": "unrelated_backend",
+        "route_import": {
+          "module": "audioread.ffdec",
+          "origin": "/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/vendor_source/audioread_577f8e2/audioread/ffdec.py",
+          "status": "IMPORTED"
+        },
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3637bb39182ce056f6479015587665cb31c2e25e4569427156afd064fd44db49"
+      },
+      "receipt": {
+        "adapted_hash": "45e7283a2f79f608ca5c4179c6c9932cc4000bc31c790a28bdb7c3ae9a4f6443",
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "derivations": [
+          {
+            "field": "module",
+            "source": "batch100_audioread_harness.import_observation(aifc)",
+            "value": "aifc"
+          },
+          {
+            "field": "exception_type",
+            "source": "explicit IMPORTED status; no exception",
+            "value": null
+          }
+        ],
+        "errors": [],
+        "raw_hash": "461fb889581ab82bb161c9c873b95738f4ba0a9efd34f0fe93801626bde357d6",
+        "receipt_hash": "a41eb6cc96e1e133a15935aac27cb8ba5e02bffd89dfad3266e2612ad086e2cd",
+        "scope": "measured field translation only; not a causal or execution attestation",
+        "status": "ADAPTED",
+        "version": "batch100-to-v4-observation-adapters-local-v2"
+      }
+    },
+    "command": {
+      "argv": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/checkout/scripts/batch100_audioread_harness.py",
+        "--route",
+        "unrelated_backend"
+      ],
+      "return_code": 0,
+      "stderr": "",
+      "stdout": "BATCH100_AUDIOREAD_OBSERVATION={\"aifc\":{\"module\":\"aifc\",\"origin\":\"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/aifc.py\",\"status\":\"IMPORTED\"},\"backend_discovery\":{\"backend_count\":2,\"backend_names\":[\"RawAudioFile\",\"FFmpegAudioFile\"],\"status\":\"OBSERVED\"},\"exact_test_nodes\":[\"test/test_audioread.py::test_audioread_early_exit[test-1]\",\"test/test_audioread.py::test_audioread_early_exit[test-2]\",\"test/test_audioread.py::test_audioread_full[test-1]\",\"test/test_audioread.py::test_audioread_full[test-2]\"],\"exact_test_return_code\":null,\"route\":\"unrelated_backend\",\"route_import\":{\"module\":\"audioread.ffdec\",\"origin\":\"/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/vendor_source/audioread_577f8e2/audioread/ffdec.py\",\"status\":\"IMPORTED\"}}\n"
+    },
+    "diagnostic_frozen_predicates": {
+      "control": {
+        "authority_allowed": "declared outcome classification and scoped replay comparison only",
+        "authority_forbidden": [
+          "fresh execution attestation",
+          "causal ownership",
+          "patch",
+          "repair count",
+          "biological or physical inference"
+        ],
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "execution_context_hash": "89700a8221c4b401a927a3897c7c5c3443ad3cecd078d88d4e24775a51761b4b",
+        "expected_registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "predicate_hash": "4e04360c06e7abea6a2d38b63e3781a7829b15e42d91e133cef8b092081f68ba",
+        "program_id": "batch100-audioread-144-aifc",
+        "projection_fields": [
+          "rawread_import"
+        ],
+        "projection_id": "program-role-operand-projection-v2-local-candidate",
+        "raw_observation_hash": "45e7283a2f79f608ca5c4179c6c9932cc4000bc31c790a28bdb7c3ae9a4f6443",
+        "record_hash": "406049abea940fffa1e0c2e861dc1e868b6d04d62d649c2846733eed3b69bcab",
+        "registry_entry_hash": "4a3df58c740816b0231ffa145f4a595a3607e1bad99793e77b36738231e64f7d",
+        "registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "role": "control",
+        "satisfied": null,
+        "schema": "registry-bound-outcome-repair-candidate-v2",
+        "semantic_projection_hash": null,
+        "status": "UNRESOLVED",
+        "unresolved_reason": "unobserved_operand:rawread_import",
+        "verdict": "UNRESOLVED"
+      },
+      "incident": {
+        "authority_allowed": "declared outcome classification and scoped replay comparison only",
+        "authority_forbidden": [
+          "fresh execution attestation",
+          "causal ownership",
+          "patch",
+          "repair count",
+          "biological or physical inference"
+        ],
+        "candidate_id": "audioread_144_py313_aifc_removed",
+        "execution_context_hash": "89700a8221c4b401a927a3897c7c5c3443ad3cecd078d88d4e24775a51761b4b",
+        "expected_registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "observed_operands": {
+          "exception_type": null,
+          "module": "aifc"
+        },
+        "predicate_hash": "a81f91a1dd9ac8feb0f460984a730db43f3f0a0ba374ae15d3e305ee28606037",
+        "program_id": "batch100-audioread-144-aifc",
+        "projection_fields": [
+          "exception_type",
+          "module"
+        ],
+        "projection_id": "program-role-operand-projection-v2-local-candidate",
+        "raw_observation_hash": "45e7283a2f79f608ca5c4179c6c9932cc4000bc31c790a28bdb7c3ae9a4f6443",
+        "record_hash": "75962f09e635862ab1241485950c04b6e430fa24111d853045a3b29baa4ad771",
+        "registry_entry_hash": "4a3df58c740816b0231ffa145f4a595a3607e1bad99793e77b36738231e64f7d",
+        "registry_sha256": "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9",
+        "role": "incident",
+        "satisfied": false,
+        "schema": "registry-bound-outcome-repair-candidate-v2",
+        "semantic_projection_hash": "804db1b2a761c45ded6ece33f2236f6a0b47849606938727a8e85051c1ad357b",
+        "status": "EVALUATED",
+        "unresolved_reason": null,
+        "verdict": "NOT_SATISFIED"
+      }
+    },
+    "exact_historical_provider_reproduced": false,
+    "exact_pytest_nodes_executed": false,
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14",
+    "raw_observation": {
+      "aifc": {
+        "module": "aifc",
+        "origin": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/aifc.py",
+        "status": "IMPORTED"
+      },
+      "backend_discovery": {
+        "backend_count": 2,
+        "backend_names": [
+          "RawAudioFile",
+          "FFmpegAudioFile"
+        ],
+        "status": "OBSERVED"
+      },
+      "exact_test_nodes": [
+        "test/test_audioread.py::test_audioread_early_exit[test-1]",
+        "test/test_audioread.py::test_audioread_early_exit[test-2]",
+        "test/test_audioread.py::test_audioread_full[test-1]",
+        "test/test_audioread.py::test_audioread_full[test-2]"
+      ],
+      "exact_test_return_code": null,
+      "return_code": 0,
+      "route": "unrelated_backend",
+      "route_import": {
+        "module": "audioread.ffdec",
+        "origin": "/workspace/scratch/950d4d193bc9/audit_work/functional_isomorphism_2026_11_23/integration/vendor_source/audioread_577f8e2/audioread/ffdec.py",
+        "status": "IMPORTED"
+      },
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "3637bb39182ce056f6479015587665cb31c2e25e4569427156afd064fd44db49"
+    },
+    "scope": "ACTUAL_LOCAL_SOURCE_AND_HARNESS_EXECUTION; not official provider capsule or historical replay"
+  }
+]

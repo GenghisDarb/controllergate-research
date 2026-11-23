@@ -1,0 +1,314 @@
+{
+  "schema": "independent_action_history_review.v1",
+  "result": "PASS",
+  "executed_utc": "2026-11-23T14:49:08.273067+00:00",
+  "method": "Raw dictionary source semantics, separate graph traversal, backward state-pair distinguishing table, separate reachable belief graph and finite-horizon game iteration; no experiment code imported.",
+  "case_count": 40,
+  "checks": {
+    "all_metabolites_one": {
+      "source_states": 18,
+      "source_enabled_edges": 58,
+      "cases": {
+        "empty|readout_only": {
+          "states": 18,
+          "classes": 1,
+          "beliefs": 1126,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "empty|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 444,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 94,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 90,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "PYR_c|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 83,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "PYR_c|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 78,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "LACT_e|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 123,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "LACT_e|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 110,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 31,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 31,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c+LACT_e|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 33,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c+LACT_e|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 33,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "PYR_c+LACT_e|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 29,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "PYR_c+LACT_e|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 29,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_only": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 18,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_and_status": {
+          "states": 18,
+          "classes": 18,
+          "beliefs": 18,
+          "pair_table_pairs": 153,
+          "status": "PASS"
+        },
+        "mask_hidden|readout_only": {
+          "states": 144,
+          "classes": 139,
+          "beliefs": 454,
+          "pair_table_pairs": 10296,
+          "status": "PASS"
+        },
+        "mask_hidden|readout_and_status": {
+          "states": 144,
+          "classes": 139,
+          "beliefs": 454,
+          "pair_table_pairs": 10296,
+          "status": "PASS"
+        },
+        "mask_known|readout_only": {
+          "states": 144,
+          "classes": 144,
+          "beliefs": 144,
+          "pair_table_pairs": 10296,
+          "status": "PASS"
+        },
+        "mask_known|readout_and_status": {
+          "states": 144,
+          "classes": 144,
+          "beliefs": 144,
+          "pair_table_pairs": 10296,
+          "status": "PASS"
+        }
+      }
+    },
+    "recycling_seed": {
+      "source_states": 6,
+      "source_enabled_edges": 10,
+      "cases": {
+        "empty|readout_only": {
+          "states": 6,
+          "classes": 1,
+          "beliefs": 41,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "empty|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 27,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 11,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 11,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "PYR_c|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 11,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "PYR_c|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 11,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "LACT_e|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 19,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "LACT_e|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 16,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 7,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 7,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c+LACT_e|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 8,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c+LACT_e|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 8,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "PYR_c+LACT_e|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 8,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "PYR_c+LACT_e|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 8,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_only": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 6,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_and_status": {
+          "states": 6,
+          "classes": 6,
+          "beliefs": 6,
+          "pair_table_pairs": 15,
+          "status": "PASS"
+        },
+        "mask_hidden|readout_only": {
+          "states": 48,
+          "classes": 33,
+          "beliefs": 82,
+          "pair_table_pairs": 1128,
+          "status": "PASS"
+        },
+        "mask_hidden|readout_and_status": {
+          "states": 48,
+          "classes": 33,
+          "beliefs": 82,
+          "pair_table_pairs": 1128,
+          "status": "PASS"
+        },
+        "mask_known|readout_only": {
+          "states": 48,
+          "classes": 48,
+          "beliefs": 48,
+          "pair_table_pairs": 1128,
+          "status": "PASS"
+        },
+        "mask_known|readout_and_status": {
+          "states": 48,
+          "classes": 48,
+          "beliefs": 48,
+          "pair_table_pairs": 1128,
+          "status": "PASS"
+        }
+      }
+    }
+  },
+  "source_hashes": {
+    "model/token_contract.json": "67eb24b895bc139d4364383ef2f96ef23e65d0599db3421041f627ea5335fb6c",
+    "EXPERIMENT_SPEC.json": "7e9b8560a69673b2ae3fc9fe0d0ce0cbbdf56941a207694f0fcd4a914f04b118",
+    "FROZEN_DESIGN.json": "00c6fb7f9487e61959af7e0fd4e54491a5e5c7ebfe6e47f92ab5b7821a94b29e",
+    "causal_history.py": "9cef3f96795ebf72b261cd2f4f65b4a5997775b8df5633a8d0999f8d92f82ccc",
+    "results.json": "05cfa527324ba4535113bc900dc63cbb1281ece5fbf006c4c2cdb38f89db6c4b",
+    "independent_review.py": "898c8dd2875b0919ce3a5ce2cab2db557be4214b284a911f3fed0300ce83d4a9"
+  },
+  "limits": [
+    "Independent implementation checking within the same declared source model; not independent biological evidence.",
+    "Command counts are not physical time.",
+    "Initial-state identification is distinct from current-state convergence."
+  ]
+}

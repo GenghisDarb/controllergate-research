@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "scope": "Exact Markov-chain counterexample and arithmetic check, not biological validation or a novel theorem.",
+  "illustrative_time_units": "arbitrary; not fitted to Hammar or any ControllerGate trace",
+  "models": {
+    "slow": {
+      "rate_on": 0.1,
+      "rate_off": 0.1,
+      "duration": 1.0,
+      "stationary_on_probability": 0.5,
+      "normalized_autocorrelation": 0.8187307530779818,
+      "on_at_end_given_on_at_start": 0.9093653765389909,
+      "continuous_on_given_on_at_start": 0.9048374180359595,
+      "stationary_probability_of_continuous_on_window": 0.45241870901797976,
+      "independent_matrix_exponential_endpoint_check": 0.909365376538991
+    },
+    "fast": {
+      "rate_on": 10.0,
+      "rate_off": 10.0,
+      "duration": 1.0,
+      "stationary_on_probability": 0.5,
+      "normalized_autocorrelation": 2.061153622438558e-09,
+      "on_at_end_given_on_at_start": 0.5000000010305768,
+      "continuous_on_given_on_at_start": 4.5399929762484854e-05,
+      "stationary_probability_of_continuous_on_window": 2.2699964881242427e-05,
+      "independent_matrix_exponential_endpoint_check": 0.5000000010305771
+    }
+  },
+  "published_source": {
+    "title": "Direct measurement of transcription factor dissociation excludes a simple operator occupancy model for gene regulation",
+    "authors": "Hammar et al.",
+    "year": 2014,
+    "doi": "10.1038/ng.2905",
+    "url": "https://elflab.icm.uu.se/lore/ref/NatureGen-2014-Hammar.pdf",
+    "table": 1,
+    "scope": "Published rounded means only; no raw data, covariance, refitting or new significance test."
+  },
+  "published_table_arithmetic": [
+    {
+      "operator": "lacO1",
+      "tau_on_seconds": 30.9,
+      "tau_off_minutes": 5.3,
+      "tau_off_seconds": 318.0,
+      "repression_ratio_from_rounded_means": 11.291262135922329,
+      "paper_model_repression_ratio": 11.2,
+      "paper_model_SEM": 0.5,
+      "paper_reporter_repression_ratio": 10.0,
+      "paper_reporter_SEM": 1.3
+    },
+    {
+      "operator": "lacOsym",
+      "tau_on_seconds": 27.6,
+      "tau_off_minutes": 9.3,
+      "tau_off_seconds": 558.0,
+      "repression_ratio_from_rounded_means": 21.217391304347824,
+      "paper_model_repression_ratio": 21.2,
+      "paper_model_SEM": 0.9,
+      "paper_reporter_repression_ratio": 29.7,
+      "paper_reporter_SEM": 3.4
+    }
+  ],
+  "checks": [
+    "stationary distributions satisfy pi Q = 0",
+    "closed-form endpoints match scipy.linalg.expm",
+    "continuous-on events are subsets of endpoint-on events",
+    "two models have identical occupancy",
+    "published arithmetic uses consistent units and explicitly rounded inputs"
+  ],
+  "limits": [
+    "No new molecular measurement",
+    "No evidence selecting fourteen layers",
+    "No claim that current ControllerGate lacks freshness or revocation checks",
+    "No claim that an endpoint check is always the wrong specification: it depends on the task"
+  ],
+  "code_sha256": "bd5088891dd298a617deae6ecfad491006bf465e28443358841c514e050b377c"
+}

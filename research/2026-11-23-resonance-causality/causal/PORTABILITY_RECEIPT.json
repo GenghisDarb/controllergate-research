@@ -1,0 +1,46 @@
+{
+  "schema": "causal_portable_replay.v1",
+  "status": "PASS",
+  "executed_utc": "2026-11-23T14:59:53.550477+00:00",
+  "python": "3.12.14",
+  "mode": "Fresh temporary copy; no network or nonstandard dependencies",
+  "scripts_executed": [
+    "causal_history.py",
+    "independent_review.py",
+    "derive_witnesses.py",
+    "export_policies.py"
+  ],
+  "checks": {
+    "results.json": "PASS: all scientific fields and source identities identical",
+    "summary.json": "PASS: all scientific fields and source identities identical",
+    "INDEPENDENT_REVIEW.json": "PASS: all scientific fields and source identities identical",
+    "FOLLOWUP_RESULTS.json": "PASS: all scientific fields and source identities identical",
+    "POLICY_EXAMPLES.json": "PASS: all scientific fields and source identities identical"
+  },
+  "normalization": [
+    "Top-level executed_utc",
+    "Recorded results.json hashes caused by its new timestamp, checked against the actual new bytes before normalization"
+  ],
+  "original_artifacts_unchanged": true,
+  "frozen_source_match": true,
+  "independent_implementation_cases": 40,
+  "policy_initial_states_replayed": 24,
+  "original_hashes": {
+    "EXPERIMENT_SPEC.json": "7e9b8560a69673b2ae3fc9fe0d0ce0cbbdf56941a207694f0fcd4a914f04b118",
+    "FROZEN_DESIGN.json": "00c6fb7f9487e61959af7e0fd4e54491a5e5c7ebfe6e47f92ab5b7821a94b29e",
+    "causal_history.py": "9cef3f96795ebf72b261cd2f4f65b4a5997775b8df5633a8d0999f8d92f82ccc",
+    "model/token_contract.json": "67eb24b895bc139d4364383ef2f96ef23e65d0599db3421041f627ea5335fb6c",
+    "model/prior_seed_spec.json": "76818ba30807ce19de2a5bdad56093aef37140eba5a532ed126c6fbe200a1056",
+    "independent_review.py": "898c8dd2875b0919ce3a5ce2cab2db557be4214b284a911f3fed0300ce83d4a9",
+    "FOLLOWUP_SPEC.json": "cc29b17497ac8e83ad6dee9451aa26c65fc6dd3367620f2f2472b2216808854d",
+    "derive_witnesses.py": "f60d8f0a0d282b433218d282bd107460b039b1cbe6ee2ad41d7ee8cd862e578b",
+    "export_policies.py": "e6c68437d9550d238c5d7eb351fa7b34c4fed63efece1e6a88272b91229d7759",
+    "results.json": "05cfa527324ba4535113bc900dc63cbb1281ece5fbf006c4c2cdb38f89db6c4b",
+    "summary.json": "2d9ce5620d58c2ea7ad8653bd3da705f3de2ab0c18188f1b82f3f66fae1125c9",
+    "INDEPENDENT_REVIEW.json": "2940dc19dcde7a1cf69c593a8f0c583bf4ef44307d3575c8dfe57e8e1465698e",
+    "FOLLOWUP_RESULTS.json": "f39189c8c0a0d89cdd754362bd575ea612b5bd1ec9e4ae70e757b77d222c5325",
+    "POLICY_EXAMPLES.json": "da18697f01e32fe23fecc79fdc7b3b4064da8ee7b949d11d1d090532c7e6dec7"
+  },
+  "verifier_sha256": "530634e8ee102ef82d04fbf28069e96e95d5e41f568dc836096dae6cf7e300d4",
+  "scope": "Portability and exact deterministic replay; not external peer review or empirical biology."
+}

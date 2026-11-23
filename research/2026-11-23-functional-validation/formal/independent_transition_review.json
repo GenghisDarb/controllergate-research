@@ -1,0 +1,59 @@
+{
+  "schema": "RootIndependentTransitionReviewV1",
+  "reviewed_utc": "2026-11-23T08:39:14.096510+00:00",
+  "status": "PASS",
+  "source_transcription_sha256": "3ff1a48296743786be42d32f25a5dfae0a569baf462e696c578def2844008af6",
+  "benchmark_result_sha256": "20df2d2a307f24c33f6bdb815e3cbf9d8395b8b84566dc729a60635aa0f9f27c",
+  "source_truth_table_sha256": "b2ae75260098e6c0dc5eb4766bed1b244582d812e76f8141009d3110d332d094",
+  "review_code_sha256": "c5ecf4447041afcaf09b26240b9e1b14301bd34532ac207ccd5a09508d3633d8",
+  "unique_event_local_cases": 12150,
+  "source_enabled_cases": 2592,
+  "independent_source_table_disagreements": 0,
+  "recomputed_arm_metrics": {
+    "faithful_atomic": {
+      "cases": 12150,
+      "oracle_enabled": 2592,
+      "false_enable": 0,
+      "wrong_successor": 0,
+      "exact_model_disagreement": 0,
+      "negative_count": 0
+    },
+    "generic_incidence": {
+      "cases": 12150,
+      "oracle_enabled": 2592,
+      "false_enable": 0,
+      "wrong_successor": 0,
+      "exact_model_disagreement": 0,
+      "negative_count": 0
+    },
+    "edge_only": {
+      "cases": 12150,
+      "oracle_enabled": 2592,
+      "false_enable": 5112,
+      "wrong_successor": 0,
+      "exact_model_disagreement": 5112,
+      "negative_count": 5112
+    },
+    "consume_catalyst": {
+      "cases": 12150,
+      "oracle_enabled": 2592,
+      "false_enable": 0,
+      "wrong_successor": 2592,
+      "exact_model_disagreement": 2592,
+      "negative_count": 0
+    },
+    "pool_compartments": {
+      "cases": 12150,
+      "oracle_enabled": 2592,
+      "false_enable": 508,
+      "wrong_successor": 0,
+      "exact_model_disagreement": 508,
+      "negative_count": 0
+    }
+  },
+  "ordered_batches": 108,
+  "reexecuted_competent_backend_batch_checks": 216,
+  "batch_disagreements": 0,
+  "independence": "Reference reads original source-transcription coefficients, not benchmark source_step or compiled coefficients. Submitted backends are executed; Reactome transcription remains a shared source assumption.",
+  "scope": "All predeclared event-local cases and ordered batches, not all global network states or empirical kinetics."
+}

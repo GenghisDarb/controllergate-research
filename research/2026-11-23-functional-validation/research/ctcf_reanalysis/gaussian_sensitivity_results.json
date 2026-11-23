@@ -1,0 +1,154 @@
+{
+  "completed_utc": "2026-11-23T08:38:43.830245+00:00",
+  "fitted_gaussian_models": {
+    "1": {
+      "covariance_eigenvalues_um2": [
+        0.015371695359211072,
+        0.01773878396643139
+      ],
+      "covariance_um2": [
+        [
+          0.015394679651843955,
+          0.0002321154443988674
+        ],
+        [
+          0.0002321154443988674,
+          0.017715799673798507
+        ]
+      ],
+      "mean_um": [
+        0.0071999414952765226,
+        0.0007243088835473165
+      ],
+      "training_trajectories": 2791
+    },
+    "2": {
+      "covariance_eigenvalues_um2": [
+        0.022577319695902008,
+        0.02543271164046394
+      ],
+      "covariance_um2": [
+        [
+          0.02267133737461922,
+          0.000509527230424597
+        ],
+        [
+          0.0005095272304245971,
+          0.02533869396174673
+        ]
+      ],
+      "mean_um": [
+        0.005348532945285199,
+        -0.0003211836131074993
+      ],
+      "training_trajectories": 1926
+    },
+    "3": {
+      "covariance_eigenvalues_um2": [
+        0.02440493096401942,
+        0.028798300182683936
+      ],
+      "covariance_um2": [
+        [
+          0.025963188913689154,
+          0.002101864570591873
+        ],
+        [
+          0.002101864570591873,
+          0.027240042233014208
+        ]
+      ],
+      "mean_um": [
+        -0.005352694951079637,
+        0.0055944667644036526
+      ],
+      "training_trajectories": 1418
+    },
+    "4": {
+      "covariance_eigenvalues_um2": [
+        0.02836933895707754,
+        0.03270897584778414
+      ],
+      "covariance_um2": [
+        [
+          0.03270897011294659,
+          -4.988695190908286e-06
+        ],
+        [
+          -4.988695190908286e-06,
+          0.02836934469191509
+        ]
+      ],
+      "mean_um": [
+        0.0010195209332593076,
+        0.01185304425478444
+      ],
+      "training_trajectories": 1080
+    }
+  },
+  "limits": [
+    "Free Gaussians are descriptive and do not identify physical diffusion rates.",
+    "M2 still omits defocalization/tracking selection and does not identify bound fractions.",
+    "Paired bootstrap is conditional on fitted parameters and within-record trajectory exchangeability."
+  ],
+  "original_outputs_unchanged": true,
+  "primary_heldout_rep1": {
+    "by_lag": {
+      "1": {
+        "mean_score_free_Gaussian": 1.3264012553830384,
+        "mean_score_original_M2": 1.8511756606335168
+      },
+      "2": {
+        "mean_score_free_Gaussian": 0.9405950021578551,
+        "mean_score_original_M2": 1.6326448396488664
+      },
+      "3": {
+        "mean_score_free_Gaussian": 0.5867089723892761,
+        "mean_score_original_M2": 1.4771958148030857
+      },
+      "4": {
+        "mean_score_free_Gaussian": 0.6033327097935899,
+        "mean_score_original_M2": 1.4145418721859015
+      }
+    },
+    "conditional_trajectory_bootstrap_95pct_interval": [
+      0.5369982900952821,
+      0.7206928438098331
+    ],
+    "eligible_trajectories": 1206,
+    "mean_track_averaged_log_score_free_Gaussian": 0.9905808235140099,
+    "mean_track_averaged_log_score_original_M2": 1.6147661460562872,
+    "paired_gain_M2_minus_free_Gaussian": 0.6241853225422772
+  },
+  "scope": "Post-result analytic Gaussian sensitivity on same splits, not independent validation.",
+  "seal_sha256": "168a5280bb7d37645440bdceee3b05c6a77b4221e98c0e3c712749af2e4f6067",
+  "secondary_rep3_no_refit": {
+    "by_lag": {
+      "1": {
+        "mean_score_free_Gaussian": 0.5898616627940029,
+        "mean_score_original_M2": 1.235231083570224
+      },
+      "2": {
+        "mean_score_free_Gaussian": -0.06214256427849542,
+        "mean_score_original_M2": 0.9967041807734854
+      },
+      "3": {
+        "mean_score_free_Gaussian": -0.34033335554882127,
+        "mean_score_original_M2": 0.9062788948147028
+      },
+      "4": {
+        "mean_score_free_Gaussian": -0.5007511625225923,
+        "mean_score_original_M2": 0.9377992755735057
+      }
+    },
+    "conditional_trajectory_bootstrap_95pct_interval": [
+      0.778417304883471,
+      0.9812156139702053
+    ],
+    "eligible_trajectories": 2812,
+    "mean_track_averaged_log_score_free_Gaussian": 0.11723337284144902,
+    "mean_track_averaged_log_score_original_M2": 0.994861523514605,
+    "paired_gain_M2_minus_free_Gaussian": 0.8776281506731559
+  },
+  "status": "PASS"
+}

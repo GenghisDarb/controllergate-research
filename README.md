@@ -1,5 +1,9 @@
 # ControllerGate
 
+## Research continuity update — 23 November 2026
+
+Completed local research, source patches, exact evidence and interpretation corrections are indexed in [Research continuity](docs/RESEARCH_CONTINUITY.md). The dated packages distinguish model fidelity, synthetic integration checks, local source/harness observations and limited biological-data analysis. This research checkpoint does not change the operational release boundary or historical repair counts.
+
 Start with the credential-free [read-only quick start](docs/QUICKSTART.md). The [claim envelope](docs/CLAIM_ENVELOPE.md) states the current evidence and release boundaries.
 
 ## Batch101 official Batch100 ingest and semantic replay correction
@@ -928,8 +932,3 @@ The ten matched planner arms and baselines have equal inputs, equal eight-operat
 Specialized architecture names and their source translations are confined to the dedicated internal isomorphism document. This public summary records only the software boundary: the corrected operational order is preserved, deprecated or contradicted mappings have no current authority, and chapter-position round-robin mapping is retired from current execution authority. These design analogies are not scientific or physical proof.
 
 Protocol remains v2.19, package version remains 0.2.0b2.dev0, repair counts remain 6 issue-derived and 4 native external with historical increment 0, and the release boundary remains `PRODUCT_BETA_RC_BLOCKED_EXACT`. Production readiness and self-maintaining software remain false or not demonstrated.
-
-
-## Research continuity update — 23 November 2026
-
-Read [the preserved research and correction index](docs/RESEARCH_CUSTODY_POINTER.md) before assessing the current research. It links the completed evidence, later historical repairs and bounded new results.

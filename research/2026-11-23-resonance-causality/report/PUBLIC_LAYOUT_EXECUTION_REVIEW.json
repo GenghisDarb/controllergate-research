@@ -1,0 +1,48 @@
+{
+  "schema": "public_operator_replay_comparison.v1",
+  "executed_utc": "2026-11-23T15:09:22.299452+00:00",
+  "status": "PASS",
+  "files": [
+    {
+      "path": "dynamics/results.json",
+      "status": "ALL_SCIENTIFIC_FIELDS_IDENTICAL",
+      "archived_sha256": "096bebb8f3cfed00fa2b7a7b173e1b23e8e4974ea5ade159c8d98ee2c0d6cc95",
+      "replayed_sha256": "6bcd2faf5217bb04914e5f8a91d38450163e6df56767cf09bcab751cd52ebc99"
+    },
+    {
+      "path": "dynamics/summary.json",
+      "status": "ALL_SCIENTIFIC_FIELDS_IDENTICAL",
+      "archived_sha256": "1f9164895374e2fffea75f29bcc7d15eed1410a11400884f4330ae6e05ede0bb",
+      "replayed_sha256": "1f9164895374e2fffea75f29bcc7d15eed1410a11400884f4330ae6e05ede0bb"
+    },
+    {
+      "path": "dynamics/independent_operator_review_receipt.json",
+      "status": "ALL_SCIENTIFIC_FIELDS_IDENTICAL",
+      "archived_sha256": "2a30f95e81fc1f13880246456eb35141210699747d0ca6ec6b68b561470a58bc",
+      "replayed_sha256": "b349e328959adb71e96ecb27e33602c7c168513f85c678bc2dec728c8fc2ce25"
+    },
+    {
+      "path": "dynamics/admissibility/RESULTS.json",
+      "status": "ALL_SCIENTIFIC_FIELDS_IDENTICAL",
+      "archived_sha256": "35abbfc5b0056981fb57eb8408041b482617c3642a289461365b065f3a6f90dc",
+      "replayed_sha256": "1d1c8ad5d829a47b7cb895f2d337c9b41688f5d25aec62b3749b89566ea34d6a"
+    },
+    {
+      "path": "dynamics/admissibility/SUMMARY.json",
+      "status": "ALL_SCIENTIFIC_FIELDS_IDENTICAL",
+      "archived_sha256": "62a45dcbc07af820cc9ac7c7d49bc4c445f269a80ff4f8f47bb7f5f01466e980",
+      "replayed_sha256": "c5de3546a49a42dffb4428e79b2b07b4a3bfdd3252d7dd607968c7292f993101"
+    }
+  ],
+  "executed_scripts": [
+    "run_operator_audit.py",
+    "independent_operator_review.py",
+    "admissibility/run_admissibility.py"
+  ],
+  "normalization": [
+    "Top-level execution/review UTC timestamps",
+    "Result SHA256 caused by changed execution timestamp; both bindings checked against actual bytes"
+  ],
+  "scope": "Fresh public-layout execution plus exact result comparison; same runtime, not external empirical replication",
+  "reviewer_sha256": "20ec20d82edef001d4e55b2b2d0fdfe652ae4f29014d266114d7de284a4ed9fd"
+}

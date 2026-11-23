@@ -1,0 +1,17 @@
+{
+  "schema": "FixedOrderSoundStoppingExploratoryV1",
+  "scope": "Exploratory follow-up prompted by the already observed original results. Same four graphs and eight worlds per graph; not independent validation or a new held-out sample.",
+  "question": "How much of the original adaptive advantage remains when the strongest frozen vault order can also make a sound model-relative impossibility stop?",
+  "original_inputs": ["../bridge/conditional_acquisition.py", "../bridge/experiment_spec.json", "../bridge/results.json", "../bridge/FROZEN_DESIGN.json"],
+  "budget": 8,
+  "action_cost": 1,
+  "prior": "Same uniform distribution over all eight resource-availability worlds in each original graph.",
+  "new_arms": ["ORIGINAL_FIXED_ORDER_WITH_SOUND_STOP", "BEST_FIXED_ORDER_WITH_SOUND_STOP"],
+  "comparison_arms_from_frozen_results": ["BEST_FROZEN_ORDER", "GENERIC_ADAPTIVE_VAULT_ONLY", "GENERIC_ADAPTIVE_WITH_PROBES"],
+  "action_contract": "Only the eight original vault actions. A single complete permutation is fixed per graph before receiving any episode observation. No prerequisite probes, skipping, conditional reordering, or outcome-dependent choice of next action.",
+  "stop_contract": "Stop only on an acquired same-route pair, when the paid observation history excludes every world with any available route, or at the original budget. Impossibility is relative to the public deterministic finite model. UNKNOWN is not silently treated as unavailable.",
+  "optimization": "For each queried-vault subset S, enumerate all eight hypothetical worlds and their posterior supports under the observations on S. Let q(S) be the probability of neither an acquired pair nor a sound impossibility conclusion. The expected cost of a frozen permutation is the sum of q(S) over its proper prefixes. Subset DP minimizes that sum; exact rational costs and lexicographic action-order tie breaking.",
+  "primary_outcomes": ["total cost", "cost on attainable worlds", "cost on unattainable worlds", "pair acquisitions", "sound impossibility stops"],
+  "gates": ["Seal these sources and original input hashes before this follow-up is evaluated.", "All original source and result hashes must remain unchanged.", "Check every new optimal permutation against all 40320 permutations using an independently computed public-history survival table.", "Check subset survival against actual public-history reconstruction and check its monotonicity.", "Replay all 32 scenarios for each new arm; require all 18 attainable pairs, no false impossibility stop and no budget overrun.", "Each selected action must be exactly the next fixed permutation position; every observation is charged.", "Compare original aggregate numbers from original saved episodes rather than restating assumed values."],
+  "interpretation": "The original-order stopping arm isolates stopping for that original permutation. Reoptimizing the frozen order is an additional change. Any remaining gap to adaptive vault selection concerns conditional selection/avoidance of vault reads, not merely stopping. Prerequisite probes remain a separate action-class difference. No biological, provider, Reactome-specific or TORUS14 claim follows."
+}

@@ -1,0 +1,112 @@
+Functional correspondence: precise claims and limits
+===================================================
+
+Purpose
+-------
+Brad's hypothesis concerns preservation of functional relationships, dynamics,
+and environmental constraints. Label invariance is a useful sanity check, but
+does not test that hypothesis. This note gives an operational definition that
+can be checked without requiring a literal molecular duplicate of a cell.
+
+1. Transition preservation
+--------------------------
+Let X be a biological MODEL's states, including its specified environment,
+not every state of a real cell. Let Y be software states. Let phi map X to Y,
+and let alpha map the permitted model interventions to software actions.
+For a deterministic transition F_a and a translated transition G_alpha(a),
+exact correspondence on domain D requires:
+
+    phi(F_a(x)) = G_alpha(a)(phi(x))     for every (x,a) in D,
+
+and preservation of whether the transition is enabled. A transition blocked
+by a missing substrate cannot become enabled solely because a record naming
+the substrate exists. If phi and alpha are bijections with corresponding
+inverse relations, this is a state/action isomorphism on that domain. If phi
+merges states, it is an abstraction; exactness is a separate question.
+
+For stochastic dynamics the corresponding requirement compares the
+pushforward of the full next-state probability distribution. Matching allowed
+transitions alone does not determine timing, reaction rates, dwell times,
+stationary weights, or responses outside the model's intervention domain.
+
+2. An elementary necessary-and-sufficient condition
+---------------------------------------------------
+Fix an action and a target observable h(F_a(x)). A deterministic predictor
+g(phi(x),a) that is correct for every x exists if and only if the target is
+constant on every fiber of phi (states sharing the same representation).
+
+Necessity: if phi(x1)=phi(x2), a function g receives identical arguments, so
+it returns the same answer. If the two true targets differ, one answer must
+be wrong. Sufficiency: when all targets on each fiber agree, define g on
+that fiber to be that common target. Enabledness can be included in the
+target to cover blocked actions.
+
+For a finite uniformly weighted table, the minimum possible classification
+errors from a fixed representation equal the sum over its fibers of
+    fiber_size - largest_target_class_size.
+This is a bound for that table and weighting, not a natural frequency claim.
+
+Implication for this audit: a representation that ignores current substrate
+identity, quantity, compartment, or activity can merge states with different
+legal transitions. No amount of label substitution or downstream hashing
+can repair that missing distinction. The distinction may remain recoverable
+in the archived source; the claim concerns information used by the executing
+path, not irreversible loss throughout the whole project.
+
+3. Composition and environment
+------------------------------
+Two individually correct translations can compose incorrectly if they give a
+shared resource two independent copies, consume a reusable catalyst, omit a
+transport precondition, or silently change the shared environment. A coupled
+model must preserve shared identities and specify its boundary exchanges.
+The correspondence test therefore applies to composed transitions and traces,
+not just isolated reaction records.
+
+4. Multiple meanings of closure
+-------------------------------
+Full-state closure is F_trace(x)=x. Projected closure is
+    pi(F_trace(x)) = pi(x)
+for a declared observable pi. Projected closure can be scientifically useful
+while the full system consumes substrates and releases products. Neither
+definition establishes a privileged ladder length without a separate
+derivation or a discriminating comparison over lengths and hypotheses.
+
+Here closure means exact return after a finite trace. The supplied TLD
+Lexicon I-XIV defines ladder closure differently: convergence to a stable
+terminal under frozen rules, with an explicit error objective and eligibility
+constraints. The reaction example does not silently redefine that endpoint
+and is not a fresh TLD closure run. Likewise winner_N is a harmonic-mode
+label, T_e is onset depth, and S_e is persistence depth; these are distinct.
+
+5. Equal-information control
+----------------------------
+An independently implemented generic solver supplied the same state,
+transition rules, and information should agree with an exactly translated
+biological model. Such agreement supports translation fidelity. A benefit
+from biology-derived structure would instead need to appear in model
+construction, sample efficiency, action selection, transfer, robustness, or
+predictive accuracy against a declared alternative that does not already
+encode the same constraints. Neutral labels neither establish nor refute
+that stronger benefit.
+
+6. Scope of today's work
+-----------------------
+The reaction examples are finite inventory/state contracts grounded in
+curated Reactome events. They do not estimate cell kinetics, prove a complete
+cell/software isomorphism, establish software repair gain, or validate the
+physical claims or preferred ladder length of TORUS/TLD. Mathematical
+validity within a model and experimental validity of that model remain
+separate evidence obligations.
+
+Prior formal work (these concepts are not claimed as new theorems)
+----------------------------------------------------------------
+Rubenstein et al. (2017), Causal Consistency of Structural Equation Models.
+https://proceedings.mlr.press/r15/rubenstein-17a.html
+Geiger et al. (2025), Causal Abstraction: A Theoretical Foundation for
+Mechanistic Interpretability. https://www.jmlr.org/papers/v26/23-0058.html
+Haydarlou et al. (2016), BioASF: a framework for automatically generating
+executable pathway models specified in BioPAX. DOI 10.1093/bioinformatics/btw250.
+
+These sources motivate formal correspondence and executable translation.
+The short fiber argument and the proposed tests above are stated explicitly
+so their limited conclusions can be checked without an appeal to analogy.

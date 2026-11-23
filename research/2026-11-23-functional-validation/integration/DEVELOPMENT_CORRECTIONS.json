@@ -1,0 +1,44 @@
+[
+  {
+    "run": "results_v1",
+    "tests": 35,
+    "errors": 0,
+    "status": "PASSED_COVERED_CASES_WITH_LATER_DISCOVERED_GAP",
+    "correction": "Independent review found observed argv/cwd were nonempty-only rather than tied to exact materialization."
+  },
+  {
+    "run": "results_v2",
+    "tests": 39,
+    "errors": 28,
+    "status": "FAILED_BEFORE_WORKFLOW",
+    "correction": "Shared constructor extraction omitted local pred_hash; restored sha(registry_bytes)."
+  },
+  {
+    "run": "results_v3",
+    "tests": 39,
+    "errors": 0,
+    "status": "PASSED_FIXTURES_WITH_SCHEMA_COVERAGE_GAP",
+    "correction": "Source inspection found actual v2 source capsule key full_commit_sha, not v1 exact_source_commit. Corrected candidate and fixtures; added actual constructor test."
+  },
+  {
+    "run": "results_v4",
+    "tests": 40,
+    "errors": 0,
+    "status": "PASSED_COVERED_CASES_WITH_REVIEW_GAP",
+    "correction": "Independent review showed unconditional normalization erased --check/ trailing slash; restricted path normalization."
+  },
+  {
+    "run": "results_v5",
+    "tests": 41,
+    "errors": 0,
+    "status": "PASSED_COVERED_CASES_WITH_PLATFORM_GAP",
+    "correction": "Further review required Linux backslash literal semantics; Windows-only path conversion added."
+  },
+  {
+    "run": "results_v6",
+    "tests": 42,
+    "errors": 0,
+    "status": "FINAL_PASS_WITH_LOCAL_SCOPE",
+    "correction": "Independent review accepted baseline and rejected eight mutation classes; final real CLI workflow completed."
+  }
+]

@@ -1,0 +1,218 @@
+{
+  "schema": "IndependentStoichiometricAndFiberAuditV1",
+  "executed_utc": "2026-11-23T08:33:36.282808+00:00",
+  "script_sha256": "52f4c33e2148bbf00355c425dfdf608bab1edb7414324ceb7778eeab3ca83350",
+  "source_sha256": "3ff1a48296743786be42d32f25a5dfae0a569baf462e696c578def2844008af6",
+  "source_kind": "manually transcribed official Reactome event contract, not SBML export",
+  "entity_order": [
+    "GA3P_c",
+    "Pi_c",
+    "NAD_c",
+    "BPG13_c",
+    "NADH_c",
+    "H_c",
+    "PYR_c",
+    "LACT_c"
+  ],
+  "stoichiometric_columns": {
+    "R-HSA-70449": [
+      -1,
+      -1,
+      -1,
+      1,
+      1,
+      1,
+      0,
+      0
+    ],
+    "R-HSA-71849": [
+      0,
+      0,
+      1,
+      0,
+      -1,
+      -1,
+      -1,
+      1
+    ]
+  },
+  "invariant_checks": [
+    {
+      "name": "NAD_plus_NADH",
+      "entities": [
+        "NAD_c",
+        "NADH_c"
+      ],
+      "dot_products": {
+        "R-HSA-70449": 0,
+        "R-HSA-71849": 0
+      },
+      "preserved_per_event": true
+    },
+    {
+      "name": "GA3P_plus_BPG13",
+      "entities": [
+        "GA3P_c",
+        "BPG13_c"
+      ],
+      "dot_products": {
+        "R-HSA-70449": 0,
+        "R-HSA-71849": 0
+      },
+      "preserved_per_event": true
+    },
+    {
+      "name": "PYR_plus_LACT",
+      "entities": [
+        "PYR_c",
+        "LACT_c"
+      ],
+      "dot_products": {
+        "R-HSA-70449": 0,
+        "R-HSA-71849": 0
+      },
+      "preserved_per_event": true
+    }
+  ],
+  "one_GAPDH_then_one_LDH_delta": {
+    "GA3P_c": -1,
+    "Pi_c": -1,
+    "NAD_c": 0,
+    "BPG13_c": 1,
+    "NADH_c": 0,
+    "H_c": 0,
+    "PYR_c": -1,
+    "LACT_c": 1
+  },
+  "declared_projection": [
+    "NAD_c",
+    "NADH_c",
+    "H_c"
+  ],
+  "projected_return": true,
+  "full_state_return": false,
+  "single_step_representation_audits": {
+    "reaction_metadata_only": {
+      "states": 27,
+      "fibers": 1,
+      "ambiguous_fibers": 1,
+      "minimum_errors_under_uniform_table_weight": 8,
+      "examples": [
+        {
+          "representation": [
+            "same_reaction"
+          ],
+          "different_targets": {
+            "0": [
+              0,
+              0,
+              0
+            ],
+            "1": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    "sum_of_available_required_tokens_only": {
+      "states": 27,
+      "fibers": 7,
+      "ambiguous_fibers": 2,
+      "minimum_errors_under_uniform_table_weight": 4,
+      "examples": [
+        {
+          "representation": [
+            3
+          ],
+          "different_targets": {
+            "0": [
+              0,
+              1,
+              2
+            ],
+            "1": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "representation": [
+            4
+          ],
+          "different_targets": {
+            "0": [
+              0,
+              2,
+              2
+            ],
+            "1": [
+              1,
+              1,
+              2
+            ]
+          }
+        }
+      ]
+    },
+    "per_input_presence_for_single_step": {
+      "states": 27,
+      "fibers": 8,
+      "ambiguous_fibers": 0,
+      "minimum_errors_under_uniform_table_weight": 0,
+      "examples": []
+    },
+    "full_input_inventory": {
+      "states": 27,
+      "fibers": 27,
+      "ambiguous_fibers": 0,
+      "minimum_errors_under_uniform_table_weight": 0,
+      "examples": []
+    }
+  },
+  "repeated_firing_presence_audit": {
+    "states": 27,
+    "fibers": 8,
+    "ambiguous_fibers": 1,
+    "minimum_errors_under_uniform_table_weight": 1,
+    "examples": [
+      {
+        "representation": [
+          1,
+          1,
+          1
+        ],
+        "different_targets": {
+          "1": [
+            1,
+            1,
+            1
+          ],
+          "2": [
+            2,
+            2,
+            2
+          ]
+        }
+      }
+    ]
+  },
+  "assumptions": [
+    "unit source coefficients",
+    "inventory model",
+    "active catalyst available",
+    "annotated cytosolic event",
+    "no boundary replenishment during a trace",
+    "no reaction rates inferred"
+  ],
+  "limits": [
+    "not an empirical frequency distribution",
+    "not a TLD RMS-closure experiment",
+    "not a new conservation law",
+    "not a claim that all cell dynamics are captured"
+  ]
+}

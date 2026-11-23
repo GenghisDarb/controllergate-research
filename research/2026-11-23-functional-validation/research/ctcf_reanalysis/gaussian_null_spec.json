@@ -1,0 +1,9 @@
+{
+  "schema": "CTCFPostResultGaussianSensitivityV1",
+  "trigger": "The original one-component fit reached its prespecified localization-error upper bound. This sensitivity was designed after seeing original results, to remove variance-cap, isotropy and zero-drift objections.",
+  "scope": "Exploratory post-result sensitivity on the same fixed data partitions. It does not replace the original frozen analysis or create a new independent test set.",
+  "null": "For each of the four frame lags, fit a separate bivariate Gaussian with a free mean vector and full2x2covariance. The exact weighted maximum-likelihood estimates use the original per-trajectory weights1/number_of_available_lags. This is a broader observed-displacement Gaussian family, not a physically interpreted Brownian model.",
+  "comparison": "Keep the original two-component fit unchanged. Score both models on the original heldout rep1 trajectories and the original rep3 cell without any refit on those data.",
+  "uncertainty": "Same trajectory-average marginal score and1000paired trajectory bootstrap draws, seeds20261123/20261124. Conditional within-record intervals only.",
+  "gates": ["Verify original analysis seal", "Require positive definite covariance without data-dependent regularization", "No outcome-based choice among lags, cells, partitions or component counts", "Preserve all results even if the Gaussian null wins", "Seal sensitivity source/spec before execution"]
+}

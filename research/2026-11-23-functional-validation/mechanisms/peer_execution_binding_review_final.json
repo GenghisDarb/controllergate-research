@@ -1,0 +1,148 @@
+{
+  "check_count": 9,
+  "checks": [
+    {
+      "errors": [],
+      "expected": "ACCEPT",
+      "name": "valid_source_shaped_baseline",
+      "pass": true
+    },
+    {
+      "errors": [
+        "observed_argv_not_declared_materialization",
+        "bound_broker_argv_mismatch"
+      ],
+      "expected": "REJECT",
+      "expected_error": "observed_argv_not_declared_materialization",
+      "mutation": {
+        "broker_mirrored": false,
+        "field": "observed_argv",
+        "new_value": [
+          "unrelated-command"
+        ]
+      },
+      "name": "unrelated_actual_command",
+      "pass": true
+    },
+    {
+      "errors": [
+        "observed_argv_not_declared_materialization"
+      ],
+      "expected": "REJECT",
+      "expected_error": "observed_argv_not_declared_materialization",
+      "mutation": {
+        "broker_mirrored": true,
+        "field": "observed_argv",
+        "new_value": [
+          "unrelated-command"
+        ]
+      },
+      "name": "unrelated_actual_command_broker_mirrored",
+      "pass": true
+    },
+    {
+      "errors": [
+        "observed_cwd_not_declared_materialization",
+        "bound_broker_cwd_mismatch"
+      ],
+      "expected": "REJECT",
+      "expected_error": "observed_cwd_not_declared_materialization",
+      "mutation": {
+        "broker_mirrored": false,
+        "field": "observed_cwd",
+        "new_value": "/unrelated-directory"
+      },
+      "name": "unrelated_actual_directory",
+      "pass": true
+    },
+    {
+      "errors": [
+        "observed_cwd_not_declared_materialization"
+      ],
+      "expected": "REJECT",
+      "expected_error": "observed_cwd_not_declared_materialization",
+      "mutation": {
+        "broker_mirrored": true,
+        "field": "observed_cwd",
+        "new_value": "/unrelated-directory"
+      },
+      "name": "unrelated_actual_directory_broker_mirrored",
+      "pass": true
+    },
+    {
+      "errors": [
+        "outer_semantic_fields_disagree"
+      ],
+      "expected": "REJECT",
+      "expected_error": "outer_semantic_fields_disagree",
+      "mutation": {
+        "field": "predicate_result",
+        "new_value": 1
+      },
+      "name": "boolean_replaced_by_integer",
+      "pass": true
+    },
+    {
+      "errors": [
+        "outer_semantic_fields_disagree"
+      ],
+      "expected": "REJECT",
+      "expected_error": "outer_semantic_fields_disagree",
+      "mutation": {
+        "field": "semantic_status",
+        "new_value": "UNRESOLVED"
+      },
+      "name": "outer_status_forgery",
+      "pass": true
+    },
+    {
+      "errors": [
+        "observed_argv_not_declared_materialization"
+      ],
+      "expected": "REJECT",
+      "expected_error": "observed_argv_not_declared_materialization",
+      "mutation": {
+        "after": "--check/",
+        "before": "--check",
+        "broker_mirrored": true,
+        "position": 1
+      },
+      "name": "literal_option_trailing_slash",
+      "pass": true
+    },
+    {
+      "errors": [
+        "observed_argv_not_declared_materialization"
+      ],
+      "expected": "REJECT",
+      "expected_error": "observed_argv_not_declared_materialization",
+      "mutation": {
+        "after": "${RUNTIME_ROOT}/cells/cell_batch100-darker-112-git-dir_relative-git-dir/replay-1/provider/bin\\darker",
+        "before": "${RUNTIME_ROOT}/cells/cell_batch100-darker-112-git-dir_relative-git-dir/replay-1/provider/bin/darker",
+        "broker_mirrored": true,
+        "position": 0
+      },
+      "name": "linux_backslash_changes_executable_path",
+      "pass": true
+    }
+  ],
+  "executed_utc": "2026-11-23T08:52:54.064296+00:00",
+  "limits": [
+    "A self-generated hash is not an authenticated external observation.",
+    "No causal sensitivity, source ownership, biological benefit or production readiness follows from this peer check."
+  ],
+  "preserved_initial_receipts": [
+    "peer_execution_binding_review_initial.json",
+    "peer_execution_binding_review_v4.json"
+  ],
+  "reviewer": "/root/bridge_review",
+  "schema": "focused_execution_binding_peer_review.v1",
+  "scope": "Source-shaped synthetic receipt, actual shared raw-record constructor and semantic verifier. Confirms rejection of the discovered binding/normalization mutations; no remote provider or full-suite execution.",
+  "source_sha256": {
+    "integration/checkout/controllergate/evidence/execution_contract_binding_candidate.py": "8ef8349d2bb8f26f870ccc5f2027fc2873f2a4933561a85b2c5baef51ba22d80",
+    "integration/checkout/controllergate/evidence/registry_bound_semantic_seam_candidate.py": "259d3b1f97968f0697c0e92fe4cb9765a9d807dcd279b493112c8c93a7d9247b",
+    "integration/checkout/scripts/run_batch102_candidate_slice.py": "ef19b9790aa4d7132e6f2dee8b1d0e58f388eb13b7702000d38e926eea6e3a18",
+    "integration/run_integration_checks.py": "6e3112ca1f0c8094b1d8862b60255ddd0267e18986fc69b3b7034f2b812286ee"
+  },
+  "status": "PASS_WITH_LOCAL_SCOPE"
+}

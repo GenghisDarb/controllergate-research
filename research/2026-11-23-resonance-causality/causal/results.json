@@ -1,0 +1,8190 @@
+{
+  "schema": "action_history_closure_results.v1",
+  "frozen_design_sha256": "00c6fb7f9487e61959af7e0fd4e54491a5e5c7ebfe6e47f92ab5b7821a94b29e",
+  "resource_order": [
+    "PYR_c",
+    "NADH_c",
+    "H_c",
+    "LACT_c",
+    "NAD_c",
+    "H_e",
+    "LACT_e",
+    "GA3P_c",
+    "Pi_c",
+    "BPG13_c",
+    "active_LDH",
+    "active_BSG_MCT",
+    "active_GAPDH"
+  ],
+  "action_order": [
+    "R-HSA-71849",
+    "R-HSA-70510",
+    "R-HSA-373875",
+    "R-HSA-373867",
+    "R-HSA-70449",
+    "R-HSA-70482"
+  ],
+  "graphs": {
+    "all_metabolites_one": {
+      "states": [
+        [
+          0,
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          3,
+          2,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          2,
+          1,
+          1,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          2,
+          1,
+          1,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          2,
+          0,
+          0,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          2,
+          2,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          1,
+          0,
+          0,
+          2,
+          2,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          2,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          2,
+          1,
+          1,
+          0,
+          0,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          2,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          2,
+          3,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          3,
+          2,
+          3,
+          0,
+          0,
+          0,
+          0,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "state_count": 18,
+      "enabled_edges": 58,
+      "fixed_context": {
+        "empty|readout_only": {
+          "states": 18,
+          "current_observation_classes": 1,
+          "future_behavior_classes": 1,
+          "refinement_class_counts": [
+            1
+          ],
+          "initial_ambiguous_unordered_pairs": 153,
+          "future_equivalent_unordered_pairs": 153,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "observation": [],
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 1126,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                7
+              ],
+              "max_guaranteed_root_steps": 7
+            },
+            "predictive_class": {
+              "winning_beliefs": 1126,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 0,
+              "root_depths": [
+                null
+              ],
+              "max_guaranteed_root_steps": null
+            },
+            "belief_nodes": 1126,
+            "initial_fibers": 1,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    14
+                  ]
+                },
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    0,
+                    2,
+                    3,
+                    5,
+                    7
+                  ]
+                },
+                {
+                  "action": "R-HSA-70449",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    2,
+                    3,
+                    8,
+                    10
+                  ]
+                },
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    0,
+                    2,
+                    3
+                  ]
+                },
+                {
+                  "action": "R-HSA-70449",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    2,
+                    3
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 18,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": false,
+              "homing_includes_state_merging": true
+            },
+            "minimum_possible_homing_by_root": [
+              7
+            ]
+          }
+        },
+        "empty|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 1,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            1,
+            14,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 153,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 149,
+            "2": 4
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  "BLOCK",
+                  []
+                ],
+                "second_response": [
+                  "PASS",
+                  []
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                5
+              ],
+              "max_guaranteed_root_steps": 5
+            },
+            "predictive_class": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                5
+              ],
+              "max_guaranteed_root_steps": 5
+            },
+            "initial_state": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                5
+              ],
+              "max_guaranteed_root_steps": 5
+            },
+            "belief_nodes": 444,
+            "initial_fibers": 1,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "BLOCK",
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 8,
+                  "possible_current_state_ids": [
+                    0,
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7
+                  ]
+                },
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    "BLOCK",
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    7
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                7
+              ],
+              "current_state_ids": [
+                7
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              2
+            ]
+          }
+        },
+        "GA3P_c|readout_only": {
+          "states": 18,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            3,
+            7,
+            14,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 46,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 25,
+            "2": 17,
+            "3": 4
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1
+            ],
+            "action_word": [
+              "R-HSA-70510",
+              "R-HSA-373875",
+              "R-HSA-70482"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-70482",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 94,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "predictive_class": {
+              "winning_beliefs": 94,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "initial_state": {
+              "winning_beliefs": 94,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                7,
+                6,
+                5
+              ],
+              "max_guaranteed_root_steps": 7
+            },
+            "belief_nodes": 94,
+            "initial_fibers": 3,
+            "ambiguous_roots": 3,
+            "first_homing_witness": {
+              "initial_belief": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                2
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              2,
+              1
+            ]
+          }
+        },
+        "GA3P_c|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            3,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 46,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 46
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 90,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "predictive_class": {
+              "winning_beliefs": 90,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "initial_state": {
+              "winning_beliefs": 90,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "belief_nodes": 90,
+            "initial_fibers": 3,
+            "ambiguous_roots": 3,
+            "first_homing_witness": {
+              "initial_belief": [
+                2,
+                3,
+                4,
+                10,
+                11,
+                12
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                2
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              2,
+              1
+            ]
+          }
+        },
+        "PYR_c|readout_only": {
+          "states": 18,
+          "current_observation_classes": 4,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            4,
+            8,
+            14,
+            17,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 44,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 26,
+            "2": 13,
+            "3": 4,
+            "4": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510",
+              "R-HSA-373875",
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 83,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                3,
+                4,
+                2,
+                0
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 83,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                3,
+                4,
+                2,
+                0
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 83,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                6,
+                7,
+                5,
+                0
+              ],
+              "max_guaranteed_root_steps": 7
+            },
+            "belief_nodes": 83,
+            "initial_fibers": 4,
+            "ambiguous_roots": 3,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    [
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 5,
+                  "possible_current_state_ids": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                  ]
+                },
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    [
+                      2
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    15,
+                    16
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    [
+                      2
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    15
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                0,
+                1
+              ],
+              "current_state_ids": [
+                15
+              ],
+              "initial_state_identified": false,
+              "homing_includes_state_merging": true
+            },
+            "minimum_possible_homing_by_root": [
+              3,
+              2,
+              1,
+              0
+            ]
+          }
+        },
+        "PYR_c|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 4,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            4,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 44,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 44
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 78,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                3,
+                3,
+                2,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "predictive_class": {
+              "winning_beliefs": 78,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                3,
+                3,
+                2,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "initial_state": {
+              "winning_beliefs": 78,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                3,
+                3,
+                2,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "belief_nodes": 78,
+            "initial_fibers": 4,
+            "ambiguous_roots": 3,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    "PASS",
+                    [
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 5,
+                  "possible_current_state_ids": [
+                    8,
+                    9,
+                    10,
+                    11,
+                    12
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "BLOCK",
+                    [
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    10
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                2
+              ],
+              "current_state_ids": [
+                10
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              2,
+              2,
+              1,
+              0
+            ]
+          }
+        },
+        "LACT_e|readout_only": {
+          "states": 18,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            3,
+            5,
+            12,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 52,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 19,
+            "2": 24,
+            "3": 9
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 3,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 123,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                4,
+                3,
+                2
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 123,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                4,
+                3,
+                2
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 123,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                8,
+                7,
+                5
+              ],
+              "max_guaranteed_root_steps": 8
+            },
+            "belief_nodes": 123,
+            "initial_fibers": 3,
+            "ambiguous_roots": 3,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                4,
+                6,
+                9,
+                12,
+                14,
+                16,
+                17
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    17
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                17
+              ],
+              "current_state_ids": [
+                17
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              2,
+              2
+            ]
+          }
+        },
+        "LACT_e|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            3,
+            15,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 52,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 49,
+            "2": 3
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 3,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 110,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                4,
+                3,
+                2
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 110,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                4,
+                3,
+                2
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 110,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                4,
+                3,
+                2
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "belief_nodes": 110,
+            "initial_fibers": 3,
+            "ambiguous_roots": 3,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                4,
+                6,
+                9,
+                12,
+                14,
+                16,
+                17
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    17
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                17
+              ],
+              "current_state_ids": [
+                17
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              2,
+              1
+            ]
+          }
+        },
+        "GA3P_c+PYR_c|readout_only": {
+          "states": 18,
+          "current_observation_classes": 8,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            8,
+            11,
+            16,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 13,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 5,
+            "2": 6,
+            "3": 2
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1,
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510",
+              "R-HSA-373875",
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 31,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 31,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 31,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                4,
+                4,
+                3,
+                3,
+                2,
+                2,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "belief_nodes": 31,
+            "initial_fibers": 8,
+            "ambiguous_roots": 7,
+            "first_homing_witness": {
+              "initial_belief": [
+                2,
+                3,
+                4
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                2
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        "GA3P_c+PYR_c|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 8,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            8,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 13,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 13
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              0,
+              1,
+              3,
+              2,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1,
+              0
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    1,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 31,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 31,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 31,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                2,
+                2,
+                1,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 31,
+            "initial_fibers": 8,
+            "ambiguous_roots": 7,
+            "first_homing_witness": {
+              "initial_belief": [
+                2,
+                3,
+                4
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                2
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        "GA3P_c+LACT_e|readout_only": {
+          "states": 18,
+          "current_observation_classes": 8,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            8,
+            14,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 13,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 9,
+            "2": 4
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 8,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1,
+              1
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1,
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 33,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 33,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 33,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                2,
+                2,
+                1,
+                3,
+                2,
+                0,
+                2,
+                2
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "belief_nodes": 33,
+            "initial_fibers": 8,
+            "ambiguous_roots": 7,
+            "first_homing_witness": {
+              "initial_belief": [
+                4,
+                12
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    4
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                4,
+                12
+              ],
+              "current_state_ids": [
+                4
+              ],
+              "initial_state_identified": false,
+              "homing_includes_state_merging": true
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        "GA3P_c+LACT_e|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 8,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            8,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 13,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 13
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 8,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1,
+              1
+            ],
+            "action_word": [
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 33,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 33,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 33,
+              "roots_guaranteed": 8,
+              "root_depths": [
+                1,
+                1,
+                1,
+                2,
+                2,
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 33,
+            "initial_fibers": 8,
+            "ambiguous_roots": 7,
+            "first_homing_witness": {
+              "initial_belief": [
+                4,
+                12
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    4
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                4
+              ],
+              "current_state_ids": [
+                4
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        "PYR_c+LACT_e|readout_only": {
+          "states": 18,
+          "current_observation_classes": 9,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            9,
+            16,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 11,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 9,
+            "2": 2
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 3,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0,
+              1
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0,
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 29,
+              "roots_guaranteed": 9,
+              "root_depths": [
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 29,
+              "roots_guaranteed": 9,
+              "root_depths": [
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 29,
+              "roots_guaranteed": 9,
+              "root_depths": [
+                2,
+                1,
+                0,
+                2,
+                2,
+                1,
+                1,
+                2,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 29,
+            "initial_fibers": 9,
+            "ambiguous_roots": 7,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                4
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70449",
+                  "response": [
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    4
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                1,
+                4
+              ],
+              "current_state_ids": [
+                4
+              ],
+              "initial_state_identified": false,
+              "homing_includes_state_merging": true
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        "PYR_c+LACT_e|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 9,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            9,
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 11,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 11
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 3,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              0,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0,
+              1
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0,
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 29,
+              "roots_guaranteed": 9,
+              "root_depths": [
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 29,
+              "roots_guaranteed": 9,
+              "root_depths": [
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 29,
+              "roots_guaranteed": 9,
+              "root_depths": [
+                1,
+                1,
+                0,
+                2,
+                2,
+                1,
+                1,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 29,
+            "initial_fibers": 9,
+            "ambiguous_roots": 7,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                4
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70449",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    4
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                4
+              ],
+              "current_state_ids": [
+                4
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_only": {
+          "states": 18,
+          "current_observation_classes": 18,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 18,
+            "initial_fibers": 18,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_and_status": {
+          "states": 18,
+          "current_observation_classes": 18,
+          "future_behavior_classes": 18,
+          "refinement_class_counts": [
+            18
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 18,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 18,
+            "initial_fibers": 18,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "context_extension": {
+        "state_count": 144,
+        "mask_hidden|readout_only": {
+          "states": 144,
+          "current_observation_classes": 18,
+          "future_behavior_classes": 139,
+          "refinement_class_counts": [
+            18,
+            130,
+            139
+          ],
+          "initial_ambiguous_unordered_pairs": 504,
+          "future_equivalent_unordered_pairs": 8,
+          "shortest_distinguishing_word_histogram": {
+            "1": 484,
+            "2": 12
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            "initial_observation": [
+              1,
+              0,
+              1
+            ],
+            "action_word": [
+              "R-HSA-70449"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70449",
+                "first_response": [
+                  [
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": {
+            "first_id": 16,
+            "second_id": 17,
+            "observation": [
+              0,
+              0,
+              2
+            ],
+            "first_state": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2,
+              2,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2,
+              2,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ]
+          },
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 15,
+              "root_depths": [
+                3,
+                3,
+                null,
+                3,
+                3,
+                4,
+                3,
+                3,
+                3,
+                3,
+                null,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 454,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                3,
+                3,
+                3,
+                3,
+                3,
+                4,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 15,
+              "root_depths": [
+                3,
+                3,
+                null,
+                3,
+                3,
+                4,
+                3,
+                3,
+                3,
+                3,
+                null,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "belief_nodes": 454,
+            "initial_fibers": 18,
+            "ambiguous_roots": 18,
+            "first_homing_witness": {
+              "initial_belief": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 4,
+                  "possible_current_state_ids": [
+                    32,
+                    33,
+                    34,
+                    35
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    32,
+                    33
+                  ]
+                },
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    32
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                32
+              ],
+              "current_state_ids": [
+                32
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        "mask_hidden|readout_and_status": {
+          "states": 144,
+          "current_observation_classes": 18,
+          "future_behavior_classes": 139,
+          "refinement_class_counts": [
+            18,
+            130,
+            139
+          ],
+          "initial_ambiguous_unordered_pairs": 504,
+          "future_equivalent_unordered_pairs": 8,
+          "shortest_distinguishing_word_histogram": {
+            "1": 484,
+            "2": 12
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              0,
+              0,
+              2,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              1
+            ],
+            "initial_observation": [
+              1,
+              0,
+              1
+            ],
+            "action_word": [
+              "R-HSA-70449"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70449",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    1,
+                    0,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0,
+                    0,
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": {
+            "first_id": 16,
+            "second_id": 17,
+            "observation": [
+              0,
+              0,
+              2
+            ],
+            "first_state": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2,
+              2,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              1,
+              0,
+              1,
+              1,
+              2,
+              2,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ]
+          },
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 15,
+              "root_depths": [
+                3,
+                3,
+                null,
+                3,
+                3,
+                4,
+                3,
+                3,
+                3,
+                3,
+                null,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 454,
+              "roots_guaranteed": 18,
+              "root_depths": [
+                3,
+                3,
+                3,
+                3,
+                3,
+                4,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 444,
+              "roots_guaranteed": 15,
+              "root_depths": [
+                3,
+                3,
+                null,
+                3,
+                3,
+                4,
+                3,
+                3,
+                3,
+                3,
+                null,
+                3,
+                3,
+                3,
+                3,
+                3,
+                3,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "belief_nodes": 454,
+            "initial_fibers": 18,
+            "ambiguous_roots": 18,
+            "first_homing_witness": {
+              "initial_belief": [
+                32,
+                33,
+                34,
+                35,
+                36,
+                37,
+                38,
+                39
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 4,
+                  "possible_current_state_ids": [
+                    32,
+                    33,
+                    34,
+                    35
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    32,
+                    33
+                  ]
+                },
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    32
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                32
+              ],
+              "current_state_ids": [
+                32
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3,
+              3
+            ]
+          }
+        },
+        "mask_known|readout_only": {
+          "states": 144,
+          "current_observation_classes": 144,
+          "future_behavior_classes": 144,
+          "refinement_class_counts": [
+            144
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 144,
+              "roots_guaranteed": 144,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 144,
+              "roots_guaranteed": 144,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 144,
+              "roots_guaranteed": 144,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 144,
+            "initial_fibers": 144,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mask_known|readout_and_status": {
+          "states": 144,
+          "current_observation_classes": 144,
+          "future_behavior_classes": 144,
+          "refinement_class_counts": [
+            144
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 144,
+              "roots_guaranteed": 144,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 144,
+              "roots_guaranteed": 144,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 144,
+              "roots_guaranteed": 144,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 144,
+            "initial_fibers": 144,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "unreported_context_change": {
+        "before": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "after_external_change": [
+          0,
+          0,
+          0,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "same_all_metabolite_readouts": true,
+        "command": "R-HSA-70510",
+        "old_context_prediction": {
+          "status": "PASS",
+          "state": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        "actual_changed_context": {
+          "status": "BLOCK",
+          "state": [
+            0,
+            0,
+            0,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        "assumption_failure": "Catalyst masks changed outside the six-command transition law; a belief based on the old fixed context is no longer guaranteed."
+      }
+    },
+    "recycling_seed": {
+      "states": [
+        [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2,
+          2,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "state_count": 6,
+      "enabled_edges": 10,
+      "fixed_context": {
+        "empty|readout_only": {
+          "states": 6,
+          "current_observation_classes": 1,
+          "future_behavior_classes": 1,
+          "refinement_class_counts": [
+            1
+          ],
+          "initial_ambiguous_unordered_pairs": 15,
+          "future_equivalent_unordered_pairs": 15,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "observation": [],
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ]
+          },
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 41,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                5
+              ],
+              "max_guaranteed_root_steps": 5
+            },
+            "predictive_class": {
+              "winning_beliefs": 41,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 0,
+              "root_depths": [
+                null
+              ],
+              "max_guaranteed_root_steps": null
+            },
+            "belief_nodes": 41,
+            "initial_fibers": 1,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 6,
+                  "possible_current_state_ids": [
+                    2,
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "action": "R-HSA-373867",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 6,
+                  "possible_current_state_ids": [
+                    3,
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 6,
+                  "possible_current_state_ids": [
+                    1,
+                    4
+                  ]
+                },
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 6,
+                  "possible_current_state_ids": [
+                    4,
+                    5
+                  ]
+                },
+                {
+                  "action": "R-HSA-70449",
+                  "response": [
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 6,
+                  "possible_current_state_ids": [
+                    5
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "current_state_ids": [
+                5
+              ],
+              "initial_state_identified": false,
+              "homing_includes_state_merging": true
+            },
+            "minimum_possible_homing_by_root": [
+              5
+            ]
+          }
+        },
+        "empty|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 1,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            1,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 15,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 15
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [],
+            "action_word": [
+              "R-HSA-70449"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70449",
+                "first_response": [
+                  "BLOCK",
+                  []
+                ],
+                "second_response": [
+                  "PASS",
+                  []
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 27,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "predictive_class": {
+              "winning_beliefs": 27,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "initial_state": {
+              "winning_beliefs": 27,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                3
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "belief_nodes": 27,
+            "initial_fibers": 1,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "PASS",
+                    []
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1
+            ]
+          }
+        },
+        "GA3P_c|readout_only": {
+          "states": 6,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            3,
+            5,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 4,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 3,
+            "2": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 2,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510",
+              "R-HSA-70482"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    0
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-70482",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                2,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                2,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                3,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "belief_nodes": 11,
+            "initial_fibers": 3,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                2,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    [
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    1
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                1
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        "GA3P_c|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            3,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 4,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 4
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 2,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  "PASS",
+                  [
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "BLOCK",
+                  [
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                2,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                2,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                2,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 11,
+            "initial_fibers": 3,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                2,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "PASS",
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              1,
+              0
+            ]
+          }
+        },
+        "PYR_c|readout_only": {
+          "states": 6,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            3,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 4,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 4
+          },
+          "first_distinguishing_witness": {
+            "first_id": 1,
+            "second_id": 2,
+            "first_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1
+            ],
+            "action_word": [
+              "R-HSA-70510"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    2
+                  ]
+                ],
+                "second_response": [
+                  [
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 11,
+            "initial_fibers": 3,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                2,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        "PYR_c|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 3,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            3,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 4,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 4
+          },
+          "first_distinguishing_witness": {
+            "first_id": 1,
+            "second_id": 2,
+            "first_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1
+            ],
+            "action_word": [
+              "R-HSA-70510"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  "PASS",
+                  [
+                    2
+                  ]
+                ],
+                "second_response": [
+                  "BLOCK",
+                  [
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "predictive_class": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "initial_state": {
+              "winning_beliefs": 11,
+              "roots_guaranteed": 3,
+              "root_depths": [
+                0,
+                2,
+                1
+              ],
+              "max_guaranteed_root_steps": 2
+            },
+            "belief_nodes": 11,
+            "initial_fibers": 3,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                2,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "PASS",
+                    [
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        "LACT_e|readout_only": {
+          "states": 6,
+          "current_observation_classes": 2,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            2,
+            3,
+            5,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 10,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 4,
+            "2": 5,
+            "3": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510",
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    0
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0
+                  ]
+                ]
+              },
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 19,
+              "roots_guaranteed": 2,
+              "root_depths": [
+                3,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "predictive_class": {
+              "winning_beliefs": 19,
+              "roots_guaranteed": 2,
+              "root_depths": [
+                3,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "initial_state": {
+              "winning_beliefs": 17,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                null,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 19,
+            "initial_fibers": 2,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    [
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              0
+            ]
+          }
+        },
+        "LACT_e|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 2,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            2,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 10,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 10
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0
+            ],
+            "action_word": [
+              "R-HSA-70449"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70449",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 16,
+              "roots_guaranteed": 2,
+              "root_depths": [
+                3,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "predictive_class": {
+              "winning_beliefs": 16,
+              "roots_guaranteed": 2,
+              "root_depths": [
+                3,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "initial_state": {
+              "winning_beliefs": 16,
+              "roots_guaranteed": 2,
+              "root_depths": [
+                3,
+                0
+              ],
+              "max_guaranteed_root_steps": 3
+            },
+            "belief_nodes": 16,
+            "initial_fibers": 2,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                3,
+                4,
+                5
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "PASS",
+                    [
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              0
+            ]
+          }
+        },
+        "GA3P_c+PYR_c|readout_only": {
+          "states": 6,
+          "current_observation_classes": 5,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            5,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 1,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 2,
+            "second_id": 3,
+            "first_state": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0,
+              1
+            ],
+            "action_word": [
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 7,
+              "roots_guaranteed": 5,
+              "root_depths": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "predictive_class": {
+              "winning_beliefs": 7,
+              "roots_guaranteed": 5,
+              "root_depths": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "initial_state": {
+              "winning_beliefs": 7,
+              "roots_guaranteed": 5,
+              "root_depths": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "belief_nodes": 7,
+            "initial_fibers": 5,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                2,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "GA3P_c+PYR_c|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 5,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            5,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 1,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 2,
+            "second_id": 3,
+            "first_state": [
+              1,
+              1,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0,
+              1
+            ],
+            "action_word": [
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    0,
+                    1
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 7,
+              "roots_guaranteed": 5,
+              "root_depths": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "predictive_class": {
+              "winning_beliefs": 7,
+              "roots_guaranteed": 5,
+              "root_depths": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "initial_state": {
+              "winning_beliefs": 7,
+              "roots_guaranteed": 5,
+              "root_depths": [
+                0,
+                1,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "belief_nodes": 7,
+            "initial_fibers": 5,
+            "ambiguous_roots": 1,
+            "first_homing_witness": {
+              "initial_belief": [
+                2,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      1
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    2
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                2
+              ],
+              "current_state_ids": [
+                2
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              0,
+              1,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "GA3P_c+LACT_e|readout_only": {
+          "states": 6,
+          "current_observation_classes": 4,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            4,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 2,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 2
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 3,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0,
+              0
+            ],
+            "action_word": [
+              "R-HSA-373875"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-373875",
+                "first_response": [
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0,
+                    1
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "predictive_class": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "initial_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "belief_nodes": 8,
+            "initial_fibers": 4,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                0,
+                3
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": false,
+              "homing_includes_state_merging": true
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              0,
+              1,
+              0
+            ]
+          }
+        },
+        "GA3P_c+LACT_e|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 4,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            4,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 2,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 2
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 3,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              0,
+              0
+            ],
+            "action_word": [
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "predictive_class": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "initial_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                1,
+                0,
+                1,
+                0
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "belief_nodes": 8,
+            "initial_fibers": 4,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                0
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              1,
+              0,
+              1,
+              0
+            ]
+          }
+        },
+        "PYR_c+LACT_e|readout_only": {
+          "states": 6,
+          "current_observation_classes": 4,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            4,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 2,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 2
+          },
+          "first_distinguishing_witness": {
+            "first_id": 1,
+            "second_id": 3,
+            "first_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1,
+              0
+            ],
+            "action_word": [
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "predictive_class": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "initial_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "belief_nodes": 8,
+            "initial_fibers": 4,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    [
+                      0,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    0
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                3
+              ],
+              "current_state_ids": [
+                0
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              0,
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        "PYR_c+LACT_e|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 4,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            4,
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 2,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {
+            "1": 2
+          },
+          "first_distinguishing_witness": {
+            "first_id": 1,
+            "second_id": 3,
+            "first_state": [
+              1,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "second_state": [
+              1,
+              1,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              1,
+              1
+            ],
+            "initial_observation": [
+              1,
+              0
+            ],
+            "action_word": [
+              "R-HSA-71849"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-71849",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    1,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "predictive_class": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "initial_state": {
+              "winning_beliefs": 8,
+              "roots_guaranteed": 4,
+              "root_depths": [
+                0,
+                1,
+                0,
+                1
+              ],
+              "max_guaranteed_root_steps": 1
+            },
+            "belief_nodes": 8,
+            "initial_fibers": 4,
+            "ambiguous_roots": 2,
+            "first_homing_witness": {
+              "initial_belief": [
+                1,
+                3
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-71849",
+                  "response": [
+                    "BLOCK",
+                    [
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    1
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                1
+              ],
+              "current_state_ids": [
+                1
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              0,
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_only": {
+          "states": 6,
+          "current_observation_classes": 6,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 6,
+            "initial_fibers": 6,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "GA3P_c+PYR_c+LACT_e|readout_and_status": {
+          "states": 6,
+          "current_observation_classes": 6,
+          "future_behavior_classes": 6,
+          "refinement_class_counts": [
+            6
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 6,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 6,
+            "initial_fibers": 6,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "context_extension": {
+        "state_count": 48,
+        "mask_hidden|readout_only": {
+          "states": 48,
+          "current_observation_classes": 6,
+          "future_behavior_classes": 33,
+          "refinement_class_counts": [
+            6,
+            22,
+            31,
+            32,
+            33
+          ],
+          "initial_ambiguous_unordered_pairs": 168,
+          "future_equivalent_unordered_pairs": 24,
+          "shortest_distinguishing_word_histogram": {
+            "1": 124,
+            "2": 18,
+            "3": 1,
+            "4": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 4,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0
+            ],
+            "initial_observation": [
+              0,
+              0,
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  [
+                    0,
+                    1,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "observation": [
+              0,
+              0,
+              0
+            ],
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ]
+          },
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 60,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                null,
+                4,
+                null,
+                null,
+                null,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 82,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                4,
+                4,
+                3,
+                4,
+                3,
+                4
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 60,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                null,
+                4,
+                null,
+                null,
+                null,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "belief_nodes": 82,
+            "initial_fibers": 6,
+            "ambiguous_roots": 6,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 4,
+                  "possible_current_state_ids": [
+                    28,
+                    29,
+                    30,
+                    31
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    28,
+                    29
+                  ]
+                },
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    28
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                4
+              ],
+              "current_state_ids": [
+                28
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              4
+            ]
+          }
+        },
+        "mask_hidden|readout_and_status": {
+          "states": 48,
+          "current_observation_classes": 6,
+          "future_behavior_classes": 33,
+          "refinement_class_counts": [
+            6,
+            22,
+            31,
+            32,
+            33
+          ],
+          "initial_ambiguous_unordered_pairs": 168,
+          "future_equivalent_unordered_pairs": 24,
+          "shortest_distinguishing_word_histogram": {
+            "1": 124,
+            "2": 18,
+            "3": 1,
+            "4": 1
+          },
+          "first_distinguishing_witness": {
+            "first_id": 0,
+            "second_id": 4,
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0
+            ],
+            "initial_observation": [
+              0,
+              0,
+              0
+            ],
+            "action_word": [
+              "R-HSA-70510"
+            ],
+            "response_trace": [
+              {
+                "action": "R-HSA-70510",
+                "first_response": [
+                  "BLOCK",
+                  [
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "second_response": [
+                  "PASS",
+                  [
+                    0,
+                    1,
+                    0
+                  ]
+                ]
+              }
+            ]
+          },
+          "first_future_equivalent_witness": {
+            "first_id": 0,
+            "second_id": 1,
+            "observation": [
+              0,
+              0,
+              0
+            ],
+            "first_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            "second_state": [
+              0,
+              0,
+              0,
+              2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              1
+            ]
+          },
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 60,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                null,
+                4,
+                null,
+                null,
+                null,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "predictive_class": {
+              "winning_beliefs": 82,
+              "roots_guaranteed": 6,
+              "root_depths": [
+                4,
+                4,
+                3,
+                4,
+                3,
+                4
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "initial_state": {
+              "winning_beliefs": 60,
+              "roots_guaranteed": 1,
+              "root_depths": [
+                null,
+                4,
+                null,
+                null,
+                null,
+                null
+              ],
+              "max_guaranteed_root_steps": 4
+            },
+            "belief_nodes": 82,
+            "initial_fibers": 6,
+            "ambiguous_roots": 6,
+            "first_homing_witness": {
+              "initial_belief": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "steps": [
+                {
+                  "action": "R-HSA-70510",
+                  "response": [
+                    "PASS",
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 4,
+                  "possible_current_state_ids": [
+                    28,
+                    29,
+                    30,
+                    31
+                  ]
+                },
+                {
+                  "action": "R-HSA-373875",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 2,
+                  "possible_current_state_ids": [
+                    28,
+                    29
+                  ]
+                },
+                {
+                  "action": "R-HSA-70482",
+                  "response": [
+                    "BLOCK",
+                    [
+                      0,
+                      1,
+                      0
+                    ]
+                  ],
+                  "remaining_initial_hypotheses": 1,
+                  "possible_current_state_ids": [
+                    28
+                  ]
+                }
+              ],
+              "remaining_initial_state_ids": [
+                4
+              ],
+              "current_state_ids": [
+                28
+              ],
+              "initial_state_identified": true,
+              "homing_includes_state_merging": false
+            },
+            "minimum_possible_homing_by_root": [
+              3,
+              3,
+              3,
+              3,
+              3,
+              4
+            ]
+          }
+        },
+        "mask_known|readout_only": {
+          "states": 48,
+          "current_observation_classes": 48,
+          "future_behavior_classes": 48,
+          "refinement_class_counts": [
+            48
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 48,
+              "roots_guaranteed": 48,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 48,
+              "roots_guaranteed": 48,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 48,
+              "roots_guaranteed": 48,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 48,
+            "initial_fibers": 48,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        "mask_known|readout_and_status": {
+          "states": 48,
+          "current_observation_classes": 48,
+          "future_behavior_classes": 48,
+          "refinement_class_counts": [
+            48
+          ],
+          "initial_ambiguous_unordered_pairs": 0,
+          "future_equivalent_unordered_pairs": 0,
+          "shortest_distinguishing_word_histogram": {},
+          "first_distinguishing_witness": null,
+          "first_future_equivalent_witness": null,
+          "history": {
+            "complete": true,
+            "current_state": {
+              "winning_beliefs": 48,
+              "roots_guaranteed": 48,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "predictive_class": {
+              "winning_beliefs": 48,
+              "roots_guaranteed": 48,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "initial_state": {
+              "winning_beliefs": 48,
+              "roots_guaranteed": 48,
+              "root_depths": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "max_guaranteed_root_steps": 0
+            },
+            "belief_nodes": 48,
+            "initial_fibers": 48,
+            "ambiguous_roots": 0,
+            "first_homing_witness": null,
+            "minimum_possible_homing_by_root": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      "unreported_context_change": {
+        "before": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          1,
+          1,
+          1
+        ],
+        "after_external_change": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "same_all_metabolite_readouts": true,
+        "command": "R-HSA-70510",
+        "old_context_prediction": {
+          "status": "PASS",
+          "state": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            1,
+            1
+          ]
+        },
+        "actual_changed_context": {
+          "status": "BLOCK",
+          "state": [
+            0,
+            0,
+            0,
+            2,
+            1,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        "assumption_failure": "Catalyst masks changed outside the six-command transition law; a belief based on the old fixed context is no longer guaranteed."
+      }
+    }
+  },
+  "scope": [
+    "New deterministic control/observation construction, not a recovered historical kinetic operator",
+    "No physical-frequency or resonance claim",
+    "No inference of human consciousness or global ontological reality",
+    "No claim that passive unrecorded observation changes the underlying state",
+    "No empirical biology, unique fourteen, or architectural-performance claim",
+    "Local freeze is not external preregistration; underlying model and prior outcomes were already known"
+  ],
+  "executed_utc": "2026-11-23T14:43:38.515124+00:00"
+}

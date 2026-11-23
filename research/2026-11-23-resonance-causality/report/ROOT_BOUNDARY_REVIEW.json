@@ -1,0 +1,51 @@
+{
+  "schema": "root_boundary_review.v1",
+  "executed_utc": "2026-11-23T14:59:37.236810+00:00",
+  "status": "PASS",
+  "method": "Independent matrix construction and raw-dictionary reaction interpreter; no experiment imports",
+  "admissibility": {
+    "raw_nonzero": [
+      0.31499999999999995,
+      -0.0525,
+      -0.0525
+    ],
+    "distinct_input_distance": 0.0014861203189596242,
+    "minimum_second_input": 0.009886102279705046,
+    "projected_output_max_difference": 0.0
+  },
+  "environment_witnesses": [
+    {
+      "graph": "all_metabolites_one",
+      "before": [
+        "BLOCK",
+        "BLOCK"
+      ],
+      "after": [
+        "BLOCK",
+        "PASS"
+      ],
+      "supply": {
+        "GA3P_c": 1,
+        "Pi_c": 1
+      }
+    },
+    {
+      "graph": "recycling_seed",
+      "before": [
+        "BLOCK",
+        "BLOCK"
+      ],
+      "after": [
+        "BLOCK",
+        "PASS"
+      ],
+      "supply": {
+        "GA3P_c": 1,
+        "Pi_c": 1
+      }
+    }
+  ],
+  "scope": "Post-result witness checks, not an independent biological validation or new frozen experiment",
+  "input_sha256": "67eb24b895bc139d4364383ef2f96ef23e65d0599db3421041f627ea5335fb6c",
+  "reviewer_sha256": "ab5a663da5443d88630b38bd259180dba2ed02f748eec3cad83e5b90f43207df"
+}

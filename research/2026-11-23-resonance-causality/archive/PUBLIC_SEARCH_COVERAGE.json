@@ -1,0 +1,30 @@
+{
+  "purpose": "Exact continuation and diagnostic-name search. File counts are hash-deduplicated for this search only; scans overlap and their counts must not be added.",
+  "unique_files": 222,
+  "scope": [
+    "supplied project text sources",
+    "recovered TORUS and selected ControllerGate conversation archives",
+    "extracted TLD notebook sources through XIV",
+    "selected Field Studio software snapshots and later PHASE_V2 repairs",
+    "ControllerGate functional-isomorphism source snapshot"
+  ],
+  "patterns": {
+    "abstract_SRG_names": "\\bF_[SRG]\\b",
+    "determinant_phase": "arg.{0,30}det\\s*\\(",
+    "global_phase_resultant": "(?:abs|absolute)\\s*\\(\\s*(?:np\\.)?(?:mean|average)\\s*\\(\\s*(?:np\\.)?exp\\s*\\(|kuramoto|synchronization.index|mean.resultant.length",
+    "PLV_term": "\\bPLV\\b|phase.locking.value"
+  },
+  "match_counts": {
+    "abstract_SRG_names": 2,
+    "determinant_phase": 1,
+    "global_phase_resultant": 0,
+    "PLV_term": 7
+  },
+  "limits": [
+    "Not a search of unconnected or unavailable archives.",
+    "No live Command Center status was accessed.",
+    "Absence of an exact string does not prove absence of equivalent code.",
+    "Raw conversation passages are private; only paraphrase anchors are public.",
+    "Previously found broad search hits were manually followed into relevant later repairs; simple hit counts are not proof of completeness."
+  ]
+}

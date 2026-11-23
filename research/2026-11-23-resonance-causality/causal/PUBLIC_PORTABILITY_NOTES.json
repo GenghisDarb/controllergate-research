@@ -1,0 +1,20 @@
+{
+  "schema": "causal_public_portability_notes.v1",
+  "reviewed_utc": "2026-11-23T15:00:26.275978+00:00",
+  "status": "PASS",
+  "scope": "Declared causal-lane package files only; root-authored additional reviews remain under parent custody",
+  "private_absolute_source_paths": "None detected in declared sources, results or documents. Paths are package-relative.",
+  "private_corpus_contents": "None included; computations require the already-public reaction contract, copied seed specification, and Python standard library",
+  "pattern_scan": {
+    "absolute_workspace_or_home_path": [],
+    "credential_format": []
+  },
+  "public_sources": [
+    "Six Reactome event URLs in the model",
+    "Moore1956 primary chapter link",
+    "Barnett-Crutchfield2015 author publication link"
+  ],
+  "reproduction": "verify_replay.py copies declared sealed sources and outputs into a fresh temporary directory, runs four scripts, verifies recorded hashes, normalizes only timestamps/generated-output hash effects, and confirms original bytes unchanged.",
+  "frozen_files_edited": false,
+  "external_peer_review_claimed": false
+}

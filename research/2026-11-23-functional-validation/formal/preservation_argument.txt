@@ -1,0 +1,79 @@
+Conditional preservation argument for the local reaction adapter
+===============================================================
+
+This argument accompanies the executed finite tests. It is an elementary
+compiler-correctness argument, not a claim of a new mathematical theorem.
+
+Definitions
+-----------
+For one source-contract event let p be its vector of consumed quantities,
+q its produced quantities, and c its read requirements for aggregate active
+catalyst roles. The contract restricts catalysts to places distinct from
+consumed and produced resources. All counts and coefficients are nonnegative
+integers. A known state x enables the event when x >= max(p,c), componentwise.
+Its successor is x' = x - p + q. Catalyst places remain unchanged.
+
+Let P be the permutation/injective renaming that maps each compartment-
+qualified source place to exactly one software resource, with no merged or
+duplicated places. The compiled resource declarations are Pp, Pq and Pc.
+
+Claim
+-----
+For fully known states and traces that remain inside the adapter's declared
+exact-arithmetic range, the adapter and source contract agree on enablement
+and successor states under P. There is no assertion about arbitrary real
+numbers, unbounded integer counts, kinetic time, or unmodeled actions.
+
+Proof
+-----
+1. Because P is one-to-one, x >= max(p,c) if and only if
+   Px >= max(Pp,Pc). Joint checking therefore preserves enablement. Merely
+   requiring one incoming edge, or pooling different compartments, would not
+   preserve this equivalence.
+2. For enabled events, the adapter applies every negative p component and
+   every positive q component to separate, identified balances in a private
+   working copy. It checks the archived numeric primitive's output against
+   the exact integer update and publishes only the completed transaction.
+3. Within the supported arithmetic range the resulting vector is
+      Px - Pp + Pq = P(x-p+q) = Px'.
+4. On a failed prerequisite the state is unchanged in both models. Untouched
+   places, including catalysts, are unchanged.
+5. Applying the same argument at each successive allowed step proves the
+   correspondence for a finite trace by induction, as long as every step
+   stays within the stated arithmetic/model domain.
+
+Implementation boundary
+-----------------------
+The archived primitive internally uses a float. The adapter deliberately
+returns UNRESOLVED when its conservative exactness check exceeds 2**53 or
+arithmetic disagrees. The proof above is conditional on passing that range
+check; it must not be advertised as an unrestricted integer-state theorem.
+Explicitly unknown touched counts also remain UNRESOLVED unless a known
+missing prerequisite already establishes BLOCK. These are epistemic statuses,
+not claims about what an unobserved physical cell actually does.
+
+Composition boundary
+--------------------
+This is a local in-memory transaction and declared sequential commit order.
+It does not prove database locking, real threaded scheduling, distributed
+transaction isolation, or live ControllerGate deployment correctness.
+
+Biological boundary
+-------------------
+P maps a chosen token model grounded in six curated events. It does not map
+all molecular microstates of a cell. Active-catalyst assertions are supplied
+inputs, not inferred from expression or protein abundance. Negative regulation,
+enzyme assembly, energy/thermodynamic constraints, concentrations, pH, crowding,
+continuous rates, and the observation process require additional explicitly
+validated semantics. The current code returns unresolved for time/rate queries.
+
+Evidence
+--------
+The original fixed experiment covered 12,150 event-local inventory states,
+108 ordered batches, and six coupled traces. The independently implemented
+generic incidence/read-arc backend was supplied the same information.
+Root review recomputed all one-step targets directly from the original source
+transcription and re-executed 216 competent-backend batch checks, without
+using the benchmark's source_step reference function. Zero disagreements were
+found in that declared domain. The source transcription itself remains a
+manual, cited extraction from official Reactome pages, not an SBML byte export.

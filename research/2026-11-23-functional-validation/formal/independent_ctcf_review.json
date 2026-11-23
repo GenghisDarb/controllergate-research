@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "reviewed_utc": "2026-11-23T08:42:38.480998+00:00",
+  "implementation": "Separate direct-index parser for verified contiguous tracks; scipy multivariate_normal densities; no imported analysis functions.",
+  "source_result_sha256": "17aefe0c08bae8967f7a75f0a0e534d2b71736e83239c35fdcfb5d470bbff281",
+  "sensitivity_result_sha256": "cfc7726c73a03aeb499d1d35e8657b6ca031621745872b2db5d5695bd6b380ca",
+  "review_code_sha256": "bad6d43149b404a47ce8ba0263f0ee7b776123937d40f489b2e64fdb1760061f",
+  "checks": {
+    "primary_heldout_rep1": {
+      "trajectories": 1206,
+      "marginal_displacements": 3073,
+      "verified_primary_gain": 0.615887640637535,
+      "verified_sensitivity_gain": 0.6241853225422895,
+      "absolute_primary_discrepancy": 1.1546319456101628e-14,
+      "absolute_sensitivity_discrepancy": 1.2323475573339238e-14
+    },
+    "secondary_rep3_no_refit": {
+      "trajectories": 2812,
+      "marginal_displacements": 6747,
+      "verified_primary_gain": 0.8774881499443008,
+      "verified_sensitivity_gain": 0.8776281506731329,
+      "absolute_primary_discrepancy": 1.454392162258955e-14,
+      "absolute_sensitivity_discrepancy": 2.298161660974074e-14
+    }
+  },
+  "scope": "Verifies recorded scores and cohort counts only; does not improve observation-model validity or biological replication."
+}

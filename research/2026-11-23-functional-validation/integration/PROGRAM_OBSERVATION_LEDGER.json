@@ -1,0 +1,560 @@
+[
+  {
+    "candidate_id": "darker_issue_112_relative_git_dir",
+    "changed_dimensions": [
+      "environment.GIT_DIR"
+    ],
+    "control_operand_fields": [
+      "not_a_git_repository"
+    ],
+    "control_predicate": {
+      "eq": [
+        {
+          "field": "not_a_git_repository"
+        },
+        false
+      ]
+    },
+    "incident_operand_fields": [
+      "not_a_git_repository"
+    ],
+    "incident_predicate": {
+      "eq": [
+        {
+          "field": "not_a_git_repository"
+        },
+        true
+      ]
+    },
+    "measurement_limit": "The marker is text-derived; absence means no matching text, not proof Git completed the intended work.",
+    "program_id": "batch100-darker-112-git-dir",
+    "required_held_invariants": [
+      "source",
+      "wheel",
+      "consumer tree",
+      "dirty state",
+      "cwd",
+      "command",
+      "Git",
+      "locale",
+      "budget"
+    ],
+    "source_defined_translation": "direct not_a_git_repository boolean produced",
+    "source_reference": {
+      "line": 1,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "py_bugger_issue_65",
+    "changed_dimensions": [
+      "external_attempt_success_mask"
+    ],
+    "control_operand_fields": [
+      "attempted_mutation_count",
+      "persisted_source_diff_mutation_count",
+      "successful_mutation_count"
+    ],
+    "control_predicate": {
+      "all": [
+        {
+          "ge": [
+            {
+              "field": "attempted_mutation_count"
+            },
+            {
+              "field": "successful_mutation_count"
+            }
+          ]
+        },
+        {
+          "ge": [
+            {
+              "field": "successful_mutation_count"
+            },
+            {
+              "field": "persisted_source_diff_mutation_count"
+            }
+          ]
+        }
+      ]
+    },
+    "incident_operand_fields": [
+      "cli_reported_inserted_count",
+      "persisted_source_diff_mutation_count",
+      "successful_mutation_count"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "gt": [
+            {
+              "field": "cli_reported_inserted_count"
+            },
+            {
+              "field": "successful_mutation_count"
+            }
+          ]
+        },
+        {
+          "gt": [
+            {
+              "field": "cli_reported_inserted_count"
+            },
+            {
+              "field": "persisted_source_diff_mutation_count"
+            }
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "persisted_source_diff_mutation_count is int(bool(git diff --numstat)), a 0/1 change indicator; incident and control predicates overlap.",
+    "program_id": "batch100-py-bugger-65-accounting",
+    "required_held_invariants": [
+      "source",
+      "provider",
+      "target input",
+      "requested count",
+      "seed",
+      "budget"
+    ],
+    "source_defined_translation": "all four count operands present in producer",
+    "source_reference": {
+      "line": 2,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "changed_dimensions": [
+      "provider.python"
+    ],
+    "control_operand_fields": [
+      "failed_node_count"
+    ],
+    "control_predicate": {
+      "eq": [
+        {
+          "field": "failed_node_count"
+        },
+        0
+      ]
+    },
+    "incident_operand_fields": [
+      "typevar_weakref_error"
+    ],
+    "incident_predicate": {
+      "eq": [
+        {
+          "field": "typevar_weakref_error"
+        },
+        true
+      ]
+    },
+    "measurement_limit": "Text-count failure tally alone does not establish successful collection/execution of all intended nodes.",
+    "program_id": "batch100-cloudpickle-507-typevar",
+    "required_held_invariants": [
+      "source",
+      "tests",
+      "dependencies",
+      "command",
+      "runner",
+      "harness"
+    ],
+    "source_defined_translation": "typevar_weakref_error and failed_node_count produced",
+    "source_reference": {
+      "line": 3,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "cloudpickle_507_py313_typevar_distutils",
+    "changed_dimensions": [
+      "provider.python",
+      "provider.setuptools"
+    ],
+    "control_operand_fields": [
+      "distutils_import_error"
+    ],
+    "control_predicate": {
+      "eq": [
+        {
+          "field": "distutils_import_error"
+        },
+        false
+      ]
+    },
+    "incident_operand_fields": [
+      "distutils_import_error",
+      "exception_type"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "exception_type"
+            },
+            "ModuleNotFoundError"
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "distutils_import_error"
+            },
+            true
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "Legacy candidate logic and v4 role predicates are distinct; control absence of this error is narrow.",
+    "program_id": "batch100-cloudpickle-507-distutils",
+    "required_held_invariants": [
+      "source",
+      "test node",
+      "command",
+      "runner",
+      "harness"
+    ],
+    "source_defined_translation": "exception_type and distutils_import_error produced",
+    "source_reference": {
+      "line": 4,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "freezegun_547_py313_datetimes_assertion",
+    "changed_dimensions": [
+      "provider.python"
+    ],
+    "control_operand_fields": [
+      "failed_node_count"
+    ],
+    "control_predicate": {
+      "eq": [
+        {
+          "field": "failed_node_count"
+        },
+        0
+      ]
+    },
+    "incident_operand_fields": [
+      "failed_node_count",
+      "fake_date_mismatch"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "failed_node_count"
+            },
+            3
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "fake_date_mismatch"
+            },
+            true
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "Control zero FAILED tokens alone does not establish the test suite ran successfully.",
+    "program_id": "batch100-freezegun-547-three-nodes",
+    "required_held_invariants": [
+      "source",
+      "tests",
+      "dependencies",
+      "command",
+      "locale",
+      "timezone",
+      "fixture"
+    ],
+    "source_defined_translation": "failed_node_count and fake_date_mismatch produced",
+    "source_reference": {
+      "line": 5,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "audioread_144_py313_aifc_removed",
+    "changed_dimensions": [
+      "provider.python"
+    ],
+    "control_operand_fields": [
+      "rawread_import"
+    ],
+    "control_predicate": {
+      "eq": [
+        {
+          "field": "rawread_import"
+        },
+        "success"
+      ]
+    },
+    "incident_operand_fields": [
+      "exception_type",
+      "module"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "exception_type"
+            },
+            "ModuleNotFoundError"
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "module"
+            },
+            "aifc"
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "Unrelated backend import never stands in for rawread; missing structured observations remain unresolved.",
+    "program_id": "batch100-audioread-144-aifc",
+    "required_held_invariants": [
+      "source",
+      "fixtures",
+      "command per route",
+      "dependencies",
+      "runner"
+    ],
+    "source_defined_translation": "nested aifc and route_import mapped by explicit import status and route",
+    "source_reference": {
+      "line": 6,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "pytest_13480_wdefault_unraisable_threadexception",
+    "changed_dimensions": [
+      "command.warning_mode"
+    ],
+    "control_operand_fields": [
+      "outer_pytest_exit_code"
+    ],
+    "control_predicate": {
+      "eq": [
+        {
+          "field": "outer_pytest_exit_code"
+        },
+        0
+      ]
+    },
+    "incident_operand_fields": [
+      "collection_return_code_4",
+      "outer_pytest_exit_code"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "outer_pytest_exit_code"
+            },
+            1
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "collection_return_code_4"
+            },
+            false
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "Frozen incident is exact outer exit 1, narrower than the legacy not-in-{0,4} boolean.",
+    "program_id": "batch100-pytest-13480-warning-mode",
+    "required_held_invariants": [
+      "source",
+      "provider",
+      "nodes",
+      "dependencies",
+      "cwd",
+      "runner",
+      "inputs",
+      "budget"
+    ],
+    "source_defined_translation": "outer_pytest_exit_code and collection_return_code_4 produced",
+    "source_reference": {
+      "line": 7,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "incident_openbb_7585_modular_openapi_reproducer",
+    "changed_dimensions": [
+      "input.reference_topology"
+    ],
+    "control_operand_fields": [
+      "command_count",
+      "exit_code",
+      "semantic_input_equivalence"
+    ],
+    "control_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "exit_code"
+            },
+            0
+          ]
+        },
+        {
+          "gt": [
+            {
+              "field": "command_count"
+            },
+            0
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "semantic_input_equivalence"
+            },
+            true
+          ]
+        }
+      ]
+    },
+    "incident_operand_fields": [
+      "command_count",
+      "exit_code",
+      "parse_status"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "exit_code"
+            },
+            0
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "command_count"
+            },
+            0
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "parse_status"
+            },
+            "success"
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "Source explicitly blocks missing secondary-source/service fixture; no missing measurement is inferred.",
+    "program_id": "batch100-openbb-7585-topology",
+    "required_held_invariants": [
+      "OpenBB source",
+      "secondary source commit",
+      "provider",
+      "server",
+      "port policy",
+      "command",
+      "output",
+      "budget"
+    ],
+    "source_defined_translation": "return_code can map to exit_code; no command_count/parse_status/equivalence producer branch",
+    "source_reference": {
+      "line": 8,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  },
+  {
+    "candidate_id": "incident_poetry_10974_init_duplicate_name",
+    "changed_dimensions": [
+      "directory.basename",
+      "command.explicit_name"
+    ],
+    "control_operand_fields": [
+      "cwd_basename",
+      "exit_code",
+      "generated_project_name"
+    ],
+    "control_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "exit_code"
+            },
+            0
+          ]
+        },
+        {
+          "eq": [
+            {
+              "field": "generated_project_name"
+            },
+            {
+              "field": "cwd_basename"
+            }
+          ]
+        }
+      ]
+    },
+    "incident_operand_fields": [
+      "cwd_basename",
+      "exit_code",
+      "generated_project_name"
+    ],
+    "incident_predicate": {
+      "all": [
+        {
+          "eq": [
+            {
+              "field": "exit_code"
+            },
+            0
+          ]
+        },
+        {
+          "ne": [
+            {
+              "field": "generated_project_name"
+            },
+            {
+              "field": "cwd_basename"
+            }
+          ]
+        }
+      ]
+    },
+    "measurement_limit": "Batch101 explicitly noted old actual cwd was missing. Expected directory name cannot replace an observation.",
+    "program_id": "batch100-poetry-10974-path-name",
+    "required_held_invariants": [
+      "Poetry source",
+      "provider within platform",
+      "configuration",
+      "input metadata",
+      "budget"
+    ],
+    "source_defined_translation": "return_code and raw_project_name aliases; new producer captures actual executed cwd.name",
+    "source_reference": {
+      "line": 9,
+      "path": "configs/batch102_outcome_semantic_registry_v4.jsonl"
+    }
+  }
+]

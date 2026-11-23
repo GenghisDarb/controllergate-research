@@ -1,0 +1,1018 @@
+--- a/controllergate/evidence/batch103_fresh_execution_attestation_v1.py
++++ b/controllergate/evidence/batch103_fresh_execution_attestation_v1.py
+@@ -51,7 +51,7 @@
+     semantic_projection_id: str
+     semantic_fingerprint: str
+     predicate_registry_hash: str
+-    predicate_result: bool
++    predicate_result: bool | None
+     network_policy: str
+     truth_access_count: int
+     private_tld_access_count: int
+@@ -103,6 +103,8 @@
+         blockers.append("forbidden_operation_or_private_access")
+     if row.get("cleanup_status") != "PASS":
+         blockers.append("cleanup_not_verified")
++    if row.get("predicate_result") is not None and type(row.get("predicate_result")) is not bool:
++        blockers.append("predicate_result_not_boolean_or_null")
+     expected = canonical_hash({key: value for key, value in row.items() if key != "record_hash"})
+     if row.get("record_hash") != expected:
+         blockers.append("record_hash_mismatch")
+--- /dev/null
++++ b/controllergate/evidence/execution_contract_binding_candidate.py
+@@ -0,0 +1,178 @@
++"""Prevent a Batch100 execution from silently acquiring a different v4 identity.
++
++The two inventories have explicitly different versions. Shared cells may execute
++only when every consumed command, environment, fixture and provider field agrees.
++New cells stay unmaterialized until their own providers/fixtures are implemented.
++"""
++from __future__ import annotations
++
++import hashlib
++import json
++from pathlib import Path
++from typing import Any
++
++from .registry_bound_semantics_candidate import canonical_hash
++
++ROOT = Path(__file__).resolve().parents[2]
++PRODUCER_PATH = "configs/batch100_counterfactual_cell_registry_v2.jsonl"
++PROVIDER_PATH = "outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/matched_counterfactual/provider_capsule_registry_v2.jsonl"
++COMPARED_FIELDS = ("cell_id", "candidate_id", "program_id", "cell_role", "exact_argv",
++                   "exact_cwd", "exact_environment", "command_hash", "environment_hash",
++                   "fixture_hash", "provider_capsule_id", "platform")
++
++
++def rows(data: bytes) -> list[dict[str, Any]]:
++    return [json.loads(line) for line in data.decode().splitlines() if line.strip()]
++
++
++def contract_errors(producer: dict[str, Any], declared: dict[str, Any]) -> list[str]:
++    errors = ["producer_declared_mismatch:" + k for k in COMPARED_FIELDS
++              if canonical_hash(producer.get(k)) != canonical_hash(declared.get(k))]
++    for row, label in ((producer, "producer"), (declared, "declared")):
++        for field, value in (("command_hash", row.get("exact_argv")),
++                             ("environment_hash", row.get("exact_environment"))):
++            if row.get(field) != canonical_hash(value):
++                errors.append(label + "_" + field + "_not_derived_from_contract")
++    return errors
++
++
++def inventory_preflight(candidate_id: str, declared_rows: list[dict[str, Any]]) -> dict[str, Any]:
++    producer_rows = rows((ROOT / PRODUCER_PATH).read_bytes())
++    providers = {r["capsule_id"]: r for r in rows((ROOT / PROVIDER_PATH).read_bytes())}
++    producer = {r["cell_id"]: r for r in producer_rows if r["candidate_id"] == candidate_id}
++    declared = {r["cell_id"]: r for r in declared_rows if r["candidate_id"] == candidate_id}
++    mismatches = {}
++    for cell_id, row in producer.items():
++        errors = contract_errors(row, declared.get(cell_id, {}))
++        if row.get("provider_capsule_id") not in providers:
++            errors.append("producer_provider_not_materialized")
++        if errors:
++            mismatches[cell_id] = errors
++    return {"status": "PASS_SHARED_PRODUCER_INVENTORY" if not mismatches else "BLOCK",
++            "candidate_id": candidate_id, "producer_registry_path": PRODUCER_PATH,
++            "producer_registry_sha256": hashlib.sha256((ROOT / PRODUCER_PATH).read_bytes()).hexdigest(),
++            "producer_cell_count": len(producer), "declared_cell_count": len(declared),
++            "new_cells_not_executable_by_this_producer": sorted(set(declared) - set(producer)),
++            "mismatches": mismatches,
++            "scope": "pre-execution contract compatibility; not exact provider availability"}
++
++
++def make_execution_binding(cell: dict[str, Any], *, registry_bytes: bytes,
++                           provider: dict[str, Any], source_commit: str,
++                           observed_argv: list[str], observed_cwd: str,
++                           replay_index: int, fixture_mode: str) -> dict[str, Any]:
++    return {"version": "raw-execution-contract-binding-local-v1",
++            "producer_registry_path": PRODUCER_PATH,
++            "producer_registry_sha256": hashlib.sha256(registry_bytes).hexdigest(),
++            "producer_cell_hash": canonical_hash(cell),
++            "command_hash": cell["command_hash"], "environment_hash": cell["environment_hash"],
++            "fixture_hash": cell["fixture_hash"], "provider_capsule_id": cell["provider_capsule_id"],
++            "producer_provider_capsule_hash": provider["capsule_hash"],
++            "source_commit": source_commit, "replay_index": replay_index, "fixture_mode": fixture_mode,
++            "observed_argv": observed_argv, "observed_cwd": observed_cwd}
++
++
++def normalized(value: str, platform: str) -> str:
++    return (value.replace("\\", "/") if platform == "windows" else value).rstrip("/")
++
++
++def normalized_argv(argv: list[str], platform: str) -> list[str]:
++    """Normalize separators only for explicit custody-redacted absolute path slots.
++
++Option names, relative filenames, test node strings, numbers and URLs retain
++their literal bytes. Never strip a trailing slash from a command argument.
++    """
++    prefixes = ("${RUNTIME_ROOT}/", "${RUNTIME_ROOT}\\", "${REPOSITORY_ROOT}/", "${REPOSITORY_ROOT}\\")
++    if not isinstance(argv, list) or any(not isinstance(x, str) for x in argv):
++        raise ValueError("argv_not_string_array")
++    return [x.replace("\\", "/") if platform == "windows" and x.startswith(prefixes) else x for x in argv]
++
++
++def expected_materialization(cell: dict[str, Any], replay_index: int, platform: str,
++                             fixture_mode: str) -> dict[str, Any]:
++    """Exact symbolic replay of Batch100 main + prepare_fixture, not guessed paths.
++
++Source references: main replay/source/provider/consumer layout, venv_exe and
++venv_python, prepare_fixture, expansion and cwd branch. Absolute runtime and
++repository roots are custody-redacted by the original producer's sanitize().
++    """
++    if type(replay_index) is not int or replay_index not in (1, 2):
++        raise ValueError("unsupported_replay_index")
++    if platform not in ("linux", "windows") or platform != cell["platform"]:
++        raise ValueError("producer_platform_mismatch")
++    if fixture_mode != "batch102_exact":
++        raise ValueError("v4_requires_explicit_batch102_fixture_mode")
++    replay = "${RUNTIME_ROOT}/cells/" + cell["cell_id"].replace(":", "_") + f"/replay-{replay_index}"
++    source = replay + "/source"
++    provider = replay + "/provider"
++    consumer = replay + "/consumer"
++    candidate = cell["candidate_id"]
++    if candidate == "incident_poetry_10974_init_duplicate_name":
++        consumer = replay + ("/my project with spaces" if "spaces" in cell["cell_name"] else "/my-project-with-spaces")
++    values = {"RUNTIME_ROOT": "${RUNTIME_ROOT}", "LOOPBACK_PORT": "0"}
++    if candidate == "darker_issue_112_relative_git_dir":
++        values["ABS_GIT_DIR"] = consumer + "/.git"
++    elif candidate == "py_bugger_issue_65":
++        values.update(TARGET_FILE=consumer + "/target.py",
++            INSTRUMENTATION_DIR="${RUNTIME_ROOT}/instrumentation/" + candidate,
++            EXTERNAL_ACCOUNTING_HARNESS="${REPOSITORY_ROOT}/scripts/batch100_pybugger_internal_accounting_harness.py")
++    elif candidate == "audioread_144_py313_aifc_removed":
++        values["AUDIOREAD_HARNESS"] = "${REPOSITORY_ROOT}/scripts/batch100_audioread_harness.py"
++    argv = list(cell["exact_argv"])
++    for i, token in enumerate(argv):
++        for key, value in values.items():
++            token = token.replace("${" + key + "}", value)
++        argv[i] = token
++    executable = argv[0]
++    if executable in {"python", "darker", "py-bugger", "poetry", "openbb"}:
++        argv[0] = provider + ("/Scripts/" + executable + ".exe" if platform == "windows" else "/bin/" + executable)
++    cwd = consumer if cell["exact_cwd"].endswith("/consumer") and candidate in {
++        "darker_issue_112_relative_git_dir", "py_bugger_issue_65", "incident_poetry_10974_init_duplicate_name"} else source
++    return {"argv": argv, "cwd": cwd}
++
++
++def verify_execution_binding(binding: Any, declared: dict[str, Any], fresh: dict[str, Any]) -> list[str]:
++    if not isinstance(binding, dict):
++        return ["raw_execution_contract_binding_missing"]
++    data = (ROOT / PRODUCER_PATH).read_bytes()
++    old = {r["cell_id"]: r for r in rows(data)}.get(declared.get("cell_id"))
++    if old is None:
++        return ["producer_does_not_implement_declared_cell"]
++    errors = contract_errors(old, declared)
++    expected = {"version": "raw-execution-contract-binding-local-v1",
++                "producer_registry_path": PRODUCER_PATH,
++                "producer_registry_sha256": hashlib.sha256(data).hexdigest(),
++                "producer_cell_hash": canonical_hash(old),
++                "command_hash": old["command_hash"], "environment_hash": old["environment_hash"],
++                "fixture_hash": old["fixture_hash"], "provider_capsule_id": old["provider_capsule_id"],
++                "source_commit": fresh.get("source_commit"), "replay_index": fresh.get("replay_index"),
++                "fixture_mode": "batch102_exact"}
++    providers = {r["capsule_id"]: r for r in rows((ROOT / PROVIDER_PATH).read_bytes())}
++    provider = providers.get(old.get("provider_capsule_id"))
++    if provider is None:
++        errors.append("producer_provider_capsule_missing")
++    else:
++        expected["producer_provider_capsule_hash"] = provider["capsule_hash"]
++    for key, value in expected.items():
++        if canonical_hash(binding.get(key)) != canonical_hash(value):
++            errors.append("raw_execution_binding_mismatch:" + key)
++    for fresh_key, cell_key in (("exact_argv_hash", "command_hash"), ("environment_hash", "environment_hash"), ("fixture_hash", "fixture_hash")):
++        if fresh.get(fresh_key) != declared.get(cell_key):
++            errors.append("fresh_contract_mismatch:" + fresh_key)
++    if declared.get("required_source_commit") and fresh.get("source_commit") != declared["required_source_commit"]:
++        errors.append("required_source_commit_mismatch")
++    if not isinstance(binding.get("observed_argv"), list) or not binding["observed_argv"]:
++        errors.append("observed_argv_missing")
++    if not isinstance(binding.get("observed_cwd"), str) or not binding["observed_cwd"]:
++        errors.append("observed_cwd_missing")
++    try:
++        materialized = expected_materialization(old, fresh.get("replay_index"), fresh.get("platform"), binding.get("fixture_mode"))
++        if normalized_argv(binding.get("observed_argv", []), fresh.get("platform")) != materialized["argv"]:
++            errors.append("observed_argv_not_declared_materialization")
++        if normalized(binding.get("observed_cwd", ""), fresh.get("platform")) != materialized["cwd"]:
++            errors.append("observed_cwd_not_declared_materialization")
++    except (ValueError, TypeError, AttributeError) as exc:
++        errors.append("materialization_unresolved:" + str(exc))
++    # A new provider capsule is bound separately by fresh-execution verification.
++    # The old provider hash records requested provenance; it is not an availability claim.
++    return errors
+--- a/controllergate/evidence/fresh_execution_attestation_v1.py
++++ b/controllergate/evidence/fresh_execution_attestation_v1.py
+@@ -49,7 +49,7 @@
+     semantic_projection_id: str
+     semantic_fingerprint: str
+     predicate_registry_hash: str
+-    predicate_result: bool
++    predicate_result: bool | None
+     network_policy: str
+     truth_access_count: int
+     private_tld_access_count: int
+@@ -99,6 +99,8 @@
+         blockers.append("forbidden_operation_or_private_access")
+     if row.get("cleanup_status") != "PASS":
+         blockers.append("cleanup_not_verified")
++    if row.get("predicate_result") is not None and type(row.get("predicate_result")) is not bool:
++        blockers.append("predicate_result_not_boolean_or_null")
+     expected = canonical_hash({key: value for key, value in row.items() if key != "record_hash"})
+     if row.get("record_hash") != expected:
+         blockers.append("record_hash_mismatch")
+--- /dev/null
++++ b/controllergate/evidence/observation_adapters_candidate.py
+@@ -0,0 +1,62 @@
++"""Explicit adapters for the recovered Batch100 producers and frozen v4 predicates.
++
++These adapters translate measured fields. They do not infer missing measurements,
++choose a favourable predicate, or confer causal/biological authority.
++"""
++from __future__ import annotations
++
++import copy
++from typing import Any
++
++from .registry_bound_semantics_candidate import canonical_hash
++
++ADAPTER_VERSION = "batch100-to-v4-observation-adapters-local-v2"
++
++
++def adapt_observation(candidate_id: str, raw: dict[str, Any]) -> dict[str, Any]:
++    observation = copy.deepcopy(raw)
++    derivations: list[dict[str, Any]] = []
++    errors: list[str] = []
++
++    def measured(target: str, value: Any, source: str) -> None:
++        if target in observation and canonical_hash(observation[target]) != canonical_hash(value):
++            errors.append("conflicting_measurements:" + target)
++            observation.pop(target)
++            return
++        observation[target] = value
++        derivations.append({"field": target, "source": source, "value": value})
++
++    if candidate_id in {"incident_poetry_10974_init_duplicate_name", "incident_openbb_7585_modular_openapi_reproducer"}:
++        if type(raw.get("return_code")) is int:
++            measured("exit_code", raw["return_code"], "Batch100.semantic_observation.return_code")
++    if candidate_id == "incident_poetry_10974_init_duplicate_name":
++        if isinstance(raw.get("raw_project_name"), str):
++            measured("generated_project_name", raw["raw_project_name"],
++                     "Batch100 pyproject read; Batch101 semantic_value alias")
++        # No expected directory name is substituted for the actual measured cwd.
++        if isinstance(raw.get("actual_cwd_basename"), str) and raw["actual_cwd_basename"]:
++            measured("cwd_basename", raw["actual_cwd_basename"], "new producer actual executed cwd.name")
++    if candidate_id == "audioread_144_py313_aifc_removed":
++        aifc = raw.get("aifc")
++        if isinstance(aifc, dict) and aifc.get("module") == "aifc":
++            if aifc.get("status") in {"IMPORTED", "FAILED"}:
++                measured("module", "aifc", "batch100_audioread_harness.import_observation(aifc)")
++                if aifc["status"] == "IMPORTED":
++                    measured("exception_type", None, "explicit IMPORTED status; no exception")
++                elif isinstance(aifc.get("exception_type"), str):
++                    measured("exception_type", aifc["exception_type"], "aifc.exception_type")
++        route = raw.get("route_import")
++        if raw.get("route") == "rawread" and isinstance(route, dict) and route.get("module") == "audioread.rawread":
++            if route.get("status") == "IMPORTED":
++                measured("rawread_import", "success", "observed rawread route import")
++            elif route.get("status") == "FAILED":
++                measured("rawread_import", "failure", "observed rawread route import")
++    receipt = {
++        "version": ADAPTER_VERSION, "candidate_id": candidate_id,
++        "raw_hash": canonical_hash(raw), "adapted_hash": canonical_hash(observation),
++        "derivations": derivations, "errors": errors,
++        "status": "ADAPTED" if not errors else "UNRESOLVED",
++        "scope": "measured field translation only; not a causal or execution attestation",
++    }
++    receipt["receipt_hash"] = canonical_hash(receipt)
++    return {"observation": observation, "receipt": receipt}
+--- /dev/null
++++ b/controllergate/evidence/registry_bound_semantic_seam_candidate.py
+@@ -0,0 +1,178 @@
++"""Proposed fresh-wrapper/seal integration. No external execution is performed here."""
++from __future__ import annotations
++import copy
++import hashlib
++import json
++from typing import Any
++from . import registry_bound_semantics_candidate as semantics
++from .observation_adapters_candidate import adapt_observation
++from .execution_contract_binding_candidate import verify_execution_binding, normalized, normalized_argv
++
++PINNED_REGISTRY_SHA256 = "5ee513622558fcceeaeffb7889cbd765194feec1a38e9a5b46e25c9ac7c1ceb9"
++SEMANTIC_VERSION = "fresh-registry-binding-local-candidate-v2"
++
++
++def record_hash(value: dict[str, Any]) -> str:
++    # Match the existing fresh-receipt canonicalization, including ASCII escaping.
++    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"),
++                                    allow_nan=False).encode()).hexdigest()
++
++
++def context_from_receipt(row: dict[str, Any]) -> dict[str, Any]:
++    return {key: row.get(key) for key in semantics.CONTEXT_FIELDS}
++
++
++def bind_fresh_receipt(row: dict[str, Any], observation: dict[str, Any],
++                       cell: dict[str, Any], registry_bytes: bytes,
++                       *, execution_binding: dict[str, Any] | None = None) -> dict[str, Any]:
++    for key in ("cell_id", "candidate_id", "program_id"):
++        if key not in cell or row.get(key) != cell[key]:
++            raise ValueError("fresh_cell_contract_mismatch:" + key)
++    adapted = adapt_observation(cell["candidate_id"], observation)
++    errors = verify_execution_binding(execution_binding, cell, row)
++    if errors:
++        raise ValueError("execution_contract_not_verified:" + ",".join(errors))
++    if adapted["receipt"]["errors"]:
++        raise ValueError("conflicting_observation_adapter:" + ",".join(adapted["receipt"]["errors"]))
++    result = semantics.evaluate_bound_outcome(registry_bytes,
++        expected_registry_sha256=PINNED_REGISTRY_SHA256,
++        candidate_id=cell["candidate_id"], program_id=cell["program_id"],
++        role=cell.get("cell_role", "UNDECLARED"), observation=adapted["observation"],
++        context=context_from_receipt(row))
++    diagnostic_outcomes = {}
++    for role in ("incident", "control"):
++        diagnostic_outcomes[role] = semantics.evaluate_bound_outcome(registry_bytes,
++            expected_registry_sha256=PINNED_REGISTRY_SHA256,
++            candidate_id=cell["candidate_id"], program_id=cell["program_id"],
++            role=role, observation=adapted["observation"], context=context_from_receipt(row))
++    out = copy.deepcopy(row)
++    out.update(
++        semantic_contract_version=SEMANTIC_VERSION,
++        legacy_predicate_result_diagnostic=row.get("predicate_result"),
++        legacy_semantic_fingerprint_diagnostic=row.get("semantic_fingerprint"),
++        raw_semantic_observation=copy.deepcopy(observation),
++        raw_execution_binding=copy.deepcopy(execution_binding),
++        observation_adapter_receipt=adapted["receipt"],
++        diagnostic_outcomes=diagnostic_outcomes,
++        bound_outcome_receipt=result, semantic_status=result["status"],
++        predicate_result=result["satisfied"],
++        predicate_registry_hash=result["registry_sha256"],
++        semantic_projection_id=result["projection_id"],
++        semantic_fingerprint=result["semantic_projection_hash"],
++    )
++    out["record_hash"] = record_hash({k: v for k, v in out.items() if k != "record_hash"})
++    return out
++
++
++def verify_fresh_semantics(row: dict[str, Any], cell: dict[str, Any],
++                           registry_bytes: bytes) -> list[str]:
++    errors = []
++    try:
++        if row.get("record_hash") != record_hash({k: v for k, v in row.items() if k != "record_hash"}):
++            errors.append("outer_record_hash_mismatch")
++        if row.get("semantic_contract_version") != SEMANTIC_VERSION:
++            errors.append("bound_semantic_contract_missing")
++        if any(row.get(key) != cell.get(key) or key not in cell for key in ("cell_id", "candidate_id", "program_id")):
++            errors.append("fresh_cell_contract_mismatch")
++        bound = row.get("bound_outcome_receipt")
++        raw = row.get("raw_semantic_observation")
++        if not isinstance(bound, dict) or not isinstance(raw, dict):
++            return errors + ["raw_observation_or_binding_missing"]
++        errors.extend(verify_execution_binding(row.get("raw_execution_binding"), cell, row))
++        broker = row.get("bound_broker_observation")
++        binding = row.get("raw_execution_binding", {})
++        if not isinstance(broker, dict):
++            errors.append("bound_broker_observation_missing")
++        else:
++            if broker.get("operation_id") != row.get("broker_operation_id") or broker.get("record_hash") != row.get("broker_record_hash"):
++                errors.append("bound_broker_identity_mismatch")
++            if normalized_argv(broker.get("argv", []), row.get("platform")) != normalized_argv(binding.get("observed_argv", []), row.get("platform")):
++                errors.append("bound_broker_argv_mismatch")
++            if normalized(broker.get("working_directory", ""), row.get("platform")) != normalized(binding.get("observed_cwd", ""), row.get("platform")):
++                errors.append("bound_broker_cwd_mismatch")
++            if broker.get("return_code") != raw.get("return_code") or broker.get("return_code") != row.get("raw_return_code"):
++                errors.append("bound_broker_return_code_mismatch")
++            for field, broker_key, outer_key in (("stdout_sha256", "stdout_hash", "raw_stdout_object"), ("stderr_sha256", "stderr_hash", "raw_stderr_object")):
++                if broker.get(broker_key) != raw.get(field) or broker.get(broker_key) != row.get(outer_key, {}).get("sha256"):
++                    errors.append("bound_broker_stream_mismatch:" + field)
++        adapted = adapt_observation(cell.get("candidate_id", ""), raw)
++        if adapted["receipt"]["errors"]:
++            errors.append("observation_adapter_conflict")
++        if semantics.canonical_hash(row.get("observation_adapter_receipt")) != semantics.canonical_hash(adapted["receipt"]):
++            errors.append("observation_adapter_not_reproduced")
++        check = semantics.verify_bound_receipt(bound, registry_bytes,
++            expected_registry_sha256=PINNED_REGISTRY_SHA256,
++            candidate_id=cell.get("candidate_id", ""), program_id=cell.get("program_id", ""),
++            role=cell.get("cell_role", "UNDECLARED"), observation=adapted["observation"],
++            context=context_from_receipt(row))
++        if not check["receipt_matches_recomputation"]:
++            errors.append("predicate_or_projection_not_reproduced")
++        expected_diagnostics = {role: semantics.evaluate_bound_outcome(registry_bytes,
++            expected_registry_sha256=PINNED_REGISTRY_SHA256,
++            candidate_id=cell.get("candidate_id", ""), program_id=cell.get("program_id", ""),
++            role=role, observation=adapted["observation"], context=context_from_receipt(row))
++            for role in ("incident", "control")}
++        if semantics.canonical_hash(row.get("diagnostic_outcomes")) != semantics.canonical_hash(expected_diagnostics):
++            errors.append("diagnostic_predicates_not_reproduced")
++        linked = {"semantic_status": bound.get("status"), "predicate_result": bound.get("satisfied"),
++                  "predicate_registry_hash": bound.get("registry_sha256"),
++                  "semantic_projection_id": bound.get("projection_id"),
++                  "semantic_fingerprint": bound.get("semantic_projection_hash")}
++        actual = {key: row.get(key) for key in linked}
++        if semantics.canonical_hash(actual) != semantics.canonical_hash(linked):
++            errors.append("outer_semantic_fields_disagree")
++    except (ValueError, TypeError, KeyError) as exc:
++        errors.append("semantic_verification_error:" + type(exc).__name__)
++    return errors
++
++
++def cell_status_after_verification(rows: list[dict[str, Any]]) -> str:
++    if not rows or any(row.get("semantic_status") != "EVALUATED" for row in rows):
++        return "EXECUTED_SEMANTICS_UNRESOLVED"
++    return "EXECUTED_VERIFIED" if all(row.get("predicate_result") is True for row in rows) else "EXECUTED_PREDICATE_FALSE"
++
++
++def semantic_pair_consistent(rows: list[dict[str, Any]], cell: dict[str, Any],
++                             registry_bytes: bytes) -> bool:
++    if len(rows) < 2 or any(verify_fresh_semantics(row, cell, registry_bytes) for row in rows):
++        return False
++    if any(len({row.get(key) for row in rows}) < 2 for key in
++           ("execution_receipt_id", "replay_index", "broker_operation_id")):
++        return False
++    first = rows[0]
++    for other in rows[1:]:
++        comparison = semantics.compare_scoped_replay(
++            first["bound_outcome_receipt"], other["bound_outcome_receipt"],
++            registry_bytes=registry_bytes, expected_registry_sha256=PINNED_REGISTRY_SHA256,
++            candidate_id=cell["candidate_id"], program_id=cell["program_id"],
++            role=cell.get("cell_role", "UNDECLARED"),
++            left_observation=adapt_observation(cell["candidate_id"], first["raw_semantic_observation"])["observation"],
++            right_observation=adapt_observation(cell["candidate_id"], other["raw_semantic_observation"])["observation"],
++            left_context=context_from_receipt(first), right_context=context_from_receipt(other))
++        if comparison["status"] != "SAME_DECLARED_OUTCOME":
++            return False
++    return True
++
++
++def measured_pair_contrast(incident: list[dict[str, Any]], control: list[dict[str, Any]]) -> dict[str, Any]:
++    """Compare the same two frozen predicates, without comparing context hashes.
++
++Inputs must already have passed verify_fresh_semantics at this boundary. This is
++descriptive contrast only; source/provider/budget invariants are a separate gate.
++    """
++    vectors = []
++    for group in (incident, control):
++        if not group:
++            return {"status": "UNRESOLVED", "contrast": None, "reason": "missing_pair"}
++        observed = []
++        for row in group:
++            d = row.get("diagnostic_outcomes", {})
++            if any(d.get(role, {}).get("status") != "EVALUATED" for role in ("incident", "control")):
++                return {"status": "UNRESOLVED", "contrast": None, "reason": "common_predicate_vector_incomplete"}
++            observed.append(tuple(d[role]["satisfied"] for role in ("incident", "control")))
++        if len(set(observed)) != 1:
++            return {"status": "UNRESOLVED", "contrast": None, "reason": "nonreproducible_predicate_vector"}
++        vectors.append(observed[0])
++    return {"status": "DESCRIPTIVE_CONTRAST" if vectors[0] != vectors[1] else "NO_DECLARED_OUTCOME_CONTRAST",
++            "contrast": vectors[0] != vectors[1], "incident_vector": list(vectors[0]),
++            "control_vector": list(vectors[1]), "causal_authority": False}
+--- /dev/null
++++ b/controllergate/evidence/registry_bound_semantics_candidate.py
+@@ -0,0 +1,219 @@
++"""Local outcome-classification repair candidate; grants no causal or actuation authority.
++
++The projection here is deliberately new: it preserves all fields referenced by
++the selected role predicate, plus explicit replay invariants. Both predicates
++are separately recorded as diagnostics by the fresh seam; an unavailable field
++needed only for the other role does not invalidate this role's measurement.
++It is not a claim that the historical v2 projection performed these operations.
++"""
++from __future__ import annotations
++
++import hashlib
++import json
++import math
++from pathlib import Path
++from typing import Any
++
++from . import declarative_predicate_v1 as original
++
++PROJECTION_ID = "program-role-operand-projection-v2-local-candidate"
++CONTEXT_FIELDS = (
++    "cell_id", "source_commit", "source_capsule_hash", "provider_capsule_hash",
++    "exact_argv_hash", "environment_hash", "fixture_hash",
++)
++
++
++class Unresolved(ValueError):
++    pass
++
++
++def canonical_hash(value: Any) -> str:
++    raw = json.dumps(value, sort_keys=True, separators=(",", ":"),
++                     ensure_ascii=False, allow_nan=False).encode("utf-8")
++    return hashlib.sha256(raw).hexdigest()
++
++
++def _object(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
++    result = {}
++    for key, value in pairs:
++        if key in result:
++            raise Unresolved("duplicate_json_key:" + key)
++        result[key] = value
++    return result
++
++
++def _reject_constant(value: str) -> None:
++    raise Unresolved("nonfinite_registry_number:" + value)
++
++
++def operand_fields(value: Any) -> set[str]:
++    if isinstance(value, dict):
++        if set(value) == {"field"}:
++            if not isinstance(value["field"], str):
++                raise Unresolved("operand_field_path_not_string")
++            return {value["field"]}
++        fields: set[str] = set()
++        for key, item in value.items():
++            # Missing in a dictionary is unobserved here; no closed-world assumption.
++            if key in {"exists", "missing"}:
++                if not isinstance(item, str):
++                    raise Unresolved("presence_path_not_string")
++                fields.add(item)
++            else:
++                fields.update(operand_fields(item))
++        return fields
++    if isinstance(value, list):
++        return set().union(*(operand_fields(item) for item in value)) if value else set()
++    return set()
++
++
++def _value(spec: Any, observation: dict[str, Any]) -> Any:
++    if isinstance(spec, dict) and set(spec) == {"field"}:
++        return original.resolve(observation, spec["field"])
++    return spec
++
++
++def _validate_predicate(predicate: Any, observation: dict[str, Any]) -> None:
++    if not isinstance(predicate, dict) or len(predicate) != 1:
++        raise Unresolved("malformed_predicate")
++    op, arg = next(iter(predicate.items()))
++    if op in {"all", "any"}:
++        if not isinstance(arg, list) or not arg:
++            raise Unresolved("empty_or_malformed_boolean_group")
++        for item in arg:
++            _validate_predicate(item, observation)
++        return
++    if op == "not":
++        _validate_predicate(arg, observation)
++        return
++    if op in {"exists", "missing"}:
++        original.resolve(observation, arg)
++        return
++    if op not in {"eq", "ne", "gt", "ge", "lt", "le"}:
++        raise Unresolved("unsupported_predicate_operator:" + str(op))
++    if not isinstance(arg, list) or len(arg) != 2:
++        raise Unresolved("malformed_comparison")
++    left, right = (_value(x, observation) for x in arg)
++    if op in {"gt", "ge", "lt", "le"}:
++        if not all(type(x) in {int, float} and math.isfinite(x) for x in (left, right)):
++            raise Unresolved("numeric_operand_not_finite_measurement")
++    elif ((type(left) is bool and type(right) in {int, float}) or
++          (type(right) is bool and type(left) in {int, float})):
++        raise Unresolved("boolean_numeric_equality_forbidden")
++
++
++def evaluate_bound_outcome(
++    registry_bytes: bytes, *, expected_registry_sha256: str,
++    candidate_id: str, program_id: str, role: str,
++    observation: dict[str, Any], context: dict[str, Any],
++) -> dict[str, Any]:
++    """Classify exactly the frozen predicate; return UNRESOLVED for missing evidence."""
++    registry_sha = hashlib.sha256(registry_bytes).hexdigest()
++    result: dict[str, Any] = {
++        "schema": "registry-bound-outcome-repair-candidate-v2",
++        "candidate_id": candidate_id, "program_id": program_id, "role": role,
++        "registry_sha256": registry_sha, "expected_registry_sha256": expected_registry_sha256,
++        "registry_entry_hash": None, "predicate_hash": None,
++        "raw_observation_hash": None, "execution_context_hash": None,
++        "projection_id": PROJECTION_ID, "projection_fields": [],
++        "semantic_projection_hash": None,
++        "status": "UNRESOLVED", "verdict": "UNRESOLVED", "satisfied": None,
++        "unresolved_reason": None,
++        "authority_allowed": "declared outcome classification and scoped replay comparison only",
++        "authority_forbidden": ["fresh execution attestation", "causal ownership", "patch", "repair count", "biological or physical inference"],
++    }
++    try:
++        if registry_sha != expected_registry_sha256:
++            raise Unresolved("registry_digest_mismatch")
++        if not isinstance(observation, dict) or not isinstance(context, dict):
++            raise Unresolved("observation_and_context_must_be_objects")
++        result["raw_observation_hash"] = canonical_hash(observation)
++        result["execution_context_hash"] = canonical_hash(context)
++        missing_context = [key for key in CONTEXT_FIELDS if not isinstance(context.get(key), str) or not context[key]]
++        if missing_context:
++            raise Unresolved("missing_replay_invariants:" + ",".join(missing_context))
++        rows = [json.loads(line, object_pairs_hook=_object, parse_constant=_reject_constant)
++                for line in registry_bytes.decode("utf-8").splitlines() if line.strip()]
++        matches = [row for row in rows if row.get("candidate_id") == candidate_id and row.get("program_id") == program_id]
++        if len(matches) != 1:
++            raise Unresolved("registry_entry_not_unique:" + str(len(matches)))
++        entry = matches[0]
++        result["registry_entry_hash"] = canonical_hash(entry)
++        if role not in {"incident", "control"} or role + "_predicate" not in entry:
++            raise Unresolved("role_predicate_not_declared")
++        predicate = entry[role + "_predicate"]
++        result["predicate_hash"] = canonical_hash(predicate)
++        # Every operand of the selected role is required, even if Python's
++        # short-circuit evaluation would otherwise hide a missing value.
++        fields = sorted(operand_fields(predicate))
++        if not fields:
++            raise Unresolved("no_measured_operand_fields")
++        result["projection_fields"] = fields
++        projected = {}
++        for field in fields:
++            try:
++                projected[field] = original.resolve(observation, field)
++            except (KeyError, IndexError, TypeError) as exc:
++                raise Unresolved("unobserved_operand:" + field) from exc
++        _validate_predicate(predicate, observation)
++        value = original.evaluate(predicate, observation)
++        if type(value) is not bool:
++            raise Unresolved("predicate_result_not_boolean")
++        result["semantic_projection_hash"] = canonical_hash({
++            "projection_id": PROJECTION_ID,
++            "registry_entry_hash": result["registry_entry_hash"],
++            "observed_operands": projected,
++            "replay_invariants": {key: context[key] for key in CONTEXT_FIELDS},
++        })
++        result["observed_operands"] = projected
++        result.update(status="EVALUATED", verdict="SATISFIED" if value else "NOT_SATISFIED", satisfied=value)
++    except (Unresolved, KeyError, IndexError, TypeError, ValueError, OverflowError) as exc:
++        result["unresolved_reason"] = str(exc) or type(exc).__name__
++    result["record_hash"] = canonical_hash(result)
++    return result
++
++
++def verify_bound_receipt(receipt: dict[str, Any], registry_bytes: bytes, *,
++                         expected_registry_sha256: str, candidate_id: str,
++                         program_id: str, role: str, observation: dict[str, Any],
++                         context: dict[str, Any]) -> dict[str, Any]:
++    """Recompute from independent inputs, rather than trusting a signed label."""
++    expected = evaluate_bound_outcome(
++        registry_bytes, expected_registry_sha256=expected_registry_sha256,
++        candidate_id=candidate_id, program_id=program_id, role=role,
++        observation=observation, context=context,
++    )
++    try:
++        submitted_hash = canonical_hash({k: v for k, v in receipt.items() if k != "record_hash"})
++        exact = receipt.get("record_hash") == submitted_hash and canonical_hash(receipt) == canonical_hash(expected)
++    except (TypeError, ValueError, OverflowError):
++        exact = False
++    return {"receipt_matches_recomputation": exact,
++            "classification_established": exact and expected["status"] == "EVALUATED",
++            "status": "VERIFIED_OUTCOME_ONLY" if exact and expected["status"] == "EVALUATED" else "UNRESOLVED" if exact else "REJECTED",
++            "expected_record_hash": expected["record_hash"],
++            "causal_or_patch_authority": False}
++
++
++def compare_scoped_replay(left: dict[str, Any], right: dict[str, Any], *,
++    registry_bytes: bytes, expected_registry_sha256: str, candidate_id: str,
++    program_id: str, role: str, left_observation: dict[str, Any],
++    right_observation: dict[str, Any], left_context: dict[str, Any],
++    right_context: dict[str, Any]) -> dict[str, Any]:
++    """Verify both receipts before comparing; this still does not attest execution."""
++    for receipt, observation, context in ((left, left_observation, left_context),
++                                          (right, right_observation, right_context)):
++        check = verify_bound_receipt(receipt, registry_bytes,
++            expected_registry_sha256=expected_registry_sha256,
++            candidate_id=candidate_id, program_id=program_id, role=role,
++            observation=observation, context=context)
++        if not check["classification_established"]:
++            return {"status": "UNRESOLVED", "reason": "receipt_not_verified_outcome",
++                    "raw_custody_equal": None}
++    same_contract = all(left.get(k) == right.get(k) for k in ("candidate_id", "program_id", "role", "registry_sha256", "predicate_hash", "projection_id"))
++    if left.get("status") != "EVALUATED" or right.get("status") != "EVALUATED" or not same_contract:
++        return {"status": "UNRESOLVED", "raw_custody_equal": left.get("raw_observation_hash") == right.get("raw_observation_hash")}
++    same = left.get("semantic_projection_hash") == right.get("semantic_projection_hash") and left.get("satisfied") == right.get("satisfied")
++    return {"status": "SAME_DECLARED_OUTCOME" if same else "DIFFERENT_DECLARED_OUTCOME",
++            "raw_custody_equal": left["raw_observation_hash"] == right["raw_observation_hash"],
++            "scope": "program operand projection and declared software invariants, not full biological or causal equivalence"}
+--- a/scripts/compile_batch103_public_evidence.py
++++ b/scripts/compile_batch103_public_evidence.py
+@@ -5,12 +5,15 @@
+ import argparse
+ import hashlib
+ import json
++import sys
+ from collections import Counter, defaultdict
+ from pathlib import Path
+ from typing import Any, Iterable
+ 
+ 
+ ROOT = Path(__file__).resolve().parents[1]
++if str(ROOT) not in sys.path: sys.path.insert(0,str(ROOT))
++from controllergate.evidence.registry_bound_semantic_seam_candidate import verify_fresh_semantics, measured_pair_contrast
+ 
+ 
+ def canonical_hash(value: object) -> str:
+@@ -144,6 +147,11 @@
+     receipts = read_jsonl(args.outcome_root / "batch103_fresh_execution_receipts_v1.jsonl")
+     ledger = read_jsonl(args.outcome_root / "batch103_registered_cell_ledger_v1.jsonl")
+     programs = read_jsonl(ROOT / "configs/batch102_candidate_counterfactual_programs_v4.jsonl")
++    cells = {row["cell_id"]:row for row in read_jsonl(ROOT / "configs/batch102_counterfactual_cell_registry_v4.jsonl")}
++    registry_bytes = (ROOT / "configs/batch102_outcome_semantic_registry_v4.jsonl").read_bytes()
++    for row in receipts:
++        errors = verify_fresh_semantics(row,cells.get(row.get("cell_id"),{}),registry_bytes)
++        if errors: raise RuntimeError("unverified semantics at compiler: "+str(errors))
+     by_cell: dict[str, list[dict[str, Any]]] = defaultdict(list)
+     for row in receipts:
+         by_cell[row["cell_id"]].append(row)
+@@ -167,8 +175,9 @@
+             and len(control) >= 2
+             and accounting[incident_id]["semantic_reproducibility"]
+             and accounting[control_id]["semantic_reproducibility"]
+-            and all(row["predicate_result"] for row in incident + control)
+-        )
++            and all(row.get("semantic_status") == "EVALUATED" and row.get("predicate_result") is True for row in incident + control)
++        )
++        contrast = measured_pair_contrast(incident, control)
+         pair = {
+             "pair_id": f"batch103-pair:{program['program_id']}",
+             "program_id": program["program_id"],
+@@ -177,7 +186,11 @@
+             "control_cell_id": control_id,
+             "status": "VALID_PAIR" if valid else "PAIR_NOT_VALID",
+             "fresh_execution_receipt_ids": [row["execution_receipt_id"] for row in incident + control],
+-            "held_invariants_verified": valid,
++            "held_invariants_verified": False,
++            "held_invariants_status": "UNRESOLVED_INDEPENDENT_MEASUREMENTS",
++            "required_held_invariants": program.get("held_invariants", []),
++            "pair_scope": "reproducible role classification only",
++            "measured_predicate_contrast": contrast,
+             "truth_access": 0,
+         }
+         pair["pair_hash"] = canonical_hash(pair)
+@@ -206,8 +219,10 @@
+                 "receipt_id": f"batch103-sensitivity:{program['program_id']}",
+                 "program_id": program["program_id"],
+                 "candidate_id": program["candidate_id"],
+-                "supported": valid,
+-                "evidence_level": "DIMENSION_SENSITIVITY_VERIFIED" if valid else "CONTACT_VERIFIED" if incident else "PRESENCE_VERIFIED",
++                "supported": False,
++                "evidence_level": "ROLE_CLASSIFICATION_PAIR_OBSERVED" if valid else "CONTACT_VERIFIED" if incident else "PRESENCE_VERIFIED",
++                "descriptive_contrast": contrast,
++                "exact_blocker": "held invariants have no independently verified measurement receipt at this boundary",
+                 "pair_id": pair["pair_id"],
+                 "truth_access": 0,
+                 "authority_forbidden": ["necessity", "sufficiency", "ownership", "patch", "repair count"],
+@@ -287,6 +302,7 @@
+     summary = {
+         "status": "PASS_CONSERVATIVE_CAUSAL_COMPILATION",
+         "valid_pair_count": sum(row["status"] == "VALID_PAIR" for row in pairs),
++        "valid_pair_scope": "role classification; not sensitivity or invariant verification",
+         "complete_factorial_count": sum(row["complete"] for row in factorials),
+         "sensitivity_supported_count": sum(row["supported"] for row in sensitivity),
+         "necessity_supported_count": 0,
+--- a/scripts/run_batch100_candidate_program.py
++++ b/scripts/run_batch100_candidate_program.py
+@@ -24,6 +24,7 @@
+ from controllergate.amds.matched_counterfactual_v10 import canonical_hash
+ from controllergate.execution.execution_broker import execute_external_operation
+ from controllergate.runtime.runtime_root_attestation import attest_runtime_root
++from controllergate.evidence.execution_contract_binding_candidate import make_execution_binding, PRODUCER_PATH
+ 
+ 
+ def read_jsonl(path: Path) -> list[dict]:
+@@ -287,7 +288,8 @@
+     contracts = {row["candidate_id"]: row for row in read_jsonl(ROOT / "configs/candidate_execution_contracts_v2.jsonl")}
+     if args.source_commit:
+         contracts[candidate] = {**contracts[candidate], "source_commit": args.source_commit}
+-    cells = [row for row in read_jsonl(ROOT / "configs/batch100_counterfactual_cell_registry_v2.jsonl") if row["candidate_id"] == candidate]
++    producer_registry_bytes = (ROOT / PRODUCER_PATH).read_bytes()
++    cells = [row for row in read_jsonl(ROOT / PRODUCER_PATH) if row["candidate_id"] == candidate]
+     providers = {row["capsule_id"]: row for row in read_jsonl(ROOT / "outputs/post_v2_37_hardening_batch100_matched_counterfactual_execution_causal_ownership_architecture_gain_master_roadmap_lock/matched_counterfactual/provider_capsule_registry_v2.jsonl")}
+     provider_version = subprocess.check_output([str(args.provider_python), "-c", "import platform; print(platform.python_version())"], text=True).strip()
+     matching = [row for row in cells if provider_matches(providers[row["provider_capsule_id"]], provider_version)]
+@@ -336,6 +338,8 @@
+                 cwd = consumer if cell_row["exact_cwd"].endswith("/consumer") and candidate in {"darker_issue_112_relative_git_dir", "py_bugger_issue_65", "incident_poetry_10974_init_duplicate_name"} else source
+                 result = broker.run(argv=argv, cwd=cwd, stage=f"{cell_row['cell_name']}-r{replay}-target", operation_type="target_execution", env=safe_env(env_extra), timeout=cell_row["resource_budget"]["timeout_seconds"])
+                 semantic = semantic_observation(candidate, cell_row, result, consumer, ledger)
++                if candidate == "incident_poetry_10974_init_duplicate_name":
++                    semantic["actual_cwd_basename"] = cwd.name
+                 diff = subprocess.run(["git", "diff", "--quiet", "--", "."], cwd=source, check=False).returncode
+                 source_after = subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], cwd=source, text=True).strip()
+                 receipt = {
+@@ -346,6 +350,7 @@
+                     "source_tracked_mutation_count": int(diff != 0),
+                     "provider_hash": providers[cell_row["provider_capsule_id"]]["capsule_hash"],
+                     "fixture_hash": cell_row["fixture_hash"],
++                    "execution_contract_binding": make_execution_binding(cell_row, registry_bytes=producer_registry_bytes, provider=providers[cell_row["provider_capsule_id"]], source_commit=contracts[candidate]["source_commit"], observed_argv=sanitize(argv,args.runtime_root), observed_cwd=sanitize(str(cwd.resolve()),args.runtime_root), replay_index=replay, fixture_mode="batch102_exact" if args.batch102_exact_fixtures else "batch100"),
+                     "operation_id": broker.records[-1]["operation_id"], "semantic_observation": semantic,
+                     "predicate_satisfied": predicate_satisfied(candidate, cell_row, semantic),
+                     "semantic_verifier_receipt": canonical_hash([cell_row["cell_id"], semantic, "batch100-independent-semantic-verifier"]),
+--- a/scripts/run_batch102_candidate_slice.py
++++ b/scripts/run_batch102_candidate_slice.py
+@@ -29,6 +29,56 @@
+  if run.returncode: raise RuntimeError(f"provider identity failed: {run.stderr}")
+  return json.loads(run.stdout)
+ 
++from controllergate.evidence.registry_bound_semantic_seam_candidate import (bind_fresh_receipt, verify_fresh_semantics, cell_status_after_verification)
++
++from controllergate.evidence.execution_contract_binding_candidate import inventory_preflight
++
++def bind_current_semantics(out, semantic, cell, registry_bytes, execution_binding=None):
++    return bind_fresh_receipt(out, semantic, cell, registry_bytes, execution_binding=execution_binding)
++
++def verify_current_fresh_semantics(row, cell, registry_bytes):
++    return verify_fresh_semantics(row, cell, registry_bytes)
++
++def current_cell_status(rows, verification):
++    checks = {item['id']: item.get('blockers') for item in verification}
++    if any(not isinstance(checks.get(row['execution_receipt_id']), list) or checks[row['execution_receipt_id']] for row in rows):
++        return 'EXECUTED_RECEIPT_UNVERIFIED'
++    return cell_status_after_verification(rows)
++
++def build_current_fresh_record(*, rr, op, cell, source_capsule, provider_capsule, observed,
++                               source_commit, candidate_id, slice_id, is_batch103, workflow, registry_bytes):
++    """Shared production constructor; no provider execution or capsule authentication here.
++
++    Main verifies source/provider capsules before calling. Local tests deliberately
++    use synthetic capsule dictionaries and mark their scope in the raw receipt.
++    """
++    from controllergate.evidence.execution_contract_binding_candidate import normalized, normalized_argv
++    for key in ("candidate_id", "program_id", "cell_id"):
++        if rr.get(key) != cell.get(key): raise ValueError("raw_cell_identity_mismatch:"+key)
++    if rr.get("operation_id") != op.get("operation_id"): raise ValueError("raw_broker_operation_mismatch")
++    binding = rr.get("execution_contract_binding")
++    if not isinstance(binding,dict): raise ValueError("raw_execution_contract_binding_missing")
++    if normalized_argv(binding.get("observed_argv",[]),observed["os"]) != normalized_argv(op.get("argv",[]),observed["os"]):
++        raise ValueError("raw_broker_argv_mismatch")
++    if normalized(binding.get("observed_cwd",""),observed["os"]) != normalized(op.get("working_directory",""),observed["os"]):
++        raise ValueError("raw_broker_cwd_mismatch")
++    semantic = rr.get("semantic_observation",{})
++    if not isinstance(semantic,dict): raise ValueError("raw_semantic_observation_not_object")
++    if semantic.get("return_code") != op.get("return_code"): raise ValueError("raw_broker_return_code_mismatch")
++    for field, broker_key in (("stdout_sha256","stdout_hash"),("stderr_sha256","stderr_hash")):
++        if semantic.get(field) != op.get(broker_key): raise ValueError("raw_broker_stream_mismatch:"+field)
++    if source_capsule.get("full_commit_sha") != source_commit:
++        raise ValueError("raw_source_capsule_commit_mismatch")
++    prefix = "batch103" if is_batch103 else "batch102"
++    epoch = "BATCH103_FRESH_OPERATION" if is_batch103 else "BATCH102_FRESH_OPERATION"
++    pred_hash = sha(registry_bytes)
++    receipt_type = Batch103FreshExecutionReceiptV1 if is_batch103 else Batch102FreshExecutionReceiptV1
++    out = receipt_type(execution_receipt_id=f"{prefix}:{slice_id}:{rr['cell_id']}:{rr['replay_index']}",execution_epoch=epoch,workflow_run_id=workflow["run_id"],workflow_job_id=workflow["job_id"],workflow_job_attempt=workflow["attempt"],workflow_head=workflow["head"],candidate_id=candidate_id,program_id=rr["program_id"],cell_id=rr["cell_id"],replay_index=int(rr["replay_index"]),broker_operation_id=op["operation_id"],broker_record_hash=op["record_hash"],source_capsule_hash=source_capsule["source_capsule_hash"],source_commit=source_commit,source_tree_hash_before=rr["source_pre_hash"],source_tree_hash_after=rr["source_post_hash"],provider_capsule_hash=provider_capsule["provider_capsule_hash"],provider_observed_identity=observed,provider_exactness_status=provider_capsule["provider_exactness_status"],platform=observed["os"],architecture=observed["architecture"],ABI=observed["ABI"],SOABI=observed["SOABI"],exact_argv_hash=cell["command_hash"],cwd_hash=canonical_hash(cell["exact_cwd"]),environment_hash=cell["environment_hash"],fixture_hash=cell["fixture_hash"],raw_stdout_object={"sha256":semantic.get("stdout_sha256",op.get("stdout_hash"))},raw_stderr_object={"sha256":semantic.get("stderr_sha256",op.get("stderr_hash"))},raw_return_code=int(semantic.get("return_code",op.get("return_code",-1))),semantic_projection_id="controllergate-semantic-projection-v2",semantic_fingerprint=canonical_hash(semantic),predicate_registry_hash=pred_hash,predicate_result=bool(rr.get("predicate_satisfied")),network_policy=str(op.get("network_policy","none")),truth_access_count=0,private_tld_access_count=0,patch_operation_count=0,cleanup_status=rr.get("cleanup_result","BLOCK"),producer="canonical_external_operation_broker",independent_verifier=f"{prefix}_fresh_receipt_independent_verifier",producer_receipt={"operation_id":op["operation_id"],"record_hash":op["record_hash"]},verifier_receipt={"source_capsule":"PASS","provider_capsule":"PASS","semantic_receipt":rr.get("semantic_verifier_receipt")}).record()
++    out["raw_record_hash"] = canonical_hash(rr)
++    out["bound_broker_observation"] = {k:op.get(k) for k in ("operation_id","record_hash","argv","working_directory","return_code","stdout_hash","stderr_hash")}
++    if "artifact_scope" in rr: out["artifact_scope"] = rr["artifact_scope"]
++    return bind_current_semantics(out,semantic,cell,registry_bytes,binding)
++
+ def main()->int:
+  p=argparse.ArgumentParser(); p.add_argument("--candidate-id",required=True); p.add_argument("--slice-id",required=True); p.add_argument("--requested-python",required=True); p.add_argument("--runtime-root",type=Path,required=True); p.add_argument("--output-dir",type=Path,required=True); p.add_argument("--source-commit"); p.add_argument("--requested-os"); p.add_argument("--provider-python",default=sys.executable); p.add_argument("--campaign-label",choices=["batch102","batch103"],default="batch102"); a=p.parse_args()
+  a.runtime_root.mkdir(parents=True,exist_ok=True); a.output_dir.mkdir(parents=True,exist_ok=True)
+@@ -37,6 +87,9 @@
+  required=next((r.get("required_source_commit") for r in programs if r.get("required_source_commit")),None)
+  source_commit=a.source_commit or required or contract["source_commit"]
+  label=a.campaign_label; is_batch103=label=="batch103"; epoch="BATCH103_FRESH_OPERATION" if is_batch103 else "BATCH102_FRESH_OPERATION"; prefix="batch103" if is_batch103 else "batch102"
++ inventory = inventory_preflight(a.candidate_id, readj(ROOT/"configs/batch102_counterfactual_cell_registry_v4.jsonl"))
++ writej(a.output_dir/"producer_inventory_preflight.json",inventory)
++ if inventory["status"] == "BLOCK": raise RuntimeError("producer/current cell contract mismatch: "+str(inventory["mismatches"]))
+  old_out=a.output_dir/"raw_candidate_execution"; cmd=[sys.executable,str(ROOT/"scripts/run_batch100_candidate_program.py"),"--candidate-id",a.candidate_id,"--runtime-root",str(a.runtime_root),"--output-dir",str(old_out),"--provider-python",a.provider_python,"--source-commit",source_commit,"--batch102-exact-fixtures","--authorization-id",f"{label}:fresh-public-evidence-only","--execution-label",label]
+  run=subprocess.run(cmd,cwd=ROOT,capture_output=True,text=True,encoding="utf-8",errors="replace",check=False)
+  writej(a.output_dir/"slice_runner_invocation.json",{"argv_hash":canonical_hash(cmd),"return_code":run.returncode,"stdout_sha256":sha(run.stdout.encode()),"stderr_sha256":sha(run.stderr.encode()),"execution_depth":"current workflow candidate runner","authority_allowed":"candidate evidence acquisition","authority_forbidden":["patch","repair count","release"]})
+@@ -51,16 +104,16 @@
+  requested=version_identity(a.requested_python,a.requested_os or platform.system().lower()); observed=identity_for_executable(a.provider_python); materialization=next((r for r in broker if r.get("operation_type") in {"provider_build","provider_acquisition"}),None)
+  provider_capsule=build_provider_capsule_v4(capsule_id=f"provider:{prefix}:{a.slice_id}",candidate_id=a.candidate_id,requested=requested,observed=observed,materialization_receipt={"operation_id":materialization["operation_id"] if materialization else f"unavailable:{a.slice_id}"},runner_image=os.environ.get("ImageOS",platform.system().lower()),dependency_graph_hash=canonical_hash([r.get("stage_id") for r in broker if r.get("operation_type") in {"provider_build","provider_acquisition"}]),wheel_hashes=[],available=materialization is not None)
+  provider_blockers=verify_provider_capsule_v4(provider_capsule); source_blockers=verify_source_capsule_v2(source_capsule) if source_capsule else ["source_capsule_not_materialized"]
+- broker_by={r.get("operation_id"):r for r in broker}; cells={r["cell_id"]:r for r in readj(ROOT/"configs/batch102_counterfactual_cell_registry_v4.jsonl")}; pred_hash=sha((ROOT/"configs/batch102_outcome_semantic_registry_v4.jsonl").read_bytes()); fresh=[]
++ broker_by={r.get("operation_id"):r for r in broker}; cells={r["cell_id"]:r for r in readj(ROOT/"configs/batch102_counterfactual_cell_registry_v4.jsonl")}; registry_bytes=(ROOT/"configs/batch102_outcome_semantic_registry_v4.jsonl").read_bytes(); pred_hash=sha(registry_bytes); fresh=[]
+  for rr in raw_receipts:
+   op=broker_by.get(rr.get("operation_id")); cell=cells.get(rr["cell_id"])
+   if not op or not cell or not source_capsule or provider_blockers or source_blockers or int(rr.get("source_tracked_mutation_count", 1)) != 0: continue
+   receipt_type=Batch103FreshExecutionReceiptV1 if is_batch103 else Batch102FreshExecutionReceiptV1
+-  semantic=rr.get("semantic_observation",{}); out=receipt_type(execution_receipt_id=f"{prefix}:{a.slice_id}:{rr['cell_id']}:{rr['replay_index']}",execution_epoch=epoch,workflow_run_id=os.environ.get("GITHUB_RUN_ID",f"{prefix}-local"),workflow_job_id=os.environ.get("GITHUB_JOB",a.slice_id),workflow_job_attempt=os.environ.get("GITHUB_RUN_ATTEMPT","1"),workflow_head=os.environ.get("GITHUB_SHA",subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()),candidate_id=a.candidate_id,program_id=rr["program_id"],cell_id=rr["cell_id"],replay_index=int(rr["replay_index"]),broker_operation_id=op["operation_id"],broker_record_hash=op["record_hash"],source_capsule_hash=source_capsule["source_capsule_hash"],source_commit=source_commit,source_tree_hash_before=rr["source_pre_hash"],source_tree_hash_after=rr["source_post_hash"],provider_capsule_hash=provider_capsule["provider_capsule_hash"],provider_observed_identity=observed,provider_exactness_status=provider_capsule["provider_exactness_status"],platform=platform.system().lower(),architecture=platform.machine().lower(),ABI=observed["ABI"],SOABI=observed["SOABI"],exact_argv_hash=cell["command_hash"],cwd_hash=canonical_hash(cell["exact_cwd"]),environment_hash=cell["environment_hash"],fixture_hash=cell["fixture_hash"],raw_stdout_object={"sha256":semantic.get("stdout_sha256",op.get("stdout_hash"))},raw_stderr_object={"sha256":semantic.get("stderr_sha256",op.get("stderr_hash"))},raw_return_code=int(semantic.get("return_code",op.get("return_code",-1))),semantic_projection_id="controllergate-semantic-projection-v2",semantic_fingerprint=canonical_hash(semantic),predicate_registry_hash=pred_hash,predicate_result=bool(rr.get("predicate_satisfied")),network_policy=str(op.get("network_policy","none")),truth_access_count=0,private_tld_access_count=0,patch_operation_count=0,cleanup_status=rr.get("cleanup_result","BLOCK"),producer="canonical_external_operation_broker",independent_verifier=f"{prefix}_fresh_receipt_independent_verifier",producer_receipt={"operation_id":op["operation_id"],"record_hash":op["record_hash"]},verifier_receipt={"source_capsule":"PASS","provider_capsule":"PASS","semantic_receipt":rr.get("semantic_verifier_receipt")}).record(); fresh.append(out)
+- current_run=os.environ.get("GITHUB_RUN_ID",f"{prefix}-local"); current_head=os.environ.get("GITHUB_SHA",subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()); verifier=verify_batch103_fresh_execution_receipt if is_batch103 else verify_fresh_execution_receipt; verification=[{"id":r["execution_receipt_id"],"blockers":verifier(r,current_workflow_run_id=current_run,current_workflow_head=current_head)} for r in fresh]
++  out=build_current_fresh_record(rr=rr,op=op,cell=cell,source_capsule=source_capsule,provider_capsule=provider_capsule,observed=observed,source_commit=source_commit,candidate_id=a.candidate_id,slice_id=a.slice_id,is_batch103=is_batch103,workflow={"run_id":os.environ.get("GITHUB_RUN_ID",f"{prefix}-local"),"job_id":os.environ.get("GITHUB_JOB",a.slice_id),"attempt":os.environ.get("GITHUB_RUN_ATTEMPT","1"),"head":os.environ.get("GITHUB_SHA") or subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()},registry_bytes=registry_bytes); fresh.append(out)
++ current_run=os.environ.get("GITHUB_RUN_ID",f"{prefix}-local"); current_head=os.environ.get("GITHUB_SHA",subprocess.check_output(["git","rev-parse","HEAD"],cwd=ROOT,text=True).strip()); verifier=verify_batch103_fresh_execution_receipt if is_batch103 else verify_fresh_execution_receipt; verification=[{"id":r["execution_receipt_id"],"blockers":verifier(r,current_workflow_run_id=current_run,current_workflow_head=current_head)+verify_current_fresh_semantics(r,cells[r["cell_id"]],registry_bytes)} for r in fresh]
+  registered=[r for r in cells.values() if r["candidate_id"]==a.candidate_id]; executed_ids={r["cell_id"] for r in fresh}; account=[]
+  for cell in registered:
+-  if cell["cell_id"] in executed_ids: status="EXECUTED_VERIFIED" if all(r["predicate_result"] for r in fresh if r["cell_id"]==cell["cell_id"]) else "EXECUTED_PREDICATE_FALSE"
++  if cell["cell_id"] in executed_ids: status=current_cell_status([r for r in fresh if r["cell_id"]==cell["cell_id"]],verification)
+   elif provider_capsule["provider_exactness_status"]=="UNAVAILABLE_PROVIDER": status="BLOCKED_EXACT_PROVIDER_UNAVAILABLE"
+   elif source_capsule is None: status="BLOCKED_SOURCE_UNAVAILABLE"
+   else: status="BLOCKED_INCIDENT_PREFLIGHT"
+--- a/scripts/run_batch103_planner_arm.py
++++ b/scripts/run_batch103_planner_arm.py
+@@ -43,7 +43,7 @@
+ 
+ 
+ def _predicate_true(envelope: dict[str, Any]) -> bool:
+-    return bool(envelope["outcomes"]) and all(row["predicate_result"] for row in envelope["outcomes"])
++    return bool(envelope["outcomes"]) and all(row.get("semantic_status") == "EVALUATED" and row.get("predicate_result") is True for row in envelope["outcomes"])
+ 
+ 
+ def main() -> int:
+@@ -186,9 +186,10 @@
+                 for row in program_cells
+             )
+             if incident and control:
+-                evidence_level = "DIMENSION_SENSITIVITY_VERIFIED"
+-                first_sensitivity_step = step
+-                break
++                evidence_level = "ROLE_CLASSIFICATION_PAIR_OBSERVED"
++                # Classification does not verify the program's held invariants.
++                # Do not count a sensitivity gain or terminate on overlapping predicates.
++                continue
+             if incident:
+                 evidence_level = "CONTACT_VERIFIED"
+ 
+--- a/scripts/seal_batch103_candidate_outcomes.py
++++ b/scripts/seal_batch103_candidate_outcomes.py
+@@ -21,6 +21,13 @@
+ 
+ STATIC_OUT = ROOT / "outputs/post_v2_37_hardening_batch103_reactome_isomorphism_causal_planning_gain_exact_materialization"
+ 
++
++from controllergate.evidence.registry_bound_semantic_seam_candidate import (
++    verify_fresh_semantics, semantic_pair_consistent, cell_status_after_verification,
++)
++
++def verify_current_semantics(row, cell, registry_bytes):
++    return verify_fresh_semantics(row, cell, registry_bytes)
+ 
+ def canonical_hash(value: object) -> str:
+     return hashlib.sha256(
+@@ -76,7 +83,13 @@
+     args = parser.parse_args()
+     args.output_root.mkdir(parents=True, exist_ok=True)
+ 
++    cells = read_jsonl(ROOT / "configs/batch102_counterfactual_cell_registry_v4.jsonl")
++    cell_by_id = {row["cell_id"]: row for row in cells}
++    registry_bytes = (ROOT / "configs/batch102_outcome_semantic_registry_v4.jsonl").read_bytes()
+     submitted = collect_jsonl(args.cell_artifacts_root, "batch103_fresh_execution_receipts_v1.jsonl")
++    ids = [row.get("execution_receipt_id") for row in submitted]
++    if len(ids) != len(set(ids)):
++        raise RuntimeError("duplicate execution receipt IDs cannot establish replay")
+     verification = [
+         {
+             "execution_receipt_id": row.get("execution_receipt_id"),
+@@ -84,7 +97,7 @@
+                 row,
+                 current_workflow_run_id=args.workflow_run_id,
+                 current_workflow_head=args.workflow_head,
+-            ),
++            ) + verify_current_semantics(row, cell_by_id.get(row.get("cell_id"), {}), registry_bytes),
+         }
+         for row in submitted
+     ]
+@@ -92,8 +105,6 @@
+     if invalid:
+         raise RuntimeError(f"invalid Batch103 fresh receipts: {invalid[:3]}")
+ 
+-    cells = read_jsonl(ROOT / "configs/batch102_counterfactual_cell_registry_v4.jsonl")
+-    cell_by_id = {row["cell_id"]: row for row in cells}
+     receipt_by_cell: dict[str, list[dict[str, Any]]] = defaultdict(list)
+     for receipt in submitted:
+         if receipt["cell_id"] not in cell_by_id:
+@@ -109,14 +120,10 @@
+     for cell in cells:
+         receipts = receipt_by_cell.get(cell["cell_id"], [])
+         if receipts:
+-            status = (
+-                "EXECUTED_VERIFIED"
+-                if all(row["predicate_result"] for row in receipts)
+-                else "EXECUTED_PREDICATE_FALSE"
+-            )
++            status = cell_status_after_verification(receipts)
+         else:
+             proposed = [row.get("status") for row in account_by_cell[cell["cell_id"]]]
+-            allowed = [row for row in proposed if row in STATUS_PRIORITY]
++            allowed = [row for row in proposed if row in STATUS_PRIORITY and not row.startswith("EXECUTED")]
+             status = min(allowed, key=STATUS_PRIORITY.get) if allowed else "BLOCKED_INCIDENT_PREFLIGHT"
+         row = {
+             "cell_id": cell["cell_id"],
+@@ -127,8 +134,7 @@
+             "fresh_execution_epoch": "BATCH103_FRESH_OPERATION" if receipts else None,
+             "workflow_run_id": str(args.workflow_run_id) if receipts else None,
+             "workflow_head": args.workflow_head if receipts else None,
+-            "semantic_reproducibility": len(receipts) >= 2
+-            and len({(r["semantic_fingerprint"], r["predicate_result"]) for r in receipts}) == 1,
++            "semantic_reproducibility": semantic_pair_consistent(receipts, cell, registry_bytes),
+             "authority_allowed": "account one registered cell from current-workflow receipts",
+             "authority_forbidden": ["historical substitution", "patch", "repair count", "release"],
+         }
+@@ -142,6 +148,7 @@
+                 "execution_receipt_id": row["execution_receipt_id"],
+                 "semantic_fingerprint": row["semantic_fingerprint"],
+                 "predicate_result": row["predicate_result"],
++            "semantic_status": row["semantic_status"],
+                 "raw_return_code": row["raw_return_code"],
+             }
+             for row in sorted(receipts, key=lambda value: value["execution_receipt_id"])
+@@ -155,8 +162,7 @@
+             "workflow_run_id": str(args.workflow_run_id),
+             "workflow_head": args.workflow_head,
+             "outcomes": outcomes,
+-            "semantic_reproducibility": len(outcomes) >= 2
+-            and len({(r["semantic_fingerprint"], r["predicate_result"]) for r in outcomes}) == 1,
++            "semantic_reproducibility": semantic_pair_consistent(receipts, cell_by_id[cell_id], registry_bytes),
+             "truth_access": 0,
+             "private_tld_access": 0,
+             "sealed_before_arm_execution": True,
+@@ -185,6 +191,7 @@
+             "semantic_projection_id": row["semantic_projection_id"],
+             "semantic_fingerprint": row["semantic_fingerprint"],
+             "predicate_result": row["predicate_result"],
++            "semantic_status": row["semantic_status"],
+         }
+         for row in submitted
+     ]

@@ -1,0 +1,51 @@
+{
+  "scope": "Focused isolated peer review of the same execution-binding boundary; no provider or full domain rerun",
+  "checks": {
+    "baseline": {
+      "errors": []
+    },
+    "different_actual_argv": {
+      "errors": [
+        "observed_argv_not_declared_materialization",
+        "bound_broker_argv_mismatch"
+      ]
+    },
+    "different_actual_argv_broker_mirrored": {
+      "errors": [
+        "observed_argv_not_declared_materialization"
+      ]
+    },
+    "different_actual_cwd": {
+      "errors": [
+        "observed_cwd_not_declared_materialization",
+        "bound_broker_cwd_mismatch"
+      ]
+    },
+    "different_actual_cwd_broker_mirrored": {
+      "errors": [
+        "observed_cwd_not_declared_materialization"
+      ]
+    },
+    "boolean_as_int": {
+      "errors": [
+        "outer_semantic_fields_disagree"
+      ]
+    },
+    "unresolved_as_true": {
+      "errors": [
+        "outer_semantic_fields_disagree"
+      ]
+    },
+    "same_command_normalizer_literal_mutation": {
+      "changed_index": 1,
+      "before": "--check",
+      "after": "--check/",
+      "errors": []
+    }
+  },
+  "meaning": "Empty verifier errors means acceptance.",
+  "source_hashes": {
+    "integration/checkout/controllergate/evidence/execution_contract_binding_candidate.py": "74e144ef4a784d5e131cf4fd465d17bb90fa9fcb31f6bbe548c5170c502419d4",
+    "integration/checkout/scripts/run_batch102_candidate_slice.py": "310def26ae22c057be6a889a6441406059d48ef2a3d9c037069b2f73c885478e"
+  }
+}
