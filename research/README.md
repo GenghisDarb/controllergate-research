@@ -2,6 +2,18 @@
 
 Start with [research continuity](../docs/RESEARCH_CONTINUITY.md) and the [claim ledger](CLAIM_LEDGER.jsonl).
 
+## 23 November 2026: resonance, causal history and recovery — latest continuation
+
+- [Entry point and reproduction](2026-11-23-resonance-causality/README.md)
+- [Integrated report](2026-11-23-resonance-causality/report/RESEARCH_REPORT.md)
+- [Historical resonance and later repairs](2026-11-23-resonance-causality/archive/PUBLIC_RESONANCE_HISTORY.md)
+- [Exact observer-history experiment](2026-11-23-resonance-causality/causal/CAUSAL_HISTORY_REPORT.md) and [executed policies](2026-11-23-resonance-causality/causal/POLICY_EXAMPLES.json)
+- [Current source operator results](2026-11-23-resonance-causality/dynamics/results.json) and [conditional positivity repair](2026-11-23-resonance-causality/dynamics/admissibility/README.md)
+- [New claim ledger](2026-11-23-resonance-causality/report/CLAIM_LEDGER.json)
+- [Recovery playbook](2026-11-23-resonance-causality/report/FAILURE_PLAYBOOK.md)
+
+Single observations can become identifying through action/status histories; a precise counterexample distinguishes recovering a present state from learning its origin. Hidden-context quotients are valid within a declared intervention boundary, and an external-supply witness exposes a previously silent difference. Residual coupling repairs supplied-reference bias, with a further constrained correction for nonnegative coordinates. These are conditional model results, with no new unique-fourteen, biological-superiority or universal-reality claim.
+
 ## 22 November 2026: context, semantic repair and planning
 
 - [Prior public export and supersession note](2026-11-22-context-and-planning/README.txt)
@@ -34,4 +46,5 @@ The full archive contains the complete code/receipt layout. For biological repla
 - [Recovery playbook](2026-11-23-architecture-recovery/report/FAILURE_PLAYBOOK.md)
 
 This records the actual 10/1/3 architecture history, gravity-order rationale, distinct triads, broader closure predicates, later ToT/XIV repairs, the new role-inspired wrapper, complementary-observer proof and finite experiments. It corrects two modular ghost values while preserving a successfully reconstructed partition sum. Seventy of 120 coordinate triples suffice in this model, so the chosen observer triad is not unique. No new necessary-fourteen, physical-unification or biological-superiority claim follows.
+
 

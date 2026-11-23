@@ -10,6 +10,12 @@ Updated 23 November 2026. This page makes completed research and corrections rec
 4. [Claim ledger](../research/CLAIM_LEDGER.jsonl): each entry identifies its evidence type, scope, and concrete artifacts.
 5. The source, frozen specification, results, and independent review of the relevant experiment. An index entry is not a substitute for these files.
 
+## Latest completed pass: resonance, causal history and recovery
+
+Read [the resonance/causality package](../research/2026-11-23-resonance-causality/README.md) and [full report](../research/2026-11-23-resonance-causality/report/RESEARCH_REPORT.md). This continuation preserves the historical meanings and later repairs, executes observer-history policies and an exact ancestry counterexample, computes environment-dependent predictive quotients, and verifies source-level reference-restoration and admissibility repairs. All have explicit model boundaries. Neither an oscillatory resonance law nor a necessary fourteen nor biological superiority is established. The package includes frozen designs, source hashes, independent implementations, exact witnesses and portable replay.
+
+This is the latest research interpretation; retain earlier numerical evidence and follow the explicit corrections rather than replacing an entire history with one negative or positive result.
+
 ## Completed functional-validation work
 
 The [23 November functional-validation export](../research/2026-11-23-functional-validation/README.txt) preserves a selected six-event reaction model, an adapter using the archived resource primitive, a separate generic interpreter, mechanism ablations, source-function witnesses, a local evidence-pipeline patch, and a limited analysis of real CTCF observations.
@@ -47,3 +53,4 @@ For a new finding, record its source version, definition, changed claim, actual 
 Do not erase an implemented capability merely because a later call path does not use it. Conversely, do not infer execution from the existence of a registry entry, source mapping or receipt. Distinguish source custody, predicate classification, descriptive contrast, intervention/invariant evidence and causal ownership.
 
 A future reader should be able to find the current interpretation from this page, reproduce the relevant bounded check from the dated package, and identify a claim's limits without reconstructing an entire conversation. That is the purpose of the index; it cannot guarantee that future agents will read it correctly.
+

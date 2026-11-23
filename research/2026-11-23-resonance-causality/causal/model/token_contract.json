@@ -1,0 +1,241 @@
+{
+  "authority": "shadow_non_authorizing",
+  "coefficient_source": "All reaction participants below have coefficient one as written in the source reaction equations and participant lists. Exact SBML export retrieval was blocked; do not describe this file as a byte-faithful SBML conversion.",
+  "reactions": [
+    {
+      "active_catalysts": [
+        "active_LDH"
+      ],
+      "direction": "curated_forward",
+      "id": "R-HSA-71849",
+      "inputs": {
+        "H_c": 1,
+        "NADH_c": 1,
+        "PYR_c": 1
+      },
+      "outputs": {
+        "LACT_c": 1,
+        "NAD_c": 1
+      },
+      "reverse_event": "R-HSA-70510",
+      "source_urls": [
+        "https://reactome.org/content/detail/R-HSA-71849"
+      ],
+      "title": "LDH tetramer reduces PYR to LACT"
+    },
+    {
+      "active_catalysts": [
+        "active_LDH"
+      ],
+      "direction": "curated_forward",
+      "id": "R-HSA-70510",
+      "inputs": {
+        "LACT_c": 1,
+        "NAD_c": 1
+      },
+      "outputs": {
+        "H_c": 1,
+        "NADH_c": 1,
+        "PYR_c": 1
+      },
+      "reverse_event": "R-HSA-71849",
+      "source_urls": [
+        "https://reactome.org/content/detail/R-HSA-70510"
+      ],
+      "title": "LDH tetramer oxidises LACT to PYR"
+    },
+    {
+      "active_catalysts": [
+        "active_BSG_MCT"
+      ],
+      "direction": "curated_forward",
+      "id": "R-HSA-373875",
+      "inputs": {
+        "H_c": 1,
+        "LACT_c": 1
+      },
+      "outputs": {
+        "H_e": 1,
+        "LACT_e": 1
+      },
+      "reverse_event": "R-HSA-373867",
+      "source_urls": [
+        "https://reactome.org/content/detail/R-HSA-373875"
+      ],
+      "title": "BSG:MCTs cotransport LACT, H+ from cytosol to extracellular region"
+    },
+    {
+      "active_catalysts": [
+        "active_BSG_MCT"
+      ],
+      "direction": "curated_forward",
+      "id": "R-HSA-373867",
+      "inputs": {
+        "H_e": 1,
+        "LACT_e": 1
+      },
+      "outputs": {
+        "H_c": 1,
+        "LACT_c": 1
+      },
+      "reverse_event": "R-HSA-373875",
+      "source_urls": [
+        "https://reactome.org/content/detail/R-HSA-373867"
+      ],
+      "title": "BSG:MCTs cotransport LACT, H+ from extracellular region to cytosol"
+    },
+    {
+      "active_catalysts": [
+        "active_GAPDH"
+      ],
+      "direction": "curated_forward",
+      "id": "R-HSA-70449",
+      "inputs": {
+        "GA3P_c": 1,
+        "NAD_c": 1,
+        "Pi_c": 1
+      },
+      "outputs": {
+        "BPG13_c": 1,
+        "H_c": 1,
+        "NADH_c": 1
+      },
+      "reverse_event": "R-HSA-70482",
+      "source_urls": [
+        "https://reactome.org/content/detail/R-HSA-70449"
+      ],
+      "title": "GADPH tetramer dehydrogenates GA3P"
+    },
+    {
+      "active_catalysts": [
+        "active_GAPDH"
+      ],
+      "direction": "curated_forward",
+      "id": "R-HSA-70482",
+      "inputs": {
+        "BPG13_c": 1,
+        "H_c": 1,
+        "NADH_c": 1
+      },
+      "outputs": {
+        "GA3P_c": 1,
+        "NAD_c": 1,
+        "Pi_c": 1
+      },
+      "reverse_event": "R-HSA-70449",
+      "source_urls": [
+        "https://reactome.org/content/detail/R-HSA-70482"
+      ],
+      "title": "GAPDH tetramers reduce 1,3BPG to GA3P"
+    }
+  ],
+  "resources": [
+    {
+      "chemical": "PYR",
+      "compartment": "GO:0005829",
+      "key": "PYR_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-29398"
+    },
+    {
+      "chemical": "NADH",
+      "compartment": "GO:0005829",
+      "key": "NADH_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-73473"
+    },
+    {
+      "chemical": "H+",
+      "compartment": "GO:0005829",
+      "key": "H_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-70106"
+    },
+    {
+      "chemical": "LACT",
+      "compartment": "GO:0005829",
+      "key": "LACT_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-29708"
+    },
+    {
+      "chemical": "NAD+",
+      "compartment": "GO:0005829",
+      "key": "NAD_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-29360"
+    },
+    {
+      "chemical": "H+",
+      "compartment": "GO:0005576",
+      "key": "H_e",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-351626"
+    },
+    {
+      "chemical": "LACT",
+      "compartment": "GO:0005576",
+      "key": "LACT_e",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-373863"
+    },
+    {
+      "chemical": "GA3P",
+      "compartment": "GO:0005829",
+      "key": "GA3P_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-29578"
+    },
+    {
+      "chemical": "Pi",
+      "compartment": "GO:0005829",
+      "key": "Pi_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-29372"
+    },
+    {
+      "chemical": "1,3BPG",
+      "compartment": "GO:0005829",
+      "key": "BPG13_c",
+      "role": "metabolite_count",
+      "source_entity": "R-ALL-29800"
+    },
+    {
+      "chemical": "active_role:LDH",
+      "compartment": "GO:0005829",
+      "key": "active_LDH",
+      "role": "asserted_active_catalytic_role",
+      "source_abstraction": "An available active alternative supplies the modeled catalytic role; the set is not an AND requirement for all tetramers and does not establish exclusive biological alternatives.",
+      "source_entity": "R-HSA-184549"
+    },
+    {
+      "chemical": "active_role:BSG_MCT",
+      "compartment": "GO:0005886",
+      "key": "active_BSG_MCT",
+      "role": "asserted_active_catalytic_role",
+      "source_abstraction": "Aggregate available transport complex; its assembly and individual transporter kinetics are not modeled.",
+      "source_entity": "R-HSA-204396"
+    },
+    {
+      "chemical": "active_role:GAPDH",
+      "compartment": "GO:0005829",
+      "key": "active_GAPDH",
+      "role": "asserted_active_catalytic_role",
+      "source_abstraction": "Available active alternative; no AND requirement for both tissue-specific isoforms.",
+      "source_entity": "R-HSA-372871"
+    }
+  ],
+  "schema": "reactome_token_contract.v1",
+  "source_contract_sha256": "3ff1a48296743786be42d32f25a5dfae0a569baf462e696c578def2844008af6",
+  "temporal_semantics": "untimed",
+  "unmodeled": [
+    "kinetics and concentration-dependent rates",
+    "activity inferred from enzyme abundance",
+    "internal assembly or alternatives of the three aggregate catalytic roles",
+    "quantitative negative regulation",
+    "uncurated alternative physical pathways",
+    "continuous space, crowding, diffusion, pH, electrochemical potential, temperature",
+    "whole-cell behavior",
+    "ControllerGate source ownership or provider execution"
+  ]
+}

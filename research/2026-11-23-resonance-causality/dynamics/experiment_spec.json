@@ -1,0 +1,23 @@
+{
+  "schema":"resonance_operator_extension.v1",
+  "status":"designed_before_new_execution; informed by prior analytic results and this pass's derivations",
+  "source":"Exact LadderKernel._relax and cyclic_coherence from pinned Field Studio source; AST extraction without editing source",
+  "sizes":[12,13,14,15,28],
+  "anchorings":[0,0.2,0.5,1],
+  "seed":20261123,
+  "random_states_per_case":20,
+  "trajectory_steps":200,
+  "impulse_steps":64,
+  "absolute_visibility_floors":[0.01,0.0001,0.000001],
+  "parent":"sin(2*pi*i/N)+0.3*cos(6*pi*i/N); deliberately supplied nonconstant reference, not learned or predicted",
+  "original_energy":"a*||x-p||^2/2+(1-a)*sum_cyclic(x_i-x_next)^2/8",
+  "new_candidate":"p+source_relax(x-p,zeros,a); apply neighbor coupling to residual error",
+  "candidate_energy":"a*||x-p||^2/2+(1-a)*sum_cyclic((x_i-p_i)-(x_next-p_next))^2/8",
+  "tests":["Exact source versus independent matrix identity","Gradient identity and energy-descent bound","Stationary original bias versus candidate parent invariance","Same perturbation Jacobian and finite neighbor propagation","Visibility by distance and declared amplitude floor","Parent-forcing modal frequency response with declared discrete iteration clock","Proper Laplacian edge-cut control","Legacy ordering metric on monotone ladders","Constructed locked-splay diagnostic control across all sizes"],
+  "forcing_frequencies":[0,0.04908738521234052,0.09817477042468103,0.19634954084936207,0.39269908169872414,0.7853981633974483,1.5707963267948966,3.141592653589793],
+  "forced_iteration_steps":4096,
+  "forced_fit_tail":1024,
+  "force_mode":1,
+  "splay_control":"theta_j(t)=0.7*t+2*pi*j/N; supplied phase-locked pattern, not spontaneous synchronization or count selection",
+  "limits":["No measured physical time or kinetic rate","No favored N selection test or derivation of14","Original fixed-point theorem is recovered prior work; energy bridge, measurements and candidate are new local extensions","Supplied nonuniform reference is not an external prediction","Finite visibility floors are declared numerical probes, not instrument calibrations","Fixed-parent theorem does not cover arbitrary feedback","Full original dynamics are invertible at finite steps; no fundamental arrow-of-time claim","Splay example is a diagnostic safeguard, not a recovered historical implementation bug"]
+}

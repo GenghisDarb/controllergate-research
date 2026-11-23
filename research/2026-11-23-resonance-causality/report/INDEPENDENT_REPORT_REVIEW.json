@@ -1,0 +1,106 @@
+{
+  "schema": "independent_report_consistency_review.v1",
+  "reviewed_utc": "2026-11-23T15:07:23.979058+00:00",
+  "status": "PASS_WORDING_CORRECTIONS_APPLIED",
+  "reviewer": "causal_state_experiment agent; separate from report author, also author of causal experiment implementations",
+  "scope": "Full report and failure-playbook reading, checked against sealed causal results and derived certificates. Dynamics received algebra/summary consistency review only, without independent reexecution in this review. No external peer review, biological validation or novelty-priority assessment claimed.",
+  "blocking_issues": 0,
+  "issues": [
+    {
+      "id": "R1",
+      "severity": "minor_wording",
+      "blocking": false,
+      "file": "report/RESEARCH_REPORT.md",
+      "section": "3.1",
+      "quoted_text": "The raw reaction contract was independently reconstructed.",
+      "reason": "This can imply a second independent transcription from the external biological source. The checks independently reconstructed transition semantics and reachable graphs from the same frozen reaction contract.",
+      "recommended_replacement": "Transition semantics and reachable graphs were independently reconstructed from the frozen reaction contract.",
+      "status_at_recording": "wording_already_changed_before_recording"
+    },
+    {
+      "id": "R2",
+      "severity": "minor_wording",
+      "blocking": false,
+      "file": "report/RESEARCH_REPORT.md",
+      "section": "3.2",
+      "quoted_text": "an uninformative export outcome",
+      "reason": "The zero-lactate outcome eliminates initial state 3, shrinking the initial belief from five candidates to four. It is informative but does not identify the origin.",
+      "recommended_replacement": "the zero-lactate export outcome",
+      "status_at_recording": "wording_already_changed_before_recording"
+    }
+  ],
+  "causal_checks": [
+    {
+      "claim": "Original reachable graphs and observational refinement",
+      "status": "PASS",
+      "finding": "18 states/58 enabled edges and 6 states/10 enabled edges match. All eight selected observation subsets with and without status are present. Nonempty single readouts resolve all future-behavior classes under the declared six-command interface."
+    },
+    {
+      "claim": "Initial identity versus present state",
+      "status": "PASS",
+      "finding": "Belief-state updates track present possibilities; initial identification requires original labels. Report explicitly distinguishes these. Empty-observer synchronization does not reveal initial identity."
+    },
+    {
+      "claim": "Pairwise separation versus a guaranteed initial-identification policy",
+      "status": "PASS",
+      "finding": "Six-state external-lactate counterexample and two-belief obstruction are accurate. PASS/BLOCK repairs guaranteed initial identification within three commands. Root explicit-lineage review independently confirms the consequential distinction."
+    },
+    {
+      "claim": "Policy bounds and replay",
+      "status": "PASS",
+      "finding": "Reported single-readout/status worst cases match 3/3/4 commands for the 18-state graph and 2/2/3 for the 6-state graph. Two exported policies replay all 24 starting states and each uses at most three commands."
+    },
+    {
+      "claim": "Hidden-context support and predictive quotient",
+      "status": "PASS",
+      "finding": "144/48 candidates are explicit prior-support extensions, not original all-active-seed reachability. Quotients have 139/33 classes and 8/24 equivalent pairs. Predictive-class homing is guaranteed from every initial observation fiber within four commands; this does not imply learning all initial catalyst identities."
+    },
+    {
+      "claim": "Environmental boundary witness",
+      "status": "PASS",
+      "finding": "Supplying one GA3P and one phosphate to each paired state, then requesting forward GAPDH, yields BLOCK/PASS. This expands interventions and changes the conservation class. The report correctly preserves equivalence within the original restricted interface."
+    },
+    {
+      "claim": "Failure playbook",
+      "status": "PASS",
+      "finding": "Causal failure causes, corrections and detection links are consistent. Its short action recommendations inherit the explicit model and observation-channel qualifications in the report."
+    }
+  ],
+  "dynamics_consistency_checks": {
+    "kind": "algebra_and_saved_summary_consistency_only",
+    "status": "PASS_WITHIN_THIS_SCOPE",
+    "checked": [
+      "Quadratic gradient and energy-decrease coefficient 0.3318",
+      "Positive real perturbation spectrum and no nonzero-frequency maximum in the original nonzero parent-forcing channel",
+      "Residual candidate fixed-point/contraction claims and a=0 boundary qualification",
+      "Nonnegative projection contraction and energy coefficient 79/42",
+      "N14,a=0.5 RMS values and exact -0.0525 neighbor counterexample",
+      "400 pairs, 800 inputs, 2800 rational assertions, 400 parity checks and 231 negative diagnostic pairs",
+      "Step-7 causal onset, step-17 threshold crossing and 3/9/14 detection counts",
+      "Monotone score 1-1.6/N and supplied splay-pattern scope"
+    ],
+    "not_claimed": [
+      "Independent rerun of the dynamics suite by this reviewer",
+      "Fresh remote-source verification",
+      "Review of every raw dynamic trajectory",
+      "Empirical physical or biological validation"
+    ]
+  },
+  "interpretive_scope": {
+    "status": "PASS",
+    "finding": "Report presents established mathematics applied to a documented case study; it does not assert a new universal closure theorem, unique fourteen-layer necessity, measured kinetics, a human-consciousness mechanism, biological predictive superiority, external peer review or publication acceptance. The controlled deterministic quotient is distinguished from broader stochastic closure theorems."
+  },
+  "reviewed_input_sha256": {
+    "report/RESEARCH_REPORT.md": "756517c4651e9102ca4d06209606476cfb0b036e42757f49173ac3e6176aff3b",
+    "report/FAILURE_PLAYBOOK.md": "b6b43a91543c261dcdbeec0476ce450cb1002b45f1fe444c49698ae047e19d7b",
+    "causal/results.json": "05cfa527324ba4535113bc900dc63cbb1281ece5fbf006c4c2cdb38f89db6c4b",
+    "causal/summary.json": "2d9ce5620d58c2ea7ad8653bd3da705f3de2ab0c18188f1b82f3f66fae1125c9",
+    "causal/INDEPENDENT_REVIEW.json": "2940dc19dcde7a1cf69c593a8f0c583bf4ef44307d3575c8dfe57e8e1465698e",
+    "causal/FOLLOWUP_RESULTS.json": "f39189c8c0a0d89cdd754362bd575ea612b5bd1ec9e4ae70e757b77d222c5325",
+    "causal/POLICY_EXAMPLES.json": "da18697f01e32fe23fecc79fdc7b3b4064da8ee7b949d11d1d090532c7e6dec7",
+    "causal/ROOT_LINEAGE_REVIEW.json": "60c9317aa608ee72899d4b06cb73d2988e0146b93f67d53cb6aa45237929f64d",
+    "report/ROOT_BOUNDARY_REVIEW.json": "2ce923c107aeb11c24408c500883849101308273c437ad80dd54a082a8d4e367",
+    "dynamics/summary.json": "1f9164895374e2fffea75f29bcc7d15eed1410a11400884f4330ae6e05ede0bb",
+    "dynamics/admissibility/RESULTS.json": "35abbfc5b0056981fb57eb8408041b482617c3642a289461365b065f3a6f90dc"
+  }
+}

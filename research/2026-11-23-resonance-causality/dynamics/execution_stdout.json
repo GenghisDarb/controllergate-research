@@ -1,0 +1,246 @@
+{
+  "cases": 20,
+  "random_source_gradient_checks": 400,
+  "max_source_matrix_error": 1.1102230246251565e-16,
+  "max_gradient_error": 4.440892098500626e-16,
+  "max_candidate_gradient_error": 8.881784197001252e-16,
+  "max_energy_bound_excess": 3.552713678800501e-15,
+  "max_forced_gain_error": 1.5543122344752192e-15,
+  "all_causal_cones_match": true,
+  "N14_a05": {
+    "N": 14,
+    "a": 0.5,
+    "source_matrix_error": 1.1102230246251565e-16,
+    "gradient_identity_error": 4.440892098500626e-16,
+    "energy_descent_bound_max_excess": -0.06817437347810174,
+    "candidate_gradient_identity_error": 5.551115123125783e-16,
+    "original_max_energy_increase": 5.551115123125783e-17,
+    "candidate_max_energy_increase": 0.0,
+    "original_final_parent_rms": 0.06811019837998819,
+    "candidate_final_parent_rms": 2.884444029575346e-16,
+    "stationary": {
+      "original_fixedpoint_parent_rms": 0.06811019837998804,
+      "original_equilibrium_energy": 0.12665183970674948,
+      "original_stationarity_error": 2.220446049250313e-16,
+      "candidate_parent_one_step_error": 0.0,
+      "original_parent_one_step_error": 0.03019495363538871
+    },
+    "first_nonzero_impulse": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "max_influence_before_graph_distance": 0.0,
+    "visibility": [
+      {
+        "floor": 0.01,
+        "detected_nodes": 3,
+        "first_detected_step": [
+          0,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      },
+      {
+        "floor": 0.0001,
+        "detected_nodes": 9,
+        "first_detected_step": [
+          0,
+          1,
+          2,
+          3,
+          8,
+          null,
+          null,
+          null,
+          null,
+          null,
+          8,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "floor": 1e-06,
+        "detected_nodes": 14,
+        "first_detected_step": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6,
+          11,
+          17,
+          11,
+          6,
+          4,
+          3,
+          2,
+          1
+        ]
+      }
+    ],
+    "forced_response": [
+      {
+        "omega_radians_per_iteration": 0,
+        "measured_gain": 0.9528205510708078,
+        "analytic_gain": 0.9528205510708087,
+        "absolute_error": 8.881784197001252e-16
+      },
+      {
+        "omega_radians_per_iteration": 0.04908738521234052,
+        "measured_gain": 0.9349180279052101,
+        "analytic_gain": 0.9349180279052103,
+        "absolute_error": 2.220446049250313e-16
+      },
+      {
+        "omega_radians_per_iteration": 0.09817477042468103,
+        "measured_gain": 0.8867519963849859,
+        "analytic_gain": 0.8867519963849858,
+        "absolute_error": 1.1102230246251565e-16
+      },
+      {
+        "omega_radians_per_iteration": 0.19634954084936207,
+        "measured_gain": 0.7493548469086424,
+        "analytic_gain": 0.7493548469086426,
+        "absolute_error": 2.220446049250313e-16
+      },
+      {
+        "omega_radians_per_iteration": 0.39269908169872414,
+        "measured_gain": 0.5134755299750494,
+        "analytic_gain": 0.5134755299750495,
+        "absolute_error": 1.1102230246251565e-16
+      },
+      {
+        "omega_radians_per_iteration": 0.7853981633974483,
+        "measured_gain": 0.2954362364491039,
+        "analytic_gain": 0.29543623644910383,
+        "absolute_error": 5.551115123125783e-17
+      },
+      {
+        "omega_radians_per_iteration": 1.5707963267948966,
+        "measured_gain": 0.16561746688712578,
+        "analytic_gain": 0.1656174668871258,
+        "absolute_error": 2.7755575615628914e-17
+      },
+      {
+        "omega_radians_per_iteration": 3.141592653589793,
+        "measured_gain": 0.11800393106309495,
+        "analytic_gain": 0.11800393106309498,
+        "absolute_error": 2.7755575615628914e-17
+      }
+    ],
+    "cut_control": {
+      "edges_removed": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          13
+        ]
+      ],
+      "diagonal_corrected": true,
+      "max_remote_impulse_after_isolating_source": 0.0
+    }
+  },
+  "ordering": [
+    {
+      "N": 12,
+      "monotone_score": 0.8666666666666667,
+      "analytic_score": 0.8666666666666667,
+      "legacy_closed_threshold_met": true,
+      "meaning": "Scalar cyclic ordering diagnostic; no trajectory is supplied"
+    },
+    {
+      "N": 13,
+      "monotone_score": 0.8769230769230769,
+      "analytic_score": 0.8769230769230769,
+      "legacy_closed_threshold_met": true,
+      "meaning": "Scalar cyclic ordering diagnostic; no trajectory is supplied"
+    },
+    {
+      "N": 14,
+      "monotone_score": 0.8857142857142857,
+      "analytic_score": 0.8857142857142857,
+      "legacy_closed_threshold_met": true,
+      "meaning": "Scalar cyclic ordering diagnostic; no trajectory is supplied"
+    },
+    {
+      "N": 15,
+      "monotone_score": 0.8933333333333333,
+      "analytic_score": 0.8933333333333333,
+      "legacy_closed_threshold_met": true,
+      "meaning": "Scalar cyclic ordering diagnostic; no trajectory is supplied"
+    },
+    {
+      "N": 28,
+      "monotone_score": 0.9428571428571428,
+      "analytic_score": 0.9428571428571428,
+      "legacy_closed_threshold_met": true,
+      "meaning": "Scalar cyclic ordering diagnostic; no trajectory is supplied"
+    }
+  ],
+  "splay_control": [
+    {
+      "N": 12,
+      "max_first_harmonic_order": 1.6970860832476458e-16,
+      "max_relative_phase_change": 6.473657049138937e-16,
+      "min_Nth_harmonic_order": 0.9999999999999997,
+      "scope": "Constructed phase-locked pattern; no spontaneous emergence, historical bug or favored count claim"
+    },
+    {
+      "N": 13,
+      "max_first_harmonic_order": 1.8539266998576057e-16,
+      "max_relative_phase_change": 5.594315114139762e-16,
+      "min_Nth_harmonic_order": 0.9999999999999998,
+      "scope": "Constructed phase-locked pattern; no spontaneous emergence, historical bug or favored count claim"
+    },
+    {
+      "N": 14,
+      "max_first_harmonic_order": 2.0972108572168943e-16,
+      "max_relative_phase_change": 8.005932084973443e-16,
+      "min_Nth_harmonic_order": 0.9999999999999997,
+      "scope": "Constructed phase-locked pattern; no spontaneous emergence, historical bug or favored count claim"
+    },
+    {
+      "N": 15,
+      "max_first_harmonic_order": 1.502793482562285e-16,
+      "max_relative_phase_change": 9.550499576785472e-16,
+      "min_Nth_harmonic_order": 0.9999999999999998,
+      "scope": "Constructed phase-locked pattern; no spontaneous emergence, historical bug or favored count claim"
+    },
+    {
+      "N": 28,
+      "max_first_harmonic_order": 1.6958043548549602e-16,
+      "max_relative_phase_change": 9.155133597044475e-16,
+      "min_Nth_harmonic_order": 0.9999999999999998,
+      "scope": "Constructed phase-locked pattern; no spontaneous emergence, historical bug or favored count claim"
+    }
+  ]
+}

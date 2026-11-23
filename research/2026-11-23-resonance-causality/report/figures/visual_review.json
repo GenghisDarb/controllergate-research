@@ -1,0 +1,36 @@
+{
+  "schema": "scientific_figure_visual_review.v1",
+  "reviewed_utc": "2026-11-23T15:07:26.510414+00:00",
+  "final_png_visually_inspected": true,
+  "png_sha256": "0c2baa4c591b52cd075f1d2bda75ddc7cd4abe2c4c534039a468ee71d4f1314d",
+  "svg_sha256": "87c3bf331fd607813ba22fe6c80b296632d5ae4ec4b8034424f15443e342f220",
+  "provenance_sha256": "7d3d4a73a481a36a4799315e9ea2767f662e302bc7b61f8f2132d2ebed00ac13",
+  "png_size_pixels": [
+    2340,
+    1332
+  ],
+  "findings": "Final PNG: no observed clipping, label collisions or legend occlusion of trajectories; numeric labels and first-response markers checked against stored results.",
+  "authoring_corrections": [
+    "Moved initial legend out of original-trajectory plateau.",
+    "Changed ambiguous gray-cell wording to exact-zero upper-left wedge.",
+    "Rendered heatmap cells as vectors for SVG."
+  ],
+  "svg_xml_parses": true,
+  "svg_text_elements": 48,
+  "svg_separate_render_inspected": false,
+  "contrast_ratios_against_background": {
+    "text": 15.84961003591217,
+    "secondary_text": 9.97351450840545,
+    "cyan": 10.832001631233844,
+    "gold": 10.493396573268738
+  },
+  "noncolor_encodings": [
+    "solid versus dashed trajectories",
+    "dotted versus dashed onset curves",
+    "circle versus square event markers"
+  ],
+  "limitations": [
+    "Cividis heatmap remains a quantitative color encoding with a labeled scale.",
+    "No empirical uncertainty intervals or calibrated physical noise floor."
+  ]
+}

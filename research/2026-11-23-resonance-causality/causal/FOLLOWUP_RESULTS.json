@@ -1,0 +1,721 @@
+{
+  "schema": "causal_scope_followup_results.v1",
+  "executed_utc": "2026-11-23T14:47:47.464872+00:00",
+  "followup": "post-result explanatory diagnostics, not original frozen primary outcomes",
+  "initial_identification_impossibility": {
+    "observer": "LACT_e only; PASS/BLOCK not observed",
+    "initial_belief": [
+      0,
+      1,
+      3,
+      4,
+      5
+    ],
+    "trap_belief": [
+      0,
+      1,
+      4,
+      5
+    ],
+    "certificate": [
+      {
+        "belief": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "actions": [
+          {
+            "event": "R-HSA-71849",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 3,
+                    "after_id": 0,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 1,
+                    "status": "PASS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-70510",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  3,
+                  4,
+                  5
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 3,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 5,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 3,
+                    "after_id": 3,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-373875",
+            "reason_no_guaranteed_initial_identification": "has a response branch staying in the certified nonidentifying set",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4,
+                  5
+                ],
+                "injective": true,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              },
+              {
+                "external_lactate": 1,
+                "following": [
+                  2
+                ],
+                "injective": true,
+                "transitions": [
+                  {
+                    "before_id": 3,
+                    "after_id": 2,
+                    "status": "PASS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-373867",
+            "reason_no_guaranteed_initial_identification": "has a response branch staying in the certified nonidentifying set",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  3,
+                  4,
+                  5
+                ],
+                "injective": true,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 3,
+                    "after_id": 3,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-70449",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  3,
+                  5
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 3,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 3,
+                    "after_id": 3,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 5,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-70482",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 3,
+                    "after_id": 1,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 4,
+                    "status": "PASS"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "belief": [
+          0,
+          1,
+          4,
+          5
+        ],
+        "actions": [
+          {
+            "event": "R-HSA-71849",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 1,
+                    "status": "PASS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-70510",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  3,
+                  4,
+                  5
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 3,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 5,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-373875",
+            "reason_no_guaranteed_initial_identification": "has a response branch staying in the certified nonidentifying set",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4,
+                  5
+                ],
+                "injective": true,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-373867",
+            "reason_no_guaranteed_initial_identification": "has a response branch staying in the certified nonidentifying set",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4,
+                  5
+                ],
+                "injective": true,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-70449",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  3,
+                  5
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 3,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 5,
+                    "status": "PASS"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 5,
+                    "status": "BLOCK"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "event": "R-HSA-70482",
+            "reason_no_guaranteed_initial_identification": "merges initial hypotheses under an identical observation",
+            "outcomes": [
+              {
+                "external_lactate": 0,
+                "following": [
+                  0,
+                  1,
+                  4
+                ],
+                "injective": false,
+                "transitions": [
+                  {
+                    "before_id": 0,
+                    "after_id": 0,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 1,
+                    "after_id": 1,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 4,
+                    "after_id": 4,
+                    "status": "BLOCK"
+                  },
+                  {
+                    "before_id": 5,
+                    "after_id": 4,
+                    "status": "PASS"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "proof": "Every possible first command either irreversibly merges at least two initial hypotheses within one output branch, or admits a branch that stays inside these nonsingleton beliefs. Hence no finite adaptive strategy identifies the initial state for every possible outcome."
+  },
+  "extended_intervention_witnesses": [
+    {
+      "graph": "all_metabolites_one",
+      "original_equivalent_pair": {
+        "first_id": 16,
+        "second_id": 17,
+        "observation": [
+          0,
+          0,
+          2
+        ],
+        "first_state": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "second_state": [
+          0,
+          1,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1
+        ]
+      },
+      "external_supply": {
+        "GA3P_c": 1,
+        "Pi_c": 1
+      },
+      "tested_command": "R-HSA-70449",
+      "statuses_before_supply": [
+        "BLOCK",
+        "BLOCK"
+      ],
+      "after_supply": [
+        {
+          "status": "BLOCK",
+          "state": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            2,
+            2,
+            1,
+            1,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "status": "PASS",
+          "state": [
+            0,
+            2,
+            1,
+            1,
+            0,
+            2,
+            2,
+            0,
+            0,
+            3,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "scope": "New external material supply changes the allowed dynamics and conservation class. It exposes a previously silent catalyst difference; it is not a counterexample within the original closed six-command model."
+    },
+    {
+      "graph": "recycling_seed",
+      "original_equivalent_pair": {
+        "first_id": 0,
+        "second_id": 1,
+        "observation": [
+          0,
+          0,
+          0
+        ],
+        "first_state": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0
+        ],
+        "second_state": [
+          0,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1
+        ]
+      },
+      "external_supply": {
+        "GA3P_c": 1,
+        "Pi_c": 1
+      },
+      "tested_command": "R-HSA-70449",
+      "statuses_before_supply": [
+        "BLOCK",
+        "BLOCK"
+      ],
+      "after_supply": [
+        {
+          "status": "BLOCK",
+          "state": [
+            0,
+            0,
+            0,
+            2,
+            1,
+            0,
+            0,
+            1,
+            1,
+            2,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "status": "PASS",
+          "state": [
+            0,
+            1,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0,
+            1
+          ]
+        }
+      ],
+      "scope": "New external material supply changes the allowed dynamics and conservation class. It exposes a previously silent catalyst difference; it is not a counterexample within the original closed six-command model."
+    }
+  ],
+  "input_hashes": {
+    "FOLLOWUP_SPEC.json": "cc29b17497ac8e83ad6dee9451aa26c65fc6dd3367620f2f2472b2216808854d",
+    "results.json": "05cfa527324ba4535113bc900dc63cbb1281ece5fbf006c4c2cdb38f89db6c4b",
+    "model/token_contract.json": "67eb24b895bc139d4364383ef2f96ef23e65d0599db3421041f627ea5335fb6c",
+    "derive_witnesses.py": "f60d8f0a0d282b433218d282bd107460b039b1cbe6ee2ad41d7ee8cd862e578b"
+  }
+}

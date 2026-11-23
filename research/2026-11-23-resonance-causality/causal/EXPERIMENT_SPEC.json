@@ -1,0 +1,21 @@
+{
+  "schema": "action_history_closure_experiment.v1",
+  "status": "specified_before_new_execution",
+  "question": "Which current observations are sufficient for future action-response prediction, and what can recorded action/observation history recover in the declared reaction model?",
+  "source": "Exact copy of previous token_contract.json; independently parsed, no import of previous implementation",
+  "transition": "Six declared actions. Enabled action applies its integer input/output update and emits PASS. Disabled action leaves the full state unchanged and emits BLOCK. No random kinetics, elapsed physical time or action scheduling law.",
+  "initial_classes": "Both previously specified seeds, rebuilt by exact reachability with all three catalysts fixed active.",
+  "observations": "All eight subsets, including the empty negative control, of GA3P_c, PYR_c, LACT_e.",
+  "response_channels": ["next observation only", "PASS/BLOCK plus next observation"],
+  "future_equivalence": "Starting from current observation equality, refine by each action's response and next-state class until stable. This gives exact all-finite-action-word equivalence in the declared deterministic machine.",
+  "pair_witnesses": "For every unordered pair with identical current observation, BFS the paired machine to find a shortest distinguishing action word, or certify no such word. Aggregate lengths; retain deterministic first witnesses. Cross-check against stable partition.",
+  "history": "Build every reachable finite belief set from each initial observation fiber under recorded commands and responses. Distinguish current-state homing, predictive-class homing, and initial-state identification. The last forbids merging distinct hypotheses within an identical response branch.",
+  "strategy": "Least fixed point computes whether an adaptive action strategy guarantees each target for every possible response in finite steps. Pairwise distinguishability is not assumed to imply a single common or adaptive identifying sequence.",
+  "state_cap": 10000,
+  "belief_cap": 50000,
+  "cap_policy": "If a cap is exceeded, report the lane as incomplete; never treat truncated search as impossibility.",
+  "context_extension": "For each rebuilt metabolite state family, take its Cartesian product with all eight fixed binary catalyst masks. This is a new uncertainty-support extension, not reachability under the six original reactions from one original seed. Test the joint three-metabolite observer with hidden fixed catalyst context and with mask included in the observation.",
+  "environment_change": "Give a source-defined witness showing that an unreported catalyst-context change invalidates the old fixed-context prediction even if metabolite observations stay unchanged. This is explicitly an external intervention.",
+  "controls": ["empty observation without status makes all states output-equivalent", "joint metabolite observer is injective in each fixed original conservation class", "pair-word equivalence agrees with partition refinement", "stable quotient is action-consistent", "new source-derived original state sets equal the prior saved sets, without using those sets to generate them"],
+  "limits": ["New deterministic control/observation construction, not a recovered historical kinetic operator", "No physical-frequency or resonance claim", "No inference of human consciousness or global ontological reality", "No claim that passive unrecorded observation changes the underlying state", "No empirical biology, unique fourteen, or architectural-performance claim", "Local freeze is not external preregistration; underlying model and prior outcomes were already known"]
+}
